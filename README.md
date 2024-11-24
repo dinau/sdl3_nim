@@ -27,6 +27,7 @@ cd sdl3_nim
 make 
 ```
 
+![alt](src/private/img/sdl3_test_nim.png)
 
 
 ### Generate SDL3 header files with Futhark
