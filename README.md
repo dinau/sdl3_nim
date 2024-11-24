@@ -27,6 +27,13 @@ cd sdl3_nim
 make 
 ```
 
+or 
+```sh
+pwd sdl3_nim
+make build      # Executable file will be generated in `tests` folder.
+```
+
+
 ![alt](https://github.com/dinau/sdl3_nim/raw/main/src/private/img/sdl3_test_nim.png)
 
 ### Generate SDL3 header files with Futhark
@@ -39,3 +46,5 @@ make
 pwd sdl3_nim
 make gen
 ```
+
+`src/sdl3_defs.nim` will be generated.

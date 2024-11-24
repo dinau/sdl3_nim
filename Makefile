@@ -1,5 +1,8 @@
 all:
-	nimble test
+	nimble -d:strip test
+
+build:
+	nimble make
 
 PHONY: gen clean
 
