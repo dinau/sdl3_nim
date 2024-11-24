@@ -27,6 +27,8 @@ cd sdl3_nim
 make 
 ```
 
+
+
 ### Generate SDL3 header files with Futhark
 
 ---

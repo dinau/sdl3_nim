@@ -1,4 +1,4 @@
-nimcache/
+.nimcache/
 nimblecache/
 htmldocs/
 *.a
