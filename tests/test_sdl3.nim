@@ -13,8 +13,6 @@ proc currentSourceDir(): string {.compileTime.} =
   result = currentSourcePath().replace("\\", "/")
   result = result[0 ..< result.rfind("/")]
 
-#{.passL:"-lopengl32".}
-
 #--------------
 #--- main porc
 #--------------

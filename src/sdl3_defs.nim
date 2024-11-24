@@ -2062,75 +2062,75 @@ type
 type
   SDL_ScaleModeLinear_renamed_SDL_SCALEMODE_LINEAR* = object
 type
-  Sint8* = int8
-  Uint8* = uint8
-  Sint16* = int16
-  Uint16* = uint16
-  Sint32* = int32
-  Uint32* = uint32
-  Sint64* = int64
-  Uint64* = uint64
-  SDL_Time* = Sint64
+  Sint8* = int8              
+  Uint8* = uint8             
+  Sint16* = int16            
+  Uint16* = uint16           
+  Sint32* = int32            
+  Uint32* = uint32           
+  Sint64* = int64            
+  Uint64* = uint64           
+  SDL_Time* = Sint64         
   struct_SDL_alignment_test* {.pure, inheritable, bycopy.} = object
-    a*: Uint8
+    a*: Uint8                
     b*: pointer
-  SDL_alignment_test* = struct_SDL_alignment_test
-  SDL_DUMMY_ENUM* = enum_SDL_DUMMY_ENUM
-  SDL_malloc_func* = proc (a0: csize_t): pointer {.cdecl.}
-  SDL_calloc_func* = proc (a0: csize_t; a1: csize_t): pointer {.cdecl.}
-  SDL_realloc_func* = proc (a0: pointer; a1: csize_t): pointer {.cdecl.}
-  SDL_free_func* = proc (a0: pointer): void {.cdecl.}
-  SDL_Environment* = struct_SDL_Environment
-  SDL_CompareCallback* = proc (a0: pointer; a1: pointer): cint {.cdecl.}
+  SDL_alignment_test* = struct_SDL_alignment_test 
+  SDL_DUMMY_ENUM* = enum_SDL_DUMMY_ENUM 
+  SDL_malloc_func* = proc (a0: csize_t): pointer {.cdecl.} 
+  SDL_calloc_func* = proc (a0: csize_t; a1: csize_t): pointer {.cdecl.} 
+  SDL_realloc_func* = proc (a0: pointer; a1: csize_t): pointer {.cdecl.} 
+  SDL_free_func* = proc (a0: pointer): void {.cdecl.} 
+  SDL_Environment* = struct_SDL_Environment 
+  SDL_CompareCallback* = proc (a0: pointer; a1: pointer): cint {.cdecl.} 
   SDL_CompareCallback_r* = proc (a0: pointer; a1: pointer; a2: pointer): cint {.
-      cdecl.}
-  wchar_t* = cushort
-  SDL_iconv_t* = ptr struct_SDL_iconv_data_t
-  SDL_FunctionPointer* = proc (): void {.cdecl.}
-  SDL_AssertState* = enum_SDL_AssertState
+      cdecl.}                
+  wchar_t* = cushort         
+  SDL_iconv_t* = ptr struct_SDL_iconv_data_t 
+  SDL_FunctionPointer* = proc (): void {.cdecl.} 
+  SDL_AssertState* = enum_SDL_AssertState 
   struct_SDL_AssertData* {.pure, inheritable, bycopy.} = object
-    always_ignore*: bool
+    always_ignore*: bool     
     trigger_count*: cuint
     condition*: cstring
     filename*: cstring
     linenum*: cint
     function*: cstring
     next*: ptr struct_SDL_AssertData
-  SDL_AssertData* = struct_SDL_AssertData
+  SDL_AssertData* = struct_SDL_AssertData 
   SDL_AssertionHandler* = proc (a0: ptr SDL_AssertData; a1: pointer): SDL_AssertState {.
-      cdecl.}
-  SDL_SpinLock* = cint
+      cdecl.}                
+  SDL_SpinLock* = cint       
   struct_SDL_AtomicInt* {.pure, inheritable, bycopy.} = object
-    value*: cint
-  SDL_AtomicInt* = struct_SDL_AtomicInt
+    value*: cint             
+  SDL_AtomicInt* = struct_SDL_AtomicInt 
   struct_SDL_AtomicU32* {.pure, inheritable, bycopy.} = object
-    value*: Uint32
-  SDL_AtomicU32* = struct_SDL_AtomicU32
-  SDL_PropertiesID* = Uint32
-  SDL_PropertyType* = enum_SDL_PropertyType
-  SDL_CleanupPropertyCallback* = proc (a0: pointer; a1: pointer): void {.cdecl.}
+    value*: Uint32           
+  SDL_AtomicU32* = struct_SDL_AtomicU32 
+  SDL_PropertiesID* = Uint32 
+  SDL_PropertyType* = enum_SDL_PropertyType 
+  SDL_CleanupPropertyCallback* = proc (a0: pointer; a1: pointer): void {.cdecl.} 
   SDL_EnumeratePropertiesCallback* = proc (a0: pointer; a1: SDL_PropertiesID;
-      a2: cstring): void {.cdecl.}
-  SDL_Thread* = struct_SDL_Thread
-  SDL_ThreadID_typedef* = Uint64
-  SDL_TLSID* = SDL_AtomicInt
-  SDL_ThreadPriority* = enum_SDL_ThreadPriority
-  SDL_ThreadFunction* = proc (a0: pointer): cint {.cdecl.}
-  SDL_TLSDestructorCallback* = proc (a0: pointer): void {.cdecl.}
-  SDL_Mutex_typedef* = struct_SDL_Mutex
-  SDL_RWLock* = struct_SDL_RWLock
-  SDL_Semaphore* = struct_SDL_Semaphore
-  SDL_Condition* = struct_SDL_Condition
-  SDL_InitStatus* = enum_SDL_InitStatus
+      a2: cstring): void {.cdecl.} 
+  SDL_Thread* = struct_SDL_Thread 
+  SDL_ThreadID_typedef* = Uint64 
+  SDL_TLSID* = SDL_AtomicInt 
+  SDL_ThreadPriority* = enum_SDL_ThreadPriority 
+  SDL_ThreadFunction* = proc (a0: pointer): cint {.cdecl.} 
+  SDL_TLSDestructorCallback* = proc (a0: pointer): void {.cdecl.} 
+  SDL_Mutex_typedef* = struct_SDL_Mutex 
+  SDL_RWLock* = struct_SDL_RWLock 
+  SDL_Semaphore* = struct_SDL_Semaphore 
+  SDL_Condition* = struct_SDL_Condition 
+  SDL_InitStatus* = enum_SDL_InitStatus 
   struct_SDL_InitState* {.pure, inheritable, bycopy.} = object
-    status*: SDL_AtomicInt
+    status*: SDL_AtomicInt   
     thread*: SDL_ThreadID_typedef
     reserved*: pointer
-  SDL_InitState* = struct_SDL_InitState
-  SDL_IOStatus* = enum_SDL_IOStatus
-  SDL_IOWhence* = enum_SDL_IOWhence
+  SDL_InitState* = struct_SDL_InitState 
+  SDL_IOStatus* = enum_SDL_IOStatus 
+  SDL_IOWhence* = enum_SDL_IOWhence 
   struct_SDL_IOStreamInterface* {.pure, inheritable, bycopy.} = object
-    version*: Uint32
+    version*: Uint32         
     size*: proc (a0: pointer): Sint64 {.cdecl.}
     seek*: proc (a0: pointer; a1: Sint64; a2: SDL_IOWhence): Sint64 {.cdecl.}
     read*: proc (a0: pointer; a1: pointer; a2: csize_t; a3: ptr SDL_IOStatus): csize_t {.
@@ -2139,56 +2139,56 @@ type
         cdecl.}
     flush*: proc (a0: pointer; a1: ptr SDL_IOStatus): bool {.cdecl.}
     close*: proc (a0: pointer): bool {.cdecl.}
-  SDL_IOStreamInterface* = struct_SDL_IOStreamInterface
-  SDL_IOStream* = struct_SDL_IOStream
-  SDL_AudioFormat* = enum_SDL_AudioFormat
-  SDL_AudioDeviceID* = Uint32
+  SDL_IOStreamInterface* = struct_SDL_IOStreamInterface 
+  SDL_IOStream* = struct_SDL_IOStream 
+  SDL_AudioFormat* = enum_SDL_AudioFormat 
+  SDL_AudioDeviceID* = Uint32 
   struct_SDL_AudioSpec* {.pure, inheritable, bycopy.} = object
-    format*: SDL_AudioFormat
+    format*: SDL_AudioFormat 
     channels*: cint
     freq*: cint
-  SDL_AudioSpec* = struct_SDL_AudioSpec
-  SDL_AudioStream* = struct_SDL_AudioStream
+  SDL_AudioSpec* = struct_SDL_AudioSpec 
+  SDL_AudioStream* = struct_SDL_AudioStream 
   SDL_AudioStreamCallback* = proc (a0: pointer; a1: ptr SDL_AudioStream;
-                                   a2: cint; a3: cint): void {.cdecl.}
+                                   a2: cint; a3: cint): void {.cdecl.} 
   SDL_AudioPostmixCallback* = proc (a0: pointer; a1: ptr SDL_AudioSpec;
-                                    a2: ptr cfloat; a3: cint): void {.cdecl.}
-  SDL_BlendMode* = Uint32
-  SDL_BlendOperation* = enum_SDL_BlendOperation
-  SDL_BlendFactor* = enum_SDL_BlendFactor
-  SDL_PixelType* = enum_SDL_PixelType
-  SDL_BitmapOrder* = enum_SDL_BitmapOrder
-  SDL_PackedOrder* = enum_SDL_PackedOrder
-  SDL_ArrayOrder* = enum_SDL_ArrayOrder
-  SDL_PackedLayout* = enum_SDL_PackedLayout
-  SDL_PixelFormat* = enum_SDL_PixelFormat
-  SDL_ColorType* = enum_SDL_ColorType
-  SDL_ColorRange* = enum_SDL_ColorRange
-  SDL_ColorPrimaries* = enum_SDL_ColorPrimaries
-  SDL_TransferCharacteristics* = enum_SDL_TransferCharacteristics
-  SDL_MatrixCoefficients* = enum_SDL_MatrixCoefficients
-  SDL_ChromaLocation* = enum_SDL_ChromaLocation
-  SDL_Colorspace* = enum_SDL_Colorspace
+                                    a2: ptr cfloat; a3: cint): void {.cdecl.} 
+  SDL_BlendMode* = Uint32    
+  SDL_BlendOperation* = enum_SDL_BlendOperation 
+  SDL_BlendFactor* = enum_SDL_BlendFactor 
+  SDL_PixelType* = enum_SDL_PixelType 
+  SDL_BitmapOrder* = enum_SDL_BitmapOrder 
+  SDL_PackedOrder* = enum_SDL_PackedOrder 
+  SDL_ArrayOrder* = enum_SDL_ArrayOrder 
+  SDL_PackedLayout* = enum_SDL_PackedLayout 
+  SDL_PixelFormat* = enum_SDL_PixelFormat 
+  SDL_ColorType* = enum_SDL_ColorType 
+  SDL_ColorRange* = enum_SDL_ColorRange 
+  SDL_ColorPrimaries* = enum_SDL_ColorPrimaries 
+  SDL_TransferCharacteristics* = enum_SDL_TransferCharacteristics 
+  SDL_MatrixCoefficients* = enum_SDL_MatrixCoefficients 
+  SDL_ChromaLocation* = enum_SDL_ChromaLocation 
+  SDL_Colorspace* = enum_SDL_Colorspace 
   struct_SDL_Color* {.pure, inheritable, bycopy.} = object
-    r*: Uint8
+    r*: Uint8                
     g*: Uint8
     b*: Uint8
     a*: Uint8
-  SDL_Color* = struct_SDL_Color
+  SDL_Color* = struct_SDL_Color 
   struct_SDL_FColor* {.pure, inheritable, bycopy.} = object
-    r*: cfloat
+    r*: cfloat               
     g*: cfloat
     b*: cfloat
     a*: cfloat
-  SDL_FColor* = struct_SDL_FColor
+  SDL_FColor* = struct_SDL_FColor 
   struct_SDL_Palette* {.pure, inheritable, bycopy.} = object
-    ncolors*: cint
+    ncolors*: cint           
     colors*: ptr SDL_Color
     version*: Uint32
     refcount*: cint
-  SDL_Palette* = struct_SDL_Palette
+  SDL_Palette* = struct_SDL_Palette 
   struct_SDL_PixelFormatDetails* {.pure, inheritable, bycopy.} = object
-    format*: SDL_PixelFormat
+    format*: SDL_PixelFormat 
     bits_per_pixel*: Uint8
     bytes_per_pixel*: Uint8
     padding*: array[2'i64, Uint8]
@@ -2204,32 +2204,32 @@ type
     Gshift*: Uint8
     Bshift*: Uint8
     Ashift*: Uint8
-  SDL_PixelFormatDetails* = struct_SDL_PixelFormatDetails
+  SDL_PixelFormatDetails* = struct_SDL_PixelFormatDetails 
   struct_SDL_Point* {.pure, inheritable, bycopy.} = object
-    x*: cint
+    x*: cint                 
     y*: cint
-  SDL_Point* = struct_SDL_Point
+  SDL_Point* = struct_SDL_Point 
   struct_SDL_FPoint* {.pure, inheritable, bycopy.} = object
-    x*: cfloat
+    x*: cfloat               
     y*: cfloat
-  SDL_FPoint* = struct_SDL_FPoint
+  SDL_FPoint* = struct_SDL_FPoint 
   struct_SDL_Rect* {.pure, inheritable, bycopy.} = object
-    x*: cint
+    x*: cint                 
     y*: cint
     w*: cint
     h*: cint
-  SDL_Rect* = struct_SDL_Rect
+  SDL_Rect* = struct_SDL_Rect 
   struct_SDL_FRect* {.pure, inheritable, bycopy.} = object
-    x*: cfloat
+    x*: cfloat               
     y*: cfloat
     w*: cfloat
     h*: cfloat
-  SDL_FRect* = struct_SDL_FRect
-  SDL_SurfaceFlags* = Uint32
-  SDL_ScaleMode* = enum_SDL_ScaleMode
-  SDL_FlipMode* = enum_SDL_FlipMode
+  SDL_FRect* = struct_SDL_FRect 
+  SDL_SurfaceFlags* = Uint32 
+  SDL_ScaleMode* = enum_SDL_ScaleMode 
+  SDL_FlipMode* = enum_SDL_FlipMode 
   struct_SDL_Surface* {.pure, inheritable, bycopy.} = object
-    flags*: SDL_SurfaceFlags
+    flags*: SDL_SurfaceFlags 
     format*: SDL_PixelFormat
     w*: cint
     h*: cint
@@ -2237,27 +2237,27 @@ type
     pixels*: pointer
     refcount*: cint
     reserved*: pointer
-  SDL_Surface* = struct_SDL_Surface
-  SDL_CameraID* = Uint32
-  SDL_Camera* = struct_SDL_Camera
+  SDL_Surface* = struct_SDL_Surface 
+  SDL_CameraID* = Uint32     
+  SDL_Camera* = struct_SDL_Camera 
   struct_SDL_CameraSpec* {.pure, inheritable, bycopy.} = object
-    format*: SDL_PixelFormat
+    format*: SDL_PixelFormat 
     colorspace*: SDL_Colorspace
     width*: cint
     height*: cint
     framerate_numerator*: cint
     framerate_denominator*: cint
-  SDL_CameraSpec* = struct_SDL_CameraSpec
-  SDL_CameraPosition* = enum_SDL_CameraPosition
+  SDL_CameraSpec* = struct_SDL_CameraSpec 
+  SDL_CameraPosition* = enum_SDL_CameraPosition 
   SDL_ClipboardDataCallback* = proc (a0: pointer; a1: cstring; a2: ptr csize_t): pointer {.
-      cdecl.}
-  SDL_ClipboardCleanupCallback* = proc (a0: pointer): void {.cdecl.}
-  SDL_DisplayID* = Uint32
-  SDL_WindowID* = Uint32
-  SDL_SystemTheme* = enum_SDL_SystemTheme
-  SDL_DisplayModeData* = struct_SDL_DisplayModeData
+      cdecl.}                
+  SDL_ClipboardCleanupCallback* = proc (a0: pointer): void {.cdecl.} 
+  SDL_DisplayID* = Uint32    
+  SDL_WindowID* = Uint32     
+  SDL_SystemTheme* = enum_SDL_SystemTheme 
+  SDL_DisplayModeData* = struct_SDL_DisplayModeData 
   struct_SDL_DisplayMode* {.pure, inheritable, bycopy.} = object
-    displayID*: SDL_DisplayID
+    displayID*: SDL_DisplayID 
     format*: SDL_PixelFormat
     w*: cint
     h*: cint
@@ -2266,56 +2266,56 @@ type
     refresh_rate_numerator*: cint
     refresh_rate_denominator*: cint
     internal*: ptr SDL_DisplayModeData
-  SDL_DisplayMode* = struct_SDL_DisplayMode
-  SDL_DisplayOrientation* = enum_SDL_DisplayOrientation
-  SDL_Window* = struct_SDL_Window
-  SDL_WindowFlags* = Uint64
-  SDL_FlashOperation* = enum_SDL_FlashOperation
-  SDL_GLContext* = ptr struct_SDL_GLContextState
-  SDL_EGLDisplay* = pointer
-  SDL_EGLConfig* = pointer
-  SDL_EGLSurface* = pointer
-  SDL_EGLAttrib* = intptr_t
-  intptr_t* = clonglong
-  SDL_EGLint* = cint
-  SDL_EGLAttribArrayCallback* = proc (a0: pointer): ptr SDL_EGLAttrib {.cdecl.}
+  SDL_DisplayMode* = struct_SDL_DisplayMode 
+  SDL_DisplayOrientation* = enum_SDL_DisplayOrientation 
+  SDL_Window* = struct_SDL_Window 
+  SDL_WindowFlags* = Uint64  
+  SDL_FlashOperation* = enum_SDL_FlashOperation 
+  SDL_GLContext* = ptr struct_SDL_GLContextState 
+  SDL_EGLDisplay* = pointer  
+  SDL_EGLConfig* = pointer   
+  SDL_EGLSurface* = pointer  
+  SDL_EGLAttrib* = intptr_t  
+  intptr_t* = clonglong      
+  SDL_EGLint* = cint         
+  SDL_EGLAttribArrayCallback* = proc (a0: pointer): ptr SDL_EGLAttrib {.cdecl.} 
   SDL_EGLIntArrayCallback* = proc (a0: pointer; a1: SDL_EGLDisplay;
-                                   a2: SDL_EGLConfig): ptr SDL_EGLint {.cdecl.}
-  SDL_GLattr* = enum_SDL_GLattr
-  SDL_GLprofile* = enum_SDL_GLprofile
-  SDL_GLcontextFlag* = enum_SDL_GLcontextFlag
-  SDL_GLcontextReleaseFlag* = enum_SDL_GLcontextReleaseFlag
-  SDL_GLContextResetNotification* = enum_SDL_GLContextResetNotification
-  SDL_HitTestResult* = enum_SDL_HitTestResult
+                                   a2: SDL_EGLConfig): ptr SDL_EGLint {.cdecl.} 
+  SDL_GLattr* = enum_SDL_GLattr 
+  SDL_GLprofile* = enum_SDL_GLprofile 
+  SDL_GLcontextFlag* = enum_SDL_GLcontextFlag 
+  SDL_GLcontextReleaseFlag* = enum_SDL_GLcontextReleaseFlag 
+  SDL_GLContextResetNotification* = enum_SDL_GLContextResetNotification 
+  SDL_HitTestResult* = enum_SDL_HitTestResult 
   SDL_HitTest* = proc (a0: ptr SDL_Window; a1: ptr SDL_Point; a2: pointer): SDL_HitTestResult {.
-      cdecl.}
+      cdecl.}                
   struct_SDL_DialogFileFilter* {.pure, inheritable, bycopy.} = object
-    name*: cstring
+    name*: cstring           
     pattern*: cstring
-  SDL_DialogFileFilter* = struct_SDL_DialogFileFilter
+  SDL_DialogFileFilter* = struct_SDL_DialogFileFilter 
   SDL_DialogFileCallback* = proc (a0: pointer; a1: ptr cstring; a2: cint): void {.
-      cdecl.}
+      cdecl.}                
   struct_SDL_GUID* {.pure, inheritable, bycopy.} = object
-    data*: array[16'i64, Uint8]
-  SDL_GUID* = struct_SDL_GUID
-  SDL_PowerState* = enum_SDL_PowerState
-  SDL_Sensor* = struct_SDL_Sensor
-  SDL_SensorID* = Uint32
-  SDL_SensorType* = enum_SDL_SensorType
-  SDL_Joystick* = struct_SDL_Joystick
-  SDL_JoystickID* = Uint32
-  SDL_JoystickType* = enum_SDL_JoystickType
-  SDL_JoystickConnectionState* = enum_SDL_JoystickConnectionState
+    data*: array[16'i64, Uint8] 
+  SDL_GUID* = struct_SDL_GUID 
+  SDL_PowerState* = enum_SDL_PowerState 
+  SDL_Sensor* = struct_SDL_Sensor 
+  SDL_SensorID* = Uint32     
+  SDL_SensorType* = enum_SDL_SensorType 
+  SDL_Joystick* = struct_SDL_Joystick 
+  SDL_JoystickID* = Uint32   
+  SDL_JoystickType* = enum_SDL_JoystickType 
+  SDL_JoystickConnectionState* = enum_SDL_JoystickConnectionState 
   struct_SDL_VirtualJoystickTouchpadDesc* {.pure, inheritable, bycopy.} = object
-    nfingers*: Uint16
+    nfingers*: Uint16        
     padding*: array[3'i64, Uint16]
-  SDL_VirtualJoystickTouchpadDesc* = struct_SDL_VirtualJoystickTouchpadDesc
+  SDL_VirtualJoystickTouchpadDesc* = struct_SDL_VirtualJoystickTouchpadDesc 
   struct_SDL_VirtualJoystickSensorDesc* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_SensorType
+    type_field*: SDL_SensorType 
     rate*: cfloat
-  SDL_VirtualJoystickSensorDesc* = struct_SDL_VirtualJoystickSensorDesc
+  SDL_VirtualJoystickSensorDesc* = struct_SDL_VirtualJoystickSensorDesc 
   struct_SDL_VirtualJoystickDesc* {.pure, inheritable, bycopy.} = object
-    version*: Uint32
+    version*: Uint32         
     type_field*: Uint16
     padding*: Uint16
     vendor_id*: Uint16
@@ -2341,13 +2341,13 @@ type
     SendEffect*: proc (a0: pointer; a1: pointer; a2: cint): bool {.cdecl.}
     SetSensorsEnabled*: proc (a0: pointer; a1: bool): bool {.cdecl.}
     Cleanup*: proc (a0: pointer): void {.cdecl.}
-  SDL_VirtualJoystickDesc* = struct_SDL_VirtualJoystickDesc
-  SDL_Gamepad* = struct_SDL_Gamepad
-  SDL_GamepadType* = enum_SDL_GamepadType
-  SDL_GamepadButton* = enum_SDL_GamepadButton
-  SDL_GamepadButtonLabel* = enum_SDL_GamepadButtonLabel
-  SDL_GamepadAxis* = enum_SDL_GamepadAxis
-  SDL_GamepadBindingType* = enum_SDL_GamepadBindingType
+  SDL_VirtualJoystickDesc* = struct_SDL_VirtualJoystickDesc 
+  SDL_Gamepad* = struct_SDL_Gamepad 
+  SDL_GamepadType* = enum_SDL_GamepadType 
+  SDL_GamepadButton* = enum_SDL_GamepadButton 
+  SDL_GamepadButtonLabel* = enum_SDL_GamepadButtonLabel 
+  SDL_GamepadAxis* = enum_SDL_GamepadAxis 
+  SDL_GamepadBindingType* = enum_SDL_GamepadBindingType 
   struct_SDL_GamepadBinding_input_t_axis_t* {.pure, inheritable, bycopy.} = object
     axis*: cint
     axis_min*: cint
@@ -2367,64 +2367,64 @@ type
     button*: SDL_GamepadButton
     axis*: struct_SDL_GamepadBinding_output_t_axis_t
   struct_SDL_GamepadBinding* {.pure, inheritable, bycopy.} = object
-    input_type*: SDL_GamepadBindingType
+    input_type*: SDL_GamepadBindingType 
     input*: struct_SDL_GamepadBinding_input_t
     output_type*: SDL_GamepadBindingType
     output*: struct_SDL_GamepadBinding_output_t
-  SDL_GamepadBinding* = struct_SDL_GamepadBinding
-  SDL_Scancode* = enum_SDL_Scancode
-  SDL_Keycode* = Uint32
-  SDL_Keymod* = Uint16
-  SDL_KeyboardID* = Uint32
-  SDL_TextInputType* = enum_SDL_TextInputType
-  SDL_Capitalization* = enum_SDL_Capitalization
-  SDL_MouseID* = Uint32
-  SDL_Cursor* = struct_SDL_Cursor
-  SDL_SystemCursor* = enum_SDL_SystemCursor
-  SDL_MouseWheelDirection* = enum_SDL_MouseWheelDirection
-  SDL_MouseButtonFlags* = Uint32
-  SDL_PenID* = Uint32
-  SDL_PenInputFlags* = Uint32
-  SDL_PenAxis* = enum_SDL_PenAxis
-  SDL_TouchID* = Uint64
-  SDL_FingerID* = Uint64
-  SDL_TouchDeviceType* = enum_SDL_TouchDeviceType
+  SDL_GamepadBinding* = struct_SDL_GamepadBinding 
+  SDL_Scancode* = enum_SDL_Scancode 
+  SDL_Keycode* = Uint32      
+  SDL_Keymod* = Uint16       
+  SDL_KeyboardID* = Uint32   
+  SDL_TextInputType* = enum_SDL_TextInputType 
+  SDL_Capitalization* = enum_SDL_Capitalization 
+  SDL_MouseID* = Uint32      
+  SDL_Cursor* = struct_SDL_Cursor 
+  SDL_SystemCursor* = enum_SDL_SystemCursor 
+  SDL_MouseWheelDirection* = enum_SDL_MouseWheelDirection 
+  SDL_MouseButtonFlags* = Uint32 
+  SDL_PenID* = Uint32        
+  SDL_PenInputFlags* = Uint32 
+  SDL_PenAxis* = enum_SDL_PenAxis 
+  SDL_TouchID* = Uint64      
+  SDL_FingerID* = Uint64     
+  SDL_TouchDeviceType* = enum_SDL_TouchDeviceType 
   struct_SDL_Finger* {.pure, inheritable, bycopy.} = object
-    id*: SDL_FingerID
+    id*: SDL_FingerID        
     x*: cfloat
     y*: cfloat
     pressure*: cfloat
-  SDL_Finger* = struct_SDL_Finger
-  SDL_EventType* = enum_SDL_EventType
+  SDL_Finger* = struct_SDL_Finger 
+  SDL_EventType* = enum_SDL_EventType 
   struct_SDL_CommonEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: Uint32
+    type_field*: Uint32      
     reserved*: Uint32
     timestamp*: Uint64
-  SDL_CommonEvent* = struct_SDL_CommonEvent
+  SDL_CommonEvent* = struct_SDL_CommonEvent 
   struct_SDL_DisplayEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     displayID*: SDL_DisplayID
     data1*: Sint32
     data2*: Sint32
-  SDL_DisplayEvent* = struct_SDL_DisplayEvent
+  SDL_DisplayEvent* = struct_SDL_DisplayEvent 
   struct_SDL_WindowEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     windowID*: SDL_WindowID
     data1*: Sint32
     data2*: Sint32
-  SDL_WindowEvent* = struct_SDL_WindowEvent
+  SDL_WindowEvent* = struct_SDL_WindowEvent 
   struct_SDL_KeyboardDeviceEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     which*: SDL_KeyboardID
-  SDL_KeyboardDeviceEvent* = struct_SDL_KeyboardDeviceEvent
+  SDL_KeyboardDeviceEvent* = struct_SDL_KeyboardDeviceEvent 
   struct_SDL_KeyboardEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     windowID*: SDL_WindowID
@@ -2435,18 +2435,18 @@ type
     raw*: Uint16
     down*: bool
     repeat*: bool
-  SDL_KeyboardEvent* = struct_SDL_KeyboardEvent
+  SDL_KeyboardEvent* = struct_SDL_KeyboardEvent 
   struct_SDL_TextEditingEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     windowID*: SDL_WindowID
     text*: cstring
     start*: Sint32
     length*: Sint32
-  SDL_TextEditingEvent* = struct_SDL_TextEditingEvent
+  SDL_TextEditingEvent* = struct_SDL_TextEditingEvent 
   struct_SDL_TextEditingCandidatesEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     windowID*: SDL_WindowID
@@ -2457,22 +2457,22 @@ type
     padding1*: Uint8
     padding2*: Uint8
     padding3*: Uint8
-  SDL_TextEditingCandidatesEvent* = struct_SDL_TextEditingCandidatesEvent
+  SDL_TextEditingCandidatesEvent* = struct_SDL_TextEditingCandidatesEvent 
   struct_SDL_TextInputEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     windowID*: SDL_WindowID
     text*: cstring
-  SDL_TextInputEvent* = struct_SDL_TextInputEvent
+  SDL_TextInputEvent* = struct_SDL_TextInputEvent 
   struct_SDL_MouseDeviceEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     which*: SDL_MouseID
-  SDL_MouseDeviceEvent* = struct_SDL_MouseDeviceEvent
+  SDL_MouseDeviceEvent* = struct_SDL_MouseDeviceEvent 
   struct_SDL_MouseMotionEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     windowID*: SDL_WindowID
@@ -2482,9 +2482,9 @@ type
     y*: cfloat
     xrel*: cfloat
     yrel*: cfloat
-  SDL_MouseMotionEvent* = struct_SDL_MouseMotionEvent
+  SDL_MouseMotionEvent* = struct_SDL_MouseMotionEvent 
   struct_SDL_MouseButtonEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     windowID*: SDL_WindowID
@@ -2495,9 +2495,9 @@ type
     padding*: Uint8
     x*: cfloat
     y*: cfloat
-  SDL_MouseButtonEvent* = struct_SDL_MouseButtonEvent
+  SDL_MouseButtonEvent* = struct_SDL_MouseButtonEvent 
   struct_SDL_MouseWheelEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     windowID*: SDL_WindowID
@@ -2507,9 +2507,9 @@ type
     direction*: SDL_MouseWheelDirection
     mouse_x*: cfloat
     mouse_y*: cfloat
-  SDL_MouseWheelEvent* = struct_SDL_MouseWheelEvent
+  SDL_MouseWheelEvent* = struct_SDL_MouseWheelEvent 
   struct_SDL_JoyAxisEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     which*: SDL_JoystickID
@@ -2519,9 +2519,9 @@ type
     padding3*: Uint8
     value*: Sint16
     padding4*: Uint16
-  SDL_JoyAxisEvent* = struct_SDL_JoyAxisEvent
+  SDL_JoyAxisEvent* = struct_SDL_JoyAxisEvent 
   struct_SDL_JoyBallEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     which*: SDL_JoystickID
@@ -2531,9 +2531,9 @@ type
     padding3*: Uint8
     xrel*: Sint16
     yrel*: Sint16
-  SDL_JoyBallEvent* = struct_SDL_JoyBallEvent
+  SDL_JoyBallEvent* = struct_SDL_JoyBallEvent 
   struct_SDL_JoyHatEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     which*: SDL_JoystickID
@@ -2541,9 +2541,9 @@ type
     value*: Uint8
     padding1*: Uint8
     padding2*: Uint8
-  SDL_JoyHatEvent* = struct_SDL_JoyHatEvent
+  SDL_JoyHatEvent* = struct_SDL_JoyHatEvent 
   struct_SDL_JoyButtonEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     which*: SDL_JoystickID
@@ -2551,23 +2551,23 @@ type
     down*: bool
     padding1*: Uint8
     padding2*: Uint8
-  SDL_JoyButtonEvent* = struct_SDL_JoyButtonEvent
+  SDL_JoyButtonEvent* = struct_SDL_JoyButtonEvent 
   struct_SDL_JoyDeviceEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     which*: SDL_JoystickID
-  SDL_JoyDeviceEvent* = struct_SDL_JoyDeviceEvent
+  SDL_JoyDeviceEvent* = struct_SDL_JoyDeviceEvent 
   struct_SDL_JoyBatteryEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     which*: SDL_JoystickID
     state*: SDL_PowerState
     percent*: cint
-  SDL_JoyBatteryEvent* = struct_SDL_JoyBatteryEvent
+  SDL_JoyBatteryEvent* = struct_SDL_JoyBatteryEvent 
   struct_SDL_GamepadAxisEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     which*: SDL_JoystickID
@@ -2577,9 +2577,9 @@ type
     padding3*: Uint8
     value*: Sint16
     padding4*: Uint16
-  SDL_GamepadAxisEvent* = struct_SDL_GamepadAxisEvent
+  SDL_GamepadAxisEvent* = struct_SDL_GamepadAxisEvent 
   struct_SDL_GamepadButtonEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     which*: SDL_JoystickID
@@ -2587,15 +2587,15 @@ type
     down*: bool
     padding1*: Uint8
     padding2*: Uint8
-  SDL_GamepadButtonEvent* = struct_SDL_GamepadButtonEvent
+  SDL_GamepadButtonEvent* = struct_SDL_GamepadButtonEvent 
   struct_SDL_GamepadDeviceEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     which*: SDL_JoystickID
-  SDL_GamepadDeviceEvent* = struct_SDL_GamepadDeviceEvent
+  SDL_GamepadDeviceEvent* = struct_SDL_GamepadDeviceEvent 
   struct_SDL_GamepadTouchpadEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     which*: SDL_JoystickID
@@ -2604,18 +2604,18 @@ type
     x*: cfloat
     y*: cfloat
     pressure*: cfloat
-  SDL_GamepadTouchpadEvent* = struct_SDL_GamepadTouchpadEvent
+  SDL_GamepadTouchpadEvent* = struct_SDL_GamepadTouchpadEvent 
   struct_SDL_GamepadSensorEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     which*: SDL_JoystickID
     sensor*: Sint32
     data*: array[3'i64, cfloat]
     sensor_timestamp*: Uint64
-  SDL_GamepadSensorEvent* = struct_SDL_GamepadSensorEvent
+  SDL_GamepadSensorEvent* = struct_SDL_GamepadSensorEvent 
   struct_SDL_AudioDeviceEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     which*: SDL_AudioDeviceID
@@ -2623,15 +2623,15 @@ type
     padding1*: Uint8
     padding2*: Uint8
     padding3*: Uint8
-  SDL_AudioDeviceEvent* = struct_SDL_AudioDeviceEvent
+  SDL_AudioDeviceEvent* = struct_SDL_AudioDeviceEvent 
   struct_SDL_CameraDeviceEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     which*: SDL_CameraID
-  SDL_CameraDeviceEvent* = struct_SDL_CameraDeviceEvent
+  SDL_CameraDeviceEvent* = struct_SDL_CameraDeviceEvent 
   struct_SDL_TouchFingerEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     touchID*: SDL_TouchID
@@ -2642,16 +2642,16 @@ type
     dy*: cfloat
     pressure*: cfloat
     windowID*: SDL_WindowID
-  SDL_TouchFingerEvent* = struct_SDL_TouchFingerEvent
+  SDL_TouchFingerEvent* = struct_SDL_TouchFingerEvent 
   struct_SDL_PenProximityEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     windowID*: SDL_WindowID
     which*: SDL_PenID
-  SDL_PenProximityEvent* = struct_SDL_PenProximityEvent
+  SDL_PenProximityEvent* = struct_SDL_PenProximityEvent 
   struct_SDL_PenMotionEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     windowID*: SDL_WindowID
@@ -2659,9 +2659,9 @@ type
     pen_state*: SDL_PenInputFlags
     x*: cfloat
     y*: cfloat
-  SDL_PenMotionEvent* = struct_SDL_PenMotionEvent
+  SDL_PenMotionEvent* = struct_SDL_PenMotionEvent 
   struct_SDL_PenTouchEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     windowID*: SDL_WindowID
@@ -2671,9 +2671,9 @@ type
     y*: cfloat
     eraser*: bool
     down*: bool
-  SDL_PenTouchEvent* = struct_SDL_PenTouchEvent
+  SDL_PenTouchEvent* = struct_SDL_PenTouchEvent 
   struct_SDL_PenButtonEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     windowID*: SDL_WindowID
@@ -2683,9 +2683,9 @@ type
     y*: cfloat
     button*: Uint8
     down*: bool
-  SDL_PenButtonEvent* = struct_SDL_PenButtonEvent
+  SDL_PenButtonEvent* = struct_SDL_PenButtonEvent 
   struct_SDL_PenAxisEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     windowID*: SDL_WindowID
@@ -2695,9 +2695,9 @@ type
     y*: cfloat
     axis*: SDL_PenAxis
     value*: cfloat
-  SDL_PenAxisEvent* = struct_SDL_PenAxisEvent
+  SDL_PenAxisEvent* = struct_SDL_PenAxisEvent 
   struct_SDL_DropEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     windowID*: SDL_WindowID
@@ -2705,36 +2705,36 @@ type
     y*: cfloat
     source*: cstring
     data*: cstring
-  SDL_DropEvent* = struct_SDL_DropEvent
+  SDL_DropEvent* = struct_SDL_DropEvent 
   struct_SDL_ClipboardEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
-  SDL_ClipboardEvent* = struct_SDL_ClipboardEvent
+  SDL_ClipboardEvent* = struct_SDL_ClipboardEvent 
   struct_SDL_SensorEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
     which*: SDL_SensorID
     data*: array[6'i64, cfloat]
     sensor_timestamp*: Uint64
-  SDL_SensorEvent* = struct_SDL_SensorEvent
+  SDL_SensorEvent* = struct_SDL_SensorEvent 
   struct_SDL_QuitEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_EventType
+    type_field*: SDL_EventType 
     reserved*: Uint32
     timestamp*: Uint64
-  SDL_QuitEvent* = struct_SDL_QuitEvent
+  SDL_QuitEvent* = struct_SDL_QuitEvent 
   struct_SDL_UserEvent* {.pure, inheritable, bycopy.} = object
-    type_field*: Uint32
+    type_field*: Uint32      
     reserved*: Uint32
     timestamp*: Uint64
     windowID*: SDL_WindowID
     code*: Sint32
     data1*: pointer
     data2*: pointer
-  SDL_UserEvent_typedef* = struct_SDL_UserEvent
+  SDL_UserEvent_typedef* = struct_SDL_UserEvent 
   union_SDL_Event* {.union, bycopy.} = object
-    type_field*: Uint32
+    type_field*: Uint32      
     common*: SDL_CommonEvent
     display*: SDL_DisplayEvent
     window*: SDL_WindowEvent
@@ -2772,91 +2772,91 @@ type
     drop*: SDL_DropEvent
     clipboard*: SDL_ClipboardEvent
     padding*: array[128'i64, Uint8]
-  SDL_Event* = union_SDL_Event
-  SDL_EventAction_typedef* = enum_SDL_EventAction
-  SDL_EventFilter* = proc (a0: pointer; a1: ptr SDL_Event): bool {.cdecl.}
-  SDL_Folder* = enum_SDL_Folder
-  SDL_PathType* = enum_SDL_PathType
+  SDL_Event* = union_SDL_Event 
+  SDL_EventAction_typedef* = enum_SDL_EventAction 
+  SDL_EventFilter* = proc (a0: pointer; a1: ptr SDL_Event): bool {.cdecl.} 
+  SDL_Folder* = enum_SDL_Folder 
+  SDL_PathType* = enum_SDL_PathType 
   struct_SDL_PathInfo* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_PathType
+    type_field*: SDL_PathType 
     size*: Uint64
     create_time*: SDL_Time
     modify_time*: SDL_Time
     access_time*: SDL_Time
-  SDL_PathInfo* = struct_SDL_PathInfo
-  SDL_GlobFlags* = Uint32
-  SDL_EnumerationResult* = enum_SDL_EnumerationResult
+  SDL_PathInfo* = struct_SDL_PathInfo 
+  SDL_GlobFlags* = Uint32    
+  SDL_EnumerationResult* = enum_SDL_EnumerationResult 
   SDL_EnumerateDirectoryCallback* = proc (a0: pointer; a1: cstring; a2: cstring): SDL_EnumerationResult {.
-      cdecl.}
-  SDL_GPUDevice* = struct_SDL_GPUDevice
-  SDL_GPUBuffer* = struct_SDL_GPUBuffer
-  SDL_GPUTransferBuffer* = struct_SDL_GPUTransferBuffer
-  SDL_GPUTexture* = struct_SDL_GPUTexture
-  SDL_GPUSampler* = struct_SDL_GPUSampler
-  SDL_GPUShader* = struct_SDL_GPUShader
-  SDL_GPUComputePipeline* = struct_SDL_GPUComputePipeline
-  SDL_GPUGraphicsPipeline* = struct_SDL_GPUGraphicsPipeline
-  SDL_GPUCommandBuffer* = struct_SDL_GPUCommandBuffer
-  SDL_GPURenderPass* = struct_SDL_GPURenderPass
-  SDL_GPUComputePass* = struct_SDL_GPUComputePass
-  SDL_GPUCopyPass* = struct_SDL_GPUCopyPass
-  SDL_GPUFence* = struct_SDL_GPUFence
-  SDL_GPUPrimitiveType* = enum_SDL_GPUPrimitiveType
-  SDL_GPULoadOp* = enum_SDL_GPULoadOp
-  SDL_GPUStoreOp* = enum_SDL_GPUStoreOp
-  SDL_GPUIndexElementSize* = enum_SDL_GPUIndexElementSize
-  SDL_GPUTextureFormat* = enum_SDL_GPUTextureFormat
-  SDL_GPUTextureUsageFlags* = Uint32
-  SDL_GPUTextureType* = enum_SDL_GPUTextureType
-  SDL_GPUSampleCount* = enum_SDL_GPUSampleCount
-  SDL_GPUCubeMapFace* = enum_SDL_GPUCubeMapFace
-  SDL_GPUBufferUsageFlags* = Uint32
-  SDL_GPUTransferBufferUsage* = enum_SDL_GPUTransferBufferUsage
-  SDL_GPUShaderStage* = enum_SDL_GPUShaderStage
-  SDL_GPUShaderFormat* = Uint32
-  SDL_GPUVertexElementFormat* = enum_SDL_GPUVertexElementFormat
-  SDL_GPUVertexInputRate* = enum_SDL_GPUVertexInputRate
-  SDL_GPUFillMode* = enum_SDL_GPUFillMode
-  SDL_GPUCullMode* = enum_SDL_GPUCullMode
-  SDL_GPUFrontFace* = enum_SDL_GPUFrontFace
-  SDL_GPUCompareOp* = enum_SDL_GPUCompareOp
-  SDL_GPUStencilOp* = enum_SDL_GPUStencilOp
-  SDL_GPUBlendOp* = enum_SDL_GPUBlendOp
-  SDL_GPUBlendFactor* = enum_SDL_GPUBlendFactor
-  SDL_GPUColorComponentFlags* = Uint8
-  SDL_GPUFilter* = enum_SDL_GPUFilter
-  SDL_GPUSamplerMipmapMode* = enum_SDL_GPUSamplerMipmapMode
-  SDL_GPUSamplerAddressMode* = enum_SDL_GPUSamplerAddressMode
-  SDL_GPUPresentMode* = enum_SDL_GPUPresentMode
-  SDL_GPUSwapchainComposition* = enum_SDL_GPUSwapchainComposition
+      cdecl.}                
+  SDL_GPUDevice* = struct_SDL_GPUDevice 
+  SDL_GPUBuffer* = struct_SDL_GPUBuffer 
+  SDL_GPUTransferBuffer* = struct_SDL_GPUTransferBuffer 
+  SDL_GPUTexture* = struct_SDL_GPUTexture 
+  SDL_GPUSampler* = struct_SDL_GPUSampler 
+  SDL_GPUShader* = struct_SDL_GPUShader 
+  SDL_GPUComputePipeline* = struct_SDL_GPUComputePipeline 
+  SDL_GPUGraphicsPipeline* = struct_SDL_GPUGraphicsPipeline 
+  SDL_GPUCommandBuffer* = struct_SDL_GPUCommandBuffer 
+  SDL_GPURenderPass* = struct_SDL_GPURenderPass 
+  SDL_GPUComputePass* = struct_SDL_GPUComputePass 
+  SDL_GPUCopyPass* = struct_SDL_GPUCopyPass 
+  SDL_GPUFence* = struct_SDL_GPUFence 
+  SDL_GPUPrimitiveType* = enum_SDL_GPUPrimitiveType 
+  SDL_GPULoadOp* = enum_SDL_GPULoadOp 
+  SDL_GPUStoreOp* = enum_SDL_GPUStoreOp 
+  SDL_GPUIndexElementSize* = enum_SDL_GPUIndexElementSize 
+  SDL_GPUTextureFormat* = enum_SDL_GPUTextureFormat 
+  SDL_GPUTextureUsageFlags* = Uint32 
+  SDL_GPUTextureType* = enum_SDL_GPUTextureType 
+  SDL_GPUSampleCount* = enum_SDL_GPUSampleCount 
+  SDL_GPUCubeMapFace* = enum_SDL_GPUCubeMapFace 
+  SDL_GPUBufferUsageFlags* = Uint32 
+  SDL_GPUTransferBufferUsage* = enum_SDL_GPUTransferBufferUsage 
+  SDL_GPUShaderStage* = enum_SDL_GPUShaderStage 
+  SDL_GPUShaderFormat* = Uint32 
+  SDL_GPUVertexElementFormat* = enum_SDL_GPUVertexElementFormat 
+  SDL_GPUVertexInputRate* = enum_SDL_GPUVertexInputRate 
+  SDL_GPUFillMode* = enum_SDL_GPUFillMode 
+  SDL_GPUCullMode* = enum_SDL_GPUCullMode 
+  SDL_GPUFrontFace* = enum_SDL_GPUFrontFace 
+  SDL_GPUCompareOp* = enum_SDL_GPUCompareOp 
+  SDL_GPUStencilOp* = enum_SDL_GPUStencilOp 
+  SDL_GPUBlendOp* = enum_SDL_GPUBlendOp 
+  SDL_GPUBlendFactor* = enum_SDL_GPUBlendFactor 
+  SDL_GPUColorComponentFlags* = Uint8 
+  SDL_GPUFilter* = enum_SDL_GPUFilter 
+  SDL_GPUSamplerMipmapMode* = enum_SDL_GPUSamplerMipmapMode 
+  SDL_GPUSamplerAddressMode* = enum_SDL_GPUSamplerAddressMode 
+  SDL_GPUPresentMode* = enum_SDL_GPUPresentMode 
+  SDL_GPUSwapchainComposition* = enum_SDL_GPUSwapchainComposition 
   struct_SDL_GPUViewport* {.pure, inheritable, bycopy.} = object
-    x*: cfloat
+    x*: cfloat               
     y*: cfloat
     w*: cfloat
     h*: cfloat
     min_depth*: cfloat
     max_depth*: cfloat
-  SDL_GPUViewport* = struct_SDL_GPUViewport
+  SDL_GPUViewport* = struct_SDL_GPUViewport 
   struct_SDL_GPUTextureTransferInfo* {.pure, inheritable, bycopy.} = object
-    transfer_buffer*: ptr SDL_GPUTransferBuffer
+    transfer_buffer*: ptr SDL_GPUTransferBuffer 
     offset*: Uint32
     pixels_per_row*: Uint32
     rows_per_layer*: Uint32
-  SDL_GPUTextureTransferInfo* = struct_SDL_GPUTextureTransferInfo
+  SDL_GPUTextureTransferInfo* = struct_SDL_GPUTextureTransferInfo 
   struct_SDL_GPUTransferBufferLocation* {.pure, inheritable, bycopy.} = object
-    transfer_buffer*: ptr SDL_GPUTransferBuffer
+    transfer_buffer*: ptr SDL_GPUTransferBuffer 
     offset*: Uint32
-  SDL_GPUTransferBufferLocation* = struct_SDL_GPUTransferBufferLocation
+  SDL_GPUTransferBufferLocation* = struct_SDL_GPUTransferBufferLocation 
   struct_SDL_GPUTextureLocation* {.pure, inheritable, bycopy.} = object
-    texture*: ptr SDL_GPUTexture
+    texture*: ptr SDL_GPUTexture 
     mip_level*: Uint32
     layer*: Uint32
     x*: Uint32
     y*: Uint32
     z*: Uint32
-  SDL_GPUTextureLocation* = struct_SDL_GPUTextureLocation
+  SDL_GPUTextureLocation* = struct_SDL_GPUTextureLocation 
   struct_SDL_GPUTextureRegion* {.pure, inheritable, bycopy.} = object
-    texture*: ptr SDL_GPUTexture
+    texture*: ptr SDL_GPUTexture 
     mip_level*: Uint32
     layer*: Uint32
     x*: Uint32
@@ -2865,45 +2865,45 @@ type
     w*: Uint32
     h*: Uint32
     d*: Uint32
-  SDL_GPUTextureRegion* = struct_SDL_GPUTextureRegion
+  SDL_GPUTextureRegion* = struct_SDL_GPUTextureRegion 
   struct_SDL_GPUBlitRegion* {.pure, inheritable, bycopy.} = object
-    texture*: ptr SDL_GPUTexture
+    texture*: ptr SDL_GPUTexture 
     mip_level*: Uint32
     layer_or_depth_plane*: Uint32
     x*: Uint32
     y*: Uint32
     w*: Uint32
     h*: Uint32
-  SDL_GPUBlitRegion* = struct_SDL_GPUBlitRegion
+  SDL_GPUBlitRegion* = struct_SDL_GPUBlitRegion 
   struct_SDL_GPUBufferLocation* {.pure, inheritable, bycopy.} = object
-    buffer*: ptr SDL_GPUBuffer
+    buffer*: ptr SDL_GPUBuffer 
     offset*: Uint32
-  SDL_GPUBufferLocation* = struct_SDL_GPUBufferLocation
+  SDL_GPUBufferLocation* = struct_SDL_GPUBufferLocation 
   struct_SDL_GPUBufferRegion* {.pure, inheritable, bycopy.} = object
-    buffer*: ptr SDL_GPUBuffer
+    buffer*: ptr SDL_GPUBuffer 
     offset*: Uint32
     size*: Uint32
-  SDL_GPUBufferRegion* = struct_SDL_GPUBufferRegion
+  SDL_GPUBufferRegion* = struct_SDL_GPUBufferRegion 
   struct_SDL_GPUIndirectDrawCommand* {.pure, inheritable, bycopy.} = object
-    num_vertices*: Uint32
+    num_vertices*: Uint32    
     num_instances*: Uint32
     first_vertex*: Uint32
     first_instance*: Uint32
-  SDL_GPUIndirectDrawCommand* = struct_SDL_GPUIndirectDrawCommand
+  SDL_GPUIndirectDrawCommand* = struct_SDL_GPUIndirectDrawCommand 
   struct_SDL_GPUIndexedIndirectDrawCommand* {.pure, inheritable, bycopy.} = object
-    num_indices*: Uint32
+    num_indices*: Uint32     
     num_instances*: Uint32
     first_index*: Uint32
     vertex_offset*: Sint32
     first_instance*: Uint32
-  SDL_GPUIndexedIndirectDrawCommand* = struct_SDL_GPUIndexedIndirectDrawCommand
+  SDL_GPUIndexedIndirectDrawCommand* = struct_SDL_GPUIndexedIndirectDrawCommand 
   struct_SDL_GPUIndirectDispatchCommand* {.pure, inheritable, bycopy.} = object
-    groupcount_x*: Uint32
+    groupcount_x*: Uint32    
     groupcount_y*: Uint32
     groupcount_z*: Uint32
-  SDL_GPUIndirectDispatchCommand* = struct_SDL_GPUIndirectDispatchCommand
+  SDL_GPUIndirectDispatchCommand* = struct_SDL_GPUIndirectDispatchCommand 
   struct_SDL_GPUSamplerCreateInfo* {.pure, inheritable, bycopy.} = object
-    min_filter*: SDL_GPUFilter
+    min_filter*: SDL_GPUFilter 
     mag_filter*: SDL_GPUFilter
     mipmap_mode*: SDL_GPUSamplerMipmapMode
     address_mode_u*: SDL_GPUSamplerAddressMode
@@ -2919,33 +2919,33 @@ type
     padding1*: Uint8
     padding2*: Uint8
     props*: SDL_PropertiesID
-  SDL_GPUSamplerCreateInfo* = struct_SDL_GPUSamplerCreateInfo
+  SDL_GPUSamplerCreateInfo* = struct_SDL_GPUSamplerCreateInfo 
   struct_SDL_GPUVertexBufferDescription* {.pure, inheritable, bycopy.} = object
-    slot*: Uint32
+    slot*: Uint32            
     pitch*: Uint32
     input_rate*: SDL_GPUVertexInputRate
     instance_step_rate*: Uint32
-  SDL_GPUVertexBufferDescription* = struct_SDL_GPUVertexBufferDescription
+  SDL_GPUVertexBufferDescription* = struct_SDL_GPUVertexBufferDescription 
   struct_SDL_GPUVertexAttribute* {.pure, inheritable, bycopy.} = object
-    location*: Uint32
+    location*: Uint32        
     buffer_slot*: Uint32
     format*: SDL_GPUVertexElementFormat
     offset*: Uint32
-  SDL_GPUVertexAttribute* = struct_SDL_GPUVertexAttribute
+  SDL_GPUVertexAttribute* = struct_SDL_GPUVertexAttribute 
   struct_SDL_GPUVertexInputState* {.pure, inheritable, bycopy.} = object
-    vertex_buffer_descriptions*: ptr SDL_GPUVertexBufferDescription
+    vertex_buffer_descriptions*: ptr SDL_GPUVertexBufferDescription 
     num_vertex_buffers*: Uint32
     vertex_attributes*: ptr SDL_GPUVertexAttribute
     num_vertex_attributes*: Uint32
-  SDL_GPUVertexInputState* = struct_SDL_GPUVertexInputState
+  SDL_GPUVertexInputState* = struct_SDL_GPUVertexInputState 
   struct_SDL_GPUStencilOpState* {.pure, inheritable, bycopy.} = object
-    fail_op*: SDL_GPUStencilOp
+    fail_op*: SDL_GPUStencilOp 
     pass_op*: SDL_GPUStencilOp
     depth_fail_op*: SDL_GPUStencilOp
     compare_op*: SDL_GPUCompareOp
-  SDL_GPUStencilOpState* = struct_SDL_GPUStencilOpState
+  SDL_GPUStencilOpState* = struct_SDL_GPUStencilOpState 
   struct_SDL_GPUColorTargetBlendState* {.pure, inheritable, bycopy.} = object
-    src_color_blendfactor*: SDL_GPUBlendFactor
+    src_color_blendfactor*: SDL_GPUBlendFactor 
     dst_color_blendfactor*: SDL_GPUBlendFactor
     color_blend_op*: SDL_GPUBlendOp
     src_alpha_blendfactor*: SDL_GPUBlendFactor
@@ -2956,9 +2956,9 @@ type
     enable_color_write_mask*: bool
     padding1*: Uint8
     padding2*: Uint8
-  SDL_GPUColorTargetBlendState* = struct_SDL_GPUColorTargetBlendState
+  SDL_GPUColorTargetBlendState* = struct_SDL_GPUColorTargetBlendState 
   struct_SDL_GPUShaderCreateInfo* {.pure, inheritable, bycopy.} = object
-    code_size*: csize_t
+    code_size*: csize_t      
     code*: ptr Uint8
     entrypoint*: cstring
     format*: SDL_GPUShaderFormat
@@ -2968,9 +2968,9 @@ type
     num_storage_buffers*: Uint32
     num_uniform_buffers*: Uint32
     props*: SDL_PropertiesID
-  SDL_GPUShaderCreateInfo* = struct_SDL_GPUShaderCreateInfo
+  SDL_GPUShaderCreateInfo* = struct_SDL_GPUShaderCreateInfo 
   struct_SDL_GPUTextureCreateInfo* {.pure, inheritable, bycopy.} = object
-    type_field*: SDL_GPUTextureType
+    type_field*: SDL_GPUTextureType 
     format*: SDL_GPUTextureFormat
     usage*: SDL_GPUTextureUsageFlags
     width*: Uint32
@@ -2979,19 +2979,19 @@ type
     num_levels*: Uint32
     sample_count*: SDL_GPUSampleCount
     props*: SDL_PropertiesID
-  SDL_GPUTextureCreateInfo* = struct_SDL_GPUTextureCreateInfo
+  SDL_GPUTextureCreateInfo* = struct_SDL_GPUTextureCreateInfo 
   struct_SDL_GPUBufferCreateInfo* {.pure, inheritable, bycopy.} = object
-    usage*: SDL_GPUBufferUsageFlags
+    usage*: SDL_GPUBufferUsageFlags 
     size*: Uint32
     props*: SDL_PropertiesID
-  SDL_GPUBufferCreateInfo* = struct_SDL_GPUBufferCreateInfo
+  SDL_GPUBufferCreateInfo* = struct_SDL_GPUBufferCreateInfo 
   struct_SDL_GPUTransferBufferCreateInfo* {.pure, inheritable, bycopy.} = object
-    usage*: SDL_GPUTransferBufferUsage
+    usage*: SDL_GPUTransferBufferUsage 
     size*: Uint32
     props*: SDL_PropertiesID
-  SDL_GPUTransferBufferCreateInfo* = struct_SDL_GPUTransferBufferCreateInfo
+  SDL_GPUTransferBufferCreateInfo* = struct_SDL_GPUTransferBufferCreateInfo 
   struct_SDL_GPURasterizerState* {.pure, inheritable, bycopy.} = object
-    fill_mode*: SDL_GPUFillMode
+    fill_mode*: SDL_GPUFillMode 
     cull_mode*: SDL_GPUCullMode
     front_face*: SDL_GPUFrontFace
     depth_bias_constant_factor*: cfloat
@@ -3001,17 +3001,17 @@ type
     enable_depth_clip*: bool
     padding1*: Uint8
     padding2*: Uint8
-  SDL_GPURasterizerState* = struct_SDL_GPURasterizerState
+  SDL_GPURasterizerState* = struct_SDL_GPURasterizerState 
   struct_SDL_GPUMultisampleState* {.pure, inheritable, bycopy.} = object
-    sample_count*: SDL_GPUSampleCount
+    sample_count*: SDL_GPUSampleCount 
     sample_mask*: Uint32
     enable_mask*: bool
     padding1*: Uint8
     padding2*: Uint8
     padding3*: Uint8
-  SDL_GPUMultisampleState* = struct_SDL_GPUMultisampleState
+  SDL_GPUMultisampleState* = struct_SDL_GPUMultisampleState 
   struct_SDL_GPUDepthStencilState* {.pure, inheritable, bycopy.} = object
-    compare_op*: SDL_GPUCompareOp
+    compare_op*: SDL_GPUCompareOp 
     back_stencil_state*: SDL_GPUStencilOpState
     front_stencil_state*: SDL_GPUStencilOpState
     compare_mask*: Uint8
@@ -3022,22 +3022,22 @@ type
     padding1*: Uint8
     padding2*: Uint8
     padding3*: Uint8
-  SDL_GPUDepthStencilState* = struct_SDL_GPUDepthStencilState
+  SDL_GPUDepthStencilState* = struct_SDL_GPUDepthStencilState 
   struct_SDL_GPUColorTargetDescription* {.pure, inheritable, bycopy.} = object
-    format*: SDL_GPUTextureFormat
+    format*: SDL_GPUTextureFormat 
     blend_state*: SDL_GPUColorTargetBlendState
-  SDL_GPUColorTargetDescription* = struct_SDL_GPUColorTargetDescription
+  SDL_GPUColorTargetDescription* = struct_SDL_GPUColorTargetDescription 
   struct_SDL_GPUGraphicsPipelineTargetInfo* {.pure, inheritable, bycopy.} = object
-    color_target_descriptions*: ptr SDL_GPUColorTargetDescription
+    color_target_descriptions*: ptr SDL_GPUColorTargetDescription 
     num_color_targets*: Uint32
     depth_stencil_format*: SDL_GPUTextureFormat
     has_depth_stencil_target*: bool
     padding1*: Uint8
     padding2*: Uint8
     padding3*: Uint8
-  SDL_GPUGraphicsPipelineTargetInfo* = struct_SDL_GPUGraphicsPipelineTargetInfo
+  SDL_GPUGraphicsPipelineTargetInfo* = struct_SDL_GPUGraphicsPipelineTargetInfo 
   struct_SDL_GPUGraphicsPipelineCreateInfo* {.pure, inheritable, bycopy.} = object
-    vertex_shader*: ptr SDL_GPUShader
+    vertex_shader*: ptr SDL_GPUShader 
     fragment_shader*: ptr SDL_GPUShader
     vertex_input_state*: SDL_GPUVertexInputState
     primitive_type*: SDL_GPUPrimitiveType
@@ -3046,9 +3046,9 @@ type
     depth_stencil_state*: SDL_GPUDepthStencilState
     target_info*: SDL_GPUGraphicsPipelineTargetInfo
     props*: SDL_PropertiesID
-  SDL_GPUGraphicsPipelineCreateInfo* = struct_SDL_GPUGraphicsPipelineCreateInfo
+  SDL_GPUGraphicsPipelineCreateInfo* = struct_SDL_GPUGraphicsPipelineCreateInfo 
   struct_SDL_GPUComputePipelineCreateInfo* {.pure, inheritable, bycopy.} = object
-    code_size*: csize_t
+    code_size*: csize_t      
     code*: ptr Uint8
     entrypoint*: cstring
     format*: SDL_GPUShaderFormat
@@ -3062,9 +3062,9 @@ type
     threadcount_y*: Uint32
     threadcount_z*: Uint32
     props*: SDL_PropertiesID
-  SDL_GPUComputePipelineCreateInfo* = struct_SDL_GPUComputePipelineCreateInfo
+  SDL_GPUComputePipelineCreateInfo* = struct_SDL_GPUComputePipelineCreateInfo 
   struct_SDL_GPUColorTargetInfo* {.pure, inheritable, bycopy.} = object
-    texture*: ptr SDL_GPUTexture
+    texture*: ptr SDL_GPUTexture 
     mip_level*: Uint32
     layer_or_depth_plane*: Uint32
     clear_color*: SDL_FColor
@@ -3077,9 +3077,9 @@ type
     cycle_resolve_texture*: bool
     padding1*: Uint8
     padding2*: Uint8
-  SDL_GPUColorTargetInfo* = struct_SDL_GPUColorTargetInfo
+  SDL_GPUColorTargetInfo* = struct_SDL_GPUColorTargetInfo 
   struct_SDL_GPUDepthStencilTargetInfo* {.pure, inheritable, bycopy.} = object
-    texture*: ptr SDL_GPUTexture
+    texture*: ptr SDL_GPUTexture 
     clear_depth*: cfloat
     load_op*: SDL_GPULoadOp
     store_op*: SDL_GPUStoreOp
@@ -3089,9 +3089,9 @@ type
     clear_stencil*: Uint8
     padding1*: Uint8
     padding2*: Uint8
-  SDL_GPUDepthStencilTargetInfo* = struct_SDL_GPUDepthStencilTargetInfo
+  SDL_GPUDepthStencilTargetInfo* = struct_SDL_GPUDepthStencilTargetInfo 
   struct_SDL_GPUBlitInfo* {.pure, inheritable, bycopy.} = object
-    source*: SDL_GPUBlitRegion
+    source*: SDL_GPUBlitRegion 
     destination*: SDL_GPUBlitRegion
     load_op*: SDL_GPULoadOp
     clear_color*: SDL_FColor
@@ -3101,38 +3101,38 @@ type
     padding1*: Uint8
     padding2*: Uint8
     padding3*: Uint8
-  SDL_GPUBlitInfo* = struct_SDL_GPUBlitInfo
+  SDL_GPUBlitInfo* = struct_SDL_GPUBlitInfo 
   struct_SDL_GPUBufferBinding* {.pure, inheritable, bycopy.} = object
-    buffer*: ptr SDL_GPUBuffer
+    buffer*: ptr SDL_GPUBuffer 
     offset*: Uint32
-  SDL_GPUBufferBinding* = struct_SDL_GPUBufferBinding
+  SDL_GPUBufferBinding* = struct_SDL_GPUBufferBinding 
   struct_SDL_GPUTextureSamplerBinding* {.pure, inheritable, bycopy.} = object
-    texture*: ptr SDL_GPUTexture
+    texture*: ptr SDL_GPUTexture 
     sampler*: ptr SDL_GPUSampler
-  SDL_GPUTextureSamplerBinding* = struct_SDL_GPUTextureSamplerBinding
+  SDL_GPUTextureSamplerBinding* = struct_SDL_GPUTextureSamplerBinding 
   struct_SDL_GPUStorageBufferReadWriteBinding* {.pure, inheritable, bycopy.} = object
-    buffer*: ptr SDL_GPUBuffer
+    buffer*: ptr SDL_GPUBuffer 
     cycle*: bool
     padding1*: Uint8
     padding2*: Uint8
     padding3*: Uint8
-  SDL_GPUStorageBufferReadWriteBinding* = struct_SDL_GPUStorageBufferReadWriteBinding
+  SDL_GPUStorageBufferReadWriteBinding* = struct_SDL_GPUStorageBufferReadWriteBinding 
   struct_SDL_GPUStorageTextureReadWriteBinding* {.pure, inheritable, bycopy.} = object
-    texture*: ptr SDL_GPUTexture
+    texture*: ptr SDL_GPUTexture 
     mip_level*: Uint32
     layer*: Uint32
     cycle*: bool
     padding1*: Uint8
     padding2*: Uint8
     padding3*: Uint8
-  SDL_GPUStorageTextureReadWriteBinding* = struct_SDL_GPUStorageTextureReadWriteBinding
-  SDL_Haptic* = struct_SDL_Haptic
+  SDL_GPUStorageTextureReadWriteBinding* = struct_SDL_GPUStorageTextureReadWriteBinding 
+  SDL_Haptic* = struct_SDL_Haptic 
   struct_SDL_HapticDirection* {.pure, inheritable, bycopy.} = object
-    type_field*: Uint8
+    type_field*: Uint8       
     dir*: array[3'i64, Sint32]
-  SDL_HapticDirection* = struct_SDL_HapticDirection
+  SDL_HapticDirection* = struct_SDL_HapticDirection 
   struct_SDL_HapticConstant* {.pure, inheritable, bycopy.} = object
-    type_field*: Uint16
+    type_field*: Uint16      
     direction*: SDL_HapticDirection
     length*: Uint32
     delay*: Uint16
@@ -3143,9 +3143,9 @@ type
     attack_level*: Uint16
     fade_length*: Uint16
     fade_level*: Uint16
-  SDL_HapticConstant* = struct_SDL_HapticConstant
+  SDL_HapticConstant* = struct_SDL_HapticConstant 
   struct_SDL_HapticPeriodic* {.pure, inheritable, bycopy.} = object
-    type_field*: Uint16
+    type_field*: Uint16      
     direction*: SDL_HapticDirection
     length*: Uint32
     delay*: Uint16
@@ -3159,9 +3159,9 @@ type
     attack_level*: Uint16
     fade_length*: Uint16
     fade_level*: Uint16
-  SDL_HapticPeriodic* = struct_SDL_HapticPeriodic
+  SDL_HapticPeriodic* = struct_SDL_HapticPeriodic 
   struct_SDL_HapticCondition* {.pure, inheritable, bycopy.} = object
-    type_field*: Uint16
+    type_field*: Uint16      
     direction*: SDL_HapticDirection
     length*: Uint32
     delay*: Uint16
@@ -3173,9 +3173,9 @@ type
     left_coeff*: array[3'i64, Sint16]
     deadband*: array[3'i64, Uint16]
     center*: array[3'i64, Sint16]
-  SDL_HapticCondition* = struct_SDL_HapticCondition
+  SDL_HapticCondition* = struct_SDL_HapticCondition 
   struct_SDL_HapticRamp* {.pure, inheritable, bycopy.} = object
-    type_field*: Uint16
+    type_field*: Uint16      
     direction*: SDL_HapticDirection
     length*: Uint32
     delay*: Uint16
@@ -3187,15 +3187,15 @@ type
     attack_level*: Uint16
     fade_length*: Uint16
     fade_level*: Uint16
-  SDL_HapticRamp* = struct_SDL_HapticRamp
+  SDL_HapticRamp* = struct_SDL_HapticRamp 
   struct_SDL_HapticLeftRight* {.pure, inheritable, bycopy.} = object
-    type_field*: Uint16
+    type_field*: Uint16      
     length*: Uint32
     large_magnitude*: Uint16
     small_magnitude*: Uint16
-  SDL_HapticLeftRight* = struct_SDL_HapticLeftRight
+  SDL_HapticLeftRight* = struct_SDL_HapticLeftRight 
   struct_SDL_HapticCustom* {.pure, inheritable, bycopy.} = object
-    type_field*: Uint16
+    type_field*: Uint16      
     direction*: SDL_HapticDirection
     length*: Uint32
     delay*: Uint16
@@ -3209,21 +3209,21 @@ type
     attack_level*: Uint16
     fade_length*: Uint16
     fade_level*: Uint16
-  SDL_HapticCustom* = struct_SDL_HapticCustom
+  SDL_HapticCustom* = struct_SDL_HapticCustom 
   union_SDL_HapticEffect* {.union, bycopy.} = object
-    type_field*: Uint16
+    type_field*: Uint16      
     constant*: SDL_HapticConstant
     periodic*: SDL_HapticPeriodic
     condition*: SDL_HapticCondition
     ramp*: SDL_HapticRamp
     leftright*: SDL_HapticLeftRight
     custom*: SDL_HapticCustom
-  SDL_HapticEffect* = union_SDL_HapticEffect
-  SDL_HapticID* = Uint32
-  SDL_hid_device* = struct_SDL_hid_device
-  SDL_hid_bus_type* = enum_SDL_hid_bus_type
+  SDL_HapticEffect* = union_SDL_HapticEffect 
+  SDL_HapticID* = Uint32     
+  SDL_hid_device* = struct_SDL_hid_device 
+  SDL_hid_bus_type* = enum_SDL_hid_bus_type 
   struct_SDL_hid_device_info* {.pure, inheritable, bycopy.} = object
-    path*: cstring
+    path*: cstring           
     vendor_id*: cushort
     product_id*: cushort
     serial_number*: ptr wchar_t
@@ -3238,72 +3238,72 @@ type
     interface_protocol*: cint
     bus_type*: SDL_hid_bus_type
     next*: ptr struct_SDL_hid_device_info
-  SDL_hid_device_info* = struct_SDL_hid_device_info
-  SDL_HintPriority* = enum_SDL_HintPriority
+  SDL_hid_device_info* = struct_SDL_hid_device_info 
+  SDL_HintPriority* = enum_SDL_HintPriority 
   SDL_HintCallback* = proc (a0: pointer; a1: cstring; a2: cstring; a3: cstring): void {.
-      cdecl.}
-  SDL_InitFlags* = Uint32
-  SDL_AppResult* = enum_SDL_AppResult
+      cdecl.}                
+  SDL_InitFlags* = Uint32    
+  SDL_AppResult* = enum_SDL_AppResult 
   SDL_AppInit_func* = proc (a0: ptr pointer; a1: cint;
                             a2: ptr UncheckedArray[cstring]): SDL_AppResult {.
-      cdecl.}
-  SDL_AppIterate_func* = proc (a0: pointer): SDL_AppResult {.cdecl.}
+      cdecl.}                
+  SDL_AppIterate_func* = proc (a0: pointer): SDL_AppResult {.cdecl.} 
   SDL_AppEvent_func* = proc (a0: pointer; a1: ptr SDL_Event): SDL_AppResult {.
-      cdecl.}
-  SDL_AppQuit_func* = proc (a0: pointer; a1: SDL_AppResult): void {.cdecl.}
-  SDL_SharedObject* = struct_SDL_SharedObject
+      cdecl.}                
+  SDL_AppQuit_func* = proc (a0: pointer; a1: SDL_AppResult): void {.cdecl.} 
+  SDL_SharedObject* = struct_SDL_SharedObject 
   struct_SDL_Locale* {.pure, inheritable, bycopy.} = object
-    language*: cstring
+    language*: cstring       
     country*: cstring
-  SDL_Locale* = struct_SDL_Locale
-  SDL_LogCategory* = enum_SDL_LogCategory
-  SDL_LogPriority* = enum_SDL_LogPriority
+  SDL_Locale* = struct_SDL_Locale 
+  SDL_LogCategory* = enum_SDL_LogCategory 
+  SDL_LogPriority* = enum_SDL_LogPriority 
   SDL_LogOutputFunction* = proc (a0: pointer; a1: cint; a2: SDL_LogPriority;
-                                 a3: cstring): void {.cdecl.}
-  SDL_MessageBoxFlags* = Uint32
-  SDL_MessageBoxButtonFlags* = Uint32
+                                 a3: cstring): void {.cdecl.} 
+  SDL_MessageBoxFlags* = Uint32 
+  SDL_MessageBoxButtonFlags* = Uint32 
   struct_SDL_MessageBoxButtonData* {.pure, inheritable, bycopy.} = object
-    flags*: SDL_MessageBoxButtonFlags
+    flags*: SDL_MessageBoxButtonFlags 
     buttonID*: cint
     text*: cstring
-  SDL_MessageBoxButtonData* = struct_SDL_MessageBoxButtonData
+  SDL_MessageBoxButtonData* = struct_SDL_MessageBoxButtonData 
   struct_SDL_MessageBoxColor* {.pure, inheritable, bycopy.} = object
-    r*: Uint8
+    r*: Uint8                
     g*: Uint8
     b*: Uint8
-  SDL_MessageBoxColor* = struct_SDL_MessageBoxColor
-  SDL_MessageBoxColorType* = enum_SDL_MessageBoxColorType
+  SDL_MessageBoxColor* = struct_SDL_MessageBoxColor 
+  SDL_MessageBoxColorType* = enum_SDL_MessageBoxColorType 
   struct_SDL_MessageBoxColorScheme* {.pure, inheritable, bycopy.} = object
-    colors*: array[5'i64, SDL_MessageBoxColor]
-  SDL_MessageBoxColorScheme* = struct_SDL_MessageBoxColorScheme
+    colors*: array[5'i64, SDL_MessageBoxColor] 
+  SDL_MessageBoxColorScheme* = struct_SDL_MessageBoxColorScheme 
   struct_SDL_MessageBoxData* {.pure, inheritable, bycopy.} = object
-    flags*: SDL_MessageBoxFlags
+    flags*: SDL_MessageBoxFlags 
     window*: ptr SDL_Window
     title*: cstring
     message*: cstring
     numbuttons*: cint
     buttons*: ptr SDL_MessageBoxButtonData
     colorScheme*: ptr SDL_MessageBoxColorScheme
-  SDL_MessageBoxData* = struct_SDL_MessageBoxData
-  SDL_MetalView* = pointer
-  SDL_Process* = struct_SDL_Process
-  SDL_ProcessIO* = enum_SDL_ProcessIO
+  SDL_MessageBoxData* = struct_SDL_MessageBoxData 
+  SDL_MetalView* = pointer   
+  SDL_Process* = struct_SDL_Process 
+  SDL_ProcessIO* = enum_SDL_ProcessIO 
   struct_SDL_Vertex* {.pure, inheritable, bycopy.} = object
-    position*: SDL_FPoint
+    position*: SDL_FPoint    
     color*: SDL_FColor
     tex_coord*: SDL_FPoint
-  SDL_Vertex* = struct_SDL_Vertex
-  SDL_TextureAccess* = enum_SDL_TextureAccess
-  SDL_RendererLogicalPresentation* = enum_SDL_RendererLogicalPresentation
-  SDL_Renderer* = struct_SDL_Renderer
+  SDL_Vertex* = struct_SDL_Vertex 
+  SDL_TextureAccess* = enum_SDL_TextureAccess 
+  SDL_RendererLogicalPresentation* = enum_SDL_RendererLogicalPresentation 
+  SDL_Renderer* = struct_SDL_Renderer 
   struct_SDL_Texture* {.pure, inheritable, bycopy.} = object
-    format*: SDL_PixelFormat
+    format*: SDL_PixelFormat 
     w*: cint
     h*: cint
     refcount*: cint
-  SDL_Texture* = struct_SDL_Texture
+  SDL_Texture* = struct_SDL_Texture 
   struct_SDL_StorageInterface* {.pure, inheritable, bycopy.} = object
-    version*: Uint32
+    version*: Uint32         
     close*: proc (a0: pointer): bool {.cdecl.}
     ready*: proc (a0: pointer): bool {.cdecl.}
     enumerate*: proc (a0: pointer; a1: cstring;
@@ -3319,14 +3319,14 @@ type
     rename*: proc (a0: pointer; a1: cstring; a2: cstring): bool {.cdecl.}
     copy*: proc (a0: pointer; a1: cstring; a2: cstring): bool {.cdecl.}
     space_remaining*: proc (a0: pointer): Uint64 {.cdecl.}
-  SDL_StorageInterface* = struct_SDL_StorageInterface
-  SDL_Storage* = struct_SDL_Storage
-  MSG* = struct_tagMSG
-  SDL_WindowsMessageHook* = proc (a0: pointer; a1: ptr MSG): bool {.cdecl.}
-  XEvent* = union_XEvent
-  SDL_X11EventHook* = proc (a0: pointer; a1: ptr XEvent): bool {.cdecl.}
+  SDL_StorageInterface* = struct_SDL_StorageInterface 
+  SDL_Storage* = struct_SDL_Storage 
+  MSG* = struct_tagMSG       
+  SDL_WindowsMessageHook* = proc (a0: pointer; a1: ptr MSG): bool {.cdecl.} 
+  XEvent* = union_XEvent     
+  SDL_X11EventHook* = proc (a0: pointer; a1: ptr XEvent): bool {.cdecl.} 
   struct_SDL_DateTime* {.pure, inheritable, bycopy.} = object
-    year*: cint
+    year*: cint              
     month*: cint
     day*: cint
     hour*: cint
@@ -3335,109 +3335,109 @@ type
     nanosecond*: cint
     day_of_week*: cint
     utc_offset*: cint
-  SDL_DateTime* = struct_SDL_DateTime
-  SDL_DateFormat* = enum_SDL_DateFormat
-  SDL_TimeFormat* = enum_SDL_TimeFormat
-  SDL_TimerID* = Uint32
+  SDL_DateTime* = struct_SDL_DateTime 
+  SDL_DateFormat* = enum_SDL_DateFormat 
+  SDL_TimeFormat* = enum_SDL_TimeFormat 
+  SDL_TimerID* = Uint32      
   SDL_TimerCallback* = proc (a0: pointer; a1: SDL_TimerID; a2: Uint32): Uint32 {.
-      cdecl.}
+      cdecl.}                
   SDL_NSTimerCallback* = proc (a0: pointer; a1: SDL_TimerID; a2: Uint64): Uint64 {.
-      cdecl.}
-  uintptr_t* = culonglong
-  internal_beginthreadex_proc_type* = proc (a0: pointer): cuint {.cdecl.}
+      cdecl.}                
+  uintptr_t* = culonglong    
+  internal_beginthreadex_proc_type* = proc (a0: pointer): cuint {.cdecl.} 
 when 1 is static:
   const
-    SDL_PLATFORM_WINDOWS* = 1
+    SDL_PLATFORM_WINDOWS* = 1 
 else:
-  let SDL_PLATFORM_WINDOWS* = 1
+  let SDL_PLATFORM_WINDOWS* = 1 
 when 0 is static:
   const
-    HAVE_WINAPIFAMILY_H* = 0
+    HAVE_WINAPIFAMILY_H* = 0 
 else:
-  let HAVE_WINAPIFAMILY_H* = 0
+  let HAVE_WINAPIFAMILY_H* = 0 
 when 0 is static:
   const
-    WINAPI_FAMILY_WINRT* = 0
+    WINAPI_FAMILY_WINRT* = 0 
 else:
-  let WINAPI_FAMILY_WINRT* = 0
+  let WINAPI_FAMILY_WINRT* = 0 
 when 0 is static:
   const
-    SDL_WINAPI_FAMILY_PHONE* = 0
+    SDL_WINAPI_FAMILY_PHONE* = 0 
 else:
-  let SDL_WINAPI_FAMILY_PHONE* = 0
+  let SDL_WINAPI_FAMILY_PHONE* = 0 
 when 1 is static:
   const
-    SDL_PLATFORM_WIN32* = 1
+    SDL_PLATFORM_WIN32* = 1  
 else:
-  let SDL_PLATFORM_WIN32* = 1
+  let SDL_PLATFORM_WIN32* = 1 
 when SDL_MAX_SINT64 is typedesc:
   type
-    SDL_MAX_TIME* = SDL_MAX_SINT64
+    SDL_MAX_TIME* = SDL_MAX_SINT64 
 else:
   when SDL_MAX_SINT64 is static:
     const
-      SDL_MAX_TIME* = SDL_MAX_SINT64
+      SDL_MAX_TIME* = SDL_MAX_SINT64 
   else:
-    let SDL_MAX_TIME* = SDL_MAX_SINT64
+    let SDL_MAX_TIME* = SDL_MAX_SINT64 
 when SDL_MIN_SINT64 is typedesc:
   type
-    SDL_MIN_TIME* = SDL_MIN_SINT64
+    SDL_MIN_TIME* = SDL_MIN_SINT64 
 else:
   when SDL_MIN_SINT64 is static:
     const
-      SDL_MIN_TIME* = SDL_MIN_SINT64
+      SDL_MIN_TIME* = SDL_MIN_SINT64 
   else:
-    let SDL_MIN_TIME* = SDL_MIN_SINT64
+    let SDL_MIN_TIME* = SDL_MIN_SINT64 
 when 0.0000001192092895507812 is static:
   const
-    SDL_FLT_EPSILON* = 0.0000001192092895507812
+    SDL_FLT_EPSILON* = 0.0000001192092895507812 
 else:
-  let SDL_FLT_EPSILON* = 0.0000001192092895507812
+  let SDL_FLT_EPSILON* = 0.0000001192092895507812 
 when "I64d" is static:
   const
-    SDL_PRIs64* = "I64d"
+    SDL_PRIs64* = "I64d"     
 else:
-  let SDL_PRIs64* = "I64d"
+  let SDL_PRIs64* = "I64d"   
 when "I64u" is static:
   const
-    SDL_PRIu64* = "I64u"
+    SDL_PRIu64* = "I64u"     
 else:
-  let SDL_PRIu64* = "I64u"
+  let SDL_PRIu64* = "I64u"   
 when "I64x" is static:
   const
-    SDL_PRIx64* = "I64x"
+    SDL_PRIx64* = "I64x"     
 else:
-  let SDL_PRIx64* = "I64x"
+  let SDL_PRIx64* = "I64x"   
 when "I64X" is static:
   const
-    SDL_PRIX64_const* = "I64X"
+    SDL_PRIX64_const* = "I64X" 
 else:
-  let SDL_PRIX64_const* = "I64X"
+  let SDL_PRIX64_const* = "I64X" 
 when "d" is static:
   const
-    PRId32* = "d"
+    PRId32* = "d"            
 else:
-  let PRId32* = "d"
+  let PRId32* = "d"          
 when "u" is static:
   const
-    PRIu32* = "u"
+    PRIu32* = "u"            
 else:
-  let PRIu32* = "u"
+  let PRIu32* = "u"          
 when "x" is static:
   const
-    PRIx32* = "x"
+    PRIx32* = "x"            
 else:
-  let PRIx32* = "x"
+  let PRIx32* = "x"          
 when "X" is static:
   const
-    PRIX32_const* = "X"
+    PRIX32_const* = "X"      
 else:
-  let PRIX32_const* = "X"
+  let PRIX32_const* = "X"    
 when "I64" is static:
   const
-    SDL_PRILL_PREFIX* = "I64"
+    SDL_PRILL_PREFIX* = "I64" 
 else:
-  let SDL_PRILL_PREFIX* = "I64"
+  let SDL_PRILL_PREFIX* = "I64" 
 proc SDL_memcpy*(dst: pointer; src: pointer; len: csize_t): pointer {.cdecl,
     importc: "SDL_memcpy".}
 proc memcpy*(internal_Dst: pointer; internal_Src: pointer;
@@ -3453,48 +3453,48 @@ proc memset*(internal_Dst: pointer; internal_Val: cint;
              internal_Size: culonglong): pointer {.cdecl, importc: "memset".}
 when 65533 is static:
   const
-    SDL_INVALID_UNICODE_CODEPOINT* = 65533
+    SDL_INVALID_UNICODE_CODEPOINT* = 65533 
 else:
-  let SDL_INVALID_UNICODE_CODEPOINT* = 65533
+  let SDL_INVALID_UNICODE_CODEPOINT* = 65533 
 when 3.141592653589793 is static:
   const
-    SDL_PI_D* = 3.141592653589793
+    SDL_PI_D* = 3.141592653589793 
 else:
-  let SDL_PI_D* = 3.141592653589793
+  let SDL_PI_D* = 3.141592653589793 
 when 3.141592653589793 is static:
   const
-    SDL_PI_F* = 3.141592653589793
+    SDL_PI_F* = 3.141592653589793 
 else:
-  let SDL_PI_F* = 3.141592653589793
+  let SDL_PI_F* = 3.141592653589793 
 when 2 is static:
   const
-    SDL_ASSERT_LEVEL* = 2
+    SDL_ASSERT_LEVEL* = 2    
 else:
-  let SDL_ASSERT_LEVEL* = 2
+  let SDL_ASSERT_LEVEL* = 2  
 when 0 is static:
   const
-    SDL_NULL_WHILE_LOOP_CONDITION* = 0
+    SDL_NULL_WHILE_LOOP_CONDITION* = 0 
 else:
-  let SDL_NULL_WHILE_LOOP_CONDITION* = 0
+  let SDL_NULL_WHILE_LOOP_CONDITION* = 0 
 when 1234 is static:
   const
-    SDL_LIL_ENDIAN* = 1234
+    SDL_LIL_ENDIAN* = 1234   
 else:
-  let SDL_LIL_ENDIAN* = 1234
+  let SDL_LIL_ENDIAN* = 1234 
 when 4321 is static:
   const
-    SDL_BIG_ENDIAN* = 4321
+    SDL_BIG_ENDIAN* = 4321   
 else:
-  let SDL_BIG_ENDIAN* = 4321
+  let SDL_BIG_ENDIAN* = 4321 
 when SDL_LIL_ENDIAN is typedesc:
   type
-    SDL_BYTEORDER* = SDL_LIL_ENDIAN
+    SDL_BYTEORDER* = SDL_LIL_ENDIAN 
 else:
   when SDL_LIL_ENDIAN is static:
     const
-      SDL_BYTEORDER* = SDL_LIL_ENDIAN
+      SDL_BYTEORDER* = SDL_LIL_ENDIAN 
   else:
-    let SDL_BYTEORDER* = SDL_LIL_ENDIAN
+    let SDL_BYTEORDER* = SDL_LIL_ENDIAN 
 proc internal_beginthreadex*(internal_Security: pointer;
                              internal_StackSize: cuint; internal_StartAddress: internal_beginthreadex_proc_type;
                              internal_ArgList: pointer;
@@ -3505,9303 +3505,9303 @@ proc internal_endthreadex*(internal_Retval: cuint): void {.cdecl,
     importc: "_endthreadex".}
 when "SDL.thread.create.entry_function" is static:
   const
-    SDL_PROP_THREAD_CREATE_ENTRY_FUNCTION_POINTER* = "SDL.thread.create.entry_function"
+    SDL_PROP_THREAD_CREATE_ENTRY_FUNCTION_POINTER* = "SDL.thread.create.entry_function" 
 else:
-  let SDL_PROP_THREAD_CREATE_ENTRY_FUNCTION_POINTER* = "SDL.thread.create.entry_function"
+  let SDL_PROP_THREAD_CREATE_ENTRY_FUNCTION_POINTER* = "SDL.thread.create.entry_function" 
 when "SDL.thread.create.name" is static:
   const
-    SDL_PROP_THREAD_CREATE_NAME_STRING* = "SDL.thread.create.name"
+    SDL_PROP_THREAD_CREATE_NAME_STRING* = "SDL.thread.create.name" 
 else:
-  let SDL_PROP_THREAD_CREATE_NAME_STRING* = "SDL.thread.create.name"
+  let SDL_PROP_THREAD_CREATE_NAME_STRING* = "SDL.thread.create.name" 
 when "SDL.thread.create.userdata" is static:
   const
-    SDL_PROP_THREAD_CREATE_USERDATA_POINTER* = "SDL.thread.create.userdata"
+    SDL_PROP_THREAD_CREATE_USERDATA_POINTER* = "SDL.thread.create.userdata" 
 else:
-  let SDL_PROP_THREAD_CREATE_USERDATA_POINTER* = "SDL.thread.create.userdata"
+  let SDL_PROP_THREAD_CREATE_USERDATA_POINTER* = "SDL.thread.create.userdata" 
 when "SDL.thread.create.stacksize" is static:
   const
-    SDL_PROP_THREAD_CREATE_STACKSIZE_NUMBER* = "SDL.thread.create.stacksize"
+    SDL_PROP_THREAD_CREATE_STACKSIZE_NUMBER* = "SDL.thread.create.stacksize" 
 else:
-  let SDL_PROP_THREAD_CREATE_STACKSIZE_NUMBER* = "SDL.thread.create.stacksize"
+  let SDL_PROP_THREAD_CREATE_STACKSIZE_NUMBER* = "SDL.thread.create.stacksize" 
 when "SDL.iostream.windows.handle" is static:
   const
-    SDL_PROP_IOSTREAM_WINDOWS_HANDLE_POINTER* = "SDL.iostream.windows.handle"
+    SDL_PROP_IOSTREAM_WINDOWS_HANDLE_POINTER* = "SDL.iostream.windows.handle" 
 else:
-  let SDL_PROP_IOSTREAM_WINDOWS_HANDLE_POINTER* = "SDL.iostream.windows.handle"
+  let SDL_PROP_IOSTREAM_WINDOWS_HANDLE_POINTER* = "SDL.iostream.windows.handle" 
 when "SDL.iostream.stdio.file" is static:
   const
-    SDL_PROP_IOSTREAM_STDIO_FILE_POINTER* = "SDL.iostream.stdio.file"
+    SDL_PROP_IOSTREAM_STDIO_FILE_POINTER* = "SDL.iostream.stdio.file" 
 else:
-  let SDL_PROP_IOSTREAM_STDIO_FILE_POINTER* = "SDL.iostream.stdio.file"
+  let SDL_PROP_IOSTREAM_STDIO_FILE_POINTER* = "SDL.iostream.stdio.file" 
 when "SDL.iostream.file_descriptor" is static:
   const
-    SDL_PROP_IOSTREAM_FILE_DESCRIPTOR_NUMBER* = "SDL.iostream.file_descriptor"
+    SDL_PROP_IOSTREAM_FILE_DESCRIPTOR_NUMBER* = "SDL.iostream.file_descriptor" 
 else:
-  let SDL_PROP_IOSTREAM_FILE_DESCRIPTOR_NUMBER* = "SDL.iostream.file_descriptor"
+  let SDL_PROP_IOSTREAM_FILE_DESCRIPTOR_NUMBER* = "SDL.iostream.file_descriptor" 
 when "SDL.iostream.android.aasset" is static:
   const
-    SDL_PROP_IOSTREAM_ANDROID_AASSET_POINTER* = "SDL.iostream.android.aasset"
+    SDL_PROP_IOSTREAM_ANDROID_AASSET_POINTER* = "SDL.iostream.android.aasset" 
 else:
-  let SDL_PROP_IOSTREAM_ANDROID_AASSET_POINTER* = "SDL.iostream.android.aasset"
+  let SDL_PROP_IOSTREAM_ANDROID_AASSET_POINTER* = "SDL.iostream.android.aasset" 
 when "SDL.iostream.memory.base" is static:
   const
-    SDL_PROP_IOSTREAM_MEMORY_POINTER* = "SDL.iostream.memory.base"
+    SDL_PROP_IOSTREAM_MEMORY_POINTER* = "SDL.iostream.memory.base" 
 else:
-  let SDL_PROP_IOSTREAM_MEMORY_POINTER* = "SDL.iostream.memory.base"
+  let SDL_PROP_IOSTREAM_MEMORY_POINTER* = "SDL.iostream.memory.base" 
 when "SDL.iostream.memory.size" is static:
   const
-    SDL_PROP_IOSTREAM_MEMORY_SIZE_NUMBER* = "SDL.iostream.memory.size"
+    SDL_PROP_IOSTREAM_MEMORY_SIZE_NUMBER* = "SDL.iostream.memory.size" 
 else:
-  let SDL_PROP_IOSTREAM_MEMORY_SIZE_NUMBER* = "SDL.iostream.memory.size"
+  let SDL_PROP_IOSTREAM_MEMORY_SIZE_NUMBER* = "SDL.iostream.memory.size" 
 when "SDL.iostream.dynamic.memory" is static:
   const
-    SDL_PROP_IOSTREAM_DYNAMIC_MEMORY_POINTER* = "SDL.iostream.dynamic.memory"
+    SDL_PROP_IOSTREAM_DYNAMIC_MEMORY_POINTER* = "SDL.iostream.dynamic.memory" 
 else:
-  let SDL_PROP_IOSTREAM_DYNAMIC_MEMORY_POINTER* = "SDL.iostream.dynamic.memory"
+  let SDL_PROP_IOSTREAM_DYNAMIC_MEMORY_POINTER* = "SDL.iostream.dynamic.memory" 
 when "SDL.iostream.dynamic.chunksize" is static:
   const
-    SDL_PROP_IOSTREAM_DYNAMIC_CHUNKSIZE_NUMBER* = "SDL.iostream.dynamic.chunksize"
+    SDL_PROP_IOSTREAM_DYNAMIC_CHUNKSIZE_NUMBER* = "SDL.iostream.dynamic.chunksize" 
 else:
-  let SDL_PROP_IOSTREAM_DYNAMIC_CHUNKSIZE_NUMBER* = "SDL.iostream.dynamic.chunksize"
+  let SDL_PROP_IOSTREAM_DYNAMIC_CHUNKSIZE_NUMBER* = "SDL.iostream.dynamic.chunksize" 
 when cast[cuint](255'i64) is static:
   const
-    SDL_AUDIO_MASK_BITSIZE* = cast[cuint](255'i64)
+    SDL_AUDIO_MASK_BITSIZE* = cast[cuint](255'i64) 
 else:
-  let SDL_AUDIO_MASK_BITSIZE* = cast[cuint](255'i64)
+  let SDL_AUDIO_MASK_BITSIZE* = cast[cuint](255'i64) 
 when cast[cuint](0'i64) is static:
   const
-    SDL_BLENDMODE_NONE* = cast[cuint](0'i64)
+    SDL_BLENDMODE_NONE* = cast[cuint](0'i64) 
 else:
-  let SDL_BLENDMODE_NONE* = cast[cuint](0'i64)
+  let SDL_BLENDMODE_NONE* = cast[cuint](0'i64) 
 when cast[cuint](1'i64) is static:
   const
-    SDL_BLENDMODE_BLEND* = cast[cuint](1'i64)
+    SDL_BLENDMODE_BLEND* = cast[cuint](1'i64) 
 else:
-  let SDL_BLENDMODE_BLEND* = cast[cuint](1'i64)
+  let SDL_BLENDMODE_BLEND* = cast[cuint](1'i64) 
 when cast[cuint](16'i64) is static:
   const
-    SDL_BLENDMODE_BLEND_PREMULTIPLIED* = cast[cuint](16'i64)
+    SDL_BLENDMODE_BLEND_PREMULTIPLIED* = cast[cuint](16'i64) 
 else:
-  let SDL_BLENDMODE_BLEND_PREMULTIPLIED* = cast[cuint](16'i64)
+  let SDL_BLENDMODE_BLEND_PREMULTIPLIED* = cast[cuint](16'i64) 
 when cast[cuint](2'i64) is static:
   const
-    SDL_BLENDMODE_ADD* = cast[cuint](2'i64)
+    SDL_BLENDMODE_ADD* = cast[cuint](2'i64) 
 else:
-  let SDL_BLENDMODE_ADD* = cast[cuint](2'i64)
+  let SDL_BLENDMODE_ADD* = cast[cuint](2'i64) 
 when cast[cuint](32'i64) is static:
   const
-    SDL_BLENDMODE_ADD_PREMULTIPLIED* = cast[cuint](32'i64)
+    SDL_BLENDMODE_ADD_PREMULTIPLIED* = cast[cuint](32'i64) 
 else:
-  let SDL_BLENDMODE_ADD_PREMULTIPLIED* = cast[cuint](32'i64)
+  let SDL_BLENDMODE_ADD_PREMULTIPLIED* = cast[cuint](32'i64) 
 when cast[cuint](4'i64) is static:
   const
-    SDL_BLENDMODE_MOD* = cast[cuint](4'i64)
+    SDL_BLENDMODE_MOD* = cast[cuint](4'i64) 
 else:
-  let SDL_BLENDMODE_MOD* = cast[cuint](4'i64)
+  let SDL_BLENDMODE_MOD* = cast[cuint](4'i64) 
 when cast[cuint](8'i64) is static:
   const
-    SDL_BLENDMODE_MUL* = cast[cuint](8'i64)
+    SDL_BLENDMODE_MUL* = cast[cuint](8'i64) 
 else:
-  let SDL_BLENDMODE_MUL* = cast[cuint](8'i64)
+  let SDL_BLENDMODE_MUL* = cast[cuint](8'i64) 
 when cast[cuint](2147483647'i64) is static:
   const
-    SDL_BLENDMODE_INVALID* = cast[cuint](2147483647'i64)
+    SDL_BLENDMODE_INVALID* = cast[cuint](2147483647'i64) 
 else:
-  let SDL_BLENDMODE_INVALID* = cast[cuint](2147483647'i64)
+  let SDL_BLENDMODE_INVALID* = cast[cuint](2147483647'i64) 
 when 255 is static:
   const
-    SDL_ALPHA_OPAQUE* = 255
+    SDL_ALPHA_OPAQUE* = 255  
 else:
-  let SDL_ALPHA_OPAQUE* = 255
+  let SDL_ALPHA_OPAQUE* = 255 
 when 1.0 is static:
   const
-    SDL_ALPHA_OPAQUE_FLOAT* = 1.0
+    SDL_ALPHA_OPAQUE_FLOAT* = 1.0 
 else:
-  let SDL_ALPHA_OPAQUE_FLOAT* = 1.0
+  let SDL_ALPHA_OPAQUE_FLOAT* = 1.0 
 when 0 is static:
   const
-    SDL_ALPHA_TRANSPARENT* = 0
+    SDL_ALPHA_TRANSPARENT* = 0 
 else:
-  let SDL_ALPHA_TRANSPARENT* = 0
+  let SDL_ALPHA_TRANSPARENT* = 0 
 when 0.0 is static:
   const
-    SDL_ALPHA_TRANSPARENT_FLOAT* = 0.0
+    SDL_ALPHA_TRANSPARENT_FLOAT* = 0.0 
 else:
-  let SDL_ALPHA_TRANSPARENT_FLOAT* = 0.0
+  let SDL_ALPHA_TRANSPARENT_FLOAT* = 0.0 
 when cast[cuint](1'i64) is static:
   const
-    SDL_SURFACE_PREALLOCATED* = cast[cuint](1'i64)
+    SDL_SURFACE_PREALLOCATED* = cast[cuint](1'i64) 
 else:
-  let SDL_SURFACE_PREALLOCATED* = cast[cuint](1'i64)
+  let SDL_SURFACE_PREALLOCATED* = cast[cuint](1'i64) 
 when cast[cuint](2'i64) is static:
   const
-    SDL_SURFACE_LOCK_NEEDED* = cast[cuint](2'i64)
+    SDL_SURFACE_LOCK_NEEDED* = cast[cuint](2'i64) 
 else:
-  let SDL_SURFACE_LOCK_NEEDED* = cast[cuint](2'i64)
+  let SDL_SURFACE_LOCK_NEEDED* = cast[cuint](2'i64) 
 when cast[cuint](4'i64) is static:
   const
-    SDL_SURFACE_LOCKED* = cast[cuint](4'i64)
+    SDL_SURFACE_LOCKED* = cast[cuint](4'i64) 
 else:
-  let SDL_SURFACE_LOCKED* = cast[cuint](4'i64)
+  let SDL_SURFACE_LOCKED* = cast[cuint](4'i64) 
 when cast[cuint](8'i64) is static:
   const
-    SDL_SURFACE_SIMD_ALIGNED* = cast[cuint](8'i64)
+    SDL_SURFACE_SIMD_ALIGNED* = cast[cuint](8'i64) 
 else:
-  let SDL_SURFACE_SIMD_ALIGNED* = cast[cuint](8'i64)
+  let SDL_SURFACE_SIMD_ALIGNED* = cast[cuint](8'i64) 
 when "SDL.surface.SDR_white_point" is static:
   const
-    SDL_PROP_SURFACE_SDR_WHITE_POINT_FLOAT* = "SDL.surface.SDR_white_point"
+    SDL_PROP_SURFACE_SDR_WHITE_POINT_FLOAT* = "SDL.surface.SDR_white_point" 
 else:
-  let SDL_PROP_SURFACE_SDR_WHITE_POINT_FLOAT* = "SDL.surface.SDR_white_point"
+  let SDL_PROP_SURFACE_SDR_WHITE_POINT_FLOAT* = "SDL.surface.SDR_white_point" 
 when "SDL.surface.HDR_headroom" is static:
   const
-    SDL_PROP_SURFACE_HDR_HEADROOM_FLOAT* = "SDL.surface.HDR_headroom"
+    SDL_PROP_SURFACE_HDR_HEADROOM_FLOAT* = "SDL.surface.HDR_headroom" 
 else:
-  let SDL_PROP_SURFACE_HDR_HEADROOM_FLOAT* = "SDL.surface.HDR_headroom"
+  let SDL_PROP_SURFACE_HDR_HEADROOM_FLOAT* = "SDL.surface.HDR_headroom" 
 when "SDL.surface.tonemap" is static:
   const
-    SDL_PROP_SURFACE_TONEMAP_OPERATOR_STRING* = "SDL.surface.tonemap"
+    SDL_PROP_SURFACE_TONEMAP_OPERATOR_STRING* = "SDL.surface.tonemap" 
 else:
-  let SDL_PROP_SURFACE_TONEMAP_OPERATOR_STRING* = "SDL.surface.tonemap"
+  let SDL_PROP_SURFACE_TONEMAP_OPERATOR_STRING* = "SDL.surface.tonemap" 
 when 128 is static:
   const
-    SDL_CACHELINE_SIZE* = 128
+    SDL_CACHELINE_SIZE* = 128 
 else:
-  let SDL_CACHELINE_SIZE* = 128
+  let SDL_CACHELINE_SIZE* = 128 
 when "SDL.video.wayland.wl_display" is static:
   const
-    SDL_PROP_GLOBAL_VIDEO_WAYLAND_WL_DISPLAY_POINTER* = "SDL.video.wayland.wl_display"
+    SDL_PROP_GLOBAL_VIDEO_WAYLAND_WL_DISPLAY_POINTER* = "SDL.video.wayland.wl_display" 
 else:
-  let SDL_PROP_GLOBAL_VIDEO_WAYLAND_WL_DISPLAY_POINTER* = "SDL.video.wayland.wl_display"
+  let SDL_PROP_GLOBAL_VIDEO_WAYLAND_WL_DISPLAY_POINTER* = "SDL.video.wayland.wl_display" 
 when cast[cuint](536805376'i64) is static:
   const
-    SDL_WINDOWPOS_UNDEFINED_MASK* = cast[cuint](536805376'i64)
+    SDL_WINDOWPOS_UNDEFINED_MASK* = cast[cuint](536805376'i64) 
 else:
-  let SDL_WINDOWPOS_UNDEFINED_MASK* = cast[cuint](536805376'i64)
+  let SDL_WINDOWPOS_UNDEFINED_MASK* = cast[cuint](536805376'i64) 
 when cast[cuint](805240832'i64) is static:
   const
-    SDL_WINDOWPOS_CENTERED_MASK* = cast[cuint](805240832'i64)
+    SDL_WINDOWPOS_CENTERED_MASK* = cast[cuint](805240832'i64) 
 else:
-  let SDL_WINDOWPOS_CENTERED_MASK* = cast[cuint](805240832'i64)
+  let SDL_WINDOWPOS_CENTERED_MASK* = cast[cuint](805240832'i64) 
 when "SDL.display.HDR_enabled" is static:
   const
-    SDL_PROP_DISPLAY_HDR_ENABLED_BOOLEAN* = "SDL.display.HDR_enabled"
+    SDL_PROP_DISPLAY_HDR_ENABLED_BOOLEAN* = "SDL.display.HDR_enabled" 
 else:
-  let SDL_PROP_DISPLAY_HDR_ENABLED_BOOLEAN* = "SDL.display.HDR_enabled"
+  let SDL_PROP_DISPLAY_HDR_ENABLED_BOOLEAN* = "SDL.display.HDR_enabled" 
 when "SDL.display.KMSDRM.panel_orientation" is static:
   const
-    SDL_PROP_DISPLAY_KMSDRM_PANEL_ORIENTATION_NUMBER* = "SDL.display.KMSDRM.panel_orientation"
+    SDL_PROP_DISPLAY_KMSDRM_PANEL_ORIENTATION_NUMBER* = "SDL.display.KMSDRM.panel_orientation" 
 else:
-  let SDL_PROP_DISPLAY_KMSDRM_PANEL_ORIENTATION_NUMBER* = "SDL.display.KMSDRM.panel_orientation"
+  let SDL_PROP_DISPLAY_KMSDRM_PANEL_ORIENTATION_NUMBER* = "SDL.display.KMSDRM.panel_orientation" 
 when "SDL.window.create.always_on_top" is static:
   const
-    SDL_PROP_WINDOW_CREATE_ALWAYS_ON_TOP_BOOLEAN* = "SDL.window.create.always_on_top"
+    SDL_PROP_WINDOW_CREATE_ALWAYS_ON_TOP_BOOLEAN* = "SDL.window.create.always_on_top" 
 else:
-  let SDL_PROP_WINDOW_CREATE_ALWAYS_ON_TOP_BOOLEAN* = "SDL.window.create.always_on_top"
+  let SDL_PROP_WINDOW_CREATE_ALWAYS_ON_TOP_BOOLEAN* = "SDL.window.create.always_on_top" 
 when "SDL.window.create.borderless" is static:
   const
-    SDL_PROP_WINDOW_CREATE_BORDERLESS_BOOLEAN* = "SDL.window.create.borderless"
+    SDL_PROP_WINDOW_CREATE_BORDERLESS_BOOLEAN* = "SDL.window.create.borderless" 
 else:
-  let SDL_PROP_WINDOW_CREATE_BORDERLESS_BOOLEAN* = "SDL.window.create.borderless"
+  let SDL_PROP_WINDOW_CREATE_BORDERLESS_BOOLEAN* = "SDL.window.create.borderless" 
 when "SDL.window.create.focusable" is static:
   const
-    SDL_PROP_WINDOW_CREATE_FOCUSABLE_BOOLEAN* = "SDL.window.create.focusable"
+    SDL_PROP_WINDOW_CREATE_FOCUSABLE_BOOLEAN* = "SDL.window.create.focusable" 
 else:
-  let SDL_PROP_WINDOW_CREATE_FOCUSABLE_BOOLEAN* = "SDL.window.create.focusable"
+  let SDL_PROP_WINDOW_CREATE_FOCUSABLE_BOOLEAN* = "SDL.window.create.focusable" 
 when "SDL.window.create.external_graphics_context" is static:
   const
-    SDL_PROP_WINDOW_CREATE_EXTERNAL_GRAPHICS_CONTEXT_BOOLEAN* = "SDL.window.create.external_graphics_context"
+    SDL_PROP_WINDOW_CREATE_EXTERNAL_GRAPHICS_CONTEXT_BOOLEAN* = "SDL.window.create.external_graphics_context" 
 else:
-  let SDL_PROP_WINDOW_CREATE_EXTERNAL_GRAPHICS_CONTEXT_BOOLEAN* = "SDL.window.create.external_graphics_context"
+  let SDL_PROP_WINDOW_CREATE_EXTERNAL_GRAPHICS_CONTEXT_BOOLEAN* = "SDL.window.create.external_graphics_context" 
 when "SDL.window.create.flags" is static:
   const
-    SDL_PROP_WINDOW_CREATE_FLAGS_NUMBER* = "SDL.window.create.flags"
+    SDL_PROP_WINDOW_CREATE_FLAGS_NUMBER* = "SDL.window.create.flags" 
 else:
-  let SDL_PROP_WINDOW_CREATE_FLAGS_NUMBER* = "SDL.window.create.flags"
+  let SDL_PROP_WINDOW_CREATE_FLAGS_NUMBER* = "SDL.window.create.flags" 
 when "SDL.window.create.fullscreen" is static:
   const
-    SDL_PROP_WINDOW_CREATE_FULLSCREEN_BOOLEAN* = "SDL.window.create.fullscreen"
+    SDL_PROP_WINDOW_CREATE_FULLSCREEN_BOOLEAN* = "SDL.window.create.fullscreen" 
 else:
-  let SDL_PROP_WINDOW_CREATE_FULLSCREEN_BOOLEAN* = "SDL.window.create.fullscreen"
+  let SDL_PROP_WINDOW_CREATE_FULLSCREEN_BOOLEAN* = "SDL.window.create.fullscreen" 
 when "SDL.window.create.height" is static:
   const
-    SDL_PROP_WINDOW_CREATE_HEIGHT_NUMBER* = "SDL.window.create.height"
+    SDL_PROP_WINDOW_CREATE_HEIGHT_NUMBER* = "SDL.window.create.height" 
 else:
-  let SDL_PROP_WINDOW_CREATE_HEIGHT_NUMBER* = "SDL.window.create.height"
+  let SDL_PROP_WINDOW_CREATE_HEIGHT_NUMBER* = "SDL.window.create.height" 
 when "SDL.window.create.hidden" is static:
   const
-    SDL_PROP_WINDOW_CREATE_HIDDEN_BOOLEAN* = "SDL.window.create.hidden"
+    SDL_PROP_WINDOW_CREATE_HIDDEN_BOOLEAN* = "SDL.window.create.hidden" 
 else:
-  let SDL_PROP_WINDOW_CREATE_HIDDEN_BOOLEAN* = "SDL.window.create.hidden"
+  let SDL_PROP_WINDOW_CREATE_HIDDEN_BOOLEAN* = "SDL.window.create.hidden" 
 when "SDL.window.create.high_pixel_density" is static:
   const
-    SDL_PROP_WINDOW_CREATE_HIGH_PIXEL_DENSITY_BOOLEAN* = "SDL.window.create.high_pixel_density"
+    SDL_PROP_WINDOW_CREATE_HIGH_PIXEL_DENSITY_BOOLEAN* = "SDL.window.create.high_pixel_density" 
 else:
-  let SDL_PROP_WINDOW_CREATE_HIGH_PIXEL_DENSITY_BOOLEAN* = "SDL.window.create.high_pixel_density"
+  let SDL_PROP_WINDOW_CREATE_HIGH_PIXEL_DENSITY_BOOLEAN* = "SDL.window.create.high_pixel_density" 
 when "SDL.window.create.maximized" is static:
   const
-    SDL_PROP_WINDOW_CREATE_MAXIMIZED_BOOLEAN* = "SDL.window.create.maximized"
+    SDL_PROP_WINDOW_CREATE_MAXIMIZED_BOOLEAN* = "SDL.window.create.maximized" 
 else:
-  let SDL_PROP_WINDOW_CREATE_MAXIMIZED_BOOLEAN* = "SDL.window.create.maximized"
+  let SDL_PROP_WINDOW_CREATE_MAXIMIZED_BOOLEAN* = "SDL.window.create.maximized" 
 when "SDL.window.create.menu" is static:
   const
-    SDL_PROP_WINDOW_CREATE_MENU_BOOLEAN* = "SDL.window.create.menu"
+    SDL_PROP_WINDOW_CREATE_MENU_BOOLEAN* = "SDL.window.create.menu" 
 else:
-  let SDL_PROP_WINDOW_CREATE_MENU_BOOLEAN* = "SDL.window.create.menu"
+  let SDL_PROP_WINDOW_CREATE_MENU_BOOLEAN* = "SDL.window.create.menu" 
 when "SDL.window.create.metal" is static:
   const
-    SDL_PROP_WINDOW_CREATE_METAL_BOOLEAN* = "SDL.window.create.metal"
+    SDL_PROP_WINDOW_CREATE_METAL_BOOLEAN* = "SDL.window.create.metal" 
 else:
-  let SDL_PROP_WINDOW_CREATE_METAL_BOOLEAN* = "SDL.window.create.metal"
+  let SDL_PROP_WINDOW_CREATE_METAL_BOOLEAN* = "SDL.window.create.metal" 
 when "SDL.window.create.minimized" is static:
   const
-    SDL_PROP_WINDOW_CREATE_MINIMIZED_BOOLEAN* = "SDL.window.create.minimized"
+    SDL_PROP_WINDOW_CREATE_MINIMIZED_BOOLEAN* = "SDL.window.create.minimized" 
 else:
-  let SDL_PROP_WINDOW_CREATE_MINIMIZED_BOOLEAN* = "SDL.window.create.minimized"
+  let SDL_PROP_WINDOW_CREATE_MINIMIZED_BOOLEAN* = "SDL.window.create.minimized" 
 when "SDL.window.create.modal" is static:
   const
-    SDL_PROP_WINDOW_CREATE_MODAL_BOOLEAN* = "SDL.window.create.modal"
+    SDL_PROP_WINDOW_CREATE_MODAL_BOOLEAN* = "SDL.window.create.modal" 
 else:
-  let SDL_PROP_WINDOW_CREATE_MODAL_BOOLEAN* = "SDL.window.create.modal"
+  let SDL_PROP_WINDOW_CREATE_MODAL_BOOLEAN* = "SDL.window.create.modal" 
 when "SDL.window.create.mouse_grabbed" is static:
   const
-    SDL_PROP_WINDOW_CREATE_MOUSE_GRABBED_BOOLEAN* = "SDL.window.create.mouse_grabbed"
+    SDL_PROP_WINDOW_CREATE_MOUSE_GRABBED_BOOLEAN* = "SDL.window.create.mouse_grabbed" 
 else:
-  let SDL_PROP_WINDOW_CREATE_MOUSE_GRABBED_BOOLEAN* = "SDL.window.create.mouse_grabbed"
+  let SDL_PROP_WINDOW_CREATE_MOUSE_GRABBED_BOOLEAN* = "SDL.window.create.mouse_grabbed" 
 when "SDL.window.create.opengl" is static:
   const
-    SDL_PROP_WINDOW_CREATE_OPENGL_BOOLEAN* = "SDL.window.create.opengl"
+    SDL_PROP_WINDOW_CREATE_OPENGL_BOOLEAN* = "SDL.window.create.opengl" 
 else:
-  let SDL_PROP_WINDOW_CREATE_OPENGL_BOOLEAN* = "SDL.window.create.opengl"
+  let SDL_PROP_WINDOW_CREATE_OPENGL_BOOLEAN* = "SDL.window.create.opengl" 
 when "SDL.window.create.parent" is static:
   const
-    SDL_PROP_WINDOW_CREATE_PARENT_POINTER* = "SDL.window.create.parent"
+    SDL_PROP_WINDOW_CREATE_PARENT_POINTER* = "SDL.window.create.parent" 
 else:
-  let SDL_PROP_WINDOW_CREATE_PARENT_POINTER* = "SDL.window.create.parent"
+  let SDL_PROP_WINDOW_CREATE_PARENT_POINTER* = "SDL.window.create.parent" 
 when "SDL.window.create.resizable" is static:
   const
-    SDL_PROP_WINDOW_CREATE_RESIZABLE_BOOLEAN* = "SDL.window.create.resizable"
+    SDL_PROP_WINDOW_CREATE_RESIZABLE_BOOLEAN* = "SDL.window.create.resizable" 
 else:
-  let SDL_PROP_WINDOW_CREATE_RESIZABLE_BOOLEAN* = "SDL.window.create.resizable"
+  let SDL_PROP_WINDOW_CREATE_RESIZABLE_BOOLEAN* = "SDL.window.create.resizable" 
 when "SDL.window.create.title" is static:
   const
-    SDL_PROP_WINDOW_CREATE_TITLE_STRING* = "SDL.window.create.title"
+    SDL_PROP_WINDOW_CREATE_TITLE_STRING* = "SDL.window.create.title" 
 else:
-  let SDL_PROP_WINDOW_CREATE_TITLE_STRING* = "SDL.window.create.title"
+  let SDL_PROP_WINDOW_CREATE_TITLE_STRING* = "SDL.window.create.title" 
 when "SDL.window.create.transparent" is static:
   const
-    SDL_PROP_WINDOW_CREATE_TRANSPARENT_BOOLEAN* = "SDL.window.create.transparent"
+    SDL_PROP_WINDOW_CREATE_TRANSPARENT_BOOLEAN* = "SDL.window.create.transparent" 
 else:
-  let SDL_PROP_WINDOW_CREATE_TRANSPARENT_BOOLEAN* = "SDL.window.create.transparent"
+  let SDL_PROP_WINDOW_CREATE_TRANSPARENT_BOOLEAN* = "SDL.window.create.transparent" 
 when "SDL.window.create.tooltip" is static:
   const
-    SDL_PROP_WINDOW_CREATE_TOOLTIP_BOOLEAN* = "SDL.window.create.tooltip"
+    SDL_PROP_WINDOW_CREATE_TOOLTIP_BOOLEAN* = "SDL.window.create.tooltip" 
 else:
-  let SDL_PROP_WINDOW_CREATE_TOOLTIP_BOOLEAN* = "SDL.window.create.tooltip"
+  let SDL_PROP_WINDOW_CREATE_TOOLTIP_BOOLEAN* = "SDL.window.create.tooltip" 
 when "SDL.window.create.utility" is static:
   const
-    SDL_PROP_WINDOW_CREATE_UTILITY_BOOLEAN* = "SDL.window.create.utility"
+    SDL_PROP_WINDOW_CREATE_UTILITY_BOOLEAN* = "SDL.window.create.utility" 
 else:
-  let SDL_PROP_WINDOW_CREATE_UTILITY_BOOLEAN* = "SDL.window.create.utility"
+  let SDL_PROP_WINDOW_CREATE_UTILITY_BOOLEAN* = "SDL.window.create.utility" 
 when "SDL.window.create.vulkan" is static:
   const
-    SDL_PROP_WINDOW_CREATE_VULKAN_BOOLEAN* = "SDL.window.create.vulkan"
+    SDL_PROP_WINDOW_CREATE_VULKAN_BOOLEAN* = "SDL.window.create.vulkan" 
 else:
-  let SDL_PROP_WINDOW_CREATE_VULKAN_BOOLEAN* = "SDL.window.create.vulkan"
+  let SDL_PROP_WINDOW_CREATE_VULKAN_BOOLEAN* = "SDL.window.create.vulkan" 
 when "SDL.window.create.width" is static:
   const
-    SDL_PROP_WINDOW_CREATE_WIDTH_NUMBER* = "SDL.window.create.width"
+    SDL_PROP_WINDOW_CREATE_WIDTH_NUMBER* = "SDL.window.create.width" 
 else:
-  let SDL_PROP_WINDOW_CREATE_WIDTH_NUMBER* = "SDL.window.create.width"
+  let SDL_PROP_WINDOW_CREATE_WIDTH_NUMBER* = "SDL.window.create.width" 
 when "SDL.window.create.x" is static:
   const
-    SDL_PROP_WINDOW_CREATE_X_NUMBER* = "SDL.window.create.x"
+    SDL_PROP_WINDOW_CREATE_X_NUMBER* = "SDL.window.create.x" 
 else:
-  let SDL_PROP_WINDOW_CREATE_X_NUMBER* = "SDL.window.create.x"
+  let SDL_PROP_WINDOW_CREATE_X_NUMBER* = "SDL.window.create.x" 
 when "SDL.window.create.y" is static:
   const
-    SDL_PROP_WINDOW_CREATE_Y_NUMBER* = "SDL.window.create.y"
+    SDL_PROP_WINDOW_CREATE_Y_NUMBER* = "SDL.window.create.y" 
 else:
-  let SDL_PROP_WINDOW_CREATE_Y_NUMBER* = "SDL.window.create.y"
+  let SDL_PROP_WINDOW_CREATE_Y_NUMBER* = "SDL.window.create.y" 
 when "SDL.window.create.cocoa.window" is static:
   const
-    SDL_PROP_WINDOW_CREATE_COCOA_WINDOW_POINTER* = "SDL.window.create.cocoa.window"
+    SDL_PROP_WINDOW_CREATE_COCOA_WINDOW_POINTER* = "SDL.window.create.cocoa.window" 
 else:
-  let SDL_PROP_WINDOW_CREATE_COCOA_WINDOW_POINTER* = "SDL.window.create.cocoa.window"
+  let SDL_PROP_WINDOW_CREATE_COCOA_WINDOW_POINTER* = "SDL.window.create.cocoa.window" 
 when "SDL.window.create.cocoa.view" is static:
   const
-    SDL_PROP_WINDOW_CREATE_COCOA_VIEW_POINTER* = "SDL.window.create.cocoa.view"
+    SDL_PROP_WINDOW_CREATE_COCOA_VIEW_POINTER* = "SDL.window.create.cocoa.view" 
 else:
-  let SDL_PROP_WINDOW_CREATE_COCOA_VIEW_POINTER* = "SDL.window.create.cocoa.view"
+  let SDL_PROP_WINDOW_CREATE_COCOA_VIEW_POINTER* = "SDL.window.create.cocoa.view" 
 when "SDL.window.create.wayland.surface_role_custom" is static:
   const
-    SDL_PROP_WINDOW_CREATE_WAYLAND_SURFACE_ROLE_CUSTOM_BOOLEAN* = "SDL.window.create.wayland.surface_role_custom"
+    SDL_PROP_WINDOW_CREATE_WAYLAND_SURFACE_ROLE_CUSTOM_BOOLEAN* = "SDL.window.create.wayland.surface_role_custom" 
 else:
-  let SDL_PROP_WINDOW_CREATE_WAYLAND_SURFACE_ROLE_CUSTOM_BOOLEAN* = "SDL.window.create.wayland.surface_role_custom"
+  let SDL_PROP_WINDOW_CREATE_WAYLAND_SURFACE_ROLE_CUSTOM_BOOLEAN* = "SDL.window.create.wayland.surface_role_custom" 
 when "SDL.window.create.wayland.create_egl_window" is static:
   const
-    SDL_PROP_WINDOW_CREATE_WAYLAND_CREATE_EGL_WINDOW_BOOLEAN* = "SDL.window.create.wayland.create_egl_window"
+    SDL_PROP_WINDOW_CREATE_WAYLAND_CREATE_EGL_WINDOW_BOOLEAN* = "SDL.window.create.wayland.create_egl_window" 
 else:
-  let SDL_PROP_WINDOW_CREATE_WAYLAND_CREATE_EGL_WINDOW_BOOLEAN* = "SDL.window.create.wayland.create_egl_window"
+  let SDL_PROP_WINDOW_CREATE_WAYLAND_CREATE_EGL_WINDOW_BOOLEAN* = "SDL.window.create.wayland.create_egl_window" 
 when "SDL.window.create.wayland.wl_surface" is static:
   const
-    SDL_PROP_WINDOW_CREATE_WAYLAND_WL_SURFACE_POINTER* = "SDL.window.create.wayland.wl_surface"
+    SDL_PROP_WINDOW_CREATE_WAYLAND_WL_SURFACE_POINTER* = "SDL.window.create.wayland.wl_surface" 
 else:
-  let SDL_PROP_WINDOW_CREATE_WAYLAND_WL_SURFACE_POINTER* = "SDL.window.create.wayland.wl_surface"
+  let SDL_PROP_WINDOW_CREATE_WAYLAND_WL_SURFACE_POINTER* = "SDL.window.create.wayland.wl_surface" 
 when "SDL.window.create.win32.hwnd" is static:
   const
-    SDL_PROP_WINDOW_CREATE_WIN32_HWND_POINTER* = "SDL.window.create.win32.hwnd"
+    SDL_PROP_WINDOW_CREATE_WIN32_HWND_POINTER* = "SDL.window.create.win32.hwnd" 
 else:
-  let SDL_PROP_WINDOW_CREATE_WIN32_HWND_POINTER* = "SDL.window.create.win32.hwnd"
+  let SDL_PROP_WINDOW_CREATE_WIN32_HWND_POINTER* = "SDL.window.create.win32.hwnd" 
 when "SDL.window.create.win32.pixel_format_hwnd" is static:
   const
-    SDL_PROP_WINDOW_CREATE_WIN32_PIXEL_FORMAT_HWND_POINTER* = "SDL.window.create.win32.pixel_format_hwnd"
+    SDL_PROP_WINDOW_CREATE_WIN32_PIXEL_FORMAT_HWND_POINTER* = "SDL.window.create.win32.pixel_format_hwnd" 
 else:
-  let SDL_PROP_WINDOW_CREATE_WIN32_PIXEL_FORMAT_HWND_POINTER* = "SDL.window.create.win32.pixel_format_hwnd"
+  let SDL_PROP_WINDOW_CREATE_WIN32_PIXEL_FORMAT_HWND_POINTER* = "SDL.window.create.win32.pixel_format_hwnd" 
 when "SDL.window.create.x11.window" is static:
   const
-    SDL_PROP_WINDOW_CREATE_X11_WINDOW_NUMBER* = "SDL.window.create.x11.window"
+    SDL_PROP_WINDOW_CREATE_X11_WINDOW_NUMBER* = "SDL.window.create.x11.window" 
 else:
-  let SDL_PROP_WINDOW_CREATE_X11_WINDOW_NUMBER* = "SDL.window.create.x11.window"
+  let SDL_PROP_WINDOW_CREATE_X11_WINDOW_NUMBER* = "SDL.window.create.x11.window" 
 when "SDL.window.shape" is static:
   const
-    SDL_PROP_WINDOW_SHAPE_POINTER* = "SDL.window.shape"
+    SDL_PROP_WINDOW_SHAPE_POINTER* = "SDL.window.shape" 
 else:
-  let SDL_PROP_WINDOW_SHAPE_POINTER* = "SDL.window.shape"
+  let SDL_PROP_WINDOW_SHAPE_POINTER* = "SDL.window.shape" 
 when "SDL.window.HDR_enabled" is static:
   const
-    SDL_PROP_WINDOW_HDR_ENABLED_BOOLEAN* = "SDL.window.HDR_enabled"
+    SDL_PROP_WINDOW_HDR_ENABLED_BOOLEAN* = "SDL.window.HDR_enabled" 
 else:
-  let SDL_PROP_WINDOW_HDR_ENABLED_BOOLEAN* = "SDL.window.HDR_enabled"
+  let SDL_PROP_WINDOW_HDR_ENABLED_BOOLEAN* = "SDL.window.HDR_enabled" 
 when "SDL.window.SDR_white_level" is static:
   const
-    SDL_PROP_WINDOW_SDR_WHITE_LEVEL_FLOAT* = "SDL.window.SDR_white_level"
+    SDL_PROP_WINDOW_SDR_WHITE_LEVEL_FLOAT* = "SDL.window.SDR_white_level" 
 else:
-  let SDL_PROP_WINDOW_SDR_WHITE_LEVEL_FLOAT* = "SDL.window.SDR_white_level"
+  let SDL_PROP_WINDOW_SDR_WHITE_LEVEL_FLOAT* = "SDL.window.SDR_white_level" 
 when "SDL.window.HDR_headroom" is static:
   const
-    SDL_PROP_WINDOW_HDR_HEADROOM_FLOAT* = "SDL.window.HDR_headroom"
+    SDL_PROP_WINDOW_HDR_HEADROOM_FLOAT* = "SDL.window.HDR_headroom" 
 else:
-  let SDL_PROP_WINDOW_HDR_HEADROOM_FLOAT* = "SDL.window.HDR_headroom"
+  let SDL_PROP_WINDOW_HDR_HEADROOM_FLOAT* = "SDL.window.HDR_headroom" 
 when "SDL.window.android.window" is static:
   const
-    SDL_PROP_WINDOW_ANDROID_WINDOW_POINTER* = "SDL.window.android.window"
+    SDL_PROP_WINDOW_ANDROID_WINDOW_POINTER* = "SDL.window.android.window" 
 else:
-  let SDL_PROP_WINDOW_ANDROID_WINDOW_POINTER* = "SDL.window.android.window"
+  let SDL_PROP_WINDOW_ANDROID_WINDOW_POINTER* = "SDL.window.android.window" 
 when "SDL.window.android.surface" is static:
   const
-    SDL_PROP_WINDOW_ANDROID_SURFACE_POINTER* = "SDL.window.android.surface"
+    SDL_PROP_WINDOW_ANDROID_SURFACE_POINTER* = "SDL.window.android.surface" 
 else:
-  let SDL_PROP_WINDOW_ANDROID_SURFACE_POINTER* = "SDL.window.android.surface"
+  let SDL_PROP_WINDOW_ANDROID_SURFACE_POINTER* = "SDL.window.android.surface" 
 when "SDL.window.uikit.window" is static:
   const
-    SDL_PROP_WINDOW_UIKIT_WINDOW_POINTER* = "SDL.window.uikit.window"
+    SDL_PROP_WINDOW_UIKIT_WINDOW_POINTER* = "SDL.window.uikit.window" 
 else:
-  let SDL_PROP_WINDOW_UIKIT_WINDOW_POINTER* = "SDL.window.uikit.window"
+  let SDL_PROP_WINDOW_UIKIT_WINDOW_POINTER* = "SDL.window.uikit.window" 
 when "SDL.window.uikit.metal_view_tag" is static:
   const
-    SDL_PROP_WINDOW_UIKIT_METAL_VIEW_TAG_NUMBER* = "SDL.window.uikit.metal_view_tag"
+    SDL_PROP_WINDOW_UIKIT_METAL_VIEW_TAG_NUMBER* = "SDL.window.uikit.metal_view_tag" 
 else:
-  let SDL_PROP_WINDOW_UIKIT_METAL_VIEW_TAG_NUMBER* = "SDL.window.uikit.metal_view_tag"
+  let SDL_PROP_WINDOW_UIKIT_METAL_VIEW_TAG_NUMBER* = "SDL.window.uikit.metal_view_tag" 
 when "SDL.window.uikit.opengl.framebuffer" is static:
   const
-    SDL_PROP_WINDOW_UIKIT_OPENGL_FRAMEBUFFER_NUMBER* = "SDL.window.uikit.opengl.framebuffer"
+    SDL_PROP_WINDOW_UIKIT_OPENGL_FRAMEBUFFER_NUMBER* = "SDL.window.uikit.opengl.framebuffer" 
 else:
-  let SDL_PROP_WINDOW_UIKIT_OPENGL_FRAMEBUFFER_NUMBER* = "SDL.window.uikit.opengl.framebuffer"
+  let SDL_PROP_WINDOW_UIKIT_OPENGL_FRAMEBUFFER_NUMBER* = "SDL.window.uikit.opengl.framebuffer" 
 when "SDL.window.uikit.opengl.renderbuffer" is static:
   const
-    SDL_PROP_WINDOW_UIKIT_OPENGL_RENDERBUFFER_NUMBER* = "SDL.window.uikit.opengl.renderbuffer"
+    SDL_PROP_WINDOW_UIKIT_OPENGL_RENDERBUFFER_NUMBER* = "SDL.window.uikit.opengl.renderbuffer" 
 else:
-  let SDL_PROP_WINDOW_UIKIT_OPENGL_RENDERBUFFER_NUMBER* = "SDL.window.uikit.opengl.renderbuffer"
+  let SDL_PROP_WINDOW_UIKIT_OPENGL_RENDERBUFFER_NUMBER* = "SDL.window.uikit.opengl.renderbuffer" 
 when "SDL.window.uikit.opengl.resolve_framebuffer" is static:
   const
-    SDL_PROP_WINDOW_UIKIT_OPENGL_RESOLVE_FRAMEBUFFER_NUMBER* = "SDL.window.uikit.opengl.resolve_framebuffer"
+    SDL_PROP_WINDOW_UIKIT_OPENGL_RESOLVE_FRAMEBUFFER_NUMBER* = "SDL.window.uikit.opengl.resolve_framebuffer" 
 else:
-  let SDL_PROP_WINDOW_UIKIT_OPENGL_RESOLVE_FRAMEBUFFER_NUMBER* = "SDL.window.uikit.opengl.resolve_framebuffer"
+  let SDL_PROP_WINDOW_UIKIT_OPENGL_RESOLVE_FRAMEBUFFER_NUMBER* = "SDL.window.uikit.opengl.resolve_framebuffer" 
 when "SDL.window.kmsdrm.dev_index" is static:
   const
-    SDL_PROP_WINDOW_KMSDRM_DEVICE_INDEX_NUMBER* = "SDL.window.kmsdrm.dev_index"
+    SDL_PROP_WINDOW_KMSDRM_DEVICE_INDEX_NUMBER* = "SDL.window.kmsdrm.dev_index" 
 else:
-  let SDL_PROP_WINDOW_KMSDRM_DEVICE_INDEX_NUMBER* = "SDL.window.kmsdrm.dev_index"
+  let SDL_PROP_WINDOW_KMSDRM_DEVICE_INDEX_NUMBER* = "SDL.window.kmsdrm.dev_index" 
 when "SDL.window.kmsdrm.drm_fd" is static:
   const
-    SDL_PROP_WINDOW_KMSDRM_DRM_FD_NUMBER* = "SDL.window.kmsdrm.drm_fd"
+    SDL_PROP_WINDOW_KMSDRM_DRM_FD_NUMBER* = "SDL.window.kmsdrm.drm_fd" 
 else:
-  let SDL_PROP_WINDOW_KMSDRM_DRM_FD_NUMBER* = "SDL.window.kmsdrm.drm_fd"
+  let SDL_PROP_WINDOW_KMSDRM_DRM_FD_NUMBER* = "SDL.window.kmsdrm.drm_fd" 
 when "SDL.window.kmsdrm.gbm_dev" is static:
   const
-    SDL_PROP_WINDOW_KMSDRM_GBM_DEVICE_POINTER* = "SDL.window.kmsdrm.gbm_dev"
+    SDL_PROP_WINDOW_KMSDRM_GBM_DEVICE_POINTER* = "SDL.window.kmsdrm.gbm_dev" 
 else:
-  let SDL_PROP_WINDOW_KMSDRM_GBM_DEVICE_POINTER* = "SDL.window.kmsdrm.gbm_dev"
+  let SDL_PROP_WINDOW_KMSDRM_GBM_DEVICE_POINTER* = "SDL.window.kmsdrm.gbm_dev" 
 when "SDL.window.cocoa.window" is static:
   const
-    SDL_PROP_WINDOW_COCOA_WINDOW_POINTER* = "SDL.window.cocoa.window"
+    SDL_PROP_WINDOW_COCOA_WINDOW_POINTER* = "SDL.window.cocoa.window" 
 else:
-  let SDL_PROP_WINDOW_COCOA_WINDOW_POINTER* = "SDL.window.cocoa.window"
+  let SDL_PROP_WINDOW_COCOA_WINDOW_POINTER* = "SDL.window.cocoa.window" 
 when "SDL.window.cocoa.metal_view_tag" is static:
   const
-    SDL_PROP_WINDOW_COCOA_METAL_VIEW_TAG_NUMBER* = "SDL.window.cocoa.metal_view_tag"
+    SDL_PROP_WINDOW_COCOA_METAL_VIEW_TAG_NUMBER* = "SDL.window.cocoa.metal_view_tag" 
 else:
-  let SDL_PROP_WINDOW_COCOA_METAL_VIEW_TAG_NUMBER* = "SDL.window.cocoa.metal_view_tag"
+  let SDL_PROP_WINDOW_COCOA_METAL_VIEW_TAG_NUMBER* = "SDL.window.cocoa.metal_view_tag" 
 when "SDL.window.vivante.display" is static:
   const
-    SDL_PROP_WINDOW_VIVANTE_DISPLAY_POINTER* = "SDL.window.vivante.display"
+    SDL_PROP_WINDOW_VIVANTE_DISPLAY_POINTER* = "SDL.window.vivante.display" 
 else:
-  let SDL_PROP_WINDOW_VIVANTE_DISPLAY_POINTER* = "SDL.window.vivante.display"
+  let SDL_PROP_WINDOW_VIVANTE_DISPLAY_POINTER* = "SDL.window.vivante.display" 
 when "SDL.window.vivante.window" is static:
   const
-    SDL_PROP_WINDOW_VIVANTE_WINDOW_POINTER* = "SDL.window.vivante.window"
+    SDL_PROP_WINDOW_VIVANTE_WINDOW_POINTER* = "SDL.window.vivante.window" 
 else:
-  let SDL_PROP_WINDOW_VIVANTE_WINDOW_POINTER* = "SDL.window.vivante.window"
+  let SDL_PROP_WINDOW_VIVANTE_WINDOW_POINTER* = "SDL.window.vivante.window" 
 when "SDL.window.vivante.surface" is static:
   const
-    SDL_PROP_WINDOW_VIVANTE_SURFACE_POINTER* = "SDL.window.vivante.surface"
+    SDL_PROP_WINDOW_VIVANTE_SURFACE_POINTER* = "SDL.window.vivante.surface" 
 else:
-  let SDL_PROP_WINDOW_VIVANTE_SURFACE_POINTER* = "SDL.window.vivante.surface"
+  let SDL_PROP_WINDOW_VIVANTE_SURFACE_POINTER* = "SDL.window.vivante.surface" 
 when "SDL.window.win32.hwnd" is static:
   const
-    SDL_PROP_WINDOW_WIN32_HWND_POINTER* = "SDL.window.win32.hwnd"
+    SDL_PROP_WINDOW_WIN32_HWND_POINTER* = "SDL.window.win32.hwnd" 
 else:
-  let SDL_PROP_WINDOW_WIN32_HWND_POINTER* = "SDL.window.win32.hwnd"
+  let SDL_PROP_WINDOW_WIN32_HWND_POINTER* = "SDL.window.win32.hwnd" 
 when "SDL.window.win32.hdc" is static:
   const
-    SDL_PROP_WINDOW_WIN32_HDC_POINTER* = "SDL.window.win32.hdc"
+    SDL_PROP_WINDOW_WIN32_HDC_POINTER* = "SDL.window.win32.hdc" 
 else:
-  let SDL_PROP_WINDOW_WIN32_HDC_POINTER* = "SDL.window.win32.hdc"
+  let SDL_PROP_WINDOW_WIN32_HDC_POINTER* = "SDL.window.win32.hdc" 
 when "SDL.window.win32.instance" is static:
   const
-    SDL_PROP_WINDOW_WIN32_INSTANCE_POINTER* = "SDL.window.win32.instance"
+    SDL_PROP_WINDOW_WIN32_INSTANCE_POINTER* = "SDL.window.win32.instance" 
 else:
-  let SDL_PROP_WINDOW_WIN32_INSTANCE_POINTER* = "SDL.window.win32.instance"
+  let SDL_PROP_WINDOW_WIN32_INSTANCE_POINTER* = "SDL.window.win32.instance" 
 when "SDL.window.wayland.display" is static:
   const
-    SDL_PROP_WINDOW_WAYLAND_DISPLAY_POINTER* = "SDL.window.wayland.display"
+    SDL_PROP_WINDOW_WAYLAND_DISPLAY_POINTER* = "SDL.window.wayland.display" 
 else:
-  let SDL_PROP_WINDOW_WAYLAND_DISPLAY_POINTER* = "SDL.window.wayland.display"
+  let SDL_PROP_WINDOW_WAYLAND_DISPLAY_POINTER* = "SDL.window.wayland.display" 
 when "SDL.window.wayland.surface" is static:
   const
-    SDL_PROP_WINDOW_WAYLAND_SURFACE_POINTER* = "SDL.window.wayland.surface"
+    SDL_PROP_WINDOW_WAYLAND_SURFACE_POINTER* = "SDL.window.wayland.surface" 
 else:
-  let SDL_PROP_WINDOW_WAYLAND_SURFACE_POINTER* = "SDL.window.wayland.surface"
+  let SDL_PROP_WINDOW_WAYLAND_SURFACE_POINTER* = "SDL.window.wayland.surface" 
 when "SDL.window.wayland.egl_window" is static:
   const
-    SDL_PROP_WINDOW_WAYLAND_EGL_WINDOW_POINTER* = "SDL.window.wayland.egl_window"
+    SDL_PROP_WINDOW_WAYLAND_EGL_WINDOW_POINTER* = "SDL.window.wayland.egl_window" 
 else:
-  let SDL_PROP_WINDOW_WAYLAND_EGL_WINDOW_POINTER* = "SDL.window.wayland.egl_window"
+  let SDL_PROP_WINDOW_WAYLAND_EGL_WINDOW_POINTER* = "SDL.window.wayland.egl_window" 
 when "SDL.window.wayland.xdg_surface" is static:
   const
-    SDL_PROP_WINDOW_WAYLAND_XDG_SURFACE_POINTER* = "SDL.window.wayland.xdg_surface"
+    SDL_PROP_WINDOW_WAYLAND_XDG_SURFACE_POINTER* = "SDL.window.wayland.xdg_surface" 
 else:
-  let SDL_PROP_WINDOW_WAYLAND_XDG_SURFACE_POINTER* = "SDL.window.wayland.xdg_surface"
+  let SDL_PROP_WINDOW_WAYLAND_XDG_SURFACE_POINTER* = "SDL.window.wayland.xdg_surface" 
 when "SDL.window.wayland.xdg_toplevel" is static:
   const
-    SDL_PROP_WINDOW_WAYLAND_XDG_TOPLEVEL_POINTER* = "SDL.window.wayland.xdg_toplevel"
+    SDL_PROP_WINDOW_WAYLAND_XDG_TOPLEVEL_POINTER* = "SDL.window.wayland.xdg_toplevel" 
 else:
-  let SDL_PROP_WINDOW_WAYLAND_XDG_TOPLEVEL_POINTER* = "SDL.window.wayland.xdg_toplevel"
+  let SDL_PROP_WINDOW_WAYLAND_XDG_TOPLEVEL_POINTER* = "SDL.window.wayland.xdg_toplevel" 
 when "SDL.window.wayland.xdg_toplevel_export_handle" is static:
   const
-    SDL_PROP_WINDOW_WAYLAND_XDG_TOPLEVEL_EXPORT_HANDLE_STRING* = "SDL.window.wayland.xdg_toplevel_export_handle"
+    SDL_PROP_WINDOW_WAYLAND_XDG_TOPLEVEL_EXPORT_HANDLE_STRING* = "SDL.window.wayland.xdg_toplevel_export_handle" 
 else:
-  let SDL_PROP_WINDOW_WAYLAND_XDG_TOPLEVEL_EXPORT_HANDLE_STRING* = "SDL.window.wayland.xdg_toplevel_export_handle"
+  let SDL_PROP_WINDOW_WAYLAND_XDG_TOPLEVEL_EXPORT_HANDLE_STRING* = "SDL.window.wayland.xdg_toplevel_export_handle" 
 when "SDL.window.wayland.xdg_popup" is static:
   const
-    SDL_PROP_WINDOW_WAYLAND_XDG_POPUP_POINTER* = "SDL.window.wayland.xdg_popup"
+    SDL_PROP_WINDOW_WAYLAND_XDG_POPUP_POINTER* = "SDL.window.wayland.xdg_popup" 
 else:
-  let SDL_PROP_WINDOW_WAYLAND_XDG_POPUP_POINTER* = "SDL.window.wayland.xdg_popup"
+  let SDL_PROP_WINDOW_WAYLAND_XDG_POPUP_POINTER* = "SDL.window.wayland.xdg_popup" 
 when "SDL.window.wayland.xdg_positioner" is static:
   const
-    SDL_PROP_WINDOW_WAYLAND_XDG_POSITIONER_POINTER* = "SDL.window.wayland.xdg_positioner"
+    SDL_PROP_WINDOW_WAYLAND_XDG_POSITIONER_POINTER* = "SDL.window.wayland.xdg_positioner" 
 else:
-  let SDL_PROP_WINDOW_WAYLAND_XDG_POSITIONER_POINTER* = "SDL.window.wayland.xdg_positioner"
+  let SDL_PROP_WINDOW_WAYLAND_XDG_POSITIONER_POINTER* = "SDL.window.wayland.xdg_positioner" 
 when "SDL.window.x11.display" is static:
   const
-    SDL_PROP_WINDOW_X11_DISPLAY_POINTER* = "SDL.window.x11.display"
+    SDL_PROP_WINDOW_X11_DISPLAY_POINTER* = "SDL.window.x11.display" 
 else:
-  let SDL_PROP_WINDOW_X11_DISPLAY_POINTER* = "SDL.window.x11.display"
+  let SDL_PROP_WINDOW_X11_DISPLAY_POINTER* = "SDL.window.x11.display" 
 when "SDL.window.x11.screen" is static:
   const
-    SDL_PROP_WINDOW_X11_SCREEN_NUMBER* = "SDL.window.x11.screen"
+    SDL_PROP_WINDOW_X11_SCREEN_NUMBER* = "SDL.window.x11.screen" 
 else:
-  let SDL_PROP_WINDOW_X11_SCREEN_NUMBER* = "SDL.window.x11.screen"
+  let SDL_PROP_WINDOW_X11_SCREEN_NUMBER* = "SDL.window.x11.screen" 
 when "SDL.window.x11.window" is static:
   const
-    SDL_PROP_WINDOW_X11_WINDOW_NUMBER* = "SDL.window.x11.window"
+    SDL_PROP_WINDOW_X11_WINDOW_NUMBER* = "SDL.window.x11.window" 
 else:
-  let SDL_PROP_WINDOW_X11_WINDOW_NUMBER* = "SDL.window.x11.window"
+  let SDL_PROP_WINDOW_X11_WINDOW_NUMBER* = "SDL.window.x11.window" 
 when 0 is static:
   const
-    SDL_WINDOW_SURFACE_VSYNC_DISABLED* = 0
+    SDL_WINDOW_SURFACE_VSYNC_DISABLED* = 0 
 else:
-  let SDL_WINDOW_SURFACE_VSYNC_DISABLED* = 0
+  let SDL_WINDOW_SURFACE_VSYNC_DISABLED* = 0 
 when -1 is static:
   const
-    SDL_WINDOW_SURFACE_VSYNC_ADAPTIVE* = -1
+    SDL_WINDOW_SURFACE_VSYNC_ADAPTIVE* = -1 
 else:
-  let SDL_WINDOW_SURFACE_VSYNC_ADAPTIVE* = -1
+  let SDL_WINDOW_SURFACE_VSYNC_ADAPTIVE* = -1 
 when 9.80665 is static:
   const
-    SDL_STANDARD_GRAVITY* = 9.80665
+    SDL_STANDARD_GRAVITY* = 9.80665 
 else:
-  let SDL_STANDARD_GRAVITY* = 9.80665
+  let SDL_STANDARD_GRAVITY* = 9.80665 
 when 32767 is static:
   const
-    SDL_JOYSTICK_AXIS_MAX* = 32767
+    SDL_JOYSTICK_AXIS_MAX* = 32767 
 else:
-  let SDL_JOYSTICK_AXIS_MAX* = 32767
+  let SDL_JOYSTICK_AXIS_MAX* = 32767 
 when -32768 is static:
   const
-    SDL_JOYSTICK_AXIS_MIN* = -32768
+    SDL_JOYSTICK_AXIS_MIN* = -32768 
 else:
-  let SDL_JOYSTICK_AXIS_MIN* = -32768
+  let SDL_JOYSTICK_AXIS_MIN* = -32768 
 when "SDL.joystick.cap.mono_led" is static:
   const
-    SDL_PROP_JOYSTICK_CAP_MONO_LED_BOOLEAN* = "SDL.joystick.cap.mono_led"
+    SDL_PROP_JOYSTICK_CAP_MONO_LED_BOOLEAN* = "SDL.joystick.cap.mono_led" 
 else:
-  let SDL_PROP_JOYSTICK_CAP_MONO_LED_BOOLEAN* = "SDL.joystick.cap.mono_led"
+  let SDL_PROP_JOYSTICK_CAP_MONO_LED_BOOLEAN* = "SDL.joystick.cap.mono_led" 
 when "SDL.joystick.cap.rgb_led" is static:
   const
-    SDL_PROP_JOYSTICK_CAP_RGB_LED_BOOLEAN* = "SDL.joystick.cap.rgb_led"
+    SDL_PROP_JOYSTICK_CAP_RGB_LED_BOOLEAN* = "SDL.joystick.cap.rgb_led" 
 else:
-  let SDL_PROP_JOYSTICK_CAP_RGB_LED_BOOLEAN* = "SDL.joystick.cap.rgb_led"
+  let SDL_PROP_JOYSTICK_CAP_RGB_LED_BOOLEAN* = "SDL.joystick.cap.rgb_led" 
 when "SDL.joystick.cap.player_led" is static:
   const
-    SDL_PROP_JOYSTICK_CAP_PLAYER_LED_BOOLEAN* = "SDL.joystick.cap.player_led"
+    SDL_PROP_JOYSTICK_CAP_PLAYER_LED_BOOLEAN* = "SDL.joystick.cap.player_led" 
 else:
-  let SDL_PROP_JOYSTICK_CAP_PLAYER_LED_BOOLEAN* = "SDL.joystick.cap.player_led"
+  let SDL_PROP_JOYSTICK_CAP_PLAYER_LED_BOOLEAN* = "SDL.joystick.cap.player_led" 
 when "SDL.joystick.cap.rumble" is static:
   const
-    SDL_PROP_JOYSTICK_CAP_RUMBLE_BOOLEAN* = "SDL.joystick.cap.rumble"
+    SDL_PROP_JOYSTICK_CAP_RUMBLE_BOOLEAN* = "SDL.joystick.cap.rumble" 
 else:
-  let SDL_PROP_JOYSTICK_CAP_RUMBLE_BOOLEAN* = "SDL.joystick.cap.rumble"
+  let SDL_PROP_JOYSTICK_CAP_RUMBLE_BOOLEAN* = "SDL.joystick.cap.rumble" 
 when "SDL.joystick.cap.trigger_rumble" is static:
   const
-    SDL_PROP_JOYSTICK_CAP_TRIGGER_RUMBLE_BOOLEAN* = "SDL.joystick.cap.trigger_rumble"
+    SDL_PROP_JOYSTICK_CAP_TRIGGER_RUMBLE_BOOLEAN* = "SDL.joystick.cap.trigger_rumble" 
 else:
-  let SDL_PROP_JOYSTICK_CAP_TRIGGER_RUMBLE_BOOLEAN* = "SDL.joystick.cap.trigger_rumble"
+  let SDL_PROP_JOYSTICK_CAP_TRIGGER_RUMBLE_BOOLEAN* = "SDL.joystick.cap.trigger_rumble" 
 when cast[cuint](0'i64) is static:
   const
-    SDL_HAT_CENTERED* = cast[cuint](0'i64)
+    SDL_HAT_CENTERED* = cast[cuint](0'i64) 
 else:
-  let SDL_HAT_CENTERED* = cast[cuint](0'i64)
+  let SDL_HAT_CENTERED* = cast[cuint](0'i64) 
 when cast[cuint](1'i64) is static:
   const
-    SDL_HAT_UP* = cast[cuint](1'i64)
+    SDL_HAT_UP* = cast[cuint](1'i64) 
 else:
-  let SDL_HAT_UP* = cast[cuint](1'i64)
+  let SDL_HAT_UP* = cast[cuint](1'i64) 
 when cast[cuint](2'i64) is static:
   const
-    SDL_HAT_RIGHT* = cast[cuint](2'i64)
+    SDL_HAT_RIGHT* = cast[cuint](2'i64) 
 else:
-  let SDL_HAT_RIGHT* = cast[cuint](2'i64)
+  let SDL_HAT_RIGHT* = cast[cuint](2'i64) 
 when cast[cuint](4'i64) is static:
   const
-    SDL_HAT_DOWN* = cast[cuint](4'i64)
+    SDL_HAT_DOWN* = cast[cuint](4'i64) 
 else:
-  let SDL_HAT_DOWN* = cast[cuint](4'i64)
+  let SDL_HAT_DOWN* = cast[cuint](4'i64) 
 when cast[cuint](8'i64) is static:
   const
-    SDL_HAT_LEFT* = cast[cuint](8'i64)
+    SDL_HAT_LEFT* = cast[cuint](8'i64) 
 else:
-  let SDL_HAT_LEFT* = cast[cuint](8'i64)
+  let SDL_HAT_LEFT* = cast[cuint](8'i64) 
 when SDL_PROP_JOYSTICK_CAP_MONO_LED_BOOLEAN is typedesc:
   type
-    SDL_PROP_GAMEPAD_CAP_MONO_LED_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_MONO_LED_BOOLEAN
+    SDL_PROP_GAMEPAD_CAP_MONO_LED_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_MONO_LED_BOOLEAN 
 else:
   when SDL_PROP_JOYSTICK_CAP_MONO_LED_BOOLEAN is static:
     const
-      SDL_PROP_GAMEPAD_CAP_MONO_LED_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_MONO_LED_BOOLEAN
+      SDL_PROP_GAMEPAD_CAP_MONO_LED_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_MONO_LED_BOOLEAN 
   else:
-    let SDL_PROP_GAMEPAD_CAP_MONO_LED_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_MONO_LED_BOOLEAN
+    let SDL_PROP_GAMEPAD_CAP_MONO_LED_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_MONO_LED_BOOLEAN 
 when SDL_PROP_JOYSTICK_CAP_RGB_LED_BOOLEAN is typedesc:
   type
-    SDL_PROP_GAMEPAD_CAP_RGB_LED_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_RGB_LED_BOOLEAN
+    SDL_PROP_GAMEPAD_CAP_RGB_LED_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_RGB_LED_BOOLEAN 
 else:
   when SDL_PROP_JOYSTICK_CAP_RGB_LED_BOOLEAN is static:
     const
-      SDL_PROP_GAMEPAD_CAP_RGB_LED_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_RGB_LED_BOOLEAN
+      SDL_PROP_GAMEPAD_CAP_RGB_LED_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_RGB_LED_BOOLEAN 
   else:
-    let SDL_PROP_GAMEPAD_CAP_RGB_LED_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_RGB_LED_BOOLEAN
+    let SDL_PROP_GAMEPAD_CAP_RGB_LED_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_RGB_LED_BOOLEAN 
 when SDL_PROP_JOYSTICK_CAP_PLAYER_LED_BOOLEAN is typedesc:
   type
-    SDL_PROP_GAMEPAD_CAP_PLAYER_LED_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_PLAYER_LED_BOOLEAN
+    SDL_PROP_GAMEPAD_CAP_PLAYER_LED_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_PLAYER_LED_BOOLEAN 
 else:
   when SDL_PROP_JOYSTICK_CAP_PLAYER_LED_BOOLEAN is static:
     const
-      SDL_PROP_GAMEPAD_CAP_PLAYER_LED_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_PLAYER_LED_BOOLEAN
+      SDL_PROP_GAMEPAD_CAP_PLAYER_LED_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_PLAYER_LED_BOOLEAN 
   else:
-    let SDL_PROP_GAMEPAD_CAP_PLAYER_LED_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_PLAYER_LED_BOOLEAN
+    let SDL_PROP_GAMEPAD_CAP_PLAYER_LED_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_PLAYER_LED_BOOLEAN 
 when SDL_PROP_JOYSTICK_CAP_RUMBLE_BOOLEAN is typedesc:
   type
-    SDL_PROP_GAMEPAD_CAP_RUMBLE_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_RUMBLE_BOOLEAN
+    SDL_PROP_GAMEPAD_CAP_RUMBLE_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_RUMBLE_BOOLEAN 
 else:
   when SDL_PROP_JOYSTICK_CAP_RUMBLE_BOOLEAN is static:
     const
-      SDL_PROP_GAMEPAD_CAP_RUMBLE_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_RUMBLE_BOOLEAN
+      SDL_PROP_GAMEPAD_CAP_RUMBLE_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_RUMBLE_BOOLEAN 
   else:
-    let SDL_PROP_GAMEPAD_CAP_RUMBLE_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_RUMBLE_BOOLEAN
+    let SDL_PROP_GAMEPAD_CAP_RUMBLE_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_RUMBLE_BOOLEAN 
 when SDL_PROP_JOYSTICK_CAP_TRIGGER_RUMBLE_BOOLEAN is typedesc:
   type
-    SDL_PROP_GAMEPAD_CAP_TRIGGER_RUMBLE_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_TRIGGER_RUMBLE_BOOLEAN
+    SDL_PROP_GAMEPAD_CAP_TRIGGER_RUMBLE_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_TRIGGER_RUMBLE_BOOLEAN 
 else:
   when SDL_PROP_JOYSTICK_CAP_TRIGGER_RUMBLE_BOOLEAN is static:
     const
-      SDL_PROP_GAMEPAD_CAP_TRIGGER_RUMBLE_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_TRIGGER_RUMBLE_BOOLEAN
+      SDL_PROP_GAMEPAD_CAP_TRIGGER_RUMBLE_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_TRIGGER_RUMBLE_BOOLEAN 
   else:
-    let SDL_PROP_GAMEPAD_CAP_TRIGGER_RUMBLE_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_TRIGGER_RUMBLE_BOOLEAN
+    let SDL_PROP_GAMEPAD_CAP_TRIGGER_RUMBLE_BOOLEAN* = SDL_PROP_JOYSTICK_CAP_TRIGGER_RUMBLE_BOOLEAN 
 when cast[cuint](0'i64) is static:
   const
-    SDLK_UNKNOWN* = cast[cuint](0'i64)
+    SDLK_UNKNOWN* = cast[cuint](0'i64) 
 else:
-  let SDLK_UNKNOWN* = cast[cuint](0'i64)
+  let SDLK_UNKNOWN* = cast[cuint](0'i64) 
 when cast[cuint](13'i64) is static:
   const
-    SDLK_RETURN* = cast[cuint](13'i64)
+    SDLK_RETURN* = cast[cuint](13'i64) 
 else:
-  let SDLK_RETURN* = cast[cuint](13'i64)
+  let SDLK_RETURN* = cast[cuint](13'i64) 
 when cast[cuint](27'i64) is static:
   const
-    SDLK_ESCAPE* = cast[cuint](27'i64)
+    SDLK_ESCAPE* = cast[cuint](27'i64) 
 else:
-  let SDLK_ESCAPE* = cast[cuint](27'i64)
+  let SDLK_ESCAPE* = cast[cuint](27'i64) 
 when cast[cuint](8'i64) is static:
   const
-    SDLK_BACKSPACE* = cast[cuint](8'i64)
+    SDLK_BACKSPACE* = cast[cuint](8'i64) 
 else:
-  let SDLK_BACKSPACE* = cast[cuint](8'i64)
+  let SDLK_BACKSPACE* = cast[cuint](8'i64) 
 when cast[cuint](9'i64) is static:
   const
-    SDLK_TAB* = cast[cuint](9'i64)
+    SDLK_TAB* = cast[cuint](9'i64) 
 else:
-  let SDLK_TAB* = cast[cuint](9'i64)
+  let SDLK_TAB* = cast[cuint](9'i64) 
 when cast[cuint](32'i64) is static:
   const
-    SDLK_SPACE* = cast[cuint](32'i64)
+    SDLK_SPACE* = cast[cuint](32'i64) 
 else:
-  let SDLK_SPACE* = cast[cuint](32'i64)
+  let SDLK_SPACE* = cast[cuint](32'i64) 
 when cast[cuint](33'i64) is static:
   const
-    SDLK_EXCLAIM* = cast[cuint](33'i64)
+    SDLK_EXCLAIM* = cast[cuint](33'i64) 
 else:
-  let SDLK_EXCLAIM* = cast[cuint](33'i64)
+  let SDLK_EXCLAIM* = cast[cuint](33'i64) 
 when cast[cuint](34'i64) is static:
   const
-    SDLK_DBLAPOSTROPHE* = cast[cuint](34'i64)
+    SDLK_DBLAPOSTROPHE* = cast[cuint](34'i64) 
 else:
-  let SDLK_DBLAPOSTROPHE* = cast[cuint](34'i64)
+  let SDLK_DBLAPOSTROPHE* = cast[cuint](34'i64) 
 when cast[cuint](35'i64) is static:
   const
-    SDLK_HASH* = cast[cuint](35'i64)
+    SDLK_HASH* = cast[cuint](35'i64) 
 else:
-  let SDLK_HASH* = cast[cuint](35'i64)
+  let SDLK_HASH* = cast[cuint](35'i64) 
 when cast[cuint](36'i64) is static:
   const
-    SDLK_DOLLAR* = cast[cuint](36'i64)
+    SDLK_DOLLAR* = cast[cuint](36'i64) 
 else:
-  let SDLK_DOLLAR* = cast[cuint](36'i64)
+  let SDLK_DOLLAR* = cast[cuint](36'i64) 
 when cast[cuint](37'i64) is static:
   const
-    SDLK_PERCENT* = cast[cuint](37'i64)
+    SDLK_PERCENT* = cast[cuint](37'i64) 
 else:
-  let SDLK_PERCENT* = cast[cuint](37'i64)
+  let SDLK_PERCENT* = cast[cuint](37'i64) 
 when cast[cuint](38'i64) is static:
   const
-    SDLK_AMPERSAND* = cast[cuint](38'i64)
+    SDLK_AMPERSAND* = cast[cuint](38'i64) 
 else:
-  let SDLK_AMPERSAND* = cast[cuint](38'i64)
+  let SDLK_AMPERSAND* = cast[cuint](38'i64) 
 when cast[cuint](39'i64) is static:
   const
-    SDLK_APOSTROPHE* = cast[cuint](39'i64)
+    SDLK_APOSTROPHE* = cast[cuint](39'i64) 
 else:
-  let SDLK_APOSTROPHE* = cast[cuint](39'i64)
+  let SDLK_APOSTROPHE* = cast[cuint](39'i64) 
 when cast[cuint](40'i64) is static:
   const
-    SDLK_LEFTPAREN* = cast[cuint](40'i64)
+    SDLK_LEFTPAREN* = cast[cuint](40'i64) 
 else:
-  let SDLK_LEFTPAREN* = cast[cuint](40'i64)
+  let SDLK_LEFTPAREN* = cast[cuint](40'i64) 
 when cast[cuint](41'i64) is static:
   const
-    SDLK_RIGHTPAREN* = cast[cuint](41'i64)
+    SDLK_RIGHTPAREN* = cast[cuint](41'i64) 
 else:
-  let SDLK_RIGHTPAREN* = cast[cuint](41'i64)
+  let SDLK_RIGHTPAREN* = cast[cuint](41'i64) 
 when cast[cuint](42'i64) is static:
   const
-    SDLK_ASTERISK* = cast[cuint](42'i64)
+    SDLK_ASTERISK* = cast[cuint](42'i64) 
 else:
-  let SDLK_ASTERISK* = cast[cuint](42'i64)
+  let SDLK_ASTERISK* = cast[cuint](42'i64) 
 when cast[cuint](43'i64) is static:
   const
-    SDLK_PLUS* = cast[cuint](43'i64)
+    SDLK_PLUS* = cast[cuint](43'i64) 
 else:
-  let SDLK_PLUS* = cast[cuint](43'i64)
+  let SDLK_PLUS* = cast[cuint](43'i64) 
 when cast[cuint](44'i64) is static:
   const
-    SDLK_COMMA* = cast[cuint](44'i64)
+    SDLK_COMMA* = cast[cuint](44'i64) 
 else:
-  let SDLK_COMMA* = cast[cuint](44'i64)
+  let SDLK_COMMA* = cast[cuint](44'i64) 
 when cast[cuint](45'i64) is static:
   const
-    SDLK_MINUS* = cast[cuint](45'i64)
+    SDLK_MINUS* = cast[cuint](45'i64) 
 else:
-  let SDLK_MINUS* = cast[cuint](45'i64)
+  let SDLK_MINUS* = cast[cuint](45'i64) 
 when cast[cuint](46'i64) is static:
   const
-    SDLK_PERIOD* = cast[cuint](46'i64)
+    SDLK_PERIOD* = cast[cuint](46'i64) 
 else:
-  let SDLK_PERIOD* = cast[cuint](46'i64)
+  let SDLK_PERIOD* = cast[cuint](46'i64) 
 when cast[cuint](47'i64) is static:
   const
-    SDLK_SLASH* = cast[cuint](47'i64)
+    SDLK_SLASH* = cast[cuint](47'i64) 
 else:
-  let SDLK_SLASH* = cast[cuint](47'i64)
+  let SDLK_SLASH* = cast[cuint](47'i64) 
 when cast[cuint](48'i64) is static:
   const
-    SDLK_0* = cast[cuint](48'i64)
+    SDLK_0* = cast[cuint](48'i64) 
 else:
-  let SDLK_0* = cast[cuint](48'i64)
+  let SDLK_0* = cast[cuint](48'i64) 
 when cast[cuint](49'i64) is static:
   const
-    SDLK_1* = cast[cuint](49'i64)
+    SDLK_1* = cast[cuint](49'i64) 
 else:
-  let SDLK_1* = cast[cuint](49'i64)
+  let SDLK_1* = cast[cuint](49'i64) 
 when cast[cuint](50'i64) is static:
   const
-    SDLK_2* = cast[cuint](50'i64)
+    SDLK_2* = cast[cuint](50'i64) 
 else:
-  let SDLK_2* = cast[cuint](50'i64)
+  let SDLK_2* = cast[cuint](50'i64) 
 when cast[cuint](51'i64) is static:
   const
-    SDLK_3* = cast[cuint](51'i64)
+    SDLK_3* = cast[cuint](51'i64) 
 else:
-  let SDLK_3* = cast[cuint](51'i64)
+  let SDLK_3* = cast[cuint](51'i64) 
 when cast[cuint](52'i64) is static:
   const
-    SDLK_4* = cast[cuint](52'i64)
+    SDLK_4* = cast[cuint](52'i64) 
 else:
-  let SDLK_4* = cast[cuint](52'i64)
+  let SDLK_4* = cast[cuint](52'i64) 
 when cast[cuint](53'i64) is static:
   const
-    SDLK_5* = cast[cuint](53'i64)
+    SDLK_5* = cast[cuint](53'i64) 
 else:
-  let SDLK_5* = cast[cuint](53'i64)
+  let SDLK_5* = cast[cuint](53'i64) 
 when cast[cuint](54'i64) is static:
   const
-    SDLK_6* = cast[cuint](54'i64)
+    SDLK_6* = cast[cuint](54'i64) 
 else:
-  let SDLK_6* = cast[cuint](54'i64)
+  let SDLK_6* = cast[cuint](54'i64) 
 when cast[cuint](55'i64) is static:
   const
-    SDLK_7* = cast[cuint](55'i64)
+    SDLK_7* = cast[cuint](55'i64) 
 else:
-  let SDLK_7* = cast[cuint](55'i64)
+  let SDLK_7* = cast[cuint](55'i64) 
 when cast[cuint](56'i64) is static:
   const
-    SDLK_8* = cast[cuint](56'i64)
+    SDLK_8* = cast[cuint](56'i64) 
 else:
-  let SDLK_8* = cast[cuint](56'i64)
+  let SDLK_8* = cast[cuint](56'i64) 
 when cast[cuint](57'i64) is static:
   const
-    SDLK_9* = cast[cuint](57'i64)
+    SDLK_9* = cast[cuint](57'i64) 
 else:
-  let SDLK_9* = cast[cuint](57'i64)
+  let SDLK_9* = cast[cuint](57'i64) 
 when cast[cuint](58'i64) is static:
   const
-    SDLK_COLON* = cast[cuint](58'i64)
+    SDLK_COLON* = cast[cuint](58'i64) 
 else:
-  let SDLK_COLON* = cast[cuint](58'i64)
+  let SDLK_COLON* = cast[cuint](58'i64) 
 when cast[cuint](59'i64) is static:
   const
-    SDLK_SEMICOLON* = cast[cuint](59'i64)
+    SDLK_SEMICOLON* = cast[cuint](59'i64) 
 else:
-  let SDLK_SEMICOLON* = cast[cuint](59'i64)
+  let SDLK_SEMICOLON* = cast[cuint](59'i64) 
 when cast[cuint](60'i64) is static:
   const
-    SDLK_LESS* = cast[cuint](60'i64)
+    SDLK_LESS* = cast[cuint](60'i64) 
 else:
-  let SDLK_LESS* = cast[cuint](60'i64)
+  let SDLK_LESS* = cast[cuint](60'i64) 
 when cast[cuint](61'i64) is static:
   const
-    SDLK_EQUALS* = cast[cuint](61'i64)
+    SDLK_EQUALS* = cast[cuint](61'i64) 
 else:
-  let SDLK_EQUALS* = cast[cuint](61'i64)
+  let SDLK_EQUALS* = cast[cuint](61'i64) 
 when cast[cuint](62'i64) is static:
   const
-    SDLK_GREATER* = cast[cuint](62'i64)
+    SDLK_GREATER* = cast[cuint](62'i64) 
 else:
-  let SDLK_GREATER* = cast[cuint](62'i64)
+  let SDLK_GREATER* = cast[cuint](62'i64) 
 when cast[cuint](63'i64) is static:
   const
-    SDLK_QUESTION* = cast[cuint](63'i64)
+    SDLK_QUESTION* = cast[cuint](63'i64) 
 else:
-  let SDLK_QUESTION* = cast[cuint](63'i64)
+  let SDLK_QUESTION* = cast[cuint](63'i64) 
 when cast[cuint](64'i64) is static:
   const
-    SDLK_AT* = cast[cuint](64'i64)
+    SDLK_AT* = cast[cuint](64'i64) 
 else:
-  let SDLK_AT* = cast[cuint](64'i64)
+  let SDLK_AT* = cast[cuint](64'i64) 
 when cast[cuint](91'i64) is static:
   const
-    SDLK_LEFTBRACKET* = cast[cuint](91'i64)
+    SDLK_LEFTBRACKET* = cast[cuint](91'i64) 
 else:
-  let SDLK_LEFTBRACKET* = cast[cuint](91'i64)
+  let SDLK_LEFTBRACKET* = cast[cuint](91'i64) 
 when cast[cuint](92'i64) is static:
   const
-    SDLK_BACKSLASH* = cast[cuint](92'i64)
+    SDLK_BACKSLASH* = cast[cuint](92'i64) 
 else:
-  let SDLK_BACKSLASH* = cast[cuint](92'i64)
+  let SDLK_BACKSLASH* = cast[cuint](92'i64) 
 when cast[cuint](93'i64) is static:
   const
-    SDLK_RIGHTBRACKET* = cast[cuint](93'i64)
+    SDLK_RIGHTBRACKET* = cast[cuint](93'i64) 
 else:
-  let SDLK_RIGHTBRACKET* = cast[cuint](93'i64)
+  let SDLK_RIGHTBRACKET* = cast[cuint](93'i64) 
 when cast[cuint](94'i64) is static:
   const
-    SDLK_CARET* = cast[cuint](94'i64)
+    SDLK_CARET* = cast[cuint](94'i64) 
 else:
-  let SDLK_CARET* = cast[cuint](94'i64)
+  let SDLK_CARET* = cast[cuint](94'i64) 
 when cast[cuint](95'i64) is static:
   const
-    SDLK_UNDERSCORE* = cast[cuint](95'i64)
+    SDLK_UNDERSCORE* = cast[cuint](95'i64) 
 else:
-  let SDLK_UNDERSCORE* = cast[cuint](95'i64)
+  let SDLK_UNDERSCORE* = cast[cuint](95'i64) 
 when cast[cuint](96'i64) is static:
   const
-    SDLK_GRAVE* = cast[cuint](96'i64)
+    SDLK_GRAVE* = cast[cuint](96'i64) 
 else:
-  let SDLK_GRAVE* = cast[cuint](96'i64)
+  let SDLK_GRAVE* = cast[cuint](96'i64) 
 when cast[cuint](97'i64) is static:
   const
-    SDLK_A* = cast[cuint](97'i64)
+    SDLK_A* = cast[cuint](97'i64) 
 else:
-  let SDLK_A* = cast[cuint](97'i64)
+  let SDLK_A* = cast[cuint](97'i64) 
 when cast[cuint](98'i64) is static:
   const
-    SDLK_B* = cast[cuint](98'i64)
+    SDLK_B* = cast[cuint](98'i64) 
 else:
-  let SDLK_B* = cast[cuint](98'i64)
+  let SDLK_B* = cast[cuint](98'i64) 
 when cast[cuint](99'i64) is static:
   const
-    SDLK_C* = cast[cuint](99'i64)
+    SDLK_C* = cast[cuint](99'i64) 
 else:
-  let SDLK_C* = cast[cuint](99'i64)
+  let SDLK_C* = cast[cuint](99'i64) 
 when cast[cuint](100'i64) is static:
   const
-    SDLK_D* = cast[cuint](100'i64)
+    SDLK_D* = cast[cuint](100'i64) 
 else:
-  let SDLK_D* = cast[cuint](100'i64)
+  let SDLK_D* = cast[cuint](100'i64) 
 when cast[cuint](101'i64) is static:
   const
-    SDLK_E* = cast[cuint](101'i64)
+    SDLK_E* = cast[cuint](101'i64) 
 else:
-  let SDLK_E* = cast[cuint](101'i64)
+  let SDLK_E* = cast[cuint](101'i64) 
 when cast[cuint](102'i64) is static:
   const
-    SDLK_F* = cast[cuint](102'i64)
+    SDLK_F* = cast[cuint](102'i64) 
 else:
-  let SDLK_F* = cast[cuint](102'i64)
+  let SDLK_F* = cast[cuint](102'i64) 
 when cast[cuint](103'i64) is static:
   const
-    SDLK_G* = cast[cuint](103'i64)
+    SDLK_G* = cast[cuint](103'i64) 
 else:
-  let SDLK_G* = cast[cuint](103'i64)
+  let SDLK_G* = cast[cuint](103'i64) 
 when cast[cuint](104'i64) is static:
   const
-    SDLK_H* = cast[cuint](104'i64)
+    SDLK_H* = cast[cuint](104'i64) 
 else:
-  let SDLK_H* = cast[cuint](104'i64)
+  let SDLK_H* = cast[cuint](104'i64) 
 when cast[cuint](105'i64) is static:
   const
-    SDLK_I* = cast[cuint](105'i64)
+    SDLK_I* = cast[cuint](105'i64) 
 else:
-  let SDLK_I* = cast[cuint](105'i64)
+  let SDLK_I* = cast[cuint](105'i64) 
 when cast[cuint](106'i64) is static:
   const
-    SDLK_J* = cast[cuint](106'i64)
+    SDLK_J* = cast[cuint](106'i64) 
 else:
-  let SDLK_J* = cast[cuint](106'i64)
+  let SDLK_J* = cast[cuint](106'i64) 
 when cast[cuint](107'i64) is static:
   const
-    SDLK_K* = cast[cuint](107'i64)
+    SDLK_K* = cast[cuint](107'i64) 
 else:
-  let SDLK_K* = cast[cuint](107'i64)
+  let SDLK_K* = cast[cuint](107'i64) 
 when cast[cuint](108'i64) is static:
   const
-    SDLK_L* = cast[cuint](108'i64)
+    SDLK_L* = cast[cuint](108'i64) 
 else:
-  let SDLK_L* = cast[cuint](108'i64)
+  let SDLK_L* = cast[cuint](108'i64) 
 when cast[cuint](109'i64) is static:
   const
-    SDLK_M* = cast[cuint](109'i64)
+    SDLK_M* = cast[cuint](109'i64) 
 else:
-  let SDLK_M* = cast[cuint](109'i64)
+  let SDLK_M* = cast[cuint](109'i64) 
 when cast[cuint](110'i64) is static:
   const
-    SDLK_N* = cast[cuint](110'i64)
+    SDLK_N* = cast[cuint](110'i64) 
 else:
-  let SDLK_N* = cast[cuint](110'i64)
+  let SDLK_N* = cast[cuint](110'i64) 
 when cast[cuint](111'i64) is static:
   const
-    SDLK_O* = cast[cuint](111'i64)
+    SDLK_O* = cast[cuint](111'i64) 
 else:
-  let SDLK_O* = cast[cuint](111'i64)
+  let SDLK_O* = cast[cuint](111'i64) 
 when cast[cuint](112'i64) is static:
   const
-    SDLK_P* = cast[cuint](112'i64)
+    SDLK_P* = cast[cuint](112'i64) 
 else:
-  let SDLK_P* = cast[cuint](112'i64)
+  let SDLK_P* = cast[cuint](112'i64) 
 when cast[cuint](113'i64) is static:
   const
-    SDLK_Q* = cast[cuint](113'i64)
+    SDLK_Q* = cast[cuint](113'i64) 
 else:
-  let SDLK_Q* = cast[cuint](113'i64)
+  let SDLK_Q* = cast[cuint](113'i64) 
 when cast[cuint](114'i64) is static:
   const
-    SDLK_R* = cast[cuint](114'i64)
+    SDLK_R* = cast[cuint](114'i64) 
 else:
-  let SDLK_R* = cast[cuint](114'i64)
+  let SDLK_R* = cast[cuint](114'i64) 
 when cast[cuint](115'i64) is static:
   const
-    SDLK_S* = cast[cuint](115'i64)
+    SDLK_S* = cast[cuint](115'i64) 
 else:
-  let SDLK_S* = cast[cuint](115'i64)
+  let SDLK_S* = cast[cuint](115'i64) 
 when cast[cuint](116'i64) is static:
   const
-    SDLK_T* = cast[cuint](116'i64)
+    SDLK_T* = cast[cuint](116'i64) 
 else:
-  let SDLK_T* = cast[cuint](116'i64)
+  let SDLK_T* = cast[cuint](116'i64) 
 when cast[cuint](117'i64) is static:
   const
-    SDLK_U* = cast[cuint](117'i64)
+    SDLK_U* = cast[cuint](117'i64) 
 else:
-  let SDLK_U* = cast[cuint](117'i64)
+  let SDLK_U* = cast[cuint](117'i64) 
 when cast[cuint](118'i64) is static:
   const
-    SDLK_V* = cast[cuint](118'i64)
+    SDLK_V* = cast[cuint](118'i64) 
 else:
-  let SDLK_V* = cast[cuint](118'i64)
+  let SDLK_V* = cast[cuint](118'i64) 
 when cast[cuint](119'i64) is static:
   const
-    SDLK_W* = cast[cuint](119'i64)
+    SDLK_W* = cast[cuint](119'i64) 
 else:
-  let SDLK_W* = cast[cuint](119'i64)
+  let SDLK_W* = cast[cuint](119'i64) 
 when cast[cuint](120'i64) is static:
   const
-    SDLK_X* = cast[cuint](120'i64)
+    SDLK_X* = cast[cuint](120'i64) 
 else:
-  let SDLK_X* = cast[cuint](120'i64)
+  let SDLK_X* = cast[cuint](120'i64) 
 when cast[cuint](121'i64) is static:
   const
-    SDLK_Y* = cast[cuint](121'i64)
+    SDLK_Y* = cast[cuint](121'i64) 
 else:
-  let SDLK_Y* = cast[cuint](121'i64)
+  let SDLK_Y* = cast[cuint](121'i64) 
 when cast[cuint](122'i64) is static:
   const
-    SDLK_Z* = cast[cuint](122'i64)
+    SDLK_Z* = cast[cuint](122'i64) 
 else:
-  let SDLK_Z* = cast[cuint](122'i64)
+  let SDLK_Z* = cast[cuint](122'i64) 
 when cast[cuint](123'i64) is static:
   const
-    SDLK_LEFTBRACE* = cast[cuint](123'i64)
+    SDLK_LEFTBRACE* = cast[cuint](123'i64) 
 else:
-  let SDLK_LEFTBRACE* = cast[cuint](123'i64)
+  let SDLK_LEFTBRACE* = cast[cuint](123'i64) 
 when cast[cuint](124'i64) is static:
   const
-    SDLK_PIPE* = cast[cuint](124'i64)
+    SDLK_PIPE* = cast[cuint](124'i64) 
 else:
-  let SDLK_PIPE* = cast[cuint](124'i64)
+  let SDLK_PIPE* = cast[cuint](124'i64) 
 when cast[cuint](125'i64) is static:
   const
-    SDLK_RIGHTBRACE* = cast[cuint](125'i64)
+    SDLK_RIGHTBRACE* = cast[cuint](125'i64) 
 else:
-  let SDLK_RIGHTBRACE* = cast[cuint](125'i64)
+  let SDLK_RIGHTBRACE* = cast[cuint](125'i64) 
 when cast[cuint](126'i64) is static:
   const
-    SDLK_TILDE* = cast[cuint](126'i64)
+    SDLK_TILDE* = cast[cuint](126'i64) 
 else:
-  let SDLK_TILDE* = cast[cuint](126'i64)
+  let SDLK_TILDE* = cast[cuint](126'i64) 
 when cast[cuint](127'i64) is static:
   const
-    SDLK_DELETE* = cast[cuint](127'i64)
+    SDLK_DELETE* = cast[cuint](127'i64) 
 else:
-  let SDLK_DELETE* = cast[cuint](127'i64)
+  let SDLK_DELETE* = cast[cuint](127'i64) 
 when cast[cuint](177'i64) is static:
   const
-    SDLK_PLUSMINUS* = cast[cuint](177'i64)
+    SDLK_PLUSMINUS* = cast[cuint](177'i64) 
 else:
-  let SDLK_PLUSMINUS* = cast[cuint](177'i64)
+  let SDLK_PLUSMINUS* = cast[cuint](177'i64) 
 when cast[cuint](1073741881'i64) is static:
   const
-    SDLK_CAPSLOCK* = cast[cuint](1073741881'i64)
+    SDLK_CAPSLOCK* = cast[cuint](1073741881'i64) 
 else:
-  let SDLK_CAPSLOCK* = cast[cuint](1073741881'i64)
+  let SDLK_CAPSLOCK* = cast[cuint](1073741881'i64) 
 when cast[cuint](1073741882'i64) is static:
   const
-    SDLK_F1* = cast[cuint](1073741882'i64)
+    SDLK_F1* = cast[cuint](1073741882'i64) 
 else:
-  let SDLK_F1* = cast[cuint](1073741882'i64)
+  let SDLK_F1* = cast[cuint](1073741882'i64) 
 when cast[cuint](1073741883'i64) is static:
   const
-    SDLK_F2* = cast[cuint](1073741883'i64)
+    SDLK_F2* = cast[cuint](1073741883'i64) 
 else:
-  let SDLK_F2* = cast[cuint](1073741883'i64)
+  let SDLK_F2* = cast[cuint](1073741883'i64) 
 when cast[cuint](1073741884'i64) is static:
   const
-    SDLK_F3* = cast[cuint](1073741884'i64)
+    SDLK_F3* = cast[cuint](1073741884'i64) 
 else:
-  let SDLK_F3* = cast[cuint](1073741884'i64)
+  let SDLK_F3* = cast[cuint](1073741884'i64) 
 when cast[cuint](1073741885'i64) is static:
   const
-    SDLK_F4* = cast[cuint](1073741885'i64)
+    SDLK_F4* = cast[cuint](1073741885'i64) 
 else:
-  let SDLK_F4* = cast[cuint](1073741885'i64)
+  let SDLK_F4* = cast[cuint](1073741885'i64) 
 when cast[cuint](1073741886'i64) is static:
   const
-    SDLK_F5* = cast[cuint](1073741886'i64)
+    SDLK_F5* = cast[cuint](1073741886'i64) 
 else:
-  let SDLK_F5* = cast[cuint](1073741886'i64)
+  let SDLK_F5* = cast[cuint](1073741886'i64) 
 when cast[cuint](1073741887'i64) is static:
   const
-    SDLK_F6* = cast[cuint](1073741887'i64)
+    SDLK_F6* = cast[cuint](1073741887'i64) 
 else:
-  let SDLK_F6* = cast[cuint](1073741887'i64)
+  let SDLK_F6* = cast[cuint](1073741887'i64) 
 when cast[cuint](1073741888'i64) is static:
   const
-    SDLK_F7* = cast[cuint](1073741888'i64)
+    SDLK_F7* = cast[cuint](1073741888'i64) 
 else:
-  let SDLK_F7* = cast[cuint](1073741888'i64)
+  let SDLK_F7* = cast[cuint](1073741888'i64) 
 when cast[cuint](1073741889'i64) is static:
   const
-    SDLK_F8* = cast[cuint](1073741889'i64)
+    SDLK_F8* = cast[cuint](1073741889'i64) 
 else:
-  let SDLK_F8* = cast[cuint](1073741889'i64)
+  let SDLK_F8* = cast[cuint](1073741889'i64) 
 when cast[cuint](1073741890'i64) is static:
   const
-    SDLK_F9* = cast[cuint](1073741890'i64)
+    SDLK_F9* = cast[cuint](1073741890'i64) 
 else:
-  let SDLK_F9* = cast[cuint](1073741890'i64)
+  let SDLK_F9* = cast[cuint](1073741890'i64) 
 when cast[cuint](1073741891'i64) is static:
   const
-    SDLK_F10* = cast[cuint](1073741891'i64)
+    SDLK_F10* = cast[cuint](1073741891'i64) 
 else:
-  let SDLK_F10* = cast[cuint](1073741891'i64)
+  let SDLK_F10* = cast[cuint](1073741891'i64) 
 when cast[cuint](1073741892'i64) is static:
   const
-    SDLK_F11* = cast[cuint](1073741892'i64)
+    SDLK_F11* = cast[cuint](1073741892'i64) 
 else:
-  let SDLK_F11* = cast[cuint](1073741892'i64)
+  let SDLK_F11* = cast[cuint](1073741892'i64) 
 when cast[cuint](1073741893'i64) is static:
   const
-    SDLK_F12* = cast[cuint](1073741893'i64)
+    SDLK_F12* = cast[cuint](1073741893'i64) 
 else:
-  let SDLK_F12* = cast[cuint](1073741893'i64)
+  let SDLK_F12* = cast[cuint](1073741893'i64) 
 when cast[cuint](1073741894'i64) is static:
   const
-    SDLK_PRINTSCREEN* = cast[cuint](1073741894'i64)
+    SDLK_PRINTSCREEN* = cast[cuint](1073741894'i64) 
 else:
-  let SDLK_PRINTSCREEN* = cast[cuint](1073741894'i64)
+  let SDLK_PRINTSCREEN* = cast[cuint](1073741894'i64) 
 when cast[cuint](1073741895'i64) is static:
   const
-    SDLK_SCROLLLOCK* = cast[cuint](1073741895'i64)
+    SDLK_SCROLLLOCK* = cast[cuint](1073741895'i64) 
 else:
-  let SDLK_SCROLLLOCK* = cast[cuint](1073741895'i64)
+  let SDLK_SCROLLLOCK* = cast[cuint](1073741895'i64) 
 when cast[cuint](1073741896'i64) is static:
   const
-    SDLK_PAUSE* = cast[cuint](1073741896'i64)
+    SDLK_PAUSE* = cast[cuint](1073741896'i64) 
 else:
-  let SDLK_PAUSE* = cast[cuint](1073741896'i64)
+  let SDLK_PAUSE* = cast[cuint](1073741896'i64) 
 when cast[cuint](1073741897'i64) is static:
   const
-    SDLK_INSERT* = cast[cuint](1073741897'i64)
+    SDLK_INSERT* = cast[cuint](1073741897'i64) 
 else:
-  let SDLK_INSERT* = cast[cuint](1073741897'i64)
+  let SDLK_INSERT* = cast[cuint](1073741897'i64) 
 when cast[cuint](1073741898'i64) is static:
   const
-    SDLK_HOME* = cast[cuint](1073741898'i64)
+    SDLK_HOME* = cast[cuint](1073741898'i64) 
 else:
-  let SDLK_HOME* = cast[cuint](1073741898'i64)
+  let SDLK_HOME* = cast[cuint](1073741898'i64) 
 when cast[cuint](1073741899'i64) is static:
   const
-    SDLK_PAGEUP* = cast[cuint](1073741899'i64)
+    SDLK_PAGEUP* = cast[cuint](1073741899'i64) 
 else:
-  let SDLK_PAGEUP* = cast[cuint](1073741899'i64)
+  let SDLK_PAGEUP* = cast[cuint](1073741899'i64) 
 when cast[cuint](1073741901'i64) is static:
   const
-    SDLK_END* = cast[cuint](1073741901'i64)
+    SDLK_END* = cast[cuint](1073741901'i64) 
 else:
-  let SDLK_END* = cast[cuint](1073741901'i64)
+  let SDLK_END* = cast[cuint](1073741901'i64) 
 when cast[cuint](1073741902'i64) is static:
   const
-    SDLK_PAGEDOWN* = cast[cuint](1073741902'i64)
+    SDLK_PAGEDOWN* = cast[cuint](1073741902'i64) 
 else:
-  let SDLK_PAGEDOWN* = cast[cuint](1073741902'i64)
+  let SDLK_PAGEDOWN* = cast[cuint](1073741902'i64) 
 when cast[cuint](1073741903'i64) is static:
   const
-    SDLK_RIGHT* = cast[cuint](1073741903'i64)
+    SDLK_RIGHT* = cast[cuint](1073741903'i64) 
 else:
-  let SDLK_RIGHT* = cast[cuint](1073741903'i64)
+  let SDLK_RIGHT* = cast[cuint](1073741903'i64) 
 when cast[cuint](1073741904'i64) is static:
   const
-    SDLK_LEFT* = cast[cuint](1073741904'i64)
+    SDLK_LEFT* = cast[cuint](1073741904'i64) 
 else:
-  let SDLK_LEFT* = cast[cuint](1073741904'i64)
+  let SDLK_LEFT* = cast[cuint](1073741904'i64) 
 when cast[cuint](1073741905'i64) is static:
   const
-    SDLK_DOWN* = cast[cuint](1073741905'i64)
+    SDLK_DOWN* = cast[cuint](1073741905'i64) 
 else:
-  let SDLK_DOWN* = cast[cuint](1073741905'i64)
+  let SDLK_DOWN* = cast[cuint](1073741905'i64) 
 when cast[cuint](1073741906'i64) is static:
   const
-    SDLK_UP* = cast[cuint](1073741906'i64)
+    SDLK_UP* = cast[cuint](1073741906'i64) 
 else:
-  let SDLK_UP* = cast[cuint](1073741906'i64)
+  let SDLK_UP* = cast[cuint](1073741906'i64) 
 when cast[cuint](1073741907'i64) is static:
   const
-    SDLK_NUMLOCKCLEAR* = cast[cuint](1073741907'i64)
+    SDLK_NUMLOCKCLEAR* = cast[cuint](1073741907'i64) 
 else:
-  let SDLK_NUMLOCKCLEAR* = cast[cuint](1073741907'i64)
+  let SDLK_NUMLOCKCLEAR* = cast[cuint](1073741907'i64) 
 when cast[cuint](1073741908'i64) is static:
   const
-    SDLK_KP_DIVIDE* = cast[cuint](1073741908'i64)
+    SDLK_KP_DIVIDE* = cast[cuint](1073741908'i64) 
 else:
-  let SDLK_KP_DIVIDE* = cast[cuint](1073741908'i64)
+  let SDLK_KP_DIVIDE* = cast[cuint](1073741908'i64) 
 when cast[cuint](1073741909'i64) is static:
   const
-    SDLK_KP_MULTIPLY* = cast[cuint](1073741909'i64)
+    SDLK_KP_MULTIPLY* = cast[cuint](1073741909'i64) 
 else:
-  let SDLK_KP_MULTIPLY* = cast[cuint](1073741909'i64)
+  let SDLK_KP_MULTIPLY* = cast[cuint](1073741909'i64) 
 when cast[cuint](1073741910'i64) is static:
   const
-    SDLK_KP_MINUS* = cast[cuint](1073741910'i64)
+    SDLK_KP_MINUS* = cast[cuint](1073741910'i64) 
 else:
-  let SDLK_KP_MINUS* = cast[cuint](1073741910'i64)
+  let SDLK_KP_MINUS* = cast[cuint](1073741910'i64) 
 when cast[cuint](1073741911'i64) is static:
   const
-    SDLK_KP_PLUS* = cast[cuint](1073741911'i64)
+    SDLK_KP_PLUS* = cast[cuint](1073741911'i64) 
 else:
-  let SDLK_KP_PLUS* = cast[cuint](1073741911'i64)
+  let SDLK_KP_PLUS* = cast[cuint](1073741911'i64) 
 when cast[cuint](1073741912'i64) is static:
   const
-    SDLK_KP_ENTER* = cast[cuint](1073741912'i64)
+    SDLK_KP_ENTER* = cast[cuint](1073741912'i64) 
 else:
-  let SDLK_KP_ENTER* = cast[cuint](1073741912'i64)
+  let SDLK_KP_ENTER* = cast[cuint](1073741912'i64) 
 when cast[cuint](1073741913'i64) is static:
   const
-    SDLK_KP_1* = cast[cuint](1073741913'i64)
+    SDLK_KP_1* = cast[cuint](1073741913'i64) 
 else:
-  let SDLK_KP_1* = cast[cuint](1073741913'i64)
+  let SDLK_KP_1* = cast[cuint](1073741913'i64) 
 when cast[cuint](1073741914'i64) is static:
   const
-    SDLK_KP_2* = cast[cuint](1073741914'i64)
+    SDLK_KP_2* = cast[cuint](1073741914'i64) 
 else:
-  let SDLK_KP_2* = cast[cuint](1073741914'i64)
+  let SDLK_KP_2* = cast[cuint](1073741914'i64) 
 when cast[cuint](1073741915'i64) is static:
   const
-    SDLK_KP_3* = cast[cuint](1073741915'i64)
+    SDLK_KP_3* = cast[cuint](1073741915'i64) 
 else:
-  let SDLK_KP_3* = cast[cuint](1073741915'i64)
+  let SDLK_KP_3* = cast[cuint](1073741915'i64) 
 when cast[cuint](1073741916'i64) is static:
   const
-    SDLK_KP_4* = cast[cuint](1073741916'i64)
+    SDLK_KP_4* = cast[cuint](1073741916'i64) 
 else:
-  let SDLK_KP_4* = cast[cuint](1073741916'i64)
+  let SDLK_KP_4* = cast[cuint](1073741916'i64) 
 when cast[cuint](1073741917'i64) is static:
   const
-    SDLK_KP_5* = cast[cuint](1073741917'i64)
+    SDLK_KP_5* = cast[cuint](1073741917'i64) 
 else:
-  let SDLK_KP_5* = cast[cuint](1073741917'i64)
+  let SDLK_KP_5* = cast[cuint](1073741917'i64) 
 when cast[cuint](1073741918'i64) is static:
   const
-    SDLK_KP_6* = cast[cuint](1073741918'i64)
+    SDLK_KP_6* = cast[cuint](1073741918'i64) 
 else:
-  let SDLK_KP_6* = cast[cuint](1073741918'i64)
+  let SDLK_KP_6* = cast[cuint](1073741918'i64) 
 when cast[cuint](1073741919'i64) is static:
   const
-    SDLK_KP_7* = cast[cuint](1073741919'i64)
+    SDLK_KP_7* = cast[cuint](1073741919'i64) 
 else:
-  let SDLK_KP_7* = cast[cuint](1073741919'i64)
+  let SDLK_KP_7* = cast[cuint](1073741919'i64) 
 when cast[cuint](1073741920'i64) is static:
   const
-    SDLK_KP_8* = cast[cuint](1073741920'i64)
+    SDLK_KP_8* = cast[cuint](1073741920'i64) 
 else:
-  let SDLK_KP_8* = cast[cuint](1073741920'i64)
+  let SDLK_KP_8* = cast[cuint](1073741920'i64) 
 when cast[cuint](1073741921'i64) is static:
   const
-    SDLK_KP_9* = cast[cuint](1073741921'i64)
+    SDLK_KP_9* = cast[cuint](1073741921'i64) 
 else:
-  let SDLK_KP_9* = cast[cuint](1073741921'i64)
+  let SDLK_KP_9* = cast[cuint](1073741921'i64) 
 when cast[cuint](1073741922'i64) is static:
   const
-    SDLK_KP_0* = cast[cuint](1073741922'i64)
+    SDLK_KP_0* = cast[cuint](1073741922'i64) 
 else:
-  let SDLK_KP_0* = cast[cuint](1073741922'i64)
+  let SDLK_KP_0* = cast[cuint](1073741922'i64) 
 when cast[cuint](1073741923'i64) is static:
   const
-    SDLK_KP_PERIOD* = cast[cuint](1073741923'i64)
+    SDLK_KP_PERIOD* = cast[cuint](1073741923'i64) 
 else:
-  let SDLK_KP_PERIOD* = cast[cuint](1073741923'i64)
+  let SDLK_KP_PERIOD* = cast[cuint](1073741923'i64) 
 when cast[cuint](1073741925'i64) is static:
   const
-    SDLK_APPLICATION* = cast[cuint](1073741925'i64)
+    SDLK_APPLICATION* = cast[cuint](1073741925'i64) 
 else:
-  let SDLK_APPLICATION* = cast[cuint](1073741925'i64)
+  let SDLK_APPLICATION* = cast[cuint](1073741925'i64) 
 when cast[cuint](1073741926'i64) is static:
   const
-    SDLK_POWER* = cast[cuint](1073741926'i64)
+    SDLK_POWER* = cast[cuint](1073741926'i64) 
 else:
-  let SDLK_POWER* = cast[cuint](1073741926'i64)
+  let SDLK_POWER* = cast[cuint](1073741926'i64) 
 when cast[cuint](1073741927'i64) is static:
   const
-    SDLK_KP_EQUALS* = cast[cuint](1073741927'i64)
+    SDLK_KP_EQUALS* = cast[cuint](1073741927'i64) 
 else:
-  let SDLK_KP_EQUALS* = cast[cuint](1073741927'i64)
+  let SDLK_KP_EQUALS* = cast[cuint](1073741927'i64) 
 when cast[cuint](1073741928'i64) is static:
   const
-    SDLK_F13* = cast[cuint](1073741928'i64)
+    SDLK_F13* = cast[cuint](1073741928'i64) 
 else:
-  let SDLK_F13* = cast[cuint](1073741928'i64)
+  let SDLK_F13* = cast[cuint](1073741928'i64) 
 when cast[cuint](1073741929'i64) is static:
   const
-    SDLK_F14* = cast[cuint](1073741929'i64)
+    SDLK_F14* = cast[cuint](1073741929'i64) 
 else:
-  let SDLK_F14* = cast[cuint](1073741929'i64)
+  let SDLK_F14* = cast[cuint](1073741929'i64) 
 when cast[cuint](1073741930'i64) is static:
   const
-    SDLK_F15* = cast[cuint](1073741930'i64)
+    SDLK_F15* = cast[cuint](1073741930'i64) 
 else:
-  let SDLK_F15* = cast[cuint](1073741930'i64)
+  let SDLK_F15* = cast[cuint](1073741930'i64) 
 when cast[cuint](1073741931'i64) is static:
   const
-    SDLK_F16* = cast[cuint](1073741931'i64)
+    SDLK_F16* = cast[cuint](1073741931'i64) 
 else:
-  let SDLK_F16* = cast[cuint](1073741931'i64)
+  let SDLK_F16* = cast[cuint](1073741931'i64) 
 when cast[cuint](1073741932'i64) is static:
   const
-    SDLK_F17* = cast[cuint](1073741932'i64)
+    SDLK_F17* = cast[cuint](1073741932'i64) 
 else:
-  let SDLK_F17* = cast[cuint](1073741932'i64)
+  let SDLK_F17* = cast[cuint](1073741932'i64) 
 when cast[cuint](1073741933'i64) is static:
   const
-    SDLK_F18* = cast[cuint](1073741933'i64)
+    SDLK_F18* = cast[cuint](1073741933'i64) 
 else:
-  let SDLK_F18* = cast[cuint](1073741933'i64)
+  let SDLK_F18* = cast[cuint](1073741933'i64) 
 when cast[cuint](1073741934'i64) is static:
   const
-    SDLK_F19* = cast[cuint](1073741934'i64)
+    SDLK_F19* = cast[cuint](1073741934'i64) 
 else:
-  let SDLK_F19* = cast[cuint](1073741934'i64)
+  let SDLK_F19* = cast[cuint](1073741934'i64) 
 when cast[cuint](1073741935'i64) is static:
   const
-    SDLK_F20* = cast[cuint](1073741935'i64)
+    SDLK_F20* = cast[cuint](1073741935'i64) 
 else:
-  let SDLK_F20* = cast[cuint](1073741935'i64)
+  let SDLK_F20* = cast[cuint](1073741935'i64) 
 when cast[cuint](1073741936'i64) is static:
   const
-    SDLK_F21* = cast[cuint](1073741936'i64)
+    SDLK_F21* = cast[cuint](1073741936'i64) 
 else:
-  let SDLK_F21* = cast[cuint](1073741936'i64)
+  let SDLK_F21* = cast[cuint](1073741936'i64) 
 when cast[cuint](1073741937'i64) is static:
   const
-    SDLK_F22* = cast[cuint](1073741937'i64)
+    SDLK_F22* = cast[cuint](1073741937'i64) 
 else:
-  let SDLK_F22* = cast[cuint](1073741937'i64)
+  let SDLK_F22* = cast[cuint](1073741937'i64) 
 when cast[cuint](1073741938'i64) is static:
   const
-    SDLK_F23* = cast[cuint](1073741938'i64)
+    SDLK_F23* = cast[cuint](1073741938'i64) 
 else:
-  let SDLK_F23* = cast[cuint](1073741938'i64)
+  let SDLK_F23* = cast[cuint](1073741938'i64) 
 when cast[cuint](1073741939'i64) is static:
   const
-    SDLK_F24* = cast[cuint](1073741939'i64)
+    SDLK_F24* = cast[cuint](1073741939'i64) 
 else:
-  let SDLK_F24* = cast[cuint](1073741939'i64)
+  let SDLK_F24* = cast[cuint](1073741939'i64) 
 when cast[cuint](1073741940'i64) is static:
   const
-    SDLK_EXECUTE* = cast[cuint](1073741940'i64)
+    SDLK_EXECUTE* = cast[cuint](1073741940'i64) 
 else:
-  let SDLK_EXECUTE* = cast[cuint](1073741940'i64)
+  let SDLK_EXECUTE* = cast[cuint](1073741940'i64) 
 when cast[cuint](1073741941'i64) is static:
   const
-    SDLK_HELP* = cast[cuint](1073741941'i64)
+    SDLK_HELP* = cast[cuint](1073741941'i64) 
 else:
-  let SDLK_HELP* = cast[cuint](1073741941'i64)
+  let SDLK_HELP* = cast[cuint](1073741941'i64) 
 when cast[cuint](1073741942'i64) is static:
   const
-    SDLK_MENU* = cast[cuint](1073741942'i64)
+    SDLK_MENU* = cast[cuint](1073741942'i64) 
 else:
-  let SDLK_MENU* = cast[cuint](1073741942'i64)
+  let SDLK_MENU* = cast[cuint](1073741942'i64) 
 when cast[cuint](1073741943'i64) is static:
   const
-    SDLK_SELECT* = cast[cuint](1073741943'i64)
+    SDLK_SELECT* = cast[cuint](1073741943'i64) 
 else:
-  let SDLK_SELECT* = cast[cuint](1073741943'i64)
+  let SDLK_SELECT* = cast[cuint](1073741943'i64) 
 when cast[cuint](1073741944'i64) is static:
   const
-    SDLK_STOP* = cast[cuint](1073741944'i64)
+    SDLK_STOP* = cast[cuint](1073741944'i64) 
 else:
-  let SDLK_STOP* = cast[cuint](1073741944'i64)
+  let SDLK_STOP* = cast[cuint](1073741944'i64) 
 when cast[cuint](1073741945'i64) is static:
   const
-    SDLK_AGAIN* = cast[cuint](1073741945'i64)
+    SDLK_AGAIN* = cast[cuint](1073741945'i64) 
 else:
-  let SDLK_AGAIN* = cast[cuint](1073741945'i64)
+  let SDLK_AGAIN* = cast[cuint](1073741945'i64) 
 when cast[cuint](1073741946'i64) is static:
   const
-    SDLK_UNDO* = cast[cuint](1073741946'i64)
+    SDLK_UNDO* = cast[cuint](1073741946'i64) 
 else:
-  let SDLK_UNDO* = cast[cuint](1073741946'i64)
+  let SDLK_UNDO* = cast[cuint](1073741946'i64) 
 when cast[cuint](1073741947'i64) is static:
   const
-    SDLK_CUT* = cast[cuint](1073741947'i64)
+    SDLK_CUT* = cast[cuint](1073741947'i64) 
 else:
-  let SDLK_CUT* = cast[cuint](1073741947'i64)
+  let SDLK_CUT* = cast[cuint](1073741947'i64) 
 when cast[cuint](1073741948'i64) is static:
   const
-    SDLK_COPY* = cast[cuint](1073741948'i64)
+    SDLK_COPY* = cast[cuint](1073741948'i64) 
 else:
-  let SDLK_COPY* = cast[cuint](1073741948'i64)
+  let SDLK_COPY* = cast[cuint](1073741948'i64) 
 when cast[cuint](1073741949'i64) is static:
   const
-    SDLK_PASTE* = cast[cuint](1073741949'i64)
+    SDLK_PASTE* = cast[cuint](1073741949'i64) 
 else:
-  let SDLK_PASTE* = cast[cuint](1073741949'i64)
+  let SDLK_PASTE* = cast[cuint](1073741949'i64) 
 when cast[cuint](1073741950'i64) is static:
   const
-    SDLK_FIND* = cast[cuint](1073741950'i64)
+    SDLK_FIND* = cast[cuint](1073741950'i64) 
 else:
-  let SDLK_FIND* = cast[cuint](1073741950'i64)
+  let SDLK_FIND* = cast[cuint](1073741950'i64) 
 when cast[cuint](1073741951'i64) is static:
   const
-    SDLK_MUTE* = cast[cuint](1073741951'i64)
+    SDLK_MUTE* = cast[cuint](1073741951'i64) 
 else:
-  let SDLK_MUTE* = cast[cuint](1073741951'i64)
+  let SDLK_MUTE* = cast[cuint](1073741951'i64) 
 when cast[cuint](1073741952'i64) is static:
   const
-    SDLK_VOLUMEUP* = cast[cuint](1073741952'i64)
+    SDLK_VOLUMEUP* = cast[cuint](1073741952'i64) 
 else:
-  let SDLK_VOLUMEUP* = cast[cuint](1073741952'i64)
+  let SDLK_VOLUMEUP* = cast[cuint](1073741952'i64) 
 when cast[cuint](1073741953'i64) is static:
   const
-    SDLK_VOLUMEDOWN* = cast[cuint](1073741953'i64)
+    SDLK_VOLUMEDOWN* = cast[cuint](1073741953'i64) 
 else:
-  let SDLK_VOLUMEDOWN* = cast[cuint](1073741953'i64)
+  let SDLK_VOLUMEDOWN* = cast[cuint](1073741953'i64) 
 when cast[cuint](1073741957'i64) is static:
   const
-    SDLK_KP_COMMA* = cast[cuint](1073741957'i64)
+    SDLK_KP_COMMA* = cast[cuint](1073741957'i64) 
 else:
-  let SDLK_KP_COMMA* = cast[cuint](1073741957'i64)
+  let SDLK_KP_COMMA* = cast[cuint](1073741957'i64) 
 when cast[cuint](1073741958'i64) is static:
   const
-    SDLK_KP_EQUALSAS400* = cast[cuint](1073741958'i64)
+    SDLK_KP_EQUALSAS400* = cast[cuint](1073741958'i64) 
 else:
-  let SDLK_KP_EQUALSAS400* = cast[cuint](1073741958'i64)
+  let SDLK_KP_EQUALSAS400* = cast[cuint](1073741958'i64) 
 when cast[cuint](1073741977'i64) is static:
   const
-    SDLK_ALTERASE* = cast[cuint](1073741977'i64)
+    SDLK_ALTERASE* = cast[cuint](1073741977'i64) 
 else:
-  let SDLK_ALTERASE* = cast[cuint](1073741977'i64)
+  let SDLK_ALTERASE* = cast[cuint](1073741977'i64) 
 when cast[cuint](1073741978'i64) is static:
   const
-    SDLK_SYSREQ* = cast[cuint](1073741978'i64)
+    SDLK_SYSREQ* = cast[cuint](1073741978'i64) 
 else:
-  let SDLK_SYSREQ* = cast[cuint](1073741978'i64)
+  let SDLK_SYSREQ* = cast[cuint](1073741978'i64) 
 when cast[cuint](1073741979'i64) is static:
   const
-    SDLK_CANCEL* = cast[cuint](1073741979'i64)
+    SDLK_CANCEL* = cast[cuint](1073741979'i64) 
 else:
-  let SDLK_CANCEL* = cast[cuint](1073741979'i64)
+  let SDLK_CANCEL* = cast[cuint](1073741979'i64) 
 when cast[cuint](1073741980'i64) is static:
   const
-    SDLK_CLEAR* = cast[cuint](1073741980'i64)
+    SDLK_CLEAR* = cast[cuint](1073741980'i64) 
 else:
-  let SDLK_CLEAR* = cast[cuint](1073741980'i64)
+  let SDLK_CLEAR* = cast[cuint](1073741980'i64) 
 when cast[cuint](1073741981'i64) is static:
   const
-    SDLK_PRIOR* = cast[cuint](1073741981'i64)
+    SDLK_PRIOR* = cast[cuint](1073741981'i64) 
 else:
-  let SDLK_PRIOR* = cast[cuint](1073741981'i64)
+  let SDLK_PRIOR* = cast[cuint](1073741981'i64) 
 when cast[cuint](1073741982'i64) is static:
   const
-    SDLK_RETURN2* = cast[cuint](1073741982'i64)
+    SDLK_RETURN2* = cast[cuint](1073741982'i64) 
 else:
-  let SDLK_RETURN2* = cast[cuint](1073741982'i64)
+  let SDLK_RETURN2* = cast[cuint](1073741982'i64) 
 when cast[cuint](1073741983'i64) is static:
   const
-    SDLK_SEPARATOR* = cast[cuint](1073741983'i64)
+    SDLK_SEPARATOR* = cast[cuint](1073741983'i64) 
 else:
-  let SDLK_SEPARATOR* = cast[cuint](1073741983'i64)
+  let SDLK_SEPARATOR* = cast[cuint](1073741983'i64) 
 when cast[cuint](1073741984'i64) is static:
   const
-    SDLK_OUT* = cast[cuint](1073741984'i64)
+    SDLK_OUT* = cast[cuint](1073741984'i64) 
 else:
-  let SDLK_OUT* = cast[cuint](1073741984'i64)
+  let SDLK_OUT* = cast[cuint](1073741984'i64) 
 when cast[cuint](1073741985'i64) is static:
   const
-    SDLK_OPER* = cast[cuint](1073741985'i64)
+    SDLK_OPER* = cast[cuint](1073741985'i64) 
 else:
-  let SDLK_OPER* = cast[cuint](1073741985'i64)
+  let SDLK_OPER* = cast[cuint](1073741985'i64) 
 when cast[cuint](1073741986'i64) is static:
   const
-    SDLK_CLEARAGAIN* = cast[cuint](1073741986'i64)
+    SDLK_CLEARAGAIN* = cast[cuint](1073741986'i64) 
 else:
-  let SDLK_CLEARAGAIN* = cast[cuint](1073741986'i64)
+  let SDLK_CLEARAGAIN* = cast[cuint](1073741986'i64) 
 when cast[cuint](1073741987'i64) is static:
   const
-    SDLK_CRSEL* = cast[cuint](1073741987'i64)
+    SDLK_CRSEL* = cast[cuint](1073741987'i64) 
 else:
-  let SDLK_CRSEL* = cast[cuint](1073741987'i64)
+  let SDLK_CRSEL* = cast[cuint](1073741987'i64) 
 when cast[cuint](1073741988'i64) is static:
   const
-    SDLK_EXSEL* = cast[cuint](1073741988'i64)
+    SDLK_EXSEL* = cast[cuint](1073741988'i64) 
 else:
-  let SDLK_EXSEL* = cast[cuint](1073741988'i64)
+  let SDLK_EXSEL* = cast[cuint](1073741988'i64) 
 when cast[cuint](1073742000'i64) is static:
   const
-    SDLK_KP_00* = cast[cuint](1073742000'i64)
+    SDLK_KP_00* = cast[cuint](1073742000'i64) 
 else:
-  let SDLK_KP_00* = cast[cuint](1073742000'i64)
+  let SDLK_KP_00* = cast[cuint](1073742000'i64) 
 when cast[cuint](1073742001'i64) is static:
   const
-    SDLK_KP_000* = cast[cuint](1073742001'i64)
+    SDLK_KP_000* = cast[cuint](1073742001'i64) 
 else:
-  let SDLK_KP_000* = cast[cuint](1073742001'i64)
+  let SDLK_KP_000* = cast[cuint](1073742001'i64) 
 when cast[cuint](1073742002'i64) is static:
   const
-    SDLK_THOUSANDSSEPARATOR* = cast[cuint](1073742002'i64)
+    SDLK_THOUSANDSSEPARATOR* = cast[cuint](1073742002'i64) 
 else:
-  let SDLK_THOUSANDSSEPARATOR* = cast[cuint](1073742002'i64)
+  let SDLK_THOUSANDSSEPARATOR* = cast[cuint](1073742002'i64) 
 when cast[cuint](1073742003'i64) is static:
   const
-    SDLK_DECIMALSEPARATOR* = cast[cuint](1073742003'i64)
+    SDLK_DECIMALSEPARATOR* = cast[cuint](1073742003'i64) 
 else:
-  let SDLK_DECIMALSEPARATOR* = cast[cuint](1073742003'i64)
+  let SDLK_DECIMALSEPARATOR* = cast[cuint](1073742003'i64) 
 when cast[cuint](1073742004'i64) is static:
   const
-    SDLK_CURRENCYUNIT* = cast[cuint](1073742004'i64)
+    SDLK_CURRENCYUNIT* = cast[cuint](1073742004'i64) 
 else:
-  let SDLK_CURRENCYUNIT* = cast[cuint](1073742004'i64)
+  let SDLK_CURRENCYUNIT* = cast[cuint](1073742004'i64) 
 when cast[cuint](1073742005'i64) is static:
   const
-    SDLK_CURRENCYSUBUNIT* = cast[cuint](1073742005'i64)
+    SDLK_CURRENCYSUBUNIT* = cast[cuint](1073742005'i64) 
 else:
-  let SDLK_CURRENCYSUBUNIT* = cast[cuint](1073742005'i64)
+  let SDLK_CURRENCYSUBUNIT* = cast[cuint](1073742005'i64) 
 when cast[cuint](1073742006'i64) is static:
   const
-    SDLK_KP_LEFTPAREN* = cast[cuint](1073742006'i64)
+    SDLK_KP_LEFTPAREN* = cast[cuint](1073742006'i64) 
 else:
-  let SDLK_KP_LEFTPAREN* = cast[cuint](1073742006'i64)
+  let SDLK_KP_LEFTPAREN* = cast[cuint](1073742006'i64) 
 when cast[cuint](1073742007'i64) is static:
   const
-    SDLK_KP_RIGHTPAREN* = cast[cuint](1073742007'i64)
+    SDLK_KP_RIGHTPAREN* = cast[cuint](1073742007'i64) 
 else:
-  let SDLK_KP_RIGHTPAREN* = cast[cuint](1073742007'i64)
+  let SDLK_KP_RIGHTPAREN* = cast[cuint](1073742007'i64) 
 when cast[cuint](1073742008'i64) is static:
   const
-    SDLK_KP_LEFTBRACE* = cast[cuint](1073742008'i64)
+    SDLK_KP_LEFTBRACE* = cast[cuint](1073742008'i64) 
 else:
-  let SDLK_KP_LEFTBRACE* = cast[cuint](1073742008'i64)
+  let SDLK_KP_LEFTBRACE* = cast[cuint](1073742008'i64) 
 when cast[cuint](1073742009'i64) is static:
   const
-    SDLK_KP_RIGHTBRACE* = cast[cuint](1073742009'i64)
+    SDLK_KP_RIGHTBRACE* = cast[cuint](1073742009'i64) 
 else:
-  let SDLK_KP_RIGHTBRACE* = cast[cuint](1073742009'i64)
+  let SDLK_KP_RIGHTBRACE* = cast[cuint](1073742009'i64) 
 when cast[cuint](1073742010'i64) is static:
   const
-    SDLK_KP_TAB* = cast[cuint](1073742010'i64)
+    SDLK_KP_TAB* = cast[cuint](1073742010'i64) 
 else:
-  let SDLK_KP_TAB* = cast[cuint](1073742010'i64)
+  let SDLK_KP_TAB* = cast[cuint](1073742010'i64) 
 when cast[cuint](1073742011'i64) is static:
   const
-    SDLK_KP_BACKSPACE* = cast[cuint](1073742011'i64)
+    SDLK_KP_BACKSPACE* = cast[cuint](1073742011'i64) 
 else:
-  let SDLK_KP_BACKSPACE* = cast[cuint](1073742011'i64)
+  let SDLK_KP_BACKSPACE* = cast[cuint](1073742011'i64) 
 when cast[cuint](1073742012'i64) is static:
   const
-    SDLK_KP_A* = cast[cuint](1073742012'i64)
+    SDLK_KP_A* = cast[cuint](1073742012'i64) 
 else:
-  let SDLK_KP_A* = cast[cuint](1073742012'i64)
+  let SDLK_KP_A* = cast[cuint](1073742012'i64) 
 when cast[cuint](1073742013'i64) is static:
   const
-    SDLK_KP_B* = cast[cuint](1073742013'i64)
+    SDLK_KP_B* = cast[cuint](1073742013'i64) 
 else:
-  let SDLK_KP_B* = cast[cuint](1073742013'i64)
+  let SDLK_KP_B* = cast[cuint](1073742013'i64) 
 when cast[cuint](1073742014'i64) is static:
   const
-    SDLK_KP_C* = cast[cuint](1073742014'i64)
+    SDLK_KP_C* = cast[cuint](1073742014'i64) 
 else:
-  let SDLK_KP_C* = cast[cuint](1073742014'i64)
+  let SDLK_KP_C* = cast[cuint](1073742014'i64) 
 when cast[cuint](1073742015'i64) is static:
   const
-    SDLK_KP_D* = cast[cuint](1073742015'i64)
+    SDLK_KP_D* = cast[cuint](1073742015'i64) 
 else:
-  let SDLK_KP_D* = cast[cuint](1073742015'i64)
+  let SDLK_KP_D* = cast[cuint](1073742015'i64) 
 when cast[cuint](1073742016'i64) is static:
   const
-    SDLK_KP_E* = cast[cuint](1073742016'i64)
+    SDLK_KP_E* = cast[cuint](1073742016'i64) 
 else:
-  let SDLK_KP_E* = cast[cuint](1073742016'i64)
+  let SDLK_KP_E* = cast[cuint](1073742016'i64) 
 when cast[cuint](1073742017'i64) is static:
   const
-    SDLK_KP_F* = cast[cuint](1073742017'i64)
+    SDLK_KP_F* = cast[cuint](1073742017'i64) 
 else:
-  let SDLK_KP_F* = cast[cuint](1073742017'i64)
+  let SDLK_KP_F* = cast[cuint](1073742017'i64) 
 when cast[cuint](1073742018'i64) is static:
   const
-    SDLK_KP_XOR* = cast[cuint](1073742018'i64)
+    SDLK_KP_XOR* = cast[cuint](1073742018'i64) 
 else:
-  let SDLK_KP_XOR* = cast[cuint](1073742018'i64)
+  let SDLK_KP_XOR* = cast[cuint](1073742018'i64) 
 when cast[cuint](1073742019'i64) is static:
   const
-    SDLK_KP_POWER* = cast[cuint](1073742019'i64)
+    SDLK_KP_POWER* = cast[cuint](1073742019'i64) 
 else:
-  let SDLK_KP_POWER* = cast[cuint](1073742019'i64)
+  let SDLK_KP_POWER* = cast[cuint](1073742019'i64) 
 when cast[cuint](1073742020'i64) is static:
   const
-    SDLK_KP_PERCENT* = cast[cuint](1073742020'i64)
+    SDLK_KP_PERCENT* = cast[cuint](1073742020'i64) 
 else:
-  let SDLK_KP_PERCENT* = cast[cuint](1073742020'i64)
+  let SDLK_KP_PERCENT* = cast[cuint](1073742020'i64) 
 when cast[cuint](1073742021'i64) is static:
   const
-    SDLK_KP_LESS* = cast[cuint](1073742021'i64)
+    SDLK_KP_LESS* = cast[cuint](1073742021'i64) 
 else:
-  let SDLK_KP_LESS* = cast[cuint](1073742021'i64)
+  let SDLK_KP_LESS* = cast[cuint](1073742021'i64) 
 when cast[cuint](1073742022'i64) is static:
   const
-    SDLK_KP_GREATER* = cast[cuint](1073742022'i64)
+    SDLK_KP_GREATER* = cast[cuint](1073742022'i64) 
 else:
-  let SDLK_KP_GREATER* = cast[cuint](1073742022'i64)
+  let SDLK_KP_GREATER* = cast[cuint](1073742022'i64) 
 when cast[cuint](1073742023'i64) is static:
   const
-    SDLK_KP_AMPERSAND* = cast[cuint](1073742023'i64)
+    SDLK_KP_AMPERSAND* = cast[cuint](1073742023'i64) 
 else:
-  let SDLK_KP_AMPERSAND* = cast[cuint](1073742023'i64)
+  let SDLK_KP_AMPERSAND* = cast[cuint](1073742023'i64) 
 when cast[cuint](1073742024'i64) is static:
   const
-    SDLK_KP_DBLAMPERSAND* = cast[cuint](1073742024'i64)
+    SDLK_KP_DBLAMPERSAND* = cast[cuint](1073742024'i64) 
 else:
-  let SDLK_KP_DBLAMPERSAND* = cast[cuint](1073742024'i64)
+  let SDLK_KP_DBLAMPERSAND* = cast[cuint](1073742024'i64) 
 when cast[cuint](1073742025'i64) is static:
   const
-    SDLK_KP_VERTICALBAR* = cast[cuint](1073742025'i64)
+    SDLK_KP_VERTICALBAR* = cast[cuint](1073742025'i64) 
 else:
-  let SDLK_KP_VERTICALBAR* = cast[cuint](1073742025'i64)
+  let SDLK_KP_VERTICALBAR* = cast[cuint](1073742025'i64) 
 when cast[cuint](1073742026'i64) is static:
   const
-    SDLK_KP_DBLVERTICALBAR* = cast[cuint](1073742026'i64)
+    SDLK_KP_DBLVERTICALBAR* = cast[cuint](1073742026'i64) 
 else:
-  let SDLK_KP_DBLVERTICALBAR* = cast[cuint](1073742026'i64)
+  let SDLK_KP_DBLVERTICALBAR* = cast[cuint](1073742026'i64) 
 when cast[cuint](1073742027'i64) is static:
   const
-    SDLK_KP_COLON* = cast[cuint](1073742027'i64)
+    SDLK_KP_COLON* = cast[cuint](1073742027'i64) 
 else:
-  let SDLK_KP_COLON* = cast[cuint](1073742027'i64)
+  let SDLK_KP_COLON* = cast[cuint](1073742027'i64) 
 when cast[cuint](1073742028'i64) is static:
   const
-    SDLK_KP_HASH* = cast[cuint](1073742028'i64)
+    SDLK_KP_HASH* = cast[cuint](1073742028'i64) 
 else:
-  let SDLK_KP_HASH* = cast[cuint](1073742028'i64)
+  let SDLK_KP_HASH* = cast[cuint](1073742028'i64) 
 when cast[cuint](1073742029'i64) is static:
   const
-    SDLK_KP_SPACE* = cast[cuint](1073742029'i64)
+    SDLK_KP_SPACE* = cast[cuint](1073742029'i64) 
 else:
-  let SDLK_KP_SPACE* = cast[cuint](1073742029'i64)
+  let SDLK_KP_SPACE* = cast[cuint](1073742029'i64) 
 when cast[cuint](1073742030'i64) is static:
   const
-    SDLK_KP_AT* = cast[cuint](1073742030'i64)
+    SDLK_KP_AT* = cast[cuint](1073742030'i64) 
 else:
-  let SDLK_KP_AT* = cast[cuint](1073742030'i64)
+  let SDLK_KP_AT* = cast[cuint](1073742030'i64) 
 when cast[cuint](1073742031'i64) is static:
   const
-    SDLK_KP_EXCLAM* = cast[cuint](1073742031'i64)
+    SDLK_KP_EXCLAM* = cast[cuint](1073742031'i64) 
 else:
-  let SDLK_KP_EXCLAM* = cast[cuint](1073742031'i64)
+  let SDLK_KP_EXCLAM* = cast[cuint](1073742031'i64) 
 when cast[cuint](1073742032'i64) is static:
   const
-    SDLK_KP_MEMSTORE* = cast[cuint](1073742032'i64)
+    SDLK_KP_MEMSTORE* = cast[cuint](1073742032'i64) 
 else:
-  let SDLK_KP_MEMSTORE* = cast[cuint](1073742032'i64)
+  let SDLK_KP_MEMSTORE* = cast[cuint](1073742032'i64) 
 when cast[cuint](1073742033'i64) is static:
   const
-    SDLK_KP_MEMRECALL* = cast[cuint](1073742033'i64)
+    SDLK_KP_MEMRECALL* = cast[cuint](1073742033'i64) 
 else:
-  let SDLK_KP_MEMRECALL* = cast[cuint](1073742033'i64)
+  let SDLK_KP_MEMRECALL* = cast[cuint](1073742033'i64) 
 when cast[cuint](1073742034'i64) is static:
   const
-    SDLK_KP_MEMCLEAR* = cast[cuint](1073742034'i64)
+    SDLK_KP_MEMCLEAR* = cast[cuint](1073742034'i64) 
 else:
-  let SDLK_KP_MEMCLEAR* = cast[cuint](1073742034'i64)
+  let SDLK_KP_MEMCLEAR* = cast[cuint](1073742034'i64) 
 when cast[cuint](1073742035'i64) is static:
   const
-    SDLK_KP_MEMADD* = cast[cuint](1073742035'i64)
+    SDLK_KP_MEMADD* = cast[cuint](1073742035'i64) 
 else:
-  let SDLK_KP_MEMADD* = cast[cuint](1073742035'i64)
+  let SDLK_KP_MEMADD* = cast[cuint](1073742035'i64) 
 when cast[cuint](1073742036'i64) is static:
   const
-    SDLK_KP_MEMSUBTRACT* = cast[cuint](1073742036'i64)
+    SDLK_KP_MEMSUBTRACT* = cast[cuint](1073742036'i64) 
 else:
-  let SDLK_KP_MEMSUBTRACT* = cast[cuint](1073742036'i64)
+  let SDLK_KP_MEMSUBTRACT* = cast[cuint](1073742036'i64) 
 when cast[cuint](1073742037'i64) is static:
   const
-    SDLK_KP_MEMMULTIPLY* = cast[cuint](1073742037'i64)
+    SDLK_KP_MEMMULTIPLY* = cast[cuint](1073742037'i64) 
 else:
-  let SDLK_KP_MEMMULTIPLY* = cast[cuint](1073742037'i64)
+  let SDLK_KP_MEMMULTIPLY* = cast[cuint](1073742037'i64) 
 when cast[cuint](1073742038'i64) is static:
   const
-    SDLK_KP_MEMDIVIDE* = cast[cuint](1073742038'i64)
+    SDLK_KP_MEMDIVIDE* = cast[cuint](1073742038'i64) 
 else:
-  let SDLK_KP_MEMDIVIDE* = cast[cuint](1073742038'i64)
+  let SDLK_KP_MEMDIVIDE* = cast[cuint](1073742038'i64) 
 when cast[cuint](1073742039'i64) is static:
   const
-    SDLK_KP_PLUSMINUS* = cast[cuint](1073742039'i64)
+    SDLK_KP_PLUSMINUS* = cast[cuint](1073742039'i64) 
 else:
-  let SDLK_KP_PLUSMINUS* = cast[cuint](1073742039'i64)
+  let SDLK_KP_PLUSMINUS* = cast[cuint](1073742039'i64) 
 when cast[cuint](1073742040'i64) is static:
   const
-    SDLK_KP_CLEAR* = cast[cuint](1073742040'i64)
+    SDLK_KP_CLEAR* = cast[cuint](1073742040'i64) 
 else:
-  let SDLK_KP_CLEAR* = cast[cuint](1073742040'i64)
+  let SDLK_KP_CLEAR* = cast[cuint](1073742040'i64) 
 when cast[cuint](1073742041'i64) is static:
   const
-    SDLK_KP_CLEARENTRY* = cast[cuint](1073742041'i64)
+    SDLK_KP_CLEARENTRY* = cast[cuint](1073742041'i64) 
 else:
-  let SDLK_KP_CLEARENTRY* = cast[cuint](1073742041'i64)
+  let SDLK_KP_CLEARENTRY* = cast[cuint](1073742041'i64) 
 when cast[cuint](1073742042'i64) is static:
   const
-    SDLK_KP_BINARY* = cast[cuint](1073742042'i64)
+    SDLK_KP_BINARY* = cast[cuint](1073742042'i64) 
 else:
-  let SDLK_KP_BINARY* = cast[cuint](1073742042'i64)
+  let SDLK_KP_BINARY* = cast[cuint](1073742042'i64) 
 when cast[cuint](1073742043'i64) is static:
   const
-    SDLK_KP_OCTAL* = cast[cuint](1073742043'i64)
+    SDLK_KP_OCTAL* = cast[cuint](1073742043'i64) 
 else:
-  let SDLK_KP_OCTAL* = cast[cuint](1073742043'i64)
+  let SDLK_KP_OCTAL* = cast[cuint](1073742043'i64) 
 when cast[cuint](1073742044'i64) is static:
   const
-    SDLK_KP_DECIMAL* = cast[cuint](1073742044'i64)
+    SDLK_KP_DECIMAL* = cast[cuint](1073742044'i64) 
 else:
-  let SDLK_KP_DECIMAL* = cast[cuint](1073742044'i64)
+  let SDLK_KP_DECIMAL* = cast[cuint](1073742044'i64) 
 when cast[cuint](1073742045'i64) is static:
   const
-    SDLK_KP_HEXADECIMAL* = cast[cuint](1073742045'i64)
+    SDLK_KP_HEXADECIMAL* = cast[cuint](1073742045'i64) 
 else:
-  let SDLK_KP_HEXADECIMAL* = cast[cuint](1073742045'i64)
+  let SDLK_KP_HEXADECIMAL* = cast[cuint](1073742045'i64) 
 when cast[cuint](1073742048'i64) is static:
   const
-    SDLK_LCTRL* = cast[cuint](1073742048'i64)
+    SDLK_LCTRL* = cast[cuint](1073742048'i64) 
 else:
-  let SDLK_LCTRL* = cast[cuint](1073742048'i64)
+  let SDLK_LCTRL* = cast[cuint](1073742048'i64) 
 when cast[cuint](1073742049'i64) is static:
   const
-    SDLK_LSHIFT* = cast[cuint](1073742049'i64)
+    SDLK_LSHIFT* = cast[cuint](1073742049'i64) 
 else:
-  let SDLK_LSHIFT* = cast[cuint](1073742049'i64)
+  let SDLK_LSHIFT* = cast[cuint](1073742049'i64) 
 when cast[cuint](1073742050'i64) is static:
   const
-    SDLK_LALT* = cast[cuint](1073742050'i64)
+    SDLK_LALT* = cast[cuint](1073742050'i64) 
 else:
-  let SDLK_LALT* = cast[cuint](1073742050'i64)
+  let SDLK_LALT* = cast[cuint](1073742050'i64) 
 when cast[cuint](1073742051'i64) is static:
   const
-    SDLK_LGUI* = cast[cuint](1073742051'i64)
+    SDLK_LGUI* = cast[cuint](1073742051'i64) 
 else:
-  let SDLK_LGUI* = cast[cuint](1073742051'i64)
+  let SDLK_LGUI* = cast[cuint](1073742051'i64) 
 when cast[cuint](1073742052'i64) is static:
   const
-    SDLK_RCTRL* = cast[cuint](1073742052'i64)
+    SDLK_RCTRL* = cast[cuint](1073742052'i64) 
 else:
-  let SDLK_RCTRL* = cast[cuint](1073742052'i64)
+  let SDLK_RCTRL* = cast[cuint](1073742052'i64) 
 when cast[cuint](1073742053'i64) is static:
   const
-    SDLK_RSHIFT* = cast[cuint](1073742053'i64)
+    SDLK_RSHIFT* = cast[cuint](1073742053'i64) 
 else:
-  let SDLK_RSHIFT* = cast[cuint](1073742053'i64)
+  let SDLK_RSHIFT* = cast[cuint](1073742053'i64) 
 when cast[cuint](1073742054'i64) is static:
   const
-    SDLK_RALT* = cast[cuint](1073742054'i64)
+    SDLK_RALT* = cast[cuint](1073742054'i64) 
 else:
-  let SDLK_RALT* = cast[cuint](1073742054'i64)
+  let SDLK_RALT* = cast[cuint](1073742054'i64) 
 when cast[cuint](1073742055'i64) is static:
   const
-    SDLK_RGUI* = cast[cuint](1073742055'i64)
+    SDLK_RGUI* = cast[cuint](1073742055'i64) 
 else:
-  let SDLK_RGUI* = cast[cuint](1073742055'i64)
+  let SDLK_RGUI* = cast[cuint](1073742055'i64) 
 when cast[cuint](1073742081'i64) is static:
   const
-    SDLK_MODE* = cast[cuint](1073742081'i64)
+    SDLK_MODE* = cast[cuint](1073742081'i64) 
 else:
-  let SDLK_MODE* = cast[cuint](1073742081'i64)
+  let SDLK_MODE* = cast[cuint](1073742081'i64) 
 when cast[cuint](1073742082'i64) is static:
   const
-    SDLK_SLEEP* = cast[cuint](1073742082'i64)
+    SDLK_SLEEP* = cast[cuint](1073742082'i64) 
 else:
-  let SDLK_SLEEP* = cast[cuint](1073742082'i64)
+  let SDLK_SLEEP* = cast[cuint](1073742082'i64) 
 when cast[cuint](1073742083'i64) is static:
   const
-    SDLK_WAKE* = cast[cuint](1073742083'i64)
+    SDLK_WAKE* = cast[cuint](1073742083'i64) 
 else:
-  let SDLK_WAKE* = cast[cuint](1073742083'i64)
+  let SDLK_WAKE* = cast[cuint](1073742083'i64) 
 when cast[cuint](1073742084'i64) is static:
   const
-    SDLK_CHANNEL_INCREMENT* = cast[cuint](1073742084'i64)
+    SDLK_CHANNEL_INCREMENT* = cast[cuint](1073742084'i64) 
 else:
-  let SDLK_CHANNEL_INCREMENT* = cast[cuint](1073742084'i64)
+  let SDLK_CHANNEL_INCREMENT* = cast[cuint](1073742084'i64) 
 when cast[cuint](1073742085'i64) is static:
   const
-    SDLK_CHANNEL_DECREMENT* = cast[cuint](1073742085'i64)
+    SDLK_CHANNEL_DECREMENT* = cast[cuint](1073742085'i64) 
 else:
-  let SDLK_CHANNEL_DECREMENT* = cast[cuint](1073742085'i64)
+  let SDLK_CHANNEL_DECREMENT* = cast[cuint](1073742085'i64) 
 when cast[cuint](1073742086'i64) is static:
   const
-    SDLK_MEDIA_PLAY* = cast[cuint](1073742086'i64)
+    SDLK_MEDIA_PLAY* = cast[cuint](1073742086'i64) 
 else:
-  let SDLK_MEDIA_PLAY* = cast[cuint](1073742086'i64)
+  let SDLK_MEDIA_PLAY* = cast[cuint](1073742086'i64) 
 when cast[cuint](1073742087'i64) is static:
   const
-    SDLK_MEDIA_PAUSE* = cast[cuint](1073742087'i64)
+    SDLK_MEDIA_PAUSE* = cast[cuint](1073742087'i64) 
 else:
-  let SDLK_MEDIA_PAUSE* = cast[cuint](1073742087'i64)
+  let SDLK_MEDIA_PAUSE* = cast[cuint](1073742087'i64) 
 when cast[cuint](1073742088'i64) is static:
   const
-    SDLK_MEDIA_RECORD* = cast[cuint](1073742088'i64)
+    SDLK_MEDIA_RECORD* = cast[cuint](1073742088'i64) 
 else:
-  let SDLK_MEDIA_RECORD* = cast[cuint](1073742088'i64)
+  let SDLK_MEDIA_RECORD* = cast[cuint](1073742088'i64) 
 when cast[cuint](1073742089'i64) is static:
   const
-    SDLK_MEDIA_FAST_FORWARD* = cast[cuint](1073742089'i64)
+    SDLK_MEDIA_FAST_FORWARD* = cast[cuint](1073742089'i64) 
 else:
-  let SDLK_MEDIA_FAST_FORWARD* = cast[cuint](1073742089'i64)
+  let SDLK_MEDIA_FAST_FORWARD* = cast[cuint](1073742089'i64) 
 when cast[cuint](1073742090'i64) is static:
   const
-    SDLK_MEDIA_REWIND* = cast[cuint](1073742090'i64)
+    SDLK_MEDIA_REWIND* = cast[cuint](1073742090'i64) 
 else:
-  let SDLK_MEDIA_REWIND* = cast[cuint](1073742090'i64)
+  let SDLK_MEDIA_REWIND* = cast[cuint](1073742090'i64) 
 when cast[cuint](1073742091'i64) is static:
   const
-    SDLK_MEDIA_NEXT_TRACK* = cast[cuint](1073742091'i64)
+    SDLK_MEDIA_NEXT_TRACK* = cast[cuint](1073742091'i64) 
 else:
-  let SDLK_MEDIA_NEXT_TRACK* = cast[cuint](1073742091'i64)
+  let SDLK_MEDIA_NEXT_TRACK* = cast[cuint](1073742091'i64) 
 when cast[cuint](1073742092'i64) is static:
   const
-    SDLK_MEDIA_PREVIOUS_TRACK* = cast[cuint](1073742092'i64)
+    SDLK_MEDIA_PREVIOUS_TRACK* = cast[cuint](1073742092'i64) 
 else:
-  let SDLK_MEDIA_PREVIOUS_TRACK* = cast[cuint](1073742092'i64)
+  let SDLK_MEDIA_PREVIOUS_TRACK* = cast[cuint](1073742092'i64) 
 when cast[cuint](1073742093'i64) is static:
   const
-    SDLK_MEDIA_STOP* = cast[cuint](1073742093'i64)
+    SDLK_MEDIA_STOP* = cast[cuint](1073742093'i64) 
 else:
-  let SDLK_MEDIA_STOP* = cast[cuint](1073742093'i64)
+  let SDLK_MEDIA_STOP* = cast[cuint](1073742093'i64) 
 when cast[cuint](1073742094'i64) is static:
   const
-    SDLK_MEDIA_EJECT* = cast[cuint](1073742094'i64)
+    SDLK_MEDIA_EJECT* = cast[cuint](1073742094'i64) 
 else:
-  let SDLK_MEDIA_EJECT* = cast[cuint](1073742094'i64)
+  let SDLK_MEDIA_EJECT* = cast[cuint](1073742094'i64) 
 when cast[cuint](1073742095'i64) is static:
   const
-    SDLK_MEDIA_PLAY_PAUSE* = cast[cuint](1073742095'i64)
+    SDLK_MEDIA_PLAY_PAUSE* = cast[cuint](1073742095'i64) 
 else:
-  let SDLK_MEDIA_PLAY_PAUSE* = cast[cuint](1073742095'i64)
+  let SDLK_MEDIA_PLAY_PAUSE* = cast[cuint](1073742095'i64) 
 when cast[cuint](1073742096'i64) is static:
   const
-    SDLK_MEDIA_SELECT* = cast[cuint](1073742096'i64)
+    SDLK_MEDIA_SELECT* = cast[cuint](1073742096'i64) 
 else:
-  let SDLK_MEDIA_SELECT* = cast[cuint](1073742096'i64)
+  let SDLK_MEDIA_SELECT* = cast[cuint](1073742096'i64) 
 when cast[cuint](1073742097'i64) is static:
   const
-    SDLK_AC_NEW* = cast[cuint](1073742097'i64)
+    SDLK_AC_NEW* = cast[cuint](1073742097'i64) 
 else:
-  let SDLK_AC_NEW* = cast[cuint](1073742097'i64)
+  let SDLK_AC_NEW* = cast[cuint](1073742097'i64) 
 when cast[cuint](1073742098'i64) is static:
   const
-    SDLK_AC_OPEN* = cast[cuint](1073742098'i64)
+    SDLK_AC_OPEN* = cast[cuint](1073742098'i64) 
 else:
-  let SDLK_AC_OPEN* = cast[cuint](1073742098'i64)
+  let SDLK_AC_OPEN* = cast[cuint](1073742098'i64) 
 when cast[cuint](1073742099'i64) is static:
   const
-    SDLK_AC_CLOSE* = cast[cuint](1073742099'i64)
+    SDLK_AC_CLOSE* = cast[cuint](1073742099'i64) 
 else:
-  let SDLK_AC_CLOSE* = cast[cuint](1073742099'i64)
+  let SDLK_AC_CLOSE* = cast[cuint](1073742099'i64) 
 when cast[cuint](1073742100'i64) is static:
   const
-    SDLK_AC_EXIT* = cast[cuint](1073742100'i64)
+    SDLK_AC_EXIT* = cast[cuint](1073742100'i64) 
 else:
-  let SDLK_AC_EXIT* = cast[cuint](1073742100'i64)
+  let SDLK_AC_EXIT* = cast[cuint](1073742100'i64) 
 when cast[cuint](1073742101'i64) is static:
   const
-    SDLK_AC_SAVE* = cast[cuint](1073742101'i64)
+    SDLK_AC_SAVE* = cast[cuint](1073742101'i64) 
 else:
-  let SDLK_AC_SAVE* = cast[cuint](1073742101'i64)
+  let SDLK_AC_SAVE* = cast[cuint](1073742101'i64) 
 when cast[cuint](1073742102'i64) is static:
   const
-    SDLK_AC_PRINT* = cast[cuint](1073742102'i64)
+    SDLK_AC_PRINT* = cast[cuint](1073742102'i64) 
 else:
-  let SDLK_AC_PRINT* = cast[cuint](1073742102'i64)
+  let SDLK_AC_PRINT* = cast[cuint](1073742102'i64) 
 when cast[cuint](1073742103'i64) is static:
   const
-    SDLK_AC_PROPERTIES* = cast[cuint](1073742103'i64)
+    SDLK_AC_PROPERTIES* = cast[cuint](1073742103'i64) 
 else:
-  let SDLK_AC_PROPERTIES* = cast[cuint](1073742103'i64)
+  let SDLK_AC_PROPERTIES* = cast[cuint](1073742103'i64) 
 when cast[cuint](1073742104'i64) is static:
   const
-    SDLK_AC_SEARCH* = cast[cuint](1073742104'i64)
+    SDLK_AC_SEARCH* = cast[cuint](1073742104'i64) 
 else:
-  let SDLK_AC_SEARCH* = cast[cuint](1073742104'i64)
+  let SDLK_AC_SEARCH* = cast[cuint](1073742104'i64) 
 when cast[cuint](1073742105'i64) is static:
   const
-    SDLK_AC_HOME* = cast[cuint](1073742105'i64)
+    SDLK_AC_HOME* = cast[cuint](1073742105'i64) 
 else:
-  let SDLK_AC_HOME* = cast[cuint](1073742105'i64)
+  let SDLK_AC_HOME* = cast[cuint](1073742105'i64) 
 when cast[cuint](1073742106'i64) is static:
   const
-    SDLK_AC_BACK* = cast[cuint](1073742106'i64)
+    SDLK_AC_BACK* = cast[cuint](1073742106'i64) 
 else:
-  let SDLK_AC_BACK* = cast[cuint](1073742106'i64)
+  let SDLK_AC_BACK* = cast[cuint](1073742106'i64) 
 when cast[cuint](1073742107'i64) is static:
   const
-    SDLK_AC_FORWARD* = cast[cuint](1073742107'i64)
+    SDLK_AC_FORWARD* = cast[cuint](1073742107'i64) 
 else:
-  let SDLK_AC_FORWARD* = cast[cuint](1073742107'i64)
+  let SDLK_AC_FORWARD* = cast[cuint](1073742107'i64) 
 when cast[cuint](1073742108'i64) is static:
   const
-    SDLK_AC_STOP* = cast[cuint](1073742108'i64)
+    SDLK_AC_STOP* = cast[cuint](1073742108'i64) 
 else:
-  let SDLK_AC_STOP* = cast[cuint](1073742108'i64)
+  let SDLK_AC_STOP* = cast[cuint](1073742108'i64) 
 when cast[cuint](1073742109'i64) is static:
   const
-    SDLK_AC_REFRESH* = cast[cuint](1073742109'i64)
+    SDLK_AC_REFRESH* = cast[cuint](1073742109'i64) 
 else:
-  let SDLK_AC_REFRESH* = cast[cuint](1073742109'i64)
+  let SDLK_AC_REFRESH* = cast[cuint](1073742109'i64) 
 when cast[cuint](1073742110'i64) is static:
   const
-    SDLK_AC_BOOKMARKS* = cast[cuint](1073742110'i64)
+    SDLK_AC_BOOKMARKS* = cast[cuint](1073742110'i64) 
 else:
-  let SDLK_AC_BOOKMARKS* = cast[cuint](1073742110'i64)
+  let SDLK_AC_BOOKMARKS* = cast[cuint](1073742110'i64) 
 when cast[cuint](1073742111'i64) is static:
   const
-    SDLK_SOFTLEFT* = cast[cuint](1073742111'i64)
+    SDLK_SOFTLEFT* = cast[cuint](1073742111'i64) 
 else:
-  let SDLK_SOFTLEFT* = cast[cuint](1073742111'i64)
+  let SDLK_SOFTLEFT* = cast[cuint](1073742111'i64) 
 when cast[cuint](1073742112'i64) is static:
   const
-    SDLK_SOFTRIGHT* = cast[cuint](1073742112'i64)
+    SDLK_SOFTRIGHT* = cast[cuint](1073742112'i64) 
 else:
-  let SDLK_SOFTRIGHT* = cast[cuint](1073742112'i64)
+  let SDLK_SOFTRIGHT* = cast[cuint](1073742112'i64) 
 when cast[cuint](1073742113'i64) is static:
   const
-    SDLK_CALL* = cast[cuint](1073742113'i64)
+    SDLK_CALL* = cast[cuint](1073742113'i64) 
 else:
-  let SDLK_CALL* = cast[cuint](1073742113'i64)
+  let SDLK_CALL* = cast[cuint](1073742113'i64) 
 when cast[cuint](1073742114'i64) is static:
   const
-    SDLK_ENDCALL* = cast[cuint](1073742114'i64)
+    SDLK_ENDCALL* = cast[cuint](1073742114'i64) 
 else:
-  let SDLK_ENDCALL* = cast[cuint](1073742114'i64)
+  let SDLK_ENDCALL* = cast[cuint](1073742114'i64) 
 when cast[cuint](0'i64) is static:
   const
-    SDL_KMOD_NONE* = cast[cuint](0'i64)
+    SDL_KMOD_NONE* = cast[cuint](0'i64) 
 else:
-  let SDL_KMOD_NONE* = cast[cuint](0'i64)
+  let SDL_KMOD_NONE* = cast[cuint](0'i64) 
 when cast[cuint](1'i64) is static:
   const
-    SDL_KMOD_LSHIFT* = cast[cuint](1'i64)
+    SDL_KMOD_LSHIFT* = cast[cuint](1'i64) 
 else:
-  let SDL_KMOD_LSHIFT* = cast[cuint](1'i64)
+  let SDL_KMOD_LSHIFT* = cast[cuint](1'i64) 
 when cast[cuint](2'i64) is static:
   const
-    SDL_KMOD_RSHIFT* = cast[cuint](2'i64)
+    SDL_KMOD_RSHIFT* = cast[cuint](2'i64) 
 else:
-  let SDL_KMOD_RSHIFT* = cast[cuint](2'i64)
+  let SDL_KMOD_RSHIFT* = cast[cuint](2'i64) 
 when cast[cuint](64'i64) is static:
   const
-    SDL_KMOD_LCTRL* = cast[cuint](64'i64)
+    SDL_KMOD_LCTRL* = cast[cuint](64'i64) 
 else:
-  let SDL_KMOD_LCTRL* = cast[cuint](64'i64)
+  let SDL_KMOD_LCTRL* = cast[cuint](64'i64) 
 when cast[cuint](128'i64) is static:
   const
-    SDL_KMOD_RCTRL* = cast[cuint](128'i64)
+    SDL_KMOD_RCTRL* = cast[cuint](128'i64) 
 else:
-  let SDL_KMOD_RCTRL* = cast[cuint](128'i64)
+  let SDL_KMOD_RCTRL* = cast[cuint](128'i64) 
 when cast[cuint](256'i64) is static:
   const
-    SDL_KMOD_LALT* = cast[cuint](256'i64)
+    SDL_KMOD_LALT* = cast[cuint](256'i64) 
 else:
-  let SDL_KMOD_LALT* = cast[cuint](256'i64)
+  let SDL_KMOD_LALT* = cast[cuint](256'i64) 
 when cast[cuint](512'i64) is static:
   const
-    SDL_KMOD_RALT* = cast[cuint](512'i64)
+    SDL_KMOD_RALT* = cast[cuint](512'i64) 
 else:
-  let SDL_KMOD_RALT* = cast[cuint](512'i64)
+  let SDL_KMOD_RALT* = cast[cuint](512'i64) 
 when cast[cuint](1024'i64) is static:
   const
-    SDL_KMOD_LGUI* = cast[cuint](1024'i64)
+    SDL_KMOD_LGUI* = cast[cuint](1024'i64) 
 else:
-  let SDL_KMOD_LGUI* = cast[cuint](1024'i64)
+  let SDL_KMOD_LGUI* = cast[cuint](1024'i64) 
 when cast[cuint](2048'i64) is static:
   const
-    SDL_KMOD_RGUI* = cast[cuint](2048'i64)
+    SDL_KMOD_RGUI* = cast[cuint](2048'i64) 
 else:
-  let SDL_KMOD_RGUI* = cast[cuint](2048'i64)
+  let SDL_KMOD_RGUI* = cast[cuint](2048'i64) 
 when cast[cuint](4096'i64) is static:
   const
-    SDL_KMOD_NUM* = cast[cuint](4096'i64)
+    SDL_KMOD_NUM* = cast[cuint](4096'i64) 
 else:
-  let SDL_KMOD_NUM* = cast[cuint](4096'i64)
+  let SDL_KMOD_NUM* = cast[cuint](4096'i64) 
 when cast[cuint](8192'i64) is static:
   const
-    SDL_KMOD_CAPS* = cast[cuint](8192'i64)
+    SDL_KMOD_CAPS* = cast[cuint](8192'i64) 
 else:
-  let SDL_KMOD_CAPS* = cast[cuint](8192'i64)
+  let SDL_KMOD_CAPS* = cast[cuint](8192'i64) 
 when cast[cuint](16384'i64) is static:
   const
-    SDL_KMOD_MODE* = cast[cuint](16384'i64)
+    SDL_KMOD_MODE* = cast[cuint](16384'i64) 
 else:
-  let SDL_KMOD_MODE* = cast[cuint](16384'i64)
+  let SDL_KMOD_MODE* = cast[cuint](16384'i64) 
 when cast[cuint](32768'i64) is static:
   const
-    SDL_KMOD_SCROLL* = cast[cuint](32768'i64)
+    SDL_KMOD_SCROLL* = cast[cuint](32768'i64) 
 else:
-  let SDL_KMOD_SCROLL* = cast[cuint](32768'i64)
+  let SDL_KMOD_SCROLL* = cast[cuint](32768'i64) 
 when "SDL.textinput.type" is static:
   const
-    SDL_PROP_TEXTINPUT_TYPE_NUMBER* = "SDL.textinput.type"
+    SDL_PROP_TEXTINPUT_TYPE_NUMBER* = "SDL.textinput.type" 
 else:
-  let SDL_PROP_TEXTINPUT_TYPE_NUMBER* = "SDL.textinput.type"
+  let SDL_PROP_TEXTINPUT_TYPE_NUMBER* = "SDL.textinput.type" 
 when "SDL.textinput.capitalization" is static:
   const
-    SDL_PROP_TEXTINPUT_CAPITALIZATION_NUMBER* = "SDL.textinput.capitalization"
+    SDL_PROP_TEXTINPUT_CAPITALIZATION_NUMBER* = "SDL.textinput.capitalization" 
 else:
-  let SDL_PROP_TEXTINPUT_CAPITALIZATION_NUMBER* = "SDL.textinput.capitalization"
+  let SDL_PROP_TEXTINPUT_CAPITALIZATION_NUMBER* = "SDL.textinput.capitalization" 
 when "SDL.textinput.autocorrect" is static:
   const
-    SDL_PROP_TEXTINPUT_AUTOCORRECT_BOOLEAN* = "SDL.textinput.autocorrect"
+    SDL_PROP_TEXTINPUT_AUTOCORRECT_BOOLEAN* = "SDL.textinput.autocorrect" 
 else:
-  let SDL_PROP_TEXTINPUT_AUTOCORRECT_BOOLEAN* = "SDL.textinput.autocorrect"
+  let SDL_PROP_TEXTINPUT_AUTOCORRECT_BOOLEAN* = "SDL.textinput.autocorrect" 
 when "SDL.textinput.multiline" is static:
   const
-    SDL_PROP_TEXTINPUT_MULTILINE_BOOLEAN* = "SDL.textinput.multiline"
+    SDL_PROP_TEXTINPUT_MULTILINE_BOOLEAN* = "SDL.textinput.multiline" 
 else:
-  let SDL_PROP_TEXTINPUT_MULTILINE_BOOLEAN* = "SDL.textinput.multiline"
+  let SDL_PROP_TEXTINPUT_MULTILINE_BOOLEAN* = "SDL.textinput.multiline" 
 when "SDL.textinput.android.inputtype" is static:
   const
-    SDL_PROP_TEXTINPUT_ANDROID_INPUTTYPE_NUMBER* = "SDL.textinput.android.inputtype"
+    SDL_PROP_TEXTINPUT_ANDROID_INPUTTYPE_NUMBER* = "SDL.textinput.android.inputtype" 
 else:
-  let SDL_PROP_TEXTINPUT_ANDROID_INPUTTYPE_NUMBER* = "SDL.textinput.android.inputtype"
+  let SDL_PROP_TEXTINPUT_ANDROID_INPUTTYPE_NUMBER* = "SDL.textinput.android.inputtype" 
 when 1 is static:
   const
-    SDL_BUTTON_LEFT* = 1
+    SDL_BUTTON_LEFT* = 1     
 else:
-  let SDL_BUTTON_LEFT* = 1
+  let SDL_BUTTON_LEFT* = 1   
 when 2 is static:
   const
-    SDL_BUTTON_MIDDLE* = 2
+    SDL_BUTTON_MIDDLE* = 2   
 else:
-  let SDL_BUTTON_MIDDLE* = 2
+  let SDL_BUTTON_MIDDLE* = 2 
 when 3 is static:
   const
-    SDL_BUTTON_RIGHT* = 3
+    SDL_BUTTON_RIGHT* = 3    
 else:
-  let SDL_BUTTON_RIGHT* = 3
+  let SDL_BUTTON_RIGHT* = 3  
 when 4 is static:
   const
-    SDL_BUTTON_X1* = 4
+    SDL_BUTTON_X1* = 4       
 else:
-  let SDL_BUTTON_X1* = 4
+  let SDL_BUTTON_X1* = 4     
 when 5 is static:
   const
-    SDL_BUTTON_X2* = 5
+    SDL_BUTTON_X2* = 5       
 else:
-  let SDL_BUTTON_X2* = 5
+  let SDL_BUTTON_X2* = 5     
 when 0 is static:
   const
-    SDL_GPU_SHADERFORMAT_INVALID* = 0
+    SDL_GPU_SHADERFORMAT_INVALID* = 0 
 else:
-  let SDL_GPU_SHADERFORMAT_INVALID* = 0
+  let SDL_GPU_SHADERFORMAT_INVALID* = 0 
 when "SDL.gpu.createtexture.d3d12.clear.r" is static:
   const
-    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_R_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.r"
+    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_R_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.r" 
 else:
-  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_R_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.r"
+  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_R_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.r" 
 when "SDL.gpu.createtexture.d3d12.clear.g" is static:
   const
-    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_G_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.g"
+    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_G_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.g" 
 else:
-  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_G_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.g"
+  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_G_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.g" 
 when "SDL.gpu.createtexture.d3d12.clear.b" is static:
   const
-    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_B_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.b"
+    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_B_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.b" 
 else:
-  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_B_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.b"
+  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_B_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.b" 
 when "SDL.gpu.createtexture.d3d12.clear.a" is static:
   const
-    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_A_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.a"
+    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_A_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.a" 
 else:
-  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_A_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.a"
+  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_A_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.a" 
 when "SDL.gpu.createtexture.d3d12.clear.depth" is static:
   const
-    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_DEPTH_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.depth"
+    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_DEPTH_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.depth" 
 else:
-  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_DEPTH_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.depth"
+  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_DEPTH_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.depth" 
 when "SDL.gpu.createtexture.d3d12.clear.stencil" is static:
   const
-    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_STENCIL_UINT8* = "SDL.gpu.createtexture.d3d12.clear.stencil"
+    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_STENCIL_UINT8* = "SDL.gpu.createtexture.d3d12.clear.stencil" 
 else:
-  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_STENCIL_UINT8* = "SDL.gpu.createtexture.d3d12.clear.stencil"
+  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_STENCIL_UINT8* = "SDL.gpu.createtexture.d3d12.clear.stencil" 
 when "SDL.gpu.device.create.debugmode" is static:
   const
-    SDL_PROP_GPU_DEVICE_CREATE_DEBUGMODE_BOOL* = "SDL.gpu.device.create.debugmode"
+    SDL_PROP_GPU_DEVICE_CREATE_DEBUGMODE_BOOL* = "SDL.gpu.device.create.debugmode" 
 else:
-  let SDL_PROP_GPU_DEVICE_CREATE_DEBUGMODE_BOOL* = "SDL.gpu.device.create.debugmode"
+  let SDL_PROP_GPU_DEVICE_CREATE_DEBUGMODE_BOOL* = "SDL.gpu.device.create.debugmode" 
 when "SDL.gpu.device.create.preferlowpower" is static:
   const
-    SDL_PROP_GPU_DEVICE_CREATE_PREFERLOWPOWER_BOOL* = "SDL.gpu.device.create.preferlowpower"
+    SDL_PROP_GPU_DEVICE_CREATE_PREFERLOWPOWER_BOOL* = "SDL.gpu.device.create.preferlowpower" 
 else:
-  let SDL_PROP_GPU_DEVICE_CREATE_PREFERLOWPOWER_BOOL* = "SDL.gpu.device.create.preferlowpower"
+  let SDL_PROP_GPU_DEVICE_CREATE_PREFERLOWPOWER_BOOL* = "SDL.gpu.device.create.preferlowpower" 
 when "SDL.gpu.device.create.name" is static:
   const
-    SDL_PROP_GPU_DEVICE_CREATE_NAME_STRING* = "SDL.gpu.device.create.name"
+    SDL_PROP_GPU_DEVICE_CREATE_NAME_STRING* = "SDL.gpu.device.create.name" 
 else:
-  let SDL_PROP_GPU_DEVICE_CREATE_NAME_STRING* = "SDL.gpu.device.create.name"
+  let SDL_PROP_GPU_DEVICE_CREATE_NAME_STRING* = "SDL.gpu.device.create.name" 
 when "SDL.gpu.device.create.shaders.private" is static:
   const
-    SDL_PROP_GPU_DEVICE_CREATE_SHADERS_PRIVATE_BOOL* = "SDL.gpu.device.create.shaders.private"
+    SDL_PROP_GPU_DEVICE_CREATE_SHADERS_PRIVATE_BOOL* = "SDL.gpu.device.create.shaders.private" 
 else:
-  let SDL_PROP_GPU_DEVICE_CREATE_SHADERS_PRIVATE_BOOL* = "SDL.gpu.device.create.shaders.private"
+  let SDL_PROP_GPU_DEVICE_CREATE_SHADERS_PRIVATE_BOOL* = "SDL.gpu.device.create.shaders.private" 
 when "SDL.gpu.device.create.shaders.spirv" is static:
   const
-    SDL_PROP_GPU_DEVICE_CREATE_SHADERS_SPIRV_BOOL* = "SDL.gpu.device.create.shaders.spirv"
+    SDL_PROP_GPU_DEVICE_CREATE_SHADERS_SPIRV_BOOL* = "SDL.gpu.device.create.shaders.spirv" 
 else:
-  let SDL_PROP_GPU_DEVICE_CREATE_SHADERS_SPIRV_BOOL* = "SDL.gpu.device.create.shaders.spirv"
+  let SDL_PROP_GPU_DEVICE_CREATE_SHADERS_SPIRV_BOOL* = "SDL.gpu.device.create.shaders.spirv" 
 when "SDL.gpu.device.create.shaders.dxbc" is static:
   const
-    SDL_PROP_GPU_DEVICE_CREATE_SHADERS_DXBC_BOOL* = "SDL.gpu.device.create.shaders.dxbc"
+    SDL_PROP_GPU_DEVICE_CREATE_SHADERS_DXBC_BOOL* = "SDL.gpu.device.create.shaders.dxbc" 
 else:
-  let SDL_PROP_GPU_DEVICE_CREATE_SHADERS_DXBC_BOOL* = "SDL.gpu.device.create.shaders.dxbc"
+  let SDL_PROP_GPU_DEVICE_CREATE_SHADERS_DXBC_BOOL* = "SDL.gpu.device.create.shaders.dxbc" 
 when "SDL.gpu.device.create.shaders.dxil" is static:
   const
-    SDL_PROP_GPU_DEVICE_CREATE_SHADERS_DXIL_BOOL* = "SDL.gpu.device.create.shaders.dxil"
+    SDL_PROP_GPU_DEVICE_CREATE_SHADERS_DXIL_BOOL* = "SDL.gpu.device.create.shaders.dxil" 
 else:
-  let SDL_PROP_GPU_DEVICE_CREATE_SHADERS_DXIL_BOOL* = "SDL.gpu.device.create.shaders.dxil"
+  let SDL_PROP_GPU_DEVICE_CREATE_SHADERS_DXIL_BOOL* = "SDL.gpu.device.create.shaders.dxil" 
 when "SDL.gpu.device.create.shaders.msl" is static:
   const
-    SDL_PROP_GPU_DEVICE_CREATE_SHADERS_MSL_BOOL* = "SDL.gpu.device.create.shaders.msl"
+    SDL_PROP_GPU_DEVICE_CREATE_SHADERS_MSL_BOOL* = "SDL.gpu.device.create.shaders.msl" 
 else:
-  let SDL_PROP_GPU_DEVICE_CREATE_SHADERS_MSL_BOOL* = "SDL.gpu.device.create.shaders.msl"
+  let SDL_PROP_GPU_DEVICE_CREATE_SHADERS_MSL_BOOL* = "SDL.gpu.device.create.shaders.msl" 
 when "SDL.gpu.device.create.shaders.metallib" is static:
   const
-    SDL_PROP_GPU_DEVICE_CREATE_SHADERS_METALLIB_BOOL* = "SDL.gpu.device.create.shaders.metallib"
+    SDL_PROP_GPU_DEVICE_CREATE_SHADERS_METALLIB_BOOL* = "SDL.gpu.device.create.shaders.metallib" 
 else:
-  let SDL_PROP_GPU_DEVICE_CREATE_SHADERS_METALLIB_BOOL* = "SDL.gpu.device.create.shaders.metallib"
+  let SDL_PROP_GPU_DEVICE_CREATE_SHADERS_METALLIB_BOOL* = "SDL.gpu.device.create.shaders.metallib" 
 when "SDL.gpu.device.create.d3d12.semantic" is static:
   const
-    SDL_PROP_GPU_DEVICE_CREATE_D3D12_SEMANTIC_NAME_STRING* = "SDL.gpu.device.create.d3d12.semantic"
+    SDL_PROP_GPU_DEVICE_CREATE_D3D12_SEMANTIC_NAME_STRING* = "SDL.gpu.device.create.d3d12.semantic" 
 else:
-  let SDL_PROP_GPU_DEVICE_CREATE_D3D12_SEMANTIC_NAME_STRING* = "SDL.gpu.device.create.d3d12.semantic"
+  let SDL_PROP_GPU_DEVICE_CREATE_D3D12_SEMANTIC_NAME_STRING* = "SDL.gpu.device.create.d3d12.semantic" 
 when 0 is static:
   const
-    SDL_HAPTIC_POLAR* = 0
+    SDL_HAPTIC_POLAR* = 0    
 else:
-  let SDL_HAPTIC_POLAR* = 0
+  let SDL_HAPTIC_POLAR* = 0  
 when 1 is static:
   const
-    SDL_HAPTIC_CARTESIAN* = 1
+    SDL_HAPTIC_CARTESIAN* = 1 
 else:
-  let SDL_HAPTIC_CARTESIAN* = 1
+  let SDL_HAPTIC_CARTESIAN* = 1 
 when 2 is static:
   const
-    SDL_HAPTIC_SPHERICAL* = 2
+    SDL_HAPTIC_SPHERICAL* = 2 
 else:
-  let SDL_HAPTIC_SPHERICAL* = 2
+  let SDL_HAPTIC_SPHERICAL* = 2 
 when 3 is static:
   const
-    SDL_HAPTIC_STEERING_AXIS* = 3
+    SDL_HAPTIC_STEERING_AXIS* = 3 
 else:
-  let SDL_HAPTIC_STEERING_AXIS* = 3
+  let SDL_HAPTIC_STEERING_AXIS* = 3 
 when cast[cuint](4294967295'i64) is static:
   const
-    SDL_HAPTIC_INFINITY* = cast[cuint](4294967295'i64)
+    SDL_HAPTIC_INFINITY* = cast[cuint](4294967295'i64) 
 else:
-  let SDL_HAPTIC_INFINITY* = cast[cuint](4294967295'i64)
+  let SDL_HAPTIC_INFINITY* = cast[cuint](4294967295'i64) 
 when "SDL_ALLOW_ALT_TAB_WHILE_GRABBED" is static:
   const
-    SDL_HINT_ALLOW_ALT_TAB_WHILE_GRABBED* = "SDL_ALLOW_ALT_TAB_WHILE_GRABBED"
+    SDL_HINT_ALLOW_ALT_TAB_WHILE_GRABBED* = "SDL_ALLOW_ALT_TAB_WHILE_GRABBED" 
 else:
-  let SDL_HINT_ALLOW_ALT_TAB_WHILE_GRABBED* = "SDL_ALLOW_ALT_TAB_WHILE_GRABBED"
+  let SDL_HINT_ALLOW_ALT_TAB_WHILE_GRABBED* = "SDL_ALLOW_ALT_TAB_WHILE_GRABBED" 
 when "SDL_ANDROID_ALLOW_RECREATE_ACTIVITY" is static:
   const
-    SDL_HINT_ANDROID_ALLOW_RECREATE_ACTIVITY* = "SDL_ANDROID_ALLOW_RECREATE_ACTIVITY"
+    SDL_HINT_ANDROID_ALLOW_RECREATE_ACTIVITY* = "SDL_ANDROID_ALLOW_RECREATE_ACTIVITY" 
 else:
-  let SDL_HINT_ANDROID_ALLOW_RECREATE_ACTIVITY* = "SDL_ANDROID_ALLOW_RECREATE_ACTIVITY"
+  let SDL_HINT_ANDROID_ALLOW_RECREATE_ACTIVITY* = "SDL_ANDROID_ALLOW_RECREATE_ACTIVITY" 
 when "SDL_ANDROID_BLOCK_ON_PAUSE" is static:
   const
-    SDL_HINT_ANDROID_BLOCK_ON_PAUSE* = "SDL_ANDROID_BLOCK_ON_PAUSE"
+    SDL_HINT_ANDROID_BLOCK_ON_PAUSE* = "SDL_ANDROID_BLOCK_ON_PAUSE" 
 else:
-  let SDL_HINT_ANDROID_BLOCK_ON_PAUSE* = "SDL_ANDROID_BLOCK_ON_PAUSE"
+  let SDL_HINT_ANDROID_BLOCK_ON_PAUSE* = "SDL_ANDROID_BLOCK_ON_PAUSE" 
 when "SDL_ANDROID_TRAP_BACK_BUTTON" is static:
   const
-    SDL_HINT_ANDROID_TRAP_BACK_BUTTON* = "SDL_ANDROID_TRAP_BACK_BUTTON"
+    SDL_HINT_ANDROID_TRAP_BACK_BUTTON* = "SDL_ANDROID_TRAP_BACK_BUTTON" 
 else:
-  let SDL_HINT_ANDROID_TRAP_BACK_BUTTON* = "SDL_ANDROID_TRAP_BACK_BUTTON"
+  let SDL_HINT_ANDROID_TRAP_BACK_BUTTON* = "SDL_ANDROID_TRAP_BACK_BUTTON" 
 when "SDL_APP_ID" is static:
   const
-    SDL_HINT_APP_ID* = "SDL_APP_ID"
+    SDL_HINT_APP_ID* = "SDL_APP_ID" 
 else:
-  let SDL_HINT_APP_ID* = "SDL_APP_ID"
+  let SDL_HINT_APP_ID* = "SDL_APP_ID" 
 when "SDL_APP_NAME" is static:
   const
-    SDL_HINT_APP_NAME* = "SDL_APP_NAME"
+    SDL_HINT_APP_NAME* = "SDL_APP_NAME" 
 else:
-  let SDL_HINT_APP_NAME* = "SDL_APP_NAME"
+  let SDL_HINT_APP_NAME* = "SDL_APP_NAME" 
 when "SDL_APPLE_TV_CONTROLLER_UI_EVENTS" is static:
   const
-    SDL_HINT_APPLE_TV_CONTROLLER_UI_EVENTS* = "SDL_APPLE_TV_CONTROLLER_UI_EVENTS"
+    SDL_HINT_APPLE_TV_CONTROLLER_UI_EVENTS* = "SDL_APPLE_TV_CONTROLLER_UI_EVENTS" 
 else:
-  let SDL_HINT_APPLE_TV_CONTROLLER_UI_EVENTS* = "SDL_APPLE_TV_CONTROLLER_UI_EVENTS"
+  let SDL_HINT_APPLE_TV_CONTROLLER_UI_EVENTS* = "SDL_APPLE_TV_CONTROLLER_UI_EVENTS" 
 when "SDL_APPLE_TV_REMOTE_ALLOW_ROTATION" is static:
   const
-    SDL_HINT_APPLE_TV_REMOTE_ALLOW_ROTATION* = "SDL_APPLE_TV_REMOTE_ALLOW_ROTATION"
+    SDL_HINT_APPLE_TV_REMOTE_ALLOW_ROTATION* = "SDL_APPLE_TV_REMOTE_ALLOW_ROTATION" 
 else:
-  let SDL_HINT_APPLE_TV_REMOTE_ALLOW_ROTATION* = "SDL_APPLE_TV_REMOTE_ALLOW_ROTATION"
+  let SDL_HINT_APPLE_TV_REMOTE_ALLOW_ROTATION* = "SDL_APPLE_TV_REMOTE_ALLOW_ROTATION" 
 when "SDL_AUDIO_ALSA_DEFAULT_DEVICE" is static:
   const
-    SDL_HINT_AUDIO_ALSA_DEFAULT_DEVICE* = "SDL_AUDIO_ALSA_DEFAULT_DEVICE"
+    SDL_HINT_AUDIO_ALSA_DEFAULT_DEVICE* = "SDL_AUDIO_ALSA_DEFAULT_DEVICE" 
 else:
-  let SDL_HINT_AUDIO_ALSA_DEFAULT_DEVICE* = "SDL_AUDIO_ALSA_DEFAULT_DEVICE"
+  let SDL_HINT_AUDIO_ALSA_DEFAULT_DEVICE* = "SDL_AUDIO_ALSA_DEFAULT_DEVICE" 
 when "SDL_AUDIO_CATEGORY" is static:
   const
-    SDL_HINT_AUDIO_CATEGORY* = "SDL_AUDIO_CATEGORY"
+    SDL_HINT_AUDIO_CATEGORY* = "SDL_AUDIO_CATEGORY" 
 else:
-  let SDL_HINT_AUDIO_CATEGORY* = "SDL_AUDIO_CATEGORY"
+  let SDL_HINT_AUDIO_CATEGORY* = "SDL_AUDIO_CATEGORY" 
 when "SDL_AUDIO_CHANNELS" is static:
   const
-    SDL_HINT_AUDIO_CHANNELS* = "SDL_AUDIO_CHANNELS"
+    SDL_HINT_AUDIO_CHANNELS* = "SDL_AUDIO_CHANNELS" 
 else:
-  let SDL_HINT_AUDIO_CHANNELS* = "SDL_AUDIO_CHANNELS"
+  let SDL_HINT_AUDIO_CHANNELS* = "SDL_AUDIO_CHANNELS" 
 when "SDL_AUDIO_DEVICE_APP_ICON_NAME" is static:
   const
-    SDL_HINT_AUDIO_DEVICE_APP_ICON_NAME* = "SDL_AUDIO_DEVICE_APP_ICON_NAME"
+    SDL_HINT_AUDIO_DEVICE_APP_ICON_NAME* = "SDL_AUDIO_DEVICE_APP_ICON_NAME" 
 else:
-  let SDL_HINT_AUDIO_DEVICE_APP_ICON_NAME* = "SDL_AUDIO_DEVICE_APP_ICON_NAME"
+  let SDL_HINT_AUDIO_DEVICE_APP_ICON_NAME* = "SDL_AUDIO_DEVICE_APP_ICON_NAME" 
 when "SDL_AUDIO_DEVICE_SAMPLE_FRAMES" is static:
   const
-    SDL_HINT_AUDIO_DEVICE_SAMPLE_FRAMES* = "SDL_AUDIO_DEVICE_SAMPLE_FRAMES"
+    SDL_HINT_AUDIO_DEVICE_SAMPLE_FRAMES* = "SDL_AUDIO_DEVICE_SAMPLE_FRAMES" 
 else:
-  let SDL_HINT_AUDIO_DEVICE_SAMPLE_FRAMES* = "SDL_AUDIO_DEVICE_SAMPLE_FRAMES"
+  let SDL_HINT_AUDIO_DEVICE_SAMPLE_FRAMES* = "SDL_AUDIO_DEVICE_SAMPLE_FRAMES" 
 when "SDL_AUDIO_DEVICE_STREAM_NAME" is static:
   const
-    SDL_HINT_AUDIO_DEVICE_STREAM_NAME* = "SDL_AUDIO_DEVICE_STREAM_NAME"
+    SDL_HINT_AUDIO_DEVICE_STREAM_NAME* = "SDL_AUDIO_DEVICE_STREAM_NAME" 
 else:
-  let SDL_HINT_AUDIO_DEVICE_STREAM_NAME* = "SDL_AUDIO_DEVICE_STREAM_NAME"
+  let SDL_HINT_AUDIO_DEVICE_STREAM_NAME* = "SDL_AUDIO_DEVICE_STREAM_NAME" 
 when "SDL_AUDIO_DEVICE_STREAM_ROLE" is static:
   const
-    SDL_HINT_AUDIO_DEVICE_STREAM_ROLE* = "SDL_AUDIO_DEVICE_STREAM_ROLE"
+    SDL_HINT_AUDIO_DEVICE_STREAM_ROLE* = "SDL_AUDIO_DEVICE_STREAM_ROLE" 
 else:
-  let SDL_HINT_AUDIO_DEVICE_STREAM_ROLE* = "SDL_AUDIO_DEVICE_STREAM_ROLE"
+  let SDL_HINT_AUDIO_DEVICE_STREAM_ROLE* = "SDL_AUDIO_DEVICE_STREAM_ROLE" 
 when "SDL_AUDIO_DISK_INPUT_FILE" is static:
   const
-    SDL_HINT_AUDIO_DISK_INPUT_FILE* = "SDL_AUDIO_DISK_INPUT_FILE"
+    SDL_HINT_AUDIO_DISK_INPUT_FILE* = "SDL_AUDIO_DISK_INPUT_FILE" 
 else:
-  let SDL_HINT_AUDIO_DISK_INPUT_FILE* = "SDL_AUDIO_DISK_INPUT_FILE"
+  let SDL_HINT_AUDIO_DISK_INPUT_FILE* = "SDL_AUDIO_DISK_INPUT_FILE" 
 when "SDL_AUDIO_DISK_OUTPUT_FILE" is static:
   const
-    SDL_HINT_AUDIO_DISK_OUTPUT_FILE* = "SDL_AUDIO_DISK_OUTPUT_FILE"
+    SDL_HINT_AUDIO_DISK_OUTPUT_FILE* = "SDL_AUDIO_DISK_OUTPUT_FILE" 
 else:
-  let SDL_HINT_AUDIO_DISK_OUTPUT_FILE* = "SDL_AUDIO_DISK_OUTPUT_FILE"
+  let SDL_HINT_AUDIO_DISK_OUTPUT_FILE* = "SDL_AUDIO_DISK_OUTPUT_FILE" 
 when "SDL_AUDIO_DISK_TIMESCALE" is static:
   const
-    SDL_HINT_AUDIO_DISK_TIMESCALE* = "SDL_AUDIO_DISK_TIMESCALE"
+    SDL_HINT_AUDIO_DISK_TIMESCALE* = "SDL_AUDIO_DISK_TIMESCALE" 
 else:
-  let SDL_HINT_AUDIO_DISK_TIMESCALE* = "SDL_AUDIO_DISK_TIMESCALE"
+  let SDL_HINT_AUDIO_DISK_TIMESCALE* = "SDL_AUDIO_DISK_TIMESCALE" 
 when "SDL_AUDIO_DRIVER" is static:
   const
-    SDL_HINT_AUDIO_DRIVER* = "SDL_AUDIO_DRIVER"
+    SDL_HINT_AUDIO_DRIVER* = "SDL_AUDIO_DRIVER" 
 else:
-  let SDL_HINT_AUDIO_DRIVER* = "SDL_AUDIO_DRIVER"
+  let SDL_HINT_AUDIO_DRIVER* = "SDL_AUDIO_DRIVER" 
 when "SDL_AUDIO_DUMMY_TIMESCALE" is static:
   const
-    SDL_HINT_AUDIO_DUMMY_TIMESCALE* = "SDL_AUDIO_DUMMY_TIMESCALE"
+    SDL_HINT_AUDIO_DUMMY_TIMESCALE* = "SDL_AUDIO_DUMMY_TIMESCALE" 
 else:
-  let SDL_HINT_AUDIO_DUMMY_TIMESCALE* = "SDL_AUDIO_DUMMY_TIMESCALE"
+  let SDL_HINT_AUDIO_DUMMY_TIMESCALE* = "SDL_AUDIO_DUMMY_TIMESCALE" 
 when "SDL_AUDIO_FORMAT" is static:
   const
-    SDL_HINT_AUDIO_FORMAT* = "SDL_AUDIO_FORMAT"
+    SDL_HINT_AUDIO_FORMAT* = "SDL_AUDIO_FORMAT" 
 else:
-  let SDL_HINT_AUDIO_FORMAT* = "SDL_AUDIO_FORMAT"
+  let SDL_HINT_AUDIO_FORMAT* = "SDL_AUDIO_FORMAT" 
 when "SDL_AUDIO_FREQUENCY" is static:
   const
-    SDL_HINT_AUDIO_FREQUENCY* = "SDL_AUDIO_FREQUENCY"
+    SDL_HINT_AUDIO_FREQUENCY* = "SDL_AUDIO_FREQUENCY" 
 else:
-  let SDL_HINT_AUDIO_FREQUENCY* = "SDL_AUDIO_FREQUENCY"
+  let SDL_HINT_AUDIO_FREQUENCY* = "SDL_AUDIO_FREQUENCY" 
 when "SDL_AUDIO_INCLUDE_MONITORS" is static:
   const
-    SDL_HINT_AUDIO_INCLUDE_MONITORS* = "SDL_AUDIO_INCLUDE_MONITORS"
+    SDL_HINT_AUDIO_INCLUDE_MONITORS* = "SDL_AUDIO_INCLUDE_MONITORS" 
 else:
-  let SDL_HINT_AUDIO_INCLUDE_MONITORS* = "SDL_AUDIO_INCLUDE_MONITORS"
+  let SDL_HINT_AUDIO_INCLUDE_MONITORS* = "SDL_AUDIO_INCLUDE_MONITORS" 
 when "SDL_AUTO_UPDATE_JOYSTICKS" is static:
   const
-    SDL_HINT_AUTO_UPDATE_JOYSTICKS* = "SDL_AUTO_UPDATE_JOYSTICKS"
+    SDL_HINT_AUTO_UPDATE_JOYSTICKS* = "SDL_AUTO_UPDATE_JOYSTICKS" 
 else:
-  let SDL_HINT_AUTO_UPDATE_JOYSTICKS* = "SDL_AUTO_UPDATE_JOYSTICKS"
+  let SDL_HINT_AUTO_UPDATE_JOYSTICKS* = "SDL_AUTO_UPDATE_JOYSTICKS" 
 when "SDL_AUTO_UPDATE_SENSORS" is static:
   const
-    SDL_HINT_AUTO_UPDATE_SENSORS* = "SDL_AUTO_UPDATE_SENSORS"
+    SDL_HINT_AUTO_UPDATE_SENSORS* = "SDL_AUTO_UPDATE_SENSORS" 
 else:
-  let SDL_HINT_AUTO_UPDATE_SENSORS* = "SDL_AUTO_UPDATE_SENSORS"
+  let SDL_HINT_AUTO_UPDATE_SENSORS* = "SDL_AUTO_UPDATE_SENSORS" 
 when "SDL_BMP_SAVE_LEGACY_FORMAT" is static:
   const
-    SDL_HINT_BMP_SAVE_LEGACY_FORMAT* = "SDL_BMP_SAVE_LEGACY_FORMAT"
+    SDL_HINT_BMP_SAVE_LEGACY_FORMAT* = "SDL_BMP_SAVE_LEGACY_FORMAT" 
 else:
-  let SDL_HINT_BMP_SAVE_LEGACY_FORMAT* = "SDL_BMP_SAVE_LEGACY_FORMAT"
+  let SDL_HINT_BMP_SAVE_LEGACY_FORMAT* = "SDL_BMP_SAVE_LEGACY_FORMAT" 
 when "SDL_CAMERA_DRIVER" is static:
   const
-    SDL_HINT_CAMERA_DRIVER* = "SDL_CAMERA_DRIVER"
+    SDL_HINT_CAMERA_DRIVER* = "SDL_CAMERA_DRIVER" 
 else:
-  let SDL_HINT_CAMERA_DRIVER* = "SDL_CAMERA_DRIVER"
+  let SDL_HINT_CAMERA_DRIVER* = "SDL_CAMERA_DRIVER" 
 when "SDL_CPU_FEATURE_MASK" is static:
   const
-    SDL_HINT_CPU_FEATURE_MASK* = "SDL_CPU_FEATURE_MASK"
+    SDL_HINT_CPU_FEATURE_MASK* = "SDL_CPU_FEATURE_MASK" 
 else:
-  let SDL_HINT_CPU_FEATURE_MASK* = "SDL_CPU_FEATURE_MASK"
+  let SDL_HINT_CPU_FEATURE_MASK* = "SDL_CPU_FEATURE_MASK" 
 when "SDL_JOYSTICK_DIRECTINPUT" is static:
   const
-    SDL_HINT_JOYSTICK_DIRECTINPUT* = "SDL_JOYSTICK_DIRECTINPUT"
+    SDL_HINT_JOYSTICK_DIRECTINPUT* = "SDL_JOYSTICK_DIRECTINPUT" 
 else:
-  let SDL_HINT_JOYSTICK_DIRECTINPUT* = "SDL_JOYSTICK_DIRECTINPUT"
+  let SDL_HINT_JOYSTICK_DIRECTINPUT* = "SDL_JOYSTICK_DIRECTINPUT" 
 when "SDL_FILE_DIALOG_DRIVER" is static:
   const
-    SDL_HINT_FILE_DIALOG_DRIVER* = "SDL_FILE_DIALOG_DRIVER"
+    SDL_HINT_FILE_DIALOG_DRIVER* = "SDL_FILE_DIALOG_DRIVER" 
 else:
-  let SDL_HINT_FILE_DIALOG_DRIVER* = "SDL_FILE_DIALOG_DRIVER"
+  let SDL_HINT_FILE_DIALOG_DRIVER* = "SDL_FILE_DIALOG_DRIVER" 
 when "SDL_DISPLAY_USABLE_BOUNDS" is static:
   const
-    SDL_HINT_DISPLAY_USABLE_BOUNDS* = "SDL_DISPLAY_USABLE_BOUNDS"
+    SDL_HINT_DISPLAY_USABLE_BOUNDS* = "SDL_DISPLAY_USABLE_BOUNDS" 
 else:
-  let SDL_HINT_DISPLAY_USABLE_BOUNDS* = "SDL_DISPLAY_USABLE_BOUNDS"
+  let SDL_HINT_DISPLAY_USABLE_BOUNDS* = "SDL_DISPLAY_USABLE_BOUNDS" 
 when "SDL_EMSCRIPTEN_ASYNCIFY" is static:
   const
-    SDL_HINT_EMSCRIPTEN_ASYNCIFY* = "SDL_EMSCRIPTEN_ASYNCIFY"
+    SDL_HINT_EMSCRIPTEN_ASYNCIFY* = "SDL_EMSCRIPTEN_ASYNCIFY" 
 else:
-  let SDL_HINT_EMSCRIPTEN_ASYNCIFY* = "SDL_EMSCRIPTEN_ASYNCIFY"
+  let SDL_HINT_EMSCRIPTEN_ASYNCIFY* = "SDL_EMSCRIPTEN_ASYNCIFY" 
 when "SDL_EMSCRIPTEN_CANVAS_SELECTOR" is static:
   const
-    SDL_HINT_EMSCRIPTEN_CANVAS_SELECTOR* = "SDL_EMSCRIPTEN_CANVAS_SELECTOR"
+    SDL_HINT_EMSCRIPTEN_CANVAS_SELECTOR* = "SDL_EMSCRIPTEN_CANVAS_SELECTOR" 
 else:
-  let SDL_HINT_EMSCRIPTEN_CANVAS_SELECTOR* = "SDL_EMSCRIPTEN_CANVAS_SELECTOR"
+  let SDL_HINT_EMSCRIPTEN_CANVAS_SELECTOR* = "SDL_EMSCRIPTEN_CANVAS_SELECTOR" 
 when "SDL_EMSCRIPTEN_KEYBOARD_ELEMENT" is static:
   const
-    SDL_HINT_EMSCRIPTEN_KEYBOARD_ELEMENT* = "SDL_EMSCRIPTEN_KEYBOARD_ELEMENT"
+    SDL_HINT_EMSCRIPTEN_KEYBOARD_ELEMENT* = "SDL_EMSCRIPTEN_KEYBOARD_ELEMENT" 
 else:
-  let SDL_HINT_EMSCRIPTEN_KEYBOARD_ELEMENT* = "SDL_EMSCRIPTEN_KEYBOARD_ELEMENT"
+  let SDL_HINT_EMSCRIPTEN_KEYBOARD_ELEMENT* = "SDL_EMSCRIPTEN_KEYBOARD_ELEMENT" 
 when "SDL_ENABLE_SCREEN_KEYBOARD" is static:
   const
-    SDL_HINT_ENABLE_SCREEN_KEYBOARD* = "SDL_ENABLE_SCREEN_KEYBOARD"
+    SDL_HINT_ENABLE_SCREEN_KEYBOARD* = "SDL_ENABLE_SCREEN_KEYBOARD" 
 else:
-  let SDL_HINT_ENABLE_SCREEN_KEYBOARD* = "SDL_ENABLE_SCREEN_KEYBOARD"
+  let SDL_HINT_ENABLE_SCREEN_KEYBOARD* = "SDL_ENABLE_SCREEN_KEYBOARD" 
 when "SDL_EVDEV_DEVICES" is static:
   const
-    SDL_HINT_EVDEV_DEVICES* = "SDL_EVDEV_DEVICES"
+    SDL_HINT_EVDEV_DEVICES* = "SDL_EVDEV_DEVICES" 
 else:
-  let SDL_HINT_EVDEV_DEVICES* = "SDL_EVDEV_DEVICES"
+  let SDL_HINT_EVDEV_DEVICES* = "SDL_EVDEV_DEVICES" 
 when "SDL_EVENT_LOGGING" is static:
   const
-    SDL_HINT_EVENT_LOGGING* = "SDL_EVENT_LOGGING"
+    SDL_HINT_EVENT_LOGGING* = "SDL_EVENT_LOGGING" 
 else:
-  let SDL_HINT_EVENT_LOGGING* = "SDL_EVENT_LOGGING"
+  let SDL_HINT_EVENT_LOGGING* = "SDL_EVENT_LOGGING" 
 when "SDL_FORCE_RAISEWINDOW" is static:
   const
-    SDL_HINT_FORCE_RAISEWINDOW* = "SDL_FORCE_RAISEWINDOW"
+    SDL_HINT_FORCE_RAISEWINDOW* = "SDL_FORCE_RAISEWINDOW" 
 else:
-  let SDL_HINT_FORCE_RAISEWINDOW* = "SDL_FORCE_RAISEWINDOW"
+  let SDL_HINT_FORCE_RAISEWINDOW* = "SDL_FORCE_RAISEWINDOW" 
 when "SDL_FRAMEBUFFER_ACCELERATION" is static:
   const
-    SDL_HINT_FRAMEBUFFER_ACCELERATION* = "SDL_FRAMEBUFFER_ACCELERATION"
+    SDL_HINT_FRAMEBUFFER_ACCELERATION* = "SDL_FRAMEBUFFER_ACCELERATION" 
 else:
-  let SDL_HINT_FRAMEBUFFER_ACCELERATION* = "SDL_FRAMEBUFFER_ACCELERATION"
+  let SDL_HINT_FRAMEBUFFER_ACCELERATION* = "SDL_FRAMEBUFFER_ACCELERATION" 
 when "SDL_GAMECONTROLLERCONFIG" is static:
   const
-    SDL_HINT_GAMECONTROLLERCONFIG* = "SDL_GAMECONTROLLERCONFIG"
+    SDL_HINT_GAMECONTROLLERCONFIG* = "SDL_GAMECONTROLLERCONFIG" 
 else:
-  let SDL_HINT_GAMECONTROLLERCONFIG* = "SDL_GAMECONTROLLERCONFIG"
+  let SDL_HINT_GAMECONTROLLERCONFIG* = "SDL_GAMECONTROLLERCONFIG" 
 when "SDL_GAMECONTROLLERCONFIG_FILE" is static:
   const
-    SDL_HINT_GAMECONTROLLERCONFIG_FILE* = "SDL_GAMECONTROLLERCONFIG_FILE"
+    SDL_HINT_GAMECONTROLLERCONFIG_FILE* = "SDL_GAMECONTROLLERCONFIG_FILE" 
 else:
-  let SDL_HINT_GAMECONTROLLERCONFIG_FILE* = "SDL_GAMECONTROLLERCONFIG_FILE"
+  let SDL_HINT_GAMECONTROLLERCONFIG_FILE* = "SDL_GAMECONTROLLERCONFIG_FILE" 
 when "SDL_GAMECONTROLLERTYPE" is static:
   const
-    SDL_HINT_GAMECONTROLLERTYPE* = "SDL_GAMECONTROLLERTYPE"
+    SDL_HINT_GAMECONTROLLERTYPE* = "SDL_GAMECONTROLLERTYPE" 
 else:
-  let SDL_HINT_GAMECONTROLLERTYPE* = "SDL_GAMECONTROLLERTYPE"
+  let SDL_HINT_GAMECONTROLLERTYPE* = "SDL_GAMECONTROLLERTYPE" 
 when "SDL_GAMECONTROLLER_IGNORE_DEVICES" is static:
   const
-    SDL_HINT_GAMECONTROLLER_IGNORE_DEVICES* = "SDL_GAMECONTROLLER_IGNORE_DEVICES"
+    SDL_HINT_GAMECONTROLLER_IGNORE_DEVICES* = "SDL_GAMECONTROLLER_IGNORE_DEVICES" 
 else:
-  let SDL_HINT_GAMECONTROLLER_IGNORE_DEVICES* = "SDL_GAMECONTROLLER_IGNORE_DEVICES"
+  let SDL_HINT_GAMECONTROLLER_IGNORE_DEVICES* = "SDL_GAMECONTROLLER_IGNORE_DEVICES" 
 when "SDL_GAMECONTROLLER_IGNORE_DEVICES_EXCEPT" is static:
   const
-    SDL_HINT_GAMECONTROLLER_IGNORE_DEVICES_EXCEPT* = "SDL_GAMECONTROLLER_IGNORE_DEVICES_EXCEPT"
+    SDL_HINT_GAMECONTROLLER_IGNORE_DEVICES_EXCEPT* = "SDL_GAMECONTROLLER_IGNORE_DEVICES_EXCEPT" 
 else:
-  let SDL_HINT_GAMECONTROLLER_IGNORE_DEVICES_EXCEPT* = "SDL_GAMECONTROLLER_IGNORE_DEVICES_EXCEPT"
+  let SDL_HINT_GAMECONTROLLER_IGNORE_DEVICES_EXCEPT* = "SDL_GAMECONTROLLER_IGNORE_DEVICES_EXCEPT" 
 when "SDL_GAMECONTROLLER_SENSOR_FUSION" is static:
   const
-    SDL_HINT_GAMECONTROLLER_SENSOR_FUSION* = "SDL_GAMECONTROLLER_SENSOR_FUSION"
+    SDL_HINT_GAMECONTROLLER_SENSOR_FUSION* = "SDL_GAMECONTROLLER_SENSOR_FUSION" 
 else:
-  let SDL_HINT_GAMECONTROLLER_SENSOR_FUSION* = "SDL_GAMECONTROLLER_SENSOR_FUSION"
+  let SDL_HINT_GAMECONTROLLER_SENSOR_FUSION* = "SDL_GAMECONTROLLER_SENSOR_FUSION" 
 when "SDL_GDK_TEXTINPUT_DEFAULT_TEXT" is static:
   const
-    SDL_HINT_GDK_TEXTINPUT_DEFAULT_TEXT* = "SDL_GDK_TEXTINPUT_DEFAULT_TEXT"
+    SDL_HINT_GDK_TEXTINPUT_DEFAULT_TEXT* = "SDL_GDK_TEXTINPUT_DEFAULT_TEXT" 
 else:
-  let SDL_HINT_GDK_TEXTINPUT_DEFAULT_TEXT* = "SDL_GDK_TEXTINPUT_DEFAULT_TEXT"
+  let SDL_HINT_GDK_TEXTINPUT_DEFAULT_TEXT* = "SDL_GDK_TEXTINPUT_DEFAULT_TEXT" 
 when "SDL_GDK_TEXTINPUT_DESCRIPTION" is static:
   const
-    SDL_HINT_GDK_TEXTINPUT_DESCRIPTION* = "SDL_GDK_TEXTINPUT_DESCRIPTION"
+    SDL_HINT_GDK_TEXTINPUT_DESCRIPTION* = "SDL_GDK_TEXTINPUT_DESCRIPTION" 
 else:
-  let SDL_HINT_GDK_TEXTINPUT_DESCRIPTION* = "SDL_GDK_TEXTINPUT_DESCRIPTION"
+  let SDL_HINT_GDK_TEXTINPUT_DESCRIPTION* = "SDL_GDK_TEXTINPUT_DESCRIPTION" 
 when "SDL_GDK_TEXTINPUT_MAX_LENGTH" is static:
   const
-    SDL_HINT_GDK_TEXTINPUT_MAX_LENGTH* = "SDL_GDK_TEXTINPUT_MAX_LENGTH"
+    SDL_HINT_GDK_TEXTINPUT_MAX_LENGTH* = "SDL_GDK_TEXTINPUT_MAX_LENGTH" 
 else:
-  let SDL_HINT_GDK_TEXTINPUT_MAX_LENGTH* = "SDL_GDK_TEXTINPUT_MAX_LENGTH"
+  let SDL_HINT_GDK_TEXTINPUT_MAX_LENGTH* = "SDL_GDK_TEXTINPUT_MAX_LENGTH" 
 when "SDL_GDK_TEXTINPUT_SCOPE" is static:
   const
-    SDL_HINT_GDK_TEXTINPUT_SCOPE* = "SDL_GDK_TEXTINPUT_SCOPE"
+    SDL_HINT_GDK_TEXTINPUT_SCOPE* = "SDL_GDK_TEXTINPUT_SCOPE" 
 else:
-  let SDL_HINT_GDK_TEXTINPUT_SCOPE* = "SDL_GDK_TEXTINPUT_SCOPE"
+  let SDL_HINT_GDK_TEXTINPUT_SCOPE* = "SDL_GDK_TEXTINPUT_SCOPE" 
 when "SDL_GDK_TEXTINPUT_TITLE" is static:
   const
-    SDL_HINT_GDK_TEXTINPUT_TITLE* = "SDL_GDK_TEXTINPUT_TITLE"
+    SDL_HINT_GDK_TEXTINPUT_TITLE* = "SDL_GDK_TEXTINPUT_TITLE" 
 else:
-  let SDL_HINT_GDK_TEXTINPUT_TITLE* = "SDL_GDK_TEXTINPUT_TITLE"
+  let SDL_HINT_GDK_TEXTINPUT_TITLE* = "SDL_GDK_TEXTINPUT_TITLE" 
 when "SDL_HIDAPI_LIBUSB" is static:
   const
-    SDL_HINT_HIDAPI_LIBUSB* = "SDL_HIDAPI_LIBUSB"
+    SDL_HINT_HIDAPI_LIBUSB* = "SDL_HIDAPI_LIBUSB" 
 else:
-  let SDL_HINT_HIDAPI_LIBUSB* = "SDL_HIDAPI_LIBUSB"
+  let SDL_HINT_HIDAPI_LIBUSB* = "SDL_HIDAPI_LIBUSB" 
 when "SDL_HIDAPI_LIBUSB_WHITELIST" is static:
   const
-    SDL_HINT_HIDAPI_LIBUSB_WHITELIST* = "SDL_HIDAPI_LIBUSB_WHITELIST"
+    SDL_HINT_HIDAPI_LIBUSB_WHITELIST* = "SDL_HIDAPI_LIBUSB_WHITELIST" 
 else:
-  let SDL_HINT_HIDAPI_LIBUSB_WHITELIST* = "SDL_HIDAPI_LIBUSB_WHITELIST"
+  let SDL_HINT_HIDAPI_LIBUSB_WHITELIST* = "SDL_HIDAPI_LIBUSB_WHITELIST" 
 when "SDL_HIDAPI_UDEV" is static:
   const
-    SDL_HINT_HIDAPI_UDEV* = "SDL_HIDAPI_UDEV"
+    SDL_HINT_HIDAPI_UDEV* = "SDL_HIDAPI_UDEV" 
 else:
-  let SDL_HINT_HIDAPI_UDEV* = "SDL_HIDAPI_UDEV"
+  let SDL_HINT_HIDAPI_UDEV* = "SDL_HIDAPI_UDEV" 
 when "SDL_GPU_DRIVER" is static:
   const
-    SDL_HINT_GPU_DRIVER* = "SDL_GPU_DRIVER"
+    SDL_HINT_GPU_DRIVER* = "SDL_GPU_DRIVER" 
 else:
-  let SDL_HINT_GPU_DRIVER* = "SDL_GPU_DRIVER"
+  let SDL_HINT_GPU_DRIVER* = "SDL_GPU_DRIVER" 
 when "SDL_HIDAPI_ENUMERATE_ONLY_CONTROLLERS" is static:
   const
-    SDL_HINT_HIDAPI_ENUMERATE_ONLY_CONTROLLERS* = "SDL_HIDAPI_ENUMERATE_ONLY_CONTROLLERS"
+    SDL_HINT_HIDAPI_ENUMERATE_ONLY_CONTROLLERS* = "SDL_HIDAPI_ENUMERATE_ONLY_CONTROLLERS" 
 else:
-  let SDL_HINT_HIDAPI_ENUMERATE_ONLY_CONTROLLERS* = "SDL_HIDAPI_ENUMERATE_ONLY_CONTROLLERS"
+  let SDL_HINT_HIDAPI_ENUMERATE_ONLY_CONTROLLERS* = "SDL_HIDAPI_ENUMERATE_ONLY_CONTROLLERS" 
 when "SDL_HIDAPI_IGNORE_DEVICES" is static:
   const
-    SDL_HINT_HIDAPI_IGNORE_DEVICES* = "SDL_HIDAPI_IGNORE_DEVICES"
+    SDL_HINT_HIDAPI_IGNORE_DEVICES* = "SDL_HIDAPI_IGNORE_DEVICES" 
 else:
-  let SDL_HINT_HIDAPI_IGNORE_DEVICES* = "SDL_HIDAPI_IGNORE_DEVICES"
+  let SDL_HINT_HIDAPI_IGNORE_DEVICES* = "SDL_HIDAPI_IGNORE_DEVICES" 
 when "SDL_IME_IMPLEMENTED_UI" is static:
   const
-    SDL_HINT_IME_IMPLEMENTED_UI* = "SDL_IME_IMPLEMENTED_UI"
+    SDL_HINT_IME_IMPLEMENTED_UI* = "SDL_IME_IMPLEMENTED_UI" 
 else:
-  let SDL_HINT_IME_IMPLEMENTED_UI* = "SDL_IME_IMPLEMENTED_UI"
+  let SDL_HINT_IME_IMPLEMENTED_UI* = "SDL_IME_IMPLEMENTED_UI" 
 when "SDL_IOS_HIDE_HOME_INDICATOR" is static:
   const
-    SDL_HINT_IOS_HIDE_HOME_INDICATOR* = "SDL_IOS_HIDE_HOME_INDICATOR"
+    SDL_HINT_IOS_HIDE_HOME_INDICATOR* = "SDL_IOS_HIDE_HOME_INDICATOR" 
 else:
-  let SDL_HINT_IOS_HIDE_HOME_INDICATOR* = "SDL_IOS_HIDE_HOME_INDICATOR"
+  let SDL_HINT_IOS_HIDE_HOME_INDICATOR* = "SDL_IOS_HIDE_HOME_INDICATOR" 
 when "SDL_JOYSTICK_ALLOW_BACKGROUND_EVENTS" is static:
   const
-    SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS* = "SDL_JOYSTICK_ALLOW_BACKGROUND_EVENTS"
+    SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS* = "SDL_JOYSTICK_ALLOW_BACKGROUND_EVENTS" 
 else:
-  let SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS* = "SDL_JOYSTICK_ALLOW_BACKGROUND_EVENTS"
+  let SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS* = "SDL_JOYSTICK_ALLOW_BACKGROUND_EVENTS" 
 when "SDL_JOYSTICK_ARCADESTICK_DEVICES" is static:
   const
-    SDL_HINT_JOYSTICK_ARCADESTICK_DEVICES* = "SDL_JOYSTICK_ARCADESTICK_DEVICES"
+    SDL_HINT_JOYSTICK_ARCADESTICK_DEVICES* = "SDL_JOYSTICK_ARCADESTICK_DEVICES" 
 else:
-  let SDL_HINT_JOYSTICK_ARCADESTICK_DEVICES* = "SDL_JOYSTICK_ARCADESTICK_DEVICES"
+  let SDL_HINT_JOYSTICK_ARCADESTICK_DEVICES* = "SDL_JOYSTICK_ARCADESTICK_DEVICES" 
 when "SDL_JOYSTICK_ARCADESTICK_DEVICES_EXCLUDED" is static:
   const
-    SDL_HINT_JOYSTICK_ARCADESTICK_DEVICES_EXCLUDED* = "SDL_JOYSTICK_ARCADESTICK_DEVICES_EXCLUDED"
+    SDL_HINT_JOYSTICK_ARCADESTICK_DEVICES_EXCLUDED* = "SDL_JOYSTICK_ARCADESTICK_DEVICES_EXCLUDED" 
 else:
-  let SDL_HINT_JOYSTICK_ARCADESTICK_DEVICES_EXCLUDED* = "SDL_JOYSTICK_ARCADESTICK_DEVICES_EXCLUDED"
+  let SDL_HINT_JOYSTICK_ARCADESTICK_DEVICES_EXCLUDED* = "SDL_JOYSTICK_ARCADESTICK_DEVICES_EXCLUDED" 
 when "SDL_JOYSTICK_BLACKLIST_DEVICES" is static:
   const
-    SDL_HINT_JOYSTICK_BLACKLIST_DEVICES* = "SDL_JOYSTICK_BLACKLIST_DEVICES"
+    SDL_HINT_JOYSTICK_BLACKLIST_DEVICES* = "SDL_JOYSTICK_BLACKLIST_DEVICES" 
 else:
-  let SDL_HINT_JOYSTICK_BLACKLIST_DEVICES* = "SDL_JOYSTICK_BLACKLIST_DEVICES"
+  let SDL_HINT_JOYSTICK_BLACKLIST_DEVICES* = "SDL_JOYSTICK_BLACKLIST_DEVICES" 
 when "SDL_JOYSTICK_BLACKLIST_DEVICES_EXCLUDED" is static:
   const
-    SDL_HINT_JOYSTICK_BLACKLIST_DEVICES_EXCLUDED* = "SDL_JOYSTICK_BLACKLIST_DEVICES_EXCLUDED"
+    SDL_HINT_JOYSTICK_BLACKLIST_DEVICES_EXCLUDED* = "SDL_JOYSTICK_BLACKLIST_DEVICES_EXCLUDED" 
 else:
-  let SDL_HINT_JOYSTICK_BLACKLIST_DEVICES_EXCLUDED* = "SDL_JOYSTICK_BLACKLIST_DEVICES_EXCLUDED"
+  let SDL_HINT_JOYSTICK_BLACKLIST_DEVICES_EXCLUDED* = "SDL_JOYSTICK_BLACKLIST_DEVICES_EXCLUDED" 
 when "SDL_JOYSTICK_DEVICE" is static:
   const
-    SDL_HINT_JOYSTICK_DEVICE* = "SDL_JOYSTICK_DEVICE"
+    SDL_HINT_JOYSTICK_DEVICE* = "SDL_JOYSTICK_DEVICE" 
 else:
-  let SDL_HINT_JOYSTICK_DEVICE* = "SDL_JOYSTICK_DEVICE"
+  let SDL_HINT_JOYSTICK_DEVICE* = "SDL_JOYSTICK_DEVICE" 
 when "SDL_JOYSTICK_FLIGHTSTICK_DEVICES" is static:
   const
-    SDL_HINT_JOYSTICK_FLIGHTSTICK_DEVICES* = "SDL_JOYSTICK_FLIGHTSTICK_DEVICES"
+    SDL_HINT_JOYSTICK_FLIGHTSTICK_DEVICES* = "SDL_JOYSTICK_FLIGHTSTICK_DEVICES" 
 else:
-  let SDL_HINT_JOYSTICK_FLIGHTSTICK_DEVICES* = "SDL_JOYSTICK_FLIGHTSTICK_DEVICES"
+  let SDL_HINT_JOYSTICK_FLIGHTSTICK_DEVICES* = "SDL_JOYSTICK_FLIGHTSTICK_DEVICES" 
 when "SDL_JOYSTICK_FLIGHTSTICK_DEVICES_EXCLUDED" is static:
   const
-    SDL_HINT_JOYSTICK_FLIGHTSTICK_DEVICES_EXCLUDED* = "SDL_JOYSTICK_FLIGHTSTICK_DEVICES_EXCLUDED"
+    SDL_HINT_JOYSTICK_FLIGHTSTICK_DEVICES_EXCLUDED* = "SDL_JOYSTICK_FLIGHTSTICK_DEVICES_EXCLUDED" 
 else:
-  let SDL_HINT_JOYSTICK_FLIGHTSTICK_DEVICES_EXCLUDED* = "SDL_JOYSTICK_FLIGHTSTICK_DEVICES_EXCLUDED"
+  let SDL_HINT_JOYSTICK_FLIGHTSTICK_DEVICES_EXCLUDED* = "SDL_JOYSTICK_FLIGHTSTICK_DEVICES_EXCLUDED" 
 when "SDL_JOYSTICK_GAMEINPUT" is static:
   const
-    SDL_HINT_JOYSTICK_GAMEINPUT* = "SDL_JOYSTICK_GAMEINPUT"
+    SDL_HINT_JOYSTICK_GAMEINPUT* = "SDL_JOYSTICK_GAMEINPUT" 
 else:
-  let SDL_HINT_JOYSTICK_GAMEINPUT* = "SDL_JOYSTICK_GAMEINPUT"
+  let SDL_HINT_JOYSTICK_GAMEINPUT* = "SDL_JOYSTICK_GAMEINPUT" 
 when "SDL_JOYSTICK_GAMECUBE_DEVICES" is static:
   const
-    SDL_HINT_JOYSTICK_GAMECUBE_DEVICES* = "SDL_JOYSTICK_GAMECUBE_DEVICES"
+    SDL_HINT_JOYSTICK_GAMECUBE_DEVICES* = "SDL_JOYSTICK_GAMECUBE_DEVICES" 
 else:
-  let SDL_HINT_JOYSTICK_GAMECUBE_DEVICES* = "SDL_JOYSTICK_GAMECUBE_DEVICES"
+  let SDL_HINT_JOYSTICK_GAMECUBE_DEVICES* = "SDL_JOYSTICK_GAMECUBE_DEVICES" 
 when "SDL_JOYSTICK_GAMECUBE_DEVICES_EXCLUDED" is static:
   const
-    SDL_HINT_JOYSTICK_GAMECUBE_DEVICES_EXCLUDED* = "SDL_JOYSTICK_GAMECUBE_DEVICES_EXCLUDED"
+    SDL_HINT_JOYSTICK_GAMECUBE_DEVICES_EXCLUDED* = "SDL_JOYSTICK_GAMECUBE_DEVICES_EXCLUDED" 
 else:
-  let SDL_HINT_JOYSTICK_GAMECUBE_DEVICES_EXCLUDED* = "SDL_JOYSTICK_GAMECUBE_DEVICES_EXCLUDED"
+  let SDL_HINT_JOYSTICK_GAMECUBE_DEVICES_EXCLUDED* = "SDL_JOYSTICK_GAMECUBE_DEVICES_EXCLUDED" 
 when "SDL_JOYSTICK_HIDAPI" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI* = "SDL_JOYSTICK_HIDAPI"
+    SDL_HINT_JOYSTICK_HIDAPI* = "SDL_JOYSTICK_HIDAPI" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI* = "SDL_JOYSTICK_HIDAPI"
+  let SDL_HINT_JOYSTICK_HIDAPI* = "SDL_JOYSTICK_HIDAPI" 
 when "SDL_JOYSTICK_HIDAPI_COMBINE_JOY_CONS" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_COMBINE_JOY_CONS* = "SDL_JOYSTICK_HIDAPI_COMBINE_JOY_CONS"
+    SDL_HINT_JOYSTICK_HIDAPI_COMBINE_JOY_CONS* = "SDL_JOYSTICK_HIDAPI_COMBINE_JOY_CONS" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_COMBINE_JOY_CONS* = "SDL_JOYSTICK_HIDAPI_COMBINE_JOY_CONS"
+  let SDL_HINT_JOYSTICK_HIDAPI_COMBINE_JOY_CONS* = "SDL_JOYSTICK_HIDAPI_COMBINE_JOY_CONS" 
 when "SDL_JOYSTICK_HIDAPI_GAMECUBE" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_GAMECUBE* = "SDL_JOYSTICK_HIDAPI_GAMECUBE"
+    SDL_HINT_JOYSTICK_HIDAPI_GAMECUBE* = "SDL_JOYSTICK_HIDAPI_GAMECUBE" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_GAMECUBE* = "SDL_JOYSTICK_HIDAPI_GAMECUBE"
+  let SDL_HINT_JOYSTICK_HIDAPI_GAMECUBE* = "SDL_JOYSTICK_HIDAPI_GAMECUBE" 
 when "SDL_JOYSTICK_HIDAPI_GAMECUBE_RUMBLE_BRAKE" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_GAMECUBE_RUMBLE_BRAKE* = "SDL_JOYSTICK_HIDAPI_GAMECUBE_RUMBLE_BRAKE"
+    SDL_HINT_JOYSTICK_HIDAPI_GAMECUBE_RUMBLE_BRAKE* = "SDL_JOYSTICK_HIDAPI_GAMECUBE_RUMBLE_BRAKE" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_GAMECUBE_RUMBLE_BRAKE* = "SDL_JOYSTICK_HIDAPI_GAMECUBE_RUMBLE_BRAKE"
+  let SDL_HINT_JOYSTICK_HIDAPI_GAMECUBE_RUMBLE_BRAKE* = "SDL_JOYSTICK_HIDAPI_GAMECUBE_RUMBLE_BRAKE" 
 when "SDL_JOYSTICK_HIDAPI_JOY_CONS" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_JOY_CONS* = "SDL_JOYSTICK_HIDAPI_JOY_CONS"
+    SDL_HINT_JOYSTICK_HIDAPI_JOY_CONS* = "SDL_JOYSTICK_HIDAPI_JOY_CONS" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_JOY_CONS* = "SDL_JOYSTICK_HIDAPI_JOY_CONS"
+  let SDL_HINT_JOYSTICK_HIDAPI_JOY_CONS* = "SDL_JOYSTICK_HIDAPI_JOY_CONS" 
 when "SDL_JOYSTICK_HIDAPI_JOYCON_HOME_LED" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_JOYCON_HOME_LED* = "SDL_JOYSTICK_HIDAPI_JOYCON_HOME_LED"
+    SDL_HINT_JOYSTICK_HIDAPI_JOYCON_HOME_LED* = "SDL_JOYSTICK_HIDAPI_JOYCON_HOME_LED" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_JOYCON_HOME_LED* = "SDL_JOYSTICK_HIDAPI_JOYCON_HOME_LED"
+  let SDL_HINT_JOYSTICK_HIDAPI_JOYCON_HOME_LED* = "SDL_JOYSTICK_HIDAPI_JOYCON_HOME_LED" 
 when "SDL_JOYSTICK_HIDAPI_LUNA" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_LUNA* = "SDL_JOYSTICK_HIDAPI_LUNA"
+    SDL_HINT_JOYSTICK_HIDAPI_LUNA* = "SDL_JOYSTICK_HIDAPI_LUNA" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_LUNA* = "SDL_JOYSTICK_HIDAPI_LUNA"
+  let SDL_HINT_JOYSTICK_HIDAPI_LUNA* = "SDL_JOYSTICK_HIDAPI_LUNA" 
 when "SDL_JOYSTICK_HIDAPI_NINTENDO_CLASSIC" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_NINTENDO_CLASSIC* = "SDL_JOYSTICK_HIDAPI_NINTENDO_CLASSIC"
+    SDL_HINT_JOYSTICK_HIDAPI_NINTENDO_CLASSIC* = "SDL_JOYSTICK_HIDAPI_NINTENDO_CLASSIC" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_NINTENDO_CLASSIC* = "SDL_JOYSTICK_HIDAPI_NINTENDO_CLASSIC"
+  let SDL_HINT_JOYSTICK_HIDAPI_NINTENDO_CLASSIC* = "SDL_JOYSTICK_HIDAPI_NINTENDO_CLASSIC" 
 when "SDL_JOYSTICK_HIDAPI_PS3" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_PS3* = "SDL_JOYSTICK_HIDAPI_PS3"
+    SDL_HINT_JOYSTICK_HIDAPI_PS3* = "SDL_JOYSTICK_HIDAPI_PS3" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_PS3* = "SDL_JOYSTICK_HIDAPI_PS3"
+  let SDL_HINT_JOYSTICK_HIDAPI_PS3* = "SDL_JOYSTICK_HIDAPI_PS3" 
 when "SDL_JOYSTICK_HIDAPI_PS3_SIXAXIS_DRIVER" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_PS3_SIXAXIS_DRIVER* = "SDL_JOYSTICK_HIDAPI_PS3_SIXAXIS_DRIVER"
+    SDL_HINT_JOYSTICK_HIDAPI_PS3_SIXAXIS_DRIVER* = "SDL_JOYSTICK_HIDAPI_PS3_SIXAXIS_DRIVER" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_PS3_SIXAXIS_DRIVER* = "SDL_JOYSTICK_HIDAPI_PS3_SIXAXIS_DRIVER"
+  let SDL_HINT_JOYSTICK_HIDAPI_PS3_SIXAXIS_DRIVER* = "SDL_JOYSTICK_HIDAPI_PS3_SIXAXIS_DRIVER" 
 when "SDL_JOYSTICK_HIDAPI_PS4" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_PS4* = "SDL_JOYSTICK_HIDAPI_PS4"
+    SDL_HINT_JOYSTICK_HIDAPI_PS4* = "SDL_JOYSTICK_HIDAPI_PS4" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_PS4* = "SDL_JOYSTICK_HIDAPI_PS4"
+  let SDL_HINT_JOYSTICK_HIDAPI_PS4* = "SDL_JOYSTICK_HIDAPI_PS4" 
 when "SDL_JOYSTICK_HIDAPI_PS4_REPORT_INTERVAL" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_PS4_REPORT_INTERVAL* = "SDL_JOYSTICK_HIDAPI_PS4_REPORT_INTERVAL"
+    SDL_HINT_JOYSTICK_HIDAPI_PS4_REPORT_INTERVAL* = "SDL_JOYSTICK_HIDAPI_PS4_REPORT_INTERVAL" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_PS4_REPORT_INTERVAL* = "SDL_JOYSTICK_HIDAPI_PS4_REPORT_INTERVAL"
+  let SDL_HINT_JOYSTICK_HIDAPI_PS4_REPORT_INTERVAL* = "SDL_JOYSTICK_HIDAPI_PS4_REPORT_INTERVAL" 
 when "SDL_JOYSTICK_HIDAPI_PS4_RUMBLE" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_PS4_RUMBLE* = "SDL_JOYSTICK_HIDAPI_PS4_RUMBLE"
+    SDL_HINT_JOYSTICK_HIDAPI_PS4_RUMBLE* = "SDL_JOYSTICK_HIDAPI_PS4_RUMBLE" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_PS4_RUMBLE* = "SDL_JOYSTICK_HIDAPI_PS4_RUMBLE"
+  let SDL_HINT_JOYSTICK_HIDAPI_PS4_RUMBLE* = "SDL_JOYSTICK_HIDAPI_PS4_RUMBLE" 
 when "SDL_JOYSTICK_HIDAPI_PS5" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_PS5* = "SDL_JOYSTICK_HIDAPI_PS5"
+    SDL_HINT_JOYSTICK_HIDAPI_PS5* = "SDL_JOYSTICK_HIDAPI_PS5" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_PS5* = "SDL_JOYSTICK_HIDAPI_PS5"
+  let SDL_HINT_JOYSTICK_HIDAPI_PS5* = "SDL_JOYSTICK_HIDAPI_PS5" 
 when "SDL_JOYSTICK_HIDAPI_PS5_PLAYER_LED" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_PS5_PLAYER_LED* = "SDL_JOYSTICK_HIDAPI_PS5_PLAYER_LED"
+    SDL_HINT_JOYSTICK_HIDAPI_PS5_PLAYER_LED* = "SDL_JOYSTICK_HIDAPI_PS5_PLAYER_LED" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_PS5_PLAYER_LED* = "SDL_JOYSTICK_HIDAPI_PS5_PLAYER_LED"
+  let SDL_HINT_JOYSTICK_HIDAPI_PS5_PLAYER_LED* = "SDL_JOYSTICK_HIDAPI_PS5_PLAYER_LED" 
 when "SDL_JOYSTICK_HIDAPI_PS5_RUMBLE" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_PS5_RUMBLE* = "SDL_JOYSTICK_HIDAPI_PS5_RUMBLE"
+    SDL_HINT_JOYSTICK_HIDAPI_PS5_RUMBLE* = "SDL_JOYSTICK_HIDAPI_PS5_RUMBLE" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_PS5_RUMBLE* = "SDL_JOYSTICK_HIDAPI_PS5_RUMBLE"
+  let SDL_HINT_JOYSTICK_HIDAPI_PS5_RUMBLE* = "SDL_JOYSTICK_HIDAPI_PS5_RUMBLE" 
 when "SDL_JOYSTICK_HIDAPI_SHIELD" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_SHIELD* = "SDL_JOYSTICK_HIDAPI_SHIELD"
+    SDL_HINT_JOYSTICK_HIDAPI_SHIELD* = "SDL_JOYSTICK_HIDAPI_SHIELD" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_SHIELD* = "SDL_JOYSTICK_HIDAPI_SHIELD"
+  let SDL_HINT_JOYSTICK_HIDAPI_SHIELD* = "SDL_JOYSTICK_HIDAPI_SHIELD" 
 when "SDL_JOYSTICK_HIDAPI_STADIA" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_STADIA* = "SDL_JOYSTICK_HIDAPI_STADIA"
+    SDL_HINT_JOYSTICK_HIDAPI_STADIA* = "SDL_JOYSTICK_HIDAPI_STADIA" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_STADIA* = "SDL_JOYSTICK_HIDAPI_STADIA"
+  let SDL_HINT_JOYSTICK_HIDAPI_STADIA* = "SDL_JOYSTICK_HIDAPI_STADIA" 
 when "SDL_JOYSTICK_HIDAPI_STEAM" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_STEAM* = "SDL_JOYSTICK_HIDAPI_STEAM"
+    SDL_HINT_JOYSTICK_HIDAPI_STEAM* = "SDL_JOYSTICK_HIDAPI_STEAM" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_STEAM* = "SDL_JOYSTICK_HIDAPI_STEAM"
+  let SDL_HINT_JOYSTICK_HIDAPI_STEAM* = "SDL_JOYSTICK_HIDAPI_STEAM" 
 when "SDL_JOYSTICK_HIDAPI_STEAMDECK" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_STEAMDECK* = "SDL_JOYSTICK_HIDAPI_STEAMDECK"
+    SDL_HINT_JOYSTICK_HIDAPI_STEAMDECK* = "SDL_JOYSTICK_HIDAPI_STEAMDECK" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_STEAMDECK* = "SDL_JOYSTICK_HIDAPI_STEAMDECK"
+  let SDL_HINT_JOYSTICK_HIDAPI_STEAMDECK* = "SDL_JOYSTICK_HIDAPI_STEAMDECK" 
 when "SDL_JOYSTICK_HIDAPI_STEAM_HORI" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_STEAM_HORI* = "SDL_JOYSTICK_HIDAPI_STEAM_HORI"
+    SDL_HINT_JOYSTICK_HIDAPI_STEAM_HORI* = "SDL_JOYSTICK_HIDAPI_STEAM_HORI" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_STEAM_HORI* = "SDL_JOYSTICK_HIDAPI_STEAM_HORI"
+  let SDL_HINT_JOYSTICK_HIDAPI_STEAM_HORI* = "SDL_JOYSTICK_HIDAPI_STEAM_HORI" 
 when "SDL_JOYSTICK_HIDAPI_SWITCH" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_SWITCH* = "SDL_JOYSTICK_HIDAPI_SWITCH"
+    SDL_HINT_JOYSTICK_HIDAPI_SWITCH* = "SDL_JOYSTICK_HIDAPI_SWITCH" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_SWITCH* = "SDL_JOYSTICK_HIDAPI_SWITCH"
+  let SDL_HINT_JOYSTICK_HIDAPI_SWITCH* = "SDL_JOYSTICK_HIDAPI_SWITCH" 
 when "SDL_JOYSTICK_HIDAPI_SWITCH_HOME_LED" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_SWITCH_HOME_LED* = "SDL_JOYSTICK_HIDAPI_SWITCH_HOME_LED"
+    SDL_HINT_JOYSTICK_HIDAPI_SWITCH_HOME_LED* = "SDL_JOYSTICK_HIDAPI_SWITCH_HOME_LED" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_SWITCH_HOME_LED* = "SDL_JOYSTICK_HIDAPI_SWITCH_HOME_LED"
+  let SDL_HINT_JOYSTICK_HIDAPI_SWITCH_HOME_LED* = "SDL_JOYSTICK_HIDAPI_SWITCH_HOME_LED" 
 when "SDL_JOYSTICK_HIDAPI_SWITCH_PLAYER_LED" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_SWITCH_PLAYER_LED* = "SDL_JOYSTICK_HIDAPI_SWITCH_PLAYER_LED"
+    SDL_HINT_JOYSTICK_HIDAPI_SWITCH_PLAYER_LED* = "SDL_JOYSTICK_HIDAPI_SWITCH_PLAYER_LED" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_SWITCH_PLAYER_LED* = "SDL_JOYSTICK_HIDAPI_SWITCH_PLAYER_LED"
+  let SDL_HINT_JOYSTICK_HIDAPI_SWITCH_PLAYER_LED* = "SDL_JOYSTICK_HIDAPI_SWITCH_PLAYER_LED" 
 when "SDL_JOYSTICK_HIDAPI_VERTICAL_JOY_CONS" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_VERTICAL_JOY_CONS* = "SDL_JOYSTICK_HIDAPI_VERTICAL_JOY_CONS"
+    SDL_HINT_JOYSTICK_HIDAPI_VERTICAL_JOY_CONS* = "SDL_JOYSTICK_HIDAPI_VERTICAL_JOY_CONS" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_VERTICAL_JOY_CONS* = "SDL_JOYSTICK_HIDAPI_VERTICAL_JOY_CONS"
+  let SDL_HINT_JOYSTICK_HIDAPI_VERTICAL_JOY_CONS* = "SDL_JOYSTICK_HIDAPI_VERTICAL_JOY_CONS" 
 when "SDL_JOYSTICK_HIDAPI_WII" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_WII* = "SDL_JOYSTICK_HIDAPI_WII"
+    SDL_HINT_JOYSTICK_HIDAPI_WII* = "SDL_JOYSTICK_HIDAPI_WII" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_WII* = "SDL_JOYSTICK_HIDAPI_WII"
+  let SDL_HINT_JOYSTICK_HIDAPI_WII* = "SDL_JOYSTICK_HIDAPI_WII" 
 when "SDL_JOYSTICK_HIDAPI_WII_PLAYER_LED" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_WII_PLAYER_LED* = "SDL_JOYSTICK_HIDAPI_WII_PLAYER_LED"
+    SDL_HINT_JOYSTICK_HIDAPI_WII_PLAYER_LED* = "SDL_JOYSTICK_HIDAPI_WII_PLAYER_LED" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_WII_PLAYER_LED* = "SDL_JOYSTICK_HIDAPI_WII_PLAYER_LED"
+  let SDL_HINT_JOYSTICK_HIDAPI_WII_PLAYER_LED* = "SDL_JOYSTICK_HIDAPI_WII_PLAYER_LED" 
 when "SDL_JOYSTICK_HIDAPI_XBOX" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_XBOX* = "SDL_JOYSTICK_HIDAPI_XBOX"
+    SDL_HINT_JOYSTICK_HIDAPI_XBOX* = "SDL_JOYSTICK_HIDAPI_XBOX" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_XBOX* = "SDL_JOYSTICK_HIDAPI_XBOX"
+  let SDL_HINT_JOYSTICK_HIDAPI_XBOX* = "SDL_JOYSTICK_HIDAPI_XBOX" 
 when "SDL_JOYSTICK_HIDAPI_XBOX_360" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_XBOX_360* = "SDL_JOYSTICK_HIDAPI_XBOX_360"
+    SDL_HINT_JOYSTICK_HIDAPI_XBOX_360* = "SDL_JOYSTICK_HIDAPI_XBOX_360" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_XBOX_360* = "SDL_JOYSTICK_HIDAPI_XBOX_360"
+  let SDL_HINT_JOYSTICK_HIDAPI_XBOX_360* = "SDL_JOYSTICK_HIDAPI_XBOX_360" 
 when "SDL_JOYSTICK_HIDAPI_XBOX_360_PLAYER_LED" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_XBOX_360_PLAYER_LED* = "SDL_JOYSTICK_HIDAPI_XBOX_360_PLAYER_LED"
+    SDL_HINT_JOYSTICK_HIDAPI_XBOX_360_PLAYER_LED* = "SDL_JOYSTICK_HIDAPI_XBOX_360_PLAYER_LED" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_XBOX_360_PLAYER_LED* = "SDL_JOYSTICK_HIDAPI_XBOX_360_PLAYER_LED"
+  let SDL_HINT_JOYSTICK_HIDAPI_XBOX_360_PLAYER_LED* = "SDL_JOYSTICK_HIDAPI_XBOX_360_PLAYER_LED" 
 when "SDL_JOYSTICK_HIDAPI_XBOX_360_WIRELESS" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_XBOX_360_WIRELESS* = "SDL_JOYSTICK_HIDAPI_XBOX_360_WIRELESS"
+    SDL_HINT_JOYSTICK_HIDAPI_XBOX_360_WIRELESS* = "SDL_JOYSTICK_HIDAPI_XBOX_360_WIRELESS" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_XBOX_360_WIRELESS* = "SDL_JOYSTICK_HIDAPI_XBOX_360_WIRELESS"
+  let SDL_HINT_JOYSTICK_HIDAPI_XBOX_360_WIRELESS* = "SDL_JOYSTICK_HIDAPI_XBOX_360_WIRELESS" 
 when "SDL_JOYSTICK_HIDAPI_XBOX_ONE" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_XBOX_ONE* = "SDL_JOYSTICK_HIDAPI_XBOX_ONE"
+    SDL_HINT_JOYSTICK_HIDAPI_XBOX_ONE* = "SDL_JOYSTICK_HIDAPI_XBOX_ONE" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_XBOX_ONE* = "SDL_JOYSTICK_HIDAPI_XBOX_ONE"
+  let SDL_HINT_JOYSTICK_HIDAPI_XBOX_ONE* = "SDL_JOYSTICK_HIDAPI_XBOX_ONE" 
 when "SDL_JOYSTICK_HIDAPI_XBOX_ONE_HOME_LED" is static:
   const
-    SDL_HINT_JOYSTICK_HIDAPI_XBOX_ONE_HOME_LED* = "SDL_JOYSTICK_HIDAPI_XBOX_ONE_HOME_LED"
+    SDL_HINT_JOYSTICK_HIDAPI_XBOX_ONE_HOME_LED* = "SDL_JOYSTICK_HIDAPI_XBOX_ONE_HOME_LED" 
 else:
-  let SDL_HINT_JOYSTICK_HIDAPI_XBOX_ONE_HOME_LED* = "SDL_JOYSTICK_HIDAPI_XBOX_ONE_HOME_LED"
+  let SDL_HINT_JOYSTICK_HIDAPI_XBOX_ONE_HOME_LED* = "SDL_JOYSTICK_HIDAPI_XBOX_ONE_HOME_LED" 
 when "SDL_JOYSTICK_IOKIT" is static:
   const
-    SDL_HINT_JOYSTICK_IOKIT* = "SDL_JOYSTICK_IOKIT"
+    SDL_HINT_JOYSTICK_IOKIT* = "SDL_JOYSTICK_IOKIT" 
 else:
-  let SDL_HINT_JOYSTICK_IOKIT* = "SDL_JOYSTICK_IOKIT"
+  let SDL_HINT_JOYSTICK_IOKIT* = "SDL_JOYSTICK_IOKIT" 
 when "SDL_JOYSTICK_LINUX_CLASSIC" is static:
   const
-    SDL_HINT_JOYSTICK_LINUX_CLASSIC* = "SDL_JOYSTICK_LINUX_CLASSIC"
+    SDL_HINT_JOYSTICK_LINUX_CLASSIC* = "SDL_JOYSTICK_LINUX_CLASSIC" 
 else:
-  let SDL_HINT_JOYSTICK_LINUX_CLASSIC* = "SDL_JOYSTICK_LINUX_CLASSIC"
+  let SDL_HINT_JOYSTICK_LINUX_CLASSIC* = "SDL_JOYSTICK_LINUX_CLASSIC" 
 when "SDL_JOYSTICK_LINUX_DEADZONES" is static:
   const
-    SDL_HINT_JOYSTICK_LINUX_DEADZONES* = "SDL_JOYSTICK_LINUX_DEADZONES"
+    SDL_HINT_JOYSTICK_LINUX_DEADZONES* = "SDL_JOYSTICK_LINUX_DEADZONES" 
 else:
-  let SDL_HINT_JOYSTICK_LINUX_DEADZONES* = "SDL_JOYSTICK_LINUX_DEADZONES"
+  let SDL_HINT_JOYSTICK_LINUX_DEADZONES* = "SDL_JOYSTICK_LINUX_DEADZONES" 
 when "SDL_JOYSTICK_LINUX_DIGITAL_HATS" is static:
   const
-    SDL_HINT_JOYSTICK_LINUX_DIGITAL_HATS* = "SDL_JOYSTICK_LINUX_DIGITAL_HATS"
+    SDL_HINT_JOYSTICK_LINUX_DIGITAL_HATS* = "SDL_JOYSTICK_LINUX_DIGITAL_HATS" 
 else:
-  let SDL_HINT_JOYSTICK_LINUX_DIGITAL_HATS* = "SDL_JOYSTICK_LINUX_DIGITAL_HATS"
+  let SDL_HINT_JOYSTICK_LINUX_DIGITAL_HATS* = "SDL_JOYSTICK_LINUX_DIGITAL_HATS" 
 when "SDL_JOYSTICK_LINUX_HAT_DEADZONES" is static:
   const
-    SDL_HINT_JOYSTICK_LINUX_HAT_DEADZONES* = "SDL_JOYSTICK_LINUX_HAT_DEADZONES"
+    SDL_HINT_JOYSTICK_LINUX_HAT_DEADZONES* = "SDL_JOYSTICK_LINUX_HAT_DEADZONES" 
 else:
-  let SDL_HINT_JOYSTICK_LINUX_HAT_DEADZONES* = "SDL_JOYSTICK_LINUX_HAT_DEADZONES"
+  let SDL_HINT_JOYSTICK_LINUX_HAT_DEADZONES* = "SDL_JOYSTICK_LINUX_HAT_DEADZONES" 
 when "SDL_JOYSTICK_MFI" is static:
   const
-    SDL_HINT_JOYSTICK_MFI* = "SDL_JOYSTICK_MFI"
+    SDL_HINT_JOYSTICK_MFI* = "SDL_JOYSTICK_MFI" 
 else:
-  let SDL_HINT_JOYSTICK_MFI* = "SDL_JOYSTICK_MFI"
+  let SDL_HINT_JOYSTICK_MFI* = "SDL_JOYSTICK_MFI" 
 when "SDL_JOYSTICK_RAWINPUT" is static:
   const
-    SDL_HINT_JOYSTICK_RAWINPUT* = "SDL_JOYSTICK_RAWINPUT"
+    SDL_HINT_JOYSTICK_RAWINPUT* = "SDL_JOYSTICK_RAWINPUT" 
 else:
-  let SDL_HINT_JOYSTICK_RAWINPUT* = "SDL_JOYSTICK_RAWINPUT"
+  let SDL_HINT_JOYSTICK_RAWINPUT* = "SDL_JOYSTICK_RAWINPUT" 
 when "SDL_JOYSTICK_RAWINPUT_CORRELATE_XINPUT" is static:
   const
-    SDL_HINT_JOYSTICK_RAWINPUT_CORRELATE_XINPUT* = "SDL_JOYSTICK_RAWINPUT_CORRELATE_XINPUT"
+    SDL_HINT_JOYSTICK_RAWINPUT_CORRELATE_XINPUT* = "SDL_JOYSTICK_RAWINPUT_CORRELATE_XINPUT" 
 else:
-  let SDL_HINT_JOYSTICK_RAWINPUT_CORRELATE_XINPUT* = "SDL_JOYSTICK_RAWINPUT_CORRELATE_XINPUT"
+  let SDL_HINT_JOYSTICK_RAWINPUT_CORRELATE_XINPUT* = "SDL_JOYSTICK_RAWINPUT_CORRELATE_XINPUT" 
 when "SDL_JOYSTICK_ROG_CHAKRAM" is static:
   const
-    SDL_HINT_JOYSTICK_ROG_CHAKRAM* = "SDL_JOYSTICK_ROG_CHAKRAM"
+    SDL_HINT_JOYSTICK_ROG_CHAKRAM* = "SDL_JOYSTICK_ROG_CHAKRAM" 
 else:
-  let SDL_HINT_JOYSTICK_ROG_CHAKRAM* = "SDL_JOYSTICK_ROG_CHAKRAM"
+  let SDL_HINT_JOYSTICK_ROG_CHAKRAM* = "SDL_JOYSTICK_ROG_CHAKRAM" 
 when "SDL_JOYSTICK_THREAD" is static:
   const
-    SDL_HINT_JOYSTICK_THREAD* = "SDL_JOYSTICK_THREAD"
+    SDL_HINT_JOYSTICK_THREAD* = "SDL_JOYSTICK_THREAD" 
 else:
-  let SDL_HINT_JOYSTICK_THREAD* = "SDL_JOYSTICK_THREAD"
+  let SDL_HINT_JOYSTICK_THREAD* = "SDL_JOYSTICK_THREAD" 
 when "SDL_JOYSTICK_THROTTLE_DEVICES" is static:
   const
-    SDL_HINT_JOYSTICK_THROTTLE_DEVICES* = "SDL_JOYSTICK_THROTTLE_DEVICES"
+    SDL_HINT_JOYSTICK_THROTTLE_DEVICES* = "SDL_JOYSTICK_THROTTLE_DEVICES" 
 else:
-  let SDL_HINT_JOYSTICK_THROTTLE_DEVICES* = "SDL_JOYSTICK_THROTTLE_DEVICES"
+  let SDL_HINT_JOYSTICK_THROTTLE_DEVICES* = "SDL_JOYSTICK_THROTTLE_DEVICES" 
 when "SDL_JOYSTICK_THROTTLE_DEVICES_EXCLUDED" is static:
   const
-    SDL_HINT_JOYSTICK_THROTTLE_DEVICES_EXCLUDED* = "SDL_JOYSTICK_THROTTLE_DEVICES_EXCLUDED"
+    SDL_HINT_JOYSTICK_THROTTLE_DEVICES_EXCLUDED* = "SDL_JOYSTICK_THROTTLE_DEVICES_EXCLUDED" 
 else:
-  let SDL_HINT_JOYSTICK_THROTTLE_DEVICES_EXCLUDED* = "SDL_JOYSTICK_THROTTLE_DEVICES_EXCLUDED"
+  let SDL_HINT_JOYSTICK_THROTTLE_DEVICES_EXCLUDED* = "SDL_JOYSTICK_THROTTLE_DEVICES_EXCLUDED" 
 when "SDL_JOYSTICK_WGI" is static:
   const
-    SDL_HINT_JOYSTICK_WGI* = "SDL_JOYSTICK_WGI"
+    SDL_HINT_JOYSTICK_WGI* = "SDL_JOYSTICK_WGI" 
 else:
-  let SDL_HINT_JOYSTICK_WGI* = "SDL_JOYSTICK_WGI"
+  let SDL_HINT_JOYSTICK_WGI* = "SDL_JOYSTICK_WGI" 
 when "SDL_JOYSTICK_WHEEL_DEVICES" is static:
   const
-    SDL_HINT_JOYSTICK_WHEEL_DEVICES* = "SDL_JOYSTICK_WHEEL_DEVICES"
+    SDL_HINT_JOYSTICK_WHEEL_DEVICES* = "SDL_JOYSTICK_WHEEL_DEVICES" 
 else:
-  let SDL_HINT_JOYSTICK_WHEEL_DEVICES* = "SDL_JOYSTICK_WHEEL_DEVICES"
+  let SDL_HINT_JOYSTICK_WHEEL_DEVICES* = "SDL_JOYSTICK_WHEEL_DEVICES" 
 when "SDL_JOYSTICK_WHEEL_DEVICES_EXCLUDED" is static:
   const
-    SDL_HINT_JOYSTICK_WHEEL_DEVICES_EXCLUDED* = "SDL_JOYSTICK_WHEEL_DEVICES_EXCLUDED"
+    SDL_HINT_JOYSTICK_WHEEL_DEVICES_EXCLUDED* = "SDL_JOYSTICK_WHEEL_DEVICES_EXCLUDED" 
 else:
-  let SDL_HINT_JOYSTICK_WHEEL_DEVICES_EXCLUDED* = "SDL_JOYSTICK_WHEEL_DEVICES_EXCLUDED"
+  let SDL_HINT_JOYSTICK_WHEEL_DEVICES_EXCLUDED* = "SDL_JOYSTICK_WHEEL_DEVICES_EXCLUDED" 
 when "SDL_JOYSTICK_ZERO_CENTERED_DEVICES" is static:
   const
-    SDL_HINT_JOYSTICK_ZERO_CENTERED_DEVICES* = "SDL_JOYSTICK_ZERO_CENTERED_DEVICES"
+    SDL_HINT_JOYSTICK_ZERO_CENTERED_DEVICES* = "SDL_JOYSTICK_ZERO_CENTERED_DEVICES" 
 else:
-  let SDL_HINT_JOYSTICK_ZERO_CENTERED_DEVICES* = "SDL_JOYSTICK_ZERO_CENTERED_DEVICES"
+  let SDL_HINT_JOYSTICK_ZERO_CENTERED_DEVICES* = "SDL_JOYSTICK_ZERO_CENTERED_DEVICES" 
 when "SDL_KEYCODE_OPTIONS" is static:
   const
-    SDL_HINT_KEYCODE_OPTIONS* = "SDL_KEYCODE_OPTIONS"
+    SDL_HINT_KEYCODE_OPTIONS* = "SDL_KEYCODE_OPTIONS" 
 else:
-  let SDL_HINT_KEYCODE_OPTIONS* = "SDL_KEYCODE_OPTIONS"
+  let SDL_HINT_KEYCODE_OPTIONS* = "SDL_KEYCODE_OPTIONS" 
 when "SDL_KMSDRM_DEVICE_INDEX" is static:
   const
-    SDL_HINT_KMSDRM_DEVICE_INDEX* = "SDL_KMSDRM_DEVICE_INDEX"
+    SDL_HINT_KMSDRM_DEVICE_INDEX* = "SDL_KMSDRM_DEVICE_INDEX" 
 else:
-  let SDL_HINT_KMSDRM_DEVICE_INDEX* = "SDL_KMSDRM_DEVICE_INDEX"
+  let SDL_HINT_KMSDRM_DEVICE_INDEX* = "SDL_KMSDRM_DEVICE_INDEX" 
 when "SDL_KMSDRM_REQUIRE_DRM_MASTER" is static:
   const
-    SDL_HINT_KMSDRM_REQUIRE_DRM_MASTER* = "SDL_KMSDRM_REQUIRE_DRM_MASTER"
+    SDL_HINT_KMSDRM_REQUIRE_DRM_MASTER* = "SDL_KMSDRM_REQUIRE_DRM_MASTER" 
 else:
-  let SDL_HINT_KMSDRM_REQUIRE_DRM_MASTER* = "SDL_KMSDRM_REQUIRE_DRM_MASTER"
+  let SDL_HINT_KMSDRM_REQUIRE_DRM_MASTER* = "SDL_KMSDRM_REQUIRE_DRM_MASTER" 
 when "SDL_LOGGING" is static:
   const
-    SDL_HINT_LOGGING* = "SDL_LOGGING"
+    SDL_HINT_LOGGING* = "SDL_LOGGING" 
 else:
-  let SDL_HINT_LOGGING* = "SDL_LOGGING"
+  let SDL_HINT_LOGGING* = "SDL_LOGGING" 
 when "SDL_MAC_BACKGROUND_APP" is static:
   const
-    SDL_HINT_MAC_BACKGROUND_APP* = "SDL_MAC_BACKGROUND_APP"
+    SDL_HINT_MAC_BACKGROUND_APP* = "SDL_MAC_BACKGROUND_APP" 
 else:
-  let SDL_HINT_MAC_BACKGROUND_APP* = "SDL_MAC_BACKGROUND_APP"
+  let SDL_HINT_MAC_BACKGROUND_APP* = "SDL_MAC_BACKGROUND_APP" 
 when "SDL_MAC_CTRL_CLICK_EMULATE_RIGHT_CLICK" is static:
   const
-    SDL_HINT_MAC_CTRL_CLICK_EMULATE_RIGHT_CLICK* = "SDL_MAC_CTRL_CLICK_EMULATE_RIGHT_CLICK"
+    SDL_HINT_MAC_CTRL_CLICK_EMULATE_RIGHT_CLICK* = "SDL_MAC_CTRL_CLICK_EMULATE_RIGHT_CLICK" 
 else:
-  let SDL_HINT_MAC_CTRL_CLICK_EMULATE_RIGHT_CLICK* = "SDL_MAC_CTRL_CLICK_EMULATE_RIGHT_CLICK"
+  let SDL_HINT_MAC_CTRL_CLICK_EMULATE_RIGHT_CLICK* = "SDL_MAC_CTRL_CLICK_EMULATE_RIGHT_CLICK" 
 when "SDL_MAC_OPENGL_ASYNC_DISPATCH" is static:
   const
-    SDL_HINT_MAC_OPENGL_ASYNC_DISPATCH* = "SDL_MAC_OPENGL_ASYNC_DISPATCH"
+    SDL_HINT_MAC_OPENGL_ASYNC_DISPATCH* = "SDL_MAC_OPENGL_ASYNC_DISPATCH" 
 else:
-  let SDL_HINT_MAC_OPENGL_ASYNC_DISPATCH* = "SDL_MAC_OPENGL_ASYNC_DISPATCH"
+  let SDL_HINT_MAC_OPENGL_ASYNC_DISPATCH* = "SDL_MAC_OPENGL_ASYNC_DISPATCH" 
 when "SDL_MAIN_CALLBACK_RATE" is static:
   const
-    SDL_HINT_MAIN_CALLBACK_RATE* = "SDL_MAIN_CALLBACK_RATE"
+    SDL_HINT_MAIN_CALLBACK_RATE* = "SDL_MAIN_CALLBACK_RATE" 
 else:
-  let SDL_HINT_MAIN_CALLBACK_RATE* = "SDL_MAIN_CALLBACK_RATE"
+  let SDL_HINT_MAIN_CALLBACK_RATE* = "SDL_MAIN_CALLBACK_RATE" 
 when "SDL_MOUSE_AUTO_CAPTURE" is static:
   const
-    SDL_HINT_MOUSE_AUTO_CAPTURE* = "SDL_MOUSE_AUTO_CAPTURE"
+    SDL_HINT_MOUSE_AUTO_CAPTURE* = "SDL_MOUSE_AUTO_CAPTURE" 
 else:
-  let SDL_HINT_MOUSE_AUTO_CAPTURE* = "SDL_MOUSE_AUTO_CAPTURE"
+  let SDL_HINT_MOUSE_AUTO_CAPTURE* = "SDL_MOUSE_AUTO_CAPTURE" 
 when "SDL_MOUSE_DOUBLE_CLICK_RADIUS" is static:
   const
-    SDL_HINT_MOUSE_DOUBLE_CLICK_RADIUS* = "SDL_MOUSE_DOUBLE_CLICK_RADIUS"
+    SDL_HINT_MOUSE_DOUBLE_CLICK_RADIUS* = "SDL_MOUSE_DOUBLE_CLICK_RADIUS" 
 else:
-  let SDL_HINT_MOUSE_DOUBLE_CLICK_RADIUS* = "SDL_MOUSE_DOUBLE_CLICK_RADIUS"
+  let SDL_HINT_MOUSE_DOUBLE_CLICK_RADIUS* = "SDL_MOUSE_DOUBLE_CLICK_RADIUS" 
 when "SDL_MOUSE_DOUBLE_CLICK_TIME" is static:
   const
-    SDL_HINT_MOUSE_DOUBLE_CLICK_TIME* = "SDL_MOUSE_DOUBLE_CLICK_TIME"
+    SDL_HINT_MOUSE_DOUBLE_CLICK_TIME* = "SDL_MOUSE_DOUBLE_CLICK_TIME" 
 else:
-  let SDL_HINT_MOUSE_DOUBLE_CLICK_TIME* = "SDL_MOUSE_DOUBLE_CLICK_TIME"
+  let SDL_HINT_MOUSE_DOUBLE_CLICK_TIME* = "SDL_MOUSE_DOUBLE_CLICK_TIME" 
 when "SDL_MOUSE_EMULATE_WARP_WITH_RELATIVE" is static:
   const
-    SDL_HINT_MOUSE_EMULATE_WARP_WITH_RELATIVE* = "SDL_MOUSE_EMULATE_WARP_WITH_RELATIVE"
+    SDL_HINT_MOUSE_EMULATE_WARP_WITH_RELATIVE* = "SDL_MOUSE_EMULATE_WARP_WITH_RELATIVE" 
 else:
-  let SDL_HINT_MOUSE_EMULATE_WARP_WITH_RELATIVE* = "SDL_MOUSE_EMULATE_WARP_WITH_RELATIVE"
+  let SDL_HINT_MOUSE_EMULATE_WARP_WITH_RELATIVE* = "SDL_MOUSE_EMULATE_WARP_WITH_RELATIVE" 
 when "SDL_MOUSE_FOCUS_CLICKTHROUGH" is static:
   const
-    SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH* = "SDL_MOUSE_FOCUS_CLICKTHROUGH"
+    SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH* = "SDL_MOUSE_FOCUS_CLICKTHROUGH" 
 else:
-  let SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH* = "SDL_MOUSE_FOCUS_CLICKTHROUGH"
+  let SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH* = "SDL_MOUSE_FOCUS_CLICKTHROUGH" 
 when "SDL_MOUSE_NORMAL_SPEED_SCALE" is static:
   const
-    SDL_HINT_MOUSE_NORMAL_SPEED_SCALE* = "SDL_MOUSE_NORMAL_SPEED_SCALE"
+    SDL_HINT_MOUSE_NORMAL_SPEED_SCALE* = "SDL_MOUSE_NORMAL_SPEED_SCALE" 
 else:
-  let SDL_HINT_MOUSE_NORMAL_SPEED_SCALE* = "SDL_MOUSE_NORMAL_SPEED_SCALE"
+  let SDL_HINT_MOUSE_NORMAL_SPEED_SCALE* = "SDL_MOUSE_NORMAL_SPEED_SCALE" 
 when "SDL_MOUSE_RELATIVE_MODE_CENTER" is static:
   const
-    SDL_HINT_MOUSE_RELATIVE_MODE_CENTER* = "SDL_MOUSE_RELATIVE_MODE_CENTER"
+    SDL_HINT_MOUSE_RELATIVE_MODE_CENTER* = "SDL_MOUSE_RELATIVE_MODE_CENTER" 
 else:
-  let SDL_HINT_MOUSE_RELATIVE_MODE_CENTER* = "SDL_MOUSE_RELATIVE_MODE_CENTER"
+  let SDL_HINT_MOUSE_RELATIVE_MODE_CENTER* = "SDL_MOUSE_RELATIVE_MODE_CENTER" 
 when "SDL_MOUSE_RELATIVE_MODE_WARP" is static:
   const
-    SDL_HINT_MOUSE_RELATIVE_MODE_WARP* = "SDL_MOUSE_RELATIVE_MODE_WARP"
+    SDL_HINT_MOUSE_RELATIVE_MODE_WARP* = "SDL_MOUSE_RELATIVE_MODE_WARP" 
 else:
-  let SDL_HINT_MOUSE_RELATIVE_MODE_WARP* = "SDL_MOUSE_RELATIVE_MODE_WARP"
+  let SDL_HINT_MOUSE_RELATIVE_MODE_WARP* = "SDL_MOUSE_RELATIVE_MODE_WARP" 
 when "SDL_MOUSE_RELATIVE_SPEED_SCALE" is static:
   const
-    SDL_HINT_MOUSE_RELATIVE_SPEED_SCALE* = "SDL_MOUSE_RELATIVE_SPEED_SCALE"
+    SDL_HINT_MOUSE_RELATIVE_SPEED_SCALE* = "SDL_MOUSE_RELATIVE_SPEED_SCALE" 
 else:
-  let SDL_HINT_MOUSE_RELATIVE_SPEED_SCALE* = "SDL_MOUSE_RELATIVE_SPEED_SCALE"
+  let SDL_HINT_MOUSE_RELATIVE_SPEED_SCALE* = "SDL_MOUSE_RELATIVE_SPEED_SCALE" 
 when "SDL_MOUSE_RELATIVE_SYSTEM_SCALE" is static:
   const
-    SDL_HINT_MOUSE_RELATIVE_SYSTEM_SCALE* = "SDL_MOUSE_RELATIVE_SYSTEM_SCALE"
+    SDL_HINT_MOUSE_RELATIVE_SYSTEM_SCALE* = "SDL_MOUSE_RELATIVE_SYSTEM_SCALE" 
 else:
-  let SDL_HINT_MOUSE_RELATIVE_SYSTEM_SCALE* = "SDL_MOUSE_RELATIVE_SYSTEM_SCALE"
+  let SDL_HINT_MOUSE_RELATIVE_SYSTEM_SCALE* = "SDL_MOUSE_RELATIVE_SYSTEM_SCALE" 
 when "SDL_MOUSE_RELATIVE_WARP_MOTION" is static:
   const
-    SDL_HINT_MOUSE_RELATIVE_WARP_MOTION* = "SDL_MOUSE_RELATIVE_WARP_MOTION"
+    SDL_HINT_MOUSE_RELATIVE_WARP_MOTION* = "SDL_MOUSE_RELATIVE_WARP_MOTION" 
 else:
-  let SDL_HINT_MOUSE_RELATIVE_WARP_MOTION* = "SDL_MOUSE_RELATIVE_WARP_MOTION"
+  let SDL_HINT_MOUSE_RELATIVE_WARP_MOTION* = "SDL_MOUSE_RELATIVE_WARP_MOTION" 
 when "SDL_MOUSE_RELATIVE_CURSOR_VISIBLE" is static:
   const
-    SDL_HINT_MOUSE_RELATIVE_CURSOR_VISIBLE* = "SDL_MOUSE_RELATIVE_CURSOR_VISIBLE"
+    SDL_HINT_MOUSE_RELATIVE_CURSOR_VISIBLE* = "SDL_MOUSE_RELATIVE_CURSOR_VISIBLE" 
 else:
-  let SDL_HINT_MOUSE_RELATIVE_CURSOR_VISIBLE* = "SDL_MOUSE_RELATIVE_CURSOR_VISIBLE"
+  let SDL_HINT_MOUSE_RELATIVE_CURSOR_VISIBLE* = "SDL_MOUSE_RELATIVE_CURSOR_VISIBLE" 
 when "SDL_MOUSE_RELATIVE_CLIP_INTERVAL" is static:
   const
-    SDL_HINT_MOUSE_RELATIVE_CLIP_INTERVAL* = "SDL_MOUSE_RELATIVE_CLIP_INTERVAL"
+    SDL_HINT_MOUSE_RELATIVE_CLIP_INTERVAL* = "SDL_MOUSE_RELATIVE_CLIP_INTERVAL" 
 else:
-  let SDL_HINT_MOUSE_RELATIVE_CLIP_INTERVAL* = "SDL_MOUSE_RELATIVE_CLIP_INTERVAL"
+  let SDL_HINT_MOUSE_RELATIVE_CLIP_INTERVAL* = "SDL_MOUSE_RELATIVE_CLIP_INTERVAL" 
 when "SDL_MOUSE_TOUCH_EVENTS" is static:
   const
-    SDL_HINT_MOUSE_TOUCH_EVENTS* = "SDL_MOUSE_TOUCH_EVENTS"
+    SDL_HINT_MOUSE_TOUCH_EVENTS* = "SDL_MOUSE_TOUCH_EVENTS" 
 else:
-  let SDL_HINT_MOUSE_TOUCH_EVENTS* = "SDL_MOUSE_TOUCH_EVENTS"
+  let SDL_HINT_MOUSE_TOUCH_EVENTS* = "SDL_MOUSE_TOUCH_EVENTS" 
 when "SDL_MUTE_CONSOLE_KEYBOARD" is static:
   const
-    SDL_HINT_MUTE_CONSOLE_KEYBOARD* = "SDL_MUTE_CONSOLE_KEYBOARD"
+    SDL_HINT_MUTE_CONSOLE_KEYBOARD* = "SDL_MUTE_CONSOLE_KEYBOARD" 
 else:
-  let SDL_HINT_MUTE_CONSOLE_KEYBOARD* = "SDL_MUTE_CONSOLE_KEYBOARD"
+  let SDL_HINT_MUTE_CONSOLE_KEYBOARD* = "SDL_MUTE_CONSOLE_KEYBOARD" 
 when "SDL_NO_SIGNAL_HANDLERS" is static:
   const
-    SDL_HINT_NO_SIGNAL_HANDLERS* = "SDL_NO_SIGNAL_HANDLERS"
+    SDL_HINT_NO_SIGNAL_HANDLERS* = "SDL_NO_SIGNAL_HANDLERS" 
 else:
-  let SDL_HINT_NO_SIGNAL_HANDLERS* = "SDL_NO_SIGNAL_HANDLERS"
+  let SDL_HINT_NO_SIGNAL_HANDLERS* = "SDL_NO_SIGNAL_HANDLERS" 
 when "SDL_OPENGL_LIBRARY" is static:
   const
-    SDL_HINT_OPENGL_LIBRARY* = "SDL_OPENGL_LIBRARY"
+    SDL_HINT_OPENGL_LIBRARY* = "SDL_OPENGL_LIBRARY" 
 else:
-  let SDL_HINT_OPENGL_LIBRARY* = "SDL_OPENGL_LIBRARY"
+  let SDL_HINT_OPENGL_LIBRARY* = "SDL_OPENGL_LIBRARY" 
 when "SDL_OPENGL_ES_DRIVER" is static:
   const
-    SDL_HINT_OPENGL_ES_DRIVER* = "SDL_OPENGL_ES_DRIVER"
+    SDL_HINT_OPENGL_ES_DRIVER* = "SDL_OPENGL_ES_DRIVER" 
 else:
-  let SDL_HINT_OPENGL_ES_DRIVER* = "SDL_OPENGL_ES_DRIVER"
+  let SDL_HINT_OPENGL_ES_DRIVER* = "SDL_OPENGL_ES_DRIVER" 
 when "SDL_ORIENTATIONS" is static:
   const
-    SDL_HINT_ORIENTATIONS* = "SDL_ORIENTATIONS"
+    SDL_HINT_ORIENTATIONS* = "SDL_ORIENTATIONS" 
 else:
-  let SDL_HINT_ORIENTATIONS* = "SDL_ORIENTATIONS"
+  let SDL_HINT_ORIENTATIONS* = "SDL_ORIENTATIONS" 
 when "SDL_POLL_SENTINEL" is static:
   const
-    SDL_HINT_POLL_SENTINEL* = "SDL_POLL_SENTINEL"
+    SDL_HINT_POLL_SENTINEL* = "SDL_POLL_SENTINEL" 
 else:
-  let SDL_HINT_POLL_SENTINEL* = "SDL_POLL_SENTINEL"
+  let SDL_HINT_POLL_SENTINEL* = "SDL_POLL_SENTINEL" 
 when "SDL_PREFERRED_LOCALES" is static:
   const
-    SDL_HINT_PREFERRED_LOCALES* = "SDL_PREFERRED_LOCALES"
+    SDL_HINT_PREFERRED_LOCALES* = "SDL_PREFERRED_LOCALES" 
 else:
-  let SDL_HINT_PREFERRED_LOCALES* = "SDL_PREFERRED_LOCALES"
+  let SDL_HINT_PREFERRED_LOCALES* = "SDL_PREFERRED_LOCALES" 
 when "SDL_QUIT_ON_LAST_WINDOW_CLOSE" is static:
   const
-    SDL_HINT_QUIT_ON_LAST_WINDOW_CLOSE* = "SDL_QUIT_ON_LAST_WINDOW_CLOSE"
+    SDL_HINT_QUIT_ON_LAST_WINDOW_CLOSE* = "SDL_QUIT_ON_LAST_WINDOW_CLOSE" 
 else:
-  let SDL_HINT_QUIT_ON_LAST_WINDOW_CLOSE* = "SDL_QUIT_ON_LAST_WINDOW_CLOSE"
+  let SDL_HINT_QUIT_ON_LAST_WINDOW_CLOSE* = "SDL_QUIT_ON_LAST_WINDOW_CLOSE" 
 when "SDL_RENDER_DIRECT3D_THREADSAFE" is static:
   const
-    SDL_HINT_RENDER_DIRECT3D_THREADSAFE* = "SDL_RENDER_DIRECT3D_THREADSAFE"
+    SDL_HINT_RENDER_DIRECT3D_THREADSAFE* = "SDL_RENDER_DIRECT3D_THREADSAFE" 
 else:
-  let SDL_HINT_RENDER_DIRECT3D_THREADSAFE* = "SDL_RENDER_DIRECT3D_THREADSAFE"
+  let SDL_HINT_RENDER_DIRECT3D_THREADSAFE* = "SDL_RENDER_DIRECT3D_THREADSAFE" 
 when "SDL_RENDER_DIRECT3D11_DEBUG" is static:
   const
-    SDL_HINT_RENDER_DIRECT3D11_DEBUG* = "SDL_RENDER_DIRECT3D11_DEBUG"
+    SDL_HINT_RENDER_DIRECT3D11_DEBUG* = "SDL_RENDER_DIRECT3D11_DEBUG" 
 else:
-  let SDL_HINT_RENDER_DIRECT3D11_DEBUG* = "SDL_RENDER_DIRECT3D11_DEBUG"
+  let SDL_HINT_RENDER_DIRECT3D11_DEBUG* = "SDL_RENDER_DIRECT3D11_DEBUG" 
 when "SDL_RENDER_VULKAN_DEBUG" is static:
   const
-    SDL_HINT_RENDER_VULKAN_DEBUG* = "SDL_RENDER_VULKAN_DEBUG"
+    SDL_HINT_RENDER_VULKAN_DEBUG* = "SDL_RENDER_VULKAN_DEBUG" 
 else:
-  let SDL_HINT_RENDER_VULKAN_DEBUG* = "SDL_RENDER_VULKAN_DEBUG"
+  let SDL_HINT_RENDER_VULKAN_DEBUG* = "SDL_RENDER_VULKAN_DEBUG" 
 when "SDL_RENDER_GPU_DEBUG" is static:
   const
-    SDL_HINT_RENDER_GPU_DEBUG* = "SDL_RENDER_GPU_DEBUG"
+    SDL_HINT_RENDER_GPU_DEBUG* = "SDL_RENDER_GPU_DEBUG" 
 else:
-  let SDL_HINT_RENDER_GPU_DEBUG* = "SDL_RENDER_GPU_DEBUG"
+  let SDL_HINT_RENDER_GPU_DEBUG* = "SDL_RENDER_GPU_DEBUG" 
 when "SDL_RENDER_GPU_LOW_POWER" is static:
   const
-    SDL_HINT_RENDER_GPU_LOW_POWER* = "SDL_RENDER_GPU_LOW_POWER"
+    SDL_HINT_RENDER_GPU_LOW_POWER* = "SDL_RENDER_GPU_LOW_POWER" 
 else:
-  let SDL_HINT_RENDER_GPU_LOW_POWER* = "SDL_RENDER_GPU_LOW_POWER"
+  let SDL_HINT_RENDER_GPU_LOW_POWER* = "SDL_RENDER_GPU_LOW_POWER" 
 when "SDL_RENDER_DRIVER" is static:
   const
-    SDL_HINT_RENDER_DRIVER* = "SDL_RENDER_DRIVER"
+    SDL_HINT_RENDER_DRIVER* = "SDL_RENDER_DRIVER" 
 else:
-  let SDL_HINT_RENDER_DRIVER* = "SDL_RENDER_DRIVER"
+  let SDL_HINT_RENDER_DRIVER* = "SDL_RENDER_DRIVER" 
 when "SDL_RENDER_LINE_METHOD" is static:
   const
-    SDL_HINT_RENDER_LINE_METHOD* = "SDL_RENDER_LINE_METHOD"
+    SDL_HINT_RENDER_LINE_METHOD* = "SDL_RENDER_LINE_METHOD" 
 else:
-  let SDL_HINT_RENDER_LINE_METHOD* = "SDL_RENDER_LINE_METHOD"
+  let SDL_HINT_RENDER_LINE_METHOD* = "SDL_RENDER_LINE_METHOD" 
 when "SDL_RENDER_METAL_PREFER_LOW_POWER_DEVICE" is static:
   const
-    SDL_HINT_RENDER_METAL_PREFER_LOW_POWER_DEVICE* = "SDL_RENDER_METAL_PREFER_LOW_POWER_DEVICE"
+    SDL_HINT_RENDER_METAL_PREFER_LOW_POWER_DEVICE* = "SDL_RENDER_METAL_PREFER_LOW_POWER_DEVICE" 
 else:
-  let SDL_HINT_RENDER_METAL_PREFER_LOW_POWER_DEVICE* = "SDL_RENDER_METAL_PREFER_LOW_POWER_DEVICE"
+  let SDL_HINT_RENDER_METAL_PREFER_LOW_POWER_DEVICE* = "SDL_RENDER_METAL_PREFER_LOW_POWER_DEVICE" 
 when "SDL_RENDER_VSYNC" is static:
   const
-    SDL_HINT_RENDER_VSYNC* = "SDL_RENDER_VSYNC"
+    SDL_HINT_RENDER_VSYNC* = "SDL_RENDER_VSYNC" 
 else:
-  let SDL_HINT_RENDER_VSYNC* = "SDL_RENDER_VSYNC"
+  let SDL_HINT_RENDER_VSYNC* = "SDL_RENDER_VSYNC" 
 when "SDL_RETURN_KEY_HIDES_IME" is static:
   const
-    SDL_HINT_RETURN_KEY_HIDES_IME* = "SDL_RETURN_KEY_HIDES_IME"
+    SDL_HINT_RETURN_KEY_HIDES_IME* = "SDL_RETURN_KEY_HIDES_IME" 
 else:
-  let SDL_HINT_RETURN_KEY_HIDES_IME* = "SDL_RETURN_KEY_HIDES_IME"
+  let SDL_HINT_RETURN_KEY_HIDES_IME* = "SDL_RETURN_KEY_HIDES_IME" 
 when "SDL_ROG_GAMEPAD_MICE" is static:
   const
-    SDL_HINT_ROG_GAMEPAD_MICE* = "SDL_ROG_GAMEPAD_MICE"
+    SDL_HINT_ROG_GAMEPAD_MICE* = "SDL_ROG_GAMEPAD_MICE" 
 else:
-  let SDL_HINT_ROG_GAMEPAD_MICE* = "SDL_ROG_GAMEPAD_MICE"
+  let SDL_HINT_ROG_GAMEPAD_MICE* = "SDL_ROG_GAMEPAD_MICE" 
 when "SDL_ROG_GAMEPAD_MICE_EXCLUDED" is static:
   const
-    SDL_HINT_ROG_GAMEPAD_MICE_EXCLUDED* = "SDL_ROG_GAMEPAD_MICE_EXCLUDED"
+    SDL_HINT_ROG_GAMEPAD_MICE_EXCLUDED* = "SDL_ROG_GAMEPAD_MICE_EXCLUDED" 
 else:
-  let SDL_HINT_ROG_GAMEPAD_MICE_EXCLUDED* = "SDL_ROG_GAMEPAD_MICE_EXCLUDED"
+  let SDL_HINT_ROG_GAMEPAD_MICE_EXCLUDED* = "SDL_ROG_GAMEPAD_MICE_EXCLUDED" 
 when "SDL_RPI_VIDEO_LAYER" is static:
   const
-    SDL_HINT_RPI_VIDEO_LAYER* = "SDL_RPI_VIDEO_LAYER"
+    SDL_HINT_RPI_VIDEO_LAYER* = "SDL_RPI_VIDEO_LAYER" 
 else:
-  let SDL_HINT_RPI_VIDEO_LAYER* = "SDL_RPI_VIDEO_LAYER"
+  let SDL_HINT_RPI_VIDEO_LAYER* = "SDL_RPI_VIDEO_LAYER" 
 when "SDL_SCREENSAVER_INHIBIT_ACTIVITY_NAME" is static:
   const
-    SDL_HINT_SCREENSAVER_INHIBIT_ACTIVITY_NAME* = "SDL_SCREENSAVER_INHIBIT_ACTIVITY_NAME"
+    SDL_HINT_SCREENSAVER_INHIBIT_ACTIVITY_NAME* = "SDL_SCREENSAVER_INHIBIT_ACTIVITY_NAME" 
 else:
-  let SDL_HINT_SCREENSAVER_INHIBIT_ACTIVITY_NAME* = "SDL_SCREENSAVER_INHIBIT_ACTIVITY_NAME"
+  let SDL_HINT_SCREENSAVER_INHIBIT_ACTIVITY_NAME* = "SDL_SCREENSAVER_INHIBIT_ACTIVITY_NAME" 
 when "SDL_SHUTDOWN_DBUS_ON_QUIT" is static:
   const
-    SDL_HINT_SHUTDOWN_DBUS_ON_QUIT* = "SDL_SHUTDOWN_DBUS_ON_QUIT"
+    SDL_HINT_SHUTDOWN_DBUS_ON_QUIT* = "SDL_SHUTDOWN_DBUS_ON_QUIT" 
 else:
-  let SDL_HINT_SHUTDOWN_DBUS_ON_QUIT* = "SDL_SHUTDOWN_DBUS_ON_QUIT"
+  let SDL_HINT_SHUTDOWN_DBUS_ON_QUIT* = "SDL_SHUTDOWN_DBUS_ON_QUIT" 
 when "SDL_STORAGE_TITLE_DRIVER" is static:
   const
-    SDL_HINT_STORAGE_TITLE_DRIVER* = "SDL_STORAGE_TITLE_DRIVER"
+    SDL_HINT_STORAGE_TITLE_DRIVER* = "SDL_STORAGE_TITLE_DRIVER" 
 else:
-  let SDL_HINT_STORAGE_TITLE_DRIVER* = "SDL_STORAGE_TITLE_DRIVER"
+  let SDL_HINT_STORAGE_TITLE_DRIVER* = "SDL_STORAGE_TITLE_DRIVER" 
 when "SDL_STORAGE_USER_DRIVER" is static:
   const
-    SDL_HINT_STORAGE_USER_DRIVER* = "SDL_STORAGE_USER_DRIVER"
+    SDL_HINT_STORAGE_USER_DRIVER* = "SDL_STORAGE_USER_DRIVER" 
 else:
-  let SDL_HINT_STORAGE_USER_DRIVER* = "SDL_STORAGE_USER_DRIVER"
+  let SDL_HINT_STORAGE_USER_DRIVER* = "SDL_STORAGE_USER_DRIVER" 
 when "SDL_THREAD_FORCE_REALTIME_TIME_CRITICAL" is static:
   const
-    SDL_HINT_THREAD_FORCE_REALTIME_TIME_CRITICAL* = "SDL_THREAD_FORCE_REALTIME_TIME_CRITICAL"
+    SDL_HINT_THREAD_FORCE_REALTIME_TIME_CRITICAL* = "SDL_THREAD_FORCE_REALTIME_TIME_CRITICAL" 
 else:
-  let SDL_HINT_THREAD_FORCE_REALTIME_TIME_CRITICAL* = "SDL_THREAD_FORCE_REALTIME_TIME_CRITICAL"
+  let SDL_HINT_THREAD_FORCE_REALTIME_TIME_CRITICAL* = "SDL_THREAD_FORCE_REALTIME_TIME_CRITICAL" 
 when "SDL_THREAD_PRIORITY_POLICY" is static:
   const
-    SDL_HINT_THREAD_PRIORITY_POLICY* = "SDL_THREAD_PRIORITY_POLICY"
+    SDL_HINT_THREAD_PRIORITY_POLICY* = "SDL_THREAD_PRIORITY_POLICY" 
 else:
-  let SDL_HINT_THREAD_PRIORITY_POLICY* = "SDL_THREAD_PRIORITY_POLICY"
+  let SDL_HINT_THREAD_PRIORITY_POLICY* = "SDL_THREAD_PRIORITY_POLICY" 
 when "SDL_TIMER_RESOLUTION" is static:
   const
-    SDL_HINT_TIMER_RESOLUTION* = "SDL_TIMER_RESOLUTION"
+    SDL_HINT_TIMER_RESOLUTION* = "SDL_TIMER_RESOLUTION" 
 else:
-  let SDL_HINT_TIMER_RESOLUTION* = "SDL_TIMER_RESOLUTION"
+  let SDL_HINT_TIMER_RESOLUTION* = "SDL_TIMER_RESOLUTION" 
 when "SDL_TOUCH_MOUSE_EVENTS" is static:
   const
-    SDL_HINT_TOUCH_MOUSE_EVENTS* = "SDL_TOUCH_MOUSE_EVENTS"
+    SDL_HINT_TOUCH_MOUSE_EVENTS* = "SDL_TOUCH_MOUSE_EVENTS" 
 else:
-  let SDL_HINT_TOUCH_MOUSE_EVENTS* = "SDL_TOUCH_MOUSE_EVENTS"
+  let SDL_HINT_TOUCH_MOUSE_EVENTS* = "SDL_TOUCH_MOUSE_EVENTS" 
 when "SDL_TRACKPAD_IS_TOUCH_ONLY" is static:
   const
-    SDL_HINT_TRACKPAD_IS_TOUCH_ONLY* = "SDL_TRACKPAD_IS_TOUCH_ONLY"
+    SDL_HINT_TRACKPAD_IS_TOUCH_ONLY* = "SDL_TRACKPAD_IS_TOUCH_ONLY" 
 else:
-  let SDL_HINT_TRACKPAD_IS_TOUCH_ONLY* = "SDL_TRACKPAD_IS_TOUCH_ONLY"
+  let SDL_HINT_TRACKPAD_IS_TOUCH_ONLY* = "SDL_TRACKPAD_IS_TOUCH_ONLY" 
 when "SDL_TV_REMOTE_AS_JOYSTICK" is static:
   const
-    SDL_HINT_TV_REMOTE_AS_JOYSTICK* = "SDL_TV_REMOTE_AS_JOYSTICK"
+    SDL_HINT_TV_REMOTE_AS_JOYSTICK* = "SDL_TV_REMOTE_AS_JOYSTICK" 
 else:
-  let SDL_HINT_TV_REMOTE_AS_JOYSTICK* = "SDL_TV_REMOTE_AS_JOYSTICK"
+  let SDL_HINT_TV_REMOTE_AS_JOYSTICK* = "SDL_TV_REMOTE_AS_JOYSTICK" 
 when "SDL_VIDEO_ALLOW_SCREENSAVER" is static:
   const
-    SDL_HINT_VIDEO_ALLOW_SCREENSAVER* = "SDL_VIDEO_ALLOW_SCREENSAVER"
+    SDL_HINT_VIDEO_ALLOW_SCREENSAVER* = "SDL_VIDEO_ALLOW_SCREENSAVER" 
 else:
-  let SDL_HINT_VIDEO_ALLOW_SCREENSAVER* = "SDL_VIDEO_ALLOW_SCREENSAVER"
+  let SDL_HINT_VIDEO_ALLOW_SCREENSAVER* = "SDL_VIDEO_ALLOW_SCREENSAVER" 
 when "SDL_VIDEO_DOUBLE_BUFFER" is static:
   const
-    SDL_HINT_VIDEO_DOUBLE_BUFFER* = "SDL_VIDEO_DOUBLE_BUFFER"
+    SDL_HINT_VIDEO_DOUBLE_BUFFER* = "SDL_VIDEO_DOUBLE_BUFFER" 
 else:
-  let SDL_HINT_VIDEO_DOUBLE_BUFFER* = "SDL_VIDEO_DOUBLE_BUFFER"
+  let SDL_HINT_VIDEO_DOUBLE_BUFFER* = "SDL_VIDEO_DOUBLE_BUFFER" 
 when "SDL_VIDEO_DRIVER" is static:
   const
-    SDL_HINT_VIDEO_DRIVER* = "SDL_VIDEO_DRIVER"
+    SDL_HINT_VIDEO_DRIVER* = "SDL_VIDEO_DRIVER" 
 else:
-  let SDL_HINT_VIDEO_DRIVER* = "SDL_VIDEO_DRIVER"
+  let SDL_HINT_VIDEO_DRIVER* = "SDL_VIDEO_DRIVER" 
 when "SDL_VIDEO_DUMMY_SAVE_FRAMES" is static:
   const
-    SDL_HINT_VIDEO_DUMMY_SAVE_FRAMES* = "SDL_VIDEO_DUMMY_SAVE_FRAMES"
+    SDL_HINT_VIDEO_DUMMY_SAVE_FRAMES* = "SDL_VIDEO_DUMMY_SAVE_FRAMES" 
 else:
-  let SDL_HINT_VIDEO_DUMMY_SAVE_FRAMES* = "SDL_VIDEO_DUMMY_SAVE_FRAMES"
+  let SDL_HINT_VIDEO_DUMMY_SAVE_FRAMES* = "SDL_VIDEO_DUMMY_SAVE_FRAMES" 
 when "SDL_VIDEO_EGL_ALLOW_GETDISPLAY_FALLBACK" is static:
   const
-    SDL_HINT_VIDEO_EGL_ALLOW_GETDISPLAY_FALLBACK* = "SDL_VIDEO_EGL_ALLOW_GETDISPLAY_FALLBACK"
+    SDL_HINT_VIDEO_EGL_ALLOW_GETDISPLAY_FALLBACK* = "SDL_VIDEO_EGL_ALLOW_GETDISPLAY_FALLBACK" 
 else:
-  let SDL_HINT_VIDEO_EGL_ALLOW_GETDISPLAY_FALLBACK* = "SDL_VIDEO_EGL_ALLOW_GETDISPLAY_FALLBACK"
+  let SDL_HINT_VIDEO_EGL_ALLOW_GETDISPLAY_FALLBACK* = "SDL_VIDEO_EGL_ALLOW_GETDISPLAY_FALLBACK" 
 when "SDL_VIDEO_FORCE_EGL" is static:
   const
-    SDL_HINT_VIDEO_FORCE_EGL* = "SDL_VIDEO_FORCE_EGL"
+    SDL_HINT_VIDEO_FORCE_EGL* = "SDL_VIDEO_FORCE_EGL" 
 else:
-  let SDL_HINT_VIDEO_FORCE_EGL* = "SDL_VIDEO_FORCE_EGL"
+  let SDL_HINT_VIDEO_FORCE_EGL* = "SDL_VIDEO_FORCE_EGL" 
 when "SDL_VIDEO_MAC_FULLSCREEN_SPACES" is static:
   const
-    SDL_HINT_VIDEO_MAC_FULLSCREEN_SPACES* = "SDL_VIDEO_MAC_FULLSCREEN_SPACES"
+    SDL_HINT_VIDEO_MAC_FULLSCREEN_SPACES* = "SDL_VIDEO_MAC_FULLSCREEN_SPACES" 
 else:
-  let SDL_HINT_VIDEO_MAC_FULLSCREEN_SPACES* = "SDL_VIDEO_MAC_FULLSCREEN_SPACES"
+  let SDL_HINT_VIDEO_MAC_FULLSCREEN_SPACES* = "SDL_VIDEO_MAC_FULLSCREEN_SPACES" 
 when "SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS" is static:
   const
-    SDL_HINT_VIDEO_MINIMIZE_ON_FOCUS_LOSS* = "SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS"
+    SDL_HINT_VIDEO_MINIMIZE_ON_FOCUS_LOSS* = "SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS" 
 else:
-  let SDL_HINT_VIDEO_MINIMIZE_ON_FOCUS_LOSS* = "SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS"
+  let SDL_HINT_VIDEO_MINIMIZE_ON_FOCUS_LOSS* = "SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS" 
 when "SDL_VIDEO_OFFSCREEN_SAVE_FRAMES" is static:
   const
-    SDL_HINT_VIDEO_OFFSCREEN_SAVE_FRAMES* = "SDL_VIDEO_OFFSCREEN_SAVE_FRAMES"
+    SDL_HINT_VIDEO_OFFSCREEN_SAVE_FRAMES* = "SDL_VIDEO_OFFSCREEN_SAVE_FRAMES" 
 else:
-  let SDL_HINT_VIDEO_OFFSCREEN_SAVE_FRAMES* = "SDL_VIDEO_OFFSCREEN_SAVE_FRAMES"
+  let SDL_HINT_VIDEO_OFFSCREEN_SAVE_FRAMES* = "SDL_VIDEO_OFFSCREEN_SAVE_FRAMES" 
 when "SDL_VIDEO_SYNC_WINDOW_OPERATIONS" is static:
   const
-    SDL_HINT_VIDEO_SYNC_WINDOW_OPERATIONS* = "SDL_VIDEO_SYNC_WINDOW_OPERATIONS"
+    SDL_HINT_VIDEO_SYNC_WINDOW_OPERATIONS* = "SDL_VIDEO_SYNC_WINDOW_OPERATIONS" 
 else:
-  let SDL_HINT_VIDEO_SYNC_WINDOW_OPERATIONS* = "SDL_VIDEO_SYNC_WINDOW_OPERATIONS"
+  let SDL_HINT_VIDEO_SYNC_WINDOW_OPERATIONS* = "SDL_VIDEO_SYNC_WINDOW_OPERATIONS" 
 when "SDL_VIDEO_WAYLAND_ALLOW_LIBDECOR" is static:
   const
-    SDL_HINT_VIDEO_WAYLAND_ALLOW_LIBDECOR* = "SDL_VIDEO_WAYLAND_ALLOW_LIBDECOR"
+    SDL_HINT_VIDEO_WAYLAND_ALLOW_LIBDECOR* = "SDL_VIDEO_WAYLAND_ALLOW_LIBDECOR" 
 else:
-  let SDL_HINT_VIDEO_WAYLAND_ALLOW_LIBDECOR* = "SDL_VIDEO_WAYLAND_ALLOW_LIBDECOR"
+  let SDL_HINT_VIDEO_WAYLAND_ALLOW_LIBDECOR* = "SDL_VIDEO_WAYLAND_ALLOW_LIBDECOR" 
 when "SDL_VIDEO_WAYLAND_MODE_EMULATION" is static:
   const
-    SDL_HINT_VIDEO_WAYLAND_MODE_EMULATION* = "SDL_VIDEO_WAYLAND_MODE_EMULATION"
+    SDL_HINT_VIDEO_WAYLAND_MODE_EMULATION* = "SDL_VIDEO_WAYLAND_MODE_EMULATION" 
 else:
-  let SDL_HINT_VIDEO_WAYLAND_MODE_EMULATION* = "SDL_VIDEO_WAYLAND_MODE_EMULATION"
+  let SDL_HINT_VIDEO_WAYLAND_MODE_EMULATION* = "SDL_VIDEO_WAYLAND_MODE_EMULATION" 
 when "SDL_VIDEO_WAYLAND_MODE_SCALING" is static:
   const
-    SDL_HINT_VIDEO_WAYLAND_MODE_SCALING* = "SDL_VIDEO_WAYLAND_MODE_SCALING"
+    SDL_HINT_VIDEO_WAYLAND_MODE_SCALING* = "SDL_VIDEO_WAYLAND_MODE_SCALING" 
 else:
-  let SDL_HINT_VIDEO_WAYLAND_MODE_SCALING* = "SDL_VIDEO_WAYLAND_MODE_SCALING"
+  let SDL_HINT_VIDEO_WAYLAND_MODE_SCALING* = "SDL_VIDEO_WAYLAND_MODE_SCALING" 
 when "SDL_VIDEO_WAYLAND_PREFER_LIBDECOR" is static:
   const
-    SDL_HINT_VIDEO_WAYLAND_PREFER_LIBDECOR* = "SDL_VIDEO_WAYLAND_PREFER_LIBDECOR"
+    SDL_HINT_VIDEO_WAYLAND_PREFER_LIBDECOR* = "SDL_VIDEO_WAYLAND_PREFER_LIBDECOR" 
 else:
-  let SDL_HINT_VIDEO_WAYLAND_PREFER_LIBDECOR* = "SDL_VIDEO_WAYLAND_PREFER_LIBDECOR"
+  let SDL_HINT_VIDEO_WAYLAND_PREFER_LIBDECOR* = "SDL_VIDEO_WAYLAND_PREFER_LIBDECOR" 
 when "SDL_VIDEO_WAYLAND_SCALE_TO_DISPLAY" is static:
   const
-    SDL_HINT_VIDEO_WAYLAND_SCALE_TO_DISPLAY* = "SDL_VIDEO_WAYLAND_SCALE_TO_DISPLAY"
+    SDL_HINT_VIDEO_WAYLAND_SCALE_TO_DISPLAY* = "SDL_VIDEO_WAYLAND_SCALE_TO_DISPLAY" 
 else:
-  let SDL_HINT_VIDEO_WAYLAND_SCALE_TO_DISPLAY* = "SDL_VIDEO_WAYLAND_SCALE_TO_DISPLAY"
+  let SDL_HINT_VIDEO_WAYLAND_SCALE_TO_DISPLAY* = "SDL_VIDEO_WAYLAND_SCALE_TO_DISPLAY" 
 when "SDL_VIDEO_WIN_D3DCOMPILER" is static:
   const
-    SDL_HINT_VIDEO_WIN_D3DCOMPILER* = "SDL_VIDEO_WIN_D3DCOMPILER"
+    SDL_HINT_VIDEO_WIN_D3DCOMPILER* = "SDL_VIDEO_WIN_D3DCOMPILER" 
 else:
-  let SDL_HINT_VIDEO_WIN_D3DCOMPILER* = "SDL_VIDEO_WIN_D3DCOMPILER"
+  let SDL_HINT_VIDEO_WIN_D3DCOMPILER* = "SDL_VIDEO_WIN_D3DCOMPILER" 
 when "SDL_VIDEO_X11_NET_WM_BYPASS_COMPOSITOR" is static:
   const
-    SDL_HINT_VIDEO_X11_NET_WM_BYPASS_COMPOSITOR* = "SDL_VIDEO_X11_NET_WM_BYPASS_COMPOSITOR"
+    SDL_HINT_VIDEO_X11_NET_WM_BYPASS_COMPOSITOR* = "SDL_VIDEO_X11_NET_WM_BYPASS_COMPOSITOR" 
 else:
-  let SDL_HINT_VIDEO_X11_NET_WM_BYPASS_COMPOSITOR* = "SDL_VIDEO_X11_NET_WM_BYPASS_COMPOSITOR"
+  let SDL_HINT_VIDEO_X11_NET_WM_BYPASS_COMPOSITOR* = "SDL_VIDEO_X11_NET_WM_BYPASS_COMPOSITOR" 
 when "SDL_VIDEO_X11_NET_WM_PING" is static:
   const
-    SDL_HINT_VIDEO_X11_NET_WM_PING* = "SDL_VIDEO_X11_NET_WM_PING"
+    SDL_HINT_VIDEO_X11_NET_WM_PING* = "SDL_VIDEO_X11_NET_WM_PING" 
 else:
-  let SDL_HINT_VIDEO_X11_NET_WM_PING* = "SDL_VIDEO_X11_NET_WM_PING"
+  let SDL_HINT_VIDEO_X11_NET_WM_PING* = "SDL_VIDEO_X11_NET_WM_PING" 
 when "SDL_VIDEO_X11_NODIRECTCOLOR" is static:
   const
-    SDL_HINT_VIDEO_X11_NODIRECTCOLOR* = "SDL_VIDEO_X11_NODIRECTCOLOR"
+    SDL_HINT_VIDEO_X11_NODIRECTCOLOR* = "SDL_VIDEO_X11_NODIRECTCOLOR" 
 else:
-  let SDL_HINT_VIDEO_X11_NODIRECTCOLOR* = "SDL_VIDEO_X11_NODIRECTCOLOR"
+  let SDL_HINT_VIDEO_X11_NODIRECTCOLOR* = "SDL_VIDEO_X11_NODIRECTCOLOR" 
 when "SDL_VIDEO_X11_SCALING_FACTOR" is static:
   const
-    SDL_HINT_VIDEO_X11_SCALING_FACTOR* = "SDL_VIDEO_X11_SCALING_FACTOR"
+    SDL_HINT_VIDEO_X11_SCALING_FACTOR* = "SDL_VIDEO_X11_SCALING_FACTOR" 
 else:
-  let SDL_HINT_VIDEO_X11_SCALING_FACTOR* = "SDL_VIDEO_X11_SCALING_FACTOR"
+  let SDL_HINT_VIDEO_X11_SCALING_FACTOR* = "SDL_VIDEO_X11_SCALING_FACTOR" 
 when "SDL_VIDEO_X11_VISUALID" is static:
   const
-    SDL_HINT_VIDEO_X11_VISUALID* = "SDL_VIDEO_X11_VISUALID"
+    SDL_HINT_VIDEO_X11_VISUALID* = "SDL_VIDEO_X11_VISUALID" 
 else:
-  let SDL_HINT_VIDEO_X11_VISUALID* = "SDL_VIDEO_X11_VISUALID"
+  let SDL_HINT_VIDEO_X11_VISUALID* = "SDL_VIDEO_X11_VISUALID" 
 when "SDL_VIDEO_X11_WINDOW_VISUALID" is static:
   const
-    SDL_HINT_VIDEO_X11_WINDOW_VISUALID* = "SDL_VIDEO_X11_WINDOW_VISUALID"
+    SDL_HINT_VIDEO_X11_WINDOW_VISUALID* = "SDL_VIDEO_X11_WINDOW_VISUALID" 
 else:
-  let SDL_HINT_VIDEO_X11_WINDOW_VISUALID* = "SDL_VIDEO_X11_WINDOW_VISUALID"
+  let SDL_HINT_VIDEO_X11_WINDOW_VISUALID* = "SDL_VIDEO_X11_WINDOW_VISUALID" 
 when "SDL_VIDEO_X11_XRANDR" is static:
   const
-    SDL_HINT_VIDEO_X11_XRANDR* = "SDL_VIDEO_X11_XRANDR"
+    SDL_HINT_VIDEO_X11_XRANDR* = "SDL_VIDEO_X11_XRANDR" 
 else:
-  let SDL_HINT_VIDEO_X11_XRANDR* = "SDL_VIDEO_X11_XRANDR"
+  let SDL_HINT_VIDEO_X11_XRANDR* = "SDL_VIDEO_X11_XRANDR" 
 when "SDL_VITA_ENABLE_BACK_TOUCH" is static:
   const
-    SDL_HINT_VITA_ENABLE_BACK_TOUCH* = "SDL_VITA_ENABLE_BACK_TOUCH"
+    SDL_HINT_VITA_ENABLE_BACK_TOUCH* = "SDL_VITA_ENABLE_BACK_TOUCH" 
 else:
-  let SDL_HINT_VITA_ENABLE_BACK_TOUCH* = "SDL_VITA_ENABLE_BACK_TOUCH"
+  let SDL_HINT_VITA_ENABLE_BACK_TOUCH* = "SDL_VITA_ENABLE_BACK_TOUCH" 
 when "SDL_VITA_ENABLE_FRONT_TOUCH" is static:
   const
-    SDL_HINT_VITA_ENABLE_FRONT_TOUCH* = "SDL_VITA_ENABLE_FRONT_TOUCH"
+    SDL_HINT_VITA_ENABLE_FRONT_TOUCH* = "SDL_VITA_ENABLE_FRONT_TOUCH" 
 else:
-  let SDL_HINT_VITA_ENABLE_FRONT_TOUCH* = "SDL_VITA_ENABLE_FRONT_TOUCH"
+  let SDL_HINT_VITA_ENABLE_FRONT_TOUCH* = "SDL_VITA_ENABLE_FRONT_TOUCH" 
 when "SDL_VITA_MODULE_PATH" is static:
   const
-    SDL_HINT_VITA_MODULE_PATH* = "SDL_VITA_MODULE_PATH"
+    SDL_HINT_VITA_MODULE_PATH* = "SDL_VITA_MODULE_PATH" 
 else:
-  let SDL_HINT_VITA_MODULE_PATH* = "SDL_VITA_MODULE_PATH"
+  let SDL_HINT_VITA_MODULE_PATH* = "SDL_VITA_MODULE_PATH" 
 when "SDL_VITA_PVR_INIT" is static:
   const
-    SDL_HINT_VITA_PVR_INIT* = "SDL_VITA_PVR_INIT"
+    SDL_HINT_VITA_PVR_INIT* = "SDL_VITA_PVR_INIT" 
 else:
-  let SDL_HINT_VITA_PVR_INIT* = "SDL_VITA_PVR_INIT"
+  let SDL_HINT_VITA_PVR_INIT* = "SDL_VITA_PVR_INIT" 
 when "SDL_VITA_RESOLUTION" is static:
   const
-    SDL_HINT_VITA_RESOLUTION* = "SDL_VITA_RESOLUTION"
+    SDL_HINT_VITA_RESOLUTION* = "SDL_VITA_RESOLUTION" 
 else:
-  let SDL_HINT_VITA_RESOLUTION* = "SDL_VITA_RESOLUTION"
+  let SDL_HINT_VITA_RESOLUTION* = "SDL_VITA_RESOLUTION" 
 when "SDL_VITA_PVR_OPENGL" is static:
   const
-    SDL_HINT_VITA_PVR_OPENGL* = "SDL_VITA_PVR_OPENGL"
+    SDL_HINT_VITA_PVR_OPENGL* = "SDL_VITA_PVR_OPENGL" 
 else:
-  let SDL_HINT_VITA_PVR_OPENGL* = "SDL_VITA_PVR_OPENGL"
+  let SDL_HINT_VITA_PVR_OPENGL* = "SDL_VITA_PVR_OPENGL" 
 when "SDL_VITA_TOUCH_MOUSE_DEVICE" is static:
   const
-    SDL_HINT_VITA_TOUCH_MOUSE_DEVICE* = "SDL_VITA_TOUCH_MOUSE_DEVICE"
+    SDL_HINT_VITA_TOUCH_MOUSE_DEVICE* = "SDL_VITA_TOUCH_MOUSE_DEVICE" 
 else:
-  let SDL_HINT_VITA_TOUCH_MOUSE_DEVICE* = "SDL_VITA_TOUCH_MOUSE_DEVICE"
+  let SDL_HINT_VITA_TOUCH_MOUSE_DEVICE* = "SDL_VITA_TOUCH_MOUSE_DEVICE" 
 when "SDL_VULKAN_DISPLAY" is static:
   const
-    SDL_HINT_VULKAN_DISPLAY* = "SDL_VULKAN_DISPLAY"
+    SDL_HINT_VULKAN_DISPLAY* = "SDL_VULKAN_DISPLAY" 
 else:
-  let SDL_HINT_VULKAN_DISPLAY* = "SDL_VULKAN_DISPLAY"
+  let SDL_HINT_VULKAN_DISPLAY* = "SDL_VULKAN_DISPLAY" 
 when "SDL_VULKAN_LIBRARY" is static:
   const
-    SDL_HINT_VULKAN_LIBRARY* = "SDL_VULKAN_LIBRARY"
+    SDL_HINT_VULKAN_LIBRARY* = "SDL_VULKAN_LIBRARY" 
 else:
-  let SDL_HINT_VULKAN_LIBRARY* = "SDL_VULKAN_LIBRARY"
+  let SDL_HINT_VULKAN_LIBRARY* = "SDL_VULKAN_LIBRARY" 
 when "SDL_WAVE_FACT_CHUNK" is static:
   const
-    SDL_HINT_WAVE_FACT_CHUNK* = "SDL_WAVE_FACT_CHUNK"
+    SDL_HINT_WAVE_FACT_CHUNK* = "SDL_WAVE_FACT_CHUNK" 
 else:
-  let SDL_HINT_WAVE_FACT_CHUNK* = "SDL_WAVE_FACT_CHUNK"
+  let SDL_HINT_WAVE_FACT_CHUNK* = "SDL_WAVE_FACT_CHUNK" 
 when "SDL_WAVE_CHUNK_LIMIT" is static:
   const
-    SDL_HINT_WAVE_CHUNK_LIMIT* = "SDL_WAVE_CHUNK_LIMIT"
+    SDL_HINT_WAVE_CHUNK_LIMIT* = "SDL_WAVE_CHUNK_LIMIT" 
 else:
-  let SDL_HINT_WAVE_CHUNK_LIMIT* = "SDL_WAVE_CHUNK_LIMIT"
+  let SDL_HINT_WAVE_CHUNK_LIMIT* = "SDL_WAVE_CHUNK_LIMIT" 
 when "SDL_WAVE_RIFF_CHUNK_SIZE" is static:
   const
-    SDL_HINT_WAVE_RIFF_CHUNK_SIZE* = "SDL_WAVE_RIFF_CHUNK_SIZE"
+    SDL_HINT_WAVE_RIFF_CHUNK_SIZE* = "SDL_WAVE_RIFF_CHUNK_SIZE" 
 else:
-  let SDL_HINT_WAVE_RIFF_CHUNK_SIZE* = "SDL_WAVE_RIFF_CHUNK_SIZE"
+  let SDL_HINT_WAVE_RIFF_CHUNK_SIZE* = "SDL_WAVE_RIFF_CHUNK_SIZE" 
 when "SDL_WAVE_TRUNCATION" is static:
   const
-    SDL_HINT_WAVE_TRUNCATION* = "SDL_WAVE_TRUNCATION"
+    SDL_HINT_WAVE_TRUNCATION* = "SDL_WAVE_TRUNCATION" 
 else:
-  let SDL_HINT_WAVE_TRUNCATION* = "SDL_WAVE_TRUNCATION"
+  let SDL_HINT_WAVE_TRUNCATION* = "SDL_WAVE_TRUNCATION" 
 when "SDL_WINDOW_ACTIVATE_WHEN_RAISED" is static:
   const
-    SDL_HINT_WINDOW_ACTIVATE_WHEN_RAISED* = "SDL_WINDOW_ACTIVATE_WHEN_RAISED"
+    SDL_HINT_WINDOW_ACTIVATE_WHEN_RAISED* = "SDL_WINDOW_ACTIVATE_WHEN_RAISED" 
 else:
-  let SDL_HINT_WINDOW_ACTIVATE_WHEN_RAISED* = "SDL_WINDOW_ACTIVATE_WHEN_RAISED"
+  let SDL_HINT_WINDOW_ACTIVATE_WHEN_RAISED* = "SDL_WINDOW_ACTIVATE_WHEN_RAISED" 
 when "SDL_WINDOW_ACTIVATE_WHEN_SHOWN" is static:
   const
-    SDL_HINT_WINDOW_ACTIVATE_WHEN_SHOWN* = "SDL_WINDOW_ACTIVATE_WHEN_SHOWN"
+    SDL_HINT_WINDOW_ACTIVATE_WHEN_SHOWN* = "SDL_WINDOW_ACTIVATE_WHEN_SHOWN" 
 else:
-  let SDL_HINT_WINDOW_ACTIVATE_WHEN_SHOWN* = "SDL_WINDOW_ACTIVATE_WHEN_SHOWN"
+  let SDL_HINT_WINDOW_ACTIVATE_WHEN_SHOWN* = "SDL_WINDOW_ACTIVATE_WHEN_SHOWN" 
 when "SDL_WINDOW_ALLOW_TOPMOST" is static:
   const
-    SDL_HINT_WINDOW_ALLOW_TOPMOST* = "SDL_WINDOW_ALLOW_TOPMOST"
+    SDL_HINT_WINDOW_ALLOW_TOPMOST* = "SDL_WINDOW_ALLOW_TOPMOST" 
 else:
-  let SDL_HINT_WINDOW_ALLOW_TOPMOST* = "SDL_WINDOW_ALLOW_TOPMOST"
+  let SDL_HINT_WINDOW_ALLOW_TOPMOST* = "SDL_WINDOW_ALLOW_TOPMOST" 
 when "SDL_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN" is static:
   const
-    SDL_HINT_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN* = "SDL_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN"
+    SDL_HINT_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN* = "SDL_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN" 
 else:
-  let SDL_HINT_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN* = "SDL_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN"
+  let SDL_HINT_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN* = "SDL_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN" 
 when "SDL_WINDOWS_CLOSE_ON_ALT_F4" is static:
   const
-    SDL_HINT_WINDOWS_CLOSE_ON_ALT_F4* = "SDL_WINDOWS_CLOSE_ON_ALT_F4"
+    SDL_HINT_WINDOWS_CLOSE_ON_ALT_F4* = "SDL_WINDOWS_CLOSE_ON_ALT_F4" 
 else:
-  let SDL_HINT_WINDOWS_CLOSE_ON_ALT_F4* = "SDL_WINDOWS_CLOSE_ON_ALT_F4"
+  let SDL_HINT_WINDOWS_CLOSE_ON_ALT_F4* = "SDL_WINDOWS_CLOSE_ON_ALT_F4" 
 when "SDL_WINDOWS_ENABLE_MENU_MNEMONICS" is static:
   const
-    SDL_HINT_WINDOWS_ENABLE_MENU_MNEMONICS* = "SDL_WINDOWS_ENABLE_MENU_MNEMONICS"
+    SDL_HINT_WINDOWS_ENABLE_MENU_MNEMONICS* = "SDL_WINDOWS_ENABLE_MENU_MNEMONICS" 
 else:
-  let SDL_HINT_WINDOWS_ENABLE_MENU_MNEMONICS* = "SDL_WINDOWS_ENABLE_MENU_MNEMONICS"
+  let SDL_HINT_WINDOWS_ENABLE_MENU_MNEMONICS* = "SDL_WINDOWS_ENABLE_MENU_MNEMONICS" 
 when "SDL_WINDOWS_ENABLE_MESSAGELOOP" is static:
   const
-    SDL_HINT_WINDOWS_ENABLE_MESSAGELOOP* = "SDL_WINDOWS_ENABLE_MESSAGELOOP"
+    SDL_HINT_WINDOWS_ENABLE_MESSAGELOOP* = "SDL_WINDOWS_ENABLE_MESSAGELOOP" 
 else:
-  let SDL_HINT_WINDOWS_ENABLE_MESSAGELOOP* = "SDL_WINDOWS_ENABLE_MESSAGELOOP"
+  let SDL_HINT_WINDOWS_ENABLE_MESSAGELOOP* = "SDL_WINDOWS_ENABLE_MESSAGELOOP" 
 when "SDL_WINDOWS_GAMEINPUT" is static:
   const
-    SDL_HINT_WINDOWS_GAMEINPUT* = "SDL_WINDOWS_GAMEINPUT"
+    SDL_HINT_WINDOWS_GAMEINPUT* = "SDL_WINDOWS_GAMEINPUT" 
 else:
-  let SDL_HINT_WINDOWS_GAMEINPUT* = "SDL_WINDOWS_GAMEINPUT"
+  let SDL_HINT_WINDOWS_GAMEINPUT* = "SDL_WINDOWS_GAMEINPUT" 
 when "SDL_WINDOWS_RAW_KEYBOARD" is static:
   const
-    SDL_HINT_WINDOWS_RAW_KEYBOARD* = "SDL_WINDOWS_RAW_KEYBOARD"
+    SDL_HINT_WINDOWS_RAW_KEYBOARD* = "SDL_WINDOWS_RAW_KEYBOARD" 
 else:
-  let SDL_HINT_WINDOWS_RAW_KEYBOARD* = "SDL_WINDOWS_RAW_KEYBOARD"
+  let SDL_HINT_WINDOWS_RAW_KEYBOARD* = "SDL_WINDOWS_RAW_KEYBOARD" 
 when "SDL_WINDOWS_FORCE_SEMAPHORE_KERNEL" is static:
   const
-    SDL_HINT_WINDOWS_FORCE_SEMAPHORE_KERNEL* = "SDL_WINDOWS_FORCE_SEMAPHORE_KERNEL"
+    SDL_HINT_WINDOWS_FORCE_SEMAPHORE_KERNEL* = "SDL_WINDOWS_FORCE_SEMAPHORE_KERNEL" 
 else:
-  let SDL_HINT_WINDOWS_FORCE_SEMAPHORE_KERNEL* = "SDL_WINDOWS_FORCE_SEMAPHORE_KERNEL"
+  let SDL_HINT_WINDOWS_FORCE_SEMAPHORE_KERNEL* = "SDL_WINDOWS_FORCE_SEMAPHORE_KERNEL" 
 when "SDL_WINDOWS_INTRESOURCE_ICON" is static:
   const
-    SDL_HINT_WINDOWS_INTRESOURCE_ICON* = "SDL_WINDOWS_INTRESOURCE_ICON"
+    SDL_HINT_WINDOWS_INTRESOURCE_ICON* = "SDL_WINDOWS_INTRESOURCE_ICON" 
 else:
-  let SDL_HINT_WINDOWS_INTRESOURCE_ICON* = "SDL_WINDOWS_INTRESOURCE_ICON"
+  let SDL_HINT_WINDOWS_INTRESOURCE_ICON* = "SDL_WINDOWS_INTRESOURCE_ICON" 
 when "SDL_WINDOWS_INTRESOURCE_ICON_SMALL" is static:
   const
-    SDL_HINT_WINDOWS_INTRESOURCE_ICON_SMALL* = "SDL_WINDOWS_INTRESOURCE_ICON_SMALL"
+    SDL_HINT_WINDOWS_INTRESOURCE_ICON_SMALL* = "SDL_WINDOWS_INTRESOURCE_ICON_SMALL" 
 else:
-  let SDL_HINT_WINDOWS_INTRESOURCE_ICON_SMALL* = "SDL_WINDOWS_INTRESOURCE_ICON_SMALL"
+  let SDL_HINT_WINDOWS_INTRESOURCE_ICON_SMALL* = "SDL_WINDOWS_INTRESOURCE_ICON_SMALL" 
 when "SDL_WINDOWS_USE_D3D9EX" is static:
   const
-    SDL_HINT_WINDOWS_USE_D3D9EX* = "SDL_WINDOWS_USE_D3D9EX"
+    SDL_HINT_WINDOWS_USE_D3D9EX* = "SDL_WINDOWS_USE_D3D9EX" 
 else:
-  let SDL_HINT_WINDOWS_USE_D3D9EX* = "SDL_WINDOWS_USE_D3D9EX"
+  let SDL_HINT_WINDOWS_USE_D3D9EX* = "SDL_WINDOWS_USE_D3D9EX" 
 when "SDL_WINDOWS_ERASE_BACKGROUND_MODE" is static:
   const
-    SDL_HINT_WINDOWS_ERASE_BACKGROUND_MODE* = "SDL_WINDOWS_ERASE_BACKGROUND_MODE"
+    SDL_HINT_WINDOWS_ERASE_BACKGROUND_MODE* = "SDL_WINDOWS_ERASE_BACKGROUND_MODE" 
 else:
-  let SDL_HINT_WINDOWS_ERASE_BACKGROUND_MODE* = "SDL_WINDOWS_ERASE_BACKGROUND_MODE"
+  let SDL_HINT_WINDOWS_ERASE_BACKGROUND_MODE* = "SDL_WINDOWS_ERASE_BACKGROUND_MODE" 
 when "SDL_X11_FORCE_OVERRIDE_REDIRECT" is static:
   const
-    SDL_HINT_X11_FORCE_OVERRIDE_REDIRECT* = "SDL_X11_FORCE_OVERRIDE_REDIRECT"
+    SDL_HINT_X11_FORCE_OVERRIDE_REDIRECT* = "SDL_X11_FORCE_OVERRIDE_REDIRECT" 
 else:
-  let SDL_HINT_X11_FORCE_OVERRIDE_REDIRECT* = "SDL_X11_FORCE_OVERRIDE_REDIRECT"
+  let SDL_HINT_X11_FORCE_OVERRIDE_REDIRECT* = "SDL_X11_FORCE_OVERRIDE_REDIRECT" 
 when "SDL_X11_WINDOW_TYPE" is static:
   const
-    SDL_HINT_X11_WINDOW_TYPE* = "SDL_X11_WINDOW_TYPE"
+    SDL_HINT_X11_WINDOW_TYPE* = "SDL_X11_WINDOW_TYPE" 
 else:
-  let SDL_HINT_X11_WINDOW_TYPE* = "SDL_X11_WINDOW_TYPE"
+  let SDL_HINT_X11_WINDOW_TYPE* = "SDL_X11_WINDOW_TYPE" 
 when "SDL_X11_XCB_LIBRARY" is static:
   const
-    SDL_HINT_X11_XCB_LIBRARY* = "SDL_X11_XCB_LIBRARY"
+    SDL_HINT_X11_XCB_LIBRARY* = "SDL_X11_XCB_LIBRARY" 
 else:
-  let SDL_HINT_X11_XCB_LIBRARY* = "SDL_X11_XCB_LIBRARY"
+  let SDL_HINT_X11_XCB_LIBRARY* = "SDL_X11_XCB_LIBRARY" 
 when "SDL_XINPUT_ENABLED" is static:
   const
-    SDL_HINT_XINPUT_ENABLED* = "SDL_XINPUT_ENABLED"
+    SDL_HINT_XINPUT_ENABLED* = "SDL_XINPUT_ENABLED" 
 else:
-  let SDL_HINT_XINPUT_ENABLED* = "SDL_XINPUT_ENABLED"
+  let SDL_HINT_XINPUT_ENABLED* = "SDL_XINPUT_ENABLED" 
 when "SDL_ASSERT" is static:
   const
-    SDL_HINT_ASSERT* = "SDL_ASSERT"
+    SDL_HINT_ASSERT* = "SDL_ASSERT" 
 else:
-  let SDL_HINT_ASSERT* = "SDL_ASSERT"
+  let SDL_HINT_ASSERT* = "SDL_ASSERT" 
 when cast[cuint](16'i64) is static:
   const
-    SDL_INIT_AUDIO* = cast[cuint](16'i64)
+    SDL_INIT_AUDIO* = cast[cuint](16'i64) 
 else:
-  let SDL_INIT_AUDIO* = cast[cuint](16'i64)
+  let SDL_INIT_AUDIO* = cast[cuint](16'i64) 
 when cast[cuint](32'i64) is static:
   const
-    SDL_INIT_VIDEO* = cast[cuint](32'i64)
+    SDL_INIT_VIDEO* = cast[cuint](32'i64) 
 else:
-  let SDL_INIT_VIDEO* = cast[cuint](32'i64)
+  let SDL_INIT_VIDEO* = cast[cuint](32'i64) 
 when cast[cuint](512'i64) is static:
   const
-    SDL_INIT_JOYSTICK* = cast[cuint](512'i64)
+    SDL_INIT_JOYSTICK* = cast[cuint](512'i64) 
 else:
-  let SDL_INIT_JOYSTICK* = cast[cuint](512'i64)
+  let SDL_INIT_JOYSTICK* = cast[cuint](512'i64) 
 when cast[cuint](4096'i64) is static:
   const
-    SDL_INIT_HAPTIC* = cast[cuint](4096'i64)
+    SDL_INIT_HAPTIC* = cast[cuint](4096'i64) 
 else:
-  let SDL_INIT_HAPTIC* = cast[cuint](4096'i64)
+  let SDL_INIT_HAPTIC* = cast[cuint](4096'i64) 
 when cast[cuint](8192'i64) is static:
   const
-    SDL_INIT_GAMEPAD* = cast[cuint](8192'i64)
+    SDL_INIT_GAMEPAD* = cast[cuint](8192'i64) 
 else:
-  let SDL_INIT_GAMEPAD* = cast[cuint](8192'i64)
+  let SDL_INIT_GAMEPAD* = cast[cuint](8192'i64) 
 when cast[cuint](16384'i64) is static:
   const
-    SDL_INIT_EVENTS* = cast[cuint](16384'i64)
+    SDL_INIT_EVENTS* = cast[cuint](16384'i64) 
 else:
-  let SDL_INIT_EVENTS* = cast[cuint](16384'i64)
+  let SDL_INIT_EVENTS* = cast[cuint](16384'i64) 
 when cast[cuint](32768'i64) is static:
   const
-    SDL_INIT_SENSOR* = cast[cuint](32768'i64)
+    SDL_INIT_SENSOR* = cast[cuint](32768'i64) 
 else:
-  let SDL_INIT_SENSOR* = cast[cuint](32768'i64)
+  let SDL_INIT_SENSOR* = cast[cuint](32768'i64) 
 when cast[cuint](65536'i64) is static:
   const
-    SDL_INIT_CAMERA* = cast[cuint](65536'i64)
+    SDL_INIT_CAMERA* = cast[cuint](65536'i64) 
 else:
-  let SDL_INIT_CAMERA* = cast[cuint](65536'i64)
+  let SDL_INIT_CAMERA* = cast[cuint](65536'i64) 
 when "SDL.app.metadata.name" is static:
   const
-    SDL_PROP_APP_METADATA_NAME_STRING* = "SDL.app.metadata.name"
+    SDL_PROP_APP_METADATA_NAME_STRING* = "SDL.app.metadata.name" 
 else:
-  let SDL_PROP_APP_METADATA_NAME_STRING* = "SDL.app.metadata.name"
+  let SDL_PROP_APP_METADATA_NAME_STRING* = "SDL.app.metadata.name" 
 when "SDL.app.metadata.version" is static:
   const
-    SDL_PROP_APP_METADATA_VERSION_STRING* = "SDL.app.metadata.version"
+    SDL_PROP_APP_METADATA_VERSION_STRING* = "SDL.app.metadata.version" 
 else:
-  let SDL_PROP_APP_METADATA_VERSION_STRING* = "SDL.app.metadata.version"
+  let SDL_PROP_APP_METADATA_VERSION_STRING* = "SDL.app.metadata.version" 
 when "SDL.app.metadata.identifier" is static:
   const
-    SDL_PROP_APP_METADATA_IDENTIFIER_STRING* = "SDL.app.metadata.identifier"
+    SDL_PROP_APP_METADATA_IDENTIFIER_STRING* = "SDL.app.metadata.identifier" 
 else:
-  let SDL_PROP_APP_METADATA_IDENTIFIER_STRING* = "SDL.app.metadata.identifier"
+  let SDL_PROP_APP_METADATA_IDENTIFIER_STRING* = "SDL.app.metadata.identifier" 
 when "SDL.app.metadata.creator" is static:
   const
-    SDL_PROP_APP_METADATA_CREATOR_STRING* = "SDL.app.metadata.creator"
+    SDL_PROP_APP_METADATA_CREATOR_STRING* = "SDL.app.metadata.creator" 
 else:
-  let SDL_PROP_APP_METADATA_CREATOR_STRING* = "SDL.app.metadata.creator"
+  let SDL_PROP_APP_METADATA_CREATOR_STRING* = "SDL.app.metadata.creator" 
 when "SDL.app.metadata.copyright" is static:
   const
-    SDL_PROP_APP_METADATA_COPYRIGHT_STRING* = "SDL.app.metadata.copyright"
+    SDL_PROP_APP_METADATA_COPYRIGHT_STRING* = "SDL.app.metadata.copyright" 
 else:
-  let SDL_PROP_APP_METADATA_COPYRIGHT_STRING* = "SDL.app.metadata.copyright"
+  let SDL_PROP_APP_METADATA_COPYRIGHT_STRING* = "SDL.app.metadata.copyright" 
 when "SDL.app.metadata.url" is static:
   const
-    SDL_PROP_APP_METADATA_URL_STRING* = "SDL.app.metadata.url"
+    SDL_PROP_APP_METADATA_URL_STRING* = "SDL.app.metadata.url" 
 else:
-  let SDL_PROP_APP_METADATA_URL_STRING* = "SDL.app.metadata.url"
+  let SDL_PROP_APP_METADATA_URL_STRING* = "SDL.app.metadata.url" 
 when "SDL.app.metadata.type" is static:
   const
-    SDL_PROP_APP_METADATA_TYPE_STRING* = "SDL.app.metadata.type"
+    SDL_PROP_APP_METADATA_TYPE_STRING* = "SDL.app.metadata.type" 
 else:
-  let SDL_PROP_APP_METADATA_TYPE_STRING* = "SDL.app.metadata.type"
+  let SDL_PROP_APP_METADATA_TYPE_STRING* = "SDL.app.metadata.type" 
 when cast[cuint](16'i64) is static:
   const
-    SDL_MESSAGEBOX_ERROR* = cast[cuint](16'i64)
+    SDL_MESSAGEBOX_ERROR* = cast[cuint](16'i64) 
 else:
-  let SDL_MESSAGEBOX_ERROR* = cast[cuint](16'i64)
+  let SDL_MESSAGEBOX_ERROR* = cast[cuint](16'i64) 
 when cast[cuint](32'i64) is static:
   const
-    SDL_MESSAGEBOX_WARNING* = cast[cuint](32'i64)
+    SDL_MESSAGEBOX_WARNING* = cast[cuint](32'i64) 
 else:
-  let SDL_MESSAGEBOX_WARNING* = cast[cuint](32'i64)
+  let SDL_MESSAGEBOX_WARNING* = cast[cuint](32'i64) 
 when cast[cuint](64'i64) is static:
   const
-    SDL_MESSAGEBOX_INFORMATION* = cast[cuint](64'i64)
+    SDL_MESSAGEBOX_INFORMATION* = cast[cuint](64'i64) 
 else:
-  let SDL_MESSAGEBOX_INFORMATION* = cast[cuint](64'i64)
+  let SDL_MESSAGEBOX_INFORMATION* = cast[cuint](64'i64) 
 when cast[cuint](128'i64) is static:
   const
-    SDL_MESSAGEBOX_BUTTONS_LEFT_TO_RIGHT* = cast[cuint](128'i64)
+    SDL_MESSAGEBOX_BUTTONS_LEFT_TO_RIGHT* = cast[cuint](128'i64) 
 else:
-  let SDL_MESSAGEBOX_BUTTONS_LEFT_TO_RIGHT* = cast[cuint](128'i64)
+  let SDL_MESSAGEBOX_BUTTONS_LEFT_TO_RIGHT* = cast[cuint](128'i64) 
 when cast[cuint](256'i64) is static:
   const
-    SDL_MESSAGEBOX_BUTTONS_RIGHT_TO_LEFT* = cast[cuint](256'i64)
+    SDL_MESSAGEBOX_BUTTONS_RIGHT_TO_LEFT* = cast[cuint](256'i64) 
 else:
-  let SDL_MESSAGEBOX_BUTTONS_RIGHT_TO_LEFT* = cast[cuint](256'i64)
+  let SDL_MESSAGEBOX_BUTTONS_RIGHT_TO_LEFT* = cast[cuint](256'i64) 
 when cast[cuint](1'i64) is static:
   const
-    SDL_MESSAGEBOX_BUTTON_RETURNKEY_DEFAULT* = cast[cuint](1'i64)
+    SDL_MESSAGEBOX_BUTTON_RETURNKEY_DEFAULT* = cast[cuint](1'i64) 
 else:
-  let SDL_MESSAGEBOX_BUTTON_RETURNKEY_DEFAULT* = cast[cuint](1'i64)
+  let SDL_MESSAGEBOX_BUTTON_RETURNKEY_DEFAULT* = cast[cuint](1'i64) 
 when cast[cuint](2'i64) is static:
   const
-    SDL_MESSAGEBOX_BUTTON_ESCAPEKEY_DEFAULT* = cast[cuint](2'i64)
+    SDL_MESSAGEBOX_BUTTON_ESCAPEKEY_DEFAULT* = cast[cuint](2'i64) 
 else:
-  let SDL_MESSAGEBOX_BUTTON_ESCAPEKEY_DEFAULT* = cast[cuint](2'i64)
+  let SDL_MESSAGEBOX_BUTTON_ESCAPEKEY_DEFAULT* = cast[cuint](2'i64) 
 when "SDL.process.create.args" is static:
   const
-    SDL_PROP_PROCESS_CREATE_ARGS_POINTER* = "SDL.process.create.args"
+    SDL_PROP_PROCESS_CREATE_ARGS_POINTER* = "SDL.process.create.args" 
 else:
-  let SDL_PROP_PROCESS_CREATE_ARGS_POINTER* = "SDL.process.create.args"
+  let SDL_PROP_PROCESS_CREATE_ARGS_POINTER* = "SDL.process.create.args" 
 when "SDL.process.create.environment" is static:
   const
-    SDL_PROP_PROCESS_CREATE_ENVIRONMENT_POINTER* = "SDL.process.create.environment"
+    SDL_PROP_PROCESS_CREATE_ENVIRONMENT_POINTER* = "SDL.process.create.environment" 
 else:
-  let SDL_PROP_PROCESS_CREATE_ENVIRONMENT_POINTER* = "SDL.process.create.environment"
+  let SDL_PROP_PROCESS_CREATE_ENVIRONMENT_POINTER* = "SDL.process.create.environment" 
 when "SDL.process.create.stdin_option" is static:
   const
-    SDL_PROP_PROCESS_CREATE_STDIN_NUMBER* = "SDL.process.create.stdin_option"
+    SDL_PROP_PROCESS_CREATE_STDIN_NUMBER* = "SDL.process.create.stdin_option" 
 else:
-  let SDL_PROP_PROCESS_CREATE_STDIN_NUMBER* = "SDL.process.create.stdin_option"
+  let SDL_PROP_PROCESS_CREATE_STDIN_NUMBER* = "SDL.process.create.stdin_option" 
 when "SDL.process.create.stdin_source" is static:
   const
-    SDL_PROP_PROCESS_CREATE_STDIN_POINTER* = "SDL.process.create.stdin_source"
+    SDL_PROP_PROCESS_CREATE_STDIN_POINTER* = "SDL.process.create.stdin_source" 
 else:
-  let SDL_PROP_PROCESS_CREATE_STDIN_POINTER* = "SDL.process.create.stdin_source"
+  let SDL_PROP_PROCESS_CREATE_STDIN_POINTER* = "SDL.process.create.stdin_source" 
 when "SDL.process.create.stdout_option" is static:
   const
-    SDL_PROP_PROCESS_CREATE_STDOUT_NUMBER* = "SDL.process.create.stdout_option"
+    SDL_PROP_PROCESS_CREATE_STDOUT_NUMBER* = "SDL.process.create.stdout_option" 
 else:
-  let SDL_PROP_PROCESS_CREATE_STDOUT_NUMBER* = "SDL.process.create.stdout_option"
+  let SDL_PROP_PROCESS_CREATE_STDOUT_NUMBER* = "SDL.process.create.stdout_option" 
 when "SDL.process.create.stdout_source" is static:
   const
-    SDL_PROP_PROCESS_CREATE_STDOUT_POINTER* = "SDL.process.create.stdout_source"
+    SDL_PROP_PROCESS_CREATE_STDOUT_POINTER* = "SDL.process.create.stdout_source" 
 else:
-  let SDL_PROP_PROCESS_CREATE_STDOUT_POINTER* = "SDL.process.create.stdout_source"
+  let SDL_PROP_PROCESS_CREATE_STDOUT_POINTER* = "SDL.process.create.stdout_source" 
 when "SDL.process.create.stderr_option" is static:
   const
-    SDL_PROP_PROCESS_CREATE_STDERR_NUMBER* = "SDL.process.create.stderr_option"
+    SDL_PROP_PROCESS_CREATE_STDERR_NUMBER* = "SDL.process.create.stderr_option" 
 else:
-  let SDL_PROP_PROCESS_CREATE_STDERR_NUMBER* = "SDL.process.create.stderr_option"
+  let SDL_PROP_PROCESS_CREATE_STDERR_NUMBER* = "SDL.process.create.stderr_option" 
 when "SDL.process.create.stderr_source" is static:
   const
-    SDL_PROP_PROCESS_CREATE_STDERR_POINTER* = "SDL.process.create.stderr_source"
+    SDL_PROP_PROCESS_CREATE_STDERR_POINTER* = "SDL.process.create.stderr_source" 
 else:
-  let SDL_PROP_PROCESS_CREATE_STDERR_POINTER* = "SDL.process.create.stderr_source"
+  let SDL_PROP_PROCESS_CREATE_STDERR_POINTER* = "SDL.process.create.stderr_source" 
 when "SDL.process.create.stderr_to_stdout" is static:
   const
-    SDL_PROP_PROCESS_CREATE_STDERR_TO_STDOUT_BOOLEAN* = "SDL.process.create.stderr_to_stdout"
+    SDL_PROP_PROCESS_CREATE_STDERR_TO_STDOUT_BOOLEAN* = "SDL.process.create.stderr_to_stdout" 
 else:
-  let SDL_PROP_PROCESS_CREATE_STDERR_TO_STDOUT_BOOLEAN* = "SDL.process.create.stderr_to_stdout"
+  let SDL_PROP_PROCESS_CREATE_STDERR_TO_STDOUT_BOOLEAN* = "SDL.process.create.stderr_to_stdout" 
 when "SDL.process.create.background" is static:
   const
-    SDL_PROP_PROCESS_CREATE_BACKGROUND_BOOLEAN* = "SDL.process.create.background"
+    SDL_PROP_PROCESS_CREATE_BACKGROUND_BOOLEAN* = "SDL.process.create.background" 
 else:
-  let SDL_PROP_PROCESS_CREATE_BACKGROUND_BOOLEAN* = "SDL.process.create.background"
+  let SDL_PROP_PROCESS_CREATE_BACKGROUND_BOOLEAN* = "SDL.process.create.background" 
 when "SDL.process.pid" is static:
   const
-    SDL_PROP_PROCESS_PID_NUMBER* = "SDL.process.pid"
+    SDL_PROP_PROCESS_PID_NUMBER* = "SDL.process.pid" 
 else:
-  let SDL_PROP_PROCESS_PID_NUMBER* = "SDL.process.pid"
+  let SDL_PROP_PROCESS_PID_NUMBER* = "SDL.process.pid" 
 when "SDL.process.stdin" is static:
   const
-    SDL_PROP_PROCESS_STDIN_POINTER* = "SDL.process.stdin"
+    SDL_PROP_PROCESS_STDIN_POINTER* = "SDL.process.stdin" 
 else:
-  let SDL_PROP_PROCESS_STDIN_POINTER* = "SDL.process.stdin"
+  let SDL_PROP_PROCESS_STDIN_POINTER* = "SDL.process.stdin" 
 when "SDL.process.stdout" is static:
   const
-    SDL_PROP_PROCESS_STDOUT_POINTER* = "SDL.process.stdout"
+    SDL_PROP_PROCESS_STDOUT_POINTER* = "SDL.process.stdout" 
 else:
-  let SDL_PROP_PROCESS_STDOUT_POINTER* = "SDL.process.stdout"
+  let SDL_PROP_PROCESS_STDOUT_POINTER* = "SDL.process.stdout" 
 when "SDL.process.stderr" is static:
   const
-    SDL_PROP_PROCESS_STDERR_POINTER* = "SDL.process.stderr"
+    SDL_PROP_PROCESS_STDERR_POINTER* = "SDL.process.stderr" 
 else:
-  let SDL_PROP_PROCESS_STDERR_POINTER* = "SDL.process.stderr"
+  let SDL_PROP_PROCESS_STDERR_POINTER* = "SDL.process.stderr" 
 when "SDL.process.background" is static:
   const
-    SDL_PROP_PROCESS_BACKGROUND_BOOLEAN* = "SDL.process.background"
+    SDL_PROP_PROCESS_BACKGROUND_BOOLEAN* = "SDL.process.background" 
 else:
-  let SDL_PROP_PROCESS_BACKGROUND_BOOLEAN* = "SDL.process.background"
+  let SDL_PROP_PROCESS_BACKGROUND_BOOLEAN* = "SDL.process.background" 
 when "software" is static:
   const
-    SDL_SOFTWARE_RENDERER* = "software"
+    SDL_SOFTWARE_RENDERER* = "software" 
 else:
-  let SDL_SOFTWARE_RENDERER* = "software"
+  let SDL_SOFTWARE_RENDERER* = "software" 
 when "SDL.renderer.create.name" is static:
   const
-    SDL_PROP_RENDERER_CREATE_NAME_STRING* = "SDL.renderer.create.name"
+    SDL_PROP_RENDERER_CREATE_NAME_STRING* = "SDL.renderer.create.name" 
 else:
-  let SDL_PROP_RENDERER_CREATE_NAME_STRING* = "SDL.renderer.create.name"
+  let SDL_PROP_RENDERER_CREATE_NAME_STRING* = "SDL.renderer.create.name" 
 when "SDL.renderer.create.window" is static:
   const
-    SDL_PROP_RENDERER_CREATE_WINDOW_POINTER* = "SDL.renderer.create.window"
+    SDL_PROP_RENDERER_CREATE_WINDOW_POINTER* = "SDL.renderer.create.window" 
 else:
-  let SDL_PROP_RENDERER_CREATE_WINDOW_POINTER* = "SDL.renderer.create.window"
+  let SDL_PROP_RENDERER_CREATE_WINDOW_POINTER* = "SDL.renderer.create.window" 
 when "SDL.renderer.create.surface" is static:
   const
-    SDL_PROP_RENDERER_CREATE_SURFACE_POINTER* = "SDL.renderer.create.surface"
+    SDL_PROP_RENDERER_CREATE_SURFACE_POINTER* = "SDL.renderer.create.surface" 
 else:
-  let SDL_PROP_RENDERER_CREATE_SURFACE_POINTER* = "SDL.renderer.create.surface"
+  let SDL_PROP_RENDERER_CREATE_SURFACE_POINTER* = "SDL.renderer.create.surface" 
 when "SDL.renderer.create.output_colorspace" is static:
   const
-    SDL_PROP_RENDERER_CREATE_OUTPUT_COLORSPACE_NUMBER* = "SDL.renderer.create.output_colorspace"
+    SDL_PROP_RENDERER_CREATE_OUTPUT_COLORSPACE_NUMBER* = "SDL.renderer.create.output_colorspace" 
 else:
-  let SDL_PROP_RENDERER_CREATE_OUTPUT_COLORSPACE_NUMBER* = "SDL.renderer.create.output_colorspace"
+  let SDL_PROP_RENDERER_CREATE_OUTPUT_COLORSPACE_NUMBER* = "SDL.renderer.create.output_colorspace" 
 when "SDL.renderer.create.present_vsync" is static:
   const
-    SDL_PROP_RENDERER_CREATE_PRESENT_VSYNC_NUMBER* = "SDL.renderer.create.present_vsync"
+    SDL_PROP_RENDERER_CREATE_PRESENT_VSYNC_NUMBER* = "SDL.renderer.create.present_vsync" 
 else:
-  let SDL_PROP_RENDERER_CREATE_PRESENT_VSYNC_NUMBER* = "SDL.renderer.create.present_vsync"
+  let SDL_PROP_RENDERER_CREATE_PRESENT_VSYNC_NUMBER* = "SDL.renderer.create.present_vsync" 
 when "SDL.renderer.create.vulkan.instance" is static:
   const
-    SDL_PROP_RENDERER_CREATE_VULKAN_INSTANCE_POINTER* = "SDL.renderer.create.vulkan.instance"
+    SDL_PROP_RENDERER_CREATE_VULKAN_INSTANCE_POINTER* = "SDL.renderer.create.vulkan.instance" 
 else:
-  let SDL_PROP_RENDERER_CREATE_VULKAN_INSTANCE_POINTER* = "SDL.renderer.create.vulkan.instance"
+  let SDL_PROP_RENDERER_CREATE_VULKAN_INSTANCE_POINTER* = "SDL.renderer.create.vulkan.instance" 
 when "SDL.renderer.create.vulkan.surface" is static:
   const
-    SDL_PROP_RENDERER_CREATE_VULKAN_SURFACE_NUMBER* = "SDL.renderer.create.vulkan.surface"
+    SDL_PROP_RENDERER_CREATE_VULKAN_SURFACE_NUMBER* = "SDL.renderer.create.vulkan.surface" 
 else:
-  let SDL_PROP_RENDERER_CREATE_VULKAN_SURFACE_NUMBER* = "SDL.renderer.create.vulkan.surface"
+  let SDL_PROP_RENDERER_CREATE_VULKAN_SURFACE_NUMBER* = "SDL.renderer.create.vulkan.surface" 
 when "SDL.renderer.create.vulkan.physical_device" is static:
   const
-    SDL_PROP_RENDERER_CREATE_VULKAN_PHYSICAL_DEVICE_POINTER* = "SDL.renderer.create.vulkan.physical_device"
+    SDL_PROP_RENDERER_CREATE_VULKAN_PHYSICAL_DEVICE_POINTER* = "SDL.renderer.create.vulkan.physical_device" 
 else:
-  let SDL_PROP_RENDERER_CREATE_VULKAN_PHYSICAL_DEVICE_POINTER* = "SDL.renderer.create.vulkan.physical_device"
+  let SDL_PROP_RENDERER_CREATE_VULKAN_PHYSICAL_DEVICE_POINTER* = "SDL.renderer.create.vulkan.physical_device" 
 when "SDL.renderer.create.vulkan.device" is static:
   const
-    SDL_PROP_RENDERER_CREATE_VULKAN_DEVICE_POINTER* = "SDL.renderer.create.vulkan.device"
+    SDL_PROP_RENDERER_CREATE_VULKAN_DEVICE_POINTER* = "SDL.renderer.create.vulkan.device" 
 else:
-  let SDL_PROP_RENDERER_CREATE_VULKAN_DEVICE_POINTER* = "SDL.renderer.create.vulkan.device"
+  let SDL_PROP_RENDERER_CREATE_VULKAN_DEVICE_POINTER* = "SDL.renderer.create.vulkan.device" 
 when "SDL.renderer.create.vulkan.graphics_queue_family_index" is static:
   const
-    SDL_PROP_RENDERER_CREATE_VULKAN_GRAPHICS_QUEUE_FAMILY_INDEX_NUMBER* = "SDL.renderer.create.vulkan.graphics_queue_family_index"
+    SDL_PROP_RENDERER_CREATE_VULKAN_GRAPHICS_QUEUE_FAMILY_INDEX_NUMBER* = "SDL.renderer.create.vulkan.graphics_queue_family_index" 
 else:
-  let SDL_PROP_RENDERER_CREATE_VULKAN_GRAPHICS_QUEUE_FAMILY_INDEX_NUMBER* = "SDL.renderer.create.vulkan.graphics_queue_family_index"
+  let SDL_PROP_RENDERER_CREATE_VULKAN_GRAPHICS_QUEUE_FAMILY_INDEX_NUMBER* = "SDL.renderer.create.vulkan.graphics_queue_family_index" 
 when "SDL.renderer.create.vulkan.present_queue_family_index" is static:
   const
-    SDL_PROP_RENDERER_CREATE_VULKAN_PRESENT_QUEUE_FAMILY_INDEX_NUMBER* = "SDL.renderer.create.vulkan.present_queue_family_index"
+    SDL_PROP_RENDERER_CREATE_VULKAN_PRESENT_QUEUE_FAMILY_INDEX_NUMBER* = "SDL.renderer.create.vulkan.present_queue_family_index" 
 else:
-  let SDL_PROP_RENDERER_CREATE_VULKAN_PRESENT_QUEUE_FAMILY_INDEX_NUMBER* = "SDL.renderer.create.vulkan.present_queue_family_index"
+  let SDL_PROP_RENDERER_CREATE_VULKAN_PRESENT_QUEUE_FAMILY_INDEX_NUMBER* = "SDL.renderer.create.vulkan.present_queue_family_index" 
 when "SDL.renderer.name" is static:
   const
-    SDL_PROP_RENDERER_NAME_STRING* = "SDL.renderer.name"
+    SDL_PROP_RENDERER_NAME_STRING* = "SDL.renderer.name" 
 else:
-  let SDL_PROP_RENDERER_NAME_STRING* = "SDL.renderer.name"
+  let SDL_PROP_RENDERER_NAME_STRING* = "SDL.renderer.name" 
 when "SDL.renderer.window" is static:
   const
-    SDL_PROP_RENDERER_WINDOW_POINTER* = "SDL.renderer.window"
+    SDL_PROP_RENDERER_WINDOW_POINTER* = "SDL.renderer.window" 
 else:
-  let SDL_PROP_RENDERER_WINDOW_POINTER* = "SDL.renderer.window"
+  let SDL_PROP_RENDERER_WINDOW_POINTER* = "SDL.renderer.window" 
 when "SDL.renderer.surface" is static:
   const
-    SDL_PROP_RENDERER_SURFACE_POINTER* = "SDL.renderer.surface"
+    SDL_PROP_RENDERER_SURFACE_POINTER* = "SDL.renderer.surface" 
 else:
-  let SDL_PROP_RENDERER_SURFACE_POINTER* = "SDL.renderer.surface"
+  let SDL_PROP_RENDERER_SURFACE_POINTER* = "SDL.renderer.surface" 
 when "SDL.renderer.vsync" is static:
   const
-    SDL_PROP_RENDERER_VSYNC_NUMBER* = "SDL.renderer.vsync"
+    SDL_PROP_RENDERER_VSYNC_NUMBER* = "SDL.renderer.vsync" 
 else:
-  let SDL_PROP_RENDERER_VSYNC_NUMBER* = "SDL.renderer.vsync"
+  let SDL_PROP_RENDERER_VSYNC_NUMBER* = "SDL.renderer.vsync" 
 when "SDL.renderer.max_texture_size" is static:
   const
-    SDL_PROP_RENDERER_MAX_TEXTURE_SIZE_NUMBER* = "SDL.renderer.max_texture_size"
+    SDL_PROP_RENDERER_MAX_TEXTURE_SIZE_NUMBER* = "SDL.renderer.max_texture_size" 
 else:
-  let SDL_PROP_RENDERER_MAX_TEXTURE_SIZE_NUMBER* = "SDL.renderer.max_texture_size"
+  let SDL_PROP_RENDERER_MAX_TEXTURE_SIZE_NUMBER* = "SDL.renderer.max_texture_size" 
 when "SDL.renderer.texture_formats" is static:
   const
-    SDL_PROP_RENDERER_TEXTURE_FORMATS_POINTER* = "SDL.renderer.texture_formats"
+    SDL_PROP_RENDERER_TEXTURE_FORMATS_POINTER* = "SDL.renderer.texture_formats" 
 else:
-  let SDL_PROP_RENDERER_TEXTURE_FORMATS_POINTER* = "SDL.renderer.texture_formats"
+  let SDL_PROP_RENDERER_TEXTURE_FORMATS_POINTER* = "SDL.renderer.texture_formats" 
 when "SDL.renderer.output_colorspace" is static:
   const
-    SDL_PROP_RENDERER_OUTPUT_COLORSPACE_NUMBER* = "SDL.renderer.output_colorspace"
+    SDL_PROP_RENDERER_OUTPUT_COLORSPACE_NUMBER* = "SDL.renderer.output_colorspace" 
 else:
-  let SDL_PROP_RENDERER_OUTPUT_COLORSPACE_NUMBER* = "SDL.renderer.output_colorspace"
+  let SDL_PROP_RENDERER_OUTPUT_COLORSPACE_NUMBER* = "SDL.renderer.output_colorspace" 
 when "SDL.renderer.HDR_enabled" is static:
   const
-    SDL_PROP_RENDERER_HDR_ENABLED_BOOLEAN* = "SDL.renderer.HDR_enabled"
+    SDL_PROP_RENDERER_HDR_ENABLED_BOOLEAN* = "SDL.renderer.HDR_enabled" 
 else:
-  let SDL_PROP_RENDERER_HDR_ENABLED_BOOLEAN* = "SDL.renderer.HDR_enabled"
+  let SDL_PROP_RENDERER_HDR_ENABLED_BOOLEAN* = "SDL.renderer.HDR_enabled" 
 when "SDL.renderer.SDR_white_point" is static:
   const
-    SDL_PROP_RENDERER_SDR_WHITE_POINT_FLOAT* = "SDL.renderer.SDR_white_point"
+    SDL_PROP_RENDERER_SDR_WHITE_POINT_FLOAT* = "SDL.renderer.SDR_white_point" 
 else:
-  let SDL_PROP_RENDERER_SDR_WHITE_POINT_FLOAT* = "SDL.renderer.SDR_white_point"
+  let SDL_PROP_RENDERER_SDR_WHITE_POINT_FLOAT* = "SDL.renderer.SDR_white_point" 
 when "SDL.renderer.HDR_headroom" is static:
   const
-    SDL_PROP_RENDERER_HDR_HEADROOM_FLOAT* = "SDL.renderer.HDR_headroom"
+    SDL_PROP_RENDERER_HDR_HEADROOM_FLOAT* = "SDL.renderer.HDR_headroom" 
 else:
-  let SDL_PROP_RENDERER_HDR_HEADROOM_FLOAT* = "SDL.renderer.HDR_headroom"
+  let SDL_PROP_RENDERER_HDR_HEADROOM_FLOAT* = "SDL.renderer.HDR_headroom" 
 when "SDL.renderer.d3d9.device" is static:
   const
-    SDL_PROP_RENDERER_D3D9_DEVICE_POINTER* = "SDL.renderer.d3d9.device"
+    SDL_PROP_RENDERER_D3D9_DEVICE_POINTER* = "SDL.renderer.d3d9.device" 
 else:
-  let SDL_PROP_RENDERER_D3D9_DEVICE_POINTER* = "SDL.renderer.d3d9.device"
+  let SDL_PROP_RENDERER_D3D9_DEVICE_POINTER* = "SDL.renderer.d3d9.device" 
 when "SDL.renderer.d3d11.device" is static:
   const
-    SDL_PROP_RENDERER_D3D11_DEVICE_POINTER* = "SDL.renderer.d3d11.device"
+    SDL_PROP_RENDERER_D3D11_DEVICE_POINTER* = "SDL.renderer.d3d11.device" 
 else:
-  let SDL_PROP_RENDERER_D3D11_DEVICE_POINTER* = "SDL.renderer.d3d11.device"
+  let SDL_PROP_RENDERER_D3D11_DEVICE_POINTER* = "SDL.renderer.d3d11.device" 
 when "SDL.renderer.d3d11.swap_chain" is static:
   const
-    SDL_PROP_RENDERER_D3D11_SWAPCHAIN_POINTER* = "SDL.renderer.d3d11.swap_chain"
+    SDL_PROP_RENDERER_D3D11_SWAPCHAIN_POINTER* = "SDL.renderer.d3d11.swap_chain" 
 else:
-  let SDL_PROP_RENDERER_D3D11_SWAPCHAIN_POINTER* = "SDL.renderer.d3d11.swap_chain"
+  let SDL_PROP_RENDERER_D3D11_SWAPCHAIN_POINTER* = "SDL.renderer.d3d11.swap_chain" 
 when "SDL.renderer.d3d12.device" is static:
   const
-    SDL_PROP_RENDERER_D3D12_DEVICE_POINTER* = "SDL.renderer.d3d12.device"
+    SDL_PROP_RENDERER_D3D12_DEVICE_POINTER* = "SDL.renderer.d3d12.device" 
 else:
-  let SDL_PROP_RENDERER_D3D12_DEVICE_POINTER* = "SDL.renderer.d3d12.device"
+  let SDL_PROP_RENDERER_D3D12_DEVICE_POINTER* = "SDL.renderer.d3d12.device" 
 when "SDL.renderer.d3d12.swap_chain" is static:
   const
-    SDL_PROP_RENDERER_D3D12_SWAPCHAIN_POINTER* = "SDL.renderer.d3d12.swap_chain"
+    SDL_PROP_RENDERER_D3D12_SWAPCHAIN_POINTER* = "SDL.renderer.d3d12.swap_chain" 
 else:
-  let SDL_PROP_RENDERER_D3D12_SWAPCHAIN_POINTER* = "SDL.renderer.d3d12.swap_chain"
+  let SDL_PROP_RENDERER_D3D12_SWAPCHAIN_POINTER* = "SDL.renderer.d3d12.swap_chain" 
 when "SDL.renderer.d3d12.command_queue" is static:
   const
-    SDL_PROP_RENDERER_D3D12_COMMAND_QUEUE_POINTER* = "SDL.renderer.d3d12.command_queue"
+    SDL_PROP_RENDERER_D3D12_COMMAND_QUEUE_POINTER* = "SDL.renderer.d3d12.command_queue" 
 else:
-  let SDL_PROP_RENDERER_D3D12_COMMAND_QUEUE_POINTER* = "SDL.renderer.d3d12.command_queue"
+  let SDL_PROP_RENDERER_D3D12_COMMAND_QUEUE_POINTER* = "SDL.renderer.d3d12.command_queue" 
 when "SDL.renderer.vulkan.instance" is static:
   const
-    SDL_PROP_RENDERER_VULKAN_INSTANCE_POINTER* = "SDL.renderer.vulkan.instance"
+    SDL_PROP_RENDERER_VULKAN_INSTANCE_POINTER* = "SDL.renderer.vulkan.instance" 
 else:
-  let SDL_PROP_RENDERER_VULKAN_INSTANCE_POINTER* = "SDL.renderer.vulkan.instance"
+  let SDL_PROP_RENDERER_VULKAN_INSTANCE_POINTER* = "SDL.renderer.vulkan.instance" 
 when "SDL.renderer.vulkan.surface" is static:
   const
-    SDL_PROP_RENDERER_VULKAN_SURFACE_NUMBER* = "SDL.renderer.vulkan.surface"
+    SDL_PROP_RENDERER_VULKAN_SURFACE_NUMBER* = "SDL.renderer.vulkan.surface" 
 else:
-  let SDL_PROP_RENDERER_VULKAN_SURFACE_NUMBER* = "SDL.renderer.vulkan.surface"
+  let SDL_PROP_RENDERER_VULKAN_SURFACE_NUMBER* = "SDL.renderer.vulkan.surface" 
 when "SDL.renderer.vulkan.physical_device" is static:
   const
-    SDL_PROP_RENDERER_VULKAN_PHYSICAL_DEVICE_POINTER* = "SDL.renderer.vulkan.physical_device"
+    SDL_PROP_RENDERER_VULKAN_PHYSICAL_DEVICE_POINTER* = "SDL.renderer.vulkan.physical_device" 
 else:
-  let SDL_PROP_RENDERER_VULKAN_PHYSICAL_DEVICE_POINTER* = "SDL.renderer.vulkan.physical_device"
+  let SDL_PROP_RENDERER_VULKAN_PHYSICAL_DEVICE_POINTER* = "SDL.renderer.vulkan.physical_device" 
 when "SDL.renderer.vulkan.device" is static:
   const
-    SDL_PROP_RENDERER_VULKAN_DEVICE_POINTER* = "SDL.renderer.vulkan.device"
+    SDL_PROP_RENDERER_VULKAN_DEVICE_POINTER* = "SDL.renderer.vulkan.device" 
 else:
-  let SDL_PROP_RENDERER_VULKAN_DEVICE_POINTER* = "SDL.renderer.vulkan.device"
+  let SDL_PROP_RENDERER_VULKAN_DEVICE_POINTER* = "SDL.renderer.vulkan.device" 
 when "SDL.renderer.vulkan.graphics_queue_family_index" is static:
   const
-    SDL_PROP_RENDERER_VULKAN_GRAPHICS_QUEUE_FAMILY_INDEX_NUMBER* = "SDL.renderer.vulkan.graphics_queue_family_index"
+    SDL_PROP_RENDERER_VULKAN_GRAPHICS_QUEUE_FAMILY_INDEX_NUMBER* = "SDL.renderer.vulkan.graphics_queue_family_index" 
 else:
-  let SDL_PROP_RENDERER_VULKAN_GRAPHICS_QUEUE_FAMILY_INDEX_NUMBER* = "SDL.renderer.vulkan.graphics_queue_family_index"
+  let SDL_PROP_RENDERER_VULKAN_GRAPHICS_QUEUE_FAMILY_INDEX_NUMBER* = "SDL.renderer.vulkan.graphics_queue_family_index" 
 when "SDL.renderer.vulkan.present_queue_family_index" is static:
   const
-    SDL_PROP_RENDERER_VULKAN_PRESENT_QUEUE_FAMILY_INDEX_NUMBER* = "SDL.renderer.vulkan.present_queue_family_index"
+    SDL_PROP_RENDERER_VULKAN_PRESENT_QUEUE_FAMILY_INDEX_NUMBER* = "SDL.renderer.vulkan.present_queue_family_index" 
 else:
-  let SDL_PROP_RENDERER_VULKAN_PRESENT_QUEUE_FAMILY_INDEX_NUMBER* = "SDL.renderer.vulkan.present_queue_family_index"
+  let SDL_PROP_RENDERER_VULKAN_PRESENT_QUEUE_FAMILY_INDEX_NUMBER* = "SDL.renderer.vulkan.present_queue_family_index" 
 when "SDL.renderer.vulkan.swapchain_image_count" is static:
   const
-    SDL_PROP_RENDERER_VULKAN_SWAPCHAIN_IMAGE_COUNT_NUMBER* = "SDL.renderer.vulkan.swapchain_image_count"
+    SDL_PROP_RENDERER_VULKAN_SWAPCHAIN_IMAGE_COUNT_NUMBER* = "SDL.renderer.vulkan.swapchain_image_count" 
 else:
-  let SDL_PROP_RENDERER_VULKAN_SWAPCHAIN_IMAGE_COUNT_NUMBER* = "SDL.renderer.vulkan.swapchain_image_count"
+  let SDL_PROP_RENDERER_VULKAN_SWAPCHAIN_IMAGE_COUNT_NUMBER* = "SDL.renderer.vulkan.swapchain_image_count" 
 when "SDL.texture.create.colorspace" is static:
   const
-    SDL_PROP_TEXTURE_CREATE_COLORSPACE_NUMBER* = "SDL.texture.create.colorspace"
+    SDL_PROP_TEXTURE_CREATE_COLORSPACE_NUMBER* = "SDL.texture.create.colorspace" 
 else:
-  let SDL_PROP_TEXTURE_CREATE_COLORSPACE_NUMBER* = "SDL.texture.create.colorspace"
+  let SDL_PROP_TEXTURE_CREATE_COLORSPACE_NUMBER* = "SDL.texture.create.colorspace" 
 when "SDL.texture.create.format" is static:
   const
-    SDL_PROP_TEXTURE_CREATE_FORMAT_NUMBER* = "SDL.texture.create.format"
+    SDL_PROP_TEXTURE_CREATE_FORMAT_NUMBER* = "SDL.texture.create.format" 
 else:
-  let SDL_PROP_TEXTURE_CREATE_FORMAT_NUMBER* = "SDL.texture.create.format"
+  let SDL_PROP_TEXTURE_CREATE_FORMAT_NUMBER* = "SDL.texture.create.format" 
 when "SDL.texture.create.access" is static:
   const
-    SDL_PROP_TEXTURE_CREATE_ACCESS_NUMBER* = "SDL.texture.create.access"
+    SDL_PROP_TEXTURE_CREATE_ACCESS_NUMBER* = "SDL.texture.create.access" 
 else:
-  let SDL_PROP_TEXTURE_CREATE_ACCESS_NUMBER* = "SDL.texture.create.access"
+  let SDL_PROP_TEXTURE_CREATE_ACCESS_NUMBER* = "SDL.texture.create.access" 
 when "SDL.texture.create.width" is static:
   const
-    SDL_PROP_TEXTURE_CREATE_WIDTH_NUMBER* = "SDL.texture.create.width"
+    SDL_PROP_TEXTURE_CREATE_WIDTH_NUMBER* = "SDL.texture.create.width" 
 else:
-  let SDL_PROP_TEXTURE_CREATE_WIDTH_NUMBER* = "SDL.texture.create.width"
+  let SDL_PROP_TEXTURE_CREATE_WIDTH_NUMBER* = "SDL.texture.create.width" 
 when "SDL.texture.create.height" is static:
   const
-    SDL_PROP_TEXTURE_CREATE_HEIGHT_NUMBER* = "SDL.texture.create.height"
+    SDL_PROP_TEXTURE_CREATE_HEIGHT_NUMBER* = "SDL.texture.create.height" 
 else:
-  let SDL_PROP_TEXTURE_CREATE_HEIGHT_NUMBER* = "SDL.texture.create.height"
+  let SDL_PROP_TEXTURE_CREATE_HEIGHT_NUMBER* = "SDL.texture.create.height" 
 when "SDL.texture.create.SDR_white_point" is static:
   const
-    SDL_PROP_TEXTURE_CREATE_SDR_WHITE_POINT_FLOAT* = "SDL.texture.create.SDR_white_point"
+    SDL_PROP_TEXTURE_CREATE_SDR_WHITE_POINT_FLOAT* = "SDL.texture.create.SDR_white_point" 
 else:
-  let SDL_PROP_TEXTURE_CREATE_SDR_WHITE_POINT_FLOAT* = "SDL.texture.create.SDR_white_point"
+  let SDL_PROP_TEXTURE_CREATE_SDR_WHITE_POINT_FLOAT* = "SDL.texture.create.SDR_white_point" 
 when "SDL.texture.create.HDR_headroom" is static:
   const
-    SDL_PROP_TEXTURE_CREATE_HDR_HEADROOM_FLOAT* = "SDL.texture.create.HDR_headroom"
+    SDL_PROP_TEXTURE_CREATE_HDR_HEADROOM_FLOAT* = "SDL.texture.create.HDR_headroom" 
 else:
-  let SDL_PROP_TEXTURE_CREATE_HDR_HEADROOM_FLOAT* = "SDL.texture.create.HDR_headroom"
+  let SDL_PROP_TEXTURE_CREATE_HDR_HEADROOM_FLOAT* = "SDL.texture.create.HDR_headroom" 
 when "SDL.texture.create.d3d11.texture" is static:
   const
-    SDL_PROP_TEXTURE_CREATE_D3D11_TEXTURE_POINTER* = "SDL.texture.create.d3d11.texture"
+    SDL_PROP_TEXTURE_CREATE_D3D11_TEXTURE_POINTER* = "SDL.texture.create.d3d11.texture" 
 else:
-  let SDL_PROP_TEXTURE_CREATE_D3D11_TEXTURE_POINTER* = "SDL.texture.create.d3d11.texture"
+  let SDL_PROP_TEXTURE_CREATE_D3D11_TEXTURE_POINTER* = "SDL.texture.create.d3d11.texture" 
 when "SDL.texture.create.d3d11.texture_u" is static:
   const
-    SDL_PROP_TEXTURE_CREATE_D3D11_TEXTURE_U_POINTER* = "SDL.texture.create.d3d11.texture_u"
+    SDL_PROP_TEXTURE_CREATE_D3D11_TEXTURE_U_POINTER* = "SDL.texture.create.d3d11.texture_u" 
 else:
-  let SDL_PROP_TEXTURE_CREATE_D3D11_TEXTURE_U_POINTER* = "SDL.texture.create.d3d11.texture_u"
+  let SDL_PROP_TEXTURE_CREATE_D3D11_TEXTURE_U_POINTER* = "SDL.texture.create.d3d11.texture_u" 
 when "SDL.texture.create.d3d11.texture_v" is static:
   const
-    SDL_PROP_TEXTURE_CREATE_D3D11_TEXTURE_V_POINTER* = "SDL.texture.create.d3d11.texture_v"
+    SDL_PROP_TEXTURE_CREATE_D3D11_TEXTURE_V_POINTER* = "SDL.texture.create.d3d11.texture_v" 
 else:
-  let SDL_PROP_TEXTURE_CREATE_D3D11_TEXTURE_V_POINTER* = "SDL.texture.create.d3d11.texture_v"
+  let SDL_PROP_TEXTURE_CREATE_D3D11_TEXTURE_V_POINTER* = "SDL.texture.create.d3d11.texture_v" 
 when "SDL.texture.create.d3d12.texture" is static:
   const
-    SDL_PROP_TEXTURE_CREATE_D3D12_TEXTURE_POINTER* = "SDL.texture.create.d3d12.texture"
+    SDL_PROP_TEXTURE_CREATE_D3D12_TEXTURE_POINTER* = "SDL.texture.create.d3d12.texture" 
 else:
-  let SDL_PROP_TEXTURE_CREATE_D3D12_TEXTURE_POINTER* = "SDL.texture.create.d3d12.texture"
+  let SDL_PROP_TEXTURE_CREATE_D3D12_TEXTURE_POINTER* = "SDL.texture.create.d3d12.texture" 
 when "SDL.texture.create.d3d12.texture_u" is static:
   const
-    SDL_PROP_TEXTURE_CREATE_D3D12_TEXTURE_U_POINTER* = "SDL.texture.create.d3d12.texture_u"
+    SDL_PROP_TEXTURE_CREATE_D3D12_TEXTURE_U_POINTER* = "SDL.texture.create.d3d12.texture_u" 
 else:
-  let SDL_PROP_TEXTURE_CREATE_D3D12_TEXTURE_U_POINTER* = "SDL.texture.create.d3d12.texture_u"
+  let SDL_PROP_TEXTURE_CREATE_D3D12_TEXTURE_U_POINTER* = "SDL.texture.create.d3d12.texture_u" 
 when "SDL.texture.create.d3d12.texture_v" is static:
   const
-    SDL_PROP_TEXTURE_CREATE_D3D12_TEXTURE_V_POINTER* = "SDL.texture.create.d3d12.texture_v"
+    SDL_PROP_TEXTURE_CREATE_D3D12_TEXTURE_V_POINTER* = "SDL.texture.create.d3d12.texture_v" 
 else:
-  let SDL_PROP_TEXTURE_CREATE_D3D12_TEXTURE_V_POINTER* = "SDL.texture.create.d3d12.texture_v"
+  let SDL_PROP_TEXTURE_CREATE_D3D12_TEXTURE_V_POINTER* = "SDL.texture.create.d3d12.texture_v" 
 when "SDL.texture.create.metal.pixelbuffer" is static:
   const
-    SDL_PROP_TEXTURE_CREATE_METAL_PIXELBUFFER_POINTER* = "SDL.texture.create.metal.pixelbuffer"
+    SDL_PROP_TEXTURE_CREATE_METAL_PIXELBUFFER_POINTER* = "SDL.texture.create.metal.pixelbuffer" 
 else:
-  let SDL_PROP_TEXTURE_CREATE_METAL_PIXELBUFFER_POINTER* = "SDL.texture.create.metal.pixelbuffer"
+  let SDL_PROP_TEXTURE_CREATE_METAL_PIXELBUFFER_POINTER* = "SDL.texture.create.metal.pixelbuffer" 
 when "SDL.texture.create.opengl.texture" is static:
   const
-    SDL_PROP_TEXTURE_CREATE_OPENGL_TEXTURE_NUMBER* = "SDL.texture.create.opengl.texture"
+    SDL_PROP_TEXTURE_CREATE_OPENGL_TEXTURE_NUMBER* = "SDL.texture.create.opengl.texture" 
 else:
-  let SDL_PROP_TEXTURE_CREATE_OPENGL_TEXTURE_NUMBER* = "SDL.texture.create.opengl.texture"
+  let SDL_PROP_TEXTURE_CREATE_OPENGL_TEXTURE_NUMBER* = "SDL.texture.create.opengl.texture" 
 when "SDL.texture.create.opengl.texture_uv" is static:
   const
-    SDL_PROP_TEXTURE_CREATE_OPENGL_TEXTURE_UV_NUMBER* = "SDL.texture.create.opengl.texture_uv"
+    SDL_PROP_TEXTURE_CREATE_OPENGL_TEXTURE_UV_NUMBER* = "SDL.texture.create.opengl.texture_uv" 
 else:
-  let SDL_PROP_TEXTURE_CREATE_OPENGL_TEXTURE_UV_NUMBER* = "SDL.texture.create.opengl.texture_uv"
+  let SDL_PROP_TEXTURE_CREATE_OPENGL_TEXTURE_UV_NUMBER* = "SDL.texture.create.opengl.texture_uv" 
 when "SDL.texture.create.opengl.texture_u" is static:
   const
-    SDL_PROP_TEXTURE_CREATE_OPENGL_TEXTURE_U_NUMBER* = "SDL.texture.create.opengl.texture_u"
+    SDL_PROP_TEXTURE_CREATE_OPENGL_TEXTURE_U_NUMBER* = "SDL.texture.create.opengl.texture_u" 
 else:
-  let SDL_PROP_TEXTURE_CREATE_OPENGL_TEXTURE_U_NUMBER* = "SDL.texture.create.opengl.texture_u"
+  let SDL_PROP_TEXTURE_CREATE_OPENGL_TEXTURE_U_NUMBER* = "SDL.texture.create.opengl.texture_u" 
 when "SDL.texture.create.opengl.texture_v" is static:
   const
-    SDL_PROP_TEXTURE_CREATE_OPENGL_TEXTURE_V_NUMBER* = "SDL.texture.create.opengl.texture_v"
+    SDL_PROP_TEXTURE_CREATE_OPENGL_TEXTURE_V_NUMBER* = "SDL.texture.create.opengl.texture_v" 
 else:
-  let SDL_PROP_TEXTURE_CREATE_OPENGL_TEXTURE_V_NUMBER* = "SDL.texture.create.opengl.texture_v"
+  let SDL_PROP_TEXTURE_CREATE_OPENGL_TEXTURE_V_NUMBER* = "SDL.texture.create.opengl.texture_v" 
 when "SDL.texture.create.opengles2.texture" is static:
   const
-    SDL_PROP_TEXTURE_CREATE_OPENGLES2_TEXTURE_NUMBER* = "SDL.texture.create.opengles2.texture"
+    SDL_PROP_TEXTURE_CREATE_OPENGLES2_TEXTURE_NUMBER* = "SDL.texture.create.opengles2.texture" 
 else:
-  let SDL_PROP_TEXTURE_CREATE_OPENGLES2_TEXTURE_NUMBER* = "SDL.texture.create.opengles2.texture"
+  let SDL_PROP_TEXTURE_CREATE_OPENGLES2_TEXTURE_NUMBER* = "SDL.texture.create.opengles2.texture" 
 when "SDL.texture.create.opengles2.texture_uv" is static:
   const
-    SDL_PROP_TEXTURE_CREATE_OPENGLES2_TEXTURE_UV_NUMBER* = "SDL.texture.create.opengles2.texture_uv"
+    SDL_PROP_TEXTURE_CREATE_OPENGLES2_TEXTURE_UV_NUMBER* = "SDL.texture.create.opengles2.texture_uv" 
 else:
-  let SDL_PROP_TEXTURE_CREATE_OPENGLES2_TEXTURE_UV_NUMBER* = "SDL.texture.create.opengles2.texture_uv"
+  let SDL_PROP_TEXTURE_CREATE_OPENGLES2_TEXTURE_UV_NUMBER* = "SDL.texture.create.opengles2.texture_uv" 
 when "SDL.texture.create.opengles2.texture_u" is static:
   const
-    SDL_PROP_TEXTURE_CREATE_OPENGLES2_TEXTURE_U_NUMBER* = "SDL.texture.create.opengles2.texture_u"
+    SDL_PROP_TEXTURE_CREATE_OPENGLES2_TEXTURE_U_NUMBER* = "SDL.texture.create.opengles2.texture_u" 
 else:
-  let SDL_PROP_TEXTURE_CREATE_OPENGLES2_TEXTURE_U_NUMBER* = "SDL.texture.create.opengles2.texture_u"
+  let SDL_PROP_TEXTURE_CREATE_OPENGLES2_TEXTURE_U_NUMBER* = "SDL.texture.create.opengles2.texture_u" 
 when "SDL.texture.create.opengles2.texture_v" is static:
   const
-    SDL_PROP_TEXTURE_CREATE_OPENGLES2_TEXTURE_V_NUMBER* = "SDL.texture.create.opengles2.texture_v"
+    SDL_PROP_TEXTURE_CREATE_OPENGLES2_TEXTURE_V_NUMBER* = "SDL.texture.create.opengles2.texture_v" 
 else:
-  let SDL_PROP_TEXTURE_CREATE_OPENGLES2_TEXTURE_V_NUMBER* = "SDL.texture.create.opengles2.texture_v"
+  let SDL_PROP_TEXTURE_CREATE_OPENGLES2_TEXTURE_V_NUMBER* = "SDL.texture.create.opengles2.texture_v" 
 when "SDL.texture.create.vulkan.texture" is static:
   const
-    SDL_PROP_TEXTURE_CREATE_VULKAN_TEXTURE_NUMBER* = "SDL.texture.create.vulkan.texture"
+    SDL_PROP_TEXTURE_CREATE_VULKAN_TEXTURE_NUMBER* = "SDL.texture.create.vulkan.texture" 
 else:
-  let SDL_PROP_TEXTURE_CREATE_VULKAN_TEXTURE_NUMBER* = "SDL.texture.create.vulkan.texture"
+  let SDL_PROP_TEXTURE_CREATE_VULKAN_TEXTURE_NUMBER* = "SDL.texture.create.vulkan.texture" 
 when "SDL.texture.colorspace" is static:
   const
-    SDL_PROP_TEXTURE_COLORSPACE_NUMBER* = "SDL.texture.colorspace"
+    SDL_PROP_TEXTURE_COLORSPACE_NUMBER* = "SDL.texture.colorspace" 
 else:
-  let SDL_PROP_TEXTURE_COLORSPACE_NUMBER* = "SDL.texture.colorspace"
+  let SDL_PROP_TEXTURE_COLORSPACE_NUMBER* = "SDL.texture.colorspace" 
 when "SDL.texture.format" is static:
   const
-    SDL_PROP_TEXTURE_FORMAT_NUMBER* = "SDL.texture.format"
+    SDL_PROP_TEXTURE_FORMAT_NUMBER* = "SDL.texture.format" 
 else:
-  let SDL_PROP_TEXTURE_FORMAT_NUMBER* = "SDL.texture.format"
+  let SDL_PROP_TEXTURE_FORMAT_NUMBER* = "SDL.texture.format" 
 when "SDL.texture.access" is static:
   const
-    SDL_PROP_TEXTURE_ACCESS_NUMBER* = "SDL.texture.access"
+    SDL_PROP_TEXTURE_ACCESS_NUMBER* = "SDL.texture.access" 
 else:
-  let SDL_PROP_TEXTURE_ACCESS_NUMBER* = "SDL.texture.access"
+  let SDL_PROP_TEXTURE_ACCESS_NUMBER* = "SDL.texture.access" 
 when "SDL.texture.width" is static:
   const
-    SDL_PROP_TEXTURE_WIDTH_NUMBER* = "SDL.texture.width"
+    SDL_PROP_TEXTURE_WIDTH_NUMBER* = "SDL.texture.width" 
 else:
-  let SDL_PROP_TEXTURE_WIDTH_NUMBER* = "SDL.texture.width"
+  let SDL_PROP_TEXTURE_WIDTH_NUMBER* = "SDL.texture.width" 
 when "SDL.texture.height" is static:
   const
-    SDL_PROP_TEXTURE_HEIGHT_NUMBER* = "SDL.texture.height"
+    SDL_PROP_TEXTURE_HEIGHT_NUMBER* = "SDL.texture.height" 
 else:
-  let SDL_PROP_TEXTURE_HEIGHT_NUMBER* = "SDL.texture.height"
+  let SDL_PROP_TEXTURE_HEIGHT_NUMBER* = "SDL.texture.height" 
 when "SDL.texture.SDR_white_point" is static:
   const
-    SDL_PROP_TEXTURE_SDR_WHITE_POINT_FLOAT* = "SDL.texture.SDR_white_point"
+    SDL_PROP_TEXTURE_SDR_WHITE_POINT_FLOAT* = "SDL.texture.SDR_white_point" 
 else:
-  let SDL_PROP_TEXTURE_SDR_WHITE_POINT_FLOAT* = "SDL.texture.SDR_white_point"
+  let SDL_PROP_TEXTURE_SDR_WHITE_POINT_FLOAT* = "SDL.texture.SDR_white_point" 
 when "SDL.texture.HDR_headroom" is static:
   const
-    SDL_PROP_TEXTURE_HDR_HEADROOM_FLOAT* = "SDL.texture.HDR_headroom"
+    SDL_PROP_TEXTURE_HDR_HEADROOM_FLOAT* = "SDL.texture.HDR_headroom" 
 else:
-  let SDL_PROP_TEXTURE_HDR_HEADROOM_FLOAT* = "SDL.texture.HDR_headroom"
+  let SDL_PROP_TEXTURE_HDR_HEADROOM_FLOAT* = "SDL.texture.HDR_headroom" 
 when "SDL.texture.d3d11.texture" is static:
   const
-    SDL_PROP_TEXTURE_D3D11_TEXTURE_POINTER* = "SDL.texture.d3d11.texture"
+    SDL_PROP_TEXTURE_D3D11_TEXTURE_POINTER* = "SDL.texture.d3d11.texture" 
 else:
-  let SDL_PROP_TEXTURE_D3D11_TEXTURE_POINTER* = "SDL.texture.d3d11.texture"
+  let SDL_PROP_TEXTURE_D3D11_TEXTURE_POINTER* = "SDL.texture.d3d11.texture" 
 when "SDL.texture.d3d11.texture_u" is static:
   const
-    SDL_PROP_TEXTURE_D3D11_TEXTURE_U_POINTER* = "SDL.texture.d3d11.texture_u"
+    SDL_PROP_TEXTURE_D3D11_TEXTURE_U_POINTER* = "SDL.texture.d3d11.texture_u" 
 else:
-  let SDL_PROP_TEXTURE_D3D11_TEXTURE_U_POINTER* = "SDL.texture.d3d11.texture_u"
+  let SDL_PROP_TEXTURE_D3D11_TEXTURE_U_POINTER* = "SDL.texture.d3d11.texture_u" 
 when "SDL.texture.d3d11.texture_v" is static:
   const
-    SDL_PROP_TEXTURE_D3D11_TEXTURE_V_POINTER* = "SDL.texture.d3d11.texture_v"
+    SDL_PROP_TEXTURE_D3D11_TEXTURE_V_POINTER* = "SDL.texture.d3d11.texture_v" 
 else:
-  let SDL_PROP_TEXTURE_D3D11_TEXTURE_V_POINTER* = "SDL.texture.d3d11.texture_v"
+  let SDL_PROP_TEXTURE_D3D11_TEXTURE_V_POINTER* = "SDL.texture.d3d11.texture_v" 
 when "SDL.texture.d3d12.texture" is static:
   const
-    SDL_PROP_TEXTURE_D3D12_TEXTURE_POINTER* = "SDL.texture.d3d12.texture"
+    SDL_PROP_TEXTURE_D3D12_TEXTURE_POINTER* = "SDL.texture.d3d12.texture" 
 else:
-  let SDL_PROP_TEXTURE_D3D12_TEXTURE_POINTER* = "SDL.texture.d3d12.texture"
+  let SDL_PROP_TEXTURE_D3D12_TEXTURE_POINTER* = "SDL.texture.d3d12.texture" 
 when "SDL.texture.d3d12.texture_u" is static:
   const
-    SDL_PROP_TEXTURE_D3D12_TEXTURE_U_POINTER* = "SDL.texture.d3d12.texture_u"
+    SDL_PROP_TEXTURE_D3D12_TEXTURE_U_POINTER* = "SDL.texture.d3d12.texture_u" 
 else:
-  let SDL_PROP_TEXTURE_D3D12_TEXTURE_U_POINTER* = "SDL.texture.d3d12.texture_u"
+  let SDL_PROP_TEXTURE_D3D12_TEXTURE_U_POINTER* = "SDL.texture.d3d12.texture_u" 
 when "SDL.texture.d3d12.texture_v" is static:
   const
-    SDL_PROP_TEXTURE_D3D12_TEXTURE_V_POINTER* = "SDL.texture.d3d12.texture_v"
+    SDL_PROP_TEXTURE_D3D12_TEXTURE_V_POINTER* = "SDL.texture.d3d12.texture_v" 
 else:
-  let SDL_PROP_TEXTURE_D3D12_TEXTURE_V_POINTER* = "SDL.texture.d3d12.texture_v"
+  let SDL_PROP_TEXTURE_D3D12_TEXTURE_V_POINTER* = "SDL.texture.d3d12.texture_v" 
 when "SDL.texture.opengl.texture" is static:
   const
-    SDL_PROP_TEXTURE_OPENGL_TEXTURE_NUMBER* = "SDL.texture.opengl.texture"
+    SDL_PROP_TEXTURE_OPENGL_TEXTURE_NUMBER* = "SDL.texture.opengl.texture" 
 else:
-  let SDL_PROP_TEXTURE_OPENGL_TEXTURE_NUMBER* = "SDL.texture.opengl.texture"
+  let SDL_PROP_TEXTURE_OPENGL_TEXTURE_NUMBER* = "SDL.texture.opengl.texture" 
 when "SDL.texture.opengl.texture_uv" is static:
   const
-    SDL_PROP_TEXTURE_OPENGL_TEXTURE_UV_NUMBER* = "SDL.texture.opengl.texture_uv"
+    SDL_PROP_TEXTURE_OPENGL_TEXTURE_UV_NUMBER* = "SDL.texture.opengl.texture_uv" 
 else:
-  let SDL_PROP_TEXTURE_OPENGL_TEXTURE_UV_NUMBER* = "SDL.texture.opengl.texture_uv"
+  let SDL_PROP_TEXTURE_OPENGL_TEXTURE_UV_NUMBER* = "SDL.texture.opengl.texture_uv" 
 when "SDL.texture.opengl.texture_u" is static:
   const
-    SDL_PROP_TEXTURE_OPENGL_TEXTURE_U_NUMBER* = "SDL.texture.opengl.texture_u"
+    SDL_PROP_TEXTURE_OPENGL_TEXTURE_U_NUMBER* = "SDL.texture.opengl.texture_u" 
 else:
-  let SDL_PROP_TEXTURE_OPENGL_TEXTURE_U_NUMBER* = "SDL.texture.opengl.texture_u"
+  let SDL_PROP_TEXTURE_OPENGL_TEXTURE_U_NUMBER* = "SDL.texture.opengl.texture_u" 
 when "SDL.texture.opengl.texture_v" is static:
   const
-    SDL_PROP_TEXTURE_OPENGL_TEXTURE_V_NUMBER* = "SDL.texture.opengl.texture_v"
+    SDL_PROP_TEXTURE_OPENGL_TEXTURE_V_NUMBER* = "SDL.texture.opengl.texture_v" 
 else:
-  let SDL_PROP_TEXTURE_OPENGL_TEXTURE_V_NUMBER* = "SDL.texture.opengl.texture_v"
+  let SDL_PROP_TEXTURE_OPENGL_TEXTURE_V_NUMBER* = "SDL.texture.opengl.texture_v" 
 when "SDL.texture.opengl.target" is static:
   const
-    SDL_PROP_TEXTURE_OPENGL_TEXTURE_TARGET_NUMBER* = "SDL.texture.opengl.target"
+    SDL_PROP_TEXTURE_OPENGL_TEXTURE_TARGET_NUMBER* = "SDL.texture.opengl.target" 
 else:
-  let SDL_PROP_TEXTURE_OPENGL_TEXTURE_TARGET_NUMBER* = "SDL.texture.opengl.target"
+  let SDL_PROP_TEXTURE_OPENGL_TEXTURE_TARGET_NUMBER* = "SDL.texture.opengl.target" 
 when "SDL.texture.opengl.tex_w" is static:
   const
-    SDL_PROP_TEXTURE_OPENGL_TEX_W_FLOAT* = "SDL.texture.opengl.tex_w"
+    SDL_PROP_TEXTURE_OPENGL_TEX_W_FLOAT* = "SDL.texture.opengl.tex_w" 
 else:
-  let SDL_PROP_TEXTURE_OPENGL_TEX_W_FLOAT* = "SDL.texture.opengl.tex_w"
+  let SDL_PROP_TEXTURE_OPENGL_TEX_W_FLOAT* = "SDL.texture.opengl.tex_w" 
 when "SDL.texture.opengl.tex_h" is static:
   const
-    SDL_PROP_TEXTURE_OPENGL_TEX_H_FLOAT* = "SDL.texture.opengl.tex_h"
+    SDL_PROP_TEXTURE_OPENGL_TEX_H_FLOAT* = "SDL.texture.opengl.tex_h" 
 else:
-  let SDL_PROP_TEXTURE_OPENGL_TEX_H_FLOAT* = "SDL.texture.opengl.tex_h"
+  let SDL_PROP_TEXTURE_OPENGL_TEX_H_FLOAT* = "SDL.texture.opengl.tex_h" 
 when "SDL.texture.opengles2.texture" is static:
   const
-    SDL_PROP_TEXTURE_OPENGLES2_TEXTURE_NUMBER* = "SDL.texture.opengles2.texture"
+    SDL_PROP_TEXTURE_OPENGLES2_TEXTURE_NUMBER* = "SDL.texture.opengles2.texture" 
 else:
-  let SDL_PROP_TEXTURE_OPENGLES2_TEXTURE_NUMBER* = "SDL.texture.opengles2.texture"
+  let SDL_PROP_TEXTURE_OPENGLES2_TEXTURE_NUMBER* = "SDL.texture.opengles2.texture" 
 when "SDL.texture.opengles2.texture_uv" is static:
   const
-    SDL_PROP_TEXTURE_OPENGLES2_TEXTURE_UV_NUMBER* = "SDL.texture.opengles2.texture_uv"
+    SDL_PROP_TEXTURE_OPENGLES2_TEXTURE_UV_NUMBER* = "SDL.texture.opengles2.texture_uv" 
 else:
-  let SDL_PROP_TEXTURE_OPENGLES2_TEXTURE_UV_NUMBER* = "SDL.texture.opengles2.texture_uv"
+  let SDL_PROP_TEXTURE_OPENGLES2_TEXTURE_UV_NUMBER* = "SDL.texture.opengles2.texture_uv" 
 when "SDL.texture.opengles2.texture_u" is static:
   const
-    SDL_PROP_TEXTURE_OPENGLES2_TEXTURE_U_NUMBER* = "SDL.texture.opengles2.texture_u"
+    SDL_PROP_TEXTURE_OPENGLES2_TEXTURE_U_NUMBER* = "SDL.texture.opengles2.texture_u" 
 else:
-  let SDL_PROP_TEXTURE_OPENGLES2_TEXTURE_U_NUMBER* = "SDL.texture.opengles2.texture_u"
+  let SDL_PROP_TEXTURE_OPENGLES2_TEXTURE_U_NUMBER* = "SDL.texture.opengles2.texture_u" 
 when "SDL.texture.opengles2.texture_v" is static:
   const
-    SDL_PROP_TEXTURE_OPENGLES2_TEXTURE_V_NUMBER* = "SDL.texture.opengles2.texture_v"
+    SDL_PROP_TEXTURE_OPENGLES2_TEXTURE_V_NUMBER* = "SDL.texture.opengles2.texture_v" 
 else:
-  let SDL_PROP_TEXTURE_OPENGLES2_TEXTURE_V_NUMBER* = "SDL.texture.opengles2.texture_v"
+  let SDL_PROP_TEXTURE_OPENGLES2_TEXTURE_V_NUMBER* = "SDL.texture.opengles2.texture_v" 
 when "SDL.texture.opengles2.target" is static:
   const
-    SDL_PROP_TEXTURE_OPENGLES2_TEXTURE_TARGET_NUMBER* = "SDL.texture.opengles2.target"
+    SDL_PROP_TEXTURE_OPENGLES2_TEXTURE_TARGET_NUMBER* = "SDL.texture.opengles2.target" 
 else:
-  let SDL_PROP_TEXTURE_OPENGLES2_TEXTURE_TARGET_NUMBER* = "SDL.texture.opengles2.target"
+  let SDL_PROP_TEXTURE_OPENGLES2_TEXTURE_TARGET_NUMBER* = "SDL.texture.opengles2.target" 
 when "SDL.texture.vulkan.texture" is static:
   const
-    SDL_PROP_TEXTURE_VULKAN_TEXTURE_NUMBER* = "SDL.texture.vulkan.texture"
+    SDL_PROP_TEXTURE_VULKAN_TEXTURE_NUMBER* = "SDL.texture.vulkan.texture" 
 else:
-  let SDL_PROP_TEXTURE_VULKAN_TEXTURE_NUMBER* = "SDL.texture.vulkan.texture"
+  let SDL_PROP_TEXTURE_VULKAN_TEXTURE_NUMBER* = "SDL.texture.vulkan.texture" 
 when 0 is static:
   const
-    SDL_RENDERER_VSYNC_DISABLED* = 0
+    SDL_RENDERER_VSYNC_DISABLED* = 0 
 else:
-  let SDL_RENDERER_VSYNC_DISABLED* = 0
+  let SDL_RENDERER_VSYNC_DISABLED* = 0 
 when -1 is static:
   const
-    SDL_RENDERER_VSYNC_ADAPTIVE* = -1
+    SDL_RENDERER_VSYNC_ADAPTIVE* = -1 
 else:
-  let SDL_RENDERER_VSYNC_ADAPTIVE* = -1
+  let SDL_RENDERER_VSYNC_ADAPTIVE* = -1 
 when 1000 is static:
   const
-    SDL_MS_PER_SECOND* = 1000
+    SDL_MS_PER_SECOND* = 1000 
 else:
-  let SDL_MS_PER_SECOND* = 1000
+  let SDL_MS_PER_SECOND* = 1000 
 when 1000000 is static:
   const
-    SDL_US_PER_SECOND* = 1000000
+    SDL_US_PER_SECOND* = 1000000 
 else:
-  let SDL_US_PER_SECOND* = 1000000
+  let SDL_US_PER_SECOND* = 1000000 
 when cast[clonglong](1000000000'i64) is static:
   const
-    SDL_NS_PER_SECOND* = cast[clonglong](1000000000'i64)
+    SDL_NS_PER_SECOND* = cast[clonglong](1000000000'i64) 
 else:
-  let SDL_NS_PER_SECOND* = cast[clonglong](1000000000'i64)
+  let SDL_NS_PER_SECOND* = cast[clonglong](1000000000'i64) 
 when 1000000 is static:
   const
-    SDL_NS_PER_MS* = 1000000
+    SDL_NS_PER_MS* = 1000000 
 else:
-  let SDL_NS_PER_MS* = 1000000
+  let SDL_NS_PER_MS* = 1000000 
 when 1000 is static:
   const
-    SDL_NS_PER_US* = 1000
+    SDL_NS_PER_US* = 1000    
 else:
-  let SDL_NS_PER_US* = 1000
+  let SDL_NS_PER_US* = 1000  
 when 3 is static:
   const
-    SDL_MAJOR_VERSION* = 3
+    SDL_MAJOR_VERSION* = 3   
 else:
-  let SDL_MAJOR_VERSION* = 3
+  let SDL_MAJOR_VERSION* = 3 
 when 1 is static:
   const
-    SDL_MINOR_VERSION* = 1
+    SDL_MINOR_VERSION* = 1   
 else:
-  let SDL_MINOR_VERSION* = 1
+  let SDL_MINOR_VERSION* = 1 
 when 3 is static:
   const
-    SDL_MICRO_VERSION* = 3
+    SDL_MICRO_VERSION* = 3   
 else:
-  let SDL_MICRO_VERSION* = 3
+  let SDL_MICRO_VERSION* = 3 
 when SDL_AtomicAdd_renamed_SDL_AddAtomicInt is typedesc:
   type
-    SDL_AtomicAdd* = SDL_AtomicAdd_renamed_SDL_AddAtomicInt
+    SDL_AtomicAdd* = SDL_AtomicAdd_renamed_SDL_AddAtomicInt 
 else:
   when SDL_AtomicAdd_renamed_SDL_AddAtomicInt is static:
     const
-      SDL_AtomicAdd* = SDL_AtomicAdd_renamed_SDL_AddAtomicInt
+      SDL_AtomicAdd* = SDL_AtomicAdd_renamed_SDL_AddAtomicInt 
   else:
-    let SDL_AtomicAdd* = SDL_AtomicAdd_renamed_SDL_AddAtomicInt
+    let SDL_AtomicAdd* = SDL_AtomicAdd_renamed_SDL_AddAtomicInt 
 when SDL_AtomicCAS_renamed_SDL_CompareAndSwapAtomicInt is typedesc:
   type
-    SDL_AtomicCAS* = SDL_AtomicCAS_renamed_SDL_CompareAndSwapAtomicInt
+    SDL_AtomicCAS* = SDL_AtomicCAS_renamed_SDL_CompareAndSwapAtomicInt 
 else:
   when SDL_AtomicCAS_renamed_SDL_CompareAndSwapAtomicInt is static:
     const
-      SDL_AtomicCAS* = SDL_AtomicCAS_renamed_SDL_CompareAndSwapAtomicInt
+      SDL_AtomicCAS* = SDL_AtomicCAS_renamed_SDL_CompareAndSwapAtomicInt 
   else:
-    let SDL_AtomicCAS* = SDL_AtomicCAS_renamed_SDL_CompareAndSwapAtomicInt
+    let SDL_AtomicCAS* = SDL_AtomicCAS_renamed_SDL_CompareAndSwapAtomicInt 
 when SDL_AtomicCASPtr_renamed_SDL_CompareAndSwapAtomicPointer is typedesc:
   type
-    SDL_AtomicCASPtr* = SDL_AtomicCASPtr_renamed_SDL_CompareAndSwapAtomicPointer
+    SDL_AtomicCASPtr* = SDL_AtomicCASPtr_renamed_SDL_CompareAndSwapAtomicPointer 
 else:
   when SDL_AtomicCASPtr_renamed_SDL_CompareAndSwapAtomicPointer is static:
     const
-      SDL_AtomicCASPtr* = SDL_AtomicCASPtr_renamed_SDL_CompareAndSwapAtomicPointer
+      SDL_AtomicCASPtr* = SDL_AtomicCASPtr_renamed_SDL_CompareAndSwapAtomicPointer 
   else:
-    let SDL_AtomicCASPtr* = SDL_AtomicCASPtr_renamed_SDL_CompareAndSwapAtomicPointer
+    let SDL_AtomicCASPtr* = SDL_AtomicCASPtr_renamed_SDL_CompareAndSwapAtomicPointer 
 when SDL_AtomicGet_renamed_SDL_GetAtomicInt is typedesc:
   type
-    SDL_AtomicGet* = SDL_AtomicGet_renamed_SDL_GetAtomicInt
+    SDL_AtomicGet* = SDL_AtomicGet_renamed_SDL_GetAtomicInt 
 else:
   when SDL_AtomicGet_renamed_SDL_GetAtomicInt is static:
     const
-      SDL_AtomicGet* = SDL_AtomicGet_renamed_SDL_GetAtomicInt
+      SDL_AtomicGet* = SDL_AtomicGet_renamed_SDL_GetAtomicInt 
   else:
-    let SDL_AtomicGet* = SDL_AtomicGet_renamed_SDL_GetAtomicInt
+    let SDL_AtomicGet* = SDL_AtomicGet_renamed_SDL_GetAtomicInt 
 when SDL_AtomicGetPtr_renamed_SDL_GetAtomicPointer is typedesc:
   type
-    SDL_AtomicGetPtr* = SDL_AtomicGetPtr_renamed_SDL_GetAtomicPointer
+    SDL_AtomicGetPtr* = SDL_AtomicGetPtr_renamed_SDL_GetAtomicPointer 
 else:
   when SDL_AtomicGetPtr_renamed_SDL_GetAtomicPointer is static:
     const
-      SDL_AtomicGetPtr* = SDL_AtomicGetPtr_renamed_SDL_GetAtomicPointer
+      SDL_AtomicGetPtr* = SDL_AtomicGetPtr_renamed_SDL_GetAtomicPointer 
   else:
-    let SDL_AtomicGetPtr* = SDL_AtomicGetPtr_renamed_SDL_GetAtomicPointer
+    let SDL_AtomicGetPtr* = SDL_AtomicGetPtr_renamed_SDL_GetAtomicPointer 
 when SDL_AtomicLock_renamed_SDL_LockSpinlock is typedesc:
   type
-    SDL_AtomicLock* = SDL_AtomicLock_renamed_SDL_LockSpinlock
+    SDL_AtomicLock* = SDL_AtomicLock_renamed_SDL_LockSpinlock 
 else:
   when SDL_AtomicLock_renamed_SDL_LockSpinlock is static:
     const
-      SDL_AtomicLock* = SDL_AtomicLock_renamed_SDL_LockSpinlock
+      SDL_AtomicLock* = SDL_AtomicLock_renamed_SDL_LockSpinlock 
   else:
-    let SDL_AtomicLock* = SDL_AtomicLock_renamed_SDL_LockSpinlock
+    let SDL_AtomicLock* = SDL_AtomicLock_renamed_SDL_LockSpinlock 
 when SDL_AtomicSet_renamed_SDL_SetAtomicInt is typedesc:
   type
-    SDL_AtomicSet* = SDL_AtomicSet_renamed_SDL_SetAtomicInt
+    SDL_AtomicSet* = SDL_AtomicSet_renamed_SDL_SetAtomicInt 
 else:
   when SDL_AtomicSet_renamed_SDL_SetAtomicInt is static:
     const
-      SDL_AtomicSet* = SDL_AtomicSet_renamed_SDL_SetAtomicInt
+      SDL_AtomicSet* = SDL_AtomicSet_renamed_SDL_SetAtomicInt 
   else:
-    let SDL_AtomicSet* = SDL_AtomicSet_renamed_SDL_SetAtomicInt
+    let SDL_AtomicSet* = SDL_AtomicSet_renamed_SDL_SetAtomicInt 
 when SDL_AtomicSetPtr_renamed_SDL_SetAtomicPointer is typedesc:
   type
-    SDL_AtomicSetPtr* = SDL_AtomicSetPtr_renamed_SDL_SetAtomicPointer
+    SDL_AtomicSetPtr* = SDL_AtomicSetPtr_renamed_SDL_SetAtomicPointer 
 else:
   when SDL_AtomicSetPtr_renamed_SDL_SetAtomicPointer is static:
     const
-      SDL_AtomicSetPtr* = SDL_AtomicSetPtr_renamed_SDL_SetAtomicPointer
+      SDL_AtomicSetPtr* = SDL_AtomicSetPtr_renamed_SDL_SetAtomicPointer 
   else:
-    let SDL_AtomicSetPtr* = SDL_AtomicSetPtr_renamed_SDL_SetAtomicPointer
+    let SDL_AtomicSetPtr* = SDL_AtomicSetPtr_renamed_SDL_SetAtomicPointer 
 when SDL_AtomicTryLock_renamed_SDL_TryLockSpinlock is typedesc:
   type
-    SDL_AtomicTryLock* = SDL_AtomicTryLock_renamed_SDL_TryLockSpinlock
+    SDL_AtomicTryLock* = SDL_AtomicTryLock_renamed_SDL_TryLockSpinlock 
 else:
   when SDL_AtomicTryLock_renamed_SDL_TryLockSpinlock is static:
     const
-      SDL_AtomicTryLock* = SDL_AtomicTryLock_renamed_SDL_TryLockSpinlock
+      SDL_AtomicTryLock* = SDL_AtomicTryLock_renamed_SDL_TryLockSpinlock 
   else:
-    let SDL_AtomicTryLock* = SDL_AtomicTryLock_renamed_SDL_TryLockSpinlock
+    let SDL_AtomicTryLock* = SDL_AtomicTryLock_renamed_SDL_TryLockSpinlock 
 when SDL_AtomicUnlock_renamed_SDL_UnlockSpinlock is typedesc:
   type
-    SDL_AtomicUnlock* = SDL_AtomicUnlock_renamed_SDL_UnlockSpinlock
+    SDL_AtomicUnlock* = SDL_AtomicUnlock_renamed_SDL_UnlockSpinlock 
 else:
   when SDL_AtomicUnlock_renamed_SDL_UnlockSpinlock is static:
     const
-      SDL_AtomicUnlock* = SDL_AtomicUnlock_renamed_SDL_UnlockSpinlock
+      SDL_AtomicUnlock* = SDL_AtomicUnlock_renamed_SDL_UnlockSpinlock 
   else:
-    let SDL_AtomicUnlock* = SDL_AtomicUnlock_renamed_SDL_UnlockSpinlock
+    let SDL_AtomicUnlock* = SDL_AtomicUnlock_renamed_SDL_UnlockSpinlock 
 when SDL_atomic_t_renamed_SDL_AtomicInt is typedesc:
   type
-    SDL_atomic_t* = SDL_atomic_t_renamed_SDL_AtomicInt
+    SDL_atomic_t* = SDL_atomic_t_renamed_SDL_AtomicInt 
 else:
   when SDL_atomic_t_renamed_SDL_AtomicInt is static:
     const
-      SDL_atomic_t* = SDL_atomic_t_renamed_SDL_AtomicInt
+      SDL_atomic_t* = SDL_atomic_t_renamed_SDL_AtomicInt 
   else:
-    let SDL_atomic_t* = SDL_atomic_t_renamed_SDL_AtomicInt
+    let SDL_atomic_t* = SDL_atomic_t_renamed_SDL_AtomicInt 
 when AUDIO_F32_renamed_SDL_AUDIO_F32LE is typedesc:
   type
-    AUDIO_F32* = AUDIO_F32_renamed_SDL_AUDIO_F32LE
+    AUDIO_F32* = AUDIO_F32_renamed_SDL_AUDIO_F32LE 
 else:
   when AUDIO_F32_renamed_SDL_AUDIO_F32LE is static:
     const
-      AUDIO_F32* = AUDIO_F32_renamed_SDL_AUDIO_F32LE
+      AUDIO_F32* = AUDIO_F32_renamed_SDL_AUDIO_F32LE 
   else:
-    let AUDIO_F32* = AUDIO_F32_renamed_SDL_AUDIO_F32LE
+    let AUDIO_F32* = AUDIO_F32_renamed_SDL_AUDIO_F32LE 
 when AUDIO_F32LSB_renamed_SDL_AUDIO_F32LE is typedesc:
   type
-    AUDIO_F32LSB* = AUDIO_F32LSB_renamed_SDL_AUDIO_F32LE
+    AUDIO_F32LSB* = AUDIO_F32LSB_renamed_SDL_AUDIO_F32LE 
 else:
   when AUDIO_F32LSB_renamed_SDL_AUDIO_F32LE is static:
     const
-      AUDIO_F32LSB* = AUDIO_F32LSB_renamed_SDL_AUDIO_F32LE
+      AUDIO_F32LSB* = AUDIO_F32LSB_renamed_SDL_AUDIO_F32LE 
   else:
-    let AUDIO_F32LSB* = AUDIO_F32LSB_renamed_SDL_AUDIO_F32LE
+    let AUDIO_F32LSB* = AUDIO_F32LSB_renamed_SDL_AUDIO_F32LE 
 when AUDIO_F32MSB_renamed_SDL_AUDIO_F32BE is typedesc:
   type
-    AUDIO_F32MSB* = AUDIO_F32MSB_renamed_SDL_AUDIO_F32BE
+    AUDIO_F32MSB* = AUDIO_F32MSB_renamed_SDL_AUDIO_F32BE 
 else:
   when AUDIO_F32MSB_renamed_SDL_AUDIO_F32BE is static:
     const
-      AUDIO_F32MSB* = AUDIO_F32MSB_renamed_SDL_AUDIO_F32BE
+      AUDIO_F32MSB* = AUDIO_F32MSB_renamed_SDL_AUDIO_F32BE 
   else:
-    let AUDIO_F32MSB* = AUDIO_F32MSB_renamed_SDL_AUDIO_F32BE
+    let AUDIO_F32MSB* = AUDIO_F32MSB_renamed_SDL_AUDIO_F32BE 
 when AUDIO_F32SYS_renamed_SDL_AUDIO_F32 is typedesc:
   type
-    AUDIO_F32SYS* = AUDIO_F32SYS_renamed_SDL_AUDIO_F32
+    AUDIO_F32SYS* = AUDIO_F32SYS_renamed_SDL_AUDIO_F32 
 else:
   when AUDIO_F32SYS_renamed_SDL_AUDIO_F32 is static:
     const
-      AUDIO_F32SYS* = AUDIO_F32SYS_renamed_SDL_AUDIO_F32
+      AUDIO_F32SYS* = AUDIO_F32SYS_renamed_SDL_AUDIO_F32 
   else:
-    let AUDIO_F32SYS* = AUDIO_F32SYS_renamed_SDL_AUDIO_F32
+    let AUDIO_F32SYS* = AUDIO_F32SYS_renamed_SDL_AUDIO_F32 
 when AUDIO_S16_renamed_SDL_AUDIO_S16LE is typedesc:
   type
-    AUDIO_S16* = AUDIO_S16_renamed_SDL_AUDIO_S16LE
+    AUDIO_S16* = AUDIO_S16_renamed_SDL_AUDIO_S16LE 
 else:
   when AUDIO_S16_renamed_SDL_AUDIO_S16LE is static:
     const
-      AUDIO_S16* = AUDIO_S16_renamed_SDL_AUDIO_S16LE
+      AUDIO_S16* = AUDIO_S16_renamed_SDL_AUDIO_S16LE 
   else:
-    let AUDIO_S16* = AUDIO_S16_renamed_SDL_AUDIO_S16LE
+    let AUDIO_S16* = AUDIO_S16_renamed_SDL_AUDIO_S16LE 
 when AUDIO_S16LSB_renamed_SDL_AUDIO_S16LE is typedesc:
   type
-    AUDIO_S16LSB* = AUDIO_S16LSB_renamed_SDL_AUDIO_S16LE
+    AUDIO_S16LSB* = AUDIO_S16LSB_renamed_SDL_AUDIO_S16LE 
 else:
   when AUDIO_S16LSB_renamed_SDL_AUDIO_S16LE is static:
     const
-      AUDIO_S16LSB* = AUDIO_S16LSB_renamed_SDL_AUDIO_S16LE
+      AUDIO_S16LSB* = AUDIO_S16LSB_renamed_SDL_AUDIO_S16LE 
   else:
-    let AUDIO_S16LSB* = AUDIO_S16LSB_renamed_SDL_AUDIO_S16LE
+    let AUDIO_S16LSB* = AUDIO_S16LSB_renamed_SDL_AUDIO_S16LE 
 when AUDIO_S16MSB_renamed_SDL_AUDIO_S16BE is typedesc:
   type
-    AUDIO_S16MSB* = AUDIO_S16MSB_renamed_SDL_AUDIO_S16BE
+    AUDIO_S16MSB* = AUDIO_S16MSB_renamed_SDL_AUDIO_S16BE 
 else:
   when AUDIO_S16MSB_renamed_SDL_AUDIO_S16BE is static:
     const
-      AUDIO_S16MSB* = AUDIO_S16MSB_renamed_SDL_AUDIO_S16BE
+      AUDIO_S16MSB* = AUDIO_S16MSB_renamed_SDL_AUDIO_S16BE 
   else:
-    let AUDIO_S16MSB* = AUDIO_S16MSB_renamed_SDL_AUDIO_S16BE
+    let AUDIO_S16MSB* = AUDIO_S16MSB_renamed_SDL_AUDIO_S16BE 
 when AUDIO_S16SYS_renamed_SDL_AUDIO_S16 is typedesc:
   type
-    AUDIO_S16SYS* = AUDIO_S16SYS_renamed_SDL_AUDIO_S16
+    AUDIO_S16SYS* = AUDIO_S16SYS_renamed_SDL_AUDIO_S16 
 else:
   when AUDIO_S16SYS_renamed_SDL_AUDIO_S16 is static:
     const
-      AUDIO_S16SYS* = AUDIO_S16SYS_renamed_SDL_AUDIO_S16
+      AUDIO_S16SYS* = AUDIO_S16SYS_renamed_SDL_AUDIO_S16 
   else:
-    let AUDIO_S16SYS* = AUDIO_S16SYS_renamed_SDL_AUDIO_S16
+    let AUDIO_S16SYS* = AUDIO_S16SYS_renamed_SDL_AUDIO_S16 
 when AUDIO_S32_renamed_SDL_AUDIO_S32LE is typedesc:
   type
-    AUDIO_S32* = AUDIO_S32_renamed_SDL_AUDIO_S32LE
+    AUDIO_S32* = AUDIO_S32_renamed_SDL_AUDIO_S32LE 
 else:
   when AUDIO_S32_renamed_SDL_AUDIO_S32LE is static:
     const
-      AUDIO_S32* = AUDIO_S32_renamed_SDL_AUDIO_S32LE
+      AUDIO_S32* = AUDIO_S32_renamed_SDL_AUDIO_S32LE 
   else:
-    let AUDIO_S32* = AUDIO_S32_renamed_SDL_AUDIO_S32LE
+    let AUDIO_S32* = AUDIO_S32_renamed_SDL_AUDIO_S32LE 
 when AUDIO_S32LSB_renamed_SDL_AUDIO_S32LE is typedesc:
   type
-    AUDIO_S32LSB* = AUDIO_S32LSB_renamed_SDL_AUDIO_S32LE
+    AUDIO_S32LSB* = AUDIO_S32LSB_renamed_SDL_AUDIO_S32LE 
 else:
   when AUDIO_S32LSB_renamed_SDL_AUDIO_S32LE is static:
     const
-      AUDIO_S32LSB* = AUDIO_S32LSB_renamed_SDL_AUDIO_S32LE
+      AUDIO_S32LSB* = AUDIO_S32LSB_renamed_SDL_AUDIO_S32LE 
   else:
-    let AUDIO_S32LSB* = AUDIO_S32LSB_renamed_SDL_AUDIO_S32LE
+    let AUDIO_S32LSB* = AUDIO_S32LSB_renamed_SDL_AUDIO_S32LE 
 when AUDIO_S32MSB_renamed_SDL_AUDIO_S32BE is typedesc:
   type
-    AUDIO_S32MSB* = AUDIO_S32MSB_renamed_SDL_AUDIO_S32BE
+    AUDIO_S32MSB* = AUDIO_S32MSB_renamed_SDL_AUDIO_S32BE 
 else:
   when AUDIO_S32MSB_renamed_SDL_AUDIO_S32BE is static:
     const
-      AUDIO_S32MSB* = AUDIO_S32MSB_renamed_SDL_AUDIO_S32BE
+      AUDIO_S32MSB* = AUDIO_S32MSB_renamed_SDL_AUDIO_S32BE 
   else:
-    let AUDIO_S32MSB* = AUDIO_S32MSB_renamed_SDL_AUDIO_S32BE
+    let AUDIO_S32MSB* = AUDIO_S32MSB_renamed_SDL_AUDIO_S32BE 
 when AUDIO_S32SYS_renamed_SDL_AUDIO_S32 is typedesc:
   type
-    AUDIO_S32SYS* = AUDIO_S32SYS_renamed_SDL_AUDIO_S32
+    AUDIO_S32SYS* = AUDIO_S32SYS_renamed_SDL_AUDIO_S32 
 else:
   when AUDIO_S32SYS_renamed_SDL_AUDIO_S32 is static:
     const
-      AUDIO_S32SYS* = AUDIO_S32SYS_renamed_SDL_AUDIO_S32
+      AUDIO_S32SYS* = AUDIO_S32SYS_renamed_SDL_AUDIO_S32 
   else:
-    let AUDIO_S32SYS* = AUDIO_S32SYS_renamed_SDL_AUDIO_S32
+    let AUDIO_S32SYS* = AUDIO_S32SYS_renamed_SDL_AUDIO_S32 
 when AUDIO_S8_renamed_SDL_AUDIO_S8 is typedesc:
   type
-    AUDIO_S8* = AUDIO_S8_renamed_SDL_AUDIO_S8
+    AUDIO_S8* = AUDIO_S8_renamed_SDL_AUDIO_S8 
 else:
   when AUDIO_S8_renamed_SDL_AUDIO_S8 is static:
     const
-      AUDIO_S8* = AUDIO_S8_renamed_SDL_AUDIO_S8
+      AUDIO_S8* = AUDIO_S8_renamed_SDL_AUDIO_S8 
   else:
-    let AUDIO_S8* = AUDIO_S8_renamed_SDL_AUDIO_S8
+    let AUDIO_S8* = AUDIO_S8_renamed_SDL_AUDIO_S8 
 when AUDIO_U8_renamed_SDL_AUDIO_U8 is typedesc:
   type
-    AUDIO_U8* = AUDIO_U8_renamed_SDL_AUDIO_U8
+    AUDIO_U8* = AUDIO_U8_renamed_SDL_AUDIO_U8 
 else:
   when AUDIO_U8_renamed_SDL_AUDIO_U8 is static:
     const
-      AUDIO_U8* = AUDIO_U8_renamed_SDL_AUDIO_U8
+      AUDIO_U8* = AUDIO_U8_renamed_SDL_AUDIO_U8 
   else:
-    let AUDIO_U8* = AUDIO_U8_renamed_SDL_AUDIO_U8
+    let AUDIO_U8* = AUDIO_U8_renamed_SDL_AUDIO_U8 
 when SDL_AudioStreamAvailable_renamed_SDL_GetAudioStreamAvailable is typedesc:
   type
-    SDL_AudioStreamAvailable* = SDL_AudioStreamAvailable_renamed_SDL_GetAudioStreamAvailable
+    SDL_AudioStreamAvailable* = SDL_AudioStreamAvailable_renamed_SDL_GetAudioStreamAvailable 
 else:
   when SDL_AudioStreamAvailable_renamed_SDL_GetAudioStreamAvailable is static:
     const
-      SDL_AudioStreamAvailable* = SDL_AudioStreamAvailable_renamed_SDL_GetAudioStreamAvailable
+      SDL_AudioStreamAvailable* = SDL_AudioStreamAvailable_renamed_SDL_GetAudioStreamAvailable 
   else:
-    let SDL_AudioStreamAvailable* = SDL_AudioStreamAvailable_renamed_SDL_GetAudioStreamAvailable
+    let SDL_AudioStreamAvailable* = SDL_AudioStreamAvailable_renamed_SDL_GetAudioStreamAvailable 
 when SDL_AudioStreamClear_renamed_SDL_ClearAudioStream is typedesc:
   type
-    SDL_AudioStreamClear* = SDL_AudioStreamClear_renamed_SDL_ClearAudioStream
+    SDL_AudioStreamClear* = SDL_AudioStreamClear_renamed_SDL_ClearAudioStream 
 else:
   when SDL_AudioStreamClear_renamed_SDL_ClearAudioStream is static:
     const
-      SDL_AudioStreamClear* = SDL_AudioStreamClear_renamed_SDL_ClearAudioStream
+      SDL_AudioStreamClear* = SDL_AudioStreamClear_renamed_SDL_ClearAudioStream 
   else:
-    let SDL_AudioStreamClear* = SDL_AudioStreamClear_renamed_SDL_ClearAudioStream
+    let SDL_AudioStreamClear* = SDL_AudioStreamClear_renamed_SDL_ClearAudioStream 
 when SDL_AudioStreamFlush_renamed_SDL_FlushAudioStream is typedesc:
   type
-    SDL_AudioStreamFlush* = SDL_AudioStreamFlush_renamed_SDL_FlushAudioStream
+    SDL_AudioStreamFlush* = SDL_AudioStreamFlush_renamed_SDL_FlushAudioStream 
 else:
   when SDL_AudioStreamFlush_renamed_SDL_FlushAudioStream is static:
     const
-      SDL_AudioStreamFlush* = SDL_AudioStreamFlush_renamed_SDL_FlushAudioStream
+      SDL_AudioStreamFlush* = SDL_AudioStreamFlush_renamed_SDL_FlushAudioStream 
   else:
-    let SDL_AudioStreamFlush* = SDL_AudioStreamFlush_renamed_SDL_FlushAudioStream
+    let SDL_AudioStreamFlush* = SDL_AudioStreamFlush_renamed_SDL_FlushAudioStream 
 when SDL_AudioStreamGet_renamed_SDL_GetAudioStreamData is typedesc:
   type
-    SDL_AudioStreamGet* = SDL_AudioStreamGet_renamed_SDL_GetAudioStreamData
+    SDL_AudioStreamGet* = SDL_AudioStreamGet_renamed_SDL_GetAudioStreamData 
 else:
   when SDL_AudioStreamGet_renamed_SDL_GetAudioStreamData is static:
     const
-      SDL_AudioStreamGet* = SDL_AudioStreamGet_renamed_SDL_GetAudioStreamData
+      SDL_AudioStreamGet* = SDL_AudioStreamGet_renamed_SDL_GetAudioStreamData 
   else:
-    let SDL_AudioStreamGet* = SDL_AudioStreamGet_renamed_SDL_GetAudioStreamData
+    let SDL_AudioStreamGet* = SDL_AudioStreamGet_renamed_SDL_GetAudioStreamData 
 when SDL_AudioStreamPut_renamed_SDL_PutAudioStreamData is typedesc:
   type
-    SDL_AudioStreamPut* = SDL_AudioStreamPut_renamed_SDL_PutAudioStreamData
+    SDL_AudioStreamPut* = SDL_AudioStreamPut_renamed_SDL_PutAudioStreamData 
 else:
   when SDL_AudioStreamPut_renamed_SDL_PutAudioStreamData is static:
     const
-      SDL_AudioStreamPut* = SDL_AudioStreamPut_renamed_SDL_PutAudioStreamData
+      SDL_AudioStreamPut* = SDL_AudioStreamPut_renamed_SDL_PutAudioStreamData 
   else:
-    let SDL_AudioStreamPut* = SDL_AudioStreamPut_renamed_SDL_PutAudioStreamData
+    let SDL_AudioStreamPut* = SDL_AudioStreamPut_renamed_SDL_PutAudioStreamData 
 when SDL_FreeAudioStream_renamed_SDL_DestroyAudioStream is typedesc:
   type
-    SDL_FreeAudioStream* = SDL_FreeAudioStream_renamed_SDL_DestroyAudioStream
+    SDL_FreeAudioStream* = SDL_FreeAudioStream_renamed_SDL_DestroyAudioStream 
 else:
   when SDL_FreeAudioStream_renamed_SDL_DestroyAudioStream is static:
     const
-      SDL_FreeAudioStream* = SDL_FreeAudioStream_renamed_SDL_DestroyAudioStream
+      SDL_FreeAudioStream* = SDL_FreeAudioStream_renamed_SDL_DestroyAudioStream 
   else:
-    let SDL_FreeAudioStream* = SDL_FreeAudioStream_renamed_SDL_DestroyAudioStream
+    let SDL_FreeAudioStream* = SDL_FreeAudioStream_renamed_SDL_DestroyAudioStream 
 when SDL_FreeWAV_renamed_SDL_free is typedesc:
   type
-    SDL_FreeWAV* = SDL_FreeWAV_renamed_SDL_free
+    SDL_FreeWAV* = SDL_FreeWAV_renamed_SDL_free 
 else:
   when SDL_FreeWAV_renamed_SDL_free is static:
     const
-      SDL_FreeWAV* = SDL_FreeWAV_renamed_SDL_free
+      SDL_FreeWAV* = SDL_FreeWAV_renamed_SDL_free 
   else:
-    let SDL_FreeWAV* = SDL_FreeWAV_renamed_SDL_free
+    let SDL_FreeWAV* = SDL_FreeWAV_renamed_SDL_free 
 when SDL_LoadWAV_RW_renamed_SDL_LoadWAV_IO is typedesc:
   type
-    SDL_LoadWAV_RW* = SDL_LoadWAV_RW_renamed_SDL_LoadWAV_IO
+    SDL_LoadWAV_RW* = SDL_LoadWAV_RW_renamed_SDL_LoadWAV_IO 
 else:
   when SDL_LoadWAV_RW_renamed_SDL_LoadWAV_IO is static:
     const
-      SDL_LoadWAV_RW* = SDL_LoadWAV_RW_renamed_SDL_LoadWAV_IO
+      SDL_LoadWAV_RW* = SDL_LoadWAV_RW_renamed_SDL_LoadWAV_IO 
   else:
-    let SDL_LoadWAV_RW* = SDL_LoadWAV_RW_renamed_SDL_LoadWAV_IO
+    let SDL_LoadWAV_RW* = SDL_LoadWAV_RW_renamed_SDL_LoadWAV_IO 
 when SDL_MixAudioFormat_renamed_SDL_MixAudio is typedesc:
   type
-    SDL_MixAudioFormat* = SDL_MixAudioFormat_renamed_SDL_MixAudio
+    SDL_MixAudioFormat* = SDL_MixAudioFormat_renamed_SDL_MixAudio 
 else:
   when SDL_MixAudioFormat_renamed_SDL_MixAudio is static:
     const
-      SDL_MixAudioFormat* = SDL_MixAudioFormat_renamed_SDL_MixAudio
+      SDL_MixAudioFormat* = SDL_MixAudioFormat_renamed_SDL_MixAudio 
   else:
-    let SDL_MixAudioFormat* = SDL_MixAudioFormat_renamed_SDL_MixAudio
+    let SDL_MixAudioFormat* = SDL_MixAudioFormat_renamed_SDL_MixAudio 
 when SDL_NewAudioStream_renamed_SDL_CreateAudioStream is typedesc:
   type
-    SDL_NewAudioStream* = SDL_NewAudioStream_renamed_SDL_CreateAudioStream
+    SDL_NewAudioStream* = SDL_NewAudioStream_renamed_SDL_CreateAudioStream 
 else:
   when SDL_NewAudioStream_renamed_SDL_CreateAudioStream is static:
     const
-      SDL_NewAudioStream* = SDL_NewAudioStream_renamed_SDL_CreateAudioStream
+      SDL_NewAudioStream* = SDL_NewAudioStream_renamed_SDL_CreateAudioStream 
   else:
-    let SDL_NewAudioStream* = SDL_NewAudioStream_renamed_SDL_CreateAudioStream
+    let SDL_NewAudioStream* = SDL_NewAudioStream_renamed_SDL_CreateAudioStream 
 when SDL_GetCPUCount_renamed_SDL_GetNumLogicalCPUCores is typedesc:
   type
-    SDL_GetCPUCount* = SDL_GetCPUCount_renamed_SDL_GetNumLogicalCPUCores
+    SDL_GetCPUCount* = SDL_GetCPUCount_renamed_SDL_GetNumLogicalCPUCores 
 else:
   when SDL_GetCPUCount_renamed_SDL_GetNumLogicalCPUCores is static:
     const
-      SDL_GetCPUCount* = SDL_GetCPUCount_renamed_SDL_GetNumLogicalCPUCores
+      SDL_GetCPUCount* = SDL_GetCPUCount_renamed_SDL_GetNumLogicalCPUCores 
   else:
-    let SDL_GetCPUCount* = SDL_GetCPUCount_renamed_SDL_GetNumLogicalCPUCores
+    let SDL_GetCPUCount* = SDL_GetCPUCount_renamed_SDL_GetNumLogicalCPUCores 
 when SDL_SIMDGetAlignment_renamed_SDL_GetSIMDAlignment is typedesc:
   type
-    SDL_SIMDGetAlignment* = SDL_SIMDGetAlignment_renamed_SDL_GetSIMDAlignment
+    SDL_SIMDGetAlignment* = SDL_SIMDGetAlignment_renamed_SDL_GetSIMDAlignment 
 else:
   when SDL_SIMDGetAlignment_renamed_SDL_GetSIMDAlignment is static:
     const
-      SDL_SIMDGetAlignment* = SDL_SIMDGetAlignment_renamed_SDL_GetSIMDAlignment
+      SDL_SIMDGetAlignment* = SDL_SIMDGetAlignment_renamed_SDL_GetSIMDAlignment 
   else:
-    let SDL_SIMDGetAlignment* = SDL_SIMDGetAlignment_renamed_SDL_GetSIMDAlignment
+    let SDL_SIMDGetAlignment* = SDL_SIMDGetAlignment_renamed_SDL_GetSIMDAlignment 
 when SDL_SwapBE16_renamed_SDL_Swap16BE is typedesc:
   type
-    SDL_SwapBE16* = SDL_SwapBE16_renamed_SDL_Swap16BE
+    SDL_SwapBE16* = SDL_SwapBE16_renamed_SDL_Swap16BE 
 else:
   when SDL_SwapBE16_renamed_SDL_Swap16BE is static:
     const
-      SDL_SwapBE16* = SDL_SwapBE16_renamed_SDL_Swap16BE
+      SDL_SwapBE16* = SDL_SwapBE16_renamed_SDL_Swap16BE 
   else:
-    let SDL_SwapBE16* = SDL_SwapBE16_renamed_SDL_Swap16BE
+    let SDL_SwapBE16* = SDL_SwapBE16_renamed_SDL_Swap16BE 
 when SDL_SwapBE32_renamed_SDL_Swap32BE is typedesc:
   type
-    SDL_SwapBE32* = SDL_SwapBE32_renamed_SDL_Swap32BE
+    SDL_SwapBE32* = SDL_SwapBE32_renamed_SDL_Swap32BE 
 else:
   when SDL_SwapBE32_renamed_SDL_Swap32BE is static:
     const
-      SDL_SwapBE32* = SDL_SwapBE32_renamed_SDL_Swap32BE
+      SDL_SwapBE32* = SDL_SwapBE32_renamed_SDL_Swap32BE 
   else:
-    let SDL_SwapBE32* = SDL_SwapBE32_renamed_SDL_Swap32BE
+    let SDL_SwapBE32* = SDL_SwapBE32_renamed_SDL_Swap32BE 
 when SDL_SwapBE64_renamed_SDL_Swap64BE is typedesc:
   type
-    SDL_SwapBE64* = SDL_SwapBE64_renamed_SDL_Swap64BE
+    SDL_SwapBE64* = SDL_SwapBE64_renamed_SDL_Swap64BE 
 else:
   when SDL_SwapBE64_renamed_SDL_Swap64BE is static:
     const
-      SDL_SwapBE64* = SDL_SwapBE64_renamed_SDL_Swap64BE
+      SDL_SwapBE64* = SDL_SwapBE64_renamed_SDL_Swap64BE 
   else:
-    let SDL_SwapBE64* = SDL_SwapBE64_renamed_SDL_Swap64BE
+    let SDL_SwapBE64* = SDL_SwapBE64_renamed_SDL_Swap64BE 
 when SDL_SwapLE16_renamed_SDL_Swap16LE is typedesc:
   type
-    SDL_SwapLE16* = SDL_SwapLE16_renamed_SDL_Swap16LE
+    SDL_SwapLE16* = SDL_SwapLE16_renamed_SDL_Swap16LE 
 else:
   when SDL_SwapLE16_renamed_SDL_Swap16LE is static:
     const
-      SDL_SwapLE16* = SDL_SwapLE16_renamed_SDL_Swap16LE
+      SDL_SwapLE16* = SDL_SwapLE16_renamed_SDL_Swap16LE 
   else:
-    let SDL_SwapLE16* = SDL_SwapLE16_renamed_SDL_Swap16LE
+    let SDL_SwapLE16* = SDL_SwapLE16_renamed_SDL_Swap16LE 
 when SDL_SwapLE32_renamed_SDL_Swap32LE is typedesc:
   type
-    SDL_SwapLE32* = SDL_SwapLE32_renamed_SDL_Swap32LE
+    SDL_SwapLE32* = SDL_SwapLE32_renamed_SDL_Swap32LE 
 else:
   when SDL_SwapLE32_renamed_SDL_Swap32LE is static:
     const
-      SDL_SwapLE32* = SDL_SwapLE32_renamed_SDL_Swap32LE
+      SDL_SwapLE32* = SDL_SwapLE32_renamed_SDL_Swap32LE 
   else:
-    let SDL_SwapLE32* = SDL_SwapLE32_renamed_SDL_Swap32LE
+    let SDL_SwapLE32* = SDL_SwapLE32_renamed_SDL_Swap32LE 
 when SDL_SwapLE64_renamed_SDL_Swap64LE is typedesc:
   type
-    SDL_SwapLE64* = SDL_SwapLE64_renamed_SDL_Swap64LE
+    SDL_SwapLE64* = SDL_SwapLE64_renamed_SDL_Swap64LE 
 else:
   when SDL_SwapLE64_renamed_SDL_Swap64LE is static:
     const
-      SDL_SwapLE64* = SDL_SwapLE64_renamed_SDL_Swap64LE
+      SDL_SwapLE64* = SDL_SwapLE64_renamed_SDL_Swap64LE 
   else:
-    let SDL_SwapLE64* = SDL_SwapLE64_renamed_SDL_Swap64LE
+    let SDL_SwapLE64* = SDL_SwapLE64_renamed_SDL_Swap64LE 
 when SDL_APP_DIDENTERBACKGROUND_renamed_SDL_EVENT_DID_ENTER_BACKGROUND is
     typedesc:
   type
-    SDL_APP_DIDENTERBACKGROUND* = SDL_APP_DIDENTERBACKGROUND_renamed_SDL_EVENT_DID_ENTER_BACKGROUND
+    SDL_APP_DIDENTERBACKGROUND* = SDL_APP_DIDENTERBACKGROUND_renamed_SDL_EVENT_DID_ENTER_BACKGROUND 
 else:
   when SDL_APP_DIDENTERBACKGROUND_renamed_SDL_EVENT_DID_ENTER_BACKGROUND is
       static:
     const
-      SDL_APP_DIDENTERBACKGROUND* = SDL_APP_DIDENTERBACKGROUND_renamed_SDL_EVENT_DID_ENTER_BACKGROUND
+      SDL_APP_DIDENTERBACKGROUND* = SDL_APP_DIDENTERBACKGROUND_renamed_SDL_EVENT_DID_ENTER_BACKGROUND 
   else:
-    let SDL_APP_DIDENTERBACKGROUND* = SDL_APP_DIDENTERBACKGROUND_renamed_SDL_EVENT_DID_ENTER_BACKGROUND
+    let SDL_APP_DIDENTERBACKGROUND* = SDL_APP_DIDENTERBACKGROUND_renamed_SDL_EVENT_DID_ENTER_BACKGROUND 
 when SDL_APP_DIDENTERFOREGROUND_renamed_SDL_EVENT_DID_ENTER_FOREGROUND is
     typedesc:
   type
-    SDL_APP_DIDENTERFOREGROUND* = SDL_APP_DIDENTERFOREGROUND_renamed_SDL_EVENT_DID_ENTER_FOREGROUND
+    SDL_APP_DIDENTERFOREGROUND* = SDL_APP_DIDENTERFOREGROUND_renamed_SDL_EVENT_DID_ENTER_FOREGROUND 
 else:
   when SDL_APP_DIDENTERFOREGROUND_renamed_SDL_EVENT_DID_ENTER_FOREGROUND is
       static:
     const
-      SDL_APP_DIDENTERFOREGROUND* = SDL_APP_DIDENTERFOREGROUND_renamed_SDL_EVENT_DID_ENTER_FOREGROUND
+      SDL_APP_DIDENTERFOREGROUND* = SDL_APP_DIDENTERFOREGROUND_renamed_SDL_EVENT_DID_ENTER_FOREGROUND 
   else:
-    let SDL_APP_DIDENTERFOREGROUND* = SDL_APP_DIDENTERFOREGROUND_renamed_SDL_EVENT_DID_ENTER_FOREGROUND
+    let SDL_APP_DIDENTERFOREGROUND* = SDL_APP_DIDENTERFOREGROUND_renamed_SDL_EVENT_DID_ENTER_FOREGROUND 
 when SDL_APP_LOWMEMORY_renamed_SDL_EVENT_LOW_MEMORY is typedesc:
   type
-    SDL_APP_LOWMEMORY* = SDL_APP_LOWMEMORY_renamed_SDL_EVENT_LOW_MEMORY
+    SDL_APP_LOWMEMORY* = SDL_APP_LOWMEMORY_renamed_SDL_EVENT_LOW_MEMORY 
 else:
   when SDL_APP_LOWMEMORY_renamed_SDL_EVENT_LOW_MEMORY is static:
     const
-      SDL_APP_LOWMEMORY* = SDL_APP_LOWMEMORY_renamed_SDL_EVENT_LOW_MEMORY
+      SDL_APP_LOWMEMORY* = SDL_APP_LOWMEMORY_renamed_SDL_EVENT_LOW_MEMORY 
   else:
-    let SDL_APP_LOWMEMORY* = SDL_APP_LOWMEMORY_renamed_SDL_EVENT_LOW_MEMORY
+    let SDL_APP_LOWMEMORY* = SDL_APP_LOWMEMORY_renamed_SDL_EVENT_LOW_MEMORY 
 when SDL_APP_TERMINATING_renamed_SDL_EVENT_TERMINATING is typedesc:
   type
-    SDL_APP_TERMINATING* = SDL_APP_TERMINATING_renamed_SDL_EVENT_TERMINATING
+    SDL_APP_TERMINATING* = SDL_APP_TERMINATING_renamed_SDL_EVENT_TERMINATING 
 else:
   when SDL_APP_TERMINATING_renamed_SDL_EVENT_TERMINATING is static:
     const
-      SDL_APP_TERMINATING* = SDL_APP_TERMINATING_renamed_SDL_EVENT_TERMINATING
+      SDL_APP_TERMINATING* = SDL_APP_TERMINATING_renamed_SDL_EVENT_TERMINATING 
   else:
-    let SDL_APP_TERMINATING* = SDL_APP_TERMINATING_renamed_SDL_EVENT_TERMINATING
+    let SDL_APP_TERMINATING* = SDL_APP_TERMINATING_renamed_SDL_EVENT_TERMINATING 
 when SDL_APP_WILLENTERBACKGROUND_renamed_SDL_EVENT_WILL_ENTER_BACKGROUND is
     typedesc:
   type
-    SDL_APP_WILLENTERBACKGROUND* = SDL_APP_WILLENTERBACKGROUND_renamed_SDL_EVENT_WILL_ENTER_BACKGROUND
+    SDL_APP_WILLENTERBACKGROUND* = SDL_APP_WILLENTERBACKGROUND_renamed_SDL_EVENT_WILL_ENTER_BACKGROUND 
 else:
   when SDL_APP_WILLENTERBACKGROUND_renamed_SDL_EVENT_WILL_ENTER_BACKGROUND is
       static:
     const
-      SDL_APP_WILLENTERBACKGROUND* = SDL_APP_WILLENTERBACKGROUND_renamed_SDL_EVENT_WILL_ENTER_BACKGROUND
+      SDL_APP_WILLENTERBACKGROUND* = SDL_APP_WILLENTERBACKGROUND_renamed_SDL_EVENT_WILL_ENTER_BACKGROUND 
   else:
-    let SDL_APP_WILLENTERBACKGROUND* = SDL_APP_WILLENTERBACKGROUND_renamed_SDL_EVENT_WILL_ENTER_BACKGROUND
+    let SDL_APP_WILLENTERBACKGROUND* = SDL_APP_WILLENTERBACKGROUND_renamed_SDL_EVENT_WILL_ENTER_BACKGROUND 
 when SDL_APP_WILLENTERFOREGROUND_renamed_SDL_EVENT_WILL_ENTER_FOREGROUND is
     typedesc:
   type
-    SDL_APP_WILLENTERFOREGROUND* = SDL_APP_WILLENTERFOREGROUND_renamed_SDL_EVENT_WILL_ENTER_FOREGROUND
+    SDL_APP_WILLENTERFOREGROUND* = SDL_APP_WILLENTERFOREGROUND_renamed_SDL_EVENT_WILL_ENTER_FOREGROUND 
 else:
   when SDL_APP_WILLENTERFOREGROUND_renamed_SDL_EVENT_WILL_ENTER_FOREGROUND is
       static:
     const
-      SDL_APP_WILLENTERFOREGROUND* = SDL_APP_WILLENTERFOREGROUND_renamed_SDL_EVENT_WILL_ENTER_FOREGROUND
+      SDL_APP_WILLENTERFOREGROUND* = SDL_APP_WILLENTERFOREGROUND_renamed_SDL_EVENT_WILL_ENTER_FOREGROUND 
   else:
-    let SDL_APP_WILLENTERFOREGROUND* = SDL_APP_WILLENTERFOREGROUND_renamed_SDL_EVENT_WILL_ENTER_FOREGROUND
+    let SDL_APP_WILLENTERFOREGROUND* = SDL_APP_WILLENTERFOREGROUND_renamed_SDL_EVENT_WILL_ENTER_FOREGROUND 
 when SDL_AUDIODEVICEADDED_renamed_SDL_EVENT_AUDIO_DEVICE_ADDED is typedesc:
   type
-    SDL_AUDIODEVICEADDED* = SDL_AUDIODEVICEADDED_renamed_SDL_EVENT_AUDIO_DEVICE_ADDED
+    SDL_AUDIODEVICEADDED* = SDL_AUDIODEVICEADDED_renamed_SDL_EVENT_AUDIO_DEVICE_ADDED 
 else:
   when SDL_AUDIODEVICEADDED_renamed_SDL_EVENT_AUDIO_DEVICE_ADDED is static:
     const
-      SDL_AUDIODEVICEADDED* = SDL_AUDIODEVICEADDED_renamed_SDL_EVENT_AUDIO_DEVICE_ADDED
+      SDL_AUDIODEVICEADDED* = SDL_AUDIODEVICEADDED_renamed_SDL_EVENT_AUDIO_DEVICE_ADDED 
   else:
-    let SDL_AUDIODEVICEADDED* = SDL_AUDIODEVICEADDED_renamed_SDL_EVENT_AUDIO_DEVICE_ADDED
+    let SDL_AUDIODEVICEADDED* = SDL_AUDIODEVICEADDED_renamed_SDL_EVENT_AUDIO_DEVICE_ADDED 
 when SDL_AUDIODEVICEREMOVED_renamed_SDL_EVENT_AUDIO_DEVICE_REMOVED is typedesc:
   type
-    SDL_AUDIODEVICEREMOVED* = SDL_AUDIODEVICEREMOVED_renamed_SDL_EVENT_AUDIO_DEVICE_REMOVED
+    SDL_AUDIODEVICEREMOVED* = SDL_AUDIODEVICEREMOVED_renamed_SDL_EVENT_AUDIO_DEVICE_REMOVED 
 else:
   when SDL_AUDIODEVICEREMOVED_renamed_SDL_EVENT_AUDIO_DEVICE_REMOVED is static:
     const
-      SDL_AUDIODEVICEREMOVED* = SDL_AUDIODEVICEREMOVED_renamed_SDL_EVENT_AUDIO_DEVICE_REMOVED
+      SDL_AUDIODEVICEREMOVED* = SDL_AUDIODEVICEREMOVED_renamed_SDL_EVENT_AUDIO_DEVICE_REMOVED 
   else:
-    let SDL_AUDIODEVICEREMOVED* = SDL_AUDIODEVICEREMOVED_renamed_SDL_EVENT_AUDIO_DEVICE_REMOVED
+    let SDL_AUDIODEVICEREMOVED* = SDL_AUDIODEVICEREMOVED_renamed_SDL_EVENT_AUDIO_DEVICE_REMOVED 
 when SDL_CLIPBOARDUPDATE_renamed_SDL_EVENT_CLIPBOARD_UPDATE is typedesc:
   type
-    SDL_CLIPBOARDUPDATE* = SDL_CLIPBOARDUPDATE_renamed_SDL_EVENT_CLIPBOARD_UPDATE
+    SDL_CLIPBOARDUPDATE* = SDL_CLIPBOARDUPDATE_renamed_SDL_EVENT_CLIPBOARD_UPDATE 
 else:
   when SDL_CLIPBOARDUPDATE_renamed_SDL_EVENT_CLIPBOARD_UPDATE is static:
     const
-      SDL_CLIPBOARDUPDATE* = SDL_CLIPBOARDUPDATE_renamed_SDL_EVENT_CLIPBOARD_UPDATE
+      SDL_CLIPBOARDUPDATE* = SDL_CLIPBOARDUPDATE_renamed_SDL_EVENT_CLIPBOARD_UPDATE 
   else:
-    let SDL_CLIPBOARDUPDATE* = SDL_CLIPBOARDUPDATE_renamed_SDL_EVENT_CLIPBOARD_UPDATE
+    let SDL_CLIPBOARDUPDATE* = SDL_CLIPBOARDUPDATE_renamed_SDL_EVENT_CLIPBOARD_UPDATE 
 when SDL_CONTROLLERAXISMOTION_renamed_SDL_EVENT_GAMEPAD_AXIS_MOTION is typedesc:
   type
-    SDL_CONTROLLERAXISMOTION* = SDL_CONTROLLERAXISMOTION_renamed_SDL_EVENT_GAMEPAD_AXIS_MOTION
+    SDL_CONTROLLERAXISMOTION* = SDL_CONTROLLERAXISMOTION_renamed_SDL_EVENT_GAMEPAD_AXIS_MOTION 
 else:
   when SDL_CONTROLLERAXISMOTION_renamed_SDL_EVENT_GAMEPAD_AXIS_MOTION is static:
     const
-      SDL_CONTROLLERAXISMOTION* = SDL_CONTROLLERAXISMOTION_renamed_SDL_EVENT_GAMEPAD_AXIS_MOTION
+      SDL_CONTROLLERAXISMOTION* = SDL_CONTROLLERAXISMOTION_renamed_SDL_EVENT_GAMEPAD_AXIS_MOTION 
   else:
-    let SDL_CONTROLLERAXISMOTION* = SDL_CONTROLLERAXISMOTION_renamed_SDL_EVENT_GAMEPAD_AXIS_MOTION
+    let SDL_CONTROLLERAXISMOTION* = SDL_CONTROLLERAXISMOTION_renamed_SDL_EVENT_GAMEPAD_AXIS_MOTION 
 when SDL_CONTROLLERBUTTONDOWN_renamed_SDL_EVENT_GAMEPAD_BUTTON_DOWN is typedesc:
   type
-    SDL_CONTROLLERBUTTONDOWN* = SDL_CONTROLLERBUTTONDOWN_renamed_SDL_EVENT_GAMEPAD_BUTTON_DOWN
+    SDL_CONTROLLERBUTTONDOWN* = SDL_CONTROLLERBUTTONDOWN_renamed_SDL_EVENT_GAMEPAD_BUTTON_DOWN 
 else:
   when SDL_CONTROLLERBUTTONDOWN_renamed_SDL_EVENT_GAMEPAD_BUTTON_DOWN is static:
     const
-      SDL_CONTROLLERBUTTONDOWN* = SDL_CONTROLLERBUTTONDOWN_renamed_SDL_EVENT_GAMEPAD_BUTTON_DOWN
+      SDL_CONTROLLERBUTTONDOWN* = SDL_CONTROLLERBUTTONDOWN_renamed_SDL_EVENT_GAMEPAD_BUTTON_DOWN 
   else:
-    let SDL_CONTROLLERBUTTONDOWN* = SDL_CONTROLLERBUTTONDOWN_renamed_SDL_EVENT_GAMEPAD_BUTTON_DOWN
+    let SDL_CONTROLLERBUTTONDOWN* = SDL_CONTROLLERBUTTONDOWN_renamed_SDL_EVENT_GAMEPAD_BUTTON_DOWN 
 when SDL_CONTROLLERBUTTONUP_renamed_SDL_EVENT_GAMEPAD_BUTTON_UP is typedesc:
   type
-    SDL_CONTROLLERBUTTONUP* = SDL_CONTROLLERBUTTONUP_renamed_SDL_EVENT_GAMEPAD_BUTTON_UP
+    SDL_CONTROLLERBUTTONUP* = SDL_CONTROLLERBUTTONUP_renamed_SDL_EVENT_GAMEPAD_BUTTON_UP 
 else:
   when SDL_CONTROLLERBUTTONUP_renamed_SDL_EVENT_GAMEPAD_BUTTON_UP is static:
     const
-      SDL_CONTROLLERBUTTONUP* = SDL_CONTROLLERBUTTONUP_renamed_SDL_EVENT_GAMEPAD_BUTTON_UP
+      SDL_CONTROLLERBUTTONUP* = SDL_CONTROLLERBUTTONUP_renamed_SDL_EVENT_GAMEPAD_BUTTON_UP 
   else:
-    let SDL_CONTROLLERBUTTONUP* = SDL_CONTROLLERBUTTONUP_renamed_SDL_EVENT_GAMEPAD_BUTTON_UP
+    let SDL_CONTROLLERBUTTONUP* = SDL_CONTROLLERBUTTONUP_renamed_SDL_EVENT_GAMEPAD_BUTTON_UP 
 when SDL_CONTROLLERDEVICEADDED_renamed_SDL_EVENT_GAMEPAD_ADDED is typedesc:
   type
-    SDL_CONTROLLERDEVICEADDED* = SDL_CONTROLLERDEVICEADDED_renamed_SDL_EVENT_GAMEPAD_ADDED
+    SDL_CONTROLLERDEVICEADDED* = SDL_CONTROLLERDEVICEADDED_renamed_SDL_EVENT_GAMEPAD_ADDED 
 else:
   when SDL_CONTROLLERDEVICEADDED_renamed_SDL_EVENT_GAMEPAD_ADDED is static:
     const
-      SDL_CONTROLLERDEVICEADDED* = SDL_CONTROLLERDEVICEADDED_renamed_SDL_EVENT_GAMEPAD_ADDED
+      SDL_CONTROLLERDEVICEADDED* = SDL_CONTROLLERDEVICEADDED_renamed_SDL_EVENT_GAMEPAD_ADDED 
   else:
-    let SDL_CONTROLLERDEVICEADDED* = SDL_CONTROLLERDEVICEADDED_renamed_SDL_EVENT_GAMEPAD_ADDED
+    let SDL_CONTROLLERDEVICEADDED* = SDL_CONTROLLERDEVICEADDED_renamed_SDL_EVENT_GAMEPAD_ADDED 
 when SDL_CONTROLLERDEVICEREMAPPED_renamed_SDL_EVENT_GAMEPAD_REMAPPED is typedesc:
   type
-    SDL_CONTROLLERDEVICEREMAPPED* = SDL_CONTROLLERDEVICEREMAPPED_renamed_SDL_EVENT_GAMEPAD_REMAPPED
+    SDL_CONTROLLERDEVICEREMAPPED* = SDL_CONTROLLERDEVICEREMAPPED_renamed_SDL_EVENT_GAMEPAD_REMAPPED 
 else:
   when SDL_CONTROLLERDEVICEREMAPPED_renamed_SDL_EVENT_GAMEPAD_REMAPPED is static:
     const
-      SDL_CONTROLLERDEVICEREMAPPED* = SDL_CONTROLLERDEVICEREMAPPED_renamed_SDL_EVENT_GAMEPAD_REMAPPED
+      SDL_CONTROLLERDEVICEREMAPPED* = SDL_CONTROLLERDEVICEREMAPPED_renamed_SDL_EVENT_GAMEPAD_REMAPPED 
   else:
-    let SDL_CONTROLLERDEVICEREMAPPED* = SDL_CONTROLLERDEVICEREMAPPED_renamed_SDL_EVENT_GAMEPAD_REMAPPED
+    let SDL_CONTROLLERDEVICEREMAPPED* = SDL_CONTROLLERDEVICEREMAPPED_renamed_SDL_EVENT_GAMEPAD_REMAPPED 
 when SDL_CONTROLLERDEVICEREMOVED_renamed_SDL_EVENT_GAMEPAD_REMOVED is typedesc:
   type
-    SDL_CONTROLLERDEVICEREMOVED* = SDL_CONTROLLERDEVICEREMOVED_renamed_SDL_EVENT_GAMEPAD_REMOVED
+    SDL_CONTROLLERDEVICEREMOVED* = SDL_CONTROLLERDEVICEREMOVED_renamed_SDL_EVENT_GAMEPAD_REMOVED 
 else:
   when SDL_CONTROLLERDEVICEREMOVED_renamed_SDL_EVENT_GAMEPAD_REMOVED is static:
     const
-      SDL_CONTROLLERDEVICEREMOVED* = SDL_CONTROLLERDEVICEREMOVED_renamed_SDL_EVENT_GAMEPAD_REMOVED
+      SDL_CONTROLLERDEVICEREMOVED* = SDL_CONTROLLERDEVICEREMOVED_renamed_SDL_EVENT_GAMEPAD_REMOVED 
   else:
-    let SDL_CONTROLLERDEVICEREMOVED* = SDL_CONTROLLERDEVICEREMOVED_renamed_SDL_EVENT_GAMEPAD_REMOVED
+    let SDL_CONTROLLERDEVICEREMOVED* = SDL_CONTROLLERDEVICEREMOVED_renamed_SDL_EVENT_GAMEPAD_REMOVED 
 when SDL_CONTROLLERSENSORUPDATE_renamed_SDL_EVENT_GAMEPAD_SENSOR_UPDATE is
     typedesc:
   type
-    SDL_CONTROLLERSENSORUPDATE* = SDL_CONTROLLERSENSORUPDATE_renamed_SDL_EVENT_GAMEPAD_SENSOR_UPDATE
+    SDL_CONTROLLERSENSORUPDATE* = SDL_CONTROLLERSENSORUPDATE_renamed_SDL_EVENT_GAMEPAD_SENSOR_UPDATE 
 else:
   when SDL_CONTROLLERSENSORUPDATE_renamed_SDL_EVENT_GAMEPAD_SENSOR_UPDATE is
       static:
     const
-      SDL_CONTROLLERSENSORUPDATE* = SDL_CONTROLLERSENSORUPDATE_renamed_SDL_EVENT_GAMEPAD_SENSOR_UPDATE
+      SDL_CONTROLLERSENSORUPDATE* = SDL_CONTROLLERSENSORUPDATE_renamed_SDL_EVENT_GAMEPAD_SENSOR_UPDATE 
   else:
-    let SDL_CONTROLLERSENSORUPDATE* = SDL_CONTROLLERSENSORUPDATE_renamed_SDL_EVENT_GAMEPAD_SENSOR_UPDATE
+    let SDL_CONTROLLERSENSORUPDATE* = SDL_CONTROLLERSENSORUPDATE_renamed_SDL_EVENT_GAMEPAD_SENSOR_UPDATE 
 when SDL_CONTROLLERSTEAMHANDLEUPDATED_renamed_SDL_EVENT_GAMEPAD_STEAM_HANDLE_UPDATED is
     typedesc:
   type
-    SDL_CONTROLLERSTEAMHANDLEUPDATED* = SDL_CONTROLLERSTEAMHANDLEUPDATED_renamed_SDL_EVENT_GAMEPAD_STEAM_HANDLE_UPDATED
+    SDL_CONTROLLERSTEAMHANDLEUPDATED* = SDL_CONTROLLERSTEAMHANDLEUPDATED_renamed_SDL_EVENT_GAMEPAD_STEAM_HANDLE_UPDATED 
 else:
   when SDL_CONTROLLERSTEAMHANDLEUPDATED_renamed_SDL_EVENT_GAMEPAD_STEAM_HANDLE_UPDATED is
       static:
     const
-      SDL_CONTROLLERSTEAMHANDLEUPDATED* = SDL_CONTROLLERSTEAMHANDLEUPDATED_renamed_SDL_EVENT_GAMEPAD_STEAM_HANDLE_UPDATED
+      SDL_CONTROLLERSTEAMHANDLEUPDATED* = SDL_CONTROLLERSTEAMHANDLEUPDATED_renamed_SDL_EVENT_GAMEPAD_STEAM_HANDLE_UPDATED 
   else:
-    let SDL_CONTROLLERSTEAMHANDLEUPDATED* = SDL_CONTROLLERSTEAMHANDLEUPDATED_renamed_SDL_EVENT_GAMEPAD_STEAM_HANDLE_UPDATED
+    let SDL_CONTROLLERSTEAMHANDLEUPDATED* = SDL_CONTROLLERSTEAMHANDLEUPDATED_renamed_SDL_EVENT_GAMEPAD_STEAM_HANDLE_UPDATED 
 when SDL_CONTROLLERTOUCHPADDOWN_renamed_SDL_EVENT_GAMEPAD_TOUCHPAD_DOWN is
     typedesc:
   type
-    SDL_CONTROLLERTOUCHPADDOWN* = SDL_CONTROLLERTOUCHPADDOWN_renamed_SDL_EVENT_GAMEPAD_TOUCHPAD_DOWN
+    SDL_CONTROLLERTOUCHPADDOWN* = SDL_CONTROLLERTOUCHPADDOWN_renamed_SDL_EVENT_GAMEPAD_TOUCHPAD_DOWN 
 else:
   when SDL_CONTROLLERTOUCHPADDOWN_renamed_SDL_EVENT_GAMEPAD_TOUCHPAD_DOWN is
       static:
     const
-      SDL_CONTROLLERTOUCHPADDOWN* = SDL_CONTROLLERTOUCHPADDOWN_renamed_SDL_EVENT_GAMEPAD_TOUCHPAD_DOWN
+      SDL_CONTROLLERTOUCHPADDOWN* = SDL_CONTROLLERTOUCHPADDOWN_renamed_SDL_EVENT_GAMEPAD_TOUCHPAD_DOWN 
   else:
-    let SDL_CONTROLLERTOUCHPADDOWN* = SDL_CONTROLLERTOUCHPADDOWN_renamed_SDL_EVENT_GAMEPAD_TOUCHPAD_DOWN
+    let SDL_CONTROLLERTOUCHPADDOWN* = SDL_CONTROLLERTOUCHPADDOWN_renamed_SDL_EVENT_GAMEPAD_TOUCHPAD_DOWN 
 when SDL_CONTROLLERTOUCHPADMOTION_renamed_SDL_EVENT_GAMEPAD_TOUCHPAD_MOTION is
     typedesc:
   type
-    SDL_CONTROLLERTOUCHPADMOTION* = SDL_CONTROLLERTOUCHPADMOTION_renamed_SDL_EVENT_GAMEPAD_TOUCHPAD_MOTION
+    SDL_CONTROLLERTOUCHPADMOTION* = SDL_CONTROLLERTOUCHPADMOTION_renamed_SDL_EVENT_GAMEPAD_TOUCHPAD_MOTION 
 else:
   when SDL_CONTROLLERTOUCHPADMOTION_renamed_SDL_EVENT_GAMEPAD_TOUCHPAD_MOTION is
       static:
     const
-      SDL_CONTROLLERTOUCHPADMOTION* = SDL_CONTROLLERTOUCHPADMOTION_renamed_SDL_EVENT_GAMEPAD_TOUCHPAD_MOTION
+      SDL_CONTROLLERTOUCHPADMOTION* = SDL_CONTROLLERTOUCHPADMOTION_renamed_SDL_EVENT_GAMEPAD_TOUCHPAD_MOTION 
   else:
-    let SDL_CONTROLLERTOUCHPADMOTION* = SDL_CONTROLLERTOUCHPADMOTION_renamed_SDL_EVENT_GAMEPAD_TOUCHPAD_MOTION
+    let SDL_CONTROLLERTOUCHPADMOTION* = SDL_CONTROLLERTOUCHPADMOTION_renamed_SDL_EVENT_GAMEPAD_TOUCHPAD_MOTION 
 when SDL_CONTROLLERTOUCHPADUP_renamed_SDL_EVENT_GAMEPAD_TOUCHPAD_UP is typedesc:
   type
-    SDL_CONTROLLERTOUCHPADUP* = SDL_CONTROLLERTOUCHPADUP_renamed_SDL_EVENT_GAMEPAD_TOUCHPAD_UP
+    SDL_CONTROLLERTOUCHPADUP* = SDL_CONTROLLERTOUCHPADUP_renamed_SDL_EVENT_GAMEPAD_TOUCHPAD_UP 
 else:
   when SDL_CONTROLLERTOUCHPADUP_renamed_SDL_EVENT_GAMEPAD_TOUCHPAD_UP is static:
     const
-      SDL_CONTROLLERTOUCHPADUP* = SDL_CONTROLLERTOUCHPADUP_renamed_SDL_EVENT_GAMEPAD_TOUCHPAD_UP
+      SDL_CONTROLLERTOUCHPADUP* = SDL_CONTROLLERTOUCHPADUP_renamed_SDL_EVENT_GAMEPAD_TOUCHPAD_UP 
   else:
-    let SDL_CONTROLLERTOUCHPADUP* = SDL_CONTROLLERTOUCHPADUP_renamed_SDL_EVENT_GAMEPAD_TOUCHPAD_UP
+    let SDL_CONTROLLERTOUCHPADUP* = SDL_CONTROLLERTOUCHPADUP_renamed_SDL_EVENT_GAMEPAD_TOUCHPAD_UP 
 when SDL_ControllerAxisEvent_renamed_SDL_GamepadAxisEvent is typedesc:
   type
-    SDL_ControllerAxisEvent* = SDL_ControllerAxisEvent_renamed_SDL_GamepadAxisEvent
+    SDL_ControllerAxisEvent* = SDL_ControllerAxisEvent_renamed_SDL_GamepadAxisEvent 
 else:
   when SDL_ControllerAxisEvent_renamed_SDL_GamepadAxisEvent is static:
     const
-      SDL_ControllerAxisEvent* = SDL_ControllerAxisEvent_renamed_SDL_GamepadAxisEvent
+      SDL_ControllerAxisEvent* = SDL_ControllerAxisEvent_renamed_SDL_GamepadAxisEvent 
   else:
-    let SDL_ControllerAxisEvent* = SDL_ControllerAxisEvent_renamed_SDL_GamepadAxisEvent
+    let SDL_ControllerAxisEvent* = SDL_ControllerAxisEvent_renamed_SDL_GamepadAxisEvent 
 when SDL_ControllerButtonEvent_renamed_SDL_GamepadButtonEvent is typedesc:
   type
-    SDL_ControllerButtonEvent* = SDL_ControllerButtonEvent_renamed_SDL_GamepadButtonEvent
+    SDL_ControllerButtonEvent* = SDL_ControllerButtonEvent_renamed_SDL_GamepadButtonEvent 
 else:
   when SDL_ControllerButtonEvent_renamed_SDL_GamepadButtonEvent is static:
     const
-      SDL_ControllerButtonEvent* = SDL_ControllerButtonEvent_renamed_SDL_GamepadButtonEvent
+      SDL_ControllerButtonEvent* = SDL_ControllerButtonEvent_renamed_SDL_GamepadButtonEvent 
   else:
-    let SDL_ControllerButtonEvent* = SDL_ControllerButtonEvent_renamed_SDL_GamepadButtonEvent
+    let SDL_ControllerButtonEvent* = SDL_ControllerButtonEvent_renamed_SDL_GamepadButtonEvent 
 when SDL_ControllerDeviceEvent_renamed_SDL_GamepadDeviceEvent is typedesc:
   type
-    SDL_ControllerDeviceEvent* = SDL_ControllerDeviceEvent_renamed_SDL_GamepadDeviceEvent
+    SDL_ControllerDeviceEvent* = SDL_ControllerDeviceEvent_renamed_SDL_GamepadDeviceEvent 
 else:
   when SDL_ControllerDeviceEvent_renamed_SDL_GamepadDeviceEvent is static:
     const
-      SDL_ControllerDeviceEvent* = SDL_ControllerDeviceEvent_renamed_SDL_GamepadDeviceEvent
+      SDL_ControllerDeviceEvent* = SDL_ControllerDeviceEvent_renamed_SDL_GamepadDeviceEvent 
   else:
-    let SDL_ControllerDeviceEvent* = SDL_ControllerDeviceEvent_renamed_SDL_GamepadDeviceEvent
+    let SDL_ControllerDeviceEvent* = SDL_ControllerDeviceEvent_renamed_SDL_GamepadDeviceEvent 
 when SDL_ControllerSensorEvent_renamed_SDL_GamepadSensorEvent is typedesc:
   type
-    SDL_ControllerSensorEvent* = SDL_ControllerSensorEvent_renamed_SDL_GamepadSensorEvent
+    SDL_ControllerSensorEvent* = SDL_ControllerSensorEvent_renamed_SDL_GamepadSensorEvent 
 else:
   when SDL_ControllerSensorEvent_renamed_SDL_GamepadSensorEvent is static:
     const
-      SDL_ControllerSensorEvent* = SDL_ControllerSensorEvent_renamed_SDL_GamepadSensorEvent
+      SDL_ControllerSensorEvent* = SDL_ControllerSensorEvent_renamed_SDL_GamepadSensorEvent 
   else:
-    let SDL_ControllerSensorEvent* = SDL_ControllerSensorEvent_renamed_SDL_GamepadSensorEvent
+    let SDL_ControllerSensorEvent* = SDL_ControllerSensorEvent_renamed_SDL_GamepadSensorEvent 
 when SDL_ControllerTouchpadEvent_renamed_SDL_GamepadTouchpadEvent is typedesc:
   type
-    SDL_ControllerTouchpadEvent* = SDL_ControllerTouchpadEvent_renamed_SDL_GamepadTouchpadEvent
+    SDL_ControllerTouchpadEvent* = SDL_ControllerTouchpadEvent_renamed_SDL_GamepadTouchpadEvent 
 else:
   when SDL_ControllerTouchpadEvent_renamed_SDL_GamepadTouchpadEvent is static:
     const
-      SDL_ControllerTouchpadEvent* = SDL_ControllerTouchpadEvent_renamed_SDL_GamepadTouchpadEvent
+      SDL_ControllerTouchpadEvent* = SDL_ControllerTouchpadEvent_renamed_SDL_GamepadTouchpadEvent 
   else:
-    let SDL_ControllerTouchpadEvent* = SDL_ControllerTouchpadEvent_renamed_SDL_GamepadTouchpadEvent
+    let SDL_ControllerTouchpadEvent* = SDL_ControllerTouchpadEvent_renamed_SDL_GamepadTouchpadEvent 
 when SDL_DISPLAYEVENT_CONNECTED_renamed_SDL_EVENT_DISPLAY_ADDED is typedesc:
   type
-    SDL_DISPLAYEVENT_CONNECTED* = SDL_DISPLAYEVENT_CONNECTED_renamed_SDL_EVENT_DISPLAY_ADDED
+    SDL_DISPLAYEVENT_CONNECTED* = SDL_DISPLAYEVENT_CONNECTED_renamed_SDL_EVENT_DISPLAY_ADDED 
 else:
   when SDL_DISPLAYEVENT_CONNECTED_renamed_SDL_EVENT_DISPLAY_ADDED is static:
     const
-      SDL_DISPLAYEVENT_CONNECTED* = SDL_DISPLAYEVENT_CONNECTED_renamed_SDL_EVENT_DISPLAY_ADDED
+      SDL_DISPLAYEVENT_CONNECTED* = SDL_DISPLAYEVENT_CONNECTED_renamed_SDL_EVENT_DISPLAY_ADDED 
   else:
-    let SDL_DISPLAYEVENT_CONNECTED* = SDL_DISPLAYEVENT_CONNECTED_renamed_SDL_EVENT_DISPLAY_ADDED
+    let SDL_DISPLAYEVENT_CONNECTED* = SDL_DISPLAYEVENT_CONNECTED_renamed_SDL_EVENT_DISPLAY_ADDED 
 when SDL_DISPLAYEVENT_DISCONNECTED_renamed_SDL_EVENT_DISPLAY_REMOVED is typedesc:
   type
-    SDL_DISPLAYEVENT_DISCONNECTED* = SDL_DISPLAYEVENT_DISCONNECTED_renamed_SDL_EVENT_DISPLAY_REMOVED
+    SDL_DISPLAYEVENT_DISCONNECTED* = SDL_DISPLAYEVENT_DISCONNECTED_renamed_SDL_EVENT_DISPLAY_REMOVED 
 else:
   when SDL_DISPLAYEVENT_DISCONNECTED_renamed_SDL_EVENT_DISPLAY_REMOVED is static:
     const
-      SDL_DISPLAYEVENT_DISCONNECTED* = SDL_DISPLAYEVENT_DISCONNECTED_renamed_SDL_EVENT_DISPLAY_REMOVED
+      SDL_DISPLAYEVENT_DISCONNECTED* = SDL_DISPLAYEVENT_DISCONNECTED_renamed_SDL_EVENT_DISPLAY_REMOVED 
   else:
-    let SDL_DISPLAYEVENT_DISCONNECTED* = SDL_DISPLAYEVENT_DISCONNECTED_renamed_SDL_EVENT_DISPLAY_REMOVED
+    let SDL_DISPLAYEVENT_DISCONNECTED* = SDL_DISPLAYEVENT_DISCONNECTED_renamed_SDL_EVENT_DISPLAY_REMOVED 
 when SDL_DISPLAYEVENT_MOVED_renamed_SDL_EVENT_DISPLAY_MOVED is typedesc:
   type
-    SDL_DISPLAYEVENT_MOVED* = SDL_DISPLAYEVENT_MOVED_renamed_SDL_EVENT_DISPLAY_MOVED
+    SDL_DISPLAYEVENT_MOVED* = SDL_DISPLAYEVENT_MOVED_renamed_SDL_EVENT_DISPLAY_MOVED 
 else:
   when SDL_DISPLAYEVENT_MOVED_renamed_SDL_EVENT_DISPLAY_MOVED is static:
     const
-      SDL_DISPLAYEVENT_MOVED* = SDL_DISPLAYEVENT_MOVED_renamed_SDL_EVENT_DISPLAY_MOVED
+      SDL_DISPLAYEVENT_MOVED* = SDL_DISPLAYEVENT_MOVED_renamed_SDL_EVENT_DISPLAY_MOVED 
   else:
-    let SDL_DISPLAYEVENT_MOVED* = SDL_DISPLAYEVENT_MOVED_renamed_SDL_EVENT_DISPLAY_MOVED
+    let SDL_DISPLAYEVENT_MOVED* = SDL_DISPLAYEVENT_MOVED_renamed_SDL_EVENT_DISPLAY_MOVED 
 when SDL_DISPLAYEVENT_ORIENTATION_renamed_SDL_EVENT_DISPLAY_ORIENTATION is
     typedesc:
   type
-    SDL_DISPLAYEVENT_ORIENTATION* = SDL_DISPLAYEVENT_ORIENTATION_renamed_SDL_EVENT_DISPLAY_ORIENTATION
+    SDL_DISPLAYEVENT_ORIENTATION* = SDL_DISPLAYEVENT_ORIENTATION_renamed_SDL_EVENT_DISPLAY_ORIENTATION 
 else:
   when SDL_DISPLAYEVENT_ORIENTATION_renamed_SDL_EVENT_DISPLAY_ORIENTATION is
       static:
     const
-      SDL_DISPLAYEVENT_ORIENTATION* = SDL_DISPLAYEVENT_ORIENTATION_renamed_SDL_EVENT_DISPLAY_ORIENTATION
+      SDL_DISPLAYEVENT_ORIENTATION* = SDL_DISPLAYEVENT_ORIENTATION_renamed_SDL_EVENT_DISPLAY_ORIENTATION 
   else:
-    let SDL_DISPLAYEVENT_ORIENTATION* = SDL_DISPLAYEVENT_ORIENTATION_renamed_SDL_EVENT_DISPLAY_ORIENTATION
+    let SDL_DISPLAYEVENT_ORIENTATION* = SDL_DISPLAYEVENT_ORIENTATION_renamed_SDL_EVENT_DISPLAY_ORIENTATION 
 when SDL_DROPBEGIN_renamed_SDL_EVENT_DROP_BEGIN is typedesc:
   type
-    SDL_DROPBEGIN* = SDL_DROPBEGIN_renamed_SDL_EVENT_DROP_BEGIN
+    SDL_DROPBEGIN* = SDL_DROPBEGIN_renamed_SDL_EVENT_DROP_BEGIN 
 else:
   when SDL_DROPBEGIN_renamed_SDL_EVENT_DROP_BEGIN is static:
     const
-      SDL_DROPBEGIN* = SDL_DROPBEGIN_renamed_SDL_EVENT_DROP_BEGIN
+      SDL_DROPBEGIN* = SDL_DROPBEGIN_renamed_SDL_EVENT_DROP_BEGIN 
   else:
-    let SDL_DROPBEGIN* = SDL_DROPBEGIN_renamed_SDL_EVENT_DROP_BEGIN
+    let SDL_DROPBEGIN* = SDL_DROPBEGIN_renamed_SDL_EVENT_DROP_BEGIN 
 when SDL_DROPCOMPLETE_renamed_SDL_EVENT_DROP_COMPLETE is typedesc:
   type
-    SDL_DROPCOMPLETE* = SDL_DROPCOMPLETE_renamed_SDL_EVENT_DROP_COMPLETE
+    SDL_DROPCOMPLETE* = SDL_DROPCOMPLETE_renamed_SDL_EVENT_DROP_COMPLETE 
 else:
   when SDL_DROPCOMPLETE_renamed_SDL_EVENT_DROP_COMPLETE is static:
     const
-      SDL_DROPCOMPLETE* = SDL_DROPCOMPLETE_renamed_SDL_EVENT_DROP_COMPLETE
+      SDL_DROPCOMPLETE* = SDL_DROPCOMPLETE_renamed_SDL_EVENT_DROP_COMPLETE 
   else:
-    let SDL_DROPCOMPLETE* = SDL_DROPCOMPLETE_renamed_SDL_EVENT_DROP_COMPLETE
+    let SDL_DROPCOMPLETE* = SDL_DROPCOMPLETE_renamed_SDL_EVENT_DROP_COMPLETE 
 when SDL_DROPFILE_renamed_SDL_EVENT_DROP_FILE is typedesc:
   type
-    SDL_DROPFILE* = SDL_DROPFILE_renamed_SDL_EVENT_DROP_FILE
+    SDL_DROPFILE* = SDL_DROPFILE_renamed_SDL_EVENT_DROP_FILE 
 else:
   when SDL_DROPFILE_renamed_SDL_EVENT_DROP_FILE is static:
     const
-      SDL_DROPFILE* = SDL_DROPFILE_renamed_SDL_EVENT_DROP_FILE
+      SDL_DROPFILE* = SDL_DROPFILE_renamed_SDL_EVENT_DROP_FILE 
   else:
-    let SDL_DROPFILE* = SDL_DROPFILE_renamed_SDL_EVENT_DROP_FILE
+    let SDL_DROPFILE* = SDL_DROPFILE_renamed_SDL_EVENT_DROP_FILE 
 when SDL_DROPTEXT_renamed_SDL_EVENT_DROP_TEXT is typedesc:
   type
-    SDL_DROPTEXT* = SDL_DROPTEXT_renamed_SDL_EVENT_DROP_TEXT
+    SDL_DROPTEXT* = SDL_DROPTEXT_renamed_SDL_EVENT_DROP_TEXT 
 else:
   when SDL_DROPTEXT_renamed_SDL_EVENT_DROP_TEXT is static:
     const
-      SDL_DROPTEXT* = SDL_DROPTEXT_renamed_SDL_EVENT_DROP_TEXT
+      SDL_DROPTEXT* = SDL_DROPTEXT_renamed_SDL_EVENT_DROP_TEXT 
   else:
-    let SDL_DROPTEXT* = SDL_DROPTEXT_renamed_SDL_EVENT_DROP_TEXT
+    let SDL_DROPTEXT* = SDL_DROPTEXT_renamed_SDL_EVENT_DROP_TEXT 
 when SDL_DelEventWatch_renamed_SDL_RemoveEventWatch is typedesc:
   type
-    SDL_DelEventWatch* = SDL_DelEventWatch_renamed_SDL_RemoveEventWatch
+    SDL_DelEventWatch* = SDL_DelEventWatch_renamed_SDL_RemoveEventWatch 
 else:
   when SDL_DelEventWatch_renamed_SDL_RemoveEventWatch is static:
     const
-      SDL_DelEventWatch* = SDL_DelEventWatch_renamed_SDL_RemoveEventWatch
+      SDL_DelEventWatch* = SDL_DelEventWatch_renamed_SDL_RemoveEventWatch 
   else:
-    let SDL_DelEventWatch* = SDL_DelEventWatch_renamed_SDL_RemoveEventWatch
+    let SDL_DelEventWatch* = SDL_DelEventWatch_renamed_SDL_RemoveEventWatch 
 when SDL_FINGERDOWN_renamed_SDL_EVENT_FINGER_DOWN is typedesc:
   type
-    SDL_FINGERDOWN* = SDL_FINGERDOWN_renamed_SDL_EVENT_FINGER_DOWN
+    SDL_FINGERDOWN* = SDL_FINGERDOWN_renamed_SDL_EVENT_FINGER_DOWN 
 else:
   when SDL_FINGERDOWN_renamed_SDL_EVENT_FINGER_DOWN is static:
     const
-      SDL_FINGERDOWN* = SDL_FINGERDOWN_renamed_SDL_EVENT_FINGER_DOWN
+      SDL_FINGERDOWN* = SDL_FINGERDOWN_renamed_SDL_EVENT_FINGER_DOWN 
   else:
-    let SDL_FINGERDOWN* = SDL_FINGERDOWN_renamed_SDL_EVENT_FINGER_DOWN
+    let SDL_FINGERDOWN* = SDL_FINGERDOWN_renamed_SDL_EVENT_FINGER_DOWN 
 when SDL_FINGERMOTION_renamed_SDL_EVENT_FINGER_MOTION is typedesc:
   type
-    SDL_FINGERMOTION* = SDL_FINGERMOTION_renamed_SDL_EVENT_FINGER_MOTION
+    SDL_FINGERMOTION* = SDL_FINGERMOTION_renamed_SDL_EVENT_FINGER_MOTION 
 else:
   when SDL_FINGERMOTION_renamed_SDL_EVENT_FINGER_MOTION is static:
     const
-      SDL_FINGERMOTION* = SDL_FINGERMOTION_renamed_SDL_EVENT_FINGER_MOTION
+      SDL_FINGERMOTION* = SDL_FINGERMOTION_renamed_SDL_EVENT_FINGER_MOTION 
   else:
-    let SDL_FINGERMOTION* = SDL_FINGERMOTION_renamed_SDL_EVENT_FINGER_MOTION
+    let SDL_FINGERMOTION* = SDL_FINGERMOTION_renamed_SDL_EVENT_FINGER_MOTION 
 when SDL_FINGERUP_renamed_SDL_EVENT_FINGER_UP is typedesc:
   type
-    SDL_FINGERUP* = SDL_FINGERUP_renamed_SDL_EVENT_FINGER_UP
+    SDL_FINGERUP* = SDL_FINGERUP_renamed_SDL_EVENT_FINGER_UP 
 else:
   when SDL_FINGERUP_renamed_SDL_EVENT_FINGER_UP is static:
     const
-      SDL_FINGERUP* = SDL_FINGERUP_renamed_SDL_EVENT_FINGER_UP
+      SDL_FINGERUP* = SDL_FINGERUP_renamed_SDL_EVENT_FINGER_UP 
   else:
-    let SDL_FINGERUP* = SDL_FINGERUP_renamed_SDL_EVENT_FINGER_UP
+    let SDL_FINGERUP* = SDL_FINGERUP_renamed_SDL_EVENT_FINGER_UP 
 when SDL_FIRSTEVENT_renamed_SDL_EVENT_FIRST is typedesc:
   type
-    SDL_FIRSTEVENT* = SDL_FIRSTEVENT_renamed_SDL_EVENT_FIRST
+    SDL_FIRSTEVENT* = SDL_FIRSTEVENT_renamed_SDL_EVENT_FIRST 
 else:
   when SDL_FIRSTEVENT_renamed_SDL_EVENT_FIRST is static:
     const
-      SDL_FIRSTEVENT* = SDL_FIRSTEVENT_renamed_SDL_EVENT_FIRST
+      SDL_FIRSTEVENT* = SDL_FIRSTEVENT_renamed_SDL_EVENT_FIRST 
   else:
-    let SDL_FIRSTEVENT* = SDL_FIRSTEVENT_renamed_SDL_EVENT_FIRST
+    let SDL_FIRSTEVENT* = SDL_FIRSTEVENT_renamed_SDL_EVENT_FIRST 
 when SDL_JOYAXISMOTION_renamed_SDL_EVENT_JOYSTICK_AXIS_MOTION is typedesc:
   type
-    SDL_JOYAXISMOTION* = SDL_JOYAXISMOTION_renamed_SDL_EVENT_JOYSTICK_AXIS_MOTION
+    SDL_JOYAXISMOTION* = SDL_JOYAXISMOTION_renamed_SDL_EVENT_JOYSTICK_AXIS_MOTION 
 else:
   when SDL_JOYAXISMOTION_renamed_SDL_EVENT_JOYSTICK_AXIS_MOTION is static:
     const
-      SDL_JOYAXISMOTION* = SDL_JOYAXISMOTION_renamed_SDL_EVENT_JOYSTICK_AXIS_MOTION
+      SDL_JOYAXISMOTION* = SDL_JOYAXISMOTION_renamed_SDL_EVENT_JOYSTICK_AXIS_MOTION 
   else:
-    let SDL_JOYAXISMOTION* = SDL_JOYAXISMOTION_renamed_SDL_EVENT_JOYSTICK_AXIS_MOTION
+    let SDL_JOYAXISMOTION* = SDL_JOYAXISMOTION_renamed_SDL_EVENT_JOYSTICK_AXIS_MOTION 
 when SDL_JOYBATTERYUPDATED_renamed_SDL_EVENT_JOYSTICK_BATTERY_UPDATED is
     typedesc:
   type
-    SDL_JOYBATTERYUPDATED* = SDL_JOYBATTERYUPDATED_renamed_SDL_EVENT_JOYSTICK_BATTERY_UPDATED
+    SDL_JOYBATTERYUPDATED* = SDL_JOYBATTERYUPDATED_renamed_SDL_EVENT_JOYSTICK_BATTERY_UPDATED 
 else:
   when SDL_JOYBATTERYUPDATED_renamed_SDL_EVENT_JOYSTICK_BATTERY_UPDATED is
       static:
     const
-      SDL_JOYBATTERYUPDATED* = SDL_JOYBATTERYUPDATED_renamed_SDL_EVENT_JOYSTICK_BATTERY_UPDATED
+      SDL_JOYBATTERYUPDATED* = SDL_JOYBATTERYUPDATED_renamed_SDL_EVENT_JOYSTICK_BATTERY_UPDATED 
   else:
-    let SDL_JOYBATTERYUPDATED* = SDL_JOYBATTERYUPDATED_renamed_SDL_EVENT_JOYSTICK_BATTERY_UPDATED
+    let SDL_JOYBATTERYUPDATED* = SDL_JOYBATTERYUPDATED_renamed_SDL_EVENT_JOYSTICK_BATTERY_UPDATED 
 when SDL_JOYBUTTONDOWN_renamed_SDL_EVENT_JOYSTICK_BUTTON_DOWN is typedesc:
   type
-    SDL_JOYBUTTONDOWN* = SDL_JOYBUTTONDOWN_renamed_SDL_EVENT_JOYSTICK_BUTTON_DOWN
+    SDL_JOYBUTTONDOWN* = SDL_JOYBUTTONDOWN_renamed_SDL_EVENT_JOYSTICK_BUTTON_DOWN 
 else:
   when SDL_JOYBUTTONDOWN_renamed_SDL_EVENT_JOYSTICK_BUTTON_DOWN is static:
     const
-      SDL_JOYBUTTONDOWN* = SDL_JOYBUTTONDOWN_renamed_SDL_EVENT_JOYSTICK_BUTTON_DOWN
+      SDL_JOYBUTTONDOWN* = SDL_JOYBUTTONDOWN_renamed_SDL_EVENT_JOYSTICK_BUTTON_DOWN 
   else:
-    let SDL_JOYBUTTONDOWN* = SDL_JOYBUTTONDOWN_renamed_SDL_EVENT_JOYSTICK_BUTTON_DOWN
+    let SDL_JOYBUTTONDOWN* = SDL_JOYBUTTONDOWN_renamed_SDL_EVENT_JOYSTICK_BUTTON_DOWN 
 when SDL_JOYBUTTONUP_renamed_SDL_EVENT_JOYSTICK_BUTTON_UP is typedesc:
   type
-    SDL_JOYBUTTONUP* = SDL_JOYBUTTONUP_renamed_SDL_EVENT_JOYSTICK_BUTTON_UP
+    SDL_JOYBUTTONUP* = SDL_JOYBUTTONUP_renamed_SDL_EVENT_JOYSTICK_BUTTON_UP 
 else:
   when SDL_JOYBUTTONUP_renamed_SDL_EVENT_JOYSTICK_BUTTON_UP is static:
     const
-      SDL_JOYBUTTONUP* = SDL_JOYBUTTONUP_renamed_SDL_EVENT_JOYSTICK_BUTTON_UP
+      SDL_JOYBUTTONUP* = SDL_JOYBUTTONUP_renamed_SDL_EVENT_JOYSTICK_BUTTON_UP 
   else:
-    let SDL_JOYBUTTONUP* = SDL_JOYBUTTONUP_renamed_SDL_EVENT_JOYSTICK_BUTTON_UP
+    let SDL_JOYBUTTONUP* = SDL_JOYBUTTONUP_renamed_SDL_EVENT_JOYSTICK_BUTTON_UP 
 when SDL_JOYDEVICEADDED_renamed_SDL_EVENT_JOYSTICK_ADDED is typedesc:
   type
-    SDL_JOYDEVICEADDED* = SDL_JOYDEVICEADDED_renamed_SDL_EVENT_JOYSTICK_ADDED
+    SDL_JOYDEVICEADDED* = SDL_JOYDEVICEADDED_renamed_SDL_EVENT_JOYSTICK_ADDED 
 else:
   when SDL_JOYDEVICEADDED_renamed_SDL_EVENT_JOYSTICK_ADDED is static:
     const
-      SDL_JOYDEVICEADDED* = SDL_JOYDEVICEADDED_renamed_SDL_EVENT_JOYSTICK_ADDED
+      SDL_JOYDEVICEADDED* = SDL_JOYDEVICEADDED_renamed_SDL_EVENT_JOYSTICK_ADDED 
   else:
-    let SDL_JOYDEVICEADDED* = SDL_JOYDEVICEADDED_renamed_SDL_EVENT_JOYSTICK_ADDED
+    let SDL_JOYDEVICEADDED* = SDL_JOYDEVICEADDED_renamed_SDL_EVENT_JOYSTICK_ADDED 
 when SDL_JOYDEVICEREMOVED_renamed_SDL_EVENT_JOYSTICK_REMOVED is typedesc:
   type
-    SDL_JOYDEVICEREMOVED* = SDL_JOYDEVICEREMOVED_renamed_SDL_EVENT_JOYSTICK_REMOVED
+    SDL_JOYDEVICEREMOVED* = SDL_JOYDEVICEREMOVED_renamed_SDL_EVENT_JOYSTICK_REMOVED 
 else:
   when SDL_JOYDEVICEREMOVED_renamed_SDL_EVENT_JOYSTICK_REMOVED is static:
     const
-      SDL_JOYDEVICEREMOVED* = SDL_JOYDEVICEREMOVED_renamed_SDL_EVENT_JOYSTICK_REMOVED
+      SDL_JOYDEVICEREMOVED* = SDL_JOYDEVICEREMOVED_renamed_SDL_EVENT_JOYSTICK_REMOVED 
   else:
-    let SDL_JOYDEVICEREMOVED* = SDL_JOYDEVICEREMOVED_renamed_SDL_EVENT_JOYSTICK_REMOVED
+    let SDL_JOYDEVICEREMOVED* = SDL_JOYDEVICEREMOVED_renamed_SDL_EVENT_JOYSTICK_REMOVED 
 when SDL_JOYBALLMOTION_renamed_SDL_EVENT_JOYSTICK_BALL_MOTION is typedesc:
   type
-    SDL_JOYBALLMOTION* = SDL_JOYBALLMOTION_renamed_SDL_EVENT_JOYSTICK_BALL_MOTION
+    SDL_JOYBALLMOTION* = SDL_JOYBALLMOTION_renamed_SDL_EVENT_JOYSTICK_BALL_MOTION 
 else:
   when SDL_JOYBALLMOTION_renamed_SDL_EVENT_JOYSTICK_BALL_MOTION is static:
     const
-      SDL_JOYBALLMOTION* = SDL_JOYBALLMOTION_renamed_SDL_EVENT_JOYSTICK_BALL_MOTION
+      SDL_JOYBALLMOTION* = SDL_JOYBALLMOTION_renamed_SDL_EVENT_JOYSTICK_BALL_MOTION 
   else:
-    let SDL_JOYBALLMOTION* = SDL_JOYBALLMOTION_renamed_SDL_EVENT_JOYSTICK_BALL_MOTION
+    let SDL_JOYBALLMOTION* = SDL_JOYBALLMOTION_renamed_SDL_EVENT_JOYSTICK_BALL_MOTION 
 when SDL_JOYHATMOTION_renamed_SDL_EVENT_JOYSTICK_HAT_MOTION is typedesc:
   type
-    SDL_JOYHATMOTION* = SDL_JOYHATMOTION_renamed_SDL_EVENT_JOYSTICK_HAT_MOTION
+    SDL_JOYHATMOTION* = SDL_JOYHATMOTION_renamed_SDL_EVENT_JOYSTICK_HAT_MOTION 
 else:
   when SDL_JOYHATMOTION_renamed_SDL_EVENT_JOYSTICK_HAT_MOTION is static:
     const
-      SDL_JOYHATMOTION* = SDL_JOYHATMOTION_renamed_SDL_EVENT_JOYSTICK_HAT_MOTION
+      SDL_JOYHATMOTION* = SDL_JOYHATMOTION_renamed_SDL_EVENT_JOYSTICK_HAT_MOTION 
   else:
-    let SDL_JOYHATMOTION* = SDL_JOYHATMOTION_renamed_SDL_EVENT_JOYSTICK_HAT_MOTION
+    let SDL_JOYHATMOTION* = SDL_JOYHATMOTION_renamed_SDL_EVENT_JOYSTICK_HAT_MOTION 
 when SDL_KEYDOWN_renamed_SDL_EVENT_KEY_DOWN is typedesc:
   type
-    SDL_KEYDOWN* = SDL_KEYDOWN_renamed_SDL_EVENT_KEY_DOWN
+    SDL_KEYDOWN* = SDL_KEYDOWN_renamed_SDL_EVENT_KEY_DOWN 
 else:
   when SDL_KEYDOWN_renamed_SDL_EVENT_KEY_DOWN is static:
     const
-      SDL_KEYDOWN* = SDL_KEYDOWN_renamed_SDL_EVENT_KEY_DOWN
+      SDL_KEYDOWN* = SDL_KEYDOWN_renamed_SDL_EVENT_KEY_DOWN 
   else:
-    let SDL_KEYDOWN* = SDL_KEYDOWN_renamed_SDL_EVENT_KEY_DOWN
+    let SDL_KEYDOWN* = SDL_KEYDOWN_renamed_SDL_EVENT_KEY_DOWN 
 when SDL_KEYMAPCHANGED_renamed_SDL_EVENT_KEYMAP_CHANGED is typedesc:
   type
-    SDL_KEYMAPCHANGED* = SDL_KEYMAPCHANGED_renamed_SDL_EVENT_KEYMAP_CHANGED
+    SDL_KEYMAPCHANGED* = SDL_KEYMAPCHANGED_renamed_SDL_EVENT_KEYMAP_CHANGED 
 else:
   when SDL_KEYMAPCHANGED_renamed_SDL_EVENT_KEYMAP_CHANGED is static:
     const
-      SDL_KEYMAPCHANGED* = SDL_KEYMAPCHANGED_renamed_SDL_EVENT_KEYMAP_CHANGED
+      SDL_KEYMAPCHANGED* = SDL_KEYMAPCHANGED_renamed_SDL_EVENT_KEYMAP_CHANGED 
   else:
-    let SDL_KEYMAPCHANGED* = SDL_KEYMAPCHANGED_renamed_SDL_EVENT_KEYMAP_CHANGED
+    let SDL_KEYMAPCHANGED* = SDL_KEYMAPCHANGED_renamed_SDL_EVENT_KEYMAP_CHANGED 
 when SDL_KEYUP_renamed_SDL_EVENT_KEY_UP is typedesc:
   type
-    SDL_KEYUP* = SDL_KEYUP_renamed_SDL_EVENT_KEY_UP
+    SDL_KEYUP* = SDL_KEYUP_renamed_SDL_EVENT_KEY_UP 
 else:
   when SDL_KEYUP_renamed_SDL_EVENT_KEY_UP is static:
     const
-      SDL_KEYUP* = SDL_KEYUP_renamed_SDL_EVENT_KEY_UP
+      SDL_KEYUP* = SDL_KEYUP_renamed_SDL_EVENT_KEY_UP 
   else:
-    let SDL_KEYUP* = SDL_KEYUP_renamed_SDL_EVENT_KEY_UP
+    let SDL_KEYUP* = SDL_KEYUP_renamed_SDL_EVENT_KEY_UP 
 when SDL_LASTEVENT_renamed_SDL_EVENT_LAST is typedesc:
   type
-    SDL_LASTEVENT* = SDL_LASTEVENT_renamed_SDL_EVENT_LAST
+    SDL_LASTEVENT* = SDL_LASTEVENT_renamed_SDL_EVENT_LAST 
 else:
   when SDL_LASTEVENT_renamed_SDL_EVENT_LAST is static:
     const
-      SDL_LASTEVENT* = SDL_LASTEVENT_renamed_SDL_EVENT_LAST
+      SDL_LASTEVENT* = SDL_LASTEVENT_renamed_SDL_EVENT_LAST 
   else:
-    let SDL_LASTEVENT* = SDL_LASTEVENT_renamed_SDL_EVENT_LAST
+    let SDL_LASTEVENT* = SDL_LASTEVENT_renamed_SDL_EVENT_LAST 
 when SDL_LOCALECHANGED_renamed_SDL_EVENT_LOCALE_CHANGED is typedesc:
   type
-    SDL_LOCALECHANGED* = SDL_LOCALECHANGED_renamed_SDL_EVENT_LOCALE_CHANGED
+    SDL_LOCALECHANGED* = SDL_LOCALECHANGED_renamed_SDL_EVENT_LOCALE_CHANGED 
 else:
   when SDL_LOCALECHANGED_renamed_SDL_EVENT_LOCALE_CHANGED is static:
     const
-      SDL_LOCALECHANGED* = SDL_LOCALECHANGED_renamed_SDL_EVENT_LOCALE_CHANGED
+      SDL_LOCALECHANGED* = SDL_LOCALECHANGED_renamed_SDL_EVENT_LOCALE_CHANGED 
   else:
-    let SDL_LOCALECHANGED* = SDL_LOCALECHANGED_renamed_SDL_EVENT_LOCALE_CHANGED
+    let SDL_LOCALECHANGED* = SDL_LOCALECHANGED_renamed_SDL_EVENT_LOCALE_CHANGED 
 when SDL_MOUSEBUTTONDOWN_renamed_SDL_EVENT_MOUSE_BUTTON_DOWN is typedesc:
   type
-    SDL_MOUSEBUTTONDOWN* = SDL_MOUSEBUTTONDOWN_renamed_SDL_EVENT_MOUSE_BUTTON_DOWN
+    SDL_MOUSEBUTTONDOWN* = SDL_MOUSEBUTTONDOWN_renamed_SDL_EVENT_MOUSE_BUTTON_DOWN 
 else:
   when SDL_MOUSEBUTTONDOWN_renamed_SDL_EVENT_MOUSE_BUTTON_DOWN is static:
     const
-      SDL_MOUSEBUTTONDOWN* = SDL_MOUSEBUTTONDOWN_renamed_SDL_EVENT_MOUSE_BUTTON_DOWN
+      SDL_MOUSEBUTTONDOWN* = SDL_MOUSEBUTTONDOWN_renamed_SDL_EVENT_MOUSE_BUTTON_DOWN 
   else:
-    let SDL_MOUSEBUTTONDOWN* = SDL_MOUSEBUTTONDOWN_renamed_SDL_EVENT_MOUSE_BUTTON_DOWN
+    let SDL_MOUSEBUTTONDOWN* = SDL_MOUSEBUTTONDOWN_renamed_SDL_EVENT_MOUSE_BUTTON_DOWN 
 when SDL_MOUSEBUTTONUP_renamed_SDL_EVENT_MOUSE_BUTTON_UP is typedesc:
   type
-    SDL_MOUSEBUTTONUP* = SDL_MOUSEBUTTONUP_renamed_SDL_EVENT_MOUSE_BUTTON_UP
+    SDL_MOUSEBUTTONUP* = SDL_MOUSEBUTTONUP_renamed_SDL_EVENT_MOUSE_BUTTON_UP 
 else:
   when SDL_MOUSEBUTTONUP_renamed_SDL_EVENT_MOUSE_BUTTON_UP is static:
     const
-      SDL_MOUSEBUTTONUP* = SDL_MOUSEBUTTONUP_renamed_SDL_EVENT_MOUSE_BUTTON_UP
+      SDL_MOUSEBUTTONUP* = SDL_MOUSEBUTTONUP_renamed_SDL_EVENT_MOUSE_BUTTON_UP 
   else:
-    let SDL_MOUSEBUTTONUP* = SDL_MOUSEBUTTONUP_renamed_SDL_EVENT_MOUSE_BUTTON_UP
+    let SDL_MOUSEBUTTONUP* = SDL_MOUSEBUTTONUP_renamed_SDL_EVENT_MOUSE_BUTTON_UP 
 when SDL_MOUSEMOTION_renamed_SDL_EVENT_MOUSE_MOTION is typedesc:
   type
-    SDL_MOUSEMOTION* = SDL_MOUSEMOTION_renamed_SDL_EVENT_MOUSE_MOTION
+    SDL_MOUSEMOTION* = SDL_MOUSEMOTION_renamed_SDL_EVENT_MOUSE_MOTION 
 else:
   when SDL_MOUSEMOTION_renamed_SDL_EVENT_MOUSE_MOTION is static:
     const
-      SDL_MOUSEMOTION* = SDL_MOUSEMOTION_renamed_SDL_EVENT_MOUSE_MOTION
+      SDL_MOUSEMOTION* = SDL_MOUSEMOTION_renamed_SDL_EVENT_MOUSE_MOTION 
   else:
-    let SDL_MOUSEMOTION* = SDL_MOUSEMOTION_renamed_SDL_EVENT_MOUSE_MOTION
+    let SDL_MOUSEMOTION* = SDL_MOUSEMOTION_renamed_SDL_EVENT_MOUSE_MOTION 
 when SDL_MOUSEWHEEL_renamed_SDL_EVENT_MOUSE_WHEEL is typedesc:
   type
-    SDL_MOUSEWHEEL* = SDL_MOUSEWHEEL_renamed_SDL_EVENT_MOUSE_WHEEL
+    SDL_MOUSEWHEEL* = SDL_MOUSEWHEEL_renamed_SDL_EVENT_MOUSE_WHEEL 
 else:
   when SDL_MOUSEWHEEL_renamed_SDL_EVENT_MOUSE_WHEEL is static:
     const
-      SDL_MOUSEWHEEL* = SDL_MOUSEWHEEL_renamed_SDL_EVENT_MOUSE_WHEEL
+      SDL_MOUSEWHEEL* = SDL_MOUSEWHEEL_renamed_SDL_EVENT_MOUSE_WHEEL 
   else:
-    let SDL_MOUSEWHEEL* = SDL_MOUSEWHEEL_renamed_SDL_EVENT_MOUSE_WHEEL
+    let SDL_MOUSEWHEEL* = SDL_MOUSEWHEEL_renamed_SDL_EVENT_MOUSE_WHEEL 
 when SDL_POLLSENTINEL_renamed_SDL_EVENT_POLL_SENTINEL is typedesc:
   type
-    SDL_POLLSENTINEL* = SDL_POLLSENTINEL_renamed_SDL_EVENT_POLL_SENTINEL
+    SDL_POLLSENTINEL* = SDL_POLLSENTINEL_renamed_SDL_EVENT_POLL_SENTINEL 
 else:
   when SDL_POLLSENTINEL_renamed_SDL_EVENT_POLL_SENTINEL is static:
     const
-      SDL_POLLSENTINEL* = SDL_POLLSENTINEL_renamed_SDL_EVENT_POLL_SENTINEL
+      SDL_POLLSENTINEL* = SDL_POLLSENTINEL_renamed_SDL_EVENT_POLL_SENTINEL 
   else:
-    let SDL_POLLSENTINEL* = SDL_POLLSENTINEL_renamed_SDL_EVENT_POLL_SENTINEL
+    let SDL_POLLSENTINEL* = SDL_POLLSENTINEL_renamed_SDL_EVENT_POLL_SENTINEL 
 when SDL_QUIT_renamed_SDL_EVENT_QUIT is typedesc:
   type
-    SDL_QUIT* = SDL_QUIT_renamed_SDL_EVENT_QUIT
+    SDL_QUIT* = SDL_QUIT_renamed_SDL_EVENT_QUIT 
 else:
   when SDL_QUIT_renamed_SDL_EVENT_QUIT is static:
     const
-      SDL_QUIT* = SDL_QUIT_renamed_SDL_EVENT_QUIT
+      SDL_QUIT* = SDL_QUIT_renamed_SDL_EVENT_QUIT 
   else:
-    let SDL_QUIT* = SDL_QUIT_renamed_SDL_EVENT_QUIT
+    let SDL_QUIT* = SDL_QUIT_renamed_SDL_EVENT_QUIT 
 when SDL_RENDER_DEVICE_RESET_renamed_SDL_EVENT_RENDER_DEVICE_RESET is typedesc:
   type
-    SDL_RENDER_DEVICE_RESET* = SDL_RENDER_DEVICE_RESET_renamed_SDL_EVENT_RENDER_DEVICE_RESET
+    SDL_RENDER_DEVICE_RESET* = SDL_RENDER_DEVICE_RESET_renamed_SDL_EVENT_RENDER_DEVICE_RESET 
 else:
   when SDL_RENDER_DEVICE_RESET_renamed_SDL_EVENT_RENDER_DEVICE_RESET is static:
     const
-      SDL_RENDER_DEVICE_RESET* = SDL_RENDER_DEVICE_RESET_renamed_SDL_EVENT_RENDER_DEVICE_RESET
+      SDL_RENDER_DEVICE_RESET* = SDL_RENDER_DEVICE_RESET_renamed_SDL_EVENT_RENDER_DEVICE_RESET 
   else:
-    let SDL_RENDER_DEVICE_RESET* = SDL_RENDER_DEVICE_RESET_renamed_SDL_EVENT_RENDER_DEVICE_RESET
+    let SDL_RENDER_DEVICE_RESET* = SDL_RENDER_DEVICE_RESET_renamed_SDL_EVENT_RENDER_DEVICE_RESET 
 when SDL_RENDER_TARGETS_RESET_renamed_SDL_EVENT_RENDER_TARGETS_RESET is typedesc:
   type
-    SDL_RENDER_TARGETS_RESET* = SDL_RENDER_TARGETS_RESET_renamed_SDL_EVENT_RENDER_TARGETS_RESET
+    SDL_RENDER_TARGETS_RESET* = SDL_RENDER_TARGETS_RESET_renamed_SDL_EVENT_RENDER_TARGETS_RESET 
 else:
   when SDL_RENDER_TARGETS_RESET_renamed_SDL_EVENT_RENDER_TARGETS_RESET is static:
     const
-      SDL_RENDER_TARGETS_RESET* = SDL_RENDER_TARGETS_RESET_renamed_SDL_EVENT_RENDER_TARGETS_RESET
+      SDL_RENDER_TARGETS_RESET* = SDL_RENDER_TARGETS_RESET_renamed_SDL_EVENT_RENDER_TARGETS_RESET 
   else:
-    let SDL_RENDER_TARGETS_RESET* = SDL_RENDER_TARGETS_RESET_renamed_SDL_EVENT_RENDER_TARGETS_RESET
+    let SDL_RENDER_TARGETS_RESET* = SDL_RENDER_TARGETS_RESET_renamed_SDL_EVENT_RENDER_TARGETS_RESET 
 when SDL_SENSORUPDATE_renamed_SDL_EVENT_SENSOR_UPDATE is typedesc:
   type
-    SDL_SENSORUPDATE* = SDL_SENSORUPDATE_renamed_SDL_EVENT_SENSOR_UPDATE
+    SDL_SENSORUPDATE* = SDL_SENSORUPDATE_renamed_SDL_EVENT_SENSOR_UPDATE 
 else:
   when SDL_SENSORUPDATE_renamed_SDL_EVENT_SENSOR_UPDATE is static:
     const
-      SDL_SENSORUPDATE* = SDL_SENSORUPDATE_renamed_SDL_EVENT_SENSOR_UPDATE
+      SDL_SENSORUPDATE* = SDL_SENSORUPDATE_renamed_SDL_EVENT_SENSOR_UPDATE 
   else:
-    let SDL_SENSORUPDATE* = SDL_SENSORUPDATE_renamed_SDL_EVENT_SENSOR_UPDATE
+    let SDL_SENSORUPDATE* = SDL_SENSORUPDATE_renamed_SDL_EVENT_SENSOR_UPDATE 
 when SDL_TEXTEDITING_renamed_SDL_EVENT_TEXT_EDITING is typedesc:
   type
-    SDL_TEXTEDITING* = SDL_TEXTEDITING_renamed_SDL_EVENT_TEXT_EDITING
+    SDL_TEXTEDITING* = SDL_TEXTEDITING_renamed_SDL_EVENT_TEXT_EDITING 
 else:
   when SDL_TEXTEDITING_renamed_SDL_EVENT_TEXT_EDITING is static:
     const
-      SDL_TEXTEDITING* = SDL_TEXTEDITING_renamed_SDL_EVENT_TEXT_EDITING
+      SDL_TEXTEDITING* = SDL_TEXTEDITING_renamed_SDL_EVENT_TEXT_EDITING 
   else:
-    let SDL_TEXTEDITING* = SDL_TEXTEDITING_renamed_SDL_EVENT_TEXT_EDITING
+    let SDL_TEXTEDITING* = SDL_TEXTEDITING_renamed_SDL_EVENT_TEXT_EDITING 
 when SDL_TEXTEDITING_EXT_renamed_SDL_EVENT_TEXT_EDITING_EXT is typedesc:
   type
-    SDL_TEXTEDITING_EXT* = SDL_TEXTEDITING_EXT_renamed_SDL_EVENT_TEXT_EDITING_EXT
+    SDL_TEXTEDITING_EXT* = SDL_TEXTEDITING_EXT_renamed_SDL_EVENT_TEXT_EDITING_EXT 
 else:
   when SDL_TEXTEDITING_EXT_renamed_SDL_EVENT_TEXT_EDITING_EXT is static:
     const
-      SDL_TEXTEDITING_EXT* = SDL_TEXTEDITING_EXT_renamed_SDL_EVENT_TEXT_EDITING_EXT
+      SDL_TEXTEDITING_EXT* = SDL_TEXTEDITING_EXT_renamed_SDL_EVENT_TEXT_EDITING_EXT 
   else:
-    let SDL_TEXTEDITING_EXT* = SDL_TEXTEDITING_EXT_renamed_SDL_EVENT_TEXT_EDITING_EXT
+    let SDL_TEXTEDITING_EXT* = SDL_TEXTEDITING_EXT_renamed_SDL_EVENT_TEXT_EDITING_EXT 
 when SDL_TEXTINPUT_renamed_SDL_EVENT_TEXT_INPUT is typedesc:
   type
-    SDL_TEXTINPUT* = SDL_TEXTINPUT_renamed_SDL_EVENT_TEXT_INPUT
+    SDL_TEXTINPUT* = SDL_TEXTINPUT_renamed_SDL_EVENT_TEXT_INPUT 
 else:
   when SDL_TEXTINPUT_renamed_SDL_EVENT_TEXT_INPUT is static:
     const
-      SDL_TEXTINPUT* = SDL_TEXTINPUT_renamed_SDL_EVENT_TEXT_INPUT
+      SDL_TEXTINPUT* = SDL_TEXTINPUT_renamed_SDL_EVENT_TEXT_INPUT 
   else:
-    let SDL_TEXTINPUT* = SDL_TEXTINPUT_renamed_SDL_EVENT_TEXT_INPUT
+    let SDL_TEXTINPUT* = SDL_TEXTINPUT_renamed_SDL_EVENT_TEXT_INPUT 
 when SDL_USEREVENT_renamed_SDL_EVENT_USER is typedesc:
   type
-    SDL_USEREVENT* = SDL_USEREVENT_renamed_SDL_EVENT_USER
+    SDL_USEREVENT* = SDL_USEREVENT_renamed_SDL_EVENT_USER 
 else:
   when SDL_USEREVENT_renamed_SDL_EVENT_USER is static:
     const
-      SDL_USEREVENT* = SDL_USEREVENT_renamed_SDL_EVENT_USER
+      SDL_USEREVENT* = SDL_USEREVENT_renamed_SDL_EVENT_USER 
   else:
-    let SDL_USEREVENT* = SDL_USEREVENT_renamed_SDL_EVENT_USER
+    let SDL_USEREVENT* = SDL_USEREVENT_renamed_SDL_EVENT_USER 
 when SDL_WINDOWEVENT_CLOSE_renamed_SDL_EVENT_WINDOW_CLOSE_REQUESTED is typedesc:
   type
-    SDL_WINDOWEVENT_CLOSE* = SDL_WINDOWEVENT_CLOSE_renamed_SDL_EVENT_WINDOW_CLOSE_REQUESTED
+    SDL_WINDOWEVENT_CLOSE* = SDL_WINDOWEVENT_CLOSE_renamed_SDL_EVENT_WINDOW_CLOSE_REQUESTED 
 else:
   when SDL_WINDOWEVENT_CLOSE_renamed_SDL_EVENT_WINDOW_CLOSE_REQUESTED is static:
     const
-      SDL_WINDOWEVENT_CLOSE* = SDL_WINDOWEVENT_CLOSE_renamed_SDL_EVENT_WINDOW_CLOSE_REQUESTED
+      SDL_WINDOWEVENT_CLOSE* = SDL_WINDOWEVENT_CLOSE_renamed_SDL_EVENT_WINDOW_CLOSE_REQUESTED 
   else:
-    let SDL_WINDOWEVENT_CLOSE* = SDL_WINDOWEVENT_CLOSE_renamed_SDL_EVENT_WINDOW_CLOSE_REQUESTED
+    let SDL_WINDOWEVENT_CLOSE* = SDL_WINDOWEVENT_CLOSE_renamed_SDL_EVENT_WINDOW_CLOSE_REQUESTED 
 when SDL_WINDOWEVENT_DISPLAY_CHANGED_renamed_SDL_EVENT_WINDOW_DISPLAY_CHANGED is
     typedesc:
   type
-    SDL_WINDOWEVENT_DISPLAY_CHANGED* = SDL_WINDOWEVENT_DISPLAY_CHANGED_renamed_SDL_EVENT_WINDOW_DISPLAY_CHANGED
+    SDL_WINDOWEVENT_DISPLAY_CHANGED* = SDL_WINDOWEVENT_DISPLAY_CHANGED_renamed_SDL_EVENT_WINDOW_DISPLAY_CHANGED 
 else:
   when SDL_WINDOWEVENT_DISPLAY_CHANGED_renamed_SDL_EVENT_WINDOW_DISPLAY_CHANGED is
       static:
     const
-      SDL_WINDOWEVENT_DISPLAY_CHANGED* = SDL_WINDOWEVENT_DISPLAY_CHANGED_renamed_SDL_EVENT_WINDOW_DISPLAY_CHANGED
+      SDL_WINDOWEVENT_DISPLAY_CHANGED* = SDL_WINDOWEVENT_DISPLAY_CHANGED_renamed_SDL_EVENT_WINDOW_DISPLAY_CHANGED 
   else:
-    let SDL_WINDOWEVENT_DISPLAY_CHANGED* = SDL_WINDOWEVENT_DISPLAY_CHANGED_renamed_SDL_EVENT_WINDOW_DISPLAY_CHANGED
+    let SDL_WINDOWEVENT_DISPLAY_CHANGED* = SDL_WINDOWEVENT_DISPLAY_CHANGED_renamed_SDL_EVENT_WINDOW_DISPLAY_CHANGED 
 when SDL_WINDOWEVENT_ENTER_renamed_SDL_EVENT_WINDOW_MOUSE_ENTER is typedesc:
   type
-    SDL_WINDOWEVENT_ENTER* = SDL_WINDOWEVENT_ENTER_renamed_SDL_EVENT_WINDOW_MOUSE_ENTER
+    SDL_WINDOWEVENT_ENTER* = SDL_WINDOWEVENT_ENTER_renamed_SDL_EVENT_WINDOW_MOUSE_ENTER 
 else:
   when SDL_WINDOWEVENT_ENTER_renamed_SDL_EVENT_WINDOW_MOUSE_ENTER is static:
     const
-      SDL_WINDOWEVENT_ENTER* = SDL_WINDOWEVENT_ENTER_renamed_SDL_EVENT_WINDOW_MOUSE_ENTER
+      SDL_WINDOWEVENT_ENTER* = SDL_WINDOWEVENT_ENTER_renamed_SDL_EVENT_WINDOW_MOUSE_ENTER 
   else:
-    let SDL_WINDOWEVENT_ENTER* = SDL_WINDOWEVENT_ENTER_renamed_SDL_EVENT_WINDOW_MOUSE_ENTER
+    let SDL_WINDOWEVENT_ENTER* = SDL_WINDOWEVENT_ENTER_renamed_SDL_EVENT_WINDOW_MOUSE_ENTER 
 when SDL_WINDOWEVENT_EXPOSED_renamed_SDL_EVENT_WINDOW_EXPOSED is typedesc:
   type
-    SDL_WINDOWEVENT_EXPOSED* = SDL_WINDOWEVENT_EXPOSED_renamed_SDL_EVENT_WINDOW_EXPOSED
+    SDL_WINDOWEVENT_EXPOSED* = SDL_WINDOWEVENT_EXPOSED_renamed_SDL_EVENT_WINDOW_EXPOSED 
 else:
   when SDL_WINDOWEVENT_EXPOSED_renamed_SDL_EVENT_WINDOW_EXPOSED is static:
     const
-      SDL_WINDOWEVENT_EXPOSED* = SDL_WINDOWEVENT_EXPOSED_renamed_SDL_EVENT_WINDOW_EXPOSED
+      SDL_WINDOWEVENT_EXPOSED* = SDL_WINDOWEVENT_EXPOSED_renamed_SDL_EVENT_WINDOW_EXPOSED 
   else:
-    let SDL_WINDOWEVENT_EXPOSED* = SDL_WINDOWEVENT_EXPOSED_renamed_SDL_EVENT_WINDOW_EXPOSED
+    let SDL_WINDOWEVENT_EXPOSED* = SDL_WINDOWEVENT_EXPOSED_renamed_SDL_EVENT_WINDOW_EXPOSED 
 when SDL_WINDOWEVENT_FOCUS_GAINED_renamed_SDL_EVENT_WINDOW_FOCUS_GAINED is
     typedesc:
   type
-    SDL_WINDOWEVENT_FOCUS_GAINED* = SDL_WINDOWEVENT_FOCUS_GAINED_renamed_SDL_EVENT_WINDOW_FOCUS_GAINED
+    SDL_WINDOWEVENT_FOCUS_GAINED* = SDL_WINDOWEVENT_FOCUS_GAINED_renamed_SDL_EVENT_WINDOW_FOCUS_GAINED 
 else:
   when SDL_WINDOWEVENT_FOCUS_GAINED_renamed_SDL_EVENT_WINDOW_FOCUS_GAINED is
       static:
     const
-      SDL_WINDOWEVENT_FOCUS_GAINED* = SDL_WINDOWEVENT_FOCUS_GAINED_renamed_SDL_EVENT_WINDOW_FOCUS_GAINED
+      SDL_WINDOWEVENT_FOCUS_GAINED* = SDL_WINDOWEVENT_FOCUS_GAINED_renamed_SDL_EVENT_WINDOW_FOCUS_GAINED 
   else:
-    let SDL_WINDOWEVENT_FOCUS_GAINED* = SDL_WINDOWEVENT_FOCUS_GAINED_renamed_SDL_EVENT_WINDOW_FOCUS_GAINED
+    let SDL_WINDOWEVENT_FOCUS_GAINED* = SDL_WINDOWEVENT_FOCUS_GAINED_renamed_SDL_EVENT_WINDOW_FOCUS_GAINED 
 when SDL_WINDOWEVENT_FOCUS_LOST_renamed_SDL_EVENT_WINDOW_FOCUS_LOST is typedesc:
   type
-    SDL_WINDOWEVENT_FOCUS_LOST* = SDL_WINDOWEVENT_FOCUS_LOST_renamed_SDL_EVENT_WINDOW_FOCUS_LOST
+    SDL_WINDOWEVENT_FOCUS_LOST* = SDL_WINDOWEVENT_FOCUS_LOST_renamed_SDL_EVENT_WINDOW_FOCUS_LOST 
 else:
   when SDL_WINDOWEVENT_FOCUS_LOST_renamed_SDL_EVENT_WINDOW_FOCUS_LOST is static:
     const
-      SDL_WINDOWEVENT_FOCUS_LOST* = SDL_WINDOWEVENT_FOCUS_LOST_renamed_SDL_EVENT_WINDOW_FOCUS_LOST
+      SDL_WINDOWEVENT_FOCUS_LOST* = SDL_WINDOWEVENT_FOCUS_LOST_renamed_SDL_EVENT_WINDOW_FOCUS_LOST 
   else:
-    let SDL_WINDOWEVENT_FOCUS_LOST* = SDL_WINDOWEVENT_FOCUS_LOST_renamed_SDL_EVENT_WINDOW_FOCUS_LOST
+    let SDL_WINDOWEVENT_FOCUS_LOST* = SDL_WINDOWEVENT_FOCUS_LOST_renamed_SDL_EVENT_WINDOW_FOCUS_LOST 
 when SDL_WINDOWEVENT_HIDDEN_renamed_SDL_EVENT_WINDOW_HIDDEN is typedesc:
   type
-    SDL_WINDOWEVENT_HIDDEN* = SDL_WINDOWEVENT_HIDDEN_renamed_SDL_EVENT_WINDOW_HIDDEN
+    SDL_WINDOWEVENT_HIDDEN* = SDL_WINDOWEVENT_HIDDEN_renamed_SDL_EVENT_WINDOW_HIDDEN 
 else:
   when SDL_WINDOWEVENT_HIDDEN_renamed_SDL_EVENT_WINDOW_HIDDEN is static:
     const
-      SDL_WINDOWEVENT_HIDDEN* = SDL_WINDOWEVENT_HIDDEN_renamed_SDL_EVENT_WINDOW_HIDDEN
+      SDL_WINDOWEVENT_HIDDEN* = SDL_WINDOWEVENT_HIDDEN_renamed_SDL_EVENT_WINDOW_HIDDEN 
   else:
-    let SDL_WINDOWEVENT_HIDDEN* = SDL_WINDOWEVENT_HIDDEN_renamed_SDL_EVENT_WINDOW_HIDDEN
+    let SDL_WINDOWEVENT_HIDDEN* = SDL_WINDOWEVENT_HIDDEN_renamed_SDL_EVENT_WINDOW_HIDDEN 
 when SDL_WINDOWEVENT_HIT_TEST_renamed_SDL_EVENT_WINDOW_HIT_TEST is typedesc:
   type
-    SDL_WINDOWEVENT_HIT_TEST* = SDL_WINDOWEVENT_HIT_TEST_renamed_SDL_EVENT_WINDOW_HIT_TEST
+    SDL_WINDOWEVENT_HIT_TEST* = SDL_WINDOWEVENT_HIT_TEST_renamed_SDL_EVENT_WINDOW_HIT_TEST 
 else:
   when SDL_WINDOWEVENT_HIT_TEST_renamed_SDL_EVENT_WINDOW_HIT_TEST is static:
     const
-      SDL_WINDOWEVENT_HIT_TEST* = SDL_WINDOWEVENT_HIT_TEST_renamed_SDL_EVENT_WINDOW_HIT_TEST
+      SDL_WINDOWEVENT_HIT_TEST* = SDL_WINDOWEVENT_HIT_TEST_renamed_SDL_EVENT_WINDOW_HIT_TEST 
   else:
-    let SDL_WINDOWEVENT_HIT_TEST* = SDL_WINDOWEVENT_HIT_TEST_renamed_SDL_EVENT_WINDOW_HIT_TEST
+    let SDL_WINDOWEVENT_HIT_TEST* = SDL_WINDOWEVENT_HIT_TEST_renamed_SDL_EVENT_WINDOW_HIT_TEST 
 when SDL_WINDOWEVENT_ICCPROF_CHANGED_renamed_SDL_EVENT_WINDOW_ICCPROF_CHANGED is
     typedesc:
   type
-    SDL_WINDOWEVENT_ICCPROF_CHANGED* = SDL_WINDOWEVENT_ICCPROF_CHANGED_renamed_SDL_EVENT_WINDOW_ICCPROF_CHANGED
+    SDL_WINDOWEVENT_ICCPROF_CHANGED* = SDL_WINDOWEVENT_ICCPROF_CHANGED_renamed_SDL_EVENT_WINDOW_ICCPROF_CHANGED 
 else:
   when SDL_WINDOWEVENT_ICCPROF_CHANGED_renamed_SDL_EVENT_WINDOW_ICCPROF_CHANGED is
       static:
     const
-      SDL_WINDOWEVENT_ICCPROF_CHANGED* = SDL_WINDOWEVENT_ICCPROF_CHANGED_renamed_SDL_EVENT_WINDOW_ICCPROF_CHANGED
+      SDL_WINDOWEVENT_ICCPROF_CHANGED* = SDL_WINDOWEVENT_ICCPROF_CHANGED_renamed_SDL_EVENT_WINDOW_ICCPROF_CHANGED 
   else:
-    let SDL_WINDOWEVENT_ICCPROF_CHANGED* = SDL_WINDOWEVENT_ICCPROF_CHANGED_renamed_SDL_EVENT_WINDOW_ICCPROF_CHANGED
+    let SDL_WINDOWEVENT_ICCPROF_CHANGED* = SDL_WINDOWEVENT_ICCPROF_CHANGED_renamed_SDL_EVENT_WINDOW_ICCPROF_CHANGED 
 when SDL_WINDOWEVENT_LEAVE_renamed_SDL_EVENT_WINDOW_MOUSE_LEAVE is typedesc:
   type
-    SDL_WINDOWEVENT_LEAVE* = SDL_WINDOWEVENT_LEAVE_renamed_SDL_EVENT_WINDOW_MOUSE_LEAVE
+    SDL_WINDOWEVENT_LEAVE* = SDL_WINDOWEVENT_LEAVE_renamed_SDL_EVENT_WINDOW_MOUSE_LEAVE 
 else:
   when SDL_WINDOWEVENT_LEAVE_renamed_SDL_EVENT_WINDOW_MOUSE_LEAVE is static:
     const
-      SDL_WINDOWEVENT_LEAVE* = SDL_WINDOWEVENT_LEAVE_renamed_SDL_EVENT_WINDOW_MOUSE_LEAVE
+      SDL_WINDOWEVENT_LEAVE* = SDL_WINDOWEVENT_LEAVE_renamed_SDL_EVENT_WINDOW_MOUSE_LEAVE 
   else:
-    let SDL_WINDOWEVENT_LEAVE* = SDL_WINDOWEVENT_LEAVE_renamed_SDL_EVENT_WINDOW_MOUSE_LEAVE
+    let SDL_WINDOWEVENT_LEAVE* = SDL_WINDOWEVENT_LEAVE_renamed_SDL_EVENT_WINDOW_MOUSE_LEAVE 
 when SDL_WINDOWEVENT_MAXIMIZED_renamed_SDL_EVENT_WINDOW_MAXIMIZED is typedesc:
   type
-    SDL_WINDOWEVENT_MAXIMIZED* = SDL_WINDOWEVENT_MAXIMIZED_renamed_SDL_EVENT_WINDOW_MAXIMIZED
+    SDL_WINDOWEVENT_MAXIMIZED* = SDL_WINDOWEVENT_MAXIMIZED_renamed_SDL_EVENT_WINDOW_MAXIMIZED 
 else:
   when SDL_WINDOWEVENT_MAXIMIZED_renamed_SDL_EVENT_WINDOW_MAXIMIZED is static:
     const
-      SDL_WINDOWEVENT_MAXIMIZED* = SDL_WINDOWEVENT_MAXIMIZED_renamed_SDL_EVENT_WINDOW_MAXIMIZED
+      SDL_WINDOWEVENT_MAXIMIZED* = SDL_WINDOWEVENT_MAXIMIZED_renamed_SDL_EVENT_WINDOW_MAXIMIZED 
   else:
-    let SDL_WINDOWEVENT_MAXIMIZED* = SDL_WINDOWEVENT_MAXIMIZED_renamed_SDL_EVENT_WINDOW_MAXIMIZED
+    let SDL_WINDOWEVENT_MAXIMIZED* = SDL_WINDOWEVENT_MAXIMIZED_renamed_SDL_EVENT_WINDOW_MAXIMIZED 
 when SDL_WINDOWEVENT_MINIMIZED_renamed_SDL_EVENT_WINDOW_MINIMIZED is typedesc:
   type
-    SDL_WINDOWEVENT_MINIMIZED* = SDL_WINDOWEVENT_MINIMIZED_renamed_SDL_EVENT_WINDOW_MINIMIZED
+    SDL_WINDOWEVENT_MINIMIZED* = SDL_WINDOWEVENT_MINIMIZED_renamed_SDL_EVENT_WINDOW_MINIMIZED 
 else:
   when SDL_WINDOWEVENT_MINIMIZED_renamed_SDL_EVENT_WINDOW_MINIMIZED is static:
     const
-      SDL_WINDOWEVENT_MINIMIZED* = SDL_WINDOWEVENT_MINIMIZED_renamed_SDL_EVENT_WINDOW_MINIMIZED
+      SDL_WINDOWEVENT_MINIMIZED* = SDL_WINDOWEVENT_MINIMIZED_renamed_SDL_EVENT_WINDOW_MINIMIZED 
   else:
-    let SDL_WINDOWEVENT_MINIMIZED* = SDL_WINDOWEVENT_MINIMIZED_renamed_SDL_EVENT_WINDOW_MINIMIZED
+    let SDL_WINDOWEVENT_MINIMIZED* = SDL_WINDOWEVENT_MINIMIZED_renamed_SDL_EVENT_WINDOW_MINIMIZED 
 when SDL_WINDOWEVENT_MOVED_renamed_SDL_EVENT_WINDOW_MOVED is typedesc:
   type
-    SDL_WINDOWEVENT_MOVED* = SDL_WINDOWEVENT_MOVED_renamed_SDL_EVENT_WINDOW_MOVED
+    SDL_WINDOWEVENT_MOVED* = SDL_WINDOWEVENT_MOVED_renamed_SDL_EVENT_WINDOW_MOVED 
 else:
   when SDL_WINDOWEVENT_MOVED_renamed_SDL_EVENT_WINDOW_MOVED is static:
     const
-      SDL_WINDOWEVENT_MOVED* = SDL_WINDOWEVENT_MOVED_renamed_SDL_EVENT_WINDOW_MOVED
+      SDL_WINDOWEVENT_MOVED* = SDL_WINDOWEVENT_MOVED_renamed_SDL_EVENT_WINDOW_MOVED 
   else:
-    let SDL_WINDOWEVENT_MOVED* = SDL_WINDOWEVENT_MOVED_renamed_SDL_EVENT_WINDOW_MOVED
+    let SDL_WINDOWEVENT_MOVED* = SDL_WINDOWEVENT_MOVED_renamed_SDL_EVENT_WINDOW_MOVED 
 when SDL_WINDOWEVENT_RESIZED_renamed_SDL_EVENT_WINDOW_RESIZED is typedesc:
   type
-    SDL_WINDOWEVENT_RESIZED* = SDL_WINDOWEVENT_RESIZED_renamed_SDL_EVENT_WINDOW_RESIZED
+    SDL_WINDOWEVENT_RESIZED* = SDL_WINDOWEVENT_RESIZED_renamed_SDL_EVENT_WINDOW_RESIZED 
 else:
   when SDL_WINDOWEVENT_RESIZED_renamed_SDL_EVENT_WINDOW_RESIZED is static:
     const
-      SDL_WINDOWEVENT_RESIZED* = SDL_WINDOWEVENT_RESIZED_renamed_SDL_EVENT_WINDOW_RESIZED
+      SDL_WINDOWEVENT_RESIZED* = SDL_WINDOWEVENT_RESIZED_renamed_SDL_EVENT_WINDOW_RESIZED 
   else:
-    let SDL_WINDOWEVENT_RESIZED* = SDL_WINDOWEVENT_RESIZED_renamed_SDL_EVENT_WINDOW_RESIZED
+    let SDL_WINDOWEVENT_RESIZED* = SDL_WINDOWEVENT_RESIZED_renamed_SDL_EVENT_WINDOW_RESIZED 
 when SDL_WINDOWEVENT_RESTORED_renamed_SDL_EVENT_WINDOW_RESTORED is typedesc:
   type
-    SDL_WINDOWEVENT_RESTORED* = SDL_WINDOWEVENT_RESTORED_renamed_SDL_EVENT_WINDOW_RESTORED
+    SDL_WINDOWEVENT_RESTORED* = SDL_WINDOWEVENT_RESTORED_renamed_SDL_EVENT_WINDOW_RESTORED 
 else:
   when SDL_WINDOWEVENT_RESTORED_renamed_SDL_EVENT_WINDOW_RESTORED is static:
     const
-      SDL_WINDOWEVENT_RESTORED* = SDL_WINDOWEVENT_RESTORED_renamed_SDL_EVENT_WINDOW_RESTORED
+      SDL_WINDOWEVENT_RESTORED* = SDL_WINDOWEVENT_RESTORED_renamed_SDL_EVENT_WINDOW_RESTORED 
   else:
-    let SDL_WINDOWEVENT_RESTORED* = SDL_WINDOWEVENT_RESTORED_renamed_SDL_EVENT_WINDOW_RESTORED
+    let SDL_WINDOWEVENT_RESTORED* = SDL_WINDOWEVENT_RESTORED_renamed_SDL_EVENT_WINDOW_RESTORED 
 when SDL_WINDOWEVENT_SHOWN_renamed_SDL_EVENT_WINDOW_SHOWN is typedesc:
   type
-    SDL_WINDOWEVENT_SHOWN* = SDL_WINDOWEVENT_SHOWN_renamed_SDL_EVENT_WINDOW_SHOWN
+    SDL_WINDOWEVENT_SHOWN* = SDL_WINDOWEVENT_SHOWN_renamed_SDL_EVENT_WINDOW_SHOWN 
 else:
   when SDL_WINDOWEVENT_SHOWN_renamed_SDL_EVENT_WINDOW_SHOWN is static:
     const
-      SDL_WINDOWEVENT_SHOWN* = SDL_WINDOWEVENT_SHOWN_renamed_SDL_EVENT_WINDOW_SHOWN
+      SDL_WINDOWEVENT_SHOWN* = SDL_WINDOWEVENT_SHOWN_renamed_SDL_EVENT_WINDOW_SHOWN 
   else:
-    let SDL_WINDOWEVENT_SHOWN* = SDL_WINDOWEVENT_SHOWN_renamed_SDL_EVENT_WINDOW_SHOWN
+    let SDL_WINDOWEVENT_SHOWN* = SDL_WINDOWEVENT_SHOWN_renamed_SDL_EVENT_WINDOW_SHOWN 
 when SDL_WINDOWEVENT_SIZE_CHANGED_renamed_SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED is
     typedesc:
   type
-    SDL_WINDOWEVENT_SIZE_CHANGED* = SDL_WINDOWEVENT_SIZE_CHANGED_renamed_SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED
+    SDL_WINDOWEVENT_SIZE_CHANGED* = SDL_WINDOWEVENT_SIZE_CHANGED_renamed_SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED 
 else:
   when SDL_WINDOWEVENT_SIZE_CHANGED_renamed_SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED is
       static:
     const
-      SDL_WINDOWEVENT_SIZE_CHANGED* = SDL_WINDOWEVENT_SIZE_CHANGED_renamed_SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED
+      SDL_WINDOWEVENT_SIZE_CHANGED* = SDL_WINDOWEVENT_SIZE_CHANGED_renamed_SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED 
   else:
-    let SDL_WINDOWEVENT_SIZE_CHANGED* = SDL_WINDOWEVENT_SIZE_CHANGED_renamed_SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED
+    let SDL_WINDOWEVENT_SIZE_CHANGED* = SDL_WINDOWEVENT_SIZE_CHANGED_renamed_SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED 
 when SDL_WINDOWEVENT_TAKE_FOCUS_renamed_SDL_EVENT_WINDOW_TAKE_FOCUS is typedesc:
   type
-    SDL_WINDOWEVENT_TAKE_FOCUS* = SDL_WINDOWEVENT_TAKE_FOCUS_renamed_SDL_EVENT_WINDOW_TAKE_FOCUS
+    SDL_WINDOWEVENT_TAKE_FOCUS* = SDL_WINDOWEVENT_TAKE_FOCUS_renamed_SDL_EVENT_WINDOW_TAKE_FOCUS 
 else:
   when SDL_WINDOWEVENT_TAKE_FOCUS_renamed_SDL_EVENT_WINDOW_TAKE_FOCUS is static:
     const
-      SDL_WINDOWEVENT_TAKE_FOCUS* = SDL_WINDOWEVENT_TAKE_FOCUS_renamed_SDL_EVENT_WINDOW_TAKE_FOCUS
+      SDL_WINDOWEVENT_TAKE_FOCUS* = SDL_WINDOWEVENT_TAKE_FOCUS_renamed_SDL_EVENT_WINDOW_TAKE_FOCUS 
   else:
-    let SDL_WINDOWEVENT_TAKE_FOCUS* = SDL_WINDOWEVENT_TAKE_FOCUS_renamed_SDL_EVENT_WINDOW_TAKE_FOCUS
+    let SDL_WINDOWEVENT_TAKE_FOCUS* = SDL_WINDOWEVENT_TAKE_FOCUS_renamed_SDL_EVENT_WINDOW_TAKE_FOCUS 
 when SDL_eventaction_renamed_SDL_EventAction is typedesc:
   type
-    SDL_eventaction* = SDL_eventaction_renamed_SDL_EventAction
+    SDL_eventaction* = SDL_eventaction_renamed_SDL_EventAction 
 else:
   when SDL_eventaction_renamed_SDL_EventAction is static:
     const
-      SDL_eventaction* = SDL_eventaction_renamed_SDL_EventAction
+      SDL_eventaction* = SDL_eventaction_renamed_SDL_EventAction 
   else:
-    let SDL_eventaction* = SDL_eventaction_renamed_SDL_EventAction
+    let SDL_eventaction* = SDL_eventaction_renamed_SDL_EventAction 
 when SDL_CONTROLLER_AXIS_INVALID_renamed_SDL_GAMEPAD_AXIS_INVALID is typedesc:
   type
-    SDL_CONTROLLER_AXIS_INVALID* = SDL_CONTROLLER_AXIS_INVALID_renamed_SDL_GAMEPAD_AXIS_INVALID
+    SDL_CONTROLLER_AXIS_INVALID* = SDL_CONTROLLER_AXIS_INVALID_renamed_SDL_GAMEPAD_AXIS_INVALID 
 else:
   when SDL_CONTROLLER_AXIS_INVALID_renamed_SDL_GAMEPAD_AXIS_INVALID is static:
     const
-      SDL_CONTROLLER_AXIS_INVALID* = SDL_CONTROLLER_AXIS_INVALID_renamed_SDL_GAMEPAD_AXIS_INVALID
+      SDL_CONTROLLER_AXIS_INVALID* = SDL_CONTROLLER_AXIS_INVALID_renamed_SDL_GAMEPAD_AXIS_INVALID 
   else:
-    let SDL_CONTROLLER_AXIS_INVALID* = SDL_CONTROLLER_AXIS_INVALID_renamed_SDL_GAMEPAD_AXIS_INVALID
+    let SDL_CONTROLLER_AXIS_INVALID* = SDL_CONTROLLER_AXIS_INVALID_renamed_SDL_GAMEPAD_AXIS_INVALID 
 when SDL_CONTROLLER_AXIS_LEFTX_renamed_SDL_GAMEPAD_AXIS_LEFTX is typedesc:
   type
-    SDL_CONTROLLER_AXIS_LEFTX* = SDL_CONTROLLER_AXIS_LEFTX_renamed_SDL_GAMEPAD_AXIS_LEFTX
+    SDL_CONTROLLER_AXIS_LEFTX* = SDL_CONTROLLER_AXIS_LEFTX_renamed_SDL_GAMEPAD_AXIS_LEFTX 
 else:
   when SDL_CONTROLLER_AXIS_LEFTX_renamed_SDL_GAMEPAD_AXIS_LEFTX is static:
     const
-      SDL_CONTROLLER_AXIS_LEFTX* = SDL_CONTROLLER_AXIS_LEFTX_renamed_SDL_GAMEPAD_AXIS_LEFTX
+      SDL_CONTROLLER_AXIS_LEFTX* = SDL_CONTROLLER_AXIS_LEFTX_renamed_SDL_GAMEPAD_AXIS_LEFTX 
   else:
-    let SDL_CONTROLLER_AXIS_LEFTX* = SDL_CONTROLLER_AXIS_LEFTX_renamed_SDL_GAMEPAD_AXIS_LEFTX
+    let SDL_CONTROLLER_AXIS_LEFTX* = SDL_CONTROLLER_AXIS_LEFTX_renamed_SDL_GAMEPAD_AXIS_LEFTX 
 when SDL_CONTROLLER_AXIS_LEFTY_renamed_SDL_GAMEPAD_AXIS_LEFTY is typedesc:
   type
-    SDL_CONTROLLER_AXIS_LEFTY* = SDL_CONTROLLER_AXIS_LEFTY_renamed_SDL_GAMEPAD_AXIS_LEFTY
+    SDL_CONTROLLER_AXIS_LEFTY* = SDL_CONTROLLER_AXIS_LEFTY_renamed_SDL_GAMEPAD_AXIS_LEFTY 
 else:
   when SDL_CONTROLLER_AXIS_LEFTY_renamed_SDL_GAMEPAD_AXIS_LEFTY is static:
     const
-      SDL_CONTROLLER_AXIS_LEFTY* = SDL_CONTROLLER_AXIS_LEFTY_renamed_SDL_GAMEPAD_AXIS_LEFTY
+      SDL_CONTROLLER_AXIS_LEFTY* = SDL_CONTROLLER_AXIS_LEFTY_renamed_SDL_GAMEPAD_AXIS_LEFTY 
   else:
-    let SDL_CONTROLLER_AXIS_LEFTY* = SDL_CONTROLLER_AXIS_LEFTY_renamed_SDL_GAMEPAD_AXIS_LEFTY
+    let SDL_CONTROLLER_AXIS_LEFTY* = SDL_CONTROLLER_AXIS_LEFTY_renamed_SDL_GAMEPAD_AXIS_LEFTY 
 when SDL_CONTROLLER_AXIS_MAX_renamed_SDL_GAMEPAD_AXIS_MAX is typedesc:
   type
-    SDL_CONTROLLER_AXIS_MAX* = SDL_CONTROLLER_AXIS_MAX_renamed_SDL_GAMEPAD_AXIS_MAX
+    SDL_CONTROLLER_AXIS_MAX* = SDL_CONTROLLER_AXIS_MAX_renamed_SDL_GAMEPAD_AXIS_MAX 
 else:
   when SDL_CONTROLLER_AXIS_MAX_renamed_SDL_GAMEPAD_AXIS_MAX is static:
     const
-      SDL_CONTROLLER_AXIS_MAX* = SDL_CONTROLLER_AXIS_MAX_renamed_SDL_GAMEPAD_AXIS_MAX
+      SDL_CONTROLLER_AXIS_MAX* = SDL_CONTROLLER_AXIS_MAX_renamed_SDL_GAMEPAD_AXIS_MAX 
   else:
-    let SDL_CONTROLLER_AXIS_MAX* = SDL_CONTROLLER_AXIS_MAX_renamed_SDL_GAMEPAD_AXIS_MAX
+    let SDL_CONTROLLER_AXIS_MAX* = SDL_CONTROLLER_AXIS_MAX_renamed_SDL_GAMEPAD_AXIS_MAX 
 when SDL_CONTROLLER_AXIS_RIGHTX_renamed_SDL_GAMEPAD_AXIS_RIGHTX is typedesc:
   type
-    SDL_CONTROLLER_AXIS_RIGHTX* = SDL_CONTROLLER_AXIS_RIGHTX_renamed_SDL_GAMEPAD_AXIS_RIGHTX
+    SDL_CONTROLLER_AXIS_RIGHTX* = SDL_CONTROLLER_AXIS_RIGHTX_renamed_SDL_GAMEPAD_AXIS_RIGHTX 
 else:
   when SDL_CONTROLLER_AXIS_RIGHTX_renamed_SDL_GAMEPAD_AXIS_RIGHTX is static:
     const
-      SDL_CONTROLLER_AXIS_RIGHTX* = SDL_CONTROLLER_AXIS_RIGHTX_renamed_SDL_GAMEPAD_AXIS_RIGHTX
+      SDL_CONTROLLER_AXIS_RIGHTX* = SDL_CONTROLLER_AXIS_RIGHTX_renamed_SDL_GAMEPAD_AXIS_RIGHTX 
   else:
-    let SDL_CONTROLLER_AXIS_RIGHTX* = SDL_CONTROLLER_AXIS_RIGHTX_renamed_SDL_GAMEPAD_AXIS_RIGHTX
+    let SDL_CONTROLLER_AXIS_RIGHTX* = SDL_CONTROLLER_AXIS_RIGHTX_renamed_SDL_GAMEPAD_AXIS_RIGHTX 
 when SDL_CONTROLLER_AXIS_RIGHTY_renamed_SDL_GAMEPAD_AXIS_RIGHTY is typedesc:
   type
-    SDL_CONTROLLER_AXIS_RIGHTY* = SDL_CONTROLLER_AXIS_RIGHTY_renamed_SDL_GAMEPAD_AXIS_RIGHTY
+    SDL_CONTROLLER_AXIS_RIGHTY* = SDL_CONTROLLER_AXIS_RIGHTY_renamed_SDL_GAMEPAD_AXIS_RIGHTY 
 else:
   when SDL_CONTROLLER_AXIS_RIGHTY_renamed_SDL_GAMEPAD_AXIS_RIGHTY is static:
     const
-      SDL_CONTROLLER_AXIS_RIGHTY* = SDL_CONTROLLER_AXIS_RIGHTY_renamed_SDL_GAMEPAD_AXIS_RIGHTY
+      SDL_CONTROLLER_AXIS_RIGHTY* = SDL_CONTROLLER_AXIS_RIGHTY_renamed_SDL_GAMEPAD_AXIS_RIGHTY 
   else:
-    let SDL_CONTROLLER_AXIS_RIGHTY* = SDL_CONTROLLER_AXIS_RIGHTY_renamed_SDL_GAMEPAD_AXIS_RIGHTY
+    let SDL_CONTROLLER_AXIS_RIGHTY* = SDL_CONTROLLER_AXIS_RIGHTY_renamed_SDL_GAMEPAD_AXIS_RIGHTY 
 when SDL_CONTROLLER_AXIS_TRIGGERLEFT_renamed_SDL_GAMEPAD_AXIS_LEFT_TRIGGER is
     typedesc:
   type
-    SDL_CONTROLLER_AXIS_TRIGGERLEFT* = SDL_CONTROLLER_AXIS_TRIGGERLEFT_renamed_SDL_GAMEPAD_AXIS_LEFT_TRIGGER
+    SDL_CONTROLLER_AXIS_TRIGGERLEFT* = SDL_CONTROLLER_AXIS_TRIGGERLEFT_renamed_SDL_GAMEPAD_AXIS_LEFT_TRIGGER 
 else:
   when SDL_CONTROLLER_AXIS_TRIGGERLEFT_renamed_SDL_GAMEPAD_AXIS_LEFT_TRIGGER is
       static:
     const
-      SDL_CONTROLLER_AXIS_TRIGGERLEFT* = SDL_CONTROLLER_AXIS_TRIGGERLEFT_renamed_SDL_GAMEPAD_AXIS_LEFT_TRIGGER
+      SDL_CONTROLLER_AXIS_TRIGGERLEFT* = SDL_CONTROLLER_AXIS_TRIGGERLEFT_renamed_SDL_GAMEPAD_AXIS_LEFT_TRIGGER 
   else:
-    let SDL_CONTROLLER_AXIS_TRIGGERLEFT* = SDL_CONTROLLER_AXIS_TRIGGERLEFT_renamed_SDL_GAMEPAD_AXIS_LEFT_TRIGGER
+    let SDL_CONTROLLER_AXIS_TRIGGERLEFT* = SDL_CONTROLLER_AXIS_TRIGGERLEFT_renamed_SDL_GAMEPAD_AXIS_LEFT_TRIGGER 
 when SDL_CONTROLLER_AXIS_TRIGGERRIGHT_renamed_SDL_GAMEPAD_AXIS_RIGHT_TRIGGER is
     typedesc:
   type
-    SDL_CONTROLLER_AXIS_TRIGGERRIGHT* = SDL_CONTROLLER_AXIS_TRIGGERRIGHT_renamed_SDL_GAMEPAD_AXIS_RIGHT_TRIGGER
+    SDL_CONTROLLER_AXIS_TRIGGERRIGHT* = SDL_CONTROLLER_AXIS_TRIGGERRIGHT_renamed_SDL_GAMEPAD_AXIS_RIGHT_TRIGGER 
 else:
   when SDL_CONTROLLER_AXIS_TRIGGERRIGHT_renamed_SDL_GAMEPAD_AXIS_RIGHT_TRIGGER is
       static:
     const
-      SDL_CONTROLLER_AXIS_TRIGGERRIGHT* = SDL_CONTROLLER_AXIS_TRIGGERRIGHT_renamed_SDL_GAMEPAD_AXIS_RIGHT_TRIGGER
+      SDL_CONTROLLER_AXIS_TRIGGERRIGHT* = SDL_CONTROLLER_AXIS_TRIGGERRIGHT_renamed_SDL_GAMEPAD_AXIS_RIGHT_TRIGGER 
   else:
-    let SDL_CONTROLLER_AXIS_TRIGGERRIGHT* = SDL_CONTROLLER_AXIS_TRIGGERRIGHT_renamed_SDL_GAMEPAD_AXIS_RIGHT_TRIGGER
+    let SDL_CONTROLLER_AXIS_TRIGGERRIGHT* = SDL_CONTROLLER_AXIS_TRIGGERRIGHT_renamed_SDL_GAMEPAD_AXIS_RIGHT_TRIGGER 
 when SDL_CONTROLLER_BINDTYPE_AXIS_renamed_SDL_GAMEPAD_BINDTYPE_AXIS is typedesc:
   type
-    SDL_CONTROLLER_BINDTYPE_AXIS* = SDL_CONTROLLER_BINDTYPE_AXIS_renamed_SDL_GAMEPAD_BINDTYPE_AXIS
+    SDL_CONTROLLER_BINDTYPE_AXIS* = SDL_CONTROLLER_BINDTYPE_AXIS_renamed_SDL_GAMEPAD_BINDTYPE_AXIS 
 else:
   when SDL_CONTROLLER_BINDTYPE_AXIS_renamed_SDL_GAMEPAD_BINDTYPE_AXIS is static:
     const
-      SDL_CONTROLLER_BINDTYPE_AXIS* = SDL_CONTROLLER_BINDTYPE_AXIS_renamed_SDL_GAMEPAD_BINDTYPE_AXIS
+      SDL_CONTROLLER_BINDTYPE_AXIS* = SDL_CONTROLLER_BINDTYPE_AXIS_renamed_SDL_GAMEPAD_BINDTYPE_AXIS 
   else:
-    let SDL_CONTROLLER_BINDTYPE_AXIS* = SDL_CONTROLLER_BINDTYPE_AXIS_renamed_SDL_GAMEPAD_BINDTYPE_AXIS
+    let SDL_CONTROLLER_BINDTYPE_AXIS* = SDL_CONTROLLER_BINDTYPE_AXIS_renamed_SDL_GAMEPAD_BINDTYPE_AXIS 
 when SDL_CONTROLLER_BINDTYPE_BUTTON_renamed_SDL_GAMEPAD_BINDTYPE_BUTTON is
     typedesc:
   type
-    SDL_CONTROLLER_BINDTYPE_BUTTON* = SDL_CONTROLLER_BINDTYPE_BUTTON_renamed_SDL_GAMEPAD_BINDTYPE_BUTTON
+    SDL_CONTROLLER_BINDTYPE_BUTTON* = SDL_CONTROLLER_BINDTYPE_BUTTON_renamed_SDL_GAMEPAD_BINDTYPE_BUTTON 
 else:
   when SDL_CONTROLLER_BINDTYPE_BUTTON_renamed_SDL_GAMEPAD_BINDTYPE_BUTTON is
       static:
     const
-      SDL_CONTROLLER_BINDTYPE_BUTTON* = SDL_CONTROLLER_BINDTYPE_BUTTON_renamed_SDL_GAMEPAD_BINDTYPE_BUTTON
+      SDL_CONTROLLER_BINDTYPE_BUTTON* = SDL_CONTROLLER_BINDTYPE_BUTTON_renamed_SDL_GAMEPAD_BINDTYPE_BUTTON 
   else:
-    let SDL_CONTROLLER_BINDTYPE_BUTTON* = SDL_CONTROLLER_BINDTYPE_BUTTON_renamed_SDL_GAMEPAD_BINDTYPE_BUTTON
+    let SDL_CONTROLLER_BINDTYPE_BUTTON* = SDL_CONTROLLER_BINDTYPE_BUTTON_renamed_SDL_GAMEPAD_BINDTYPE_BUTTON 
 when SDL_CONTROLLER_BINDTYPE_HAT_renamed_SDL_GAMEPAD_BINDTYPE_HAT is typedesc:
   type
-    SDL_CONTROLLER_BINDTYPE_HAT* = SDL_CONTROLLER_BINDTYPE_HAT_renamed_SDL_GAMEPAD_BINDTYPE_HAT
+    SDL_CONTROLLER_BINDTYPE_HAT* = SDL_CONTROLLER_BINDTYPE_HAT_renamed_SDL_GAMEPAD_BINDTYPE_HAT 
 else:
   when SDL_CONTROLLER_BINDTYPE_HAT_renamed_SDL_GAMEPAD_BINDTYPE_HAT is static:
     const
-      SDL_CONTROLLER_BINDTYPE_HAT* = SDL_CONTROLLER_BINDTYPE_HAT_renamed_SDL_GAMEPAD_BINDTYPE_HAT
+      SDL_CONTROLLER_BINDTYPE_HAT* = SDL_CONTROLLER_BINDTYPE_HAT_renamed_SDL_GAMEPAD_BINDTYPE_HAT 
   else:
-    let SDL_CONTROLLER_BINDTYPE_HAT* = SDL_CONTROLLER_BINDTYPE_HAT_renamed_SDL_GAMEPAD_BINDTYPE_HAT
+    let SDL_CONTROLLER_BINDTYPE_HAT* = SDL_CONTROLLER_BINDTYPE_HAT_renamed_SDL_GAMEPAD_BINDTYPE_HAT 
 when SDL_CONTROLLER_BINDTYPE_NONE_renamed_SDL_GAMEPAD_BINDTYPE_NONE is typedesc:
   type
-    SDL_CONTROLLER_BINDTYPE_NONE* = SDL_CONTROLLER_BINDTYPE_NONE_renamed_SDL_GAMEPAD_BINDTYPE_NONE
+    SDL_CONTROLLER_BINDTYPE_NONE* = SDL_CONTROLLER_BINDTYPE_NONE_renamed_SDL_GAMEPAD_BINDTYPE_NONE 
 else:
   when SDL_CONTROLLER_BINDTYPE_NONE_renamed_SDL_GAMEPAD_BINDTYPE_NONE is static:
     const
-      SDL_CONTROLLER_BINDTYPE_NONE* = SDL_CONTROLLER_BINDTYPE_NONE_renamed_SDL_GAMEPAD_BINDTYPE_NONE
+      SDL_CONTROLLER_BINDTYPE_NONE* = SDL_CONTROLLER_BINDTYPE_NONE_renamed_SDL_GAMEPAD_BINDTYPE_NONE 
   else:
-    let SDL_CONTROLLER_BINDTYPE_NONE* = SDL_CONTROLLER_BINDTYPE_NONE_renamed_SDL_GAMEPAD_BINDTYPE_NONE
+    let SDL_CONTROLLER_BINDTYPE_NONE* = SDL_CONTROLLER_BINDTYPE_NONE_renamed_SDL_GAMEPAD_BINDTYPE_NONE 
 when SDL_CONTROLLER_BUTTON_A_renamed_SDL_GAMEPAD_BUTTON_SOUTH is typedesc:
   type
-    SDL_CONTROLLER_BUTTON_A* = SDL_CONTROLLER_BUTTON_A_renamed_SDL_GAMEPAD_BUTTON_SOUTH
+    SDL_CONTROLLER_BUTTON_A* = SDL_CONTROLLER_BUTTON_A_renamed_SDL_GAMEPAD_BUTTON_SOUTH 
 else:
   when SDL_CONTROLLER_BUTTON_A_renamed_SDL_GAMEPAD_BUTTON_SOUTH is static:
     const
-      SDL_CONTROLLER_BUTTON_A* = SDL_CONTROLLER_BUTTON_A_renamed_SDL_GAMEPAD_BUTTON_SOUTH
+      SDL_CONTROLLER_BUTTON_A* = SDL_CONTROLLER_BUTTON_A_renamed_SDL_GAMEPAD_BUTTON_SOUTH 
   else:
-    let SDL_CONTROLLER_BUTTON_A* = SDL_CONTROLLER_BUTTON_A_renamed_SDL_GAMEPAD_BUTTON_SOUTH
+    let SDL_CONTROLLER_BUTTON_A* = SDL_CONTROLLER_BUTTON_A_renamed_SDL_GAMEPAD_BUTTON_SOUTH 
 when SDL_CONTROLLER_BUTTON_B_renamed_SDL_GAMEPAD_BUTTON_EAST is typedesc:
   type
-    SDL_CONTROLLER_BUTTON_B* = SDL_CONTROLLER_BUTTON_B_renamed_SDL_GAMEPAD_BUTTON_EAST
+    SDL_CONTROLLER_BUTTON_B* = SDL_CONTROLLER_BUTTON_B_renamed_SDL_GAMEPAD_BUTTON_EAST 
 else:
   when SDL_CONTROLLER_BUTTON_B_renamed_SDL_GAMEPAD_BUTTON_EAST is static:
     const
-      SDL_CONTROLLER_BUTTON_B* = SDL_CONTROLLER_BUTTON_B_renamed_SDL_GAMEPAD_BUTTON_EAST
+      SDL_CONTROLLER_BUTTON_B* = SDL_CONTROLLER_BUTTON_B_renamed_SDL_GAMEPAD_BUTTON_EAST 
   else:
-    let SDL_CONTROLLER_BUTTON_B* = SDL_CONTROLLER_BUTTON_B_renamed_SDL_GAMEPAD_BUTTON_EAST
+    let SDL_CONTROLLER_BUTTON_B* = SDL_CONTROLLER_BUTTON_B_renamed_SDL_GAMEPAD_BUTTON_EAST 
 when SDL_CONTROLLER_BUTTON_BACK_renamed_SDL_GAMEPAD_BUTTON_BACK is typedesc:
   type
-    SDL_CONTROLLER_BUTTON_BACK* = SDL_CONTROLLER_BUTTON_BACK_renamed_SDL_GAMEPAD_BUTTON_BACK
+    SDL_CONTROLLER_BUTTON_BACK* = SDL_CONTROLLER_BUTTON_BACK_renamed_SDL_GAMEPAD_BUTTON_BACK 
 else:
   when SDL_CONTROLLER_BUTTON_BACK_renamed_SDL_GAMEPAD_BUTTON_BACK is static:
     const
-      SDL_CONTROLLER_BUTTON_BACK* = SDL_CONTROLLER_BUTTON_BACK_renamed_SDL_GAMEPAD_BUTTON_BACK
+      SDL_CONTROLLER_BUTTON_BACK* = SDL_CONTROLLER_BUTTON_BACK_renamed_SDL_GAMEPAD_BUTTON_BACK 
   else:
-    let SDL_CONTROLLER_BUTTON_BACK* = SDL_CONTROLLER_BUTTON_BACK_renamed_SDL_GAMEPAD_BUTTON_BACK
+    let SDL_CONTROLLER_BUTTON_BACK* = SDL_CONTROLLER_BUTTON_BACK_renamed_SDL_GAMEPAD_BUTTON_BACK 
 when SDL_CONTROLLER_BUTTON_DPAD_DOWN_renamed_SDL_GAMEPAD_BUTTON_DPAD_DOWN is
     typedesc:
   type
-    SDL_CONTROLLER_BUTTON_DPAD_DOWN* = SDL_CONTROLLER_BUTTON_DPAD_DOWN_renamed_SDL_GAMEPAD_BUTTON_DPAD_DOWN
+    SDL_CONTROLLER_BUTTON_DPAD_DOWN* = SDL_CONTROLLER_BUTTON_DPAD_DOWN_renamed_SDL_GAMEPAD_BUTTON_DPAD_DOWN 
 else:
   when SDL_CONTROLLER_BUTTON_DPAD_DOWN_renamed_SDL_GAMEPAD_BUTTON_DPAD_DOWN is
       static:
     const
-      SDL_CONTROLLER_BUTTON_DPAD_DOWN* = SDL_CONTROLLER_BUTTON_DPAD_DOWN_renamed_SDL_GAMEPAD_BUTTON_DPAD_DOWN
+      SDL_CONTROLLER_BUTTON_DPAD_DOWN* = SDL_CONTROLLER_BUTTON_DPAD_DOWN_renamed_SDL_GAMEPAD_BUTTON_DPAD_DOWN 
   else:
-    let SDL_CONTROLLER_BUTTON_DPAD_DOWN* = SDL_CONTROLLER_BUTTON_DPAD_DOWN_renamed_SDL_GAMEPAD_BUTTON_DPAD_DOWN
+    let SDL_CONTROLLER_BUTTON_DPAD_DOWN* = SDL_CONTROLLER_BUTTON_DPAD_DOWN_renamed_SDL_GAMEPAD_BUTTON_DPAD_DOWN 
 when SDL_CONTROLLER_BUTTON_DPAD_LEFT_renamed_SDL_GAMEPAD_BUTTON_DPAD_LEFT is
     typedesc:
   type
-    SDL_CONTROLLER_BUTTON_DPAD_LEFT* = SDL_CONTROLLER_BUTTON_DPAD_LEFT_renamed_SDL_GAMEPAD_BUTTON_DPAD_LEFT
+    SDL_CONTROLLER_BUTTON_DPAD_LEFT* = SDL_CONTROLLER_BUTTON_DPAD_LEFT_renamed_SDL_GAMEPAD_BUTTON_DPAD_LEFT 
 else:
   when SDL_CONTROLLER_BUTTON_DPAD_LEFT_renamed_SDL_GAMEPAD_BUTTON_DPAD_LEFT is
       static:
     const
-      SDL_CONTROLLER_BUTTON_DPAD_LEFT* = SDL_CONTROLLER_BUTTON_DPAD_LEFT_renamed_SDL_GAMEPAD_BUTTON_DPAD_LEFT
+      SDL_CONTROLLER_BUTTON_DPAD_LEFT* = SDL_CONTROLLER_BUTTON_DPAD_LEFT_renamed_SDL_GAMEPAD_BUTTON_DPAD_LEFT 
   else:
-    let SDL_CONTROLLER_BUTTON_DPAD_LEFT* = SDL_CONTROLLER_BUTTON_DPAD_LEFT_renamed_SDL_GAMEPAD_BUTTON_DPAD_LEFT
+    let SDL_CONTROLLER_BUTTON_DPAD_LEFT* = SDL_CONTROLLER_BUTTON_DPAD_LEFT_renamed_SDL_GAMEPAD_BUTTON_DPAD_LEFT 
 when SDL_CONTROLLER_BUTTON_DPAD_RIGHT_renamed_SDL_GAMEPAD_BUTTON_DPAD_RIGHT is
     typedesc:
   type
-    SDL_CONTROLLER_BUTTON_DPAD_RIGHT* = SDL_CONTROLLER_BUTTON_DPAD_RIGHT_renamed_SDL_GAMEPAD_BUTTON_DPAD_RIGHT
+    SDL_CONTROLLER_BUTTON_DPAD_RIGHT* = SDL_CONTROLLER_BUTTON_DPAD_RIGHT_renamed_SDL_GAMEPAD_BUTTON_DPAD_RIGHT 
 else:
   when SDL_CONTROLLER_BUTTON_DPAD_RIGHT_renamed_SDL_GAMEPAD_BUTTON_DPAD_RIGHT is
       static:
     const
-      SDL_CONTROLLER_BUTTON_DPAD_RIGHT* = SDL_CONTROLLER_BUTTON_DPAD_RIGHT_renamed_SDL_GAMEPAD_BUTTON_DPAD_RIGHT
+      SDL_CONTROLLER_BUTTON_DPAD_RIGHT* = SDL_CONTROLLER_BUTTON_DPAD_RIGHT_renamed_SDL_GAMEPAD_BUTTON_DPAD_RIGHT 
   else:
-    let SDL_CONTROLLER_BUTTON_DPAD_RIGHT* = SDL_CONTROLLER_BUTTON_DPAD_RIGHT_renamed_SDL_GAMEPAD_BUTTON_DPAD_RIGHT
+    let SDL_CONTROLLER_BUTTON_DPAD_RIGHT* = SDL_CONTROLLER_BUTTON_DPAD_RIGHT_renamed_SDL_GAMEPAD_BUTTON_DPAD_RIGHT 
 when SDL_CONTROLLER_BUTTON_DPAD_UP_renamed_SDL_GAMEPAD_BUTTON_DPAD_UP is
     typedesc:
   type
-    SDL_CONTROLLER_BUTTON_DPAD_UP* = SDL_CONTROLLER_BUTTON_DPAD_UP_renamed_SDL_GAMEPAD_BUTTON_DPAD_UP
+    SDL_CONTROLLER_BUTTON_DPAD_UP* = SDL_CONTROLLER_BUTTON_DPAD_UP_renamed_SDL_GAMEPAD_BUTTON_DPAD_UP 
 else:
   when SDL_CONTROLLER_BUTTON_DPAD_UP_renamed_SDL_GAMEPAD_BUTTON_DPAD_UP is
       static:
     const
-      SDL_CONTROLLER_BUTTON_DPAD_UP* = SDL_CONTROLLER_BUTTON_DPAD_UP_renamed_SDL_GAMEPAD_BUTTON_DPAD_UP
+      SDL_CONTROLLER_BUTTON_DPAD_UP* = SDL_CONTROLLER_BUTTON_DPAD_UP_renamed_SDL_GAMEPAD_BUTTON_DPAD_UP 
   else:
-    let SDL_CONTROLLER_BUTTON_DPAD_UP* = SDL_CONTROLLER_BUTTON_DPAD_UP_renamed_SDL_GAMEPAD_BUTTON_DPAD_UP
+    let SDL_CONTROLLER_BUTTON_DPAD_UP* = SDL_CONTROLLER_BUTTON_DPAD_UP_renamed_SDL_GAMEPAD_BUTTON_DPAD_UP 
 when SDL_CONTROLLER_BUTTON_GUIDE_renamed_SDL_GAMEPAD_BUTTON_GUIDE is typedesc:
   type
-    SDL_CONTROLLER_BUTTON_GUIDE* = SDL_CONTROLLER_BUTTON_GUIDE_renamed_SDL_GAMEPAD_BUTTON_GUIDE
+    SDL_CONTROLLER_BUTTON_GUIDE* = SDL_CONTROLLER_BUTTON_GUIDE_renamed_SDL_GAMEPAD_BUTTON_GUIDE 
 else:
   when SDL_CONTROLLER_BUTTON_GUIDE_renamed_SDL_GAMEPAD_BUTTON_GUIDE is static:
     const
-      SDL_CONTROLLER_BUTTON_GUIDE* = SDL_CONTROLLER_BUTTON_GUIDE_renamed_SDL_GAMEPAD_BUTTON_GUIDE
+      SDL_CONTROLLER_BUTTON_GUIDE* = SDL_CONTROLLER_BUTTON_GUIDE_renamed_SDL_GAMEPAD_BUTTON_GUIDE 
   else:
-    let SDL_CONTROLLER_BUTTON_GUIDE* = SDL_CONTROLLER_BUTTON_GUIDE_renamed_SDL_GAMEPAD_BUTTON_GUIDE
+    let SDL_CONTROLLER_BUTTON_GUIDE* = SDL_CONTROLLER_BUTTON_GUIDE_renamed_SDL_GAMEPAD_BUTTON_GUIDE 
 when SDL_CONTROLLER_BUTTON_INVALID_renamed_SDL_GAMEPAD_BUTTON_INVALID is
     typedesc:
   type
-    SDL_CONTROLLER_BUTTON_INVALID* = SDL_CONTROLLER_BUTTON_INVALID_renamed_SDL_GAMEPAD_BUTTON_INVALID
+    SDL_CONTROLLER_BUTTON_INVALID* = SDL_CONTROLLER_BUTTON_INVALID_renamed_SDL_GAMEPAD_BUTTON_INVALID 
 else:
   when SDL_CONTROLLER_BUTTON_INVALID_renamed_SDL_GAMEPAD_BUTTON_INVALID is
       static:
     const
-      SDL_CONTROLLER_BUTTON_INVALID* = SDL_CONTROLLER_BUTTON_INVALID_renamed_SDL_GAMEPAD_BUTTON_INVALID
+      SDL_CONTROLLER_BUTTON_INVALID* = SDL_CONTROLLER_BUTTON_INVALID_renamed_SDL_GAMEPAD_BUTTON_INVALID 
   else:
-    let SDL_CONTROLLER_BUTTON_INVALID* = SDL_CONTROLLER_BUTTON_INVALID_renamed_SDL_GAMEPAD_BUTTON_INVALID
+    let SDL_CONTROLLER_BUTTON_INVALID* = SDL_CONTROLLER_BUTTON_INVALID_renamed_SDL_GAMEPAD_BUTTON_INVALID 
 when SDL_CONTROLLER_BUTTON_LEFTSHOULDER_renamed_SDL_GAMEPAD_BUTTON_LEFT_SHOULDER is
     typedesc:
   type
-    SDL_CONTROLLER_BUTTON_LEFTSHOULDER* = SDL_CONTROLLER_BUTTON_LEFTSHOULDER_renamed_SDL_GAMEPAD_BUTTON_LEFT_SHOULDER
+    SDL_CONTROLLER_BUTTON_LEFTSHOULDER* = SDL_CONTROLLER_BUTTON_LEFTSHOULDER_renamed_SDL_GAMEPAD_BUTTON_LEFT_SHOULDER 
 else:
   when SDL_CONTROLLER_BUTTON_LEFTSHOULDER_renamed_SDL_GAMEPAD_BUTTON_LEFT_SHOULDER is
       static:
     const
-      SDL_CONTROLLER_BUTTON_LEFTSHOULDER* = SDL_CONTROLLER_BUTTON_LEFTSHOULDER_renamed_SDL_GAMEPAD_BUTTON_LEFT_SHOULDER
+      SDL_CONTROLLER_BUTTON_LEFTSHOULDER* = SDL_CONTROLLER_BUTTON_LEFTSHOULDER_renamed_SDL_GAMEPAD_BUTTON_LEFT_SHOULDER 
   else:
-    let SDL_CONTROLLER_BUTTON_LEFTSHOULDER* = SDL_CONTROLLER_BUTTON_LEFTSHOULDER_renamed_SDL_GAMEPAD_BUTTON_LEFT_SHOULDER
+    let SDL_CONTROLLER_BUTTON_LEFTSHOULDER* = SDL_CONTROLLER_BUTTON_LEFTSHOULDER_renamed_SDL_GAMEPAD_BUTTON_LEFT_SHOULDER 
 when SDL_CONTROLLER_BUTTON_LEFTSTICK_renamed_SDL_GAMEPAD_BUTTON_LEFT_STICK is
     typedesc:
   type
-    SDL_CONTROLLER_BUTTON_LEFTSTICK* = SDL_CONTROLLER_BUTTON_LEFTSTICK_renamed_SDL_GAMEPAD_BUTTON_LEFT_STICK
+    SDL_CONTROLLER_BUTTON_LEFTSTICK* = SDL_CONTROLLER_BUTTON_LEFTSTICK_renamed_SDL_GAMEPAD_BUTTON_LEFT_STICK 
 else:
   when SDL_CONTROLLER_BUTTON_LEFTSTICK_renamed_SDL_GAMEPAD_BUTTON_LEFT_STICK is
       static:
     const
-      SDL_CONTROLLER_BUTTON_LEFTSTICK* = SDL_CONTROLLER_BUTTON_LEFTSTICK_renamed_SDL_GAMEPAD_BUTTON_LEFT_STICK
+      SDL_CONTROLLER_BUTTON_LEFTSTICK* = SDL_CONTROLLER_BUTTON_LEFTSTICK_renamed_SDL_GAMEPAD_BUTTON_LEFT_STICK 
   else:
-    let SDL_CONTROLLER_BUTTON_LEFTSTICK* = SDL_CONTROLLER_BUTTON_LEFTSTICK_renamed_SDL_GAMEPAD_BUTTON_LEFT_STICK
+    let SDL_CONTROLLER_BUTTON_LEFTSTICK* = SDL_CONTROLLER_BUTTON_LEFTSTICK_renamed_SDL_GAMEPAD_BUTTON_LEFT_STICK 
 when SDL_CONTROLLER_BUTTON_MAX_renamed_SDL_GAMEPAD_BUTTON_MAX is typedesc:
   type
-    SDL_CONTROLLER_BUTTON_MAX* = SDL_CONTROLLER_BUTTON_MAX_renamed_SDL_GAMEPAD_BUTTON_MAX
+    SDL_CONTROLLER_BUTTON_MAX* = SDL_CONTROLLER_BUTTON_MAX_renamed_SDL_GAMEPAD_BUTTON_MAX 
 else:
   when SDL_CONTROLLER_BUTTON_MAX_renamed_SDL_GAMEPAD_BUTTON_MAX is static:
     const
-      SDL_CONTROLLER_BUTTON_MAX* = SDL_CONTROLLER_BUTTON_MAX_renamed_SDL_GAMEPAD_BUTTON_MAX
+      SDL_CONTROLLER_BUTTON_MAX* = SDL_CONTROLLER_BUTTON_MAX_renamed_SDL_GAMEPAD_BUTTON_MAX 
   else:
-    let SDL_CONTROLLER_BUTTON_MAX* = SDL_CONTROLLER_BUTTON_MAX_renamed_SDL_GAMEPAD_BUTTON_MAX
+    let SDL_CONTROLLER_BUTTON_MAX* = SDL_CONTROLLER_BUTTON_MAX_renamed_SDL_GAMEPAD_BUTTON_MAX 
 when SDL_CONTROLLER_BUTTON_MISC1_renamed_SDL_GAMEPAD_BUTTON_MISC1 is typedesc:
   type
-    SDL_CONTROLLER_BUTTON_MISC1* = SDL_CONTROLLER_BUTTON_MISC1_renamed_SDL_GAMEPAD_BUTTON_MISC1
+    SDL_CONTROLLER_BUTTON_MISC1* = SDL_CONTROLLER_BUTTON_MISC1_renamed_SDL_GAMEPAD_BUTTON_MISC1 
 else:
   when SDL_CONTROLLER_BUTTON_MISC1_renamed_SDL_GAMEPAD_BUTTON_MISC1 is static:
     const
-      SDL_CONTROLLER_BUTTON_MISC1* = SDL_CONTROLLER_BUTTON_MISC1_renamed_SDL_GAMEPAD_BUTTON_MISC1
+      SDL_CONTROLLER_BUTTON_MISC1* = SDL_CONTROLLER_BUTTON_MISC1_renamed_SDL_GAMEPAD_BUTTON_MISC1 
   else:
-    let SDL_CONTROLLER_BUTTON_MISC1* = SDL_CONTROLLER_BUTTON_MISC1_renamed_SDL_GAMEPAD_BUTTON_MISC1
+    let SDL_CONTROLLER_BUTTON_MISC1* = SDL_CONTROLLER_BUTTON_MISC1_renamed_SDL_GAMEPAD_BUTTON_MISC1 
 when SDL_CONTROLLER_BUTTON_PADDLE1_renamed_SDL_GAMEPAD_BUTTON_RIGHT_PADDLE1 is
     typedesc:
   type
-    SDL_CONTROLLER_BUTTON_PADDLE1* = SDL_CONTROLLER_BUTTON_PADDLE1_renamed_SDL_GAMEPAD_BUTTON_RIGHT_PADDLE1
+    SDL_CONTROLLER_BUTTON_PADDLE1* = SDL_CONTROLLER_BUTTON_PADDLE1_renamed_SDL_GAMEPAD_BUTTON_RIGHT_PADDLE1 
 else:
   when SDL_CONTROLLER_BUTTON_PADDLE1_renamed_SDL_GAMEPAD_BUTTON_RIGHT_PADDLE1 is
       static:
     const
-      SDL_CONTROLLER_BUTTON_PADDLE1* = SDL_CONTROLLER_BUTTON_PADDLE1_renamed_SDL_GAMEPAD_BUTTON_RIGHT_PADDLE1
+      SDL_CONTROLLER_BUTTON_PADDLE1* = SDL_CONTROLLER_BUTTON_PADDLE1_renamed_SDL_GAMEPAD_BUTTON_RIGHT_PADDLE1 
   else:
-    let SDL_CONTROLLER_BUTTON_PADDLE1* = SDL_CONTROLLER_BUTTON_PADDLE1_renamed_SDL_GAMEPAD_BUTTON_RIGHT_PADDLE1
+    let SDL_CONTROLLER_BUTTON_PADDLE1* = SDL_CONTROLLER_BUTTON_PADDLE1_renamed_SDL_GAMEPAD_BUTTON_RIGHT_PADDLE1 
 when SDL_CONTROLLER_BUTTON_PADDLE2_renamed_SDL_GAMEPAD_BUTTON_LEFT_PADDLE1 is
     typedesc:
   type
-    SDL_CONTROLLER_BUTTON_PADDLE2* = SDL_CONTROLLER_BUTTON_PADDLE2_renamed_SDL_GAMEPAD_BUTTON_LEFT_PADDLE1
+    SDL_CONTROLLER_BUTTON_PADDLE2* = SDL_CONTROLLER_BUTTON_PADDLE2_renamed_SDL_GAMEPAD_BUTTON_LEFT_PADDLE1 
 else:
   when SDL_CONTROLLER_BUTTON_PADDLE2_renamed_SDL_GAMEPAD_BUTTON_LEFT_PADDLE1 is
       static:
     const
-      SDL_CONTROLLER_BUTTON_PADDLE2* = SDL_CONTROLLER_BUTTON_PADDLE2_renamed_SDL_GAMEPAD_BUTTON_LEFT_PADDLE1
+      SDL_CONTROLLER_BUTTON_PADDLE2* = SDL_CONTROLLER_BUTTON_PADDLE2_renamed_SDL_GAMEPAD_BUTTON_LEFT_PADDLE1 
   else:
-    let SDL_CONTROLLER_BUTTON_PADDLE2* = SDL_CONTROLLER_BUTTON_PADDLE2_renamed_SDL_GAMEPAD_BUTTON_LEFT_PADDLE1
+    let SDL_CONTROLLER_BUTTON_PADDLE2* = SDL_CONTROLLER_BUTTON_PADDLE2_renamed_SDL_GAMEPAD_BUTTON_LEFT_PADDLE1 
 when SDL_CONTROLLER_BUTTON_PADDLE3_renamed_SDL_GAMEPAD_BUTTON_RIGHT_PADDLE2 is
     typedesc:
   type
-    SDL_CONTROLLER_BUTTON_PADDLE3* = SDL_CONTROLLER_BUTTON_PADDLE3_renamed_SDL_GAMEPAD_BUTTON_RIGHT_PADDLE2
+    SDL_CONTROLLER_BUTTON_PADDLE3* = SDL_CONTROLLER_BUTTON_PADDLE3_renamed_SDL_GAMEPAD_BUTTON_RIGHT_PADDLE2 
 else:
   when SDL_CONTROLLER_BUTTON_PADDLE3_renamed_SDL_GAMEPAD_BUTTON_RIGHT_PADDLE2 is
       static:
     const
-      SDL_CONTROLLER_BUTTON_PADDLE3* = SDL_CONTROLLER_BUTTON_PADDLE3_renamed_SDL_GAMEPAD_BUTTON_RIGHT_PADDLE2
+      SDL_CONTROLLER_BUTTON_PADDLE3* = SDL_CONTROLLER_BUTTON_PADDLE3_renamed_SDL_GAMEPAD_BUTTON_RIGHT_PADDLE2 
   else:
-    let SDL_CONTROLLER_BUTTON_PADDLE3* = SDL_CONTROLLER_BUTTON_PADDLE3_renamed_SDL_GAMEPAD_BUTTON_RIGHT_PADDLE2
+    let SDL_CONTROLLER_BUTTON_PADDLE3* = SDL_CONTROLLER_BUTTON_PADDLE3_renamed_SDL_GAMEPAD_BUTTON_RIGHT_PADDLE2 
 when SDL_CONTROLLER_BUTTON_PADDLE4_renamed_SDL_GAMEPAD_BUTTON_LEFT_PADDLE2 is
     typedesc:
   type
-    SDL_CONTROLLER_BUTTON_PADDLE4* = SDL_CONTROLLER_BUTTON_PADDLE4_renamed_SDL_GAMEPAD_BUTTON_LEFT_PADDLE2
+    SDL_CONTROLLER_BUTTON_PADDLE4* = SDL_CONTROLLER_BUTTON_PADDLE4_renamed_SDL_GAMEPAD_BUTTON_LEFT_PADDLE2 
 else:
   when SDL_CONTROLLER_BUTTON_PADDLE4_renamed_SDL_GAMEPAD_BUTTON_LEFT_PADDLE2 is
       static:
     const
-      SDL_CONTROLLER_BUTTON_PADDLE4* = SDL_CONTROLLER_BUTTON_PADDLE4_renamed_SDL_GAMEPAD_BUTTON_LEFT_PADDLE2
+      SDL_CONTROLLER_BUTTON_PADDLE4* = SDL_CONTROLLER_BUTTON_PADDLE4_renamed_SDL_GAMEPAD_BUTTON_LEFT_PADDLE2 
   else:
-    let SDL_CONTROLLER_BUTTON_PADDLE4* = SDL_CONTROLLER_BUTTON_PADDLE4_renamed_SDL_GAMEPAD_BUTTON_LEFT_PADDLE2
+    let SDL_CONTROLLER_BUTTON_PADDLE4* = SDL_CONTROLLER_BUTTON_PADDLE4_renamed_SDL_GAMEPAD_BUTTON_LEFT_PADDLE2 
 when SDL_CONTROLLER_BUTTON_RIGHTSHOULDER_renamed_SDL_GAMEPAD_BUTTON_RIGHT_SHOULDER is
     typedesc:
   type
-    SDL_CONTROLLER_BUTTON_RIGHTSHOULDER* = SDL_CONTROLLER_BUTTON_RIGHTSHOULDER_renamed_SDL_GAMEPAD_BUTTON_RIGHT_SHOULDER
+    SDL_CONTROLLER_BUTTON_RIGHTSHOULDER* = SDL_CONTROLLER_BUTTON_RIGHTSHOULDER_renamed_SDL_GAMEPAD_BUTTON_RIGHT_SHOULDER 
 else:
   when SDL_CONTROLLER_BUTTON_RIGHTSHOULDER_renamed_SDL_GAMEPAD_BUTTON_RIGHT_SHOULDER is
       static:
     const
-      SDL_CONTROLLER_BUTTON_RIGHTSHOULDER* = SDL_CONTROLLER_BUTTON_RIGHTSHOULDER_renamed_SDL_GAMEPAD_BUTTON_RIGHT_SHOULDER
+      SDL_CONTROLLER_BUTTON_RIGHTSHOULDER* = SDL_CONTROLLER_BUTTON_RIGHTSHOULDER_renamed_SDL_GAMEPAD_BUTTON_RIGHT_SHOULDER 
   else:
-    let SDL_CONTROLLER_BUTTON_RIGHTSHOULDER* = SDL_CONTROLLER_BUTTON_RIGHTSHOULDER_renamed_SDL_GAMEPAD_BUTTON_RIGHT_SHOULDER
+    let SDL_CONTROLLER_BUTTON_RIGHTSHOULDER* = SDL_CONTROLLER_BUTTON_RIGHTSHOULDER_renamed_SDL_GAMEPAD_BUTTON_RIGHT_SHOULDER 
 when SDL_CONTROLLER_BUTTON_RIGHTSTICK_renamed_SDL_GAMEPAD_BUTTON_RIGHT_STICK is
     typedesc:
   type
-    SDL_CONTROLLER_BUTTON_RIGHTSTICK* = SDL_CONTROLLER_BUTTON_RIGHTSTICK_renamed_SDL_GAMEPAD_BUTTON_RIGHT_STICK
+    SDL_CONTROLLER_BUTTON_RIGHTSTICK* = SDL_CONTROLLER_BUTTON_RIGHTSTICK_renamed_SDL_GAMEPAD_BUTTON_RIGHT_STICK 
 else:
   when SDL_CONTROLLER_BUTTON_RIGHTSTICK_renamed_SDL_GAMEPAD_BUTTON_RIGHT_STICK is
       static:
     const
-      SDL_CONTROLLER_BUTTON_RIGHTSTICK* = SDL_CONTROLLER_BUTTON_RIGHTSTICK_renamed_SDL_GAMEPAD_BUTTON_RIGHT_STICK
+      SDL_CONTROLLER_BUTTON_RIGHTSTICK* = SDL_CONTROLLER_BUTTON_RIGHTSTICK_renamed_SDL_GAMEPAD_BUTTON_RIGHT_STICK 
   else:
-    let SDL_CONTROLLER_BUTTON_RIGHTSTICK* = SDL_CONTROLLER_BUTTON_RIGHTSTICK_renamed_SDL_GAMEPAD_BUTTON_RIGHT_STICK
+    let SDL_CONTROLLER_BUTTON_RIGHTSTICK* = SDL_CONTROLLER_BUTTON_RIGHTSTICK_renamed_SDL_GAMEPAD_BUTTON_RIGHT_STICK 
 when SDL_CONTROLLER_BUTTON_START_renamed_SDL_GAMEPAD_BUTTON_START is typedesc:
   type
-    SDL_CONTROLLER_BUTTON_START* = SDL_CONTROLLER_BUTTON_START_renamed_SDL_GAMEPAD_BUTTON_START
+    SDL_CONTROLLER_BUTTON_START* = SDL_CONTROLLER_BUTTON_START_renamed_SDL_GAMEPAD_BUTTON_START 
 else:
   when SDL_CONTROLLER_BUTTON_START_renamed_SDL_GAMEPAD_BUTTON_START is static:
     const
-      SDL_CONTROLLER_BUTTON_START* = SDL_CONTROLLER_BUTTON_START_renamed_SDL_GAMEPAD_BUTTON_START
+      SDL_CONTROLLER_BUTTON_START* = SDL_CONTROLLER_BUTTON_START_renamed_SDL_GAMEPAD_BUTTON_START 
   else:
-    let SDL_CONTROLLER_BUTTON_START* = SDL_CONTROLLER_BUTTON_START_renamed_SDL_GAMEPAD_BUTTON_START
+    let SDL_CONTROLLER_BUTTON_START* = SDL_CONTROLLER_BUTTON_START_renamed_SDL_GAMEPAD_BUTTON_START 
 when SDL_CONTROLLER_BUTTON_TOUCHPAD_renamed_SDL_GAMEPAD_BUTTON_TOUCHPAD is
     typedesc:
   type
-    SDL_CONTROLLER_BUTTON_TOUCHPAD* = SDL_CONTROLLER_BUTTON_TOUCHPAD_renamed_SDL_GAMEPAD_BUTTON_TOUCHPAD
+    SDL_CONTROLLER_BUTTON_TOUCHPAD* = SDL_CONTROLLER_BUTTON_TOUCHPAD_renamed_SDL_GAMEPAD_BUTTON_TOUCHPAD 
 else:
   when SDL_CONTROLLER_BUTTON_TOUCHPAD_renamed_SDL_GAMEPAD_BUTTON_TOUCHPAD is
       static:
     const
-      SDL_CONTROLLER_BUTTON_TOUCHPAD* = SDL_CONTROLLER_BUTTON_TOUCHPAD_renamed_SDL_GAMEPAD_BUTTON_TOUCHPAD
+      SDL_CONTROLLER_BUTTON_TOUCHPAD* = SDL_CONTROLLER_BUTTON_TOUCHPAD_renamed_SDL_GAMEPAD_BUTTON_TOUCHPAD 
   else:
-    let SDL_CONTROLLER_BUTTON_TOUCHPAD* = SDL_CONTROLLER_BUTTON_TOUCHPAD_renamed_SDL_GAMEPAD_BUTTON_TOUCHPAD
+    let SDL_CONTROLLER_BUTTON_TOUCHPAD* = SDL_CONTROLLER_BUTTON_TOUCHPAD_renamed_SDL_GAMEPAD_BUTTON_TOUCHPAD 
 when SDL_CONTROLLER_BUTTON_X_renamed_SDL_GAMEPAD_BUTTON_WEST is typedesc:
   type
-    SDL_CONTROLLER_BUTTON_X* = SDL_CONTROLLER_BUTTON_X_renamed_SDL_GAMEPAD_BUTTON_WEST
+    SDL_CONTROLLER_BUTTON_X* = SDL_CONTROLLER_BUTTON_X_renamed_SDL_GAMEPAD_BUTTON_WEST 
 else:
   when SDL_CONTROLLER_BUTTON_X_renamed_SDL_GAMEPAD_BUTTON_WEST is static:
     const
-      SDL_CONTROLLER_BUTTON_X* = SDL_CONTROLLER_BUTTON_X_renamed_SDL_GAMEPAD_BUTTON_WEST
+      SDL_CONTROLLER_BUTTON_X* = SDL_CONTROLLER_BUTTON_X_renamed_SDL_GAMEPAD_BUTTON_WEST 
   else:
-    let SDL_CONTROLLER_BUTTON_X* = SDL_CONTROLLER_BUTTON_X_renamed_SDL_GAMEPAD_BUTTON_WEST
+    let SDL_CONTROLLER_BUTTON_X* = SDL_CONTROLLER_BUTTON_X_renamed_SDL_GAMEPAD_BUTTON_WEST 
 when SDL_CONTROLLER_BUTTON_Y_renamed_SDL_GAMEPAD_BUTTON_NORTH is typedesc:
   type
-    SDL_CONTROLLER_BUTTON_Y* = SDL_CONTROLLER_BUTTON_Y_renamed_SDL_GAMEPAD_BUTTON_NORTH
+    SDL_CONTROLLER_BUTTON_Y* = SDL_CONTROLLER_BUTTON_Y_renamed_SDL_GAMEPAD_BUTTON_NORTH 
 else:
   when SDL_CONTROLLER_BUTTON_Y_renamed_SDL_GAMEPAD_BUTTON_NORTH is static:
     const
-      SDL_CONTROLLER_BUTTON_Y* = SDL_CONTROLLER_BUTTON_Y_renamed_SDL_GAMEPAD_BUTTON_NORTH
+      SDL_CONTROLLER_BUTTON_Y* = SDL_CONTROLLER_BUTTON_Y_renamed_SDL_GAMEPAD_BUTTON_NORTH 
   else:
-    let SDL_CONTROLLER_BUTTON_Y* = SDL_CONTROLLER_BUTTON_Y_renamed_SDL_GAMEPAD_BUTTON_NORTH
+    let SDL_CONTROLLER_BUTTON_Y* = SDL_CONTROLLER_BUTTON_Y_renamed_SDL_GAMEPAD_BUTTON_NORTH 
 when SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_LEFT_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_LEFT is
     typedesc:
   type
-    SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_LEFT* = SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_LEFT_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_LEFT
+    SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_LEFT* = SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_LEFT_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_LEFT 
 else:
   when SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_LEFT_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_LEFT is
       static:
     const
-      SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_LEFT* = SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_LEFT_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_LEFT
+      SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_LEFT* = SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_LEFT_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_LEFT 
   else:
-    let SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_LEFT* = SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_LEFT_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_LEFT
+    let SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_LEFT* = SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_LEFT_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_LEFT 
 when SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_PAIR_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_PAIR is
     typedesc:
   type
-    SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_PAIR* = SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_PAIR_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_PAIR
+    SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_PAIR* = SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_PAIR_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_PAIR 
 else:
   when SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_PAIR_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_PAIR is
       static:
     const
-      SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_PAIR* = SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_PAIR_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_PAIR
+      SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_PAIR* = SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_PAIR_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_PAIR 
   else:
-    let SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_PAIR* = SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_PAIR_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_PAIR
+    let SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_PAIR* = SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_PAIR_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_PAIR 
 when SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_RIGHT_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_RIGHT is
     typedesc:
   type
-    SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_RIGHT* = SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_RIGHT_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_RIGHT
+    SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_RIGHT* = SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_RIGHT_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_RIGHT 
 else:
   when SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_RIGHT_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_RIGHT is
       static:
     const
-      SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_RIGHT* = SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_RIGHT_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_RIGHT
+      SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_RIGHT* = SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_RIGHT_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_RIGHT 
   else:
-    let SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_RIGHT* = SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_RIGHT_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_RIGHT
+    let SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_RIGHT* = SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_RIGHT_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_RIGHT 
 when SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_PRO_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_PRO is
     typedesc:
   type
-    SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_PRO* = SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_PRO_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_PRO
+    SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_PRO* = SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_PRO_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_PRO 
 else:
   when SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_PRO_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_PRO is
       static:
     const
-      SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_PRO* = SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_PRO_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_PRO
+      SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_PRO* = SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_PRO_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_PRO 
   else:
-    let SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_PRO* = SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_PRO_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_PRO
+    let SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_PRO* = SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_PRO_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_PRO 
 when SDL_CONTROLLER_TYPE_PS3_renamed_SDL_GAMEPAD_TYPE_PS3 is typedesc:
   type
-    SDL_CONTROLLER_TYPE_PS3* = SDL_CONTROLLER_TYPE_PS3_renamed_SDL_GAMEPAD_TYPE_PS3
+    SDL_CONTROLLER_TYPE_PS3* = SDL_CONTROLLER_TYPE_PS3_renamed_SDL_GAMEPAD_TYPE_PS3 
 else:
   when SDL_CONTROLLER_TYPE_PS3_renamed_SDL_GAMEPAD_TYPE_PS3 is static:
     const
-      SDL_CONTROLLER_TYPE_PS3* = SDL_CONTROLLER_TYPE_PS3_renamed_SDL_GAMEPAD_TYPE_PS3
+      SDL_CONTROLLER_TYPE_PS3* = SDL_CONTROLLER_TYPE_PS3_renamed_SDL_GAMEPAD_TYPE_PS3 
   else:
-    let SDL_CONTROLLER_TYPE_PS3* = SDL_CONTROLLER_TYPE_PS3_renamed_SDL_GAMEPAD_TYPE_PS3
+    let SDL_CONTROLLER_TYPE_PS3* = SDL_CONTROLLER_TYPE_PS3_renamed_SDL_GAMEPAD_TYPE_PS3 
 when SDL_CONTROLLER_TYPE_PS4_renamed_SDL_GAMEPAD_TYPE_PS4 is typedesc:
   type
-    SDL_CONTROLLER_TYPE_PS4* = SDL_CONTROLLER_TYPE_PS4_renamed_SDL_GAMEPAD_TYPE_PS4
+    SDL_CONTROLLER_TYPE_PS4* = SDL_CONTROLLER_TYPE_PS4_renamed_SDL_GAMEPAD_TYPE_PS4 
 else:
   when SDL_CONTROLLER_TYPE_PS4_renamed_SDL_GAMEPAD_TYPE_PS4 is static:
     const
-      SDL_CONTROLLER_TYPE_PS4* = SDL_CONTROLLER_TYPE_PS4_renamed_SDL_GAMEPAD_TYPE_PS4
+      SDL_CONTROLLER_TYPE_PS4* = SDL_CONTROLLER_TYPE_PS4_renamed_SDL_GAMEPAD_TYPE_PS4 
   else:
-    let SDL_CONTROLLER_TYPE_PS4* = SDL_CONTROLLER_TYPE_PS4_renamed_SDL_GAMEPAD_TYPE_PS4
+    let SDL_CONTROLLER_TYPE_PS4* = SDL_CONTROLLER_TYPE_PS4_renamed_SDL_GAMEPAD_TYPE_PS4 
 when SDL_CONTROLLER_TYPE_PS5_renamed_SDL_GAMEPAD_TYPE_PS5 is typedesc:
   type
-    SDL_CONTROLLER_TYPE_PS5* = SDL_CONTROLLER_TYPE_PS5_renamed_SDL_GAMEPAD_TYPE_PS5
+    SDL_CONTROLLER_TYPE_PS5* = SDL_CONTROLLER_TYPE_PS5_renamed_SDL_GAMEPAD_TYPE_PS5 
 else:
   when SDL_CONTROLLER_TYPE_PS5_renamed_SDL_GAMEPAD_TYPE_PS5 is static:
     const
-      SDL_CONTROLLER_TYPE_PS5* = SDL_CONTROLLER_TYPE_PS5_renamed_SDL_GAMEPAD_TYPE_PS5
+      SDL_CONTROLLER_TYPE_PS5* = SDL_CONTROLLER_TYPE_PS5_renamed_SDL_GAMEPAD_TYPE_PS5 
   else:
-    let SDL_CONTROLLER_TYPE_PS5* = SDL_CONTROLLER_TYPE_PS5_renamed_SDL_GAMEPAD_TYPE_PS5
+    let SDL_CONTROLLER_TYPE_PS5* = SDL_CONTROLLER_TYPE_PS5_renamed_SDL_GAMEPAD_TYPE_PS5 
 when SDL_CONTROLLER_TYPE_UNKNOWN_renamed_SDL_GAMEPAD_TYPE_STANDARD is typedesc:
   type
-    SDL_CONTROLLER_TYPE_UNKNOWN* = SDL_CONTROLLER_TYPE_UNKNOWN_renamed_SDL_GAMEPAD_TYPE_STANDARD
+    SDL_CONTROLLER_TYPE_UNKNOWN* = SDL_CONTROLLER_TYPE_UNKNOWN_renamed_SDL_GAMEPAD_TYPE_STANDARD 
 else:
   when SDL_CONTROLLER_TYPE_UNKNOWN_renamed_SDL_GAMEPAD_TYPE_STANDARD is static:
     const
-      SDL_CONTROLLER_TYPE_UNKNOWN* = SDL_CONTROLLER_TYPE_UNKNOWN_renamed_SDL_GAMEPAD_TYPE_STANDARD
+      SDL_CONTROLLER_TYPE_UNKNOWN* = SDL_CONTROLLER_TYPE_UNKNOWN_renamed_SDL_GAMEPAD_TYPE_STANDARD 
   else:
-    let SDL_CONTROLLER_TYPE_UNKNOWN* = SDL_CONTROLLER_TYPE_UNKNOWN_renamed_SDL_GAMEPAD_TYPE_STANDARD
+    let SDL_CONTROLLER_TYPE_UNKNOWN* = SDL_CONTROLLER_TYPE_UNKNOWN_renamed_SDL_GAMEPAD_TYPE_STANDARD 
 when SDL_CONTROLLER_TYPE_VIRTUAL_renamed_SDL_GAMEPAD_TYPE_VIRTUAL is typedesc:
   type
-    SDL_CONTROLLER_TYPE_VIRTUAL* = SDL_CONTROLLER_TYPE_VIRTUAL_renamed_SDL_GAMEPAD_TYPE_VIRTUAL
+    SDL_CONTROLLER_TYPE_VIRTUAL* = SDL_CONTROLLER_TYPE_VIRTUAL_renamed_SDL_GAMEPAD_TYPE_VIRTUAL 
 else:
   when SDL_CONTROLLER_TYPE_VIRTUAL_renamed_SDL_GAMEPAD_TYPE_VIRTUAL is static:
     const
-      SDL_CONTROLLER_TYPE_VIRTUAL* = SDL_CONTROLLER_TYPE_VIRTUAL_renamed_SDL_GAMEPAD_TYPE_VIRTUAL
+      SDL_CONTROLLER_TYPE_VIRTUAL* = SDL_CONTROLLER_TYPE_VIRTUAL_renamed_SDL_GAMEPAD_TYPE_VIRTUAL 
   else:
-    let SDL_CONTROLLER_TYPE_VIRTUAL* = SDL_CONTROLLER_TYPE_VIRTUAL_renamed_SDL_GAMEPAD_TYPE_VIRTUAL
+    let SDL_CONTROLLER_TYPE_VIRTUAL* = SDL_CONTROLLER_TYPE_VIRTUAL_renamed_SDL_GAMEPAD_TYPE_VIRTUAL 
 when SDL_CONTROLLER_TYPE_XBOX360_renamed_SDL_GAMEPAD_TYPE_XBOX360 is typedesc:
   type
-    SDL_CONTROLLER_TYPE_XBOX360* = SDL_CONTROLLER_TYPE_XBOX360_renamed_SDL_GAMEPAD_TYPE_XBOX360
+    SDL_CONTROLLER_TYPE_XBOX360* = SDL_CONTROLLER_TYPE_XBOX360_renamed_SDL_GAMEPAD_TYPE_XBOX360 
 else:
   when SDL_CONTROLLER_TYPE_XBOX360_renamed_SDL_GAMEPAD_TYPE_XBOX360 is static:
     const
-      SDL_CONTROLLER_TYPE_XBOX360* = SDL_CONTROLLER_TYPE_XBOX360_renamed_SDL_GAMEPAD_TYPE_XBOX360
+      SDL_CONTROLLER_TYPE_XBOX360* = SDL_CONTROLLER_TYPE_XBOX360_renamed_SDL_GAMEPAD_TYPE_XBOX360 
   else:
-    let SDL_CONTROLLER_TYPE_XBOX360* = SDL_CONTROLLER_TYPE_XBOX360_renamed_SDL_GAMEPAD_TYPE_XBOX360
+    let SDL_CONTROLLER_TYPE_XBOX360* = SDL_CONTROLLER_TYPE_XBOX360_renamed_SDL_GAMEPAD_TYPE_XBOX360 
 when SDL_CONTROLLER_TYPE_XBOXONE_renamed_SDL_GAMEPAD_TYPE_XBOXONE is typedesc:
   type
-    SDL_CONTROLLER_TYPE_XBOXONE* = SDL_CONTROLLER_TYPE_XBOXONE_renamed_SDL_GAMEPAD_TYPE_XBOXONE
+    SDL_CONTROLLER_TYPE_XBOXONE* = SDL_CONTROLLER_TYPE_XBOXONE_renamed_SDL_GAMEPAD_TYPE_XBOXONE 
 else:
   when SDL_CONTROLLER_TYPE_XBOXONE_renamed_SDL_GAMEPAD_TYPE_XBOXONE is static:
     const
-      SDL_CONTROLLER_TYPE_XBOXONE* = SDL_CONTROLLER_TYPE_XBOXONE_renamed_SDL_GAMEPAD_TYPE_XBOXONE
+      SDL_CONTROLLER_TYPE_XBOXONE* = SDL_CONTROLLER_TYPE_XBOXONE_renamed_SDL_GAMEPAD_TYPE_XBOXONE 
   else:
-    let SDL_CONTROLLER_TYPE_XBOXONE* = SDL_CONTROLLER_TYPE_XBOXONE_renamed_SDL_GAMEPAD_TYPE_XBOXONE
+    let SDL_CONTROLLER_TYPE_XBOXONE* = SDL_CONTROLLER_TYPE_XBOXONE_renamed_SDL_GAMEPAD_TYPE_XBOXONE 
 when SDL_GameController_renamed_SDL_Gamepad is typedesc:
   type
-    SDL_GameController* = SDL_GameController_renamed_SDL_Gamepad
+    SDL_GameController* = SDL_GameController_renamed_SDL_Gamepad 
 else:
   when SDL_GameController_renamed_SDL_Gamepad is static:
     const
-      SDL_GameController* = SDL_GameController_renamed_SDL_Gamepad
+      SDL_GameController* = SDL_GameController_renamed_SDL_Gamepad 
   else:
-    let SDL_GameController* = SDL_GameController_renamed_SDL_Gamepad
+    let SDL_GameController* = SDL_GameController_renamed_SDL_Gamepad 
 when SDL_GameControllerAddMapping_renamed_SDL_AddGamepadMapping is typedesc:
   type
-    SDL_GameControllerAddMapping* = SDL_GameControllerAddMapping_renamed_SDL_AddGamepadMapping
+    SDL_GameControllerAddMapping* = SDL_GameControllerAddMapping_renamed_SDL_AddGamepadMapping 
 else:
   when SDL_GameControllerAddMapping_renamed_SDL_AddGamepadMapping is static:
     const
-      SDL_GameControllerAddMapping* = SDL_GameControllerAddMapping_renamed_SDL_AddGamepadMapping
+      SDL_GameControllerAddMapping* = SDL_GameControllerAddMapping_renamed_SDL_AddGamepadMapping 
   else:
-    let SDL_GameControllerAddMapping* = SDL_GameControllerAddMapping_renamed_SDL_AddGamepadMapping
+    let SDL_GameControllerAddMapping* = SDL_GameControllerAddMapping_renamed_SDL_AddGamepadMapping 
 when SDL_GameControllerAddMappingsFromFile_renamed_SDL_AddGamepadMappingsFromFile is
     typedesc:
   type
-    SDL_GameControllerAddMappingsFromFile* = SDL_GameControllerAddMappingsFromFile_renamed_SDL_AddGamepadMappingsFromFile
+    SDL_GameControllerAddMappingsFromFile* = SDL_GameControllerAddMappingsFromFile_renamed_SDL_AddGamepadMappingsFromFile 
 else:
   when SDL_GameControllerAddMappingsFromFile_renamed_SDL_AddGamepadMappingsFromFile is
       static:
     const
-      SDL_GameControllerAddMappingsFromFile* = SDL_GameControllerAddMappingsFromFile_renamed_SDL_AddGamepadMappingsFromFile
+      SDL_GameControllerAddMappingsFromFile* = SDL_GameControllerAddMappingsFromFile_renamed_SDL_AddGamepadMappingsFromFile 
   else:
-    let SDL_GameControllerAddMappingsFromFile* = SDL_GameControllerAddMappingsFromFile_renamed_SDL_AddGamepadMappingsFromFile
+    let SDL_GameControllerAddMappingsFromFile* = SDL_GameControllerAddMappingsFromFile_renamed_SDL_AddGamepadMappingsFromFile 
 when SDL_GameControllerAddMappingsFromRW_renamed_SDL_AddGamepadMappingsFromIO is
     typedesc:
   type
-    SDL_GameControllerAddMappingsFromRW* = SDL_GameControllerAddMappingsFromRW_renamed_SDL_AddGamepadMappingsFromIO
+    SDL_GameControllerAddMappingsFromRW* = SDL_GameControllerAddMappingsFromRW_renamed_SDL_AddGamepadMappingsFromIO 
 else:
   when SDL_GameControllerAddMappingsFromRW_renamed_SDL_AddGamepadMappingsFromIO is
       static:
     const
-      SDL_GameControllerAddMappingsFromRW* = SDL_GameControllerAddMappingsFromRW_renamed_SDL_AddGamepadMappingsFromIO
+      SDL_GameControllerAddMappingsFromRW* = SDL_GameControllerAddMappingsFromRW_renamed_SDL_AddGamepadMappingsFromIO 
   else:
-    let SDL_GameControllerAddMappingsFromRW* = SDL_GameControllerAddMappingsFromRW_renamed_SDL_AddGamepadMappingsFromIO
+    let SDL_GameControllerAddMappingsFromRW* = SDL_GameControllerAddMappingsFromRW_renamed_SDL_AddGamepadMappingsFromIO 
 when SDL_GameControllerAxis_renamed_SDL_GamepadAxis is typedesc:
   type
-    SDL_GameControllerAxis* = SDL_GameControllerAxis_renamed_SDL_GamepadAxis
+    SDL_GameControllerAxis* = SDL_GameControllerAxis_renamed_SDL_GamepadAxis 
 else:
   when SDL_GameControllerAxis_renamed_SDL_GamepadAxis is static:
     const
-      SDL_GameControllerAxis* = SDL_GameControllerAxis_renamed_SDL_GamepadAxis
+      SDL_GameControllerAxis* = SDL_GameControllerAxis_renamed_SDL_GamepadAxis 
   else:
-    let SDL_GameControllerAxis* = SDL_GameControllerAxis_renamed_SDL_GamepadAxis
+    let SDL_GameControllerAxis* = SDL_GameControllerAxis_renamed_SDL_GamepadAxis 
 when SDL_GameControllerBindType_renamed_SDL_GamepadBindingType is typedesc:
   type
-    SDL_GameControllerBindType* = SDL_GameControllerBindType_renamed_SDL_GamepadBindingType
+    SDL_GameControllerBindType* = SDL_GameControllerBindType_renamed_SDL_GamepadBindingType 
 else:
   when SDL_GameControllerBindType_renamed_SDL_GamepadBindingType is static:
     const
-      SDL_GameControllerBindType* = SDL_GameControllerBindType_renamed_SDL_GamepadBindingType
+      SDL_GameControllerBindType* = SDL_GameControllerBindType_renamed_SDL_GamepadBindingType 
   else:
-    let SDL_GameControllerBindType* = SDL_GameControllerBindType_renamed_SDL_GamepadBindingType
+    let SDL_GameControllerBindType* = SDL_GameControllerBindType_renamed_SDL_GamepadBindingType 
 when SDL_GameControllerButton_renamed_SDL_GamepadButton is typedesc:
   type
-    SDL_GameControllerButton* = SDL_GameControllerButton_renamed_SDL_GamepadButton
+    SDL_GameControllerButton* = SDL_GameControllerButton_renamed_SDL_GamepadButton 
 else:
   when SDL_GameControllerButton_renamed_SDL_GamepadButton is static:
     const
-      SDL_GameControllerButton* = SDL_GameControllerButton_renamed_SDL_GamepadButton
+      SDL_GameControllerButton* = SDL_GameControllerButton_renamed_SDL_GamepadButton 
   else:
-    let SDL_GameControllerButton* = SDL_GameControllerButton_renamed_SDL_GamepadButton
+    let SDL_GameControllerButton* = SDL_GameControllerButton_renamed_SDL_GamepadButton 
 when SDL_GameControllerClose_renamed_SDL_CloseGamepad is typedesc:
   type
-    SDL_GameControllerClose* = SDL_GameControllerClose_renamed_SDL_CloseGamepad
+    SDL_GameControllerClose* = SDL_GameControllerClose_renamed_SDL_CloseGamepad 
 else:
   when SDL_GameControllerClose_renamed_SDL_CloseGamepad is static:
     const
-      SDL_GameControllerClose* = SDL_GameControllerClose_renamed_SDL_CloseGamepad
+      SDL_GameControllerClose* = SDL_GameControllerClose_renamed_SDL_CloseGamepad 
   else:
-    let SDL_GameControllerClose* = SDL_GameControllerClose_renamed_SDL_CloseGamepad
+    let SDL_GameControllerClose* = SDL_GameControllerClose_renamed_SDL_CloseGamepad 
 when SDL_GameControllerFromInstanceID_renamed_SDL_GetGamepadFromID is typedesc:
   type
-    SDL_GameControllerFromInstanceID* = SDL_GameControllerFromInstanceID_renamed_SDL_GetGamepadFromID
+    SDL_GameControllerFromInstanceID* = SDL_GameControllerFromInstanceID_renamed_SDL_GetGamepadFromID 
 else:
   when SDL_GameControllerFromInstanceID_renamed_SDL_GetGamepadFromID is static:
     const
-      SDL_GameControllerFromInstanceID* = SDL_GameControllerFromInstanceID_renamed_SDL_GetGamepadFromID
+      SDL_GameControllerFromInstanceID* = SDL_GameControllerFromInstanceID_renamed_SDL_GetGamepadFromID 
   else:
-    let SDL_GameControllerFromInstanceID* = SDL_GameControllerFromInstanceID_renamed_SDL_GetGamepadFromID
+    let SDL_GameControllerFromInstanceID* = SDL_GameControllerFromInstanceID_renamed_SDL_GetGamepadFromID 
 when SDL_GameControllerFromPlayerIndex_renamed_SDL_GetGamepadFromPlayerIndex is
     typedesc:
   type
-    SDL_GameControllerFromPlayerIndex* = SDL_GameControllerFromPlayerIndex_renamed_SDL_GetGamepadFromPlayerIndex
+    SDL_GameControllerFromPlayerIndex* = SDL_GameControllerFromPlayerIndex_renamed_SDL_GetGamepadFromPlayerIndex 
 else:
   when SDL_GameControllerFromPlayerIndex_renamed_SDL_GetGamepadFromPlayerIndex is
       static:
     const
-      SDL_GameControllerFromPlayerIndex* = SDL_GameControllerFromPlayerIndex_renamed_SDL_GetGamepadFromPlayerIndex
+      SDL_GameControllerFromPlayerIndex* = SDL_GameControllerFromPlayerIndex_renamed_SDL_GetGamepadFromPlayerIndex 
   else:
-    let SDL_GameControllerFromPlayerIndex* = SDL_GameControllerFromPlayerIndex_renamed_SDL_GetGamepadFromPlayerIndex
+    let SDL_GameControllerFromPlayerIndex* = SDL_GameControllerFromPlayerIndex_renamed_SDL_GetGamepadFromPlayerIndex 
 when SDL_GameControllerGetAppleSFSymbolsNameForAxis_renamed_SDL_GetGamepadAppleSFSymbolsNameForAxis is
     typedesc:
   type
-    SDL_GameControllerGetAppleSFSymbolsNameForAxis* = SDL_GameControllerGetAppleSFSymbolsNameForAxis_renamed_SDL_GetGamepadAppleSFSymbolsNameForAxis
+    SDL_GameControllerGetAppleSFSymbolsNameForAxis* = SDL_GameControllerGetAppleSFSymbolsNameForAxis_renamed_SDL_GetGamepadAppleSFSymbolsNameForAxis 
 else:
   when SDL_GameControllerGetAppleSFSymbolsNameForAxis_renamed_SDL_GetGamepadAppleSFSymbolsNameForAxis is
       static:
     const
-      SDL_GameControllerGetAppleSFSymbolsNameForAxis* = SDL_GameControllerGetAppleSFSymbolsNameForAxis_renamed_SDL_GetGamepadAppleSFSymbolsNameForAxis
+      SDL_GameControllerGetAppleSFSymbolsNameForAxis* = SDL_GameControllerGetAppleSFSymbolsNameForAxis_renamed_SDL_GetGamepadAppleSFSymbolsNameForAxis 
   else:
-    let SDL_GameControllerGetAppleSFSymbolsNameForAxis* = SDL_GameControllerGetAppleSFSymbolsNameForAxis_renamed_SDL_GetGamepadAppleSFSymbolsNameForAxis
+    let SDL_GameControllerGetAppleSFSymbolsNameForAxis* = SDL_GameControllerGetAppleSFSymbolsNameForAxis_renamed_SDL_GetGamepadAppleSFSymbolsNameForAxis 
 when SDL_GameControllerGetAppleSFSymbolsNameForButton_renamed_SDL_GetGamepadAppleSFSymbolsNameForButton is
     typedesc:
   type
-    SDL_GameControllerGetAppleSFSymbolsNameForButton* = SDL_GameControllerGetAppleSFSymbolsNameForButton_renamed_SDL_GetGamepadAppleSFSymbolsNameForButton
+    SDL_GameControllerGetAppleSFSymbolsNameForButton* = SDL_GameControllerGetAppleSFSymbolsNameForButton_renamed_SDL_GetGamepadAppleSFSymbolsNameForButton 
 else:
   when SDL_GameControllerGetAppleSFSymbolsNameForButton_renamed_SDL_GetGamepadAppleSFSymbolsNameForButton is
       static:
     const
-      SDL_GameControllerGetAppleSFSymbolsNameForButton* = SDL_GameControllerGetAppleSFSymbolsNameForButton_renamed_SDL_GetGamepadAppleSFSymbolsNameForButton
+      SDL_GameControllerGetAppleSFSymbolsNameForButton* = SDL_GameControllerGetAppleSFSymbolsNameForButton_renamed_SDL_GetGamepadAppleSFSymbolsNameForButton 
   else:
-    let SDL_GameControllerGetAppleSFSymbolsNameForButton* = SDL_GameControllerGetAppleSFSymbolsNameForButton_renamed_SDL_GetGamepadAppleSFSymbolsNameForButton
+    let SDL_GameControllerGetAppleSFSymbolsNameForButton* = SDL_GameControllerGetAppleSFSymbolsNameForButton_renamed_SDL_GetGamepadAppleSFSymbolsNameForButton 
 when SDL_GameControllerGetAttached_renamed_SDL_GamepadConnected is typedesc:
   type
-    SDL_GameControllerGetAttached* = SDL_GameControllerGetAttached_renamed_SDL_GamepadConnected
+    SDL_GameControllerGetAttached* = SDL_GameControllerGetAttached_renamed_SDL_GamepadConnected 
 else:
   when SDL_GameControllerGetAttached_renamed_SDL_GamepadConnected is static:
     const
-      SDL_GameControllerGetAttached* = SDL_GameControllerGetAttached_renamed_SDL_GamepadConnected
+      SDL_GameControllerGetAttached* = SDL_GameControllerGetAttached_renamed_SDL_GamepadConnected 
   else:
-    let SDL_GameControllerGetAttached* = SDL_GameControllerGetAttached_renamed_SDL_GamepadConnected
+    let SDL_GameControllerGetAttached* = SDL_GameControllerGetAttached_renamed_SDL_GamepadConnected 
 when SDL_GameControllerGetAxis_renamed_SDL_GetGamepadAxis is typedesc:
   type
-    SDL_GameControllerGetAxis* = SDL_GameControllerGetAxis_renamed_SDL_GetGamepadAxis
+    SDL_GameControllerGetAxis* = SDL_GameControllerGetAxis_renamed_SDL_GetGamepadAxis 
 else:
   when SDL_GameControllerGetAxis_renamed_SDL_GetGamepadAxis is static:
     const
-      SDL_GameControllerGetAxis* = SDL_GameControllerGetAxis_renamed_SDL_GetGamepadAxis
+      SDL_GameControllerGetAxis* = SDL_GameControllerGetAxis_renamed_SDL_GetGamepadAxis 
   else:
-    let SDL_GameControllerGetAxis* = SDL_GameControllerGetAxis_renamed_SDL_GetGamepadAxis
+    let SDL_GameControllerGetAxis* = SDL_GameControllerGetAxis_renamed_SDL_GetGamepadAxis 
 when SDL_GameControllerGetAxisFromString_renamed_SDL_GetGamepadAxisFromString is
     typedesc:
   type
-    SDL_GameControllerGetAxisFromString* = SDL_GameControllerGetAxisFromString_renamed_SDL_GetGamepadAxisFromString
+    SDL_GameControllerGetAxisFromString* = SDL_GameControllerGetAxisFromString_renamed_SDL_GetGamepadAxisFromString 
 else:
   when SDL_GameControllerGetAxisFromString_renamed_SDL_GetGamepadAxisFromString is
       static:
     const
-      SDL_GameControllerGetAxisFromString* = SDL_GameControllerGetAxisFromString_renamed_SDL_GetGamepadAxisFromString
+      SDL_GameControllerGetAxisFromString* = SDL_GameControllerGetAxisFromString_renamed_SDL_GetGamepadAxisFromString 
   else:
-    let SDL_GameControllerGetAxisFromString* = SDL_GameControllerGetAxisFromString_renamed_SDL_GetGamepadAxisFromString
+    let SDL_GameControllerGetAxisFromString* = SDL_GameControllerGetAxisFromString_renamed_SDL_GetGamepadAxisFromString 
 when SDL_GameControllerGetButton_renamed_SDL_GetGamepadButton is typedesc:
   type
-    SDL_GameControllerGetButton* = SDL_GameControllerGetButton_renamed_SDL_GetGamepadButton
+    SDL_GameControllerGetButton* = SDL_GameControllerGetButton_renamed_SDL_GetGamepadButton 
 else:
   when SDL_GameControllerGetButton_renamed_SDL_GetGamepadButton is static:
     const
-      SDL_GameControllerGetButton* = SDL_GameControllerGetButton_renamed_SDL_GetGamepadButton
+      SDL_GameControllerGetButton* = SDL_GameControllerGetButton_renamed_SDL_GetGamepadButton 
   else:
-    let SDL_GameControllerGetButton* = SDL_GameControllerGetButton_renamed_SDL_GetGamepadButton
+    let SDL_GameControllerGetButton* = SDL_GameControllerGetButton_renamed_SDL_GetGamepadButton 
 when SDL_GameControllerGetButtonFromString_renamed_SDL_GetGamepadButtonFromString is
     typedesc:
   type
-    SDL_GameControllerGetButtonFromString* = SDL_GameControllerGetButtonFromString_renamed_SDL_GetGamepadButtonFromString
+    SDL_GameControllerGetButtonFromString* = SDL_GameControllerGetButtonFromString_renamed_SDL_GetGamepadButtonFromString 
 else:
   when SDL_GameControllerGetButtonFromString_renamed_SDL_GetGamepadButtonFromString is
       static:
     const
-      SDL_GameControllerGetButtonFromString* = SDL_GameControllerGetButtonFromString_renamed_SDL_GetGamepadButtonFromString
+      SDL_GameControllerGetButtonFromString* = SDL_GameControllerGetButtonFromString_renamed_SDL_GetGamepadButtonFromString 
   else:
-    let SDL_GameControllerGetButtonFromString* = SDL_GameControllerGetButtonFromString_renamed_SDL_GetGamepadButtonFromString
+    let SDL_GameControllerGetButtonFromString* = SDL_GameControllerGetButtonFromString_renamed_SDL_GetGamepadButtonFromString 
 when SDL_GameControllerGetFirmwareVersion_renamed_SDL_GetGamepadFirmwareVersion is
     typedesc:
   type
-    SDL_GameControllerGetFirmwareVersion* = SDL_GameControllerGetFirmwareVersion_renamed_SDL_GetGamepadFirmwareVersion
+    SDL_GameControllerGetFirmwareVersion* = SDL_GameControllerGetFirmwareVersion_renamed_SDL_GetGamepadFirmwareVersion 
 else:
   when SDL_GameControllerGetFirmwareVersion_renamed_SDL_GetGamepadFirmwareVersion is
       static:
     const
-      SDL_GameControllerGetFirmwareVersion* = SDL_GameControllerGetFirmwareVersion_renamed_SDL_GetGamepadFirmwareVersion
+      SDL_GameControllerGetFirmwareVersion* = SDL_GameControllerGetFirmwareVersion_renamed_SDL_GetGamepadFirmwareVersion 
   else:
-    let SDL_GameControllerGetFirmwareVersion* = SDL_GameControllerGetFirmwareVersion_renamed_SDL_GetGamepadFirmwareVersion
+    let SDL_GameControllerGetFirmwareVersion* = SDL_GameControllerGetFirmwareVersion_renamed_SDL_GetGamepadFirmwareVersion 
 when SDL_GameControllerGetJoystick_renamed_SDL_GetGamepadJoystick is typedesc:
   type
-    SDL_GameControllerGetJoystick* = SDL_GameControllerGetJoystick_renamed_SDL_GetGamepadJoystick
+    SDL_GameControllerGetJoystick* = SDL_GameControllerGetJoystick_renamed_SDL_GetGamepadJoystick 
 else:
   when SDL_GameControllerGetJoystick_renamed_SDL_GetGamepadJoystick is static:
     const
-      SDL_GameControllerGetJoystick* = SDL_GameControllerGetJoystick_renamed_SDL_GetGamepadJoystick
+      SDL_GameControllerGetJoystick* = SDL_GameControllerGetJoystick_renamed_SDL_GetGamepadJoystick 
   else:
-    let SDL_GameControllerGetJoystick* = SDL_GameControllerGetJoystick_renamed_SDL_GetGamepadJoystick
+    let SDL_GameControllerGetJoystick* = SDL_GameControllerGetJoystick_renamed_SDL_GetGamepadJoystick 
 when SDL_GameControllerGetNumTouchpadFingers_renamed_SDL_GetNumGamepadTouchpadFingers is
     typedesc:
   type
-    SDL_GameControllerGetNumTouchpadFingers* = SDL_GameControllerGetNumTouchpadFingers_renamed_SDL_GetNumGamepadTouchpadFingers
+    SDL_GameControllerGetNumTouchpadFingers* = SDL_GameControllerGetNumTouchpadFingers_renamed_SDL_GetNumGamepadTouchpadFingers 
 else:
   when SDL_GameControllerGetNumTouchpadFingers_renamed_SDL_GetNumGamepadTouchpadFingers is
       static:
     const
-      SDL_GameControllerGetNumTouchpadFingers* = SDL_GameControllerGetNumTouchpadFingers_renamed_SDL_GetNumGamepadTouchpadFingers
+      SDL_GameControllerGetNumTouchpadFingers* = SDL_GameControllerGetNumTouchpadFingers_renamed_SDL_GetNumGamepadTouchpadFingers 
   else:
-    let SDL_GameControllerGetNumTouchpadFingers* = SDL_GameControllerGetNumTouchpadFingers_renamed_SDL_GetNumGamepadTouchpadFingers
+    let SDL_GameControllerGetNumTouchpadFingers* = SDL_GameControllerGetNumTouchpadFingers_renamed_SDL_GetNumGamepadTouchpadFingers 
 when SDL_GameControllerGetNumTouchpads_renamed_SDL_GetNumGamepadTouchpads is
     typedesc:
   type
-    SDL_GameControllerGetNumTouchpads* = SDL_GameControllerGetNumTouchpads_renamed_SDL_GetNumGamepadTouchpads
+    SDL_GameControllerGetNumTouchpads* = SDL_GameControllerGetNumTouchpads_renamed_SDL_GetNumGamepadTouchpads 
 else:
   when SDL_GameControllerGetNumTouchpads_renamed_SDL_GetNumGamepadTouchpads is
       static:
     const
-      SDL_GameControllerGetNumTouchpads* = SDL_GameControllerGetNumTouchpads_renamed_SDL_GetNumGamepadTouchpads
+      SDL_GameControllerGetNumTouchpads* = SDL_GameControllerGetNumTouchpads_renamed_SDL_GetNumGamepadTouchpads 
   else:
-    let SDL_GameControllerGetNumTouchpads* = SDL_GameControllerGetNumTouchpads_renamed_SDL_GetNumGamepadTouchpads
+    let SDL_GameControllerGetNumTouchpads* = SDL_GameControllerGetNumTouchpads_renamed_SDL_GetNumGamepadTouchpads 
 when SDL_GameControllerGetPlayerIndex_renamed_SDL_GetGamepadPlayerIndex is
     typedesc:
   type
-    SDL_GameControllerGetPlayerIndex* = SDL_GameControllerGetPlayerIndex_renamed_SDL_GetGamepadPlayerIndex
+    SDL_GameControllerGetPlayerIndex* = SDL_GameControllerGetPlayerIndex_renamed_SDL_GetGamepadPlayerIndex 
 else:
   when SDL_GameControllerGetPlayerIndex_renamed_SDL_GetGamepadPlayerIndex is
       static:
     const
-      SDL_GameControllerGetPlayerIndex* = SDL_GameControllerGetPlayerIndex_renamed_SDL_GetGamepadPlayerIndex
+      SDL_GameControllerGetPlayerIndex* = SDL_GameControllerGetPlayerIndex_renamed_SDL_GetGamepadPlayerIndex 
   else:
-    let SDL_GameControllerGetPlayerIndex* = SDL_GameControllerGetPlayerIndex_renamed_SDL_GetGamepadPlayerIndex
+    let SDL_GameControllerGetPlayerIndex* = SDL_GameControllerGetPlayerIndex_renamed_SDL_GetGamepadPlayerIndex 
 when SDL_GameControllerGetProduct_renamed_SDL_GetGamepadProduct is typedesc:
   type
-    SDL_GameControllerGetProduct* = SDL_GameControllerGetProduct_renamed_SDL_GetGamepadProduct
+    SDL_GameControllerGetProduct* = SDL_GameControllerGetProduct_renamed_SDL_GetGamepadProduct 
 else:
   when SDL_GameControllerGetProduct_renamed_SDL_GetGamepadProduct is static:
     const
-      SDL_GameControllerGetProduct* = SDL_GameControllerGetProduct_renamed_SDL_GetGamepadProduct
+      SDL_GameControllerGetProduct* = SDL_GameControllerGetProduct_renamed_SDL_GetGamepadProduct 
   else:
-    let SDL_GameControllerGetProduct* = SDL_GameControllerGetProduct_renamed_SDL_GetGamepadProduct
+    let SDL_GameControllerGetProduct* = SDL_GameControllerGetProduct_renamed_SDL_GetGamepadProduct 
 when SDL_GameControllerGetProductVersion_renamed_SDL_GetGamepadProductVersion is
     typedesc:
   type
-    SDL_GameControllerGetProductVersion* = SDL_GameControllerGetProductVersion_renamed_SDL_GetGamepadProductVersion
+    SDL_GameControllerGetProductVersion* = SDL_GameControllerGetProductVersion_renamed_SDL_GetGamepadProductVersion 
 else:
   when SDL_GameControllerGetProductVersion_renamed_SDL_GetGamepadProductVersion is
       static:
     const
-      SDL_GameControllerGetProductVersion* = SDL_GameControllerGetProductVersion_renamed_SDL_GetGamepadProductVersion
+      SDL_GameControllerGetProductVersion* = SDL_GameControllerGetProductVersion_renamed_SDL_GetGamepadProductVersion 
   else:
-    let SDL_GameControllerGetProductVersion* = SDL_GameControllerGetProductVersion_renamed_SDL_GetGamepadProductVersion
+    let SDL_GameControllerGetProductVersion* = SDL_GameControllerGetProductVersion_renamed_SDL_GetGamepadProductVersion 
 when SDL_GameControllerGetSensorData_renamed_SDL_GetGamepadSensorData is
     typedesc:
   type
-    SDL_GameControllerGetSensorData* = SDL_GameControllerGetSensorData_renamed_SDL_GetGamepadSensorData
+    SDL_GameControllerGetSensorData* = SDL_GameControllerGetSensorData_renamed_SDL_GetGamepadSensorData 
 else:
   when SDL_GameControllerGetSensorData_renamed_SDL_GetGamepadSensorData is
       static:
     const
-      SDL_GameControllerGetSensorData* = SDL_GameControllerGetSensorData_renamed_SDL_GetGamepadSensorData
+      SDL_GameControllerGetSensorData* = SDL_GameControllerGetSensorData_renamed_SDL_GetGamepadSensorData 
   else:
-    let SDL_GameControllerGetSensorData* = SDL_GameControllerGetSensorData_renamed_SDL_GetGamepadSensorData
+    let SDL_GameControllerGetSensorData* = SDL_GameControllerGetSensorData_renamed_SDL_GetGamepadSensorData 
 when SDL_GameControllerGetSensorDataRate_renamed_SDL_GetGamepadSensorDataRate is
     typedesc:
   type
-    SDL_GameControllerGetSensorDataRate* = SDL_GameControllerGetSensorDataRate_renamed_SDL_GetGamepadSensorDataRate
+    SDL_GameControllerGetSensorDataRate* = SDL_GameControllerGetSensorDataRate_renamed_SDL_GetGamepadSensorDataRate 
 else:
   when SDL_GameControllerGetSensorDataRate_renamed_SDL_GetGamepadSensorDataRate is
       static:
     const
-      SDL_GameControllerGetSensorDataRate* = SDL_GameControllerGetSensorDataRate_renamed_SDL_GetGamepadSensorDataRate
+      SDL_GameControllerGetSensorDataRate* = SDL_GameControllerGetSensorDataRate_renamed_SDL_GetGamepadSensorDataRate 
   else:
-    let SDL_GameControllerGetSensorDataRate* = SDL_GameControllerGetSensorDataRate_renamed_SDL_GetGamepadSensorDataRate
+    let SDL_GameControllerGetSensorDataRate* = SDL_GameControllerGetSensorDataRate_renamed_SDL_GetGamepadSensorDataRate 
 when SDL_GameControllerGetSerial_renamed_SDL_GetGamepadSerial is typedesc:
   type
-    SDL_GameControllerGetSerial* = SDL_GameControllerGetSerial_renamed_SDL_GetGamepadSerial
+    SDL_GameControllerGetSerial* = SDL_GameControllerGetSerial_renamed_SDL_GetGamepadSerial 
 else:
   when SDL_GameControllerGetSerial_renamed_SDL_GetGamepadSerial is static:
     const
-      SDL_GameControllerGetSerial* = SDL_GameControllerGetSerial_renamed_SDL_GetGamepadSerial
+      SDL_GameControllerGetSerial* = SDL_GameControllerGetSerial_renamed_SDL_GetGamepadSerial 
   else:
-    let SDL_GameControllerGetSerial* = SDL_GameControllerGetSerial_renamed_SDL_GetGamepadSerial
+    let SDL_GameControllerGetSerial* = SDL_GameControllerGetSerial_renamed_SDL_GetGamepadSerial 
 when SDL_GameControllerGetSteamHandle_renamed_SDL_GetGamepadSteamHandle is
     typedesc:
   type
-    SDL_GameControllerGetSteamHandle* = SDL_GameControllerGetSteamHandle_renamed_SDL_GetGamepadSteamHandle
+    SDL_GameControllerGetSteamHandle* = SDL_GameControllerGetSteamHandle_renamed_SDL_GetGamepadSteamHandle 
 else:
   when SDL_GameControllerGetSteamHandle_renamed_SDL_GetGamepadSteamHandle is
       static:
     const
-      SDL_GameControllerGetSteamHandle* = SDL_GameControllerGetSteamHandle_renamed_SDL_GetGamepadSteamHandle
+      SDL_GameControllerGetSteamHandle* = SDL_GameControllerGetSteamHandle_renamed_SDL_GetGamepadSteamHandle 
   else:
-    let SDL_GameControllerGetSteamHandle* = SDL_GameControllerGetSteamHandle_renamed_SDL_GetGamepadSteamHandle
+    let SDL_GameControllerGetSteamHandle* = SDL_GameControllerGetSteamHandle_renamed_SDL_GetGamepadSteamHandle 
 when SDL_GameControllerGetStringForAxis_renamed_SDL_GetGamepadStringForAxis is
     typedesc:
   type
-    SDL_GameControllerGetStringForAxis* = SDL_GameControllerGetStringForAxis_renamed_SDL_GetGamepadStringForAxis
+    SDL_GameControllerGetStringForAxis* = SDL_GameControllerGetStringForAxis_renamed_SDL_GetGamepadStringForAxis 
 else:
   when SDL_GameControllerGetStringForAxis_renamed_SDL_GetGamepadStringForAxis is
       static:
     const
-      SDL_GameControllerGetStringForAxis* = SDL_GameControllerGetStringForAxis_renamed_SDL_GetGamepadStringForAxis
+      SDL_GameControllerGetStringForAxis* = SDL_GameControllerGetStringForAxis_renamed_SDL_GetGamepadStringForAxis 
   else:
-    let SDL_GameControllerGetStringForAxis* = SDL_GameControllerGetStringForAxis_renamed_SDL_GetGamepadStringForAxis
+    let SDL_GameControllerGetStringForAxis* = SDL_GameControllerGetStringForAxis_renamed_SDL_GetGamepadStringForAxis 
 when SDL_GameControllerGetStringForButton_renamed_SDL_GetGamepadStringForButton is
     typedesc:
   type
-    SDL_GameControllerGetStringForButton* = SDL_GameControllerGetStringForButton_renamed_SDL_GetGamepadStringForButton
+    SDL_GameControllerGetStringForButton* = SDL_GameControllerGetStringForButton_renamed_SDL_GetGamepadStringForButton 
 else:
   when SDL_GameControllerGetStringForButton_renamed_SDL_GetGamepadStringForButton is
       static:
     const
-      SDL_GameControllerGetStringForButton* = SDL_GameControllerGetStringForButton_renamed_SDL_GetGamepadStringForButton
+      SDL_GameControllerGetStringForButton* = SDL_GameControllerGetStringForButton_renamed_SDL_GetGamepadStringForButton 
   else:
-    let SDL_GameControllerGetStringForButton* = SDL_GameControllerGetStringForButton_renamed_SDL_GetGamepadStringForButton
+    let SDL_GameControllerGetStringForButton* = SDL_GameControllerGetStringForButton_renamed_SDL_GetGamepadStringForButton 
 when SDL_GameControllerGetTouchpadFinger_renamed_SDL_GetGamepadTouchpadFinger is
     typedesc:
   type
-    SDL_GameControllerGetTouchpadFinger* = SDL_GameControllerGetTouchpadFinger_renamed_SDL_GetGamepadTouchpadFinger
+    SDL_GameControllerGetTouchpadFinger* = SDL_GameControllerGetTouchpadFinger_renamed_SDL_GetGamepadTouchpadFinger 
 else:
   when SDL_GameControllerGetTouchpadFinger_renamed_SDL_GetGamepadTouchpadFinger is
       static:
     const
-      SDL_GameControllerGetTouchpadFinger* = SDL_GameControllerGetTouchpadFinger_renamed_SDL_GetGamepadTouchpadFinger
+      SDL_GameControllerGetTouchpadFinger* = SDL_GameControllerGetTouchpadFinger_renamed_SDL_GetGamepadTouchpadFinger 
   else:
-    let SDL_GameControllerGetTouchpadFinger* = SDL_GameControllerGetTouchpadFinger_renamed_SDL_GetGamepadTouchpadFinger
+    let SDL_GameControllerGetTouchpadFinger* = SDL_GameControllerGetTouchpadFinger_renamed_SDL_GetGamepadTouchpadFinger 
 when SDL_GameControllerGetType_renamed_SDL_GetGamepadType is typedesc:
   type
-    SDL_GameControllerGetType* = SDL_GameControllerGetType_renamed_SDL_GetGamepadType
+    SDL_GameControllerGetType* = SDL_GameControllerGetType_renamed_SDL_GetGamepadType 
 else:
   when SDL_GameControllerGetType_renamed_SDL_GetGamepadType is static:
     const
-      SDL_GameControllerGetType* = SDL_GameControllerGetType_renamed_SDL_GetGamepadType
+      SDL_GameControllerGetType* = SDL_GameControllerGetType_renamed_SDL_GetGamepadType 
   else:
-    let SDL_GameControllerGetType* = SDL_GameControllerGetType_renamed_SDL_GetGamepadType
+    let SDL_GameControllerGetType* = SDL_GameControllerGetType_renamed_SDL_GetGamepadType 
 when SDL_GameControllerGetVendor_renamed_SDL_GetGamepadVendor is typedesc:
   type
-    SDL_GameControllerGetVendor* = SDL_GameControllerGetVendor_renamed_SDL_GetGamepadVendor
+    SDL_GameControllerGetVendor* = SDL_GameControllerGetVendor_renamed_SDL_GetGamepadVendor 
 else:
   when SDL_GameControllerGetVendor_renamed_SDL_GetGamepadVendor is static:
     const
-      SDL_GameControllerGetVendor* = SDL_GameControllerGetVendor_renamed_SDL_GetGamepadVendor
+      SDL_GameControllerGetVendor* = SDL_GameControllerGetVendor_renamed_SDL_GetGamepadVendor 
   else:
-    let SDL_GameControllerGetVendor* = SDL_GameControllerGetVendor_renamed_SDL_GetGamepadVendor
+    let SDL_GameControllerGetVendor* = SDL_GameControllerGetVendor_renamed_SDL_GetGamepadVendor 
 when SDL_GameControllerHasAxis_renamed_SDL_GamepadHasAxis is typedesc:
   type
-    SDL_GameControllerHasAxis* = SDL_GameControllerHasAxis_renamed_SDL_GamepadHasAxis
+    SDL_GameControllerHasAxis* = SDL_GameControllerHasAxis_renamed_SDL_GamepadHasAxis 
 else:
   when SDL_GameControllerHasAxis_renamed_SDL_GamepadHasAxis is static:
     const
-      SDL_GameControllerHasAxis* = SDL_GameControllerHasAxis_renamed_SDL_GamepadHasAxis
+      SDL_GameControllerHasAxis* = SDL_GameControllerHasAxis_renamed_SDL_GamepadHasAxis 
   else:
-    let SDL_GameControllerHasAxis* = SDL_GameControllerHasAxis_renamed_SDL_GamepadHasAxis
+    let SDL_GameControllerHasAxis* = SDL_GameControllerHasAxis_renamed_SDL_GamepadHasAxis 
 when SDL_GameControllerHasButton_renamed_SDL_GamepadHasButton is typedesc:
   type
-    SDL_GameControllerHasButton* = SDL_GameControllerHasButton_renamed_SDL_GamepadHasButton
+    SDL_GameControllerHasButton* = SDL_GameControllerHasButton_renamed_SDL_GamepadHasButton 
 else:
   when SDL_GameControllerHasButton_renamed_SDL_GamepadHasButton is static:
     const
-      SDL_GameControllerHasButton* = SDL_GameControllerHasButton_renamed_SDL_GamepadHasButton
+      SDL_GameControllerHasButton* = SDL_GameControllerHasButton_renamed_SDL_GamepadHasButton 
   else:
-    let SDL_GameControllerHasButton* = SDL_GameControllerHasButton_renamed_SDL_GamepadHasButton
+    let SDL_GameControllerHasButton* = SDL_GameControllerHasButton_renamed_SDL_GamepadHasButton 
 when SDL_GameControllerHasSensor_renamed_SDL_GamepadHasSensor is typedesc:
   type
-    SDL_GameControllerHasSensor* = SDL_GameControllerHasSensor_renamed_SDL_GamepadHasSensor
+    SDL_GameControllerHasSensor* = SDL_GameControllerHasSensor_renamed_SDL_GamepadHasSensor 
 else:
   when SDL_GameControllerHasSensor_renamed_SDL_GamepadHasSensor is static:
     const
-      SDL_GameControllerHasSensor* = SDL_GameControllerHasSensor_renamed_SDL_GamepadHasSensor
+      SDL_GameControllerHasSensor* = SDL_GameControllerHasSensor_renamed_SDL_GamepadHasSensor 
   else:
-    let SDL_GameControllerHasSensor* = SDL_GameControllerHasSensor_renamed_SDL_GamepadHasSensor
+    let SDL_GameControllerHasSensor* = SDL_GameControllerHasSensor_renamed_SDL_GamepadHasSensor 
 when SDL_GameControllerIsSensorEnabled_renamed_SDL_GamepadSensorEnabled is
     typedesc:
   type
-    SDL_GameControllerIsSensorEnabled* = SDL_GameControllerIsSensorEnabled_renamed_SDL_GamepadSensorEnabled
+    SDL_GameControllerIsSensorEnabled* = SDL_GameControllerIsSensorEnabled_renamed_SDL_GamepadSensorEnabled 
 else:
   when SDL_GameControllerIsSensorEnabled_renamed_SDL_GamepadSensorEnabled is
       static:
     const
-      SDL_GameControllerIsSensorEnabled* = SDL_GameControllerIsSensorEnabled_renamed_SDL_GamepadSensorEnabled
+      SDL_GameControllerIsSensorEnabled* = SDL_GameControllerIsSensorEnabled_renamed_SDL_GamepadSensorEnabled 
   else:
-    let SDL_GameControllerIsSensorEnabled* = SDL_GameControllerIsSensorEnabled_renamed_SDL_GamepadSensorEnabled
+    let SDL_GameControllerIsSensorEnabled* = SDL_GameControllerIsSensorEnabled_renamed_SDL_GamepadSensorEnabled 
 when SDL_GameControllerMapping_renamed_SDL_GetGamepadMapping is typedesc:
   type
-    SDL_GameControllerMapping* = SDL_GameControllerMapping_renamed_SDL_GetGamepadMapping
+    SDL_GameControllerMapping* = SDL_GameControllerMapping_renamed_SDL_GetGamepadMapping 
 else:
   when SDL_GameControllerMapping_renamed_SDL_GetGamepadMapping is static:
     const
-      SDL_GameControllerMapping* = SDL_GameControllerMapping_renamed_SDL_GetGamepadMapping
+      SDL_GameControllerMapping* = SDL_GameControllerMapping_renamed_SDL_GetGamepadMapping 
   else:
-    let SDL_GameControllerMapping* = SDL_GameControllerMapping_renamed_SDL_GetGamepadMapping
+    let SDL_GameControllerMapping* = SDL_GameControllerMapping_renamed_SDL_GetGamepadMapping 
 when SDL_GameControllerMappingForDeviceIndex_renamed_SDL_GetGamepadMappingForDeviceIndex is
     typedesc:
   type
-    SDL_GameControllerMappingForDeviceIndex* = SDL_GameControllerMappingForDeviceIndex_renamed_SDL_GetGamepadMappingForDeviceIndex
+    SDL_GameControllerMappingForDeviceIndex* = SDL_GameControllerMappingForDeviceIndex_renamed_SDL_GetGamepadMappingForDeviceIndex 
 else:
   when SDL_GameControllerMappingForDeviceIndex_renamed_SDL_GetGamepadMappingForDeviceIndex is
       static:
     const
-      SDL_GameControllerMappingForDeviceIndex* = SDL_GameControllerMappingForDeviceIndex_renamed_SDL_GetGamepadMappingForDeviceIndex
+      SDL_GameControllerMappingForDeviceIndex* = SDL_GameControllerMappingForDeviceIndex_renamed_SDL_GetGamepadMappingForDeviceIndex 
   else:
-    let SDL_GameControllerMappingForDeviceIndex* = SDL_GameControllerMappingForDeviceIndex_renamed_SDL_GetGamepadMappingForDeviceIndex
+    let SDL_GameControllerMappingForDeviceIndex* = SDL_GameControllerMappingForDeviceIndex_renamed_SDL_GetGamepadMappingForDeviceIndex 
 when SDL_GameControllerMappingForGUID_renamed_SDL_GetGamepadMappingForGUID is
     typedesc:
   type
-    SDL_GameControllerMappingForGUID* = SDL_GameControllerMappingForGUID_renamed_SDL_GetGamepadMappingForGUID
+    SDL_GameControllerMappingForGUID* = SDL_GameControllerMappingForGUID_renamed_SDL_GetGamepadMappingForGUID 
 else:
   when SDL_GameControllerMappingForGUID_renamed_SDL_GetGamepadMappingForGUID is
       static:
     const
-      SDL_GameControllerMappingForGUID* = SDL_GameControllerMappingForGUID_renamed_SDL_GetGamepadMappingForGUID
+      SDL_GameControllerMappingForGUID* = SDL_GameControllerMappingForGUID_renamed_SDL_GetGamepadMappingForGUID 
   else:
-    let SDL_GameControllerMappingForGUID* = SDL_GameControllerMappingForGUID_renamed_SDL_GetGamepadMappingForGUID
+    let SDL_GameControllerMappingForGUID* = SDL_GameControllerMappingForGUID_renamed_SDL_GetGamepadMappingForGUID 
 when SDL_GameControllerName_renamed_SDL_GetGamepadName is typedesc:
   type
-    SDL_GameControllerName* = SDL_GameControllerName_renamed_SDL_GetGamepadName
+    SDL_GameControllerName* = SDL_GameControllerName_renamed_SDL_GetGamepadName 
 else:
   when SDL_GameControllerName_renamed_SDL_GetGamepadName is static:
     const
-      SDL_GameControllerName* = SDL_GameControllerName_renamed_SDL_GetGamepadName
+      SDL_GameControllerName* = SDL_GameControllerName_renamed_SDL_GetGamepadName 
   else:
-    let SDL_GameControllerName* = SDL_GameControllerName_renamed_SDL_GetGamepadName
+    let SDL_GameControllerName* = SDL_GameControllerName_renamed_SDL_GetGamepadName 
 when SDL_GameControllerOpen_renamed_SDL_OpenGamepad is typedesc:
   type
-    SDL_GameControllerOpen* = SDL_GameControllerOpen_renamed_SDL_OpenGamepad
+    SDL_GameControllerOpen* = SDL_GameControllerOpen_renamed_SDL_OpenGamepad 
 else:
   when SDL_GameControllerOpen_renamed_SDL_OpenGamepad is static:
     const
-      SDL_GameControllerOpen* = SDL_GameControllerOpen_renamed_SDL_OpenGamepad
+      SDL_GameControllerOpen* = SDL_GameControllerOpen_renamed_SDL_OpenGamepad 
   else:
-    let SDL_GameControllerOpen* = SDL_GameControllerOpen_renamed_SDL_OpenGamepad
+    let SDL_GameControllerOpen* = SDL_GameControllerOpen_renamed_SDL_OpenGamepad 
 when SDL_GameControllerPath_renamed_SDL_GetGamepadPath is typedesc:
   type
-    SDL_GameControllerPath* = SDL_GameControllerPath_renamed_SDL_GetGamepadPath
+    SDL_GameControllerPath* = SDL_GameControllerPath_renamed_SDL_GetGamepadPath 
 else:
   when SDL_GameControllerPath_renamed_SDL_GetGamepadPath is static:
     const
-      SDL_GameControllerPath* = SDL_GameControllerPath_renamed_SDL_GetGamepadPath
+      SDL_GameControllerPath* = SDL_GameControllerPath_renamed_SDL_GetGamepadPath 
   else:
-    let SDL_GameControllerPath* = SDL_GameControllerPath_renamed_SDL_GetGamepadPath
+    let SDL_GameControllerPath* = SDL_GameControllerPath_renamed_SDL_GetGamepadPath 
 when SDL_GameControllerRumble_renamed_SDL_RumbleGamepad is typedesc:
   type
-    SDL_GameControllerRumble* = SDL_GameControllerRumble_renamed_SDL_RumbleGamepad
+    SDL_GameControllerRumble* = SDL_GameControllerRumble_renamed_SDL_RumbleGamepad 
 else:
   when SDL_GameControllerRumble_renamed_SDL_RumbleGamepad is static:
     const
-      SDL_GameControllerRumble* = SDL_GameControllerRumble_renamed_SDL_RumbleGamepad
+      SDL_GameControllerRumble* = SDL_GameControllerRumble_renamed_SDL_RumbleGamepad 
   else:
-    let SDL_GameControllerRumble* = SDL_GameControllerRumble_renamed_SDL_RumbleGamepad
+    let SDL_GameControllerRumble* = SDL_GameControllerRumble_renamed_SDL_RumbleGamepad 
 when SDL_GameControllerRumbleTriggers_renamed_SDL_RumbleGamepadTriggers is
     typedesc:
   type
-    SDL_GameControllerRumbleTriggers* = SDL_GameControllerRumbleTriggers_renamed_SDL_RumbleGamepadTriggers
+    SDL_GameControllerRumbleTriggers* = SDL_GameControllerRumbleTriggers_renamed_SDL_RumbleGamepadTriggers 
 else:
   when SDL_GameControllerRumbleTriggers_renamed_SDL_RumbleGamepadTriggers is
       static:
     const
-      SDL_GameControllerRumbleTriggers* = SDL_GameControllerRumbleTriggers_renamed_SDL_RumbleGamepadTriggers
+      SDL_GameControllerRumbleTriggers* = SDL_GameControllerRumbleTriggers_renamed_SDL_RumbleGamepadTriggers 
   else:
-    let SDL_GameControllerRumbleTriggers* = SDL_GameControllerRumbleTriggers_renamed_SDL_RumbleGamepadTriggers
+    let SDL_GameControllerRumbleTriggers* = SDL_GameControllerRumbleTriggers_renamed_SDL_RumbleGamepadTriggers 
 when SDL_GameControllerSendEffect_renamed_SDL_SendGamepadEffect is typedesc:
   type
-    SDL_GameControllerSendEffect* = SDL_GameControllerSendEffect_renamed_SDL_SendGamepadEffect
+    SDL_GameControllerSendEffect* = SDL_GameControllerSendEffect_renamed_SDL_SendGamepadEffect 
 else:
   when SDL_GameControllerSendEffect_renamed_SDL_SendGamepadEffect is static:
     const
-      SDL_GameControllerSendEffect* = SDL_GameControllerSendEffect_renamed_SDL_SendGamepadEffect
+      SDL_GameControllerSendEffect* = SDL_GameControllerSendEffect_renamed_SDL_SendGamepadEffect 
   else:
-    let SDL_GameControllerSendEffect* = SDL_GameControllerSendEffect_renamed_SDL_SendGamepadEffect
+    let SDL_GameControllerSendEffect* = SDL_GameControllerSendEffect_renamed_SDL_SendGamepadEffect 
 when SDL_GameControllerSetLED_renamed_SDL_SetGamepadLED is typedesc:
   type
-    SDL_GameControllerSetLED* = SDL_GameControllerSetLED_renamed_SDL_SetGamepadLED
+    SDL_GameControllerSetLED* = SDL_GameControllerSetLED_renamed_SDL_SetGamepadLED 
 else:
   when SDL_GameControllerSetLED_renamed_SDL_SetGamepadLED is static:
     const
-      SDL_GameControllerSetLED* = SDL_GameControllerSetLED_renamed_SDL_SetGamepadLED
+      SDL_GameControllerSetLED* = SDL_GameControllerSetLED_renamed_SDL_SetGamepadLED 
   else:
-    let SDL_GameControllerSetLED* = SDL_GameControllerSetLED_renamed_SDL_SetGamepadLED
+    let SDL_GameControllerSetLED* = SDL_GameControllerSetLED_renamed_SDL_SetGamepadLED 
 when SDL_GameControllerSetPlayerIndex_renamed_SDL_SetGamepadPlayerIndex is
     typedesc:
   type
-    SDL_GameControllerSetPlayerIndex* = SDL_GameControllerSetPlayerIndex_renamed_SDL_SetGamepadPlayerIndex
+    SDL_GameControllerSetPlayerIndex* = SDL_GameControllerSetPlayerIndex_renamed_SDL_SetGamepadPlayerIndex 
 else:
   when SDL_GameControllerSetPlayerIndex_renamed_SDL_SetGamepadPlayerIndex is
       static:
     const
-      SDL_GameControllerSetPlayerIndex* = SDL_GameControllerSetPlayerIndex_renamed_SDL_SetGamepadPlayerIndex
+      SDL_GameControllerSetPlayerIndex* = SDL_GameControllerSetPlayerIndex_renamed_SDL_SetGamepadPlayerIndex 
   else:
-    let SDL_GameControllerSetPlayerIndex* = SDL_GameControllerSetPlayerIndex_renamed_SDL_SetGamepadPlayerIndex
+    let SDL_GameControllerSetPlayerIndex* = SDL_GameControllerSetPlayerIndex_renamed_SDL_SetGamepadPlayerIndex 
 when SDL_GameControllerSetSensorEnabled_renamed_SDL_SetGamepadSensorEnabled is
     typedesc:
   type
-    SDL_GameControllerSetSensorEnabled* = SDL_GameControllerSetSensorEnabled_renamed_SDL_SetGamepadSensorEnabled
+    SDL_GameControllerSetSensorEnabled* = SDL_GameControllerSetSensorEnabled_renamed_SDL_SetGamepadSensorEnabled 
 else:
   when SDL_GameControllerSetSensorEnabled_renamed_SDL_SetGamepadSensorEnabled is
       static:
     const
-      SDL_GameControllerSetSensorEnabled* = SDL_GameControllerSetSensorEnabled_renamed_SDL_SetGamepadSensorEnabled
+      SDL_GameControllerSetSensorEnabled* = SDL_GameControllerSetSensorEnabled_renamed_SDL_SetGamepadSensorEnabled 
   else:
-    let SDL_GameControllerSetSensorEnabled* = SDL_GameControllerSetSensorEnabled_renamed_SDL_SetGamepadSensorEnabled
+    let SDL_GameControllerSetSensorEnabled* = SDL_GameControllerSetSensorEnabled_renamed_SDL_SetGamepadSensorEnabled 
 when SDL_GameControllerType_renamed_SDL_GamepadType is typedesc:
   type
-    SDL_GameControllerType* = SDL_GameControllerType_renamed_SDL_GamepadType
+    SDL_GameControllerType* = SDL_GameControllerType_renamed_SDL_GamepadType 
 else:
   when SDL_GameControllerType_renamed_SDL_GamepadType is static:
     const
-      SDL_GameControllerType* = SDL_GameControllerType_renamed_SDL_GamepadType
+      SDL_GameControllerType* = SDL_GameControllerType_renamed_SDL_GamepadType 
   else:
-    let SDL_GameControllerType* = SDL_GameControllerType_renamed_SDL_GamepadType
+    let SDL_GameControllerType* = SDL_GameControllerType_renamed_SDL_GamepadType 
 when SDL_GameControllerUpdate_renamed_SDL_UpdateGamepads is typedesc:
   type
-    SDL_GameControllerUpdate* = SDL_GameControllerUpdate_renamed_SDL_UpdateGamepads
+    SDL_GameControllerUpdate* = SDL_GameControllerUpdate_renamed_SDL_UpdateGamepads 
 else:
   when SDL_GameControllerUpdate_renamed_SDL_UpdateGamepads is static:
     const
-      SDL_GameControllerUpdate* = SDL_GameControllerUpdate_renamed_SDL_UpdateGamepads
+      SDL_GameControllerUpdate* = SDL_GameControllerUpdate_renamed_SDL_UpdateGamepads 
   else:
-    let SDL_GameControllerUpdate* = SDL_GameControllerUpdate_renamed_SDL_UpdateGamepads
+    let SDL_GameControllerUpdate* = SDL_GameControllerUpdate_renamed_SDL_UpdateGamepads 
 when SDL_INIT_GAMECONTROLLER_renamed_SDL_INIT_GAMEPAD is typedesc:
   type
-    SDL_INIT_GAMECONTROLLER* = SDL_INIT_GAMECONTROLLER_renamed_SDL_INIT_GAMEPAD
+    SDL_INIT_GAMECONTROLLER* = SDL_INIT_GAMECONTROLLER_renamed_SDL_INIT_GAMEPAD 
 else:
   when SDL_INIT_GAMECONTROLLER_renamed_SDL_INIT_GAMEPAD is static:
     const
-      SDL_INIT_GAMECONTROLLER* = SDL_INIT_GAMECONTROLLER_renamed_SDL_INIT_GAMEPAD
+      SDL_INIT_GAMECONTROLLER* = SDL_INIT_GAMECONTROLLER_renamed_SDL_INIT_GAMEPAD 
   else:
-    let SDL_INIT_GAMECONTROLLER* = SDL_INIT_GAMECONTROLLER_renamed_SDL_INIT_GAMEPAD
+    let SDL_INIT_GAMECONTROLLER* = SDL_INIT_GAMECONTROLLER_renamed_SDL_INIT_GAMEPAD 
 when SDL_IsGameController_renamed_SDL_IsGamepad is typedesc:
   type
-    SDL_IsGameController* = SDL_IsGameController_renamed_SDL_IsGamepad
+    SDL_IsGameController* = SDL_IsGameController_renamed_SDL_IsGamepad 
 else:
   when SDL_IsGameController_renamed_SDL_IsGamepad is static:
     const
-      SDL_IsGameController* = SDL_IsGameController_renamed_SDL_IsGamepad
+      SDL_IsGameController* = SDL_IsGameController_renamed_SDL_IsGamepad 
   else:
-    let SDL_IsGameController* = SDL_IsGameController_renamed_SDL_IsGamepad
+    let SDL_IsGameController* = SDL_IsGameController_renamed_SDL_IsGamepad 
 when SDL_GUIDFromString_renamed_SDL_StringToGUID is typedesc:
   type
-    SDL_GUIDFromString* = SDL_GUIDFromString_renamed_SDL_StringToGUID
+    SDL_GUIDFromString* = SDL_GUIDFromString_renamed_SDL_StringToGUID 
 else:
   when SDL_GUIDFromString_renamed_SDL_StringToGUID is static:
     const
-      SDL_GUIDFromString* = SDL_GUIDFromString_renamed_SDL_StringToGUID
+      SDL_GUIDFromString* = SDL_GUIDFromString_renamed_SDL_StringToGUID 
   else:
-    let SDL_GUIDFromString* = SDL_GUIDFromString_renamed_SDL_StringToGUID
+    let SDL_GUIDFromString* = SDL_GUIDFromString_renamed_SDL_StringToGUID 
 when SDL_HapticClose_renamed_SDL_CloseHaptic is typedesc:
   type
-    SDL_HapticClose* = SDL_HapticClose_renamed_SDL_CloseHaptic
+    SDL_HapticClose* = SDL_HapticClose_renamed_SDL_CloseHaptic 
 else:
   when SDL_HapticClose_renamed_SDL_CloseHaptic is static:
     const
-      SDL_HapticClose* = SDL_HapticClose_renamed_SDL_CloseHaptic
+      SDL_HapticClose* = SDL_HapticClose_renamed_SDL_CloseHaptic 
   else:
-    let SDL_HapticClose* = SDL_HapticClose_renamed_SDL_CloseHaptic
+    let SDL_HapticClose* = SDL_HapticClose_renamed_SDL_CloseHaptic 
 when SDL_HapticDestroyEffect_renamed_SDL_DestroyHapticEffect is typedesc:
   type
-    SDL_HapticDestroyEffect* = SDL_HapticDestroyEffect_renamed_SDL_DestroyHapticEffect
+    SDL_HapticDestroyEffect* = SDL_HapticDestroyEffect_renamed_SDL_DestroyHapticEffect 
 else:
   when SDL_HapticDestroyEffect_renamed_SDL_DestroyHapticEffect is static:
     const
-      SDL_HapticDestroyEffect* = SDL_HapticDestroyEffect_renamed_SDL_DestroyHapticEffect
+      SDL_HapticDestroyEffect* = SDL_HapticDestroyEffect_renamed_SDL_DestroyHapticEffect 
   else:
-    let SDL_HapticDestroyEffect* = SDL_HapticDestroyEffect_renamed_SDL_DestroyHapticEffect
+    let SDL_HapticDestroyEffect* = SDL_HapticDestroyEffect_renamed_SDL_DestroyHapticEffect 
 when SDL_HapticGetEffectStatus_renamed_SDL_GetHapticEffectStatus is typedesc:
   type
-    SDL_HapticGetEffectStatus* = SDL_HapticGetEffectStatus_renamed_SDL_GetHapticEffectStatus
+    SDL_HapticGetEffectStatus* = SDL_HapticGetEffectStatus_renamed_SDL_GetHapticEffectStatus 
 else:
   when SDL_HapticGetEffectStatus_renamed_SDL_GetHapticEffectStatus is static:
     const
-      SDL_HapticGetEffectStatus* = SDL_HapticGetEffectStatus_renamed_SDL_GetHapticEffectStatus
+      SDL_HapticGetEffectStatus* = SDL_HapticGetEffectStatus_renamed_SDL_GetHapticEffectStatus 
   else:
-    let SDL_HapticGetEffectStatus* = SDL_HapticGetEffectStatus_renamed_SDL_GetHapticEffectStatus
+    let SDL_HapticGetEffectStatus* = SDL_HapticGetEffectStatus_renamed_SDL_GetHapticEffectStatus 
 when SDL_HapticNewEffect_renamed_SDL_CreateHapticEffect is typedesc:
   type
-    SDL_HapticNewEffect* = SDL_HapticNewEffect_renamed_SDL_CreateHapticEffect
+    SDL_HapticNewEffect* = SDL_HapticNewEffect_renamed_SDL_CreateHapticEffect 
 else:
   when SDL_HapticNewEffect_renamed_SDL_CreateHapticEffect is static:
     const
-      SDL_HapticNewEffect* = SDL_HapticNewEffect_renamed_SDL_CreateHapticEffect
+      SDL_HapticNewEffect* = SDL_HapticNewEffect_renamed_SDL_CreateHapticEffect 
   else:
-    let SDL_HapticNewEffect* = SDL_HapticNewEffect_renamed_SDL_CreateHapticEffect
+    let SDL_HapticNewEffect* = SDL_HapticNewEffect_renamed_SDL_CreateHapticEffect 
 when SDL_HapticNumAxes_renamed_SDL_GetNumHapticAxes is typedesc:
   type
-    SDL_HapticNumAxes* = SDL_HapticNumAxes_renamed_SDL_GetNumHapticAxes
+    SDL_HapticNumAxes* = SDL_HapticNumAxes_renamed_SDL_GetNumHapticAxes 
 else:
   when SDL_HapticNumAxes_renamed_SDL_GetNumHapticAxes is static:
     const
-      SDL_HapticNumAxes* = SDL_HapticNumAxes_renamed_SDL_GetNumHapticAxes
+      SDL_HapticNumAxes* = SDL_HapticNumAxes_renamed_SDL_GetNumHapticAxes 
   else:
-    let SDL_HapticNumAxes* = SDL_HapticNumAxes_renamed_SDL_GetNumHapticAxes
+    let SDL_HapticNumAxes* = SDL_HapticNumAxes_renamed_SDL_GetNumHapticAxes 
 when SDL_HapticNumEffects_renamed_SDL_GetMaxHapticEffects is typedesc:
   type
-    SDL_HapticNumEffects* = SDL_HapticNumEffects_renamed_SDL_GetMaxHapticEffects
+    SDL_HapticNumEffects* = SDL_HapticNumEffects_renamed_SDL_GetMaxHapticEffects 
 else:
   when SDL_HapticNumEffects_renamed_SDL_GetMaxHapticEffects is static:
     const
-      SDL_HapticNumEffects* = SDL_HapticNumEffects_renamed_SDL_GetMaxHapticEffects
+      SDL_HapticNumEffects* = SDL_HapticNumEffects_renamed_SDL_GetMaxHapticEffects 
   else:
-    let SDL_HapticNumEffects* = SDL_HapticNumEffects_renamed_SDL_GetMaxHapticEffects
+    let SDL_HapticNumEffects* = SDL_HapticNumEffects_renamed_SDL_GetMaxHapticEffects 
 when SDL_HapticNumEffectsPlaying_renamed_SDL_GetMaxHapticEffectsPlaying is
     typedesc:
   type
-    SDL_HapticNumEffectsPlaying* = SDL_HapticNumEffectsPlaying_renamed_SDL_GetMaxHapticEffectsPlaying
+    SDL_HapticNumEffectsPlaying* = SDL_HapticNumEffectsPlaying_renamed_SDL_GetMaxHapticEffectsPlaying 
 else:
   when SDL_HapticNumEffectsPlaying_renamed_SDL_GetMaxHapticEffectsPlaying is
       static:
     const
-      SDL_HapticNumEffectsPlaying* = SDL_HapticNumEffectsPlaying_renamed_SDL_GetMaxHapticEffectsPlaying
+      SDL_HapticNumEffectsPlaying* = SDL_HapticNumEffectsPlaying_renamed_SDL_GetMaxHapticEffectsPlaying 
   else:
-    let SDL_HapticNumEffectsPlaying* = SDL_HapticNumEffectsPlaying_renamed_SDL_GetMaxHapticEffectsPlaying
+    let SDL_HapticNumEffectsPlaying* = SDL_HapticNumEffectsPlaying_renamed_SDL_GetMaxHapticEffectsPlaying 
 when SDL_HapticOpen_renamed_SDL_OpenHaptic is typedesc:
   type
-    SDL_HapticOpen* = SDL_HapticOpen_renamed_SDL_OpenHaptic
+    SDL_HapticOpen* = SDL_HapticOpen_renamed_SDL_OpenHaptic 
 else:
   when SDL_HapticOpen_renamed_SDL_OpenHaptic is static:
     const
-      SDL_HapticOpen* = SDL_HapticOpen_renamed_SDL_OpenHaptic
+      SDL_HapticOpen* = SDL_HapticOpen_renamed_SDL_OpenHaptic 
   else:
-    let SDL_HapticOpen* = SDL_HapticOpen_renamed_SDL_OpenHaptic
+    let SDL_HapticOpen* = SDL_HapticOpen_renamed_SDL_OpenHaptic 
 when SDL_HapticOpenFromJoystick_renamed_SDL_OpenHapticFromJoystick is typedesc:
   type
-    SDL_HapticOpenFromJoystick* = SDL_HapticOpenFromJoystick_renamed_SDL_OpenHapticFromJoystick
+    SDL_HapticOpenFromJoystick* = SDL_HapticOpenFromJoystick_renamed_SDL_OpenHapticFromJoystick 
 else:
   when SDL_HapticOpenFromJoystick_renamed_SDL_OpenHapticFromJoystick is static:
     const
-      SDL_HapticOpenFromJoystick* = SDL_HapticOpenFromJoystick_renamed_SDL_OpenHapticFromJoystick
+      SDL_HapticOpenFromJoystick* = SDL_HapticOpenFromJoystick_renamed_SDL_OpenHapticFromJoystick 
   else:
-    let SDL_HapticOpenFromJoystick* = SDL_HapticOpenFromJoystick_renamed_SDL_OpenHapticFromJoystick
+    let SDL_HapticOpenFromJoystick* = SDL_HapticOpenFromJoystick_renamed_SDL_OpenHapticFromJoystick 
 when SDL_HapticOpenFromMouse_renamed_SDL_OpenHapticFromMouse is typedesc:
   type
-    SDL_HapticOpenFromMouse* = SDL_HapticOpenFromMouse_renamed_SDL_OpenHapticFromMouse
+    SDL_HapticOpenFromMouse* = SDL_HapticOpenFromMouse_renamed_SDL_OpenHapticFromMouse 
 else:
   when SDL_HapticOpenFromMouse_renamed_SDL_OpenHapticFromMouse is static:
     const
-      SDL_HapticOpenFromMouse* = SDL_HapticOpenFromMouse_renamed_SDL_OpenHapticFromMouse
+      SDL_HapticOpenFromMouse* = SDL_HapticOpenFromMouse_renamed_SDL_OpenHapticFromMouse 
   else:
-    let SDL_HapticOpenFromMouse* = SDL_HapticOpenFromMouse_renamed_SDL_OpenHapticFromMouse
+    let SDL_HapticOpenFromMouse* = SDL_HapticOpenFromMouse_renamed_SDL_OpenHapticFromMouse 
 when SDL_HapticPause_renamed_SDL_PauseHaptic is typedesc:
   type
-    SDL_HapticPause* = SDL_HapticPause_renamed_SDL_PauseHaptic
+    SDL_HapticPause* = SDL_HapticPause_renamed_SDL_PauseHaptic 
 else:
   when SDL_HapticPause_renamed_SDL_PauseHaptic is static:
     const
-      SDL_HapticPause* = SDL_HapticPause_renamed_SDL_PauseHaptic
+      SDL_HapticPause* = SDL_HapticPause_renamed_SDL_PauseHaptic 
   else:
-    let SDL_HapticPause* = SDL_HapticPause_renamed_SDL_PauseHaptic
+    let SDL_HapticPause* = SDL_HapticPause_renamed_SDL_PauseHaptic 
 when SDL_HapticQuery_renamed_SDL_GetHapticFeatures is typedesc:
   type
-    SDL_HapticQuery* = SDL_HapticQuery_renamed_SDL_GetHapticFeatures
+    SDL_HapticQuery* = SDL_HapticQuery_renamed_SDL_GetHapticFeatures 
 else:
   when SDL_HapticQuery_renamed_SDL_GetHapticFeatures is static:
     const
-      SDL_HapticQuery* = SDL_HapticQuery_renamed_SDL_GetHapticFeatures
+      SDL_HapticQuery* = SDL_HapticQuery_renamed_SDL_GetHapticFeatures 
   else:
-    let SDL_HapticQuery* = SDL_HapticQuery_renamed_SDL_GetHapticFeatures
+    let SDL_HapticQuery* = SDL_HapticQuery_renamed_SDL_GetHapticFeatures 
 when SDL_HapticRumbleInit_renamed_SDL_InitHapticRumble is typedesc:
   type
-    SDL_HapticRumbleInit* = SDL_HapticRumbleInit_renamed_SDL_InitHapticRumble
+    SDL_HapticRumbleInit* = SDL_HapticRumbleInit_renamed_SDL_InitHapticRumble 
 else:
   when SDL_HapticRumbleInit_renamed_SDL_InitHapticRumble is static:
     const
-      SDL_HapticRumbleInit* = SDL_HapticRumbleInit_renamed_SDL_InitHapticRumble
+      SDL_HapticRumbleInit* = SDL_HapticRumbleInit_renamed_SDL_InitHapticRumble 
   else:
-    let SDL_HapticRumbleInit* = SDL_HapticRumbleInit_renamed_SDL_InitHapticRumble
+    let SDL_HapticRumbleInit* = SDL_HapticRumbleInit_renamed_SDL_InitHapticRumble 
 when SDL_HapticRumblePlay_renamed_SDL_PlayHapticRumble is typedesc:
   type
-    SDL_HapticRumblePlay* = SDL_HapticRumblePlay_renamed_SDL_PlayHapticRumble
+    SDL_HapticRumblePlay* = SDL_HapticRumblePlay_renamed_SDL_PlayHapticRumble 
 else:
   when SDL_HapticRumblePlay_renamed_SDL_PlayHapticRumble is static:
     const
-      SDL_HapticRumblePlay* = SDL_HapticRumblePlay_renamed_SDL_PlayHapticRumble
+      SDL_HapticRumblePlay* = SDL_HapticRumblePlay_renamed_SDL_PlayHapticRumble 
   else:
-    let SDL_HapticRumblePlay* = SDL_HapticRumblePlay_renamed_SDL_PlayHapticRumble
+    let SDL_HapticRumblePlay* = SDL_HapticRumblePlay_renamed_SDL_PlayHapticRumble 
 when SDL_HapticRumbleStop_renamed_SDL_StopHapticRumble is typedesc:
   type
-    SDL_HapticRumbleStop* = SDL_HapticRumbleStop_renamed_SDL_StopHapticRumble
+    SDL_HapticRumbleStop* = SDL_HapticRumbleStop_renamed_SDL_StopHapticRumble 
 else:
   when SDL_HapticRumbleStop_renamed_SDL_StopHapticRumble is static:
     const
-      SDL_HapticRumbleStop* = SDL_HapticRumbleStop_renamed_SDL_StopHapticRumble
+      SDL_HapticRumbleStop* = SDL_HapticRumbleStop_renamed_SDL_StopHapticRumble 
   else:
-    let SDL_HapticRumbleStop* = SDL_HapticRumbleStop_renamed_SDL_StopHapticRumble
+    let SDL_HapticRumbleStop* = SDL_HapticRumbleStop_renamed_SDL_StopHapticRumble 
 when SDL_HapticRunEffect_renamed_SDL_RunHapticEffect is typedesc:
   type
-    SDL_HapticRunEffect* = SDL_HapticRunEffect_renamed_SDL_RunHapticEffect
+    SDL_HapticRunEffect* = SDL_HapticRunEffect_renamed_SDL_RunHapticEffect 
 else:
   when SDL_HapticRunEffect_renamed_SDL_RunHapticEffect is static:
     const
-      SDL_HapticRunEffect* = SDL_HapticRunEffect_renamed_SDL_RunHapticEffect
+      SDL_HapticRunEffect* = SDL_HapticRunEffect_renamed_SDL_RunHapticEffect 
   else:
-    let SDL_HapticRunEffect* = SDL_HapticRunEffect_renamed_SDL_RunHapticEffect
+    let SDL_HapticRunEffect* = SDL_HapticRunEffect_renamed_SDL_RunHapticEffect 
 when SDL_HapticSetAutocenter_renamed_SDL_SetHapticAutocenter is typedesc:
   type
-    SDL_HapticSetAutocenter* = SDL_HapticSetAutocenter_renamed_SDL_SetHapticAutocenter
+    SDL_HapticSetAutocenter* = SDL_HapticSetAutocenter_renamed_SDL_SetHapticAutocenter 
 else:
   when SDL_HapticSetAutocenter_renamed_SDL_SetHapticAutocenter is static:
     const
-      SDL_HapticSetAutocenter* = SDL_HapticSetAutocenter_renamed_SDL_SetHapticAutocenter
+      SDL_HapticSetAutocenter* = SDL_HapticSetAutocenter_renamed_SDL_SetHapticAutocenter 
   else:
-    let SDL_HapticSetAutocenter* = SDL_HapticSetAutocenter_renamed_SDL_SetHapticAutocenter
+    let SDL_HapticSetAutocenter* = SDL_HapticSetAutocenter_renamed_SDL_SetHapticAutocenter 
 when SDL_HapticSetGain_renamed_SDL_SetHapticGain is typedesc:
   type
-    SDL_HapticSetGain* = SDL_HapticSetGain_renamed_SDL_SetHapticGain
+    SDL_HapticSetGain* = SDL_HapticSetGain_renamed_SDL_SetHapticGain 
 else:
   when SDL_HapticSetGain_renamed_SDL_SetHapticGain is static:
     const
-      SDL_HapticSetGain* = SDL_HapticSetGain_renamed_SDL_SetHapticGain
+      SDL_HapticSetGain* = SDL_HapticSetGain_renamed_SDL_SetHapticGain 
   else:
-    let SDL_HapticSetGain* = SDL_HapticSetGain_renamed_SDL_SetHapticGain
+    let SDL_HapticSetGain* = SDL_HapticSetGain_renamed_SDL_SetHapticGain 
 when SDL_HapticStopAll_renamed_SDL_StopHapticEffects is typedesc:
   type
-    SDL_HapticStopAll* = SDL_HapticStopAll_renamed_SDL_StopHapticEffects
+    SDL_HapticStopAll* = SDL_HapticStopAll_renamed_SDL_StopHapticEffects 
 else:
   when SDL_HapticStopAll_renamed_SDL_StopHapticEffects is static:
     const
-      SDL_HapticStopAll* = SDL_HapticStopAll_renamed_SDL_StopHapticEffects
+      SDL_HapticStopAll* = SDL_HapticStopAll_renamed_SDL_StopHapticEffects 
   else:
-    let SDL_HapticStopAll* = SDL_HapticStopAll_renamed_SDL_StopHapticEffects
+    let SDL_HapticStopAll* = SDL_HapticStopAll_renamed_SDL_StopHapticEffects 
 when SDL_HapticStopEffect_renamed_SDL_StopHapticEffect is typedesc:
   type
-    SDL_HapticStopEffect* = SDL_HapticStopEffect_renamed_SDL_StopHapticEffect
+    SDL_HapticStopEffect* = SDL_HapticStopEffect_renamed_SDL_StopHapticEffect 
 else:
   when SDL_HapticStopEffect_renamed_SDL_StopHapticEffect is static:
     const
-      SDL_HapticStopEffect* = SDL_HapticStopEffect_renamed_SDL_StopHapticEffect
+      SDL_HapticStopEffect* = SDL_HapticStopEffect_renamed_SDL_StopHapticEffect 
   else:
-    let SDL_HapticStopEffect* = SDL_HapticStopEffect_renamed_SDL_StopHapticEffect
+    let SDL_HapticStopEffect* = SDL_HapticStopEffect_renamed_SDL_StopHapticEffect 
 when SDL_HapticUnpause_renamed_SDL_ResumeHaptic is typedesc:
   type
-    SDL_HapticUnpause* = SDL_HapticUnpause_renamed_SDL_ResumeHaptic
+    SDL_HapticUnpause* = SDL_HapticUnpause_renamed_SDL_ResumeHaptic 
 else:
   when SDL_HapticUnpause_renamed_SDL_ResumeHaptic is static:
     const
-      SDL_HapticUnpause* = SDL_HapticUnpause_renamed_SDL_ResumeHaptic
+      SDL_HapticUnpause* = SDL_HapticUnpause_renamed_SDL_ResumeHaptic 
   else:
-    let SDL_HapticUnpause* = SDL_HapticUnpause_renamed_SDL_ResumeHaptic
+    let SDL_HapticUnpause* = SDL_HapticUnpause_renamed_SDL_ResumeHaptic 
 when SDL_HapticUpdateEffect_renamed_SDL_UpdateHapticEffect is typedesc:
   type
-    SDL_HapticUpdateEffect* = SDL_HapticUpdateEffect_renamed_SDL_UpdateHapticEffect
+    SDL_HapticUpdateEffect* = SDL_HapticUpdateEffect_renamed_SDL_UpdateHapticEffect 
 else:
   when SDL_HapticUpdateEffect_renamed_SDL_UpdateHapticEffect is static:
     const
-      SDL_HapticUpdateEffect* = SDL_HapticUpdateEffect_renamed_SDL_UpdateHapticEffect
+      SDL_HapticUpdateEffect* = SDL_HapticUpdateEffect_renamed_SDL_UpdateHapticEffect 
   else:
-    let SDL_HapticUpdateEffect* = SDL_HapticUpdateEffect_renamed_SDL_UpdateHapticEffect
+    let SDL_HapticUpdateEffect* = SDL_HapticUpdateEffect_renamed_SDL_UpdateHapticEffect 
 when SDL_JoystickIsHaptic_renamed_SDL_IsJoystickHaptic is typedesc:
   type
-    SDL_JoystickIsHaptic* = SDL_JoystickIsHaptic_renamed_SDL_IsJoystickHaptic
+    SDL_JoystickIsHaptic* = SDL_JoystickIsHaptic_renamed_SDL_IsJoystickHaptic 
 else:
   when SDL_JoystickIsHaptic_renamed_SDL_IsJoystickHaptic is static:
     const
-      SDL_JoystickIsHaptic* = SDL_JoystickIsHaptic_renamed_SDL_IsJoystickHaptic
+      SDL_JoystickIsHaptic* = SDL_JoystickIsHaptic_renamed_SDL_IsJoystickHaptic 
   else:
-    let SDL_JoystickIsHaptic* = SDL_JoystickIsHaptic_renamed_SDL_IsJoystickHaptic
+    let SDL_JoystickIsHaptic* = SDL_JoystickIsHaptic_renamed_SDL_IsJoystickHaptic 
 when SDL_MouseIsHaptic_renamed_SDL_IsMouseHaptic is typedesc:
   type
-    SDL_MouseIsHaptic* = SDL_MouseIsHaptic_renamed_SDL_IsMouseHaptic
+    SDL_MouseIsHaptic* = SDL_MouseIsHaptic_renamed_SDL_IsMouseHaptic 
 else:
   when SDL_MouseIsHaptic_renamed_SDL_IsMouseHaptic is static:
     const
-      SDL_MouseIsHaptic* = SDL_MouseIsHaptic_renamed_SDL_IsMouseHaptic
+      SDL_MouseIsHaptic* = SDL_MouseIsHaptic_renamed_SDL_IsMouseHaptic 
   else:
-    let SDL_MouseIsHaptic* = SDL_MouseIsHaptic_renamed_SDL_IsMouseHaptic
+    let SDL_MouseIsHaptic* = SDL_MouseIsHaptic_renamed_SDL_IsMouseHaptic 
 when SDL_DelHintCallback_renamed_SDL_RemoveHintCallback is typedesc:
   type
-    SDL_DelHintCallback* = SDL_DelHintCallback_renamed_SDL_RemoveHintCallback
+    SDL_DelHintCallback* = SDL_DelHintCallback_renamed_SDL_RemoveHintCallback 
 else:
   when SDL_DelHintCallback_renamed_SDL_RemoveHintCallback is static:
     const
-      SDL_DelHintCallback* = SDL_DelHintCallback_renamed_SDL_RemoveHintCallback
+      SDL_DelHintCallback* = SDL_DelHintCallback_renamed_SDL_RemoveHintCallback 
   else:
-    let SDL_DelHintCallback* = SDL_DelHintCallback_renamed_SDL_RemoveHintCallback
+    let SDL_DelHintCallback* = SDL_DelHintCallback_renamed_SDL_RemoveHintCallback 
 when SDL_HINT_ALLOW_TOPMOST_renamed_SDL_HINT_WINDOW_ALLOW_TOPMOST is typedesc:
   type
-    SDL_HINT_ALLOW_TOPMOST* = SDL_HINT_ALLOW_TOPMOST_renamed_SDL_HINT_WINDOW_ALLOW_TOPMOST
+    SDL_HINT_ALLOW_TOPMOST* = SDL_HINT_ALLOW_TOPMOST_renamed_SDL_HINT_WINDOW_ALLOW_TOPMOST 
 else:
   when SDL_HINT_ALLOW_TOPMOST_renamed_SDL_HINT_WINDOW_ALLOW_TOPMOST is static:
     const
-      SDL_HINT_ALLOW_TOPMOST* = SDL_HINT_ALLOW_TOPMOST_renamed_SDL_HINT_WINDOW_ALLOW_TOPMOST
+      SDL_HINT_ALLOW_TOPMOST* = SDL_HINT_ALLOW_TOPMOST_renamed_SDL_HINT_WINDOW_ALLOW_TOPMOST 
   else:
-    let SDL_HINT_ALLOW_TOPMOST* = SDL_HINT_ALLOW_TOPMOST_renamed_SDL_HINT_WINDOW_ALLOW_TOPMOST
+    let SDL_HINT_ALLOW_TOPMOST* = SDL_HINT_ALLOW_TOPMOST_renamed_SDL_HINT_WINDOW_ALLOW_TOPMOST 
 when SDL_HINT_DIRECTINPUT_ENABLED_renamed_SDL_HINT_JOYSTICK_DIRECTINPUT is
     typedesc:
   type
-    SDL_HINT_DIRECTINPUT_ENABLED* = SDL_HINT_DIRECTINPUT_ENABLED_renamed_SDL_HINT_JOYSTICK_DIRECTINPUT
+    SDL_HINT_DIRECTINPUT_ENABLED* = SDL_HINT_DIRECTINPUT_ENABLED_renamed_SDL_HINT_JOYSTICK_DIRECTINPUT 
 else:
   when SDL_HINT_DIRECTINPUT_ENABLED_renamed_SDL_HINT_JOYSTICK_DIRECTINPUT is
       static:
     const
-      SDL_HINT_DIRECTINPUT_ENABLED* = SDL_HINT_DIRECTINPUT_ENABLED_renamed_SDL_HINT_JOYSTICK_DIRECTINPUT
+      SDL_HINT_DIRECTINPUT_ENABLED* = SDL_HINT_DIRECTINPUT_ENABLED_renamed_SDL_HINT_JOYSTICK_DIRECTINPUT 
   else:
-    let SDL_HINT_DIRECTINPUT_ENABLED* = SDL_HINT_DIRECTINPUT_ENABLED_renamed_SDL_HINT_JOYSTICK_DIRECTINPUT
+    let SDL_HINT_DIRECTINPUT_ENABLED* = SDL_HINT_DIRECTINPUT_ENABLED_renamed_SDL_HINT_JOYSTICK_DIRECTINPUT 
 when SDL_HINT_GDK_TEXTINPUT_DEFAULT_renamed_SDL_HINT_GDK_TEXTINPUT_DEFAULT_TEXT is
     typedesc:
   type
-    SDL_HINT_GDK_TEXTINPUT_DEFAULT* = SDL_HINT_GDK_TEXTINPUT_DEFAULT_renamed_SDL_HINT_GDK_TEXTINPUT_DEFAULT_TEXT
+    SDL_HINT_GDK_TEXTINPUT_DEFAULT* = SDL_HINT_GDK_TEXTINPUT_DEFAULT_renamed_SDL_HINT_GDK_TEXTINPUT_DEFAULT_TEXT 
 else:
   when SDL_HINT_GDK_TEXTINPUT_DEFAULT_renamed_SDL_HINT_GDK_TEXTINPUT_DEFAULT_TEXT is
       static:
     const
-      SDL_HINT_GDK_TEXTINPUT_DEFAULT* = SDL_HINT_GDK_TEXTINPUT_DEFAULT_renamed_SDL_HINT_GDK_TEXTINPUT_DEFAULT_TEXT
+      SDL_HINT_GDK_TEXTINPUT_DEFAULT* = SDL_HINT_GDK_TEXTINPUT_DEFAULT_renamed_SDL_HINT_GDK_TEXTINPUT_DEFAULT_TEXT 
   else:
-    let SDL_HINT_GDK_TEXTINPUT_DEFAULT* = SDL_HINT_GDK_TEXTINPUT_DEFAULT_renamed_SDL_HINT_GDK_TEXTINPUT_DEFAULT_TEXT
+    let SDL_HINT_GDK_TEXTINPUT_DEFAULT* = SDL_HINT_GDK_TEXTINPUT_DEFAULT_renamed_SDL_HINT_GDK_TEXTINPUT_DEFAULT_TEXT 
 when SDL_HINT_JOYSTICK_GAMECUBE_RUMBLE_BRAKE_renamed_SDL_HINT_JOYSTICK_HIDAPI_GAMECUBE_RUMBLE_BRAKE is
     typedesc:
   type
-    SDL_HINT_JOYSTICK_GAMECUBE_RUMBLE_BRAKE* = SDL_HINT_JOYSTICK_GAMECUBE_RUMBLE_BRAKE_renamed_SDL_HINT_JOYSTICK_HIDAPI_GAMECUBE_RUMBLE_BRAKE
+    SDL_HINT_JOYSTICK_GAMECUBE_RUMBLE_BRAKE* = SDL_HINT_JOYSTICK_GAMECUBE_RUMBLE_BRAKE_renamed_SDL_HINT_JOYSTICK_HIDAPI_GAMECUBE_RUMBLE_BRAKE 
 else:
   when SDL_HINT_JOYSTICK_GAMECUBE_RUMBLE_BRAKE_renamed_SDL_HINT_JOYSTICK_HIDAPI_GAMECUBE_RUMBLE_BRAKE is
       static:
     const
-      SDL_HINT_JOYSTICK_GAMECUBE_RUMBLE_BRAKE* = SDL_HINT_JOYSTICK_GAMECUBE_RUMBLE_BRAKE_renamed_SDL_HINT_JOYSTICK_HIDAPI_GAMECUBE_RUMBLE_BRAKE
+      SDL_HINT_JOYSTICK_GAMECUBE_RUMBLE_BRAKE* = SDL_HINT_JOYSTICK_GAMECUBE_RUMBLE_BRAKE_renamed_SDL_HINT_JOYSTICK_HIDAPI_GAMECUBE_RUMBLE_BRAKE 
   else:
-    let SDL_HINT_JOYSTICK_GAMECUBE_RUMBLE_BRAKE* = SDL_HINT_JOYSTICK_GAMECUBE_RUMBLE_BRAKE_renamed_SDL_HINT_JOYSTICK_HIDAPI_GAMECUBE_RUMBLE_BRAKE
+    let SDL_HINT_JOYSTICK_GAMECUBE_RUMBLE_BRAKE* = SDL_HINT_JOYSTICK_GAMECUBE_RUMBLE_BRAKE_renamed_SDL_HINT_JOYSTICK_HIDAPI_GAMECUBE_RUMBLE_BRAKE 
 when SDL_HINT_LINUX_DIGITAL_HATS_renamed_SDL_HINT_JOYSTICK_LINUX_DIGITAL_HATS is
     typedesc:
   type
-    SDL_HINT_LINUX_DIGITAL_HATS* = SDL_HINT_LINUX_DIGITAL_HATS_renamed_SDL_HINT_JOYSTICK_LINUX_DIGITAL_HATS
+    SDL_HINT_LINUX_DIGITAL_HATS* = SDL_HINT_LINUX_DIGITAL_HATS_renamed_SDL_HINT_JOYSTICK_LINUX_DIGITAL_HATS 
 else:
   when SDL_HINT_LINUX_DIGITAL_HATS_renamed_SDL_HINT_JOYSTICK_LINUX_DIGITAL_HATS is
       static:
     const
-      SDL_HINT_LINUX_DIGITAL_HATS* = SDL_HINT_LINUX_DIGITAL_HATS_renamed_SDL_HINT_JOYSTICK_LINUX_DIGITAL_HATS
+      SDL_HINT_LINUX_DIGITAL_HATS* = SDL_HINT_LINUX_DIGITAL_HATS_renamed_SDL_HINT_JOYSTICK_LINUX_DIGITAL_HATS 
   else:
-    let SDL_HINT_LINUX_DIGITAL_HATS* = SDL_HINT_LINUX_DIGITAL_HATS_renamed_SDL_HINT_JOYSTICK_LINUX_DIGITAL_HATS
+    let SDL_HINT_LINUX_DIGITAL_HATS* = SDL_HINT_LINUX_DIGITAL_HATS_renamed_SDL_HINT_JOYSTICK_LINUX_DIGITAL_HATS 
 when SDL_HINT_LINUX_HAT_DEADZONES_renamed_SDL_HINT_JOYSTICK_LINUX_HAT_DEADZONES is
     typedesc:
   type
-    SDL_HINT_LINUX_HAT_DEADZONES* = SDL_HINT_LINUX_HAT_DEADZONES_renamed_SDL_HINT_JOYSTICK_LINUX_HAT_DEADZONES
+    SDL_HINT_LINUX_HAT_DEADZONES* = SDL_HINT_LINUX_HAT_DEADZONES_renamed_SDL_HINT_JOYSTICK_LINUX_HAT_DEADZONES 
 else:
   when SDL_HINT_LINUX_HAT_DEADZONES_renamed_SDL_HINT_JOYSTICK_LINUX_HAT_DEADZONES is
       static:
     const
-      SDL_HINT_LINUX_HAT_DEADZONES* = SDL_HINT_LINUX_HAT_DEADZONES_renamed_SDL_HINT_JOYSTICK_LINUX_HAT_DEADZONES
+      SDL_HINT_LINUX_HAT_DEADZONES* = SDL_HINT_LINUX_HAT_DEADZONES_renamed_SDL_HINT_JOYSTICK_LINUX_HAT_DEADZONES 
   else:
-    let SDL_HINT_LINUX_HAT_DEADZONES* = SDL_HINT_LINUX_HAT_DEADZONES_renamed_SDL_HINT_JOYSTICK_LINUX_HAT_DEADZONES
+    let SDL_HINT_LINUX_HAT_DEADZONES* = SDL_HINT_LINUX_HAT_DEADZONES_renamed_SDL_HINT_JOYSTICK_LINUX_HAT_DEADZONES 
 when SDL_HINT_LINUX_JOYSTICK_CLASSIC_renamed_SDL_HINT_JOYSTICK_LINUX_CLASSIC is
     typedesc:
   type
-    SDL_HINT_LINUX_JOYSTICK_CLASSIC* = SDL_HINT_LINUX_JOYSTICK_CLASSIC_renamed_SDL_HINT_JOYSTICK_LINUX_CLASSIC
+    SDL_HINT_LINUX_JOYSTICK_CLASSIC* = SDL_HINT_LINUX_JOYSTICK_CLASSIC_renamed_SDL_HINT_JOYSTICK_LINUX_CLASSIC 
 else:
   when SDL_HINT_LINUX_JOYSTICK_CLASSIC_renamed_SDL_HINT_JOYSTICK_LINUX_CLASSIC is
       static:
     const
-      SDL_HINT_LINUX_JOYSTICK_CLASSIC* = SDL_HINT_LINUX_JOYSTICK_CLASSIC_renamed_SDL_HINT_JOYSTICK_LINUX_CLASSIC
+      SDL_HINT_LINUX_JOYSTICK_CLASSIC* = SDL_HINT_LINUX_JOYSTICK_CLASSIC_renamed_SDL_HINT_JOYSTICK_LINUX_CLASSIC 
   else:
-    let SDL_HINT_LINUX_JOYSTICK_CLASSIC* = SDL_HINT_LINUX_JOYSTICK_CLASSIC_renamed_SDL_HINT_JOYSTICK_LINUX_CLASSIC
+    let SDL_HINT_LINUX_JOYSTICK_CLASSIC* = SDL_HINT_LINUX_JOYSTICK_CLASSIC_renamed_SDL_HINT_JOYSTICK_LINUX_CLASSIC 
 when SDL_HINT_LINUX_JOYSTICK_DEADZONES_renamed_SDL_HINT_JOYSTICK_LINUX_DEADZONES is
     typedesc:
   type
-    SDL_HINT_LINUX_JOYSTICK_DEADZONES* = SDL_HINT_LINUX_JOYSTICK_DEADZONES_renamed_SDL_HINT_JOYSTICK_LINUX_DEADZONES
+    SDL_HINT_LINUX_JOYSTICK_DEADZONES* = SDL_HINT_LINUX_JOYSTICK_DEADZONES_renamed_SDL_HINT_JOYSTICK_LINUX_DEADZONES 
 else:
   when SDL_HINT_LINUX_JOYSTICK_DEADZONES_renamed_SDL_HINT_JOYSTICK_LINUX_DEADZONES is
       static:
     const
-      SDL_HINT_LINUX_JOYSTICK_DEADZONES* = SDL_HINT_LINUX_JOYSTICK_DEADZONES_renamed_SDL_HINT_JOYSTICK_LINUX_DEADZONES
+      SDL_HINT_LINUX_JOYSTICK_DEADZONES* = SDL_HINT_LINUX_JOYSTICK_DEADZONES_renamed_SDL_HINT_JOYSTICK_LINUX_DEADZONES 
   else:
-    let SDL_HINT_LINUX_JOYSTICK_DEADZONES* = SDL_HINT_LINUX_JOYSTICK_DEADZONES_renamed_SDL_HINT_JOYSTICK_LINUX_DEADZONES
+    let SDL_HINT_LINUX_JOYSTICK_DEADZONES* = SDL_HINT_LINUX_JOYSTICK_DEADZONES_renamed_SDL_HINT_JOYSTICK_LINUX_DEADZONES 
 when SDL_JOYSTICK_TYPE_GAMECONTROLLER_renamed_SDL_JOYSTICK_TYPE_GAMEPAD is
     typedesc:
   type
-    SDL_JOYSTICK_TYPE_GAMECONTROLLER* = SDL_JOYSTICK_TYPE_GAMECONTROLLER_renamed_SDL_JOYSTICK_TYPE_GAMEPAD
+    SDL_JOYSTICK_TYPE_GAMECONTROLLER* = SDL_JOYSTICK_TYPE_GAMECONTROLLER_renamed_SDL_JOYSTICK_TYPE_GAMEPAD 
 else:
   when SDL_JOYSTICK_TYPE_GAMECONTROLLER_renamed_SDL_JOYSTICK_TYPE_GAMEPAD is
       static:
     const
-      SDL_JOYSTICK_TYPE_GAMECONTROLLER* = SDL_JOYSTICK_TYPE_GAMECONTROLLER_renamed_SDL_JOYSTICK_TYPE_GAMEPAD
+      SDL_JOYSTICK_TYPE_GAMECONTROLLER* = SDL_JOYSTICK_TYPE_GAMECONTROLLER_renamed_SDL_JOYSTICK_TYPE_GAMEPAD 
   else:
-    let SDL_JOYSTICK_TYPE_GAMECONTROLLER* = SDL_JOYSTICK_TYPE_GAMECONTROLLER_renamed_SDL_JOYSTICK_TYPE_GAMEPAD
+    let SDL_JOYSTICK_TYPE_GAMECONTROLLER* = SDL_JOYSTICK_TYPE_GAMECONTROLLER_renamed_SDL_JOYSTICK_TYPE_GAMEPAD 
 when SDL_JoystickAttachVirtualEx_renamed_SDL_AttachVirtualJoystick is typedesc:
   type
-    SDL_JoystickAttachVirtualEx* = SDL_JoystickAttachVirtualEx_renamed_SDL_AttachVirtualJoystick
+    SDL_JoystickAttachVirtualEx* = SDL_JoystickAttachVirtualEx_renamed_SDL_AttachVirtualJoystick 
 else:
   when SDL_JoystickAttachVirtualEx_renamed_SDL_AttachVirtualJoystick is static:
     const
-      SDL_JoystickAttachVirtualEx* = SDL_JoystickAttachVirtualEx_renamed_SDL_AttachVirtualJoystick
+      SDL_JoystickAttachVirtualEx* = SDL_JoystickAttachVirtualEx_renamed_SDL_AttachVirtualJoystick 
   else:
-    let SDL_JoystickAttachVirtualEx* = SDL_JoystickAttachVirtualEx_renamed_SDL_AttachVirtualJoystick
+    let SDL_JoystickAttachVirtualEx* = SDL_JoystickAttachVirtualEx_renamed_SDL_AttachVirtualJoystick 
 when SDL_JoystickClose_renamed_SDL_CloseJoystick is typedesc:
   type
-    SDL_JoystickClose* = SDL_JoystickClose_renamed_SDL_CloseJoystick
+    SDL_JoystickClose* = SDL_JoystickClose_renamed_SDL_CloseJoystick 
 else:
   when SDL_JoystickClose_renamed_SDL_CloseJoystick is static:
     const
-      SDL_JoystickClose* = SDL_JoystickClose_renamed_SDL_CloseJoystick
+      SDL_JoystickClose* = SDL_JoystickClose_renamed_SDL_CloseJoystick 
   else:
-    let SDL_JoystickClose* = SDL_JoystickClose_renamed_SDL_CloseJoystick
+    let SDL_JoystickClose* = SDL_JoystickClose_renamed_SDL_CloseJoystick 
 when SDL_JoystickDetachVirtual_renamed_SDL_DetachVirtualJoystick is typedesc:
   type
-    SDL_JoystickDetachVirtual* = SDL_JoystickDetachVirtual_renamed_SDL_DetachVirtualJoystick
+    SDL_JoystickDetachVirtual* = SDL_JoystickDetachVirtual_renamed_SDL_DetachVirtualJoystick 
 else:
   when SDL_JoystickDetachVirtual_renamed_SDL_DetachVirtualJoystick is static:
     const
-      SDL_JoystickDetachVirtual* = SDL_JoystickDetachVirtual_renamed_SDL_DetachVirtualJoystick
+      SDL_JoystickDetachVirtual* = SDL_JoystickDetachVirtual_renamed_SDL_DetachVirtualJoystick 
   else:
-    let SDL_JoystickDetachVirtual* = SDL_JoystickDetachVirtual_renamed_SDL_DetachVirtualJoystick
+    let SDL_JoystickDetachVirtual* = SDL_JoystickDetachVirtual_renamed_SDL_DetachVirtualJoystick 
 when SDL_JoystickFromInstanceID_renamed_SDL_GetJoystickFromID is typedesc:
   type
-    SDL_JoystickFromInstanceID* = SDL_JoystickFromInstanceID_renamed_SDL_GetJoystickFromID
+    SDL_JoystickFromInstanceID* = SDL_JoystickFromInstanceID_renamed_SDL_GetJoystickFromID 
 else:
   when SDL_JoystickFromInstanceID_renamed_SDL_GetJoystickFromID is static:
     const
-      SDL_JoystickFromInstanceID* = SDL_JoystickFromInstanceID_renamed_SDL_GetJoystickFromID
+      SDL_JoystickFromInstanceID* = SDL_JoystickFromInstanceID_renamed_SDL_GetJoystickFromID 
   else:
-    let SDL_JoystickFromInstanceID* = SDL_JoystickFromInstanceID_renamed_SDL_GetJoystickFromID
+    let SDL_JoystickFromInstanceID* = SDL_JoystickFromInstanceID_renamed_SDL_GetJoystickFromID 
 when SDL_JoystickFromPlayerIndex_renamed_SDL_GetJoystickFromPlayerIndex is
     typedesc:
   type
-    SDL_JoystickFromPlayerIndex* = SDL_JoystickFromPlayerIndex_renamed_SDL_GetJoystickFromPlayerIndex
+    SDL_JoystickFromPlayerIndex* = SDL_JoystickFromPlayerIndex_renamed_SDL_GetJoystickFromPlayerIndex 
 else:
   when SDL_JoystickFromPlayerIndex_renamed_SDL_GetJoystickFromPlayerIndex is
       static:
     const
-      SDL_JoystickFromPlayerIndex* = SDL_JoystickFromPlayerIndex_renamed_SDL_GetJoystickFromPlayerIndex
+      SDL_JoystickFromPlayerIndex* = SDL_JoystickFromPlayerIndex_renamed_SDL_GetJoystickFromPlayerIndex 
   else:
-    let SDL_JoystickFromPlayerIndex* = SDL_JoystickFromPlayerIndex_renamed_SDL_GetJoystickFromPlayerIndex
+    let SDL_JoystickFromPlayerIndex* = SDL_JoystickFromPlayerIndex_renamed_SDL_GetJoystickFromPlayerIndex 
 when SDL_JoystickGUID_renamed_SDL_GUID is typedesc:
   type
-    SDL_JoystickGUID* = SDL_JoystickGUID_renamed_SDL_GUID
+    SDL_JoystickGUID* = SDL_JoystickGUID_renamed_SDL_GUID 
 else:
   when SDL_JoystickGUID_renamed_SDL_GUID is static:
     const
-      SDL_JoystickGUID* = SDL_JoystickGUID_renamed_SDL_GUID
+      SDL_JoystickGUID* = SDL_JoystickGUID_renamed_SDL_GUID 
   else:
-    let SDL_JoystickGUID* = SDL_JoystickGUID_renamed_SDL_GUID
+    let SDL_JoystickGUID* = SDL_JoystickGUID_renamed_SDL_GUID 
 when SDL_JoystickGetAttached_renamed_SDL_JoystickConnected is typedesc:
   type
-    SDL_JoystickGetAttached* = SDL_JoystickGetAttached_renamed_SDL_JoystickConnected
+    SDL_JoystickGetAttached* = SDL_JoystickGetAttached_renamed_SDL_JoystickConnected 
 else:
   when SDL_JoystickGetAttached_renamed_SDL_JoystickConnected is static:
     const
-      SDL_JoystickGetAttached* = SDL_JoystickGetAttached_renamed_SDL_JoystickConnected
+      SDL_JoystickGetAttached* = SDL_JoystickGetAttached_renamed_SDL_JoystickConnected 
   else:
-    let SDL_JoystickGetAttached* = SDL_JoystickGetAttached_renamed_SDL_JoystickConnected
+    let SDL_JoystickGetAttached* = SDL_JoystickGetAttached_renamed_SDL_JoystickConnected 
 when SDL_JoystickGetAxis_renamed_SDL_GetJoystickAxis is typedesc:
   type
-    SDL_JoystickGetAxis* = SDL_JoystickGetAxis_renamed_SDL_GetJoystickAxis
+    SDL_JoystickGetAxis* = SDL_JoystickGetAxis_renamed_SDL_GetJoystickAxis 
 else:
   when SDL_JoystickGetAxis_renamed_SDL_GetJoystickAxis is static:
     const
-      SDL_JoystickGetAxis* = SDL_JoystickGetAxis_renamed_SDL_GetJoystickAxis
+      SDL_JoystickGetAxis* = SDL_JoystickGetAxis_renamed_SDL_GetJoystickAxis 
   else:
-    let SDL_JoystickGetAxis* = SDL_JoystickGetAxis_renamed_SDL_GetJoystickAxis
+    let SDL_JoystickGetAxis* = SDL_JoystickGetAxis_renamed_SDL_GetJoystickAxis 
 when SDL_JoystickGetAxisInitialState_renamed_SDL_GetJoystickAxisInitialState is
     typedesc:
   type
-    SDL_JoystickGetAxisInitialState* = SDL_JoystickGetAxisInitialState_renamed_SDL_GetJoystickAxisInitialState
+    SDL_JoystickGetAxisInitialState* = SDL_JoystickGetAxisInitialState_renamed_SDL_GetJoystickAxisInitialState 
 else:
   when SDL_JoystickGetAxisInitialState_renamed_SDL_GetJoystickAxisInitialState is
       static:
     const
-      SDL_JoystickGetAxisInitialState* = SDL_JoystickGetAxisInitialState_renamed_SDL_GetJoystickAxisInitialState
+      SDL_JoystickGetAxisInitialState* = SDL_JoystickGetAxisInitialState_renamed_SDL_GetJoystickAxisInitialState 
   else:
-    let SDL_JoystickGetAxisInitialState* = SDL_JoystickGetAxisInitialState_renamed_SDL_GetJoystickAxisInitialState
+    let SDL_JoystickGetAxisInitialState* = SDL_JoystickGetAxisInitialState_renamed_SDL_GetJoystickAxisInitialState 
 when SDL_JoystickGetBall_renamed_SDL_GetJoystickBall is typedesc:
   type
-    SDL_JoystickGetBall* = SDL_JoystickGetBall_renamed_SDL_GetJoystickBall
+    SDL_JoystickGetBall* = SDL_JoystickGetBall_renamed_SDL_GetJoystickBall 
 else:
   when SDL_JoystickGetBall_renamed_SDL_GetJoystickBall is static:
     const
-      SDL_JoystickGetBall* = SDL_JoystickGetBall_renamed_SDL_GetJoystickBall
+      SDL_JoystickGetBall* = SDL_JoystickGetBall_renamed_SDL_GetJoystickBall 
   else:
-    let SDL_JoystickGetBall* = SDL_JoystickGetBall_renamed_SDL_GetJoystickBall
+    let SDL_JoystickGetBall* = SDL_JoystickGetBall_renamed_SDL_GetJoystickBall 
 when SDL_JoystickGetButton_renamed_SDL_GetJoystickButton is typedesc:
   type
-    SDL_JoystickGetButton* = SDL_JoystickGetButton_renamed_SDL_GetJoystickButton
+    SDL_JoystickGetButton* = SDL_JoystickGetButton_renamed_SDL_GetJoystickButton 
 else:
   when SDL_JoystickGetButton_renamed_SDL_GetJoystickButton is static:
     const
-      SDL_JoystickGetButton* = SDL_JoystickGetButton_renamed_SDL_GetJoystickButton
+      SDL_JoystickGetButton* = SDL_JoystickGetButton_renamed_SDL_GetJoystickButton 
   else:
-    let SDL_JoystickGetButton* = SDL_JoystickGetButton_renamed_SDL_GetJoystickButton
+    let SDL_JoystickGetButton* = SDL_JoystickGetButton_renamed_SDL_GetJoystickButton 
 when SDL_JoystickGetFirmwareVersion_renamed_SDL_GetJoystickFirmwareVersion is
     typedesc:
   type
-    SDL_JoystickGetFirmwareVersion* = SDL_JoystickGetFirmwareVersion_renamed_SDL_GetJoystickFirmwareVersion
+    SDL_JoystickGetFirmwareVersion* = SDL_JoystickGetFirmwareVersion_renamed_SDL_GetJoystickFirmwareVersion 
 else:
   when SDL_JoystickGetFirmwareVersion_renamed_SDL_GetJoystickFirmwareVersion is
       static:
     const
-      SDL_JoystickGetFirmwareVersion* = SDL_JoystickGetFirmwareVersion_renamed_SDL_GetJoystickFirmwareVersion
+      SDL_JoystickGetFirmwareVersion* = SDL_JoystickGetFirmwareVersion_renamed_SDL_GetJoystickFirmwareVersion 
   else:
-    let SDL_JoystickGetFirmwareVersion* = SDL_JoystickGetFirmwareVersion_renamed_SDL_GetJoystickFirmwareVersion
+    let SDL_JoystickGetFirmwareVersion* = SDL_JoystickGetFirmwareVersion_renamed_SDL_GetJoystickFirmwareVersion 
 when SDL_JoystickGetGUID_renamed_SDL_GetJoystickGUID is typedesc:
   type
-    SDL_JoystickGetGUID* = SDL_JoystickGetGUID_renamed_SDL_GetJoystickGUID
+    SDL_JoystickGetGUID* = SDL_JoystickGetGUID_renamed_SDL_GetJoystickGUID 
 else:
   when SDL_JoystickGetGUID_renamed_SDL_GetJoystickGUID is static:
     const
-      SDL_JoystickGetGUID* = SDL_JoystickGetGUID_renamed_SDL_GetJoystickGUID
+      SDL_JoystickGetGUID* = SDL_JoystickGetGUID_renamed_SDL_GetJoystickGUID 
   else:
-    let SDL_JoystickGetGUID* = SDL_JoystickGetGUID_renamed_SDL_GetJoystickGUID
+    let SDL_JoystickGetGUID* = SDL_JoystickGetGUID_renamed_SDL_GetJoystickGUID 
 when SDL_JoystickGetGUIDFromString_renamed_SDL_GUIDFromString is typedesc:
   type
-    SDL_JoystickGetGUIDFromString* = SDL_JoystickGetGUIDFromString_renamed_SDL_GUIDFromString
+    SDL_JoystickGetGUIDFromString* = SDL_JoystickGetGUIDFromString_renamed_SDL_GUIDFromString 
 else:
   when SDL_JoystickGetGUIDFromString_renamed_SDL_GUIDFromString is static:
     const
-      SDL_JoystickGetGUIDFromString* = SDL_JoystickGetGUIDFromString_renamed_SDL_GUIDFromString
+      SDL_JoystickGetGUIDFromString* = SDL_JoystickGetGUIDFromString_renamed_SDL_GUIDFromString 
   else:
-    let SDL_JoystickGetGUIDFromString* = SDL_JoystickGetGUIDFromString_renamed_SDL_GUIDFromString
+    let SDL_JoystickGetGUIDFromString* = SDL_JoystickGetGUIDFromString_renamed_SDL_GUIDFromString 
 when SDL_JoystickGetHat_renamed_SDL_GetJoystickHat is typedesc:
   type
-    SDL_JoystickGetHat* = SDL_JoystickGetHat_renamed_SDL_GetJoystickHat
+    SDL_JoystickGetHat* = SDL_JoystickGetHat_renamed_SDL_GetJoystickHat 
 else:
   when SDL_JoystickGetHat_renamed_SDL_GetJoystickHat is static:
     const
-      SDL_JoystickGetHat* = SDL_JoystickGetHat_renamed_SDL_GetJoystickHat
+      SDL_JoystickGetHat* = SDL_JoystickGetHat_renamed_SDL_GetJoystickHat 
   else:
-    let SDL_JoystickGetHat* = SDL_JoystickGetHat_renamed_SDL_GetJoystickHat
+    let SDL_JoystickGetHat* = SDL_JoystickGetHat_renamed_SDL_GetJoystickHat 
 when SDL_JoystickGetPlayerIndex_renamed_SDL_GetJoystickPlayerIndex is typedesc:
   type
-    SDL_JoystickGetPlayerIndex* = SDL_JoystickGetPlayerIndex_renamed_SDL_GetJoystickPlayerIndex
+    SDL_JoystickGetPlayerIndex* = SDL_JoystickGetPlayerIndex_renamed_SDL_GetJoystickPlayerIndex 
 else:
   when SDL_JoystickGetPlayerIndex_renamed_SDL_GetJoystickPlayerIndex is static:
     const
-      SDL_JoystickGetPlayerIndex* = SDL_JoystickGetPlayerIndex_renamed_SDL_GetJoystickPlayerIndex
+      SDL_JoystickGetPlayerIndex* = SDL_JoystickGetPlayerIndex_renamed_SDL_GetJoystickPlayerIndex 
   else:
-    let SDL_JoystickGetPlayerIndex* = SDL_JoystickGetPlayerIndex_renamed_SDL_GetJoystickPlayerIndex
+    let SDL_JoystickGetPlayerIndex* = SDL_JoystickGetPlayerIndex_renamed_SDL_GetJoystickPlayerIndex 
 when SDL_JoystickGetProduct_renamed_SDL_GetJoystickProduct is typedesc:
   type
-    SDL_JoystickGetProduct* = SDL_JoystickGetProduct_renamed_SDL_GetJoystickProduct
+    SDL_JoystickGetProduct* = SDL_JoystickGetProduct_renamed_SDL_GetJoystickProduct 
 else:
   when SDL_JoystickGetProduct_renamed_SDL_GetJoystickProduct is static:
     const
-      SDL_JoystickGetProduct* = SDL_JoystickGetProduct_renamed_SDL_GetJoystickProduct
+      SDL_JoystickGetProduct* = SDL_JoystickGetProduct_renamed_SDL_GetJoystickProduct 
   else:
-    let SDL_JoystickGetProduct* = SDL_JoystickGetProduct_renamed_SDL_GetJoystickProduct
+    let SDL_JoystickGetProduct* = SDL_JoystickGetProduct_renamed_SDL_GetJoystickProduct 
 when SDL_JoystickGetProductVersion_renamed_SDL_GetJoystickProductVersion is
     typedesc:
   type
-    SDL_JoystickGetProductVersion* = SDL_JoystickGetProductVersion_renamed_SDL_GetJoystickProductVersion
+    SDL_JoystickGetProductVersion* = SDL_JoystickGetProductVersion_renamed_SDL_GetJoystickProductVersion 
 else:
   when SDL_JoystickGetProductVersion_renamed_SDL_GetJoystickProductVersion is
       static:
     const
-      SDL_JoystickGetProductVersion* = SDL_JoystickGetProductVersion_renamed_SDL_GetJoystickProductVersion
+      SDL_JoystickGetProductVersion* = SDL_JoystickGetProductVersion_renamed_SDL_GetJoystickProductVersion 
   else:
-    let SDL_JoystickGetProductVersion* = SDL_JoystickGetProductVersion_renamed_SDL_GetJoystickProductVersion
+    let SDL_JoystickGetProductVersion* = SDL_JoystickGetProductVersion_renamed_SDL_GetJoystickProductVersion 
 when SDL_JoystickGetSerial_renamed_SDL_GetJoystickSerial is typedesc:
   type
-    SDL_JoystickGetSerial* = SDL_JoystickGetSerial_renamed_SDL_GetJoystickSerial
+    SDL_JoystickGetSerial* = SDL_JoystickGetSerial_renamed_SDL_GetJoystickSerial 
 else:
   when SDL_JoystickGetSerial_renamed_SDL_GetJoystickSerial is static:
     const
-      SDL_JoystickGetSerial* = SDL_JoystickGetSerial_renamed_SDL_GetJoystickSerial
+      SDL_JoystickGetSerial* = SDL_JoystickGetSerial_renamed_SDL_GetJoystickSerial 
   else:
-    let SDL_JoystickGetSerial* = SDL_JoystickGetSerial_renamed_SDL_GetJoystickSerial
+    let SDL_JoystickGetSerial* = SDL_JoystickGetSerial_renamed_SDL_GetJoystickSerial 
 when SDL_JoystickGetType_renamed_SDL_GetJoystickType is typedesc:
   type
-    SDL_JoystickGetType* = SDL_JoystickGetType_renamed_SDL_GetJoystickType
+    SDL_JoystickGetType* = SDL_JoystickGetType_renamed_SDL_GetJoystickType 
 else:
   when SDL_JoystickGetType_renamed_SDL_GetJoystickType is static:
     const
-      SDL_JoystickGetType* = SDL_JoystickGetType_renamed_SDL_GetJoystickType
+      SDL_JoystickGetType* = SDL_JoystickGetType_renamed_SDL_GetJoystickType 
   else:
-    let SDL_JoystickGetType* = SDL_JoystickGetType_renamed_SDL_GetJoystickType
+    let SDL_JoystickGetType* = SDL_JoystickGetType_renamed_SDL_GetJoystickType 
 when SDL_JoystickGetVendor_renamed_SDL_GetJoystickVendor is typedesc:
   type
-    SDL_JoystickGetVendor* = SDL_JoystickGetVendor_renamed_SDL_GetJoystickVendor
+    SDL_JoystickGetVendor* = SDL_JoystickGetVendor_renamed_SDL_GetJoystickVendor 
 else:
   when SDL_JoystickGetVendor_renamed_SDL_GetJoystickVendor is static:
     const
-      SDL_JoystickGetVendor* = SDL_JoystickGetVendor_renamed_SDL_GetJoystickVendor
+      SDL_JoystickGetVendor* = SDL_JoystickGetVendor_renamed_SDL_GetJoystickVendor 
   else:
-    let SDL_JoystickGetVendor* = SDL_JoystickGetVendor_renamed_SDL_GetJoystickVendor
+    let SDL_JoystickGetVendor* = SDL_JoystickGetVendor_renamed_SDL_GetJoystickVendor 
 when SDL_JoystickInstanceID_renamed_SDL_GetJoystickID is typedesc:
   type
-    SDL_JoystickInstanceID* = SDL_JoystickInstanceID_renamed_SDL_GetJoystickID
+    SDL_JoystickInstanceID* = SDL_JoystickInstanceID_renamed_SDL_GetJoystickID 
 else:
   when SDL_JoystickInstanceID_renamed_SDL_GetJoystickID is static:
     const
-      SDL_JoystickInstanceID* = SDL_JoystickInstanceID_renamed_SDL_GetJoystickID
+      SDL_JoystickInstanceID* = SDL_JoystickInstanceID_renamed_SDL_GetJoystickID 
   else:
-    let SDL_JoystickInstanceID* = SDL_JoystickInstanceID_renamed_SDL_GetJoystickID
+    let SDL_JoystickInstanceID* = SDL_JoystickInstanceID_renamed_SDL_GetJoystickID 
 when SDL_JoystickIsVirtual_renamed_SDL_IsJoystickVirtual is typedesc:
   type
-    SDL_JoystickIsVirtual* = SDL_JoystickIsVirtual_renamed_SDL_IsJoystickVirtual
+    SDL_JoystickIsVirtual* = SDL_JoystickIsVirtual_renamed_SDL_IsJoystickVirtual 
 else:
   when SDL_JoystickIsVirtual_renamed_SDL_IsJoystickVirtual is static:
     const
-      SDL_JoystickIsVirtual* = SDL_JoystickIsVirtual_renamed_SDL_IsJoystickVirtual
+      SDL_JoystickIsVirtual* = SDL_JoystickIsVirtual_renamed_SDL_IsJoystickVirtual 
   else:
-    let SDL_JoystickIsVirtual* = SDL_JoystickIsVirtual_renamed_SDL_IsJoystickVirtual
+    let SDL_JoystickIsVirtual* = SDL_JoystickIsVirtual_renamed_SDL_IsJoystickVirtual 
 when SDL_JoystickName_renamed_SDL_GetJoystickName is typedesc:
   type
-    SDL_JoystickName* = SDL_JoystickName_renamed_SDL_GetJoystickName
+    SDL_JoystickName* = SDL_JoystickName_renamed_SDL_GetJoystickName 
 else:
   when SDL_JoystickName_renamed_SDL_GetJoystickName is static:
     const
-      SDL_JoystickName* = SDL_JoystickName_renamed_SDL_GetJoystickName
+      SDL_JoystickName* = SDL_JoystickName_renamed_SDL_GetJoystickName 
   else:
-    let SDL_JoystickName* = SDL_JoystickName_renamed_SDL_GetJoystickName
+    let SDL_JoystickName* = SDL_JoystickName_renamed_SDL_GetJoystickName 
 when SDL_JoystickNumAxes_renamed_SDL_GetNumJoystickAxes is typedesc:
   type
-    SDL_JoystickNumAxes* = SDL_JoystickNumAxes_renamed_SDL_GetNumJoystickAxes
+    SDL_JoystickNumAxes* = SDL_JoystickNumAxes_renamed_SDL_GetNumJoystickAxes 
 else:
   when SDL_JoystickNumAxes_renamed_SDL_GetNumJoystickAxes is static:
     const
-      SDL_JoystickNumAxes* = SDL_JoystickNumAxes_renamed_SDL_GetNumJoystickAxes
+      SDL_JoystickNumAxes* = SDL_JoystickNumAxes_renamed_SDL_GetNumJoystickAxes 
   else:
-    let SDL_JoystickNumAxes* = SDL_JoystickNumAxes_renamed_SDL_GetNumJoystickAxes
+    let SDL_JoystickNumAxes* = SDL_JoystickNumAxes_renamed_SDL_GetNumJoystickAxes 
 when SDL_JoystickNumBalls_renamed_SDL_GetNumJoystickBalls is typedesc:
   type
-    SDL_JoystickNumBalls* = SDL_JoystickNumBalls_renamed_SDL_GetNumJoystickBalls
+    SDL_JoystickNumBalls* = SDL_JoystickNumBalls_renamed_SDL_GetNumJoystickBalls 
 else:
   when SDL_JoystickNumBalls_renamed_SDL_GetNumJoystickBalls is static:
     const
-      SDL_JoystickNumBalls* = SDL_JoystickNumBalls_renamed_SDL_GetNumJoystickBalls
+      SDL_JoystickNumBalls* = SDL_JoystickNumBalls_renamed_SDL_GetNumJoystickBalls 
   else:
-    let SDL_JoystickNumBalls* = SDL_JoystickNumBalls_renamed_SDL_GetNumJoystickBalls
+    let SDL_JoystickNumBalls* = SDL_JoystickNumBalls_renamed_SDL_GetNumJoystickBalls 
 when SDL_JoystickNumButtons_renamed_SDL_GetNumJoystickButtons is typedesc:
   type
-    SDL_JoystickNumButtons* = SDL_JoystickNumButtons_renamed_SDL_GetNumJoystickButtons
+    SDL_JoystickNumButtons* = SDL_JoystickNumButtons_renamed_SDL_GetNumJoystickButtons 
 else:
   when SDL_JoystickNumButtons_renamed_SDL_GetNumJoystickButtons is static:
     const
-      SDL_JoystickNumButtons* = SDL_JoystickNumButtons_renamed_SDL_GetNumJoystickButtons
+      SDL_JoystickNumButtons* = SDL_JoystickNumButtons_renamed_SDL_GetNumJoystickButtons 
   else:
-    let SDL_JoystickNumButtons* = SDL_JoystickNumButtons_renamed_SDL_GetNumJoystickButtons
+    let SDL_JoystickNumButtons* = SDL_JoystickNumButtons_renamed_SDL_GetNumJoystickButtons 
 when SDL_JoystickNumHats_renamed_SDL_GetNumJoystickHats is typedesc:
   type
-    SDL_JoystickNumHats* = SDL_JoystickNumHats_renamed_SDL_GetNumJoystickHats
+    SDL_JoystickNumHats* = SDL_JoystickNumHats_renamed_SDL_GetNumJoystickHats 
 else:
   when SDL_JoystickNumHats_renamed_SDL_GetNumJoystickHats is static:
     const
-      SDL_JoystickNumHats* = SDL_JoystickNumHats_renamed_SDL_GetNumJoystickHats
+      SDL_JoystickNumHats* = SDL_JoystickNumHats_renamed_SDL_GetNumJoystickHats 
   else:
-    let SDL_JoystickNumHats* = SDL_JoystickNumHats_renamed_SDL_GetNumJoystickHats
+    let SDL_JoystickNumHats* = SDL_JoystickNumHats_renamed_SDL_GetNumJoystickHats 
 when SDL_JoystickOpen_renamed_SDL_OpenJoystick is typedesc:
   type
-    SDL_JoystickOpen* = SDL_JoystickOpen_renamed_SDL_OpenJoystick
+    SDL_JoystickOpen* = SDL_JoystickOpen_renamed_SDL_OpenJoystick 
 else:
   when SDL_JoystickOpen_renamed_SDL_OpenJoystick is static:
     const
-      SDL_JoystickOpen* = SDL_JoystickOpen_renamed_SDL_OpenJoystick
+      SDL_JoystickOpen* = SDL_JoystickOpen_renamed_SDL_OpenJoystick 
   else:
-    let SDL_JoystickOpen* = SDL_JoystickOpen_renamed_SDL_OpenJoystick
+    let SDL_JoystickOpen* = SDL_JoystickOpen_renamed_SDL_OpenJoystick 
 when SDL_JoystickPath_renamed_SDL_GetJoystickPath is typedesc:
   type
-    SDL_JoystickPath* = SDL_JoystickPath_renamed_SDL_GetJoystickPath
+    SDL_JoystickPath* = SDL_JoystickPath_renamed_SDL_GetJoystickPath 
 else:
   when SDL_JoystickPath_renamed_SDL_GetJoystickPath is static:
     const
-      SDL_JoystickPath* = SDL_JoystickPath_renamed_SDL_GetJoystickPath
+      SDL_JoystickPath* = SDL_JoystickPath_renamed_SDL_GetJoystickPath 
   else:
-    let SDL_JoystickPath* = SDL_JoystickPath_renamed_SDL_GetJoystickPath
+    let SDL_JoystickPath* = SDL_JoystickPath_renamed_SDL_GetJoystickPath 
 when SDL_JoystickRumble_renamed_SDL_RumbleJoystick is typedesc:
   type
-    SDL_JoystickRumble* = SDL_JoystickRumble_renamed_SDL_RumbleJoystick
+    SDL_JoystickRumble* = SDL_JoystickRumble_renamed_SDL_RumbleJoystick 
 else:
   when SDL_JoystickRumble_renamed_SDL_RumbleJoystick is static:
     const
-      SDL_JoystickRumble* = SDL_JoystickRumble_renamed_SDL_RumbleJoystick
+      SDL_JoystickRumble* = SDL_JoystickRumble_renamed_SDL_RumbleJoystick 
   else:
-    let SDL_JoystickRumble* = SDL_JoystickRumble_renamed_SDL_RumbleJoystick
+    let SDL_JoystickRumble* = SDL_JoystickRumble_renamed_SDL_RumbleJoystick 
 when SDL_JoystickRumbleTriggers_renamed_SDL_RumbleJoystickTriggers is typedesc:
   type
-    SDL_JoystickRumbleTriggers* = SDL_JoystickRumbleTriggers_renamed_SDL_RumbleJoystickTriggers
+    SDL_JoystickRumbleTriggers* = SDL_JoystickRumbleTriggers_renamed_SDL_RumbleJoystickTriggers 
 else:
   when SDL_JoystickRumbleTriggers_renamed_SDL_RumbleJoystickTriggers is static:
     const
-      SDL_JoystickRumbleTriggers* = SDL_JoystickRumbleTriggers_renamed_SDL_RumbleJoystickTriggers
+      SDL_JoystickRumbleTriggers* = SDL_JoystickRumbleTriggers_renamed_SDL_RumbleJoystickTriggers 
   else:
-    let SDL_JoystickRumbleTriggers* = SDL_JoystickRumbleTriggers_renamed_SDL_RumbleJoystickTriggers
+    let SDL_JoystickRumbleTriggers* = SDL_JoystickRumbleTriggers_renamed_SDL_RumbleJoystickTriggers 
 when SDL_JoystickSendEffect_renamed_SDL_SendJoystickEffect is typedesc:
   type
-    SDL_JoystickSendEffect* = SDL_JoystickSendEffect_renamed_SDL_SendJoystickEffect
+    SDL_JoystickSendEffect* = SDL_JoystickSendEffect_renamed_SDL_SendJoystickEffect 
 else:
   when SDL_JoystickSendEffect_renamed_SDL_SendJoystickEffect is static:
     const
-      SDL_JoystickSendEffect* = SDL_JoystickSendEffect_renamed_SDL_SendJoystickEffect
+      SDL_JoystickSendEffect* = SDL_JoystickSendEffect_renamed_SDL_SendJoystickEffect 
   else:
-    let SDL_JoystickSendEffect* = SDL_JoystickSendEffect_renamed_SDL_SendJoystickEffect
+    let SDL_JoystickSendEffect* = SDL_JoystickSendEffect_renamed_SDL_SendJoystickEffect 
 when SDL_JoystickSetLED_renamed_SDL_SetJoystickLED is typedesc:
   type
-    SDL_JoystickSetLED* = SDL_JoystickSetLED_renamed_SDL_SetJoystickLED
+    SDL_JoystickSetLED* = SDL_JoystickSetLED_renamed_SDL_SetJoystickLED 
 else:
   when SDL_JoystickSetLED_renamed_SDL_SetJoystickLED is static:
     const
-      SDL_JoystickSetLED* = SDL_JoystickSetLED_renamed_SDL_SetJoystickLED
+      SDL_JoystickSetLED* = SDL_JoystickSetLED_renamed_SDL_SetJoystickLED 
   else:
-    let SDL_JoystickSetLED* = SDL_JoystickSetLED_renamed_SDL_SetJoystickLED
+    let SDL_JoystickSetLED* = SDL_JoystickSetLED_renamed_SDL_SetJoystickLED 
 when SDL_JoystickSetPlayerIndex_renamed_SDL_SetJoystickPlayerIndex is typedesc:
   type
-    SDL_JoystickSetPlayerIndex* = SDL_JoystickSetPlayerIndex_renamed_SDL_SetJoystickPlayerIndex
+    SDL_JoystickSetPlayerIndex* = SDL_JoystickSetPlayerIndex_renamed_SDL_SetJoystickPlayerIndex 
 else:
   when SDL_JoystickSetPlayerIndex_renamed_SDL_SetJoystickPlayerIndex is static:
     const
-      SDL_JoystickSetPlayerIndex* = SDL_JoystickSetPlayerIndex_renamed_SDL_SetJoystickPlayerIndex
+      SDL_JoystickSetPlayerIndex* = SDL_JoystickSetPlayerIndex_renamed_SDL_SetJoystickPlayerIndex 
   else:
-    let SDL_JoystickSetPlayerIndex* = SDL_JoystickSetPlayerIndex_renamed_SDL_SetJoystickPlayerIndex
+    let SDL_JoystickSetPlayerIndex* = SDL_JoystickSetPlayerIndex_renamed_SDL_SetJoystickPlayerIndex 
 when SDL_JoystickSetVirtualAxis_renamed_SDL_SetJoystickVirtualAxis is typedesc:
   type
-    SDL_JoystickSetVirtualAxis* = SDL_JoystickSetVirtualAxis_renamed_SDL_SetJoystickVirtualAxis
+    SDL_JoystickSetVirtualAxis* = SDL_JoystickSetVirtualAxis_renamed_SDL_SetJoystickVirtualAxis 
 else:
   when SDL_JoystickSetVirtualAxis_renamed_SDL_SetJoystickVirtualAxis is static:
     const
-      SDL_JoystickSetVirtualAxis* = SDL_JoystickSetVirtualAxis_renamed_SDL_SetJoystickVirtualAxis
+      SDL_JoystickSetVirtualAxis* = SDL_JoystickSetVirtualAxis_renamed_SDL_SetJoystickVirtualAxis 
   else:
-    let SDL_JoystickSetVirtualAxis* = SDL_JoystickSetVirtualAxis_renamed_SDL_SetJoystickVirtualAxis
+    let SDL_JoystickSetVirtualAxis* = SDL_JoystickSetVirtualAxis_renamed_SDL_SetJoystickVirtualAxis 
 when SDL_JoystickSetVirtualButton_renamed_SDL_SetJoystickVirtualButton is
     typedesc:
   type
-    SDL_JoystickSetVirtualButton* = SDL_JoystickSetVirtualButton_renamed_SDL_SetJoystickVirtualButton
+    SDL_JoystickSetVirtualButton* = SDL_JoystickSetVirtualButton_renamed_SDL_SetJoystickVirtualButton 
 else:
   when SDL_JoystickSetVirtualButton_renamed_SDL_SetJoystickVirtualButton is
       static:
     const
-      SDL_JoystickSetVirtualButton* = SDL_JoystickSetVirtualButton_renamed_SDL_SetJoystickVirtualButton
+      SDL_JoystickSetVirtualButton* = SDL_JoystickSetVirtualButton_renamed_SDL_SetJoystickVirtualButton 
   else:
-    let SDL_JoystickSetVirtualButton* = SDL_JoystickSetVirtualButton_renamed_SDL_SetJoystickVirtualButton
+    let SDL_JoystickSetVirtualButton* = SDL_JoystickSetVirtualButton_renamed_SDL_SetJoystickVirtualButton 
 when SDL_JoystickSetVirtualHat_renamed_SDL_SetJoystickVirtualHat is typedesc:
   type
-    SDL_JoystickSetVirtualHat* = SDL_JoystickSetVirtualHat_renamed_SDL_SetJoystickVirtualHat
+    SDL_JoystickSetVirtualHat* = SDL_JoystickSetVirtualHat_renamed_SDL_SetJoystickVirtualHat 
 else:
   when SDL_JoystickSetVirtualHat_renamed_SDL_SetJoystickVirtualHat is static:
     const
-      SDL_JoystickSetVirtualHat* = SDL_JoystickSetVirtualHat_renamed_SDL_SetJoystickVirtualHat
+      SDL_JoystickSetVirtualHat* = SDL_JoystickSetVirtualHat_renamed_SDL_SetJoystickVirtualHat 
   else:
-    let SDL_JoystickSetVirtualHat* = SDL_JoystickSetVirtualHat_renamed_SDL_SetJoystickVirtualHat
+    let SDL_JoystickSetVirtualHat* = SDL_JoystickSetVirtualHat_renamed_SDL_SetJoystickVirtualHat 
 when SDL_JoystickUpdate_renamed_SDL_UpdateJoysticks is typedesc:
   type
-    SDL_JoystickUpdate* = SDL_JoystickUpdate_renamed_SDL_UpdateJoysticks
+    SDL_JoystickUpdate* = SDL_JoystickUpdate_renamed_SDL_UpdateJoysticks 
 else:
   when SDL_JoystickUpdate_renamed_SDL_UpdateJoysticks is static:
     const
-      SDL_JoystickUpdate* = SDL_JoystickUpdate_renamed_SDL_UpdateJoysticks
+      SDL_JoystickUpdate* = SDL_JoystickUpdate_renamed_SDL_UpdateJoysticks 
   else:
-    let SDL_JoystickUpdate* = SDL_JoystickUpdate_renamed_SDL_UpdateJoysticks
+    let SDL_JoystickUpdate* = SDL_JoystickUpdate_renamed_SDL_UpdateJoysticks 
 when SDL_IsScreenKeyboardShown_renamed_SDL_ScreenKeyboardShown is typedesc:
   type
-    SDL_IsScreenKeyboardShown* = SDL_IsScreenKeyboardShown_renamed_SDL_ScreenKeyboardShown
+    SDL_IsScreenKeyboardShown* = SDL_IsScreenKeyboardShown_renamed_SDL_ScreenKeyboardShown 
 else:
   when SDL_IsScreenKeyboardShown_renamed_SDL_ScreenKeyboardShown is static:
     const
-      SDL_IsScreenKeyboardShown* = SDL_IsScreenKeyboardShown_renamed_SDL_ScreenKeyboardShown
+      SDL_IsScreenKeyboardShown* = SDL_IsScreenKeyboardShown_renamed_SDL_ScreenKeyboardShown 
   else:
-    let SDL_IsScreenKeyboardShown* = SDL_IsScreenKeyboardShown_renamed_SDL_ScreenKeyboardShown
+    let SDL_IsScreenKeyboardShown* = SDL_IsScreenKeyboardShown_renamed_SDL_ScreenKeyboardShown 
 when SDL_IsTextInputActive_renamed_SDL_TextInputActive is typedesc:
   type
-    SDL_IsTextInputActive* = SDL_IsTextInputActive_renamed_SDL_TextInputActive
+    SDL_IsTextInputActive* = SDL_IsTextInputActive_renamed_SDL_TextInputActive 
 else:
   when SDL_IsTextInputActive_renamed_SDL_TextInputActive is static:
     const
-      SDL_IsTextInputActive* = SDL_IsTextInputActive_renamed_SDL_TextInputActive
+      SDL_IsTextInputActive* = SDL_IsTextInputActive_renamed_SDL_TextInputActive 
   else:
-    let SDL_IsTextInputActive* = SDL_IsTextInputActive_renamed_SDL_TextInputActive
+    let SDL_IsTextInputActive* = SDL_IsTextInputActive_renamed_SDL_TextInputActive 
 when KMOD_ALT_renamed_SDL_KMOD_ALT is typedesc:
   type
-    KMOD_ALT* = KMOD_ALT_renamed_SDL_KMOD_ALT
+    KMOD_ALT* = KMOD_ALT_renamed_SDL_KMOD_ALT 
 else:
   when KMOD_ALT_renamed_SDL_KMOD_ALT is static:
     const
-      KMOD_ALT* = KMOD_ALT_renamed_SDL_KMOD_ALT
+      KMOD_ALT* = KMOD_ALT_renamed_SDL_KMOD_ALT 
   else:
-    let KMOD_ALT* = KMOD_ALT_renamed_SDL_KMOD_ALT
+    let KMOD_ALT* = KMOD_ALT_renamed_SDL_KMOD_ALT 
 when KMOD_CAPS_renamed_SDL_KMOD_CAPS is typedesc:
   type
-    KMOD_CAPS* = KMOD_CAPS_renamed_SDL_KMOD_CAPS
+    KMOD_CAPS* = KMOD_CAPS_renamed_SDL_KMOD_CAPS 
 else:
   when KMOD_CAPS_renamed_SDL_KMOD_CAPS is static:
     const
-      KMOD_CAPS* = KMOD_CAPS_renamed_SDL_KMOD_CAPS
+      KMOD_CAPS* = KMOD_CAPS_renamed_SDL_KMOD_CAPS 
   else:
-    let KMOD_CAPS* = KMOD_CAPS_renamed_SDL_KMOD_CAPS
+    let KMOD_CAPS* = KMOD_CAPS_renamed_SDL_KMOD_CAPS 
 when KMOD_CTRL_renamed_SDL_KMOD_CTRL is typedesc:
   type
-    KMOD_CTRL* = KMOD_CTRL_renamed_SDL_KMOD_CTRL
+    KMOD_CTRL* = KMOD_CTRL_renamed_SDL_KMOD_CTRL 
 else:
   when KMOD_CTRL_renamed_SDL_KMOD_CTRL is static:
     const
-      KMOD_CTRL* = KMOD_CTRL_renamed_SDL_KMOD_CTRL
+      KMOD_CTRL* = KMOD_CTRL_renamed_SDL_KMOD_CTRL 
   else:
-    let KMOD_CTRL* = KMOD_CTRL_renamed_SDL_KMOD_CTRL
+    let KMOD_CTRL* = KMOD_CTRL_renamed_SDL_KMOD_CTRL 
 when KMOD_GUI_renamed_SDL_KMOD_GUI is typedesc:
   type
-    KMOD_GUI* = KMOD_GUI_renamed_SDL_KMOD_GUI
+    KMOD_GUI* = KMOD_GUI_renamed_SDL_KMOD_GUI 
 else:
   when KMOD_GUI_renamed_SDL_KMOD_GUI is static:
     const
-      KMOD_GUI* = KMOD_GUI_renamed_SDL_KMOD_GUI
+      KMOD_GUI* = KMOD_GUI_renamed_SDL_KMOD_GUI 
   else:
-    let KMOD_GUI* = KMOD_GUI_renamed_SDL_KMOD_GUI
+    let KMOD_GUI* = KMOD_GUI_renamed_SDL_KMOD_GUI 
 when KMOD_LALT_renamed_SDL_KMOD_LALT is typedesc:
   type
-    KMOD_LALT* = KMOD_LALT_renamed_SDL_KMOD_LALT
+    KMOD_LALT* = KMOD_LALT_renamed_SDL_KMOD_LALT 
 else:
   when KMOD_LALT_renamed_SDL_KMOD_LALT is static:
     const
-      KMOD_LALT* = KMOD_LALT_renamed_SDL_KMOD_LALT
+      KMOD_LALT* = KMOD_LALT_renamed_SDL_KMOD_LALT 
   else:
-    let KMOD_LALT* = KMOD_LALT_renamed_SDL_KMOD_LALT
+    let KMOD_LALT* = KMOD_LALT_renamed_SDL_KMOD_LALT 
 when KMOD_LCTRL_renamed_SDL_KMOD_LCTRL is typedesc:
   type
-    KMOD_LCTRL* = KMOD_LCTRL_renamed_SDL_KMOD_LCTRL
+    KMOD_LCTRL* = KMOD_LCTRL_renamed_SDL_KMOD_LCTRL 
 else:
   when KMOD_LCTRL_renamed_SDL_KMOD_LCTRL is static:
     const
-      KMOD_LCTRL* = KMOD_LCTRL_renamed_SDL_KMOD_LCTRL
+      KMOD_LCTRL* = KMOD_LCTRL_renamed_SDL_KMOD_LCTRL 
   else:
-    let KMOD_LCTRL* = KMOD_LCTRL_renamed_SDL_KMOD_LCTRL
+    let KMOD_LCTRL* = KMOD_LCTRL_renamed_SDL_KMOD_LCTRL 
 when KMOD_LGUI_renamed_SDL_KMOD_LGUI is typedesc:
   type
-    KMOD_LGUI* = KMOD_LGUI_renamed_SDL_KMOD_LGUI
+    KMOD_LGUI* = KMOD_LGUI_renamed_SDL_KMOD_LGUI 
 else:
   when KMOD_LGUI_renamed_SDL_KMOD_LGUI is static:
     const
-      KMOD_LGUI* = KMOD_LGUI_renamed_SDL_KMOD_LGUI
+      KMOD_LGUI* = KMOD_LGUI_renamed_SDL_KMOD_LGUI 
   else:
-    let KMOD_LGUI* = KMOD_LGUI_renamed_SDL_KMOD_LGUI
+    let KMOD_LGUI* = KMOD_LGUI_renamed_SDL_KMOD_LGUI 
 when KMOD_LSHIFT_renamed_SDL_KMOD_LSHIFT is typedesc:
   type
-    KMOD_LSHIFT* = KMOD_LSHIFT_renamed_SDL_KMOD_LSHIFT
+    KMOD_LSHIFT* = KMOD_LSHIFT_renamed_SDL_KMOD_LSHIFT 
 else:
   when KMOD_LSHIFT_renamed_SDL_KMOD_LSHIFT is static:
     const
-      KMOD_LSHIFT* = KMOD_LSHIFT_renamed_SDL_KMOD_LSHIFT
+      KMOD_LSHIFT* = KMOD_LSHIFT_renamed_SDL_KMOD_LSHIFT 
   else:
-    let KMOD_LSHIFT* = KMOD_LSHIFT_renamed_SDL_KMOD_LSHIFT
+    let KMOD_LSHIFT* = KMOD_LSHIFT_renamed_SDL_KMOD_LSHIFT 
 when KMOD_MODE_renamed_SDL_KMOD_MODE is typedesc:
   type
-    KMOD_MODE* = KMOD_MODE_renamed_SDL_KMOD_MODE
+    KMOD_MODE* = KMOD_MODE_renamed_SDL_KMOD_MODE 
 else:
   when KMOD_MODE_renamed_SDL_KMOD_MODE is static:
     const
-      KMOD_MODE* = KMOD_MODE_renamed_SDL_KMOD_MODE
+      KMOD_MODE* = KMOD_MODE_renamed_SDL_KMOD_MODE 
   else:
-    let KMOD_MODE* = KMOD_MODE_renamed_SDL_KMOD_MODE
+    let KMOD_MODE* = KMOD_MODE_renamed_SDL_KMOD_MODE 
 when KMOD_NONE_renamed_SDL_KMOD_NONE is typedesc:
   type
-    KMOD_NONE* = KMOD_NONE_renamed_SDL_KMOD_NONE
+    KMOD_NONE* = KMOD_NONE_renamed_SDL_KMOD_NONE 
 else:
   when KMOD_NONE_renamed_SDL_KMOD_NONE is static:
     const
-      KMOD_NONE* = KMOD_NONE_renamed_SDL_KMOD_NONE
+      KMOD_NONE* = KMOD_NONE_renamed_SDL_KMOD_NONE 
   else:
-    let KMOD_NONE* = KMOD_NONE_renamed_SDL_KMOD_NONE
+    let KMOD_NONE* = KMOD_NONE_renamed_SDL_KMOD_NONE 
 when KMOD_NUM_renamed_SDL_KMOD_NUM is typedesc:
   type
-    KMOD_NUM* = KMOD_NUM_renamed_SDL_KMOD_NUM
+    KMOD_NUM* = KMOD_NUM_renamed_SDL_KMOD_NUM 
 else:
   when KMOD_NUM_renamed_SDL_KMOD_NUM is static:
     const
-      KMOD_NUM* = KMOD_NUM_renamed_SDL_KMOD_NUM
+      KMOD_NUM* = KMOD_NUM_renamed_SDL_KMOD_NUM 
   else:
-    let KMOD_NUM* = KMOD_NUM_renamed_SDL_KMOD_NUM
+    let KMOD_NUM* = KMOD_NUM_renamed_SDL_KMOD_NUM 
 when KMOD_RALT_renamed_SDL_KMOD_RALT is typedesc:
   type
-    KMOD_RALT* = KMOD_RALT_renamed_SDL_KMOD_RALT
+    KMOD_RALT* = KMOD_RALT_renamed_SDL_KMOD_RALT 
 else:
   when KMOD_RALT_renamed_SDL_KMOD_RALT is static:
     const
-      KMOD_RALT* = KMOD_RALT_renamed_SDL_KMOD_RALT
+      KMOD_RALT* = KMOD_RALT_renamed_SDL_KMOD_RALT 
   else:
-    let KMOD_RALT* = KMOD_RALT_renamed_SDL_KMOD_RALT
+    let KMOD_RALT* = KMOD_RALT_renamed_SDL_KMOD_RALT 
 when KMOD_RCTRL_renamed_SDL_KMOD_RCTRL is typedesc:
   type
-    KMOD_RCTRL* = KMOD_RCTRL_renamed_SDL_KMOD_RCTRL
+    KMOD_RCTRL* = KMOD_RCTRL_renamed_SDL_KMOD_RCTRL 
 else:
   when KMOD_RCTRL_renamed_SDL_KMOD_RCTRL is static:
     const
-      KMOD_RCTRL* = KMOD_RCTRL_renamed_SDL_KMOD_RCTRL
+      KMOD_RCTRL* = KMOD_RCTRL_renamed_SDL_KMOD_RCTRL 
   else:
-    let KMOD_RCTRL* = KMOD_RCTRL_renamed_SDL_KMOD_RCTRL
+    let KMOD_RCTRL* = KMOD_RCTRL_renamed_SDL_KMOD_RCTRL 
 when KMOD_RGUI_renamed_SDL_KMOD_RGUI is typedesc:
   type
-    KMOD_RGUI* = KMOD_RGUI_renamed_SDL_KMOD_RGUI
+    KMOD_RGUI* = KMOD_RGUI_renamed_SDL_KMOD_RGUI 
 else:
   when KMOD_RGUI_renamed_SDL_KMOD_RGUI is static:
     const
-      KMOD_RGUI* = KMOD_RGUI_renamed_SDL_KMOD_RGUI
+      KMOD_RGUI* = KMOD_RGUI_renamed_SDL_KMOD_RGUI 
   else:
-    let KMOD_RGUI* = KMOD_RGUI_renamed_SDL_KMOD_RGUI
+    let KMOD_RGUI* = KMOD_RGUI_renamed_SDL_KMOD_RGUI 
 when KMOD_RSHIFT_renamed_SDL_KMOD_RSHIFT is typedesc:
   type
-    KMOD_RSHIFT* = KMOD_RSHIFT_renamed_SDL_KMOD_RSHIFT
+    KMOD_RSHIFT* = KMOD_RSHIFT_renamed_SDL_KMOD_RSHIFT 
 else:
   when KMOD_RSHIFT_renamed_SDL_KMOD_RSHIFT is static:
     const
-      KMOD_RSHIFT* = KMOD_RSHIFT_renamed_SDL_KMOD_RSHIFT
+      KMOD_RSHIFT* = KMOD_RSHIFT_renamed_SDL_KMOD_RSHIFT 
   else:
-    let KMOD_RSHIFT* = KMOD_RSHIFT_renamed_SDL_KMOD_RSHIFT
+    let KMOD_RSHIFT* = KMOD_RSHIFT_renamed_SDL_KMOD_RSHIFT 
 when KMOD_SCROLL_renamed_SDL_KMOD_SCROLL is typedesc:
   type
-    KMOD_SCROLL* = KMOD_SCROLL_renamed_SDL_KMOD_SCROLL
+    KMOD_SCROLL* = KMOD_SCROLL_renamed_SDL_KMOD_SCROLL 
 else:
   when KMOD_SCROLL_renamed_SDL_KMOD_SCROLL is static:
     const
-      KMOD_SCROLL* = KMOD_SCROLL_renamed_SDL_KMOD_SCROLL
+      KMOD_SCROLL* = KMOD_SCROLL_renamed_SDL_KMOD_SCROLL 
   else:
-    let KMOD_SCROLL* = KMOD_SCROLL_renamed_SDL_KMOD_SCROLL
+    let KMOD_SCROLL* = KMOD_SCROLL_renamed_SDL_KMOD_SCROLL 
 when KMOD_SHIFT_renamed_SDL_KMOD_SHIFT is typedesc:
   type
-    KMOD_SHIFT* = KMOD_SHIFT_renamed_SDL_KMOD_SHIFT
+    KMOD_SHIFT* = KMOD_SHIFT_renamed_SDL_KMOD_SHIFT 
 else:
   when KMOD_SHIFT_renamed_SDL_KMOD_SHIFT is static:
     const
-      KMOD_SHIFT* = KMOD_SHIFT_renamed_SDL_KMOD_SHIFT
+      KMOD_SHIFT* = KMOD_SHIFT_renamed_SDL_KMOD_SHIFT 
   else:
-    let KMOD_SHIFT* = KMOD_SHIFT_renamed_SDL_KMOD_SHIFT
+    let KMOD_SHIFT* = KMOD_SHIFT_renamed_SDL_KMOD_SHIFT 
 when SDLK_AUDIOFASTFORWARD_renamed_SDLK_MEDIA_FAST_FORWARD is typedesc:
   type
-    SDLK_AUDIOFASTFORWARD* = SDLK_AUDIOFASTFORWARD_renamed_SDLK_MEDIA_FAST_FORWARD
+    SDLK_AUDIOFASTFORWARD* = SDLK_AUDIOFASTFORWARD_renamed_SDLK_MEDIA_FAST_FORWARD 
 else:
   when SDLK_AUDIOFASTFORWARD_renamed_SDLK_MEDIA_FAST_FORWARD is static:
     const
-      SDLK_AUDIOFASTFORWARD* = SDLK_AUDIOFASTFORWARD_renamed_SDLK_MEDIA_FAST_FORWARD
+      SDLK_AUDIOFASTFORWARD* = SDLK_AUDIOFASTFORWARD_renamed_SDLK_MEDIA_FAST_FORWARD 
   else:
-    let SDLK_AUDIOFASTFORWARD* = SDLK_AUDIOFASTFORWARD_renamed_SDLK_MEDIA_FAST_FORWARD
+    let SDLK_AUDIOFASTFORWARD* = SDLK_AUDIOFASTFORWARD_renamed_SDLK_MEDIA_FAST_FORWARD 
 when SDLK_AUDIOMUTE_renamed_SDLK_MUTE is typedesc:
   type
-    SDLK_AUDIOMUTE* = SDLK_AUDIOMUTE_renamed_SDLK_MUTE
+    SDLK_AUDIOMUTE* = SDLK_AUDIOMUTE_renamed_SDLK_MUTE 
 else:
   when SDLK_AUDIOMUTE_renamed_SDLK_MUTE is static:
     const
-      SDLK_AUDIOMUTE* = SDLK_AUDIOMUTE_renamed_SDLK_MUTE
+      SDLK_AUDIOMUTE* = SDLK_AUDIOMUTE_renamed_SDLK_MUTE 
   else:
-    let SDLK_AUDIOMUTE* = SDLK_AUDIOMUTE_renamed_SDLK_MUTE
+    let SDLK_AUDIOMUTE* = SDLK_AUDIOMUTE_renamed_SDLK_MUTE 
 when SDLK_AUDIONEXT_renamed_SDLK_MEDIA_NEXT_TRACK is typedesc:
   type
-    SDLK_AUDIONEXT* = SDLK_AUDIONEXT_renamed_SDLK_MEDIA_NEXT_TRACK
+    SDLK_AUDIONEXT* = SDLK_AUDIONEXT_renamed_SDLK_MEDIA_NEXT_TRACK 
 else:
   when SDLK_AUDIONEXT_renamed_SDLK_MEDIA_NEXT_TRACK is static:
     const
-      SDLK_AUDIONEXT* = SDLK_AUDIONEXT_renamed_SDLK_MEDIA_NEXT_TRACK
+      SDLK_AUDIONEXT* = SDLK_AUDIONEXT_renamed_SDLK_MEDIA_NEXT_TRACK 
   else:
-    let SDLK_AUDIONEXT* = SDLK_AUDIONEXT_renamed_SDLK_MEDIA_NEXT_TRACK
+    let SDLK_AUDIONEXT* = SDLK_AUDIONEXT_renamed_SDLK_MEDIA_NEXT_TRACK 
 when SDLK_AUDIOPLAY_renamed_SDLK_MEDIA_PLAY is typedesc:
   type
-    SDLK_AUDIOPLAY* = SDLK_AUDIOPLAY_renamed_SDLK_MEDIA_PLAY
+    SDLK_AUDIOPLAY* = SDLK_AUDIOPLAY_renamed_SDLK_MEDIA_PLAY 
 else:
   when SDLK_AUDIOPLAY_renamed_SDLK_MEDIA_PLAY is static:
     const
-      SDLK_AUDIOPLAY* = SDLK_AUDIOPLAY_renamed_SDLK_MEDIA_PLAY
+      SDLK_AUDIOPLAY* = SDLK_AUDIOPLAY_renamed_SDLK_MEDIA_PLAY 
   else:
-    let SDLK_AUDIOPLAY* = SDLK_AUDIOPLAY_renamed_SDLK_MEDIA_PLAY
+    let SDLK_AUDIOPLAY* = SDLK_AUDIOPLAY_renamed_SDLK_MEDIA_PLAY 
 when SDLK_AUDIOPREV_renamed_SDLK_MEDIA_PREVIOUS_TRACK is typedesc:
   type
-    SDLK_AUDIOPREV* = SDLK_AUDIOPREV_renamed_SDLK_MEDIA_PREVIOUS_TRACK
+    SDLK_AUDIOPREV* = SDLK_AUDIOPREV_renamed_SDLK_MEDIA_PREVIOUS_TRACK 
 else:
   when SDLK_AUDIOPREV_renamed_SDLK_MEDIA_PREVIOUS_TRACK is static:
     const
-      SDLK_AUDIOPREV* = SDLK_AUDIOPREV_renamed_SDLK_MEDIA_PREVIOUS_TRACK
+      SDLK_AUDIOPREV* = SDLK_AUDIOPREV_renamed_SDLK_MEDIA_PREVIOUS_TRACK 
   else:
-    let SDLK_AUDIOPREV* = SDLK_AUDIOPREV_renamed_SDLK_MEDIA_PREVIOUS_TRACK
+    let SDLK_AUDIOPREV* = SDLK_AUDIOPREV_renamed_SDLK_MEDIA_PREVIOUS_TRACK 
 when SDLK_AUDIOREWIND_renamed_SDLK_MEDIA_REWIND is typedesc:
   type
-    SDLK_AUDIOREWIND* = SDLK_AUDIOREWIND_renamed_SDLK_MEDIA_REWIND
+    SDLK_AUDIOREWIND* = SDLK_AUDIOREWIND_renamed_SDLK_MEDIA_REWIND 
 else:
   when SDLK_AUDIOREWIND_renamed_SDLK_MEDIA_REWIND is static:
     const
-      SDLK_AUDIOREWIND* = SDLK_AUDIOREWIND_renamed_SDLK_MEDIA_REWIND
+      SDLK_AUDIOREWIND* = SDLK_AUDIOREWIND_renamed_SDLK_MEDIA_REWIND 
   else:
-    let SDLK_AUDIOREWIND* = SDLK_AUDIOREWIND_renamed_SDLK_MEDIA_REWIND
+    let SDLK_AUDIOREWIND* = SDLK_AUDIOREWIND_renamed_SDLK_MEDIA_REWIND 
 when SDLK_AUDIOSTOP_renamed_SDLK_MEDIA_STOP is typedesc:
   type
-    SDLK_AUDIOSTOP* = SDLK_AUDIOSTOP_renamed_SDLK_MEDIA_STOP
+    SDLK_AUDIOSTOP* = SDLK_AUDIOSTOP_renamed_SDLK_MEDIA_STOP 
 else:
   when SDLK_AUDIOSTOP_renamed_SDLK_MEDIA_STOP is static:
     const
-      SDLK_AUDIOSTOP* = SDLK_AUDIOSTOP_renamed_SDLK_MEDIA_STOP
+      SDLK_AUDIOSTOP* = SDLK_AUDIOSTOP_renamed_SDLK_MEDIA_STOP 
   else:
-    let SDLK_AUDIOSTOP* = SDLK_AUDIOSTOP_renamed_SDLK_MEDIA_STOP
+    let SDLK_AUDIOSTOP* = SDLK_AUDIOSTOP_renamed_SDLK_MEDIA_STOP 
 when SDLK_BACKQUOTE_renamed_SDLK_GRAVE is typedesc:
   type
-    SDLK_BACKQUOTE* = SDLK_BACKQUOTE_renamed_SDLK_GRAVE
+    SDLK_BACKQUOTE* = SDLK_BACKQUOTE_renamed_SDLK_GRAVE 
 else:
   when SDLK_BACKQUOTE_renamed_SDLK_GRAVE is static:
     const
-      SDLK_BACKQUOTE* = SDLK_BACKQUOTE_renamed_SDLK_GRAVE
+      SDLK_BACKQUOTE* = SDLK_BACKQUOTE_renamed_SDLK_GRAVE 
   else:
-    let SDLK_BACKQUOTE* = SDLK_BACKQUOTE_renamed_SDLK_GRAVE
+    let SDLK_BACKQUOTE* = SDLK_BACKQUOTE_renamed_SDLK_GRAVE 
 when SDLK_EJECT_renamed_SDLK_MEDIA_EJECT is typedesc:
   type
-    SDLK_EJECT* = SDLK_EJECT_renamed_SDLK_MEDIA_EJECT
+    SDLK_EJECT* = SDLK_EJECT_renamed_SDLK_MEDIA_EJECT 
 else:
   when SDLK_EJECT_renamed_SDLK_MEDIA_EJECT is static:
     const
-      SDLK_EJECT* = SDLK_EJECT_renamed_SDLK_MEDIA_EJECT
+      SDLK_EJECT* = SDLK_EJECT_renamed_SDLK_MEDIA_EJECT 
   else:
-    let SDLK_EJECT* = SDLK_EJECT_renamed_SDLK_MEDIA_EJECT
+    let SDLK_EJECT* = SDLK_EJECT_renamed_SDLK_MEDIA_EJECT 
 when SDLK_MEDIASELECT_renamed_SDLK_MEDIA_SELECT is typedesc:
   type
-    SDLK_MEDIASELECT_const* = SDLK_MEDIASELECT_renamed_SDLK_MEDIA_SELECT
+    SDLK_MEDIASELECT_const* = SDLK_MEDIASELECT_renamed_SDLK_MEDIA_SELECT 
 else:
   when SDLK_MEDIASELECT_renamed_SDLK_MEDIA_SELECT is static:
     const
-      SDLK_MEDIASELECT_const* = SDLK_MEDIASELECT_renamed_SDLK_MEDIA_SELECT
+      SDLK_MEDIASELECT_const* = SDLK_MEDIASELECT_renamed_SDLK_MEDIA_SELECT 
   else:
-    let SDLK_MEDIASELECT_const* = SDLK_MEDIASELECT_renamed_SDLK_MEDIA_SELECT
+    let SDLK_MEDIASELECT_const* = SDLK_MEDIASELECT_renamed_SDLK_MEDIA_SELECT 
 when SDLK_QUOTE_renamed_SDLK_APOSTROPHE is typedesc:
   type
-    SDLK_QUOTE* = SDLK_QUOTE_renamed_SDLK_APOSTROPHE
+    SDLK_QUOTE* = SDLK_QUOTE_renamed_SDLK_APOSTROPHE 
 else:
   when SDLK_QUOTE_renamed_SDLK_APOSTROPHE is static:
     const
-      SDLK_QUOTE* = SDLK_QUOTE_renamed_SDLK_APOSTROPHE
+      SDLK_QUOTE* = SDLK_QUOTE_renamed_SDLK_APOSTROPHE 
   else:
-    let SDLK_QUOTE* = SDLK_QUOTE_renamed_SDLK_APOSTROPHE
+    let SDLK_QUOTE* = SDLK_QUOTE_renamed_SDLK_APOSTROPHE 
 when SDLK_QUOTEDBL_renamed_SDLK_DBLAPOSTROPHE is typedesc:
   type
-    SDLK_QUOTEDBL* = SDLK_QUOTEDBL_renamed_SDLK_DBLAPOSTROPHE
+    SDLK_QUOTEDBL* = SDLK_QUOTEDBL_renamed_SDLK_DBLAPOSTROPHE 
 else:
   when SDLK_QUOTEDBL_renamed_SDLK_DBLAPOSTROPHE is static:
     const
-      SDLK_QUOTEDBL* = SDLK_QUOTEDBL_renamed_SDLK_DBLAPOSTROPHE
+      SDLK_QUOTEDBL* = SDLK_QUOTEDBL_renamed_SDLK_DBLAPOSTROPHE 
   else:
-    let SDLK_QUOTEDBL* = SDLK_QUOTEDBL_renamed_SDLK_DBLAPOSTROPHE
+    let SDLK_QUOTEDBL* = SDLK_QUOTEDBL_renamed_SDLK_DBLAPOSTROPHE 
 when SDLK_a_renamed_SDLK_A is typedesc:
   type
-    SDLK_a_const* = SDLK_a_renamed_SDLK_A
+    SDLK_a_const* = SDLK_a_renamed_SDLK_A 
 else:
   when SDLK_a_renamed_SDLK_A is static:
     const
-      SDLK_a_const* = SDLK_a_renamed_SDLK_A
+      SDLK_a_const* = SDLK_a_renamed_SDLK_A 
   else:
-    let SDLK_a_const* = SDLK_a_renamed_SDLK_A
+    let SDLK_a_const* = SDLK_a_renamed_SDLK_A 
 when SDLK_b_renamed_SDLK_B is typedesc:
   type
-    SDLK_b_const* = SDLK_b_renamed_SDLK_B
+    SDLK_b_const* = SDLK_b_renamed_SDLK_B 
 else:
   when SDLK_b_renamed_SDLK_B is static:
     const
-      SDLK_b_const* = SDLK_b_renamed_SDLK_B
+      SDLK_b_const* = SDLK_b_renamed_SDLK_B 
   else:
-    let SDLK_b_const* = SDLK_b_renamed_SDLK_B
+    let SDLK_b_const* = SDLK_b_renamed_SDLK_B 
 when SDLK_c_renamed_SDLK_C is typedesc:
   type
-    SDLK_c_const* = SDLK_c_renamed_SDLK_C
+    SDLK_c_const* = SDLK_c_renamed_SDLK_C 
 else:
   when SDLK_c_renamed_SDLK_C is static:
     const
-      SDLK_c_const* = SDLK_c_renamed_SDLK_C
+      SDLK_c_const* = SDLK_c_renamed_SDLK_C 
   else:
-    let SDLK_c_const* = SDLK_c_renamed_SDLK_C
+    let SDLK_c_const* = SDLK_c_renamed_SDLK_C 
 when SDLK_d_renamed_SDLK_D is typedesc:
   type
-    SDLK_d_const* = SDLK_d_renamed_SDLK_D
+    SDLK_d_const* = SDLK_d_renamed_SDLK_D 
 else:
   when SDLK_d_renamed_SDLK_D is static:
     const
-      SDLK_d_const* = SDLK_d_renamed_SDLK_D
+      SDLK_d_const* = SDLK_d_renamed_SDLK_D 
   else:
-    let SDLK_d_const* = SDLK_d_renamed_SDLK_D
+    let SDLK_d_const* = SDLK_d_renamed_SDLK_D 
 when SDLK_e_renamed_SDLK_E is typedesc:
   type
-    SDLK_e_const* = SDLK_e_renamed_SDLK_E
+    SDLK_e_const* = SDLK_e_renamed_SDLK_E 
 else:
   when SDLK_e_renamed_SDLK_E is static:
     const
-      SDLK_e_const* = SDLK_e_renamed_SDLK_E
+      SDLK_e_const* = SDLK_e_renamed_SDLK_E 
   else:
-    let SDLK_e_const* = SDLK_e_renamed_SDLK_E
+    let SDLK_e_const* = SDLK_e_renamed_SDLK_E 
 when SDLK_f_renamed_SDLK_F is typedesc:
   type
-    SDLK_f_const* = SDLK_f_renamed_SDLK_F
+    SDLK_f_const* = SDLK_f_renamed_SDLK_F 
 else:
   when SDLK_f_renamed_SDLK_F is static:
     const
-      SDLK_f_const* = SDLK_f_renamed_SDLK_F
+      SDLK_f_const* = SDLK_f_renamed_SDLK_F 
   else:
-    let SDLK_f_const* = SDLK_f_renamed_SDLK_F
+    let SDLK_f_const* = SDLK_f_renamed_SDLK_F 
 when SDLK_g_renamed_SDLK_G is typedesc:
   type
-    SDLK_g_const* = SDLK_g_renamed_SDLK_G
+    SDLK_g_const* = SDLK_g_renamed_SDLK_G 
 else:
   when SDLK_g_renamed_SDLK_G is static:
     const
-      SDLK_g_const* = SDLK_g_renamed_SDLK_G
+      SDLK_g_const* = SDLK_g_renamed_SDLK_G 
   else:
-    let SDLK_g_const* = SDLK_g_renamed_SDLK_G
+    let SDLK_g_const* = SDLK_g_renamed_SDLK_G 
 when SDLK_h_renamed_SDLK_H is typedesc:
   type
-    SDLK_h_const* = SDLK_h_renamed_SDLK_H
+    SDLK_h_const* = SDLK_h_renamed_SDLK_H 
 else:
   when SDLK_h_renamed_SDLK_H is static:
     const
-      SDLK_h_const* = SDLK_h_renamed_SDLK_H
+      SDLK_h_const* = SDLK_h_renamed_SDLK_H 
   else:
-    let SDLK_h_const* = SDLK_h_renamed_SDLK_H
+    let SDLK_h_const* = SDLK_h_renamed_SDLK_H 
 when SDLK_i_renamed_SDLK_I is typedesc:
   type
-    SDLK_i_const* = SDLK_i_renamed_SDLK_I
+    SDLK_i_const* = SDLK_i_renamed_SDLK_I 
 else:
   when SDLK_i_renamed_SDLK_I is static:
     const
-      SDLK_i_const* = SDLK_i_renamed_SDLK_I
+      SDLK_i_const* = SDLK_i_renamed_SDLK_I 
   else:
-    let SDLK_i_const* = SDLK_i_renamed_SDLK_I
+    let SDLK_i_const* = SDLK_i_renamed_SDLK_I 
 when SDLK_j_renamed_SDLK_J is typedesc:
   type
-    SDLK_j_const* = SDLK_j_renamed_SDLK_J
+    SDLK_j_const* = SDLK_j_renamed_SDLK_J 
 else:
   when SDLK_j_renamed_SDLK_J is static:
     const
-      SDLK_j_const* = SDLK_j_renamed_SDLK_J
+      SDLK_j_const* = SDLK_j_renamed_SDLK_J 
   else:
-    let SDLK_j_const* = SDLK_j_renamed_SDLK_J
+    let SDLK_j_const* = SDLK_j_renamed_SDLK_J 
 when SDLK_k_renamed_SDLK_K is typedesc:
   type
-    SDLK_k_const* = SDLK_k_renamed_SDLK_K
+    SDLK_k_const* = SDLK_k_renamed_SDLK_K 
 else:
   when SDLK_k_renamed_SDLK_K is static:
     const
-      SDLK_k_const* = SDLK_k_renamed_SDLK_K
+      SDLK_k_const* = SDLK_k_renamed_SDLK_K 
   else:
-    let SDLK_k_const* = SDLK_k_renamed_SDLK_K
+    let SDLK_k_const* = SDLK_k_renamed_SDLK_K 
 when SDLK_l_renamed_SDLK_L is typedesc:
   type
-    SDLK_l_const* = SDLK_l_renamed_SDLK_L
+    SDLK_l_const* = SDLK_l_renamed_SDLK_L 
 else:
   when SDLK_l_renamed_SDLK_L is static:
     const
-      SDLK_l_const* = SDLK_l_renamed_SDLK_L
+      SDLK_l_const* = SDLK_l_renamed_SDLK_L 
   else:
-    let SDLK_l_const* = SDLK_l_renamed_SDLK_L
+    let SDLK_l_const* = SDLK_l_renamed_SDLK_L 
 when SDLK_m_renamed_SDLK_M is typedesc:
   type
-    SDLK_m_const* = SDLK_m_renamed_SDLK_M
+    SDLK_m_const* = SDLK_m_renamed_SDLK_M 
 else:
   when SDLK_m_renamed_SDLK_M is static:
     const
-      SDLK_m_const* = SDLK_m_renamed_SDLK_M
+      SDLK_m_const* = SDLK_m_renamed_SDLK_M 
   else:
-    let SDLK_m_const* = SDLK_m_renamed_SDLK_M
+    let SDLK_m_const* = SDLK_m_renamed_SDLK_M 
 when SDLK_n_renamed_SDLK_N is typedesc:
   type
-    SDLK_n_const* = SDLK_n_renamed_SDLK_N
+    SDLK_n_const* = SDLK_n_renamed_SDLK_N 
 else:
   when SDLK_n_renamed_SDLK_N is static:
     const
-      SDLK_n_const* = SDLK_n_renamed_SDLK_N
+      SDLK_n_const* = SDLK_n_renamed_SDLK_N 
   else:
-    let SDLK_n_const* = SDLK_n_renamed_SDLK_N
+    let SDLK_n_const* = SDLK_n_renamed_SDLK_N 
 when SDLK_o_renamed_SDLK_O is typedesc:
   type
-    SDLK_o_const* = SDLK_o_renamed_SDLK_O
+    SDLK_o_const* = SDLK_o_renamed_SDLK_O 
 else:
   when SDLK_o_renamed_SDLK_O is static:
     const
-      SDLK_o_const* = SDLK_o_renamed_SDLK_O
+      SDLK_o_const* = SDLK_o_renamed_SDLK_O 
   else:
-    let SDLK_o_const* = SDLK_o_renamed_SDLK_O
+    let SDLK_o_const* = SDLK_o_renamed_SDLK_O 
 when SDLK_p_renamed_SDLK_P is typedesc:
   type
-    SDLK_p_const* = SDLK_p_renamed_SDLK_P
+    SDLK_p_const* = SDLK_p_renamed_SDLK_P 
 else:
   when SDLK_p_renamed_SDLK_P is static:
     const
-      SDLK_p_const* = SDLK_p_renamed_SDLK_P
+      SDLK_p_const* = SDLK_p_renamed_SDLK_P 
   else:
-    let SDLK_p_const* = SDLK_p_renamed_SDLK_P
+    let SDLK_p_const* = SDLK_p_renamed_SDLK_P 
 when SDLK_q_renamed_SDLK_Q is typedesc:
   type
-    SDLK_q_const* = SDLK_q_renamed_SDLK_Q
+    SDLK_q_const* = SDLK_q_renamed_SDLK_Q 
 else:
   when SDLK_q_renamed_SDLK_Q is static:
     const
-      SDLK_q_const* = SDLK_q_renamed_SDLK_Q
+      SDLK_q_const* = SDLK_q_renamed_SDLK_Q 
   else:
-    let SDLK_q_const* = SDLK_q_renamed_SDLK_Q
+    let SDLK_q_const* = SDLK_q_renamed_SDLK_Q 
 when SDLK_r_renamed_SDLK_R is typedesc:
   type
-    SDLK_r_const* = SDLK_r_renamed_SDLK_R
+    SDLK_r_const* = SDLK_r_renamed_SDLK_R 
 else:
   when SDLK_r_renamed_SDLK_R is static:
     const
-      SDLK_r_const* = SDLK_r_renamed_SDLK_R
+      SDLK_r_const* = SDLK_r_renamed_SDLK_R 
   else:
-    let SDLK_r_const* = SDLK_r_renamed_SDLK_R
+    let SDLK_r_const* = SDLK_r_renamed_SDLK_R 
 when SDLK_s_renamed_SDLK_S is typedesc:
   type
-    SDLK_s_const* = SDLK_s_renamed_SDLK_S
+    SDLK_s_const* = SDLK_s_renamed_SDLK_S 
 else:
   when SDLK_s_renamed_SDLK_S is static:
     const
-      SDLK_s_const* = SDLK_s_renamed_SDLK_S
+      SDLK_s_const* = SDLK_s_renamed_SDLK_S 
   else:
-    let SDLK_s_const* = SDLK_s_renamed_SDLK_S
+    let SDLK_s_const* = SDLK_s_renamed_SDLK_S 
 when SDLK_t_renamed_SDLK_T is typedesc:
   type
-    SDLK_t_const* = SDLK_t_renamed_SDLK_T
+    SDLK_t_const* = SDLK_t_renamed_SDLK_T 
 else:
   when SDLK_t_renamed_SDLK_T is static:
     const
-      SDLK_t_const* = SDLK_t_renamed_SDLK_T
+      SDLK_t_const* = SDLK_t_renamed_SDLK_T 
   else:
-    let SDLK_t_const* = SDLK_t_renamed_SDLK_T
+    let SDLK_t_const* = SDLK_t_renamed_SDLK_T 
 when SDLK_u_renamed_SDLK_U is typedesc:
   type
-    SDLK_u_const* = SDLK_u_renamed_SDLK_U
+    SDLK_u_const* = SDLK_u_renamed_SDLK_U 
 else:
   when SDLK_u_renamed_SDLK_U is static:
     const
-      SDLK_u_const* = SDLK_u_renamed_SDLK_U
+      SDLK_u_const* = SDLK_u_renamed_SDLK_U 
   else:
-    let SDLK_u_const* = SDLK_u_renamed_SDLK_U
+    let SDLK_u_const* = SDLK_u_renamed_SDLK_U 
 when SDLK_v_renamed_SDLK_V is typedesc:
   type
-    SDLK_v_const* = SDLK_v_renamed_SDLK_V
+    SDLK_v_const* = SDLK_v_renamed_SDLK_V 
 else:
   when SDLK_v_renamed_SDLK_V is static:
     const
-      SDLK_v_const* = SDLK_v_renamed_SDLK_V
+      SDLK_v_const* = SDLK_v_renamed_SDLK_V 
   else:
-    let SDLK_v_const* = SDLK_v_renamed_SDLK_V
+    let SDLK_v_const* = SDLK_v_renamed_SDLK_V 
 when SDLK_w_renamed_SDLK_W is typedesc:
   type
-    SDLK_w_const* = SDLK_w_renamed_SDLK_W
+    SDLK_w_const* = SDLK_w_renamed_SDLK_W 
 else:
   when SDLK_w_renamed_SDLK_W is static:
     const
-      SDLK_w_const* = SDLK_w_renamed_SDLK_W
+      SDLK_w_const* = SDLK_w_renamed_SDLK_W 
   else:
-    let SDLK_w_const* = SDLK_w_renamed_SDLK_W
+    let SDLK_w_const* = SDLK_w_renamed_SDLK_W 
 when SDLK_x_renamed_SDLK_X is typedesc:
   type
-    SDLK_x_const* = SDLK_x_renamed_SDLK_X
+    SDLK_x_const* = SDLK_x_renamed_SDLK_X 
 else:
   when SDLK_x_renamed_SDLK_X is static:
     const
-      SDLK_x_const* = SDLK_x_renamed_SDLK_X
+      SDLK_x_const* = SDLK_x_renamed_SDLK_X 
   else:
-    let SDLK_x_const* = SDLK_x_renamed_SDLK_X
+    let SDLK_x_const* = SDLK_x_renamed_SDLK_X 
 when SDLK_y_renamed_SDLK_Y is typedesc:
   type
-    SDLK_y_const* = SDLK_y_renamed_SDLK_Y
+    SDLK_y_const* = SDLK_y_renamed_SDLK_Y 
 else:
   when SDLK_y_renamed_SDLK_Y is static:
     const
-      SDLK_y_const* = SDLK_y_renamed_SDLK_Y
+      SDLK_y_const* = SDLK_y_renamed_SDLK_Y 
   else:
-    let SDLK_y_const* = SDLK_y_renamed_SDLK_Y
+    let SDLK_y_const* = SDLK_y_renamed_SDLK_Y 
 when SDLK_z_renamed_SDLK_Z is typedesc:
   type
-    SDLK_z_const* = SDLK_z_renamed_SDLK_Z
+    SDLK_z_const* = SDLK_z_renamed_SDLK_Z 
 else:
   when SDLK_z_renamed_SDLK_Z is static:
     const
-      SDLK_z_const* = SDLK_z_renamed_SDLK_Z
+      SDLK_z_const* = SDLK_z_renamed_SDLK_Z 
   else:
-    let SDLK_z_const* = SDLK_z_renamed_SDLK_Z
+    let SDLK_z_const* = SDLK_z_renamed_SDLK_Z 
 when SDL_LogGetOutputFunction_renamed_SDL_GetLogOutputFunction is typedesc:
   type
-    SDL_LogGetOutputFunction* = SDL_LogGetOutputFunction_renamed_SDL_GetLogOutputFunction
+    SDL_LogGetOutputFunction* = SDL_LogGetOutputFunction_renamed_SDL_GetLogOutputFunction 
 else:
   when SDL_LogGetOutputFunction_renamed_SDL_GetLogOutputFunction is static:
     const
-      SDL_LogGetOutputFunction* = SDL_LogGetOutputFunction_renamed_SDL_GetLogOutputFunction
+      SDL_LogGetOutputFunction* = SDL_LogGetOutputFunction_renamed_SDL_GetLogOutputFunction 
   else:
-    let SDL_LogGetOutputFunction* = SDL_LogGetOutputFunction_renamed_SDL_GetLogOutputFunction
+    let SDL_LogGetOutputFunction* = SDL_LogGetOutputFunction_renamed_SDL_GetLogOutputFunction 
 when SDL_LogGetPriority_renamed_SDL_GetLogPriority is typedesc:
   type
-    SDL_LogGetPriority* = SDL_LogGetPriority_renamed_SDL_GetLogPriority
+    SDL_LogGetPriority* = SDL_LogGetPriority_renamed_SDL_GetLogPriority 
 else:
   when SDL_LogGetPriority_renamed_SDL_GetLogPriority is static:
     const
-      SDL_LogGetPriority* = SDL_LogGetPriority_renamed_SDL_GetLogPriority
+      SDL_LogGetPriority* = SDL_LogGetPriority_renamed_SDL_GetLogPriority 
   else:
-    let SDL_LogGetPriority* = SDL_LogGetPriority_renamed_SDL_GetLogPriority
+    let SDL_LogGetPriority* = SDL_LogGetPriority_renamed_SDL_GetLogPriority 
 when SDL_LogResetPriorities_renamed_SDL_ResetLogPriorities is typedesc:
   type
-    SDL_LogResetPriorities* = SDL_LogResetPriorities_renamed_SDL_ResetLogPriorities
+    SDL_LogResetPriorities* = SDL_LogResetPriorities_renamed_SDL_ResetLogPriorities 
 else:
   when SDL_LogResetPriorities_renamed_SDL_ResetLogPriorities is static:
     const
-      SDL_LogResetPriorities* = SDL_LogResetPriorities_renamed_SDL_ResetLogPriorities
+      SDL_LogResetPriorities* = SDL_LogResetPriorities_renamed_SDL_ResetLogPriorities 
   else:
-    let SDL_LogResetPriorities* = SDL_LogResetPriorities_renamed_SDL_ResetLogPriorities
+    let SDL_LogResetPriorities* = SDL_LogResetPriorities_renamed_SDL_ResetLogPriorities 
 when SDL_LogSetAllPriority_renamed_SDL_SetLogPriorities is typedesc:
   type
-    SDL_LogSetAllPriority* = SDL_LogSetAllPriority_renamed_SDL_SetLogPriorities
+    SDL_LogSetAllPriority* = SDL_LogSetAllPriority_renamed_SDL_SetLogPriorities 
 else:
   when SDL_LogSetAllPriority_renamed_SDL_SetLogPriorities is static:
     const
-      SDL_LogSetAllPriority* = SDL_LogSetAllPriority_renamed_SDL_SetLogPriorities
+      SDL_LogSetAllPriority* = SDL_LogSetAllPriority_renamed_SDL_SetLogPriorities 
   else:
-    let SDL_LogSetAllPriority* = SDL_LogSetAllPriority_renamed_SDL_SetLogPriorities
+    let SDL_LogSetAllPriority* = SDL_LogSetAllPriority_renamed_SDL_SetLogPriorities 
 when SDL_LogSetOutputFunction_renamed_SDL_SetLogOutputFunction is typedesc:
   type
-    SDL_LogSetOutputFunction* = SDL_LogSetOutputFunction_renamed_SDL_SetLogOutputFunction
+    SDL_LogSetOutputFunction* = SDL_LogSetOutputFunction_renamed_SDL_SetLogOutputFunction 
 else:
   when SDL_LogSetOutputFunction_renamed_SDL_SetLogOutputFunction is static:
     const
-      SDL_LogSetOutputFunction* = SDL_LogSetOutputFunction_renamed_SDL_SetLogOutputFunction
+      SDL_LogSetOutputFunction* = SDL_LogSetOutputFunction_renamed_SDL_SetLogOutputFunction 
   else:
-    let SDL_LogSetOutputFunction* = SDL_LogSetOutputFunction_renamed_SDL_SetLogOutputFunction
+    let SDL_LogSetOutputFunction* = SDL_LogSetOutputFunction_renamed_SDL_SetLogOutputFunction 
 when SDL_LogSetPriority_renamed_SDL_SetLogPriority is typedesc:
   type
-    SDL_LogSetPriority* = SDL_LogSetPriority_renamed_SDL_SetLogPriority
+    SDL_LogSetPriority* = SDL_LogSetPriority_renamed_SDL_SetLogPriority 
 else:
   when SDL_LogSetPriority_renamed_SDL_SetLogPriority is static:
     const
-      SDL_LogSetPriority* = SDL_LogSetPriority_renamed_SDL_SetLogPriority
+      SDL_LogSetPriority* = SDL_LogSetPriority_renamed_SDL_SetLogPriority 
   else:
-    let SDL_LogSetPriority* = SDL_LogSetPriority_renamed_SDL_SetLogPriority
+    let SDL_LogSetPriority* = SDL_LogSetPriority_renamed_SDL_SetLogPriority 
 when SDL_NUM_LOG_PRIORITIES_renamed_SDL_LOG_PRIORITY_COUNT is typedesc:
   type
-    SDL_NUM_LOG_PRIORITIES* = SDL_NUM_LOG_PRIORITIES_renamed_SDL_LOG_PRIORITY_COUNT
+    SDL_NUM_LOG_PRIORITIES* = SDL_NUM_LOG_PRIORITIES_renamed_SDL_LOG_PRIORITY_COUNT 
 else:
   when SDL_NUM_LOG_PRIORITIES_renamed_SDL_LOG_PRIORITY_COUNT is static:
     const
-      SDL_NUM_LOG_PRIORITIES* = SDL_NUM_LOG_PRIORITIES_renamed_SDL_LOG_PRIORITY_COUNT
+      SDL_NUM_LOG_PRIORITIES* = SDL_NUM_LOG_PRIORITIES_renamed_SDL_LOG_PRIORITY_COUNT 
   else:
-    let SDL_NUM_LOG_PRIORITIES* = SDL_NUM_LOG_PRIORITIES_renamed_SDL_LOG_PRIORITY_COUNT
+    let SDL_NUM_LOG_PRIORITIES* = SDL_NUM_LOG_PRIORITIES_renamed_SDL_LOG_PRIORITY_COUNT 
 when SDL_MESSAGEBOX_COLOR_MAX_renamed_SDL_MESSAGEBOX_COLOR_COUNT is typedesc:
   type
-    SDL_MESSAGEBOX_COLOR_MAX* = SDL_MESSAGEBOX_COLOR_MAX_renamed_SDL_MESSAGEBOX_COLOR_COUNT
+    SDL_MESSAGEBOX_COLOR_MAX* = SDL_MESSAGEBOX_COLOR_MAX_renamed_SDL_MESSAGEBOX_COLOR_COUNT 
 else:
   when SDL_MESSAGEBOX_COLOR_MAX_renamed_SDL_MESSAGEBOX_COLOR_COUNT is static:
     const
-      SDL_MESSAGEBOX_COLOR_MAX* = SDL_MESSAGEBOX_COLOR_MAX_renamed_SDL_MESSAGEBOX_COLOR_COUNT
+      SDL_MESSAGEBOX_COLOR_MAX* = SDL_MESSAGEBOX_COLOR_MAX_renamed_SDL_MESSAGEBOX_COLOR_COUNT 
   else:
-    let SDL_MESSAGEBOX_COLOR_MAX* = SDL_MESSAGEBOX_COLOR_MAX_renamed_SDL_MESSAGEBOX_COLOR_COUNT
+    let SDL_MESSAGEBOX_COLOR_MAX* = SDL_MESSAGEBOX_COLOR_MAX_renamed_SDL_MESSAGEBOX_COLOR_COUNT 
 when SDL_BUTTON_renamed_SDL_BUTTON_MASK is typedesc:
   type
-    SDL_BUTTON* = SDL_BUTTON_renamed_SDL_BUTTON_MASK
+    SDL_BUTTON* = SDL_BUTTON_renamed_SDL_BUTTON_MASK 
 else:
   when SDL_BUTTON_renamed_SDL_BUTTON_MASK is static:
     const
-      SDL_BUTTON* = SDL_BUTTON_renamed_SDL_BUTTON_MASK
+      SDL_BUTTON* = SDL_BUTTON_renamed_SDL_BUTTON_MASK 
   else:
-    let SDL_BUTTON* = SDL_BUTTON_renamed_SDL_BUTTON_MASK
+    let SDL_BUTTON* = SDL_BUTTON_renamed_SDL_BUTTON_MASK 
 when SDL_FreeCursor_renamed_SDL_DestroyCursor is typedesc:
   type
-    SDL_FreeCursor* = SDL_FreeCursor_renamed_SDL_DestroyCursor
+    SDL_FreeCursor* = SDL_FreeCursor_renamed_SDL_DestroyCursor 
 else:
   when SDL_FreeCursor_renamed_SDL_DestroyCursor is static:
     const
-      SDL_FreeCursor* = SDL_FreeCursor_renamed_SDL_DestroyCursor
+      SDL_FreeCursor* = SDL_FreeCursor_renamed_SDL_DestroyCursor 
   else:
-    let SDL_FreeCursor* = SDL_FreeCursor_renamed_SDL_DestroyCursor
+    let SDL_FreeCursor* = SDL_FreeCursor_renamed_SDL_DestroyCursor 
 when SDL_NUM_SYSTEM_CURSORS_renamed_SDL_SYSTEM_CURSOR_COUNT is typedesc:
   type
-    SDL_NUM_SYSTEM_CURSORS* = SDL_NUM_SYSTEM_CURSORS_renamed_SDL_SYSTEM_CURSOR_COUNT
+    SDL_NUM_SYSTEM_CURSORS* = SDL_NUM_SYSTEM_CURSORS_renamed_SDL_SYSTEM_CURSOR_COUNT 
 else:
   when SDL_NUM_SYSTEM_CURSORS_renamed_SDL_SYSTEM_CURSOR_COUNT is static:
     const
-      SDL_NUM_SYSTEM_CURSORS* = SDL_NUM_SYSTEM_CURSORS_renamed_SDL_SYSTEM_CURSOR_COUNT
+      SDL_NUM_SYSTEM_CURSORS* = SDL_NUM_SYSTEM_CURSORS_renamed_SDL_SYSTEM_CURSOR_COUNT 
   else:
-    let SDL_NUM_SYSTEM_CURSORS* = SDL_NUM_SYSTEM_CURSORS_renamed_SDL_SYSTEM_CURSOR_COUNT
+    let SDL_NUM_SYSTEM_CURSORS* = SDL_NUM_SYSTEM_CURSORS_renamed_SDL_SYSTEM_CURSOR_COUNT 
 when SDL_SYSTEM_CURSOR_ARROW_renamed_SDL_SYSTEM_CURSOR_DEFAULT is typedesc:
   type
-    SDL_SYSTEM_CURSOR_ARROW* = SDL_SYSTEM_CURSOR_ARROW_renamed_SDL_SYSTEM_CURSOR_DEFAULT
+    SDL_SYSTEM_CURSOR_ARROW* = SDL_SYSTEM_CURSOR_ARROW_renamed_SDL_SYSTEM_CURSOR_DEFAULT 
 else:
   when SDL_SYSTEM_CURSOR_ARROW_renamed_SDL_SYSTEM_CURSOR_DEFAULT is static:
     const
-      SDL_SYSTEM_CURSOR_ARROW* = SDL_SYSTEM_CURSOR_ARROW_renamed_SDL_SYSTEM_CURSOR_DEFAULT
+      SDL_SYSTEM_CURSOR_ARROW* = SDL_SYSTEM_CURSOR_ARROW_renamed_SDL_SYSTEM_CURSOR_DEFAULT 
   else:
-    let SDL_SYSTEM_CURSOR_ARROW* = SDL_SYSTEM_CURSOR_ARROW_renamed_SDL_SYSTEM_CURSOR_DEFAULT
+    let SDL_SYSTEM_CURSOR_ARROW* = SDL_SYSTEM_CURSOR_ARROW_renamed_SDL_SYSTEM_CURSOR_DEFAULT 
 when SDL_SYSTEM_CURSOR_HAND_renamed_SDL_SYSTEM_CURSOR_POINTER is typedesc:
   type
-    SDL_SYSTEM_CURSOR_HAND* = SDL_SYSTEM_CURSOR_HAND_renamed_SDL_SYSTEM_CURSOR_POINTER
+    SDL_SYSTEM_CURSOR_HAND* = SDL_SYSTEM_CURSOR_HAND_renamed_SDL_SYSTEM_CURSOR_POINTER 
 else:
   when SDL_SYSTEM_CURSOR_HAND_renamed_SDL_SYSTEM_CURSOR_POINTER is static:
     const
-      SDL_SYSTEM_CURSOR_HAND* = SDL_SYSTEM_CURSOR_HAND_renamed_SDL_SYSTEM_CURSOR_POINTER
+      SDL_SYSTEM_CURSOR_HAND* = SDL_SYSTEM_CURSOR_HAND_renamed_SDL_SYSTEM_CURSOR_POINTER 
   else:
-    let SDL_SYSTEM_CURSOR_HAND* = SDL_SYSTEM_CURSOR_HAND_renamed_SDL_SYSTEM_CURSOR_POINTER
+    let SDL_SYSTEM_CURSOR_HAND* = SDL_SYSTEM_CURSOR_HAND_renamed_SDL_SYSTEM_CURSOR_POINTER 
 when SDL_SYSTEM_CURSOR_IBEAM_renamed_SDL_SYSTEM_CURSOR_TEXT is typedesc:
   type
-    SDL_SYSTEM_CURSOR_IBEAM* = SDL_SYSTEM_CURSOR_IBEAM_renamed_SDL_SYSTEM_CURSOR_TEXT
+    SDL_SYSTEM_CURSOR_IBEAM* = SDL_SYSTEM_CURSOR_IBEAM_renamed_SDL_SYSTEM_CURSOR_TEXT 
 else:
   when SDL_SYSTEM_CURSOR_IBEAM_renamed_SDL_SYSTEM_CURSOR_TEXT is static:
     const
-      SDL_SYSTEM_CURSOR_IBEAM* = SDL_SYSTEM_CURSOR_IBEAM_renamed_SDL_SYSTEM_CURSOR_TEXT
+      SDL_SYSTEM_CURSOR_IBEAM* = SDL_SYSTEM_CURSOR_IBEAM_renamed_SDL_SYSTEM_CURSOR_TEXT 
   else:
-    let SDL_SYSTEM_CURSOR_IBEAM* = SDL_SYSTEM_CURSOR_IBEAM_renamed_SDL_SYSTEM_CURSOR_TEXT
+    let SDL_SYSTEM_CURSOR_IBEAM* = SDL_SYSTEM_CURSOR_IBEAM_renamed_SDL_SYSTEM_CURSOR_TEXT 
 when SDL_SYSTEM_CURSOR_NO_renamed_SDL_SYSTEM_CURSOR_NOT_ALLOWED is typedesc:
   type
-    SDL_SYSTEM_CURSOR_NO* = SDL_SYSTEM_CURSOR_NO_renamed_SDL_SYSTEM_CURSOR_NOT_ALLOWED
+    SDL_SYSTEM_CURSOR_NO* = SDL_SYSTEM_CURSOR_NO_renamed_SDL_SYSTEM_CURSOR_NOT_ALLOWED 
 else:
   when SDL_SYSTEM_CURSOR_NO_renamed_SDL_SYSTEM_CURSOR_NOT_ALLOWED is static:
     const
-      SDL_SYSTEM_CURSOR_NO* = SDL_SYSTEM_CURSOR_NO_renamed_SDL_SYSTEM_CURSOR_NOT_ALLOWED
+      SDL_SYSTEM_CURSOR_NO* = SDL_SYSTEM_CURSOR_NO_renamed_SDL_SYSTEM_CURSOR_NOT_ALLOWED 
   else:
-    let SDL_SYSTEM_CURSOR_NO* = SDL_SYSTEM_CURSOR_NO_renamed_SDL_SYSTEM_CURSOR_NOT_ALLOWED
+    let SDL_SYSTEM_CURSOR_NO* = SDL_SYSTEM_CURSOR_NO_renamed_SDL_SYSTEM_CURSOR_NOT_ALLOWED 
 when SDL_SYSTEM_CURSOR_SIZEALL_renamed_SDL_SYSTEM_CURSOR_MOVE is typedesc:
   type
-    SDL_SYSTEM_CURSOR_SIZEALL* = SDL_SYSTEM_CURSOR_SIZEALL_renamed_SDL_SYSTEM_CURSOR_MOVE
+    SDL_SYSTEM_CURSOR_SIZEALL* = SDL_SYSTEM_CURSOR_SIZEALL_renamed_SDL_SYSTEM_CURSOR_MOVE 
 else:
   when SDL_SYSTEM_CURSOR_SIZEALL_renamed_SDL_SYSTEM_CURSOR_MOVE is static:
     const
-      SDL_SYSTEM_CURSOR_SIZEALL* = SDL_SYSTEM_CURSOR_SIZEALL_renamed_SDL_SYSTEM_CURSOR_MOVE
+      SDL_SYSTEM_CURSOR_SIZEALL* = SDL_SYSTEM_CURSOR_SIZEALL_renamed_SDL_SYSTEM_CURSOR_MOVE 
   else:
-    let SDL_SYSTEM_CURSOR_SIZEALL* = SDL_SYSTEM_CURSOR_SIZEALL_renamed_SDL_SYSTEM_CURSOR_MOVE
+    let SDL_SYSTEM_CURSOR_SIZEALL* = SDL_SYSTEM_CURSOR_SIZEALL_renamed_SDL_SYSTEM_CURSOR_MOVE 
 when SDL_SYSTEM_CURSOR_SIZENESW_renamed_SDL_SYSTEM_CURSOR_NESW_RESIZE is
     typedesc:
   type
-    SDL_SYSTEM_CURSOR_SIZENESW* = SDL_SYSTEM_CURSOR_SIZENESW_renamed_SDL_SYSTEM_CURSOR_NESW_RESIZE
+    SDL_SYSTEM_CURSOR_SIZENESW* = SDL_SYSTEM_CURSOR_SIZENESW_renamed_SDL_SYSTEM_CURSOR_NESW_RESIZE 
 else:
   when SDL_SYSTEM_CURSOR_SIZENESW_renamed_SDL_SYSTEM_CURSOR_NESW_RESIZE is
       static:
     const
-      SDL_SYSTEM_CURSOR_SIZENESW* = SDL_SYSTEM_CURSOR_SIZENESW_renamed_SDL_SYSTEM_CURSOR_NESW_RESIZE
+      SDL_SYSTEM_CURSOR_SIZENESW* = SDL_SYSTEM_CURSOR_SIZENESW_renamed_SDL_SYSTEM_CURSOR_NESW_RESIZE 
   else:
-    let SDL_SYSTEM_CURSOR_SIZENESW* = SDL_SYSTEM_CURSOR_SIZENESW_renamed_SDL_SYSTEM_CURSOR_NESW_RESIZE
+    let SDL_SYSTEM_CURSOR_SIZENESW* = SDL_SYSTEM_CURSOR_SIZENESW_renamed_SDL_SYSTEM_CURSOR_NESW_RESIZE 
 when SDL_SYSTEM_CURSOR_SIZENS_renamed_SDL_SYSTEM_CURSOR_NS_RESIZE is typedesc:
   type
-    SDL_SYSTEM_CURSOR_SIZENS* = SDL_SYSTEM_CURSOR_SIZENS_renamed_SDL_SYSTEM_CURSOR_NS_RESIZE
+    SDL_SYSTEM_CURSOR_SIZENS* = SDL_SYSTEM_CURSOR_SIZENS_renamed_SDL_SYSTEM_CURSOR_NS_RESIZE 
 else:
   when SDL_SYSTEM_CURSOR_SIZENS_renamed_SDL_SYSTEM_CURSOR_NS_RESIZE is static:
     const
-      SDL_SYSTEM_CURSOR_SIZENS* = SDL_SYSTEM_CURSOR_SIZENS_renamed_SDL_SYSTEM_CURSOR_NS_RESIZE
+      SDL_SYSTEM_CURSOR_SIZENS* = SDL_SYSTEM_CURSOR_SIZENS_renamed_SDL_SYSTEM_CURSOR_NS_RESIZE 
   else:
-    let SDL_SYSTEM_CURSOR_SIZENS* = SDL_SYSTEM_CURSOR_SIZENS_renamed_SDL_SYSTEM_CURSOR_NS_RESIZE
+    let SDL_SYSTEM_CURSOR_SIZENS* = SDL_SYSTEM_CURSOR_SIZENS_renamed_SDL_SYSTEM_CURSOR_NS_RESIZE 
 when SDL_SYSTEM_CURSOR_SIZENWSE_renamed_SDL_SYSTEM_CURSOR_NWSE_RESIZE is
     typedesc:
   type
-    SDL_SYSTEM_CURSOR_SIZENWSE* = SDL_SYSTEM_CURSOR_SIZENWSE_renamed_SDL_SYSTEM_CURSOR_NWSE_RESIZE
+    SDL_SYSTEM_CURSOR_SIZENWSE* = SDL_SYSTEM_CURSOR_SIZENWSE_renamed_SDL_SYSTEM_CURSOR_NWSE_RESIZE 
 else:
   when SDL_SYSTEM_CURSOR_SIZENWSE_renamed_SDL_SYSTEM_CURSOR_NWSE_RESIZE is
       static:
     const
-      SDL_SYSTEM_CURSOR_SIZENWSE* = SDL_SYSTEM_CURSOR_SIZENWSE_renamed_SDL_SYSTEM_CURSOR_NWSE_RESIZE
+      SDL_SYSTEM_CURSOR_SIZENWSE* = SDL_SYSTEM_CURSOR_SIZENWSE_renamed_SDL_SYSTEM_CURSOR_NWSE_RESIZE 
   else:
-    let SDL_SYSTEM_CURSOR_SIZENWSE* = SDL_SYSTEM_CURSOR_SIZENWSE_renamed_SDL_SYSTEM_CURSOR_NWSE_RESIZE
+    let SDL_SYSTEM_CURSOR_SIZENWSE* = SDL_SYSTEM_CURSOR_SIZENWSE_renamed_SDL_SYSTEM_CURSOR_NWSE_RESIZE 
 when SDL_SYSTEM_CURSOR_SIZEWE_renamed_SDL_SYSTEM_CURSOR_EW_RESIZE is typedesc:
   type
-    SDL_SYSTEM_CURSOR_SIZEWE* = SDL_SYSTEM_CURSOR_SIZEWE_renamed_SDL_SYSTEM_CURSOR_EW_RESIZE
+    SDL_SYSTEM_CURSOR_SIZEWE* = SDL_SYSTEM_CURSOR_SIZEWE_renamed_SDL_SYSTEM_CURSOR_EW_RESIZE 
 else:
   when SDL_SYSTEM_CURSOR_SIZEWE_renamed_SDL_SYSTEM_CURSOR_EW_RESIZE is static:
     const
-      SDL_SYSTEM_CURSOR_SIZEWE* = SDL_SYSTEM_CURSOR_SIZEWE_renamed_SDL_SYSTEM_CURSOR_EW_RESIZE
+      SDL_SYSTEM_CURSOR_SIZEWE* = SDL_SYSTEM_CURSOR_SIZEWE_renamed_SDL_SYSTEM_CURSOR_EW_RESIZE 
   else:
-    let SDL_SYSTEM_CURSOR_SIZEWE* = SDL_SYSTEM_CURSOR_SIZEWE_renamed_SDL_SYSTEM_CURSOR_EW_RESIZE
+    let SDL_SYSTEM_CURSOR_SIZEWE* = SDL_SYSTEM_CURSOR_SIZEWE_renamed_SDL_SYSTEM_CURSOR_EW_RESIZE 
 when SDL_SYSTEM_CURSOR_WAITARROW_renamed_SDL_SYSTEM_CURSOR_PROGRESS is typedesc:
   type
-    SDL_SYSTEM_CURSOR_WAITARROW* = SDL_SYSTEM_CURSOR_WAITARROW_renamed_SDL_SYSTEM_CURSOR_PROGRESS
+    SDL_SYSTEM_CURSOR_WAITARROW* = SDL_SYSTEM_CURSOR_WAITARROW_renamed_SDL_SYSTEM_CURSOR_PROGRESS 
 else:
   when SDL_SYSTEM_CURSOR_WAITARROW_renamed_SDL_SYSTEM_CURSOR_PROGRESS is static:
     const
-      SDL_SYSTEM_CURSOR_WAITARROW* = SDL_SYSTEM_CURSOR_WAITARROW_renamed_SDL_SYSTEM_CURSOR_PROGRESS
+      SDL_SYSTEM_CURSOR_WAITARROW* = SDL_SYSTEM_CURSOR_WAITARROW_renamed_SDL_SYSTEM_CURSOR_PROGRESS 
   else:
-    let SDL_SYSTEM_CURSOR_WAITARROW* = SDL_SYSTEM_CURSOR_WAITARROW_renamed_SDL_SYSTEM_CURSOR_PROGRESS
+    let SDL_SYSTEM_CURSOR_WAITARROW* = SDL_SYSTEM_CURSOR_WAITARROW_renamed_SDL_SYSTEM_CURSOR_PROGRESS 
 when SDL_SYSTEM_CURSOR_WINDOW_BOTTOM_renamed_SDL_SYSTEM_CURSOR_S_RESIZE is
     typedesc:
   type
-    SDL_SYSTEM_CURSOR_WINDOW_BOTTOM* = SDL_SYSTEM_CURSOR_WINDOW_BOTTOM_renamed_SDL_SYSTEM_CURSOR_S_RESIZE
+    SDL_SYSTEM_CURSOR_WINDOW_BOTTOM* = SDL_SYSTEM_CURSOR_WINDOW_BOTTOM_renamed_SDL_SYSTEM_CURSOR_S_RESIZE 
 else:
   when SDL_SYSTEM_CURSOR_WINDOW_BOTTOM_renamed_SDL_SYSTEM_CURSOR_S_RESIZE is
       static:
     const
-      SDL_SYSTEM_CURSOR_WINDOW_BOTTOM* = SDL_SYSTEM_CURSOR_WINDOW_BOTTOM_renamed_SDL_SYSTEM_CURSOR_S_RESIZE
+      SDL_SYSTEM_CURSOR_WINDOW_BOTTOM* = SDL_SYSTEM_CURSOR_WINDOW_BOTTOM_renamed_SDL_SYSTEM_CURSOR_S_RESIZE 
   else:
-    let SDL_SYSTEM_CURSOR_WINDOW_BOTTOM* = SDL_SYSTEM_CURSOR_WINDOW_BOTTOM_renamed_SDL_SYSTEM_CURSOR_S_RESIZE
+    let SDL_SYSTEM_CURSOR_WINDOW_BOTTOM* = SDL_SYSTEM_CURSOR_WINDOW_BOTTOM_renamed_SDL_SYSTEM_CURSOR_S_RESIZE 
 when SDL_SYSTEM_CURSOR_WINDOW_BOTTOMLEFT_renamed_SDL_SYSTEM_CURSOR_SW_RESIZE is
     typedesc:
   type
-    SDL_SYSTEM_CURSOR_WINDOW_BOTTOMLEFT* = SDL_SYSTEM_CURSOR_WINDOW_BOTTOMLEFT_renamed_SDL_SYSTEM_CURSOR_SW_RESIZE
+    SDL_SYSTEM_CURSOR_WINDOW_BOTTOMLEFT* = SDL_SYSTEM_CURSOR_WINDOW_BOTTOMLEFT_renamed_SDL_SYSTEM_CURSOR_SW_RESIZE 
 else:
   when SDL_SYSTEM_CURSOR_WINDOW_BOTTOMLEFT_renamed_SDL_SYSTEM_CURSOR_SW_RESIZE is
       static:
     const
-      SDL_SYSTEM_CURSOR_WINDOW_BOTTOMLEFT* = SDL_SYSTEM_CURSOR_WINDOW_BOTTOMLEFT_renamed_SDL_SYSTEM_CURSOR_SW_RESIZE
+      SDL_SYSTEM_CURSOR_WINDOW_BOTTOMLEFT* = SDL_SYSTEM_CURSOR_WINDOW_BOTTOMLEFT_renamed_SDL_SYSTEM_CURSOR_SW_RESIZE 
   else:
-    let SDL_SYSTEM_CURSOR_WINDOW_BOTTOMLEFT* = SDL_SYSTEM_CURSOR_WINDOW_BOTTOMLEFT_renamed_SDL_SYSTEM_CURSOR_SW_RESIZE
+    let SDL_SYSTEM_CURSOR_WINDOW_BOTTOMLEFT* = SDL_SYSTEM_CURSOR_WINDOW_BOTTOMLEFT_renamed_SDL_SYSTEM_CURSOR_SW_RESIZE 
 when SDL_SYSTEM_CURSOR_WINDOW_BOTTOMRIGHT_renamed_SDL_SYSTEM_CURSOR_SE_RESIZE is
     typedesc:
   type
-    SDL_SYSTEM_CURSOR_WINDOW_BOTTOMRIGHT* = SDL_SYSTEM_CURSOR_WINDOW_BOTTOMRIGHT_renamed_SDL_SYSTEM_CURSOR_SE_RESIZE
+    SDL_SYSTEM_CURSOR_WINDOW_BOTTOMRIGHT* = SDL_SYSTEM_CURSOR_WINDOW_BOTTOMRIGHT_renamed_SDL_SYSTEM_CURSOR_SE_RESIZE 
 else:
   when SDL_SYSTEM_CURSOR_WINDOW_BOTTOMRIGHT_renamed_SDL_SYSTEM_CURSOR_SE_RESIZE is
       static:
     const
-      SDL_SYSTEM_CURSOR_WINDOW_BOTTOMRIGHT* = SDL_SYSTEM_CURSOR_WINDOW_BOTTOMRIGHT_renamed_SDL_SYSTEM_CURSOR_SE_RESIZE
+      SDL_SYSTEM_CURSOR_WINDOW_BOTTOMRIGHT* = SDL_SYSTEM_CURSOR_WINDOW_BOTTOMRIGHT_renamed_SDL_SYSTEM_CURSOR_SE_RESIZE 
   else:
-    let SDL_SYSTEM_CURSOR_WINDOW_BOTTOMRIGHT* = SDL_SYSTEM_CURSOR_WINDOW_BOTTOMRIGHT_renamed_SDL_SYSTEM_CURSOR_SE_RESIZE
+    let SDL_SYSTEM_CURSOR_WINDOW_BOTTOMRIGHT* = SDL_SYSTEM_CURSOR_WINDOW_BOTTOMRIGHT_renamed_SDL_SYSTEM_CURSOR_SE_RESIZE 
 when SDL_SYSTEM_CURSOR_WINDOW_LEFT_renamed_SDL_SYSTEM_CURSOR_W_RESIZE is
     typedesc:
   type
-    SDL_SYSTEM_CURSOR_WINDOW_LEFT* = SDL_SYSTEM_CURSOR_WINDOW_LEFT_renamed_SDL_SYSTEM_CURSOR_W_RESIZE
+    SDL_SYSTEM_CURSOR_WINDOW_LEFT* = SDL_SYSTEM_CURSOR_WINDOW_LEFT_renamed_SDL_SYSTEM_CURSOR_W_RESIZE 
 else:
   when SDL_SYSTEM_CURSOR_WINDOW_LEFT_renamed_SDL_SYSTEM_CURSOR_W_RESIZE is
       static:
     const
-      SDL_SYSTEM_CURSOR_WINDOW_LEFT* = SDL_SYSTEM_CURSOR_WINDOW_LEFT_renamed_SDL_SYSTEM_CURSOR_W_RESIZE
+      SDL_SYSTEM_CURSOR_WINDOW_LEFT* = SDL_SYSTEM_CURSOR_WINDOW_LEFT_renamed_SDL_SYSTEM_CURSOR_W_RESIZE 
   else:
-    let SDL_SYSTEM_CURSOR_WINDOW_LEFT* = SDL_SYSTEM_CURSOR_WINDOW_LEFT_renamed_SDL_SYSTEM_CURSOR_W_RESIZE
+    let SDL_SYSTEM_CURSOR_WINDOW_LEFT* = SDL_SYSTEM_CURSOR_WINDOW_LEFT_renamed_SDL_SYSTEM_CURSOR_W_RESIZE 
 when SDL_SYSTEM_CURSOR_WINDOW_RIGHT_renamed_SDL_SYSTEM_CURSOR_E_RESIZE is
     typedesc:
   type
-    SDL_SYSTEM_CURSOR_WINDOW_RIGHT* = SDL_SYSTEM_CURSOR_WINDOW_RIGHT_renamed_SDL_SYSTEM_CURSOR_E_RESIZE
+    SDL_SYSTEM_CURSOR_WINDOW_RIGHT* = SDL_SYSTEM_CURSOR_WINDOW_RIGHT_renamed_SDL_SYSTEM_CURSOR_E_RESIZE 
 else:
   when SDL_SYSTEM_CURSOR_WINDOW_RIGHT_renamed_SDL_SYSTEM_CURSOR_E_RESIZE is
       static:
     const
-      SDL_SYSTEM_CURSOR_WINDOW_RIGHT* = SDL_SYSTEM_CURSOR_WINDOW_RIGHT_renamed_SDL_SYSTEM_CURSOR_E_RESIZE
+      SDL_SYSTEM_CURSOR_WINDOW_RIGHT* = SDL_SYSTEM_CURSOR_WINDOW_RIGHT_renamed_SDL_SYSTEM_CURSOR_E_RESIZE 
   else:
-    let SDL_SYSTEM_CURSOR_WINDOW_RIGHT* = SDL_SYSTEM_CURSOR_WINDOW_RIGHT_renamed_SDL_SYSTEM_CURSOR_E_RESIZE
+    let SDL_SYSTEM_CURSOR_WINDOW_RIGHT* = SDL_SYSTEM_CURSOR_WINDOW_RIGHT_renamed_SDL_SYSTEM_CURSOR_E_RESIZE 
 when SDL_SYSTEM_CURSOR_WINDOW_TOP_renamed_SDL_SYSTEM_CURSOR_N_RESIZE is typedesc:
   type
-    SDL_SYSTEM_CURSOR_WINDOW_TOP* = SDL_SYSTEM_CURSOR_WINDOW_TOP_renamed_SDL_SYSTEM_CURSOR_N_RESIZE
+    SDL_SYSTEM_CURSOR_WINDOW_TOP* = SDL_SYSTEM_CURSOR_WINDOW_TOP_renamed_SDL_SYSTEM_CURSOR_N_RESIZE 
 else:
   when SDL_SYSTEM_CURSOR_WINDOW_TOP_renamed_SDL_SYSTEM_CURSOR_N_RESIZE is static:
     const
-      SDL_SYSTEM_CURSOR_WINDOW_TOP* = SDL_SYSTEM_CURSOR_WINDOW_TOP_renamed_SDL_SYSTEM_CURSOR_N_RESIZE
+      SDL_SYSTEM_CURSOR_WINDOW_TOP* = SDL_SYSTEM_CURSOR_WINDOW_TOP_renamed_SDL_SYSTEM_CURSOR_N_RESIZE 
   else:
-    let SDL_SYSTEM_CURSOR_WINDOW_TOP* = SDL_SYSTEM_CURSOR_WINDOW_TOP_renamed_SDL_SYSTEM_CURSOR_N_RESIZE
+    let SDL_SYSTEM_CURSOR_WINDOW_TOP* = SDL_SYSTEM_CURSOR_WINDOW_TOP_renamed_SDL_SYSTEM_CURSOR_N_RESIZE 
 when SDL_SYSTEM_CURSOR_WINDOW_TOPLEFT_renamed_SDL_SYSTEM_CURSOR_NW_RESIZE is
     typedesc:
   type
-    SDL_SYSTEM_CURSOR_WINDOW_TOPLEFT* = SDL_SYSTEM_CURSOR_WINDOW_TOPLEFT_renamed_SDL_SYSTEM_CURSOR_NW_RESIZE
+    SDL_SYSTEM_CURSOR_WINDOW_TOPLEFT* = SDL_SYSTEM_CURSOR_WINDOW_TOPLEFT_renamed_SDL_SYSTEM_CURSOR_NW_RESIZE 
 else:
   when SDL_SYSTEM_CURSOR_WINDOW_TOPLEFT_renamed_SDL_SYSTEM_CURSOR_NW_RESIZE is
       static:
     const
-      SDL_SYSTEM_CURSOR_WINDOW_TOPLEFT* = SDL_SYSTEM_CURSOR_WINDOW_TOPLEFT_renamed_SDL_SYSTEM_CURSOR_NW_RESIZE
+      SDL_SYSTEM_CURSOR_WINDOW_TOPLEFT* = SDL_SYSTEM_CURSOR_WINDOW_TOPLEFT_renamed_SDL_SYSTEM_CURSOR_NW_RESIZE 
   else:
-    let SDL_SYSTEM_CURSOR_WINDOW_TOPLEFT* = SDL_SYSTEM_CURSOR_WINDOW_TOPLEFT_renamed_SDL_SYSTEM_CURSOR_NW_RESIZE
+    let SDL_SYSTEM_CURSOR_WINDOW_TOPLEFT* = SDL_SYSTEM_CURSOR_WINDOW_TOPLEFT_renamed_SDL_SYSTEM_CURSOR_NW_RESIZE 
 when SDL_SYSTEM_CURSOR_WINDOW_TOPRIGHT_renamed_SDL_SYSTEM_CURSOR_NE_RESIZE is
     typedesc:
   type
-    SDL_SYSTEM_CURSOR_WINDOW_TOPRIGHT* = SDL_SYSTEM_CURSOR_WINDOW_TOPRIGHT_renamed_SDL_SYSTEM_CURSOR_NE_RESIZE
+    SDL_SYSTEM_CURSOR_WINDOW_TOPRIGHT* = SDL_SYSTEM_CURSOR_WINDOW_TOPRIGHT_renamed_SDL_SYSTEM_CURSOR_NE_RESIZE 
 else:
   when SDL_SYSTEM_CURSOR_WINDOW_TOPRIGHT_renamed_SDL_SYSTEM_CURSOR_NE_RESIZE is
       static:
     const
-      SDL_SYSTEM_CURSOR_WINDOW_TOPRIGHT* = SDL_SYSTEM_CURSOR_WINDOW_TOPRIGHT_renamed_SDL_SYSTEM_CURSOR_NE_RESIZE
+      SDL_SYSTEM_CURSOR_WINDOW_TOPRIGHT* = SDL_SYSTEM_CURSOR_WINDOW_TOPRIGHT_renamed_SDL_SYSTEM_CURSOR_NE_RESIZE 
   else:
-    let SDL_SYSTEM_CURSOR_WINDOW_TOPRIGHT* = SDL_SYSTEM_CURSOR_WINDOW_TOPRIGHT_renamed_SDL_SYSTEM_CURSOR_NE_RESIZE
+    let SDL_SYSTEM_CURSOR_WINDOW_TOPRIGHT* = SDL_SYSTEM_CURSOR_WINDOW_TOPRIGHT_renamed_SDL_SYSTEM_CURSOR_NE_RESIZE 
 when SDL_CondBroadcast_renamed_SDL_BroadcastCondition is typedesc:
   type
-    SDL_CondBroadcast* = SDL_CondBroadcast_renamed_SDL_BroadcastCondition
+    SDL_CondBroadcast* = SDL_CondBroadcast_renamed_SDL_BroadcastCondition 
 else:
   when SDL_CondBroadcast_renamed_SDL_BroadcastCondition is static:
     const
-      SDL_CondBroadcast* = SDL_CondBroadcast_renamed_SDL_BroadcastCondition
+      SDL_CondBroadcast* = SDL_CondBroadcast_renamed_SDL_BroadcastCondition 
   else:
-    let SDL_CondBroadcast* = SDL_CondBroadcast_renamed_SDL_BroadcastCondition
+    let SDL_CondBroadcast* = SDL_CondBroadcast_renamed_SDL_BroadcastCondition 
 when SDL_CondSignal_renamed_SDL_SignalCondition is typedesc:
   type
-    SDL_CondSignal* = SDL_CondSignal_renamed_SDL_SignalCondition
+    SDL_CondSignal* = SDL_CondSignal_renamed_SDL_SignalCondition 
 else:
   when SDL_CondSignal_renamed_SDL_SignalCondition is static:
     const
-      SDL_CondSignal* = SDL_CondSignal_renamed_SDL_SignalCondition
+      SDL_CondSignal* = SDL_CondSignal_renamed_SDL_SignalCondition 
   else:
-    let SDL_CondSignal* = SDL_CondSignal_renamed_SDL_SignalCondition
+    let SDL_CondSignal* = SDL_CondSignal_renamed_SDL_SignalCondition 
 when SDL_CondWait_renamed_SDL_WaitCondition is typedesc:
   type
-    SDL_CondWait* = SDL_CondWait_renamed_SDL_WaitCondition
+    SDL_CondWait* = SDL_CondWait_renamed_SDL_WaitCondition 
 else:
   when SDL_CondWait_renamed_SDL_WaitCondition is static:
     const
-      SDL_CondWait* = SDL_CondWait_renamed_SDL_WaitCondition
+      SDL_CondWait* = SDL_CondWait_renamed_SDL_WaitCondition 
   else:
-    let SDL_CondWait* = SDL_CondWait_renamed_SDL_WaitCondition
+    let SDL_CondWait* = SDL_CondWait_renamed_SDL_WaitCondition 
 when SDL_CondWaitTimeout_renamed_SDL_WaitConditionTimeout is typedesc:
   type
-    SDL_CondWaitTimeout* = SDL_CondWaitTimeout_renamed_SDL_WaitConditionTimeout
+    SDL_CondWaitTimeout* = SDL_CondWaitTimeout_renamed_SDL_WaitConditionTimeout 
 else:
   when SDL_CondWaitTimeout_renamed_SDL_WaitConditionTimeout is static:
     const
-      SDL_CondWaitTimeout* = SDL_CondWaitTimeout_renamed_SDL_WaitConditionTimeout
+      SDL_CondWaitTimeout* = SDL_CondWaitTimeout_renamed_SDL_WaitConditionTimeout 
   else:
-    let SDL_CondWaitTimeout* = SDL_CondWaitTimeout_renamed_SDL_WaitConditionTimeout
+    let SDL_CondWaitTimeout* = SDL_CondWaitTimeout_renamed_SDL_WaitConditionTimeout 
 when SDL_CreateCond_renamed_SDL_CreateCondition is typedesc:
   type
-    SDL_CreateCond* = SDL_CreateCond_renamed_SDL_CreateCondition
+    SDL_CreateCond* = SDL_CreateCond_renamed_SDL_CreateCondition 
 else:
   when SDL_CreateCond_renamed_SDL_CreateCondition is static:
     const
-      SDL_CreateCond* = SDL_CreateCond_renamed_SDL_CreateCondition
+      SDL_CreateCond* = SDL_CreateCond_renamed_SDL_CreateCondition 
   else:
-    let SDL_CreateCond* = SDL_CreateCond_renamed_SDL_CreateCondition
+    let SDL_CreateCond* = SDL_CreateCond_renamed_SDL_CreateCondition 
 when SDL_DestroyCond_renamed_SDL_DestroyCondition is typedesc:
   type
-    SDL_DestroyCond* = SDL_DestroyCond_renamed_SDL_DestroyCondition
+    SDL_DestroyCond* = SDL_DestroyCond_renamed_SDL_DestroyCondition 
 else:
   when SDL_DestroyCond_renamed_SDL_DestroyCondition is static:
     const
-      SDL_DestroyCond* = SDL_DestroyCond_renamed_SDL_DestroyCondition
+      SDL_DestroyCond* = SDL_DestroyCond_renamed_SDL_DestroyCondition 
   else:
-    let SDL_DestroyCond* = SDL_DestroyCond_renamed_SDL_DestroyCondition
+    let SDL_DestroyCond* = SDL_DestroyCond_renamed_SDL_DestroyCondition 
 when SDL_SemPost_renamed_SDL_SignalSemaphore is typedesc:
   type
-    SDL_SemPost* = SDL_SemPost_renamed_SDL_SignalSemaphore
+    SDL_SemPost* = SDL_SemPost_renamed_SDL_SignalSemaphore 
 else:
   when SDL_SemPost_renamed_SDL_SignalSemaphore is static:
     const
-      SDL_SemPost* = SDL_SemPost_renamed_SDL_SignalSemaphore
+      SDL_SemPost* = SDL_SemPost_renamed_SDL_SignalSemaphore 
   else:
-    let SDL_SemPost* = SDL_SemPost_renamed_SDL_SignalSemaphore
+    let SDL_SemPost* = SDL_SemPost_renamed_SDL_SignalSemaphore 
 when SDL_SemTryWait_renamed_SDL_TryWaitSemaphore is typedesc:
   type
-    SDL_SemTryWait* = SDL_SemTryWait_renamed_SDL_TryWaitSemaphore
+    SDL_SemTryWait* = SDL_SemTryWait_renamed_SDL_TryWaitSemaphore 
 else:
   when SDL_SemTryWait_renamed_SDL_TryWaitSemaphore is static:
     const
-      SDL_SemTryWait* = SDL_SemTryWait_renamed_SDL_TryWaitSemaphore
+      SDL_SemTryWait* = SDL_SemTryWait_renamed_SDL_TryWaitSemaphore 
   else:
-    let SDL_SemTryWait* = SDL_SemTryWait_renamed_SDL_TryWaitSemaphore
+    let SDL_SemTryWait* = SDL_SemTryWait_renamed_SDL_TryWaitSemaphore 
 when SDL_SemValue_renamed_SDL_GetSemaphoreValue is typedesc:
   type
-    SDL_SemValue* = SDL_SemValue_renamed_SDL_GetSemaphoreValue
+    SDL_SemValue* = SDL_SemValue_renamed_SDL_GetSemaphoreValue 
 else:
   when SDL_SemValue_renamed_SDL_GetSemaphoreValue is static:
     const
-      SDL_SemValue* = SDL_SemValue_renamed_SDL_GetSemaphoreValue
+      SDL_SemValue* = SDL_SemValue_renamed_SDL_GetSemaphoreValue 
   else:
-    let SDL_SemValue* = SDL_SemValue_renamed_SDL_GetSemaphoreValue
+    let SDL_SemValue* = SDL_SemValue_renamed_SDL_GetSemaphoreValue 
 when SDL_SemWait_renamed_SDL_WaitSemaphore is typedesc:
   type
-    SDL_SemWait* = SDL_SemWait_renamed_SDL_WaitSemaphore
+    SDL_SemWait* = SDL_SemWait_renamed_SDL_WaitSemaphore 
 else:
   when SDL_SemWait_renamed_SDL_WaitSemaphore is static:
     const
-      SDL_SemWait* = SDL_SemWait_renamed_SDL_WaitSemaphore
+      SDL_SemWait* = SDL_SemWait_renamed_SDL_WaitSemaphore 
   else:
-    let SDL_SemWait* = SDL_SemWait_renamed_SDL_WaitSemaphore
+    let SDL_SemWait* = SDL_SemWait_renamed_SDL_WaitSemaphore 
 when SDL_SemWaitTimeout_renamed_SDL_WaitSemaphoreTimeout is typedesc:
   type
-    SDL_SemWaitTimeout* = SDL_SemWaitTimeout_renamed_SDL_WaitSemaphoreTimeout
+    SDL_SemWaitTimeout* = SDL_SemWaitTimeout_renamed_SDL_WaitSemaphoreTimeout 
 else:
   when SDL_SemWaitTimeout_renamed_SDL_WaitSemaphoreTimeout is static:
     const
-      SDL_SemWaitTimeout* = SDL_SemWaitTimeout_renamed_SDL_WaitSemaphoreTimeout
+      SDL_SemWaitTimeout* = SDL_SemWaitTimeout_renamed_SDL_WaitSemaphoreTimeout 
   else:
-    let SDL_SemWaitTimeout* = SDL_SemWaitTimeout_renamed_SDL_WaitSemaphoreTimeout
+    let SDL_SemWaitTimeout* = SDL_SemWaitTimeout_renamed_SDL_WaitSemaphoreTimeout 
 when SDL_cond_renamed_SDL_Condition is typedesc:
   type
-    SDL_cond* = SDL_cond_renamed_SDL_Condition
+    SDL_cond* = SDL_cond_renamed_SDL_Condition 
 else:
   when SDL_cond_renamed_SDL_Condition is static:
     const
-      SDL_cond* = SDL_cond_renamed_SDL_Condition
+      SDL_cond* = SDL_cond_renamed_SDL_Condition 
   else:
-    let SDL_cond* = SDL_cond_renamed_SDL_Condition
+    let SDL_cond* = SDL_cond_renamed_SDL_Condition 
 when SDL_mutex_renamed_SDL_Mutex is typedesc:
   type
-    SDL_mutex* = SDL_mutex_renamed_SDL_Mutex
+    SDL_mutex* = SDL_mutex_renamed_SDL_Mutex 
 else:
   when SDL_mutex_renamed_SDL_Mutex is static:
     const
-      SDL_mutex* = SDL_mutex_renamed_SDL_Mutex
+      SDL_mutex* = SDL_mutex_renamed_SDL_Mutex 
   else:
-    let SDL_mutex* = SDL_mutex_renamed_SDL_Mutex
+    let SDL_mutex* = SDL_mutex_renamed_SDL_Mutex 
 when SDL_sem_renamed_SDL_Semaphore is typedesc:
   type
-    SDL_sem* = SDL_sem_renamed_SDL_Semaphore
+    SDL_sem* = SDL_sem_renamed_SDL_Semaphore 
 else:
   when SDL_sem_renamed_SDL_Semaphore is static:
     const
-      SDL_sem* = SDL_sem_renamed_SDL_Semaphore
+      SDL_sem* = SDL_sem_renamed_SDL_Semaphore 
   else:
-    let SDL_sem* = SDL_sem_renamed_SDL_Semaphore
+    let SDL_sem* = SDL_sem_renamed_SDL_Semaphore 
 when SDL_AllocFormat_renamed_SDL_GetPixelFormatDetails is typedesc:
   type
-    SDL_AllocFormat* = SDL_AllocFormat_renamed_SDL_GetPixelFormatDetails
+    SDL_AllocFormat* = SDL_AllocFormat_renamed_SDL_GetPixelFormatDetails 
 else:
   when SDL_AllocFormat_renamed_SDL_GetPixelFormatDetails is static:
     const
-      SDL_AllocFormat* = SDL_AllocFormat_renamed_SDL_GetPixelFormatDetails
+      SDL_AllocFormat* = SDL_AllocFormat_renamed_SDL_GetPixelFormatDetails 
   else:
-    let SDL_AllocFormat* = SDL_AllocFormat_renamed_SDL_GetPixelFormatDetails
+    let SDL_AllocFormat* = SDL_AllocFormat_renamed_SDL_GetPixelFormatDetails 
 when SDL_AllocPalette_renamed_SDL_CreatePalette is typedesc:
   type
-    SDL_AllocPalette* = SDL_AllocPalette_renamed_SDL_CreatePalette
+    SDL_AllocPalette* = SDL_AllocPalette_renamed_SDL_CreatePalette 
 else:
   when SDL_AllocPalette_renamed_SDL_CreatePalette is static:
     const
-      SDL_AllocPalette* = SDL_AllocPalette_renamed_SDL_CreatePalette
+      SDL_AllocPalette* = SDL_AllocPalette_renamed_SDL_CreatePalette 
   else:
-    let SDL_AllocPalette* = SDL_AllocPalette_renamed_SDL_CreatePalette
+    let SDL_AllocPalette* = SDL_AllocPalette_renamed_SDL_CreatePalette 
 when SDL_Colour_renamed_SDL_Color is typedesc:
   type
-    SDL_Colour* = SDL_Colour_renamed_SDL_Color
+    SDL_Colour* = SDL_Colour_renamed_SDL_Color 
 else:
   when SDL_Colour_renamed_SDL_Color is static:
     const
-      SDL_Colour* = SDL_Colour_renamed_SDL_Color
+      SDL_Colour* = SDL_Colour_renamed_SDL_Color 
   else:
-    let SDL_Colour* = SDL_Colour_renamed_SDL_Color
+    let SDL_Colour* = SDL_Colour_renamed_SDL_Color 
 when SDL_FreePalette_renamed_SDL_DestroyPalette is typedesc:
   type
-    SDL_FreePalette* = SDL_FreePalette_renamed_SDL_DestroyPalette
+    SDL_FreePalette* = SDL_FreePalette_renamed_SDL_DestroyPalette 
 else:
   when SDL_FreePalette_renamed_SDL_DestroyPalette is static:
     const
-      SDL_FreePalette* = SDL_FreePalette_renamed_SDL_DestroyPalette
+      SDL_FreePalette* = SDL_FreePalette_renamed_SDL_DestroyPalette 
   else:
-    let SDL_FreePalette* = SDL_FreePalette_renamed_SDL_DestroyPalette
+    let SDL_FreePalette* = SDL_FreePalette_renamed_SDL_DestroyPalette 
 when SDL_MasksToPixelFormatEnum_renamed_SDL_GetPixelFormatForMasks is typedesc:
   type
-    SDL_MasksToPixelFormatEnum* = SDL_MasksToPixelFormatEnum_renamed_SDL_GetPixelFormatForMasks
+    SDL_MasksToPixelFormatEnum* = SDL_MasksToPixelFormatEnum_renamed_SDL_GetPixelFormatForMasks 
 else:
   when SDL_MasksToPixelFormatEnum_renamed_SDL_GetPixelFormatForMasks is static:
     const
-      SDL_MasksToPixelFormatEnum* = SDL_MasksToPixelFormatEnum_renamed_SDL_GetPixelFormatForMasks
+      SDL_MasksToPixelFormatEnum* = SDL_MasksToPixelFormatEnum_renamed_SDL_GetPixelFormatForMasks 
   else:
-    let SDL_MasksToPixelFormatEnum* = SDL_MasksToPixelFormatEnum_renamed_SDL_GetPixelFormatForMasks
+    let SDL_MasksToPixelFormatEnum* = SDL_MasksToPixelFormatEnum_renamed_SDL_GetPixelFormatForMasks 
 when SDL_PIXELFORMAT_BGR444_renamed_SDL_PIXELFORMAT_XBGR4444 is typedesc:
   type
-    SDL_PIXELFORMAT_BGR444* = SDL_PIXELFORMAT_BGR444_renamed_SDL_PIXELFORMAT_XBGR4444
+    SDL_PIXELFORMAT_BGR444* = SDL_PIXELFORMAT_BGR444_renamed_SDL_PIXELFORMAT_XBGR4444 
 else:
   when SDL_PIXELFORMAT_BGR444_renamed_SDL_PIXELFORMAT_XBGR4444 is static:
     const
-      SDL_PIXELFORMAT_BGR444* = SDL_PIXELFORMAT_BGR444_renamed_SDL_PIXELFORMAT_XBGR4444
+      SDL_PIXELFORMAT_BGR444* = SDL_PIXELFORMAT_BGR444_renamed_SDL_PIXELFORMAT_XBGR4444 
   else:
-    let SDL_PIXELFORMAT_BGR444* = SDL_PIXELFORMAT_BGR444_renamed_SDL_PIXELFORMAT_XBGR4444
+    let SDL_PIXELFORMAT_BGR444* = SDL_PIXELFORMAT_BGR444_renamed_SDL_PIXELFORMAT_XBGR4444 
 when SDL_PIXELFORMAT_BGR555_renamed_SDL_PIXELFORMAT_XBGR1555 is typedesc:
   type
-    SDL_PIXELFORMAT_BGR555* = SDL_PIXELFORMAT_BGR555_renamed_SDL_PIXELFORMAT_XBGR1555
+    SDL_PIXELFORMAT_BGR555* = SDL_PIXELFORMAT_BGR555_renamed_SDL_PIXELFORMAT_XBGR1555 
 else:
   when SDL_PIXELFORMAT_BGR555_renamed_SDL_PIXELFORMAT_XBGR1555 is static:
     const
-      SDL_PIXELFORMAT_BGR555* = SDL_PIXELFORMAT_BGR555_renamed_SDL_PIXELFORMAT_XBGR1555
+      SDL_PIXELFORMAT_BGR555* = SDL_PIXELFORMAT_BGR555_renamed_SDL_PIXELFORMAT_XBGR1555 
   else:
-    let SDL_PIXELFORMAT_BGR555* = SDL_PIXELFORMAT_BGR555_renamed_SDL_PIXELFORMAT_XBGR1555
+    let SDL_PIXELFORMAT_BGR555* = SDL_PIXELFORMAT_BGR555_renamed_SDL_PIXELFORMAT_XBGR1555 
 when SDL_PIXELFORMAT_BGR888_renamed_SDL_PIXELFORMAT_XBGR8888 is typedesc:
   type
-    SDL_PIXELFORMAT_BGR888* = SDL_PIXELFORMAT_BGR888_renamed_SDL_PIXELFORMAT_XBGR8888
+    SDL_PIXELFORMAT_BGR888* = SDL_PIXELFORMAT_BGR888_renamed_SDL_PIXELFORMAT_XBGR8888 
 else:
   when SDL_PIXELFORMAT_BGR888_renamed_SDL_PIXELFORMAT_XBGR8888 is static:
     const
-      SDL_PIXELFORMAT_BGR888* = SDL_PIXELFORMAT_BGR888_renamed_SDL_PIXELFORMAT_XBGR8888
+      SDL_PIXELFORMAT_BGR888* = SDL_PIXELFORMAT_BGR888_renamed_SDL_PIXELFORMAT_XBGR8888 
   else:
-    let SDL_PIXELFORMAT_BGR888* = SDL_PIXELFORMAT_BGR888_renamed_SDL_PIXELFORMAT_XBGR8888
+    let SDL_PIXELFORMAT_BGR888* = SDL_PIXELFORMAT_BGR888_renamed_SDL_PIXELFORMAT_XBGR8888 
 when SDL_PIXELFORMAT_RGB444_renamed_SDL_PIXELFORMAT_XRGB4444 is typedesc:
   type
-    SDL_PIXELFORMAT_RGB444* = SDL_PIXELFORMAT_RGB444_renamed_SDL_PIXELFORMAT_XRGB4444
+    SDL_PIXELFORMAT_RGB444* = SDL_PIXELFORMAT_RGB444_renamed_SDL_PIXELFORMAT_XRGB4444 
 else:
   when SDL_PIXELFORMAT_RGB444_renamed_SDL_PIXELFORMAT_XRGB4444 is static:
     const
-      SDL_PIXELFORMAT_RGB444* = SDL_PIXELFORMAT_RGB444_renamed_SDL_PIXELFORMAT_XRGB4444
+      SDL_PIXELFORMAT_RGB444* = SDL_PIXELFORMAT_RGB444_renamed_SDL_PIXELFORMAT_XRGB4444 
   else:
-    let SDL_PIXELFORMAT_RGB444* = SDL_PIXELFORMAT_RGB444_renamed_SDL_PIXELFORMAT_XRGB4444
+    let SDL_PIXELFORMAT_RGB444* = SDL_PIXELFORMAT_RGB444_renamed_SDL_PIXELFORMAT_XRGB4444 
 when SDL_PIXELFORMAT_RGB555_renamed_SDL_PIXELFORMAT_XRGB1555 is typedesc:
   type
-    SDL_PIXELFORMAT_RGB555* = SDL_PIXELFORMAT_RGB555_renamed_SDL_PIXELFORMAT_XRGB1555
+    SDL_PIXELFORMAT_RGB555* = SDL_PIXELFORMAT_RGB555_renamed_SDL_PIXELFORMAT_XRGB1555 
 else:
   when SDL_PIXELFORMAT_RGB555_renamed_SDL_PIXELFORMAT_XRGB1555 is static:
     const
-      SDL_PIXELFORMAT_RGB555* = SDL_PIXELFORMAT_RGB555_renamed_SDL_PIXELFORMAT_XRGB1555
+      SDL_PIXELFORMAT_RGB555* = SDL_PIXELFORMAT_RGB555_renamed_SDL_PIXELFORMAT_XRGB1555 
   else:
-    let SDL_PIXELFORMAT_RGB555* = SDL_PIXELFORMAT_RGB555_renamed_SDL_PIXELFORMAT_XRGB1555
+    let SDL_PIXELFORMAT_RGB555* = SDL_PIXELFORMAT_RGB555_renamed_SDL_PIXELFORMAT_XRGB1555 
 when SDL_PIXELFORMAT_RGB888_renamed_SDL_PIXELFORMAT_XRGB8888 is typedesc:
   type
-    SDL_PIXELFORMAT_RGB888* = SDL_PIXELFORMAT_RGB888_renamed_SDL_PIXELFORMAT_XRGB8888
+    SDL_PIXELFORMAT_RGB888* = SDL_PIXELFORMAT_RGB888_renamed_SDL_PIXELFORMAT_XRGB8888 
 else:
   when SDL_PIXELFORMAT_RGB888_renamed_SDL_PIXELFORMAT_XRGB8888 is static:
     const
-      SDL_PIXELFORMAT_RGB888* = SDL_PIXELFORMAT_RGB888_renamed_SDL_PIXELFORMAT_XRGB8888
+      SDL_PIXELFORMAT_RGB888* = SDL_PIXELFORMAT_RGB888_renamed_SDL_PIXELFORMAT_XRGB8888 
   else:
-    let SDL_PIXELFORMAT_RGB888* = SDL_PIXELFORMAT_RGB888_renamed_SDL_PIXELFORMAT_XRGB8888
+    let SDL_PIXELFORMAT_RGB888* = SDL_PIXELFORMAT_RGB888_renamed_SDL_PIXELFORMAT_XRGB8888 
 when SDL_PixelFormatEnumToMasks_renamed_SDL_GetMasksForPixelFormat is typedesc:
   type
-    SDL_PixelFormatEnumToMasks* = SDL_PixelFormatEnumToMasks_renamed_SDL_GetMasksForPixelFormat
+    SDL_PixelFormatEnumToMasks* = SDL_PixelFormatEnumToMasks_renamed_SDL_GetMasksForPixelFormat 
 else:
   when SDL_PixelFormatEnumToMasks_renamed_SDL_GetMasksForPixelFormat is static:
     const
-      SDL_PixelFormatEnumToMasks* = SDL_PixelFormatEnumToMasks_renamed_SDL_GetMasksForPixelFormat
+      SDL_PixelFormatEnumToMasks* = SDL_PixelFormatEnumToMasks_renamed_SDL_GetMasksForPixelFormat 
   else:
-    let SDL_PixelFormatEnumToMasks* = SDL_PixelFormatEnumToMasks_renamed_SDL_GetMasksForPixelFormat
+    let SDL_PixelFormatEnumToMasks* = SDL_PixelFormatEnumToMasks_renamed_SDL_GetMasksForPixelFormat 
 when SDL_EncloseFPoints_renamed_SDL_GetRectEnclosingPointsFloat is typedesc:
   type
-    SDL_EncloseFPoints* = SDL_EncloseFPoints_renamed_SDL_GetRectEnclosingPointsFloat
+    SDL_EncloseFPoints* = SDL_EncloseFPoints_renamed_SDL_GetRectEnclosingPointsFloat 
 else:
   when SDL_EncloseFPoints_renamed_SDL_GetRectEnclosingPointsFloat is static:
     const
-      SDL_EncloseFPoints* = SDL_EncloseFPoints_renamed_SDL_GetRectEnclosingPointsFloat
+      SDL_EncloseFPoints* = SDL_EncloseFPoints_renamed_SDL_GetRectEnclosingPointsFloat 
   else:
-    let SDL_EncloseFPoints* = SDL_EncloseFPoints_renamed_SDL_GetRectEnclosingPointsFloat
+    let SDL_EncloseFPoints* = SDL_EncloseFPoints_renamed_SDL_GetRectEnclosingPointsFloat 
 when SDL_EnclosePoints_renamed_SDL_GetRectEnclosingPoints is typedesc:
   type
-    SDL_EnclosePoints* = SDL_EnclosePoints_renamed_SDL_GetRectEnclosingPoints
+    SDL_EnclosePoints* = SDL_EnclosePoints_renamed_SDL_GetRectEnclosingPoints 
 else:
   when SDL_EnclosePoints_renamed_SDL_GetRectEnclosingPoints is static:
     const
-      SDL_EnclosePoints* = SDL_EnclosePoints_renamed_SDL_GetRectEnclosingPoints
+      SDL_EnclosePoints* = SDL_EnclosePoints_renamed_SDL_GetRectEnclosingPoints 
   else:
-    let SDL_EnclosePoints* = SDL_EnclosePoints_renamed_SDL_GetRectEnclosingPoints
+    let SDL_EnclosePoints* = SDL_EnclosePoints_renamed_SDL_GetRectEnclosingPoints 
 when SDL_FRectEmpty_renamed_SDL_RectEmptyFloat is typedesc:
   type
-    SDL_FRectEmpty* = SDL_FRectEmpty_renamed_SDL_RectEmptyFloat
+    SDL_FRectEmpty* = SDL_FRectEmpty_renamed_SDL_RectEmptyFloat 
 else:
   when SDL_FRectEmpty_renamed_SDL_RectEmptyFloat is static:
     const
-      SDL_FRectEmpty* = SDL_FRectEmpty_renamed_SDL_RectEmptyFloat
+      SDL_FRectEmpty* = SDL_FRectEmpty_renamed_SDL_RectEmptyFloat 
   else:
-    let SDL_FRectEmpty* = SDL_FRectEmpty_renamed_SDL_RectEmptyFloat
+    let SDL_FRectEmpty* = SDL_FRectEmpty_renamed_SDL_RectEmptyFloat 
 when SDL_FRectEquals_renamed_SDL_RectsEqualFloat is typedesc:
   type
-    SDL_FRectEquals* = SDL_FRectEquals_renamed_SDL_RectsEqualFloat
+    SDL_FRectEquals* = SDL_FRectEquals_renamed_SDL_RectsEqualFloat 
 else:
   when SDL_FRectEquals_renamed_SDL_RectsEqualFloat is static:
     const
-      SDL_FRectEquals* = SDL_FRectEquals_renamed_SDL_RectsEqualFloat
+      SDL_FRectEquals* = SDL_FRectEquals_renamed_SDL_RectsEqualFloat 
   else:
-    let SDL_FRectEquals* = SDL_FRectEquals_renamed_SDL_RectsEqualFloat
+    let SDL_FRectEquals* = SDL_FRectEquals_renamed_SDL_RectsEqualFloat 
 when SDL_FRectEqualsEpsilon_renamed_SDL_RectsEqualEpsilon is typedesc:
   type
-    SDL_FRectEqualsEpsilon* = SDL_FRectEqualsEpsilon_renamed_SDL_RectsEqualEpsilon
+    SDL_FRectEqualsEpsilon* = SDL_FRectEqualsEpsilon_renamed_SDL_RectsEqualEpsilon 
 else:
   when SDL_FRectEqualsEpsilon_renamed_SDL_RectsEqualEpsilon is static:
     const
-      SDL_FRectEqualsEpsilon* = SDL_FRectEqualsEpsilon_renamed_SDL_RectsEqualEpsilon
+      SDL_FRectEqualsEpsilon* = SDL_FRectEqualsEpsilon_renamed_SDL_RectsEqualEpsilon 
   else:
-    let SDL_FRectEqualsEpsilon* = SDL_FRectEqualsEpsilon_renamed_SDL_RectsEqualEpsilon
+    let SDL_FRectEqualsEpsilon* = SDL_FRectEqualsEpsilon_renamed_SDL_RectsEqualEpsilon 
 when SDL_HasIntersection_renamed_SDL_HasRectIntersection is typedesc:
   type
-    SDL_HasIntersection* = SDL_HasIntersection_renamed_SDL_HasRectIntersection
+    SDL_HasIntersection* = SDL_HasIntersection_renamed_SDL_HasRectIntersection 
 else:
   when SDL_HasIntersection_renamed_SDL_HasRectIntersection is static:
     const
-      SDL_HasIntersection* = SDL_HasIntersection_renamed_SDL_HasRectIntersection
+      SDL_HasIntersection* = SDL_HasIntersection_renamed_SDL_HasRectIntersection 
   else:
-    let SDL_HasIntersection* = SDL_HasIntersection_renamed_SDL_HasRectIntersection
+    let SDL_HasIntersection* = SDL_HasIntersection_renamed_SDL_HasRectIntersection 
 when SDL_HasIntersectionF_renamed_SDL_HasRectIntersectionFloat is typedesc:
   type
-    SDL_HasIntersectionF* = SDL_HasIntersectionF_renamed_SDL_HasRectIntersectionFloat
+    SDL_HasIntersectionF* = SDL_HasIntersectionF_renamed_SDL_HasRectIntersectionFloat 
 else:
   when SDL_HasIntersectionF_renamed_SDL_HasRectIntersectionFloat is static:
     const
-      SDL_HasIntersectionF* = SDL_HasIntersectionF_renamed_SDL_HasRectIntersectionFloat
+      SDL_HasIntersectionF* = SDL_HasIntersectionF_renamed_SDL_HasRectIntersectionFloat 
   else:
-    let SDL_HasIntersectionF* = SDL_HasIntersectionF_renamed_SDL_HasRectIntersectionFloat
+    let SDL_HasIntersectionF* = SDL_HasIntersectionF_renamed_SDL_HasRectIntersectionFloat 
 when SDL_IntersectFRect_renamed_SDL_GetRectIntersectionFloat is typedesc:
   type
-    SDL_IntersectFRect* = SDL_IntersectFRect_renamed_SDL_GetRectIntersectionFloat
+    SDL_IntersectFRect* = SDL_IntersectFRect_renamed_SDL_GetRectIntersectionFloat 
 else:
   when SDL_IntersectFRect_renamed_SDL_GetRectIntersectionFloat is static:
     const
-      SDL_IntersectFRect* = SDL_IntersectFRect_renamed_SDL_GetRectIntersectionFloat
+      SDL_IntersectFRect* = SDL_IntersectFRect_renamed_SDL_GetRectIntersectionFloat 
   else:
-    let SDL_IntersectFRect* = SDL_IntersectFRect_renamed_SDL_GetRectIntersectionFloat
+    let SDL_IntersectFRect* = SDL_IntersectFRect_renamed_SDL_GetRectIntersectionFloat 
 when SDL_IntersectFRectAndLine_renamed_SDL_GetRectAndLineIntersectionFloat is
     typedesc:
   type
-    SDL_IntersectFRectAndLine* = SDL_IntersectFRectAndLine_renamed_SDL_GetRectAndLineIntersectionFloat
+    SDL_IntersectFRectAndLine* = SDL_IntersectFRectAndLine_renamed_SDL_GetRectAndLineIntersectionFloat 
 else:
   when SDL_IntersectFRectAndLine_renamed_SDL_GetRectAndLineIntersectionFloat is
       static:
     const
-      SDL_IntersectFRectAndLine* = SDL_IntersectFRectAndLine_renamed_SDL_GetRectAndLineIntersectionFloat
+      SDL_IntersectFRectAndLine* = SDL_IntersectFRectAndLine_renamed_SDL_GetRectAndLineIntersectionFloat 
   else:
-    let SDL_IntersectFRectAndLine* = SDL_IntersectFRectAndLine_renamed_SDL_GetRectAndLineIntersectionFloat
+    let SDL_IntersectFRectAndLine* = SDL_IntersectFRectAndLine_renamed_SDL_GetRectAndLineIntersectionFloat 
 when SDL_IntersectRect_renamed_SDL_GetRectIntersection is typedesc:
   type
-    SDL_IntersectRect* = SDL_IntersectRect_renamed_SDL_GetRectIntersection
+    SDL_IntersectRect* = SDL_IntersectRect_renamed_SDL_GetRectIntersection 
 else:
   when SDL_IntersectRect_renamed_SDL_GetRectIntersection is static:
     const
-      SDL_IntersectRect* = SDL_IntersectRect_renamed_SDL_GetRectIntersection
+      SDL_IntersectRect* = SDL_IntersectRect_renamed_SDL_GetRectIntersection 
   else:
-    let SDL_IntersectRect* = SDL_IntersectRect_renamed_SDL_GetRectIntersection
+    let SDL_IntersectRect* = SDL_IntersectRect_renamed_SDL_GetRectIntersection 
 when SDL_IntersectRectAndLine_renamed_SDL_GetRectAndLineIntersection is typedesc:
   type
-    SDL_IntersectRectAndLine* = SDL_IntersectRectAndLine_renamed_SDL_GetRectAndLineIntersection
+    SDL_IntersectRectAndLine* = SDL_IntersectRectAndLine_renamed_SDL_GetRectAndLineIntersection 
 else:
   when SDL_IntersectRectAndLine_renamed_SDL_GetRectAndLineIntersection is static:
     const
-      SDL_IntersectRectAndLine* = SDL_IntersectRectAndLine_renamed_SDL_GetRectAndLineIntersection
+      SDL_IntersectRectAndLine* = SDL_IntersectRectAndLine_renamed_SDL_GetRectAndLineIntersection 
   else:
-    let SDL_IntersectRectAndLine* = SDL_IntersectRectAndLine_renamed_SDL_GetRectAndLineIntersection
+    let SDL_IntersectRectAndLine* = SDL_IntersectRectAndLine_renamed_SDL_GetRectAndLineIntersection 
 when SDL_PointInFRect_renamed_SDL_PointInRectFloat is typedesc:
   type
-    SDL_PointInFRect* = SDL_PointInFRect_renamed_SDL_PointInRectFloat
+    SDL_PointInFRect* = SDL_PointInFRect_renamed_SDL_PointInRectFloat 
 else:
   when SDL_PointInFRect_renamed_SDL_PointInRectFloat is static:
     const
-      SDL_PointInFRect* = SDL_PointInFRect_renamed_SDL_PointInRectFloat
+      SDL_PointInFRect* = SDL_PointInFRect_renamed_SDL_PointInRectFloat 
   else:
-    let SDL_PointInFRect* = SDL_PointInFRect_renamed_SDL_PointInRectFloat
+    let SDL_PointInFRect* = SDL_PointInFRect_renamed_SDL_PointInRectFloat 
 when SDL_RectEquals_renamed_SDL_RectsEqual is typedesc:
   type
-    SDL_RectEquals* = SDL_RectEquals_renamed_SDL_RectsEqual
+    SDL_RectEquals* = SDL_RectEquals_renamed_SDL_RectsEqual 
 else:
   when SDL_RectEquals_renamed_SDL_RectsEqual is static:
     const
-      SDL_RectEquals* = SDL_RectEquals_renamed_SDL_RectsEqual
+      SDL_RectEquals* = SDL_RectEquals_renamed_SDL_RectsEqual 
   else:
-    let SDL_RectEquals* = SDL_RectEquals_renamed_SDL_RectsEqual
+    let SDL_RectEquals* = SDL_RectEquals_renamed_SDL_RectsEqual 
 when SDL_UnionFRect_renamed_SDL_GetRectUnionFloat is typedesc:
   type
-    SDL_UnionFRect* = SDL_UnionFRect_renamed_SDL_GetRectUnionFloat
+    SDL_UnionFRect* = SDL_UnionFRect_renamed_SDL_GetRectUnionFloat 
 else:
   when SDL_UnionFRect_renamed_SDL_GetRectUnionFloat is static:
     const
-      SDL_UnionFRect* = SDL_UnionFRect_renamed_SDL_GetRectUnionFloat
+      SDL_UnionFRect* = SDL_UnionFRect_renamed_SDL_GetRectUnionFloat 
   else:
-    let SDL_UnionFRect* = SDL_UnionFRect_renamed_SDL_GetRectUnionFloat
+    let SDL_UnionFRect* = SDL_UnionFRect_renamed_SDL_GetRectUnionFloat 
 when SDL_UnionRect_renamed_SDL_GetRectUnion is typedesc:
   type
-    SDL_UnionRect* = SDL_UnionRect_renamed_SDL_GetRectUnion
+    SDL_UnionRect* = SDL_UnionRect_renamed_SDL_GetRectUnion 
 else:
   when SDL_UnionRect_renamed_SDL_GetRectUnion is static:
     const
-      SDL_UnionRect* = SDL_UnionRect_renamed_SDL_GetRectUnion
+      SDL_UnionRect* = SDL_UnionRect_renamed_SDL_GetRectUnion 
   else:
-    let SDL_UnionRect* = SDL_UnionRect_renamed_SDL_GetRectUnion
+    let SDL_UnionRect* = SDL_UnionRect_renamed_SDL_GetRectUnion 
 when SDL_GetRendererOutputSize_renamed_SDL_GetCurrentRenderOutputSize is
     typedesc:
   type
-    SDL_GetRendererOutputSize* = SDL_GetRendererOutputSize_renamed_SDL_GetCurrentRenderOutputSize
+    SDL_GetRendererOutputSize* = SDL_GetRendererOutputSize_renamed_SDL_GetCurrentRenderOutputSize 
 else:
   when SDL_GetRendererOutputSize_renamed_SDL_GetCurrentRenderOutputSize is
       static:
     const
-      SDL_GetRendererOutputSize* = SDL_GetRendererOutputSize_renamed_SDL_GetCurrentRenderOutputSize
+      SDL_GetRendererOutputSize* = SDL_GetRendererOutputSize_renamed_SDL_GetCurrentRenderOutputSize 
   else:
-    let SDL_GetRendererOutputSize* = SDL_GetRendererOutputSize_renamed_SDL_GetCurrentRenderOutputSize
+    let SDL_GetRendererOutputSize* = SDL_GetRendererOutputSize_renamed_SDL_GetCurrentRenderOutputSize 
 when SDL_RenderCopy_renamed_SDL_RenderTexture is typedesc:
   type
-    SDL_RenderCopy* = SDL_RenderCopy_renamed_SDL_RenderTexture
+    SDL_RenderCopy* = SDL_RenderCopy_renamed_SDL_RenderTexture 
 else:
   when SDL_RenderCopy_renamed_SDL_RenderTexture is static:
     const
-      SDL_RenderCopy* = SDL_RenderCopy_renamed_SDL_RenderTexture
+      SDL_RenderCopy* = SDL_RenderCopy_renamed_SDL_RenderTexture 
   else:
-    let SDL_RenderCopy* = SDL_RenderCopy_renamed_SDL_RenderTexture
+    let SDL_RenderCopy* = SDL_RenderCopy_renamed_SDL_RenderTexture 
 when SDL_RenderCopyEx_renamed_SDL_RenderTextureRotated is typedesc:
   type
-    SDL_RenderCopyEx* = SDL_RenderCopyEx_renamed_SDL_RenderTextureRotated
+    SDL_RenderCopyEx* = SDL_RenderCopyEx_renamed_SDL_RenderTextureRotated 
 else:
   when SDL_RenderCopyEx_renamed_SDL_RenderTextureRotated is static:
     const
-      SDL_RenderCopyEx* = SDL_RenderCopyEx_renamed_SDL_RenderTextureRotated
+      SDL_RenderCopyEx* = SDL_RenderCopyEx_renamed_SDL_RenderTextureRotated 
   else:
-    let SDL_RenderCopyEx* = SDL_RenderCopyEx_renamed_SDL_RenderTextureRotated
+    let SDL_RenderCopyEx* = SDL_RenderCopyEx_renamed_SDL_RenderTextureRotated 
 when SDL_RenderCopyExF_renamed_SDL_RenderTextureRotated is typedesc:
   type
-    SDL_RenderCopyExF* = SDL_RenderCopyExF_renamed_SDL_RenderTextureRotated
+    SDL_RenderCopyExF* = SDL_RenderCopyExF_renamed_SDL_RenderTextureRotated 
 else:
   when SDL_RenderCopyExF_renamed_SDL_RenderTextureRotated is static:
     const
-      SDL_RenderCopyExF* = SDL_RenderCopyExF_renamed_SDL_RenderTextureRotated
+      SDL_RenderCopyExF* = SDL_RenderCopyExF_renamed_SDL_RenderTextureRotated 
   else:
-    let SDL_RenderCopyExF* = SDL_RenderCopyExF_renamed_SDL_RenderTextureRotated
+    let SDL_RenderCopyExF* = SDL_RenderCopyExF_renamed_SDL_RenderTextureRotated 
 when SDL_RenderCopyF_renamed_SDL_RenderTexture is typedesc:
   type
-    SDL_RenderCopyF* = SDL_RenderCopyF_renamed_SDL_RenderTexture
+    SDL_RenderCopyF* = SDL_RenderCopyF_renamed_SDL_RenderTexture 
 else:
   when SDL_RenderCopyF_renamed_SDL_RenderTexture is static:
     const
-      SDL_RenderCopyF* = SDL_RenderCopyF_renamed_SDL_RenderTexture
+      SDL_RenderCopyF* = SDL_RenderCopyF_renamed_SDL_RenderTexture 
   else:
-    let SDL_RenderCopyF* = SDL_RenderCopyF_renamed_SDL_RenderTexture
+    let SDL_RenderCopyF* = SDL_RenderCopyF_renamed_SDL_RenderTexture 
 when SDL_RenderDrawLine_renamed_SDL_RenderLine is typedesc:
   type
-    SDL_RenderDrawLine* = SDL_RenderDrawLine_renamed_SDL_RenderLine
+    SDL_RenderDrawLine* = SDL_RenderDrawLine_renamed_SDL_RenderLine 
 else:
   when SDL_RenderDrawLine_renamed_SDL_RenderLine is static:
     const
-      SDL_RenderDrawLine* = SDL_RenderDrawLine_renamed_SDL_RenderLine
+      SDL_RenderDrawLine* = SDL_RenderDrawLine_renamed_SDL_RenderLine 
   else:
-    let SDL_RenderDrawLine* = SDL_RenderDrawLine_renamed_SDL_RenderLine
+    let SDL_RenderDrawLine* = SDL_RenderDrawLine_renamed_SDL_RenderLine 
 when SDL_RenderDrawLineF_renamed_SDL_RenderLine is typedesc:
   type
-    SDL_RenderDrawLineF* = SDL_RenderDrawLineF_renamed_SDL_RenderLine
+    SDL_RenderDrawLineF* = SDL_RenderDrawLineF_renamed_SDL_RenderLine 
 else:
   when SDL_RenderDrawLineF_renamed_SDL_RenderLine is static:
     const
-      SDL_RenderDrawLineF* = SDL_RenderDrawLineF_renamed_SDL_RenderLine
+      SDL_RenderDrawLineF* = SDL_RenderDrawLineF_renamed_SDL_RenderLine 
   else:
-    let SDL_RenderDrawLineF* = SDL_RenderDrawLineF_renamed_SDL_RenderLine
+    let SDL_RenderDrawLineF* = SDL_RenderDrawLineF_renamed_SDL_RenderLine 
 when SDL_RenderDrawLines_renamed_SDL_RenderLines is typedesc:
   type
-    SDL_RenderDrawLines* = SDL_RenderDrawLines_renamed_SDL_RenderLines
+    SDL_RenderDrawLines* = SDL_RenderDrawLines_renamed_SDL_RenderLines 
 else:
   when SDL_RenderDrawLines_renamed_SDL_RenderLines is static:
     const
-      SDL_RenderDrawLines* = SDL_RenderDrawLines_renamed_SDL_RenderLines
+      SDL_RenderDrawLines* = SDL_RenderDrawLines_renamed_SDL_RenderLines 
   else:
-    let SDL_RenderDrawLines* = SDL_RenderDrawLines_renamed_SDL_RenderLines
+    let SDL_RenderDrawLines* = SDL_RenderDrawLines_renamed_SDL_RenderLines 
 when SDL_RenderDrawLinesF_renamed_SDL_RenderLines is typedesc:
   type
-    SDL_RenderDrawLinesF* = SDL_RenderDrawLinesF_renamed_SDL_RenderLines
+    SDL_RenderDrawLinesF* = SDL_RenderDrawLinesF_renamed_SDL_RenderLines 
 else:
   when SDL_RenderDrawLinesF_renamed_SDL_RenderLines is static:
     const
-      SDL_RenderDrawLinesF* = SDL_RenderDrawLinesF_renamed_SDL_RenderLines
+      SDL_RenderDrawLinesF* = SDL_RenderDrawLinesF_renamed_SDL_RenderLines 
   else:
-    let SDL_RenderDrawLinesF* = SDL_RenderDrawLinesF_renamed_SDL_RenderLines
+    let SDL_RenderDrawLinesF* = SDL_RenderDrawLinesF_renamed_SDL_RenderLines 
 when SDL_RenderDrawPoint_renamed_SDL_RenderPoint is typedesc:
   type
-    SDL_RenderDrawPoint* = SDL_RenderDrawPoint_renamed_SDL_RenderPoint
+    SDL_RenderDrawPoint* = SDL_RenderDrawPoint_renamed_SDL_RenderPoint 
 else:
   when SDL_RenderDrawPoint_renamed_SDL_RenderPoint is static:
     const
-      SDL_RenderDrawPoint* = SDL_RenderDrawPoint_renamed_SDL_RenderPoint
+      SDL_RenderDrawPoint* = SDL_RenderDrawPoint_renamed_SDL_RenderPoint 
   else:
-    let SDL_RenderDrawPoint* = SDL_RenderDrawPoint_renamed_SDL_RenderPoint
+    let SDL_RenderDrawPoint* = SDL_RenderDrawPoint_renamed_SDL_RenderPoint 
 when SDL_RenderDrawPointF_renamed_SDL_RenderPoint is typedesc:
   type
-    SDL_RenderDrawPointF* = SDL_RenderDrawPointF_renamed_SDL_RenderPoint
+    SDL_RenderDrawPointF* = SDL_RenderDrawPointF_renamed_SDL_RenderPoint 
 else:
   when SDL_RenderDrawPointF_renamed_SDL_RenderPoint is static:
     const
-      SDL_RenderDrawPointF* = SDL_RenderDrawPointF_renamed_SDL_RenderPoint
+      SDL_RenderDrawPointF* = SDL_RenderDrawPointF_renamed_SDL_RenderPoint 
   else:
-    let SDL_RenderDrawPointF* = SDL_RenderDrawPointF_renamed_SDL_RenderPoint
+    let SDL_RenderDrawPointF* = SDL_RenderDrawPointF_renamed_SDL_RenderPoint 
 when SDL_RenderDrawPoints_renamed_SDL_RenderPoints is typedesc:
   type
-    SDL_RenderDrawPoints* = SDL_RenderDrawPoints_renamed_SDL_RenderPoints
+    SDL_RenderDrawPoints* = SDL_RenderDrawPoints_renamed_SDL_RenderPoints 
 else:
   when SDL_RenderDrawPoints_renamed_SDL_RenderPoints is static:
     const
-      SDL_RenderDrawPoints* = SDL_RenderDrawPoints_renamed_SDL_RenderPoints
+      SDL_RenderDrawPoints* = SDL_RenderDrawPoints_renamed_SDL_RenderPoints 
   else:
-    let SDL_RenderDrawPoints* = SDL_RenderDrawPoints_renamed_SDL_RenderPoints
+    let SDL_RenderDrawPoints* = SDL_RenderDrawPoints_renamed_SDL_RenderPoints 
 when SDL_RenderDrawPointsF_renamed_SDL_RenderPoints is typedesc:
   type
-    SDL_RenderDrawPointsF* = SDL_RenderDrawPointsF_renamed_SDL_RenderPoints
+    SDL_RenderDrawPointsF* = SDL_RenderDrawPointsF_renamed_SDL_RenderPoints 
 else:
   when SDL_RenderDrawPointsF_renamed_SDL_RenderPoints is static:
     const
-      SDL_RenderDrawPointsF* = SDL_RenderDrawPointsF_renamed_SDL_RenderPoints
+      SDL_RenderDrawPointsF* = SDL_RenderDrawPointsF_renamed_SDL_RenderPoints 
   else:
-    let SDL_RenderDrawPointsF* = SDL_RenderDrawPointsF_renamed_SDL_RenderPoints
+    let SDL_RenderDrawPointsF* = SDL_RenderDrawPointsF_renamed_SDL_RenderPoints 
 when SDL_RenderDrawRect_renamed_SDL_RenderRect is typedesc:
   type
-    SDL_RenderDrawRect* = SDL_RenderDrawRect_renamed_SDL_RenderRect
+    SDL_RenderDrawRect* = SDL_RenderDrawRect_renamed_SDL_RenderRect 
 else:
   when SDL_RenderDrawRect_renamed_SDL_RenderRect is static:
     const
-      SDL_RenderDrawRect* = SDL_RenderDrawRect_renamed_SDL_RenderRect
+      SDL_RenderDrawRect* = SDL_RenderDrawRect_renamed_SDL_RenderRect 
   else:
-    let SDL_RenderDrawRect* = SDL_RenderDrawRect_renamed_SDL_RenderRect
+    let SDL_RenderDrawRect* = SDL_RenderDrawRect_renamed_SDL_RenderRect 
 when SDL_RenderDrawRectF_renamed_SDL_RenderRect is typedesc:
   type
-    SDL_RenderDrawRectF* = SDL_RenderDrawRectF_renamed_SDL_RenderRect
+    SDL_RenderDrawRectF* = SDL_RenderDrawRectF_renamed_SDL_RenderRect 
 else:
   when SDL_RenderDrawRectF_renamed_SDL_RenderRect is static:
     const
-      SDL_RenderDrawRectF* = SDL_RenderDrawRectF_renamed_SDL_RenderRect
+      SDL_RenderDrawRectF* = SDL_RenderDrawRectF_renamed_SDL_RenderRect 
   else:
-    let SDL_RenderDrawRectF* = SDL_RenderDrawRectF_renamed_SDL_RenderRect
+    let SDL_RenderDrawRectF* = SDL_RenderDrawRectF_renamed_SDL_RenderRect 
 when SDL_RenderDrawRects_renamed_SDL_RenderRects is typedesc:
   type
-    SDL_RenderDrawRects* = SDL_RenderDrawRects_renamed_SDL_RenderRects
+    SDL_RenderDrawRects* = SDL_RenderDrawRects_renamed_SDL_RenderRects 
 else:
   when SDL_RenderDrawRects_renamed_SDL_RenderRects is static:
     const
-      SDL_RenderDrawRects* = SDL_RenderDrawRects_renamed_SDL_RenderRects
+      SDL_RenderDrawRects* = SDL_RenderDrawRects_renamed_SDL_RenderRects 
   else:
-    let SDL_RenderDrawRects* = SDL_RenderDrawRects_renamed_SDL_RenderRects
+    let SDL_RenderDrawRects* = SDL_RenderDrawRects_renamed_SDL_RenderRects 
 when SDL_RenderDrawRectsF_renamed_SDL_RenderRects is typedesc:
   type
-    SDL_RenderDrawRectsF* = SDL_RenderDrawRectsF_renamed_SDL_RenderRects
+    SDL_RenderDrawRectsF* = SDL_RenderDrawRectsF_renamed_SDL_RenderRects 
 else:
   when SDL_RenderDrawRectsF_renamed_SDL_RenderRects is static:
     const
-      SDL_RenderDrawRectsF* = SDL_RenderDrawRectsF_renamed_SDL_RenderRects
+      SDL_RenderDrawRectsF* = SDL_RenderDrawRectsF_renamed_SDL_RenderRects 
   else:
-    let SDL_RenderDrawRectsF* = SDL_RenderDrawRectsF_renamed_SDL_RenderRects
+    let SDL_RenderDrawRectsF* = SDL_RenderDrawRectsF_renamed_SDL_RenderRects 
 when SDL_RenderFillRectF_renamed_SDL_RenderFillRect is typedesc:
   type
-    SDL_RenderFillRectF* = SDL_RenderFillRectF_renamed_SDL_RenderFillRect
+    SDL_RenderFillRectF* = SDL_RenderFillRectF_renamed_SDL_RenderFillRect 
 else:
   when SDL_RenderFillRectF_renamed_SDL_RenderFillRect is static:
     const
-      SDL_RenderFillRectF* = SDL_RenderFillRectF_renamed_SDL_RenderFillRect
+      SDL_RenderFillRectF* = SDL_RenderFillRectF_renamed_SDL_RenderFillRect 
   else:
-    let SDL_RenderFillRectF* = SDL_RenderFillRectF_renamed_SDL_RenderFillRect
+    let SDL_RenderFillRectF* = SDL_RenderFillRectF_renamed_SDL_RenderFillRect 
 when SDL_RenderFillRectsF_renamed_SDL_RenderFillRects is typedesc:
   type
-    SDL_RenderFillRectsF* = SDL_RenderFillRectsF_renamed_SDL_RenderFillRects
+    SDL_RenderFillRectsF* = SDL_RenderFillRectsF_renamed_SDL_RenderFillRects 
 else:
   when SDL_RenderFillRectsF_renamed_SDL_RenderFillRects is static:
     const
-      SDL_RenderFillRectsF* = SDL_RenderFillRectsF_renamed_SDL_RenderFillRects
+      SDL_RenderFillRectsF* = SDL_RenderFillRectsF_renamed_SDL_RenderFillRects 
   else:
-    let SDL_RenderFillRectsF* = SDL_RenderFillRectsF_renamed_SDL_RenderFillRects
+    let SDL_RenderFillRectsF* = SDL_RenderFillRectsF_renamed_SDL_RenderFillRects 
 when SDL_RendererFlip_renamed_SDL_FlipMode is typedesc:
   type
-    SDL_RendererFlip* = SDL_RendererFlip_renamed_SDL_FlipMode
+    SDL_RendererFlip* = SDL_RendererFlip_renamed_SDL_FlipMode 
 else:
   when SDL_RendererFlip_renamed_SDL_FlipMode is static:
     const
-      SDL_RendererFlip* = SDL_RendererFlip_renamed_SDL_FlipMode
+      SDL_RendererFlip* = SDL_RendererFlip_renamed_SDL_FlipMode 
   else:
-    let SDL_RendererFlip* = SDL_RendererFlip_renamed_SDL_FlipMode
+    let SDL_RendererFlip* = SDL_RendererFlip_renamed_SDL_FlipMode 
 when SDL_RenderFlush_renamed_SDL_FlushRenderer is typedesc:
   type
-    SDL_RenderFlush* = SDL_RenderFlush_renamed_SDL_FlushRenderer
+    SDL_RenderFlush* = SDL_RenderFlush_renamed_SDL_FlushRenderer 
 else:
   when SDL_RenderFlush_renamed_SDL_FlushRenderer is static:
     const
-      SDL_RenderFlush* = SDL_RenderFlush_renamed_SDL_FlushRenderer
+      SDL_RenderFlush* = SDL_RenderFlush_renamed_SDL_FlushRenderer 
   else:
-    let SDL_RenderFlush* = SDL_RenderFlush_renamed_SDL_FlushRenderer
+    let SDL_RenderFlush* = SDL_RenderFlush_renamed_SDL_FlushRenderer 
 when SDL_RenderGetClipRect_renamed_SDL_GetRenderClipRect is typedesc:
   type
-    SDL_RenderGetClipRect* = SDL_RenderGetClipRect_renamed_SDL_GetRenderClipRect
+    SDL_RenderGetClipRect* = SDL_RenderGetClipRect_renamed_SDL_GetRenderClipRect 
 else:
   when SDL_RenderGetClipRect_renamed_SDL_GetRenderClipRect is static:
     const
-      SDL_RenderGetClipRect* = SDL_RenderGetClipRect_renamed_SDL_GetRenderClipRect
+      SDL_RenderGetClipRect* = SDL_RenderGetClipRect_renamed_SDL_GetRenderClipRect 
   else:
-    let SDL_RenderGetClipRect* = SDL_RenderGetClipRect_renamed_SDL_GetRenderClipRect
+    let SDL_RenderGetClipRect* = SDL_RenderGetClipRect_renamed_SDL_GetRenderClipRect 
 when SDL_RenderGetLogicalSize_renamed_SDL_GetRenderLogicalPresentation is
     typedesc:
   type
-    SDL_RenderGetLogicalSize* = SDL_RenderGetLogicalSize_renamed_SDL_GetRenderLogicalPresentation
+    SDL_RenderGetLogicalSize* = SDL_RenderGetLogicalSize_renamed_SDL_GetRenderLogicalPresentation 
 else:
   when SDL_RenderGetLogicalSize_renamed_SDL_GetRenderLogicalPresentation is
       static:
     const
-      SDL_RenderGetLogicalSize* = SDL_RenderGetLogicalSize_renamed_SDL_GetRenderLogicalPresentation
+      SDL_RenderGetLogicalSize* = SDL_RenderGetLogicalSize_renamed_SDL_GetRenderLogicalPresentation 
   else:
-    let SDL_RenderGetLogicalSize* = SDL_RenderGetLogicalSize_renamed_SDL_GetRenderLogicalPresentation
+    let SDL_RenderGetLogicalSize* = SDL_RenderGetLogicalSize_renamed_SDL_GetRenderLogicalPresentation 
 when SDL_RenderGetMetalCommandEncoder_renamed_SDL_GetRenderMetalCommandEncoder is
     typedesc:
   type
-    SDL_RenderGetMetalCommandEncoder* = SDL_RenderGetMetalCommandEncoder_renamed_SDL_GetRenderMetalCommandEncoder
+    SDL_RenderGetMetalCommandEncoder* = SDL_RenderGetMetalCommandEncoder_renamed_SDL_GetRenderMetalCommandEncoder 
 else:
   when SDL_RenderGetMetalCommandEncoder_renamed_SDL_GetRenderMetalCommandEncoder is
       static:
     const
-      SDL_RenderGetMetalCommandEncoder* = SDL_RenderGetMetalCommandEncoder_renamed_SDL_GetRenderMetalCommandEncoder
+      SDL_RenderGetMetalCommandEncoder* = SDL_RenderGetMetalCommandEncoder_renamed_SDL_GetRenderMetalCommandEncoder 
   else:
-    let SDL_RenderGetMetalCommandEncoder* = SDL_RenderGetMetalCommandEncoder_renamed_SDL_GetRenderMetalCommandEncoder
+    let SDL_RenderGetMetalCommandEncoder* = SDL_RenderGetMetalCommandEncoder_renamed_SDL_GetRenderMetalCommandEncoder 
 when SDL_RenderGetMetalLayer_renamed_SDL_GetRenderMetalLayer is typedesc:
   type
-    SDL_RenderGetMetalLayer* = SDL_RenderGetMetalLayer_renamed_SDL_GetRenderMetalLayer
+    SDL_RenderGetMetalLayer* = SDL_RenderGetMetalLayer_renamed_SDL_GetRenderMetalLayer 
 else:
   when SDL_RenderGetMetalLayer_renamed_SDL_GetRenderMetalLayer is static:
     const
-      SDL_RenderGetMetalLayer* = SDL_RenderGetMetalLayer_renamed_SDL_GetRenderMetalLayer
+      SDL_RenderGetMetalLayer* = SDL_RenderGetMetalLayer_renamed_SDL_GetRenderMetalLayer 
   else:
-    let SDL_RenderGetMetalLayer* = SDL_RenderGetMetalLayer_renamed_SDL_GetRenderMetalLayer
+    let SDL_RenderGetMetalLayer* = SDL_RenderGetMetalLayer_renamed_SDL_GetRenderMetalLayer 
 when SDL_RenderGetScale_renamed_SDL_GetRenderScale is typedesc:
   type
-    SDL_RenderGetScale* = SDL_RenderGetScale_renamed_SDL_GetRenderScale
+    SDL_RenderGetScale* = SDL_RenderGetScale_renamed_SDL_GetRenderScale 
 else:
   when SDL_RenderGetScale_renamed_SDL_GetRenderScale is static:
     const
-      SDL_RenderGetScale* = SDL_RenderGetScale_renamed_SDL_GetRenderScale
+      SDL_RenderGetScale* = SDL_RenderGetScale_renamed_SDL_GetRenderScale 
   else:
-    let SDL_RenderGetScale* = SDL_RenderGetScale_renamed_SDL_GetRenderScale
+    let SDL_RenderGetScale* = SDL_RenderGetScale_renamed_SDL_GetRenderScale 
 when SDL_RenderGetViewport_renamed_SDL_GetRenderViewport is typedesc:
   type
-    SDL_RenderGetViewport* = SDL_RenderGetViewport_renamed_SDL_GetRenderViewport
+    SDL_RenderGetViewport* = SDL_RenderGetViewport_renamed_SDL_GetRenderViewport 
 else:
   when SDL_RenderGetViewport_renamed_SDL_GetRenderViewport is static:
     const
-      SDL_RenderGetViewport* = SDL_RenderGetViewport_renamed_SDL_GetRenderViewport
+      SDL_RenderGetViewport* = SDL_RenderGetViewport_renamed_SDL_GetRenderViewport 
   else:
-    let SDL_RenderGetViewport* = SDL_RenderGetViewport_renamed_SDL_GetRenderViewport
+    let SDL_RenderGetViewport* = SDL_RenderGetViewport_renamed_SDL_GetRenderViewport 
 when SDL_RenderGetWindow_renamed_SDL_GetRenderWindow is typedesc:
   type
-    SDL_RenderGetWindow* = SDL_RenderGetWindow_renamed_SDL_GetRenderWindow
+    SDL_RenderGetWindow* = SDL_RenderGetWindow_renamed_SDL_GetRenderWindow 
 else:
   when SDL_RenderGetWindow_renamed_SDL_GetRenderWindow is static:
     const
-      SDL_RenderGetWindow* = SDL_RenderGetWindow_renamed_SDL_GetRenderWindow
+      SDL_RenderGetWindow* = SDL_RenderGetWindow_renamed_SDL_GetRenderWindow 
   else:
-    let SDL_RenderGetWindow* = SDL_RenderGetWindow_renamed_SDL_GetRenderWindow
+    let SDL_RenderGetWindow* = SDL_RenderGetWindow_renamed_SDL_GetRenderWindow 
 when SDL_RenderIsClipEnabled_renamed_SDL_RenderClipEnabled is typedesc:
   type
-    SDL_RenderIsClipEnabled* = SDL_RenderIsClipEnabled_renamed_SDL_RenderClipEnabled
+    SDL_RenderIsClipEnabled* = SDL_RenderIsClipEnabled_renamed_SDL_RenderClipEnabled 
 else:
   when SDL_RenderIsClipEnabled_renamed_SDL_RenderClipEnabled is static:
     const
-      SDL_RenderIsClipEnabled* = SDL_RenderIsClipEnabled_renamed_SDL_RenderClipEnabled
+      SDL_RenderIsClipEnabled* = SDL_RenderIsClipEnabled_renamed_SDL_RenderClipEnabled 
   else:
-    let SDL_RenderIsClipEnabled* = SDL_RenderIsClipEnabled_renamed_SDL_RenderClipEnabled
+    let SDL_RenderIsClipEnabled* = SDL_RenderIsClipEnabled_renamed_SDL_RenderClipEnabled 
 when SDL_RenderLogicalToWindow_renamed_SDL_RenderCoordinatesToWindow is typedesc:
   type
-    SDL_RenderLogicalToWindow* = SDL_RenderLogicalToWindow_renamed_SDL_RenderCoordinatesToWindow
+    SDL_RenderLogicalToWindow* = SDL_RenderLogicalToWindow_renamed_SDL_RenderCoordinatesToWindow 
 else:
   when SDL_RenderLogicalToWindow_renamed_SDL_RenderCoordinatesToWindow is static:
     const
-      SDL_RenderLogicalToWindow* = SDL_RenderLogicalToWindow_renamed_SDL_RenderCoordinatesToWindow
+      SDL_RenderLogicalToWindow* = SDL_RenderLogicalToWindow_renamed_SDL_RenderCoordinatesToWindow 
   else:
-    let SDL_RenderLogicalToWindow* = SDL_RenderLogicalToWindow_renamed_SDL_RenderCoordinatesToWindow
+    let SDL_RenderLogicalToWindow* = SDL_RenderLogicalToWindow_renamed_SDL_RenderCoordinatesToWindow 
 when SDL_RenderSetClipRect_renamed_SDL_SetRenderClipRect is typedesc:
   type
-    SDL_RenderSetClipRect* = SDL_RenderSetClipRect_renamed_SDL_SetRenderClipRect
+    SDL_RenderSetClipRect* = SDL_RenderSetClipRect_renamed_SDL_SetRenderClipRect 
 else:
   when SDL_RenderSetClipRect_renamed_SDL_SetRenderClipRect is static:
     const
-      SDL_RenderSetClipRect* = SDL_RenderSetClipRect_renamed_SDL_SetRenderClipRect
+      SDL_RenderSetClipRect* = SDL_RenderSetClipRect_renamed_SDL_SetRenderClipRect 
   else:
-    let SDL_RenderSetClipRect* = SDL_RenderSetClipRect_renamed_SDL_SetRenderClipRect
+    let SDL_RenderSetClipRect* = SDL_RenderSetClipRect_renamed_SDL_SetRenderClipRect 
 when SDL_RenderSetLogicalSize_renamed_SDL_SetRenderLogicalPresentation is
     typedesc:
   type
-    SDL_RenderSetLogicalSize* = SDL_RenderSetLogicalSize_renamed_SDL_SetRenderLogicalPresentation
+    SDL_RenderSetLogicalSize* = SDL_RenderSetLogicalSize_renamed_SDL_SetRenderLogicalPresentation 
 else:
   when SDL_RenderSetLogicalSize_renamed_SDL_SetRenderLogicalPresentation is
       static:
     const
-      SDL_RenderSetLogicalSize* = SDL_RenderSetLogicalSize_renamed_SDL_SetRenderLogicalPresentation
+      SDL_RenderSetLogicalSize* = SDL_RenderSetLogicalSize_renamed_SDL_SetRenderLogicalPresentation 
   else:
-    let SDL_RenderSetLogicalSize* = SDL_RenderSetLogicalSize_renamed_SDL_SetRenderLogicalPresentation
+    let SDL_RenderSetLogicalSize* = SDL_RenderSetLogicalSize_renamed_SDL_SetRenderLogicalPresentation 
 when SDL_RenderSetScale_renamed_SDL_SetRenderScale is typedesc:
   type
-    SDL_RenderSetScale* = SDL_RenderSetScale_renamed_SDL_SetRenderScale
+    SDL_RenderSetScale* = SDL_RenderSetScale_renamed_SDL_SetRenderScale 
 else:
   when SDL_RenderSetScale_renamed_SDL_SetRenderScale is static:
     const
-      SDL_RenderSetScale* = SDL_RenderSetScale_renamed_SDL_SetRenderScale
+      SDL_RenderSetScale* = SDL_RenderSetScale_renamed_SDL_SetRenderScale 
   else:
-    let SDL_RenderSetScale* = SDL_RenderSetScale_renamed_SDL_SetRenderScale
+    let SDL_RenderSetScale* = SDL_RenderSetScale_renamed_SDL_SetRenderScale 
 when SDL_RenderSetVSync_renamed_SDL_SetRenderVSync is typedesc:
   type
-    SDL_RenderSetVSync* = SDL_RenderSetVSync_renamed_SDL_SetRenderVSync
+    SDL_RenderSetVSync* = SDL_RenderSetVSync_renamed_SDL_SetRenderVSync 
 else:
   when SDL_RenderSetVSync_renamed_SDL_SetRenderVSync is static:
     const
-      SDL_RenderSetVSync* = SDL_RenderSetVSync_renamed_SDL_SetRenderVSync
+      SDL_RenderSetVSync* = SDL_RenderSetVSync_renamed_SDL_SetRenderVSync 
   else:
-    let SDL_RenderSetVSync* = SDL_RenderSetVSync_renamed_SDL_SetRenderVSync
+    let SDL_RenderSetVSync* = SDL_RenderSetVSync_renamed_SDL_SetRenderVSync 
 when SDL_RenderSetViewport_renamed_SDL_SetRenderViewport is typedesc:
   type
-    SDL_RenderSetViewport* = SDL_RenderSetViewport_renamed_SDL_SetRenderViewport
+    SDL_RenderSetViewport* = SDL_RenderSetViewport_renamed_SDL_SetRenderViewport 
 else:
   when SDL_RenderSetViewport_renamed_SDL_SetRenderViewport is static:
     const
-      SDL_RenderSetViewport* = SDL_RenderSetViewport_renamed_SDL_SetRenderViewport
+      SDL_RenderSetViewport* = SDL_RenderSetViewport_renamed_SDL_SetRenderViewport 
   else:
-    let SDL_RenderSetViewport* = SDL_RenderSetViewport_renamed_SDL_SetRenderViewport
+    let SDL_RenderSetViewport* = SDL_RenderSetViewport_renamed_SDL_SetRenderViewport 
 when SDL_RenderWindowToLogical_renamed_SDL_RenderCoordinatesFromWindow is
     typedesc:
   type
-    SDL_RenderWindowToLogical* = SDL_RenderWindowToLogical_renamed_SDL_RenderCoordinatesFromWindow
+    SDL_RenderWindowToLogical* = SDL_RenderWindowToLogical_renamed_SDL_RenderCoordinatesFromWindow 
 else:
   when SDL_RenderWindowToLogical_renamed_SDL_RenderCoordinatesFromWindow is
       static:
     const
-      SDL_RenderWindowToLogical* = SDL_RenderWindowToLogical_renamed_SDL_RenderCoordinatesFromWindow
+      SDL_RenderWindowToLogical* = SDL_RenderWindowToLogical_renamed_SDL_RenderCoordinatesFromWindow 
   else:
-    let SDL_RenderWindowToLogical* = SDL_RenderWindowToLogical_renamed_SDL_RenderCoordinatesFromWindow
+    let SDL_RenderWindowToLogical* = SDL_RenderWindowToLogical_renamed_SDL_RenderCoordinatesFromWindow 
 when SDL_ScaleModeLinear_renamed_SDL_SCALEMODE_LINEAR is typedesc:
   type
-    SDL_ScaleModeLinear* = SDL_ScaleModeLinear_renamed_SDL_SCALEMODE_LINEAR
+    SDL_ScaleModeLinear* = SDL_ScaleModeLinear_renamed_SDL_SCALEMODE_LINEAR 
 else:
   when SDL_ScaleModeLinear_renamed_SDL_SCALEMODE_LINEAR is static:
     const
-      SDL_ScaleModeLinear* = SDL_ScaleModeLinear_renamed_SDL_SCALEMODE_LINEAR
+      SDL_ScaleModeLinear* = SDL_ScaleModeLinear_renamed_SDL_SCALEMODE_LINEAR 
   else:
-    let SDL_ScaleModeLinear* = SDL_ScaleModeLinear_renamed_SDL_SCALEMODE_LINEAR
+    let SDL_ScaleModeLinear* = SDL_ScaleModeLinear_renamed_SDL_SCALEMODE_LINEAR 
 when SDL_ScaleModeNearest_renamed_SDL_SCALEMODE_NEAREST is typedesc:
   type
-    SDL_ScaleModeNearest* = SDL_ScaleModeNearest_renamed_SDL_SCALEMODE_NEAREST
+    SDL_ScaleModeNearest* = SDL_ScaleModeNearest_renamed_SDL_SCALEMODE_NEAREST 
 else:
   when SDL_ScaleModeNearest_renamed_SDL_SCALEMODE_NEAREST is static:
     const
-      SDL_ScaleModeNearest* = SDL_ScaleModeNearest_renamed_SDL_SCALEMODE_NEAREST
+      SDL_ScaleModeNearest* = SDL_ScaleModeNearest_renamed_SDL_SCALEMODE_NEAREST 
   else:
-    let SDL_ScaleModeNearest* = SDL_ScaleModeNearest_renamed_SDL_SCALEMODE_NEAREST
+    let SDL_ScaleModeNearest* = SDL_ScaleModeNearest_renamed_SDL_SCALEMODE_NEAREST 
 when RW_SEEK_CUR_renamed_SDL_IO_SEEK_CUR is typedesc:
   type
-    RW_SEEK_CUR* = RW_SEEK_CUR_renamed_SDL_IO_SEEK_CUR
+    RW_SEEK_CUR* = RW_SEEK_CUR_renamed_SDL_IO_SEEK_CUR 
 else:
   when RW_SEEK_CUR_renamed_SDL_IO_SEEK_CUR is static:
     const
-      RW_SEEK_CUR* = RW_SEEK_CUR_renamed_SDL_IO_SEEK_CUR
+      RW_SEEK_CUR* = RW_SEEK_CUR_renamed_SDL_IO_SEEK_CUR 
   else:
-    let RW_SEEK_CUR* = RW_SEEK_CUR_renamed_SDL_IO_SEEK_CUR
+    let RW_SEEK_CUR* = RW_SEEK_CUR_renamed_SDL_IO_SEEK_CUR 
 when RW_SEEK_END_renamed_SDL_IO_SEEK_END is typedesc:
   type
-    RW_SEEK_END* = RW_SEEK_END_renamed_SDL_IO_SEEK_END
+    RW_SEEK_END* = RW_SEEK_END_renamed_SDL_IO_SEEK_END 
 else:
   when RW_SEEK_END_renamed_SDL_IO_SEEK_END is static:
     const
-      RW_SEEK_END* = RW_SEEK_END_renamed_SDL_IO_SEEK_END
+      RW_SEEK_END* = RW_SEEK_END_renamed_SDL_IO_SEEK_END 
   else:
-    let RW_SEEK_END* = RW_SEEK_END_renamed_SDL_IO_SEEK_END
+    let RW_SEEK_END* = RW_SEEK_END_renamed_SDL_IO_SEEK_END 
 when RW_SEEK_SET_renamed_SDL_IO_SEEK_SET is typedesc:
   type
-    RW_SEEK_SET* = RW_SEEK_SET_renamed_SDL_IO_SEEK_SET
+    RW_SEEK_SET* = RW_SEEK_SET_renamed_SDL_IO_SEEK_SET 
 else:
   when RW_SEEK_SET_renamed_SDL_IO_SEEK_SET is static:
     const
-      RW_SEEK_SET* = RW_SEEK_SET_renamed_SDL_IO_SEEK_SET
+      RW_SEEK_SET* = RW_SEEK_SET_renamed_SDL_IO_SEEK_SET 
   else:
-    let RW_SEEK_SET* = RW_SEEK_SET_renamed_SDL_IO_SEEK_SET
+    let RW_SEEK_SET* = RW_SEEK_SET_renamed_SDL_IO_SEEK_SET 
 when SDL_RWFromConstMem_renamed_SDL_IOFromConstMem is typedesc:
   type
-    SDL_RWFromConstMem* = SDL_RWFromConstMem_renamed_SDL_IOFromConstMem
+    SDL_RWFromConstMem* = SDL_RWFromConstMem_renamed_SDL_IOFromConstMem 
 else:
   when SDL_RWFromConstMem_renamed_SDL_IOFromConstMem is static:
     const
-      SDL_RWFromConstMem* = SDL_RWFromConstMem_renamed_SDL_IOFromConstMem
+      SDL_RWFromConstMem* = SDL_RWFromConstMem_renamed_SDL_IOFromConstMem 
   else:
-    let SDL_RWFromConstMem* = SDL_RWFromConstMem_renamed_SDL_IOFromConstMem
+    let SDL_RWFromConstMem* = SDL_RWFromConstMem_renamed_SDL_IOFromConstMem 
 when SDL_RWFromFile_renamed_SDL_IOFromFile is typedesc:
   type
-    SDL_RWFromFile* = SDL_RWFromFile_renamed_SDL_IOFromFile
+    SDL_RWFromFile* = SDL_RWFromFile_renamed_SDL_IOFromFile 
 else:
   when SDL_RWFromFile_renamed_SDL_IOFromFile is static:
     const
-      SDL_RWFromFile* = SDL_RWFromFile_renamed_SDL_IOFromFile
+      SDL_RWFromFile* = SDL_RWFromFile_renamed_SDL_IOFromFile 
   else:
-    let SDL_RWFromFile* = SDL_RWFromFile_renamed_SDL_IOFromFile
+    let SDL_RWFromFile* = SDL_RWFromFile_renamed_SDL_IOFromFile 
 when SDL_RWFromMem_renamed_SDL_IOFromMem is typedesc:
   type
-    SDL_RWFromMem* = SDL_RWFromMem_renamed_SDL_IOFromMem
+    SDL_RWFromMem* = SDL_RWFromMem_renamed_SDL_IOFromMem 
 else:
   when SDL_RWFromMem_renamed_SDL_IOFromMem is static:
     const
-      SDL_RWFromMem* = SDL_RWFromMem_renamed_SDL_IOFromMem
+      SDL_RWFromMem* = SDL_RWFromMem_renamed_SDL_IOFromMem 
   else:
-    let SDL_RWFromMem* = SDL_RWFromMem_renamed_SDL_IOFromMem
+    let SDL_RWFromMem* = SDL_RWFromMem_renamed_SDL_IOFromMem 
 when SDL_RWclose_renamed_SDL_CloseIO is typedesc:
   type
-    SDL_RWclose* = SDL_RWclose_renamed_SDL_CloseIO
+    SDL_RWclose* = SDL_RWclose_renamed_SDL_CloseIO 
 else:
   when SDL_RWclose_renamed_SDL_CloseIO is static:
     const
-      SDL_RWclose* = SDL_RWclose_renamed_SDL_CloseIO
+      SDL_RWclose* = SDL_RWclose_renamed_SDL_CloseIO 
   else:
-    let SDL_RWclose* = SDL_RWclose_renamed_SDL_CloseIO
+    let SDL_RWclose* = SDL_RWclose_renamed_SDL_CloseIO 
 when SDL_RWops_renamed_SDL_IOStream is typedesc:
   type
-    SDL_RWops* = SDL_RWops_renamed_SDL_IOStream
+    SDL_RWops* = SDL_RWops_renamed_SDL_IOStream 
 else:
   when SDL_RWops_renamed_SDL_IOStream is static:
     const
-      SDL_RWops* = SDL_RWops_renamed_SDL_IOStream
+      SDL_RWops* = SDL_RWops_renamed_SDL_IOStream 
   else:
-    let SDL_RWops* = SDL_RWops_renamed_SDL_IOStream
+    let SDL_RWops* = SDL_RWops_renamed_SDL_IOStream 
 when SDL_RWread_renamed_SDL_ReadIO is typedesc:
   type
-    SDL_RWread* = SDL_RWread_renamed_SDL_ReadIO
+    SDL_RWread* = SDL_RWread_renamed_SDL_ReadIO 
 else:
   when SDL_RWread_renamed_SDL_ReadIO is static:
     const
-      SDL_RWread* = SDL_RWread_renamed_SDL_ReadIO
+      SDL_RWread* = SDL_RWread_renamed_SDL_ReadIO 
   else:
-    let SDL_RWread* = SDL_RWread_renamed_SDL_ReadIO
+    let SDL_RWread* = SDL_RWread_renamed_SDL_ReadIO 
 when SDL_RWseek_renamed_SDL_SeekIO is typedesc:
   type
-    SDL_RWseek* = SDL_RWseek_renamed_SDL_SeekIO
+    SDL_RWseek* = SDL_RWseek_renamed_SDL_SeekIO 
 else:
   when SDL_RWseek_renamed_SDL_SeekIO is static:
     const
-      SDL_RWseek* = SDL_RWseek_renamed_SDL_SeekIO
+      SDL_RWseek* = SDL_RWseek_renamed_SDL_SeekIO 
   else:
-    let SDL_RWseek* = SDL_RWseek_renamed_SDL_SeekIO
+    let SDL_RWseek* = SDL_RWseek_renamed_SDL_SeekIO 
 when SDL_RWsize_renamed_SDL_GetIOSize is typedesc:
   type
-    SDL_RWsize* = SDL_RWsize_renamed_SDL_GetIOSize
+    SDL_RWsize* = SDL_RWsize_renamed_SDL_GetIOSize 
 else:
   when SDL_RWsize_renamed_SDL_GetIOSize is static:
     const
-      SDL_RWsize* = SDL_RWsize_renamed_SDL_GetIOSize
+      SDL_RWsize* = SDL_RWsize_renamed_SDL_GetIOSize 
   else:
-    let SDL_RWsize* = SDL_RWsize_renamed_SDL_GetIOSize
+    let SDL_RWsize* = SDL_RWsize_renamed_SDL_GetIOSize 
 when SDL_RWtell_renamed_SDL_TellIO is typedesc:
   type
-    SDL_RWtell* = SDL_RWtell_renamed_SDL_TellIO
+    SDL_RWtell* = SDL_RWtell_renamed_SDL_TellIO 
 else:
   when SDL_RWtell_renamed_SDL_TellIO is static:
     const
-      SDL_RWtell* = SDL_RWtell_renamed_SDL_TellIO
+      SDL_RWtell* = SDL_RWtell_renamed_SDL_TellIO 
   else:
-    let SDL_RWtell* = SDL_RWtell_renamed_SDL_TellIO
+    let SDL_RWtell* = SDL_RWtell_renamed_SDL_TellIO 
 when SDL_RWwrite_renamed_SDL_WriteIO is typedesc:
   type
-    SDL_RWwrite* = SDL_RWwrite_renamed_SDL_WriteIO
+    SDL_RWwrite* = SDL_RWwrite_renamed_SDL_WriteIO 
 else:
   when SDL_RWwrite_renamed_SDL_WriteIO is static:
     const
-      SDL_RWwrite* = SDL_RWwrite_renamed_SDL_WriteIO
+      SDL_RWwrite* = SDL_RWwrite_renamed_SDL_WriteIO 
   else:
-    let SDL_RWwrite* = SDL_RWwrite_renamed_SDL_WriteIO
+    let SDL_RWwrite* = SDL_RWwrite_renamed_SDL_WriteIO 
 when SDL_ReadBE16_renamed_SDL_ReadU16BE is typedesc:
   type
-    SDL_ReadBE16* = SDL_ReadBE16_renamed_SDL_ReadU16BE
+    SDL_ReadBE16* = SDL_ReadBE16_renamed_SDL_ReadU16BE 
 else:
   when SDL_ReadBE16_renamed_SDL_ReadU16BE is static:
     const
-      SDL_ReadBE16* = SDL_ReadBE16_renamed_SDL_ReadU16BE
+      SDL_ReadBE16* = SDL_ReadBE16_renamed_SDL_ReadU16BE 
   else:
-    let SDL_ReadBE16* = SDL_ReadBE16_renamed_SDL_ReadU16BE
+    let SDL_ReadBE16* = SDL_ReadBE16_renamed_SDL_ReadU16BE 
 when SDL_ReadBE32_renamed_SDL_ReadU32BE is typedesc:
   type
-    SDL_ReadBE32* = SDL_ReadBE32_renamed_SDL_ReadU32BE
+    SDL_ReadBE32* = SDL_ReadBE32_renamed_SDL_ReadU32BE 
 else:
   when SDL_ReadBE32_renamed_SDL_ReadU32BE is static:
     const
-      SDL_ReadBE32* = SDL_ReadBE32_renamed_SDL_ReadU32BE
+      SDL_ReadBE32* = SDL_ReadBE32_renamed_SDL_ReadU32BE 
   else:
-    let SDL_ReadBE32* = SDL_ReadBE32_renamed_SDL_ReadU32BE
+    let SDL_ReadBE32* = SDL_ReadBE32_renamed_SDL_ReadU32BE 
 when SDL_ReadBE64_renamed_SDL_ReadU64BE is typedesc:
   type
-    SDL_ReadBE64* = SDL_ReadBE64_renamed_SDL_ReadU64BE
+    SDL_ReadBE64* = SDL_ReadBE64_renamed_SDL_ReadU64BE 
 else:
   when SDL_ReadBE64_renamed_SDL_ReadU64BE is static:
     const
-      SDL_ReadBE64* = SDL_ReadBE64_renamed_SDL_ReadU64BE
+      SDL_ReadBE64* = SDL_ReadBE64_renamed_SDL_ReadU64BE 
   else:
-    let SDL_ReadBE64* = SDL_ReadBE64_renamed_SDL_ReadU64BE
+    let SDL_ReadBE64* = SDL_ReadBE64_renamed_SDL_ReadU64BE 
 when SDL_ReadLE16_renamed_SDL_ReadU16LE is typedesc:
   type
-    SDL_ReadLE16* = SDL_ReadLE16_renamed_SDL_ReadU16LE
+    SDL_ReadLE16* = SDL_ReadLE16_renamed_SDL_ReadU16LE 
 else:
   when SDL_ReadLE16_renamed_SDL_ReadU16LE is static:
     const
-      SDL_ReadLE16* = SDL_ReadLE16_renamed_SDL_ReadU16LE
+      SDL_ReadLE16* = SDL_ReadLE16_renamed_SDL_ReadU16LE 
   else:
-    let SDL_ReadLE16* = SDL_ReadLE16_renamed_SDL_ReadU16LE
+    let SDL_ReadLE16* = SDL_ReadLE16_renamed_SDL_ReadU16LE 
 when SDL_ReadLE32_renamed_SDL_ReadU32LE is typedesc:
   type
-    SDL_ReadLE32* = SDL_ReadLE32_renamed_SDL_ReadU32LE
+    SDL_ReadLE32* = SDL_ReadLE32_renamed_SDL_ReadU32LE 
 else:
   when SDL_ReadLE32_renamed_SDL_ReadU32LE is static:
     const
-      SDL_ReadLE32* = SDL_ReadLE32_renamed_SDL_ReadU32LE
+      SDL_ReadLE32* = SDL_ReadLE32_renamed_SDL_ReadU32LE 
   else:
-    let SDL_ReadLE32* = SDL_ReadLE32_renamed_SDL_ReadU32LE
+    let SDL_ReadLE32* = SDL_ReadLE32_renamed_SDL_ReadU32LE 
 when SDL_ReadLE64_renamed_SDL_ReadU64LE is typedesc:
   type
-    SDL_ReadLE64* = SDL_ReadLE64_renamed_SDL_ReadU64LE
+    SDL_ReadLE64* = SDL_ReadLE64_renamed_SDL_ReadU64LE 
 else:
   when SDL_ReadLE64_renamed_SDL_ReadU64LE is static:
     const
-      SDL_ReadLE64* = SDL_ReadLE64_renamed_SDL_ReadU64LE
+      SDL_ReadLE64* = SDL_ReadLE64_renamed_SDL_ReadU64LE 
   else:
-    let SDL_ReadLE64* = SDL_ReadLE64_renamed_SDL_ReadU64LE
+    let SDL_ReadLE64* = SDL_ReadLE64_renamed_SDL_ReadU64LE 
 when SDL_WriteBE16_renamed_SDL_WriteU16BE is typedesc:
   type
-    SDL_WriteBE16* = SDL_WriteBE16_renamed_SDL_WriteU16BE
+    SDL_WriteBE16* = SDL_WriteBE16_renamed_SDL_WriteU16BE 
 else:
   when SDL_WriteBE16_renamed_SDL_WriteU16BE is static:
     const
-      SDL_WriteBE16* = SDL_WriteBE16_renamed_SDL_WriteU16BE
+      SDL_WriteBE16* = SDL_WriteBE16_renamed_SDL_WriteU16BE 
   else:
-    let SDL_WriteBE16* = SDL_WriteBE16_renamed_SDL_WriteU16BE
+    let SDL_WriteBE16* = SDL_WriteBE16_renamed_SDL_WriteU16BE 
 when SDL_WriteBE32_renamed_SDL_WriteU32BE is typedesc:
   type
-    SDL_WriteBE32* = SDL_WriteBE32_renamed_SDL_WriteU32BE
+    SDL_WriteBE32* = SDL_WriteBE32_renamed_SDL_WriteU32BE 
 else:
   when SDL_WriteBE32_renamed_SDL_WriteU32BE is static:
     const
-      SDL_WriteBE32* = SDL_WriteBE32_renamed_SDL_WriteU32BE
+      SDL_WriteBE32* = SDL_WriteBE32_renamed_SDL_WriteU32BE 
   else:
-    let SDL_WriteBE32* = SDL_WriteBE32_renamed_SDL_WriteU32BE
+    let SDL_WriteBE32* = SDL_WriteBE32_renamed_SDL_WriteU32BE 
 when SDL_WriteBE64_renamed_SDL_WriteU64BE is typedesc:
   type
-    SDL_WriteBE64* = SDL_WriteBE64_renamed_SDL_WriteU64BE
+    SDL_WriteBE64* = SDL_WriteBE64_renamed_SDL_WriteU64BE 
 else:
   when SDL_WriteBE64_renamed_SDL_WriteU64BE is static:
     const
-      SDL_WriteBE64* = SDL_WriteBE64_renamed_SDL_WriteU64BE
+      SDL_WriteBE64* = SDL_WriteBE64_renamed_SDL_WriteU64BE 
   else:
-    let SDL_WriteBE64* = SDL_WriteBE64_renamed_SDL_WriteU64BE
+    let SDL_WriteBE64* = SDL_WriteBE64_renamed_SDL_WriteU64BE 
 when SDL_WriteLE16_renamed_SDL_WriteU16LE is typedesc:
   type
-    SDL_WriteLE16* = SDL_WriteLE16_renamed_SDL_WriteU16LE
+    SDL_WriteLE16* = SDL_WriteLE16_renamed_SDL_WriteU16LE 
 else:
   when SDL_WriteLE16_renamed_SDL_WriteU16LE is static:
     const
-      SDL_WriteLE16* = SDL_WriteLE16_renamed_SDL_WriteU16LE
+      SDL_WriteLE16* = SDL_WriteLE16_renamed_SDL_WriteU16LE 
   else:
-    let SDL_WriteLE16* = SDL_WriteLE16_renamed_SDL_WriteU16LE
+    let SDL_WriteLE16* = SDL_WriteLE16_renamed_SDL_WriteU16LE 
 when SDL_WriteLE32_renamed_SDL_WriteU32LE is typedesc:
   type
-    SDL_WriteLE32* = SDL_WriteLE32_renamed_SDL_WriteU32LE
+    SDL_WriteLE32* = SDL_WriteLE32_renamed_SDL_WriteU32LE 
 else:
   when SDL_WriteLE32_renamed_SDL_WriteU32LE is static:
     const
-      SDL_WriteLE32* = SDL_WriteLE32_renamed_SDL_WriteU32LE
+      SDL_WriteLE32* = SDL_WriteLE32_renamed_SDL_WriteU32LE 
   else:
-    let SDL_WriteLE32* = SDL_WriteLE32_renamed_SDL_WriteU32LE
+    let SDL_WriteLE32* = SDL_WriteLE32_renamed_SDL_WriteU32LE 
 when SDL_WriteLE64_renamed_SDL_WriteU64LE is typedesc:
   type
-    SDL_WriteLE64* = SDL_WriteLE64_renamed_SDL_WriteU64LE
+    SDL_WriteLE64* = SDL_WriteLE64_renamed_SDL_WriteU64LE 
 else:
   when SDL_WriteLE64_renamed_SDL_WriteU64LE is static:
     const
-      SDL_WriteLE64* = SDL_WriteLE64_renamed_SDL_WriteU64LE
+      SDL_WriteLE64* = SDL_WriteLE64_renamed_SDL_WriteU64LE 
   else:
-    let SDL_WriteLE64* = SDL_WriteLE64_renamed_SDL_WriteU64LE
+    let SDL_WriteLE64* = SDL_WriteLE64_renamed_SDL_WriteU64LE 
 when SDL_NUM_SCANCODES_renamed_SDL_SCANCODE_COUNT is typedesc:
   type
-    SDL_NUM_SCANCODES* = SDL_NUM_SCANCODES_renamed_SDL_SCANCODE_COUNT
+    SDL_NUM_SCANCODES* = SDL_NUM_SCANCODES_renamed_SDL_SCANCODE_COUNT 
 else:
   when SDL_NUM_SCANCODES_renamed_SDL_SCANCODE_COUNT is static:
     const
-      SDL_NUM_SCANCODES* = SDL_NUM_SCANCODES_renamed_SDL_SCANCODE_COUNT
+      SDL_NUM_SCANCODES* = SDL_NUM_SCANCODES_renamed_SDL_SCANCODE_COUNT 
   else:
-    let SDL_NUM_SCANCODES* = SDL_NUM_SCANCODES_renamed_SDL_SCANCODE_COUNT
+    let SDL_NUM_SCANCODES* = SDL_NUM_SCANCODES_renamed_SDL_SCANCODE_COUNT 
 when SDL_SCANCODE_AUDIOFASTFORWARD_renamed_SDL_SCANCODE_MEDIA_FAST_FORWARD is
     typedesc:
   type
-    SDL_SCANCODE_AUDIOFASTFORWARD* = SDL_SCANCODE_AUDIOFASTFORWARD_renamed_SDL_SCANCODE_MEDIA_FAST_FORWARD
+    SDL_SCANCODE_AUDIOFASTFORWARD* = SDL_SCANCODE_AUDIOFASTFORWARD_renamed_SDL_SCANCODE_MEDIA_FAST_FORWARD 
 else:
   when SDL_SCANCODE_AUDIOFASTFORWARD_renamed_SDL_SCANCODE_MEDIA_FAST_FORWARD is
       static:
     const
-      SDL_SCANCODE_AUDIOFASTFORWARD* = SDL_SCANCODE_AUDIOFASTFORWARD_renamed_SDL_SCANCODE_MEDIA_FAST_FORWARD
+      SDL_SCANCODE_AUDIOFASTFORWARD* = SDL_SCANCODE_AUDIOFASTFORWARD_renamed_SDL_SCANCODE_MEDIA_FAST_FORWARD 
   else:
-    let SDL_SCANCODE_AUDIOFASTFORWARD* = SDL_SCANCODE_AUDIOFASTFORWARD_renamed_SDL_SCANCODE_MEDIA_FAST_FORWARD
+    let SDL_SCANCODE_AUDIOFASTFORWARD* = SDL_SCANCODE_AUDIOFASTFORWARD_renamed_SDL_SCANCODE_MEDIA_FAST_FORWARD 
 when SDL_SCANCODE_AUDIOMUTE_renamed_SDL_SCANCODE_MUTE is typedesc:
   type
-    SDL_SCANCODE_AUDIOMUTE* = SDL_SCANCODE_AUDIOMUTE_renamed_SDL_SCANCODE_MUTE
+    SDL_SCANCODE_AUDIOMUTE* = SDL_SCANCODE_AUDIOMUTE_renamed_SDL_SCANCODE_MUTE 
 else:
   when SDL_SCANCODE_AUDIOMUTE_renamed_SDL_SCANCODE_MUTE is static:
     const
-      SDL_SCANCODE_AUDIOMUTE* = SDL_SCANCODE_AUDIOMUTE_renamed_SDL_SCANCODE_MUTE
+      SDL_SCANCODE_AUDIOMUTE* = SDL_SCANCODE_AUDIOMUTE_renamed_SDL_SCANCODE_MUTE 
   else:
-    let SDL_SCANCODE_AUDIOMUTE* = SDL_SCANCODE_AUDIOMUTE_renamed_SDL_SCANCODE_MUTE
+    let SDL_SCANCODE_AUDIOMUTE* = SDL_SCANCODE_AUDIOMUTE_renamed_SDL_SCANCODE_MUTE 
 when SDL_SCANCODE_AUDIONEXT_renamed_SDL_SCANCODE_MEDIA_NEXT_TRACK is typedesc:
   type
-    SDL_SCANCODE_AUDIONEXT* = SDL_SCANCODE_AUDIONEXT_renamed_SDL_SCANCODE_MEDIA_NEXT_TRACK
+    SDL_SCANCODE_AUDIONEXT* = SDL_SCANCODE_AUDIONEXT_renamed_SDL_SCANCODE_MEDIA_NEXT_TRACK 
 else:
   when SDL_SCANCODE_AUDIONEXT_renamed_SDL_SCANCODE_MEDIA_NEXT_TRACK is static:
     const
-      SDL_SCANCODE_AUDIONEXT* = SDL_SCANCODE_AUDIONEXT_renamed_SDL_SCANCODE_MEDIA_NEXT_TRACK
+      SDL_SCANCODE_AUDIONEXT* = SDL_SCANCODE_AUDIONEXT_renamed_SDL_SCANCODE_MEDIA_NEXT_TRACK 
   else:
-    let SDL_SCANCODE_AUDIONEXT* = SDL_SCANCODE_AUDIONEXT_renamed_SDL_SCANCODE_MEDIA_NEXT_TRACK
+    let SDL_SCANCODE_AUDIONEXT* = SDL_SCANCODE_AUDIONEXT_renamed_SDL_SCANCODE_MEDIA_NEXT_TRACK 
 when SDL_SCANCODE_AUDIOPLAY_renamed_SDL_SCANCODE_MEDIA_PLAY is typedesc:
   type
-    SDL_SCANCODE_AUDIOPLAY* = SDL_SCANCODE_AUDIOPLAY_renamed_SDL_SCANCODE_MEDIA_PLAY
+    SDL_SCANCODE_AUDIOPLAY* = SDL_SCANCODE_AUDIOPLAY_renamed_SDL_SCANCODE_MEDIA_PLAY 
 else:
   when SDL_SCANCODE_AUDIOPLAY_renamed_SDL_SCANCODE_MEDIA_PLAY is static:
     const
-      SDL_SCANCODE_AUDIOPLAY* = SDL_SCANCODE_AUDIOPLAY_renamed_SDL_SCANCODE_MEDIA_PLAY
+      SDL_SCANCODE_AUDIOPLAY* = SDL_SCANCODE_AUDIOPLAY_renamed_SDL_SCANCODE_MEDIA_PLAY 
   else:
-    let SDL_SCANCODE_AUDIOPLAY* = SDL_SCANCODE_AUDIOPLAY_renamed_SDL_SCANCODE_MEDIA_PLAY
+    let SDL_SCANCODE_AUDIOPLAY* = SDL_SCANCODE_AUDIOPLAY_renamed_SDL_SCANCODE_MEDIA_PLAY 
 when SDL_SCANCODE_AUDIOPREV_renamed_SDL_SCANCODE_MEDIA_PREVIOUS_TRACK is
     typedesc:
   type
-    SDL_SCANCODE_AUDIOPREV* = SDL_SCANCODE_AUDIOPREV_renamed_SDL_SCANCODE_MEDIA_PREVIOUS_TRACK
+    SDL_SCANCODE_AUDIOPREV* = SDL_SCANCODE_AUDIOPREV_renamed_SDL_SCANCODE_MEDIA_PREVIOUS_TRACK 
 else:
   when SDL_SCANCODE_AUDIOPREV_renamed_SDL_SCANCODE_MEDIA_PREVIOUS_TRACK is
       static:
     const
-      SDL_SCANCODE_AUDIOPREV* = SDL_SCANCODE_AUDIOPREV_renamed_SDL_SCANCODE_MEDIA_PREVIOUS_TRACK
+      SDL_SCANCODE_AUDIOPREV* = SDL_SCANCODE_AUDIOPREV_renamed_SDL_SCANCODE_MEDIA_PREVIOUS_TRACK 
   else:
-    let SDL_SCANCODE_AUDIOPREV* = SDL_SCANCODE_AUDIOPREV_renamed_SDL_SCANCODE_MEDIA_PREVIOUS_TRACK
+    let SDL_SCANCODE_AUDIOPREV* = SDL_SCANCODE_AUDIOPREV_renamed_SDL_SCANCODE_MEDIA_PREVIOUS_TRACK 
 when SDL_SCANCODE_AUDIOREWIND_renamed_SDL_SCANCODE_MEDIA_REWIND is typedesc:
   type
-    SDL_SCANCODE_AUDIOREWIND* = SDL_SCANCODE_AUDIOREWIND_renamed_SDL_SCANCODE_MEDIA_REWIND
+    SDL_SCANCODE_AUDIOREWIND* = SDL_SCANCODE_AUDIOREWIND_renamed_SDL_SCANCODE_MEDIA_REWIND 
 else:
   when SDL_SCANCODE_AUDIOREWIND_renamed_SDL_SCANCODE_MEDIA_REWIND is static:
     const
-      SDL_SCANCODE_AUDIOREWIND* = SDL_SCANCODE_AUDIOREWIND_renamed_SDL_SCANCODE_MEDIA_REWIND
+      SDL_SCANCODE_AUDIOREWIND* = SDL_SCANCODE_AUDIOREWIND_renamed_SDL_SCANCODE_MEDIA_REWIND 
   else:
-    let SDL_SCANCODE_AUDIOREWIND* = SDL_SCANCODE_AUDIOREWIND_renamed_SDL_SCANCODE_MEDIA_REWIND
+    let SDL_SCANCODE_AUDIOREWIND* = SDL_SCANCODE_AUDIOREWIND_renamed_SDL_SCANCODE_MEDIA_REWIND 
 when SDL_SCANCODE_AUDIOSTOP_renamed_SDL_SCANCODE_MEDIA_STOP is typedesc:
   type
-    SDL_SCANCODE_AUDIOSTOP* = SDL_SCANCODE_AUDIOSTOP_renamed_SDL_SCANCODE_MEDIA_STOP
+    SDL_SCANCODE_AUDIOSTOP* = SDL_SCANCODE_AUDIOSTOP_renamed_SDL_SCANCODE_MEDIA_STOP 
 else:
   when SDL_SCANCODE_AUDIOSTOP_renamed_SDL_SCANCODE_MEDIA_STOP is static:
     const
-      SDL_SCANCODE_AUDIOSTOP* = SDL_SCANCODE_AUDIOSTOP_renamed_SDL_SCANCODE_MEDIA_STOP
+      SDL_SCANCODE_AUDIOSTOP* = SDL_SCANCODE_AUDIOSTOP_renamed_SDL_SCANCODE_MEDIA_STOP 
   else:
-    let SDL_SCANCODE_AUDIOSTOP* = SDL_SCANCODE_AUDIOSTOP_renamed_SDL_SCANCODE_MEDIA_STOP
+    let SDL_SCANCODE_AUDIOSTOP* = SDL_SCANCODE_AUDIOSTOP_renamed_SDL_SCANCODE_MEDIA_STOP 
 when SDL_SCANCODE_EJECT_renamed_SDL_SCANCODE_MEDIA_EJECT is typedesc:
   type
-    SDL_SCANCODE_EJECT* = SDL_SCANCODE_EJECT_renamed_SDL_SCANCODE_MEDIA_EJECT
+    SDL_SCANCODE_EJECT* = SDL_SCANCODE_EJECT_renamed_SDL_SCANCODE_MEDIA_EJECT 
 else:
   when SDL_SCANCODE_EJECT_renamed_SDL_SCANCODE_MEDIA_EJECT is static:
     const
-      SDL_SCANCODE_EJECT* = SDL_SCANCODE_EJECT_renamed_SDL_SCANCODE_MEDIA_EJECT
+      SDL_SCANCODE_EJECT* = SDL_SCANCODE_EJECT_renamed_SDL_SCANCODE_MEDIA_EJECT 
   else:
-    let SDL_SCANCODE_EJECT* = SDL_SCANCODE_EJECT_renamed_SDL_SCANCODE_MEDIA_EJECT
+    let SDL_SCANCODE_EJECT* = SDL_SCANCODE_EJECT_renamed_SDL_SCANCODE_MEDIA_EJECT 
 when SDL_SCANCODE_MEDIASELECT_renamed_SDL_SCANCODE_MEDIA_SELECT is typedesc:
   type
-    SDL_SCANCODE_MEDIASELECT* = SDL_SCANCODE_MEDIASELECT_renamed_SDL_SCANCODE_MEDIA_SELECT
+    SDL_SCANCODE_MEDIASELECT* = SDL_SCANCODE_MEDIASELECT_renamed_SDL_SCANCODE_MEDIA_SELECT 
 else:
   when SDL_SCANCODE_MEDIASELECT_renamed_SDL_SCANCODE_MEDIA_SELECT is static:
     const
-      SDL_SCANCODE_MEDIASELECT* = SDL_SCANCODE_MEDIASELECT_renamed_SDL_SCANCODE_MEDIA_SELECT
+      SDL_SCANCODE_MEDIASELECT* = SDL_SCANCODE_MEDIASELECT_renamed_SDL_SCANCODE_MEDIA_SELECT 
   else:
-    let SDL_SCANCODE_MEDIASELECT* = SDL_SCANCODE_MEDIASELECT_renamed_SDL_SCANCODE_MEDIA_SELECT
+    let SDL_SCANCODE_MEDIASELECT* = SDL_SCANCODE_MEDIASELECT_renamed_SDL_SCANCODE_MEDIA_SELECT 
 when SDL_SensorClose_renamed_SDL_CloseSensor is typedesc:
   type
-    SDL_SensorClose* = SDL_SensorClose_renamed_SDL_CloseSensor
+    SDL_SensorClose* = SDL_SensorClose_renamed_SDL_CloseSensor 
 else:
   when SDL_SensorClose_renamed_SDL_CloseSensor is static:
     const
-      SDL_SensorClose* = SDL_SensorClose_renamed_SDL_CloseSensor
+      SDL_SensorClose* = SDL_SensorClose_renamed_SDL_CloseSensor 
   else:
-    let SDL_SensorClose* = SDL_SensorClose_renamed_SDL_CloseSensor
+    let SDL_SensorClose* = SDL_SensorClose_renamed_SDL_CloseSensor 
 when SDL_SensorFromInstanceID_renamed_SDL_GetSensorFromID is typedesc:
   type
-    SDL_SensorFromInstanceID* = SDL_SensorFromInstanceID_renamed_SDL_GetSensorFromID
+    SDL_SensorFromInstanceID* = SDL_SensorFromInstanceID_renamed_SDL_GetSensorFromID 
 else:
   when SDL_SensorFromInstanceID_renamed_SDL_GetSensorFromID is static:
     const
-      SDL_SensorFromInstanceID* = SDL_SensorFromInstanceID_renamed_SDL_GetSensorFromID
+      SDL_SensorFromInstanceID* = SDL_SensorFromInstanceID_renamed_SDL_GetSensorFromID 
   else:
-    let SDL_SensorFromInstanceID* = SDL_SensorFromInstanceID_renamed_SDL_GetSensorFromID
+    let SDL_SensorFromInstanceID* = SDL_SensorFromInstanceID_renamed_SDL_GetSensorFromID 
 when SDL_SensorGetData_renamed_SDL_GetSensorData is typedesc:
   type
-    SDL_SensorGetData* = SDL_SensorGetData_renamed_SDL_GetSensorData
+    SDL_SensorGetData* = SDL_SensorGetData_renamed_SDL_GetSensorData 
 else:
   when SDL_SensorGetData_renamed_SDL_GetSensorData is static:
     const
-      SDL_SensorGetData* = SDL_SensorGetData_renamed_SDL_GetSensorData
+      SDL_SensorGetData* = SDL_SensorGetData_renamed_SDL_GetSensorData 
   else:
-    let SDL_SensorGetData* = SDL_SensorGetData_renamed_SDL_GetSensorData
+    let SDL_SensorGetData* = SDL_SensorGetData_renamed_SDL_GetSensorData 
 when SDL_SensorGetInstanceID_renamed_SDL_GetSensorID is typedesc:
   type
-    SDL_SensorGetInstanceID* = SDL_SensorGetInstanceID_renamed_SDL_GetSensorID
+    SDL_SensorGetInstanceID* = SDL_SensorGetInstanceID_renamed_SDL_GetSensorID 
 else:
   when SDL_SensorGetInstanceID_renamed_SDL_GetSensorID is static:
     const
-      SDL_SensorGetInstanceID* = SDL_SensorGetInstanceID_renamed_SDL_GetSensorID
+      SDL_SensorGetInstanceID* = SDL_SensorGetInstanceID_renamed_SDL_GetSensorID 
   else:
-    let SDL_SensorGetInstanceID* = SDL_SensorGetInstanceID_renamed_SDL_GetSensorID
+    let SDL_SensorGetInstanceID* = SDL_SensorGetInstanceID_renamed_SDL_GetSensorID 
 when SDL_SensorGetName_renamed_SDL_GetSensorName is typedesc:
   type
-    SDL_SensorGetName* = SDL_SensorGetName_renamed_SDL_GetSensorName
+    SDL_SensorGetName* = SDL_SensorGetName_renamed_SDL_GetSensorName 
 else:
   when SDL_SensorGetName_renamed_SDL_GetSensorName is static:
     const
-      SDL_SensorGetName* = SDL_SensorGetName_renamed_SDL_GetSensorName
+      SDL_SensorGetName* = SDL_SensorGetName_renamed_SDL_GetSensorName 
   else:
-    let SDL_SensorGetName* = SDL_SensorGetName_renamed_SDL_GetSensorName
+    let SDL_SensorGetName* = SDL_SensorGetName_renamed_SDL_GetSensorName 
 when SDL_SensorGetNonPortableType_renamed_SDL_GetSensorNonPortableType is
     typedesc:
   type
-    SDL_SensorGetNonPortableType* = SDL_SensorGetNonPortableType_renamed_SDL_GetSensorNonPortableType
+    SDL_SensorGetNonPortableType* = SDL_SensorGetNonPortableType_renamed_SDL_GetSensorNonPortableType 
 else:
   when SDL_SensorGetNonPortableType_renamed_SDL_GetSensorNonPortableType is
       static:
     const
-      SDL_SensorGetNonPortableType* = SDL_SensorGetNonPortableType_renamed_SDL_GetSensorNonPortableType
+      SDL_SensorGetNonPortableType* = SDL_SensorGetNonPortableType_renamed_SDL_GetSensorNonPortableType 
   else:
-    let SDL_SensorGetNonPortableType* = SDL_SensorGetNonPortableType_renamed_SDL_GetSensorNonPortableType
+    let SDL_SensorGetNonPortableType* = SDL_SensorGetNonPortableType_renamed_SDL_GetSensorNonPortableType 
 when SDL_SensorGetType_renamed_SDL_GetSensorType is typedesc:
   type
-    SDL_SensorGetType* = SDL_SensorGetType_renamed_SDL_GetSensorType
+    SDL_SensorGetType* = SDL_SensorGetType_renamed_SDL_GetSensorType 
 else:
   when SDL_SensorGetType_renamed_SDL_GetSensorType is static:
     const
-      SDL_SensorGetType* = SDL_SensorGetType_renamed_SDL_GetSensorType
+      SDL_SensorGetType* = SDL_SensorGetType_renamed_SDL_GetSensorType 
   else:
-    let SDL_SensorGetType* = SDL_SensorGetType_renamed_SDL_GetSensorType
+    let SDL_SensorGetType* = SDL_SensorGetType_renamed_SDL_GetSensorType 
 when SDL_SensorOpen_renamed_SDL_OpenSensor is typedesc:
   type
-    SDL_SensorOpen* = SDL_SensorOpen_renamed_SDL_OpenSensor
+    SDL_SensorOpen* = SDL_SensorOpen_renamed_SDL_OpenSensor 
 else:
   when SDL_SensorOpen_renamed_SDL_OpenSensor is static:
     const
-      SDL_SensorOpen* = SDL_SensorOpen_renamed_SDL_OpenSensor
+      SDL_SensorOpen* = SDL_SensorOpen_renamed_SDL_OpenSensor 
   else:
-    let SDL_SensorOpen* = SDL_SensorOpen_renamed_SDL_OpenSensor
+    let SDL_SensorOpen* = SDL_SensorOpen_renamed_SDL_OpenSensor 
 when SDL_SensorUpdate_renamed_SDL_UpdateSensors is typedesc:
   type
-    SDL_SensorUpdate_const* = SDL_SensorUpdate_renamed_SDL_UpdateSensors
+    SDL_SensorUpdate_const* = SDL_SensorUpdate_renamed_SDL_UpdateSensors 
 else:
   when SDL_SensorUpdate_renamed_SDL_UpdateSensors is static:
     const
-      SDL_SensorUpdate_const* = SDL_SensorUpdate_renamed_SDL_UpdateSensors
+      SDL_SensorUpdate_const* = SDL_SensorUpdate_renamed_SDL_UpdateSensors 
   else:
-    let SDL_SensorUpdate_const* = SDL_SensorUpdate_renamed_SDL_UpdateSensors
+    let SDL_SensorUpdate_const* = SDL_SensorUpdate_renamed_SDL_UpdateSensors 
 when SDL_FALSE_renamed_false is typedesc:
   type
-    SDL_FALSE* = SDL_FALSE_renamed_false
+    SDL_FALSE* = SDL_FALSE_renamed_false 
 else:
   when SDL_FALSE_renamed_false is static:
     const
-      SDL_FALSE* = SDL_FALSE_renamed_false
+      SDL_FALSE* = SDL_FALSE_renamed_false 
   else:
-    let SDL_FALSE* = SDL_FALSE_renamed_false
+    let SDL_FALSE* = SDL_FALSE_renamed_false 
 when SDL_TABLESIZE_renamed_SDL_arraysize is typedesc:
   type
-    SDL_TABLESIZE* = SDL_TABLESIZE_renamed_SDL_arraysize
+    SDL_TABLESIZE* = SDL_TABLESIZE_renamed_SDL_arraysize 
 else:
   when SDL_TABLESIZE_renamed_SDL_arraysize is static:
     const
-      SDL_TABLESIZE* = SDL_TABLESIZE_renamed_SDL_arraysize
+      SDL_TABLESIZE* = SDL_TABLESIZE_renamed_SDL_arraysize 
   else:
-    let SDL_TABLESIZE* = SDL_TABLESIZE_renamed_SDL_arraysize
+    let SDL_TABLESIZE* = SDL_TABLESIZE_renamed_SDL_arraysize 
 when SDL_TRUE_renamed_true is typedesc:
   type
-    SDL_TRUE* = SDL_TRUE_renamed_true
+    SDL_TRUE* = SDL_TRUE_renamed_true 
 else:
   when SDL_TRUE_renamed_true is static:
     const
-      SDL_TRUE* = SDL_TRUE_renamed_true
+      SDL_TRUE* = SDL_TRUE_renamed_true 
   else:
-    let SDL_TRUE* = SDL_TRUE_renamed_true
+    let SDL_TRUE* = SDL_TRUE_renamed_true 
 when SDL_bool_renamed_bool is typedesc:
   type
-    SDL_bool* = SDL_bool_renamed_bool
+    SDL_bool* = SDL_bool_renamed_bool 
 else:
   when SDL_bool_renamed_bool is static:
     const
-      SDL_bool* = SDL_bool_renamed_bool
+      SDL_bool* = SDL_bool_renamed_bool 
   else:
-    let SDL_bool* = SDL_bool_renamed_bool
+    let SDL_bool* = SDL_bool_renamed_bool 
 when SDL_size_add_overflow_renamed_SDL_size_add_check_overflow is typedesc:
   type
-    SDL_size_add_overflow* = SDL_size_add_overflow_renamed_SDL_size_add_check_overflow
+    SDL_size_add_overflow* = SDL_size_add_overflow_renamed_SDL_size_add_check_overflow 
 else:
   when SDL_size_add_overflow_renamed_SDL_size_add_check_overflow is static:
     const
-      SDL_size_add_overflow* = SDL_size_add_overflow_renamed_SDL_size_add_check_overflow
+      SDL_size_add_overflow* = SDL_size_add_overflow_renamed_SDL_size_add_check_overflow 
   else:
-    let SDL_size_add_overflow* = SDL_size_add_overflow_renamed_SDL_size_add_check_overflow
+    let SDL_size_add_overflow* = SDL_size_add_overflow_renamed_SDL_size_add_check_overflow 
 when SDL_size_mul_overflow_renamed_SDL_size_mul_check_overflow is typedesc:
   type
-    SDL_size_mul_overflow* = SDL_size_mul_overflow_renamed_SDL_size_mul_check_overflow
+    SDL_size_mul_overflow* = SDL_size_mul_overflow_renamed_SDL_size_mul_check_overflow 
 else:
   when SDL_size_mul_overflow_renamed_SDL_size_mul_check_overflow is static:
     const
-      SDL_size_mul_overflow* = SDL_size_mul_overflow_renamed_SDL_size_mul_check_overflow
+      SDL_size_mul_overflow* = SDL_size_mul_overflow_renamed_SDL_size_mul_check_overflow 
   else:
-    let SDL_size_mul_overflow* = SDL_size_mul_overflow_renamed_SDL_size_mul_check_overflow
+    let SDL_size_mul_overflow* = SDL_size_mul_overflow_renamed_SDL_size_mul_check_overflow 
 when SDL_strtokr_renamed_SDL_strtok_r is typedesc:
   type
-    SDL_strtokr* = SDL_strtokr_renamed_SDL_strtok_r
+    SDL_strtokr* = SDL_strtokr_renamed_SDL_strtok_r 
 else:
   when SDL_strtokr_renamed_SDL_strtok_r is static:
     const
-      SDL_strtokr* = SDL_strtokr_renamed_SDL_strtok_r
+      SDL_strtokr* = SDL_strtokr_renamed_SDL_strtok_r 
   else:
-    let SDL_strtokr* = SDL_strtokr_renamed_SDL_strtok_r
+    let SDL_strtokr* = SDL_strtokr_renamed_SDL_strtok_r 
 when SDL_BlitScaled_renamed_SDL_BlitSurfaceScaled is typedesc:
   type
-    SDL_BlitScaled* = SDL_BlitScaled_renamed_SDL_BlitSurfaceScaled
+    SDL_BlitScaled* = SDL_BlitScaled_renamed_SDL_BlitSurfaceScaled 
 else:
   when SDL_BlitScaled_renamed_SDL_BlitSurfaceScaled is static:
     const
-      SDL_BlitScaled* = SDL_BlitScaled_renamed_SDL_BlitSurfaceScaled
+      SDL_BlitScaled* = SDL_BlitScaled_renamed_SDL_BlitSurfaceScaled 
   else:
-    let SDL_BlitScaled* = SDL_BlitScaled_renamed_SDL_BlitSurfaceScaled
+    let SDL_BlitScaled* = SDL_BlitScaled_renamed_SDL_BlitSurfaceScaled 
 when SDL_ConvertSurfaceFormat_renamed_SDL_ConvertSurface is typedesc:
   type
-    SDL_ConvertSurfaceFormat* = SDL_ConvertSurfaceFormat_renamed_SDL_ConvertSurface
+    SDL_ConvertSurfaceFormat* = SDL_ConvertSurfaceFormat_renamed_SDL_ConvertSurface 
 else:
   when SDL_ConvertSurfaceFormat_renamed_SDL_ConvertSurface is static:
     const
-      SDL_ConvertSurfaceFormat* = SDL_ConvertSurfaceFormat_renamed_SDL_ConvertSurface
+      SDL_ConvertSurfaceFormat* = SDL_ConvertSurfaceFormat_renamed_SDL_ConvertSurface 
   else:
-    let SDL_ConvertSurfaceFormat* = SDL_ConvertSurfaceFormat_renamed_SDL_ConvertSurface
+    let SDL_ConvertSurfaceFormat* = SDL_ConvertSurfaceFormat_renamed_SDL_ConvertSurface 
 when SDL_FillRect_renamed_SDL_FillSurfaceRect is typedesc:
   type
-    SDL_FillRect* = SDL_FillRect_renamed_SDL_FillSurfaceRect
+    SDL_FillRect* = SDL_FillRect_renamed_SDL_FillSurfaceRect 
 else:
   when SDL_FillRect_renamed_SDL_FillSurfaceRect is static:
     const
-      SDL_FillRect* = SDL_FillRect_renamed_SDL_FillSurfaceRect
+      SDL_FillRect* = SDL_FillRect_renamed_SDL_FillSurfaceRect 
   else:
-    let SDL_FillRect* = SDL_FillRect_renamed_SDL_FillSurfaceRect
+    let SDL_FillRect* = SDL_FillRect_renamed_SDL_FillSurfaceRect 
 when SDL_FillRects_renamed_SDL_FillSurfaceRects is typedesc:
   type
-    SDL_FillRects* = SDL_FillRects_renamed_SDL_FillSurfaceRects
+    SDL_FillRects* = SDL_FillRects_renamed_SDL_FillSurfaceRects 
 else:
   when SDL_FillRects_renamed_SDL_FillSurfaceRects is static:
     const
-      SDL_FillRects* = SDL_FillRects_renamed_SDL_FillSurfaceRects
+      SDL_FillRects* = SDL_FillRects_renamed_SDL_FillSurfaceRects 
   else:
-    let SDL_FillRects* = SDL_FillRects_renamed_SDL_FillSurfaceRects
+    let SDL_FillRects* = SDL_FillRects_renamed_SDL_FillSurfaceRects 
 when SDL_FreeSurface_renamed_SDL_DestroySurface is typedesc:
   type
-    SDL_FreeSurface* = SDL_FreeSurface_renamed_SDL_DestroySurface
+    SDL_FreeSurface* = SDL_FreeSurface_renamed_SDL_DestroySurface 
 else:
   when SDL_FreeSurface_renamed_SDL_DestroySurface is static:
     const
-      SDL_FreeSurface* = SDL_FreeSurface_renamed_SDL_DestroySurface
+      SDL_FreeSurface* = SDL_FreeSurface_renamed_SDL_DestroySurface 
   else:
-    let SDL_FreeSurface* = SDL_FreeSurface_renamed_SDL_DestroySurface
+    let SDL_FreeSurface* = SDL_FreeSurface_renamed_SDL_DestroySurface 
 when SDL_GetClipRect_renamed_SDL_GetSurfaceClipRect is typedesc:
   type
-    SDL_GetClipRect* = SDL_GetClipRect_renamed_SDL_GetSurfaceClipRect
+    SDL_GetClipRect* = SDL_GetClipRect_renamed_SDL_GetSurfaceClipRect 
 else:
   when SDL_GetClipRect_renamed_SDL_GetSurfaceClipRect is static:
     const
-      SDL_GetClipRect* = SDL_GetClipRect_renamed_SDL_GetSurfaceClipRect
+      SDL_GetClipRect* = SDL_GetClipRect_renamed_SDL_GetSurfaceClipRect 
   else:
-    let SDL_GetClipRect* = SDL_GetClipRect_renamed_SDL_GetSurfaceClipRect
+    let SDL_GetClipRect* = SDL_GetClipRect_renamed_SDL_GetSurfaceClipRect 
 when SDL_GetColorKey_renamed_SDL_GetSurfaceColorKey is typedesc:
   type
-    SDL_GetColorKey* = SDL_GetColorKey_renamed_SDL_GetSurfaceColorKey
+    SDL_GetColorKey* = SDL_GetColorKey_renamed_SDL_GetSurfaceColorKey 
 else:
   when SDL_GetColorKey_renamed_SDL_GetSurfaceColorKey is static:
     const
-      SDL_GetColorKey* = SDL_GetColorKey_renamed_SDL_GetSurfaceColorKey
+      SDL_GetColorKey* = SDL_GetColorKey_renamed_SDL_GetSurfaceColorKey 
   else:
-    let SDL_GetColorKey* = SDL_GetColorKey_renamed_SDL_GetSurfaceColorKey
+    let SDL_GetColorKey* = SDL_GetColorKey_renamed_SDL_GetSurfaceColorKey 
 when SDL_HasColorKey_renamed_SDL_SurfaceHasColorKey is typedesc:
   type
-    SDL_HasColorKey* = SDL_HasColorKey_renamed_SDL_SurfaceHasColorKey
+    SDL_HasColorKey* = SDL_HasColorKey_renamed_SDL_SurfaceHasColorKey 
 else:
   when SDL_HasColorKey_renamed_SDL_SurfaceHasColorKey is static:
     const
-      SDL_HasColorKey* = SDL_HasColorKey_renamed_SDL_SurfaceHasColorKey
+      SDL_HasColorKey* = SDL_HasColorKey_renamed_SDL_SurfaceHasColorKey 
   else:
-    let SDL_HasColorKey* = SDL_HasColorKey_renamed_SDL_SurfaceHasColorKey
+    let SDL_HasColorKey* = SDL_HasColorKey_renamed_SDL_SurfaceHasColorKey 
 when SDL_HasSurfaceRLE_renamed_SDL_SurfaceHasRLE is typedesc:
   type
-    SDL_HasSurfaceRLE* = SDL_HasSurfaceRLE_renamed_SDL_SurfaceHasRLE
+    SDL_HasSurfaceRLE* = SDL_HasSurfaceRLE_renamed_SDL_SurfaceHasRLE 
 else:
   when SDL_HasSurfaceRLE_renamed_SDL_SurfaceHasRLE is static:
     const
-      SDL_HasSurfaceRLE* = SDL_HasSurfaceRLE_renamed_SDL_SurfaceHasRLE
+      SDL_HasSurfaceRLE* = SDL_HasSurfaceRLE_renamed_SDL_SurfaceHasRLE 
   else:
-    let SDL_HasSurfaceRLE* = SDL_HasSurfaceRLE_renamed_SDL_SurfaceHasRLE
+    let SDL_HasSurfaceRLE* = SDL_HasSurfaceRLE_renamed_SDL_SurfaceHasRLE 
 when SDL_LoadBMP_RW_renamed_SDL_LoadBMP_IO is typedesc:
   type
-    SDL_LoadBMP_RW* = SDL_LoadBMP_RW_renamed_SDL_LoadBMP_IO
+    SDL_LoadBMP_RW* = SDL_LoadBMP_RW_renamed_SDL_LoadBMP_IO 
 else:
   when SDL_LoadBMP_RW_renamed_SDL_LoadBMP_IO is static:
     const
-      SDL_LoadBMP_RW* = SDL_LoadBMP_RW_renamed_SDL_LoadBMP_IO
+      SDL_LoadBMP_RW* = SDL_LoadBMP_RW_renamed_SDL_LoadBMP_IO 
   else:
-    let SDL_LoadBMP_RW* = SDL_LoadBMP_RW_renamed_SDL_LoadBMP_IO
+    let SDL_LoadBMP_RW* = SDL_LoadBMP_RW_renamed_SDL_LoadBMP_IO 
 when SDL_LowerBlit_renamed_SDL_BlitSurfaceUnchecked is typedesc:
   type
-    SDL_LowerBlit* = SDL_LowerBlit_renamed_SDL_BlitSurfaceUnchecked
+    SDL_LowerBlit* = SDL_LowerBlit_renamed_SDL_BlitSurfaceUnchecked 
 else:
   when SDL_LowerBlit_renamed_SDL_BlitSurfaceUnchecked is static:
     const
-      SDL_LowerBlit* = SDL_LowerBlit_renamed_SDL_BlitSurfaceUnchecked
+      SDL_LowerBlit* = SDL_LowerBlit_renamed_SDL_BlitSurfaceUnchecked 
   else:
-    let SDL_LowerBlit* = SDL_LowerBlit_renamed_SDL_BlitSurfaceUnchecked
+    let SDL_LowerBlit* = SDL_LowerBlit_renamed_SDL_BlitSurfaceUnchecked 
 when SDL_LowerBlitScaled_renamed_SDL_BlitSurfaceUncheckedScaled is typedesc:
   type
-    SDL_LowerBlitScaled* = SDL_LowerBlitScaled_renamed_SDL_BlitSurfaceUncheckedScaled
+    SDL_LowerBlitScaled* = SDL_LowerBlitScaled_renamed_SDL_BlitSurfaceUncheckedScaled 
 else:
   when SDL_LowerBlitScaled_renamed_SDL_BlitSurfaceUncheckedScaled is static:
     const
-      SDL_LowerBlitScaled* = SDL_LowerBlitScaled_renamed_SDL_BlitSurfaceUncheckedScaled
+      SDL_LowerBlitScaled* = SDL_LowerBlitScaled_renamed_SDL_BlitSurfaceUncheckedScaled 
   else:
-    let SDL_LowerBlitScaled* = SDL_LowerBlitScaled_renamed_SDL_BlitSurfaceUncheckedScaled
+    let SDL_LowerBlitScaled* = SDL_LowerBlitScaled_renamed_SDL_BlitSurfaceUncheckedScaled 
 when SDL_PREALLOC_renamed_SDL_SURFACE_PREALLOCATED is typedesc:
   type
-    SDL_PREALLOC* = SDL_PREALLOC_renamed_SDL_SURFACE_PREALLOCATED
+    SDL_PREALLOC* = SDL_PREALLOC_renamed_SDL_SURFACE_PREALLOCATED 
 else:
   when SDL_PREALLOC_renamed_SDL_SURFACE_PREALLOCATED is static:
     const
-      SDL_PREALLOC* = SDL_PREALLOC_renamed_SDL_SURFACE_PREALLOCATED
+      SDL_PREALLOC* = SDL_PREALLOC_renamed_SDL_SURFACE_PREALLOCATED 
   else:
-    let SDL_PREALLOC* = SDL_PREALLOC_renamed_SDL_SURFACE_PREALLOCATED
+    let SDL_PREALLOC* = SDL_PREALLOC_renamed_SDL_SURFACE_PREALLOCATED 
 when SDL_SIMD_ALIGNED_renamed_SDL_SURFACE_SIMD_ALIGNED is typedesc:
   type
-    SDL_SIMD_ALIGNED* = SDL_SIMD_ALIGNED_renamed_SDL_SURFACE_SIMD_ALIGNED
+    SDL_SIMD_ALIGNED* = SDL_SIMD_ALIGNED_renamed_SDL_SURFACE_SIMD_ALIGNED 
 else:
   when SDL_SIMD_ALIGNED_renamed_SDL_SURFACE_SIMD_ALIGNED is static:
     const
-      SDL_SIMD_ALIGNED* = SDL_SIMD_ALIGNED_renamed_SDL_SURFACE_SIMD_ALIGNED
+      SDL_SIMD_ALIGNED* = SDL_SIMD_ALIGNED_renamed_SDL_SURFACE_SIMD_ALIGNED 
   else:
-    let SDL_SIMD_ALIGNED* = SDL_SIMD_ALIGNED_renamed_SDL_SURFACE_SIMD_ALIGNED
+    let SDL_SIMD_ALIGNED* = SDL_SIMD_ALIGNED_renamed_SDL_SURFACE_SIMD_ALIGNED 
 when SDL_SaveBMP_RW_renamed_SDL_SaveBMP_IO is typedesc:
   type
-    SDL_SaveBMP_RW* = SDL_SaveBMP_RW_renamed_SDL_SaveBMP_IO
+    SDL_SaveBMP_RW* = SDL_SaveBMP_RW_renamed_SDL_SaveBMP_IO 
 else:
   when SDL_SaveBMP_RW_renamed_SDL_SaveBMP_IO is static:
     const
-      SDL_SaveBMP_RW* = SDL_SaveBMP_RW_renamed_SDL_SaveBMP_IO
+      SDL_SaveBMP_RW* = SDL_SaveBMP_RW_renamed_SDL_SaveBMP_IO 
   else:
-    let SDL_SaveBMP_RW* = SDL_SaveBMP_RW_renamed_SDL_SaveBMP_IO
+    let SDL_SaveBMP_RW* = SDL_SaveBMP_RW_renamed_SDL_SaveBMP_IO 
 when SDL_SetClipRect_renamed_SDL_SetSurfaceClipRect is typedesc:
   type
-    SDL_SetClipRect* = SDL_SetClipRect_renamed_SDL_SetSurfaceClipRect
+    SDL_SetClipRect* = SDL_SetClipRect_renamed_SDL_SetSurfaceClipRect 
 else:
   when SDL_SetClipRect_renamed_SDL_SetSurfaceClipRect is static:
     const
-      SDL_SetClipRect* = SDL_SetClipRect_renamed_SDL_SetSurfaceClipRect
+      SDL_SetClipRect* = SDL_SetClipRect_renamed_SDL_SetSurfaceClipRect 
   else:
-    let SDL_SetClipRect* = SDL_SetClipRect_renamed_SDL_SetSurfaceClipRect
+    let SDL_SetClipRect* = SDL_SetClipRect_renamed_SDL_SetSurfaceClipRect 
 when SDL_SetColorKey_renamed_SDL_SetSurfaceColorKey is typedesc:
   type
-    SDL_SetColorKey* = SDL_SetColorKey_renamed_SDL_SetSurfaceColorKey
+    SDL_SetColorKey* = SDL_SetColorKey_renamed_SDL_SetSurfaceColorKey 
 else:
   when SDL_SetColorKey_renamed_SDL_SetSurfaceColorKey is static:
     const
-      SDL_SetColorKey* = SDL_SetColorKey_renamed_SDL_SetSurfaceColorKey
+      SDL_SetColorKey* = SDL_SetColorKey_renamed_SDL_SetSurfaceColorKey 
   else:
-    let SDL_SetColorKey* = SDL_SetColorKey_renamed_SDL_SetSurfaceColorKey
+    let SDL_SetColorKey* = SDL_SetColorKey_renamed_SDL_SetSurfaceColorKey 
 when SDL_UpperBlit_renamed_SDL_BlitSurface is typedesc:
   type
-    SDL_UpperBlit* = SDL_UpperBlit_renamed_SDL_BlitSurface
+    SDL_UpperBlit* = SDL_UpperBlit_renamed_SDL_BlitSurface 
 else:
   when SDL_UpperBlit_renamed_SDL_BlitSurface is static:
     const
-      SDL_UpperBlit* = SDL_UpperBlit_renamed_SDL_BlitSurface
+      SDL_UpperBlit* = SDL_UpperBlit_renamed_SDL_BlitSurface 
   else:
-    let SDL_UpperBlit* = SDL_UpperBlit_renamed_SDL_BlitSurface
+    let SDL_UpperBlit* = SDL_UpperBlit_renamed_SDL_BlitSurface 
 when SDL_UpperBlitScaled_renamed_SDL_BlitSurfaceScaled is typedesc:
   type
-    SDL_UpperBlitScaled* = SDL_UpperBlitScaled_renamed_SDL_BlitSurfaceScaled
+    SDL_UpperBlitScaled* = SDL_UpperBlitScaled_renamed_SDL_BlitSurfaceScaled 
 else:
   when SDL_UpperBlitScaled_renamed_SDL_BlitSurfaceScaled is static:
     const
-      SDL_UpperBlitScaled* = SDL_UpperBlitScaled_renamed_SDL_BlitSurfaceScaled
+      SDL_UpperBlitScaled* = SDL_UpperBlitScaled_renamed_SDL_BlitSurfaceScaled 
   else:
-    let SDL_UpperBlitScaled* = SDL_UpperBlitScaled_renamed_SDL_BlitSurfaceScaled
+    let SDL_UpperBlitScaled* = SDL_UpperBlitScaled_renamed_SDL_BlitSurfaceScaled 
 when SDL_AndroidBackButton_renamed_SDL_SendAndroidBackButton is typedesc:
   type
-    SDL_AndroidBackButton* = SDL_AndroidBackButton_renamed_SDL_SendAndroidBackButton
+    SDL_AndroidBackButton* = SDL_AndroidBackButton_renamed_SDL_SendAndroidBackButton 
 else:
   when SDL_AndroidBackButton_renamed_SDL_SendAndroidBackButton is static:
     const
-      SDL_AndroidBackButton* = SDL_AndroidBackButton_renamed_SDL_SendAndroidBackButton
+      SDL_AndroidBackButton* = SDL_AndroidBackButton_renamed_SDL_SendAndroidBackButton 
   else:
-    let SDL_AndroidBackButton* = SDL_AndroidBackButton_renamed_SDL_SendAndroidBackButton
+    let SDL_AndroidBackButton* = SDL_AndroidBackButton_renamed_SDL_SendAndroidBackButton 
 when SDL_AndroidGetActivity_renamed_SDL_GetAndroidActivity is typedesc:
   type
-    SDL_AndroidGetActivity* = SDL_AndroidGetActivity_renamed_SDL_GetAndroidActivity
+    SDL_AndroidGetActivity* = SDL_AndroidGetActivity_renamed_SDL_GetAndroidActivity 
 else:
   when SDL_AndroidGetActivity_renamed_SDL_GetAndroidActivity is static:
     const
-      SDL_AndroidGetActivity* = SDL_AndroidGetActivity_renamed_SDL_GetAndroidActivity
+      SDL_AndroidGetActivity* = SDL_AndroidGetActivity_renamed_SDL_GetAndroidActivity 
   else:
-    let SDL_AndroidGetActivity* = SDL_AndroidGetActivity_renamed_SDL_GetAndroidActivity
+    let SDL_AndroidGetActivity* = SDL_AndroidGetActivity_renamed_SDL_GetAndroidActivity 
 when SDL_AndroidGetExternalStoragePath_renamed_SDL_GetAndroidExternalStoragePath is
     typedesc:
   type
-    SDL_AndroidGetExternalStoragePath* = SDL_AndroidGetExternalStoragePath_renamed_SDL_GetAndroidExternalStoragePath
+    SDL_AndroidGetExternalStoragePath* = SDL_AndroidGetExternalStoragePath_renamed_SDL_GetAndroidExternalStoragePath 
 else:
   when SDL_AndroidGetExternalStoragePath_renamed_SDL_GetAndroidExternalStoragePath is
       static:
     const
-      SDL_AndroidGetExternalStoragePath* = SDL_AndroidGetExternalStoragePath_renamed_SDL_GetAndroidExternalStoragePath
+      SDL_AndroidGetExternalStoragePath* = SDL_AndroidGetExternalStoragePath_renamed_SDL_GetAndroidExternalStoragePath 
   else:
-    let SDL_AndroidGetExternalStoragePath* = SDL_AndroidGetExternalStoragePath_renamed_SDL_GetAndroidExternalStoragePath
+    let SDL_AndroidGetExternalStoragePath* = SDL_AndroidGetExternalStoragePath_renamed_SDL_GetAndroidExternalStoragePath 
 when SDL_AndroidGetExternalStorageState_renamed_SDL_GetAndroidExternalStorageState is
     typedesc:
   type
-    SDL_AndroidGetExternalStorageState* = SDL_AndroidGetExternalStorageState_renamed_SDL_GetAndroidExternalStorageState
+    SDL_AndroidGetExternalStorageState* = SDL_AndroidGetExternalStorageState_renamed_SDL_GetAndroidExternalStorageState 
 else:
   when SDL_AndroidGetExternalStorageState_renamed_SDL_GetAndroidExternalStorageState is
       static:
     const
-      SDL_AndroidGetExternalStorageState* = SDL_AndroidGetExternalStorageState_renamed_SDL_GetAndroidExternalStorageState
+      SDL_AndroidGetExternalStorageState* = SDL_AndroidGetExternalStorageState_renamed_SDL_GetAndroidExternalStorageState 
   else:
-    let SDL_AndroidGetExternalStorageState* = SDL_AndroidGetExternalStorageState_renamed_SDL_GetAndroidExternalStorageState
+    let SDL_AndroidGetExternalStorageState* = SDL_AndroidGetExternalStorageState_renamed_SDL_GetAndroidExternalStorageState 
 when SDL_AndroidGetInternalStoragePath_renamed_SDL_GetAndroidInternalStoragePath is
     typedesc:
   type
-    SDL_AndroidGetInternalStoragePath* = SDL_AndroidGetInternalStoragePath_renamed_SDL_GetAndroidInternalStoragePath
+    SDL_AndroidGetInternalStoragePath* = SDL_AndroidGetInternalStoragePath_renamed_SDL_GetAndroidInternalStoragePath 
 else:
   when SDL_AndroidGetInternalStoragePath_renamed_SDL_GetAndroidInternalStoragePath is
       static:
     const
-      SDL_AndroidGetInternalStoragePath* = SDL_AndroidGetInternalStoragePath_renamed_SDL_GetAndroidInternalStoragePath
+      SDL_AndroidGetInternalStoragePath* = SDL_AndroidGetInternalStoragePath_renamed_SDL_GetAndroidInternalStoragePath 
   else:
-    let SDL_AndroidGetInternalStoragePath* = SDL_AndroidGetInternalStoragePath_renamed_SDL_GetAndroidInternalStoragePath
+    let SDL_AndroidGetInternalStoragePath* = SDL_AndroidGetInternalStoragePath_renamed_SDL_GetAndroidInternalStoragePath 
 when SDL_AndroidGetJNIEnv_renamed_SDL_GetAndroidJNIEnv is typedesc:
   type
-    SDL_AndroidGetJNIEnv* = SDL_AndroidGetJNIEnv_renamed_SDL_GetAndroidJNIEnv
+    SDL_AndroidGetJNIEnv* = SDL_AndroidGetJNIEnv_renamed_SDL_GetAndroidJNIEnv 
 else:
   when SDL_AndroidGetJNIEnv_renamed_SDL_GetAndroidJNIEnv is static:
     const
-      SDL_AndroidGetJNIEnv* = SDL_AndroidGetJNIEnv_renamed_SDL_GetAndroidJNIEnv
+      SDL_AndroidGetJNIEnv* = SDL_AndroidGetJNIEnv_renamed_SDL_GetAndroidJNIEnv 
   else:
-    let SDL_AndroidGetJNIEnv* = SDL_AndroidGetJNIEnv_renamed_SDL_GetAndroidJNIEnv
+    let SDL_AndroidGetJNIEnv* = SDL_AndroidGetJNIEnv_renamed_SDL_GetAndroidJNIEnv 
 when SDL_AndroidRequestPermission_renamed_SDL_RequestAndroidPermission is
     typedesc:
   type
-    SDL_AndroidRequestPermission* = SDL_AndroidRequestPermission_renamed_SDL_RequestAndroidPermission
+    SDL_AndroidRequestPermission* = SDL_AndroidRequestPermission_renamed_SDL_RequestAndroidPermission 
 else:
   when SDL_AndroidRequestPermission_renamed_SDL_RequestAndroidPermission is
       static:
     const
-      SDL_AndroidRequestPermission* = SDL_AndroidRequestPermission_renamed_SDL_RequestAndroidPermission
+      SDL_AndroidRequestPermission* = SDL_AndroidRequestPermission_renamed_SDL_RequestAndroidPermission 
   else:
-    let SDL_AndroidRequestPermission* = SDL_AndroidRequestPermission_renamed_SDL_RequestAndroidPermission
+    let SDL_AndroidRequestPermission* = SDL_AndroidRequestPermission_renamed_SDL_RequestAndroidPermission 
 when SDL_AndroidRequestPermissionCallback_renamed_SDL_RequestAndroidPermissionCallback is
     typedesc:
   type
-    SDL_AndroidRequestPermissionCallback* = SDL_AndroidRequestPermissionCallback_renamed_SDL_RequestAndroidPermissionCallback
+    SDL_AndroidRequestPermissionCallback* = SDL_AndroidRequestPermissionCallback_renamed_SDL_RequestAndroidPermissionCallback 
 else:
   when SDL_AndroidRequestPermissionCallback_renamed_SDL_RequestAndroidPermissionCallback is
       static:
     const
-      SDL_AndroidRequestPermissionCallback* = SDL_AndroidRequestPermissionCallback_renamed_SDL_RequestAndroidPermissionCallback
+      SDL_AndroidRequestPermissionCallback* = SDL_AndroidRequestPermissionCallback_renamed_SDL_RequestAndroidPermissionCallback 
   else:
-    let SDL_AndroidRequestPermissionCallback* = SDL_AndroidRequestPermissionCallback_renamed_SDL_RequestAndroidPermissionCallback
+    let SDL_AndroidRequestPermissionCallback* = SDL_AndroidRequestPermissionCallback_renamed_SDL_RequestAndroidPermissionCallback 
 when SDL_AndroidSendMessage_renamed_SDL_SendAndroidMessage is typedesc:
   type
-    SDL_AndroidSendMessage* = SDL_AndroidSendMessage_renamed_SDL_SendAndroidMessage
+    SDL_AndroidSendMessage* = SDL_AndroidSendMessage_renamed_SDL_SendAndroidMessage 
 else:
   when SDL_AndroidSendMessage_renamed_SDL_SendAndroidMessage is static:
     const
-      SDL_AndroidSendMessage* = SDL_AndroidSendMessage_renamed_SDL_SendAndroidMessage
+      SDL_AndroidSendMessage* = SDL_AndroidSendMessage_renamed_SDL_SendAndroidMessage 
   else:
-    let SDL_AndroidSendMessage* = SDL_AndroidSendMessage_renamed_SDL_SendAndroidMessage
+    let SDL_AndroidSendMessage* = SDL_AndroidSendMessage_renamed_SDL_SendAndroidMessage 
 when SDL_AndroidShowToast_renamed_SDL_ShowAndroidToast is typedesc:
   type
-    SDL_AndroidShowToast* = SDL_AndroidShowToast_renamed_SDL_ShowAndroidToast
+    SDL_AndroidShowToast* = SDL_AndroidShowToast_renamed_SDL_ShowAndroidToast 
 else:
   when SDL_AndroidShowToast_renamed_SDL_ShowAndroidToast is static:
     const
-      SDL_AndroidShowToast* = SDL_AndroidShowToast_renamed_SDL_ShowAndroidToast
+      SDL_AndroidShowToast* = SDL_AndroidShowToast_renamed_SDL_ShowAndroidToast 
   else:
-    let SDL_AndroidShowToast* = SDL_AndroidShowToast_renamed_SDL_ShowAndroidToast
+    let SDL_AndroidShowToast* = SDL_AndroidShowToast_renamed_SDL_ShowAndroidToast 
 when SDL_DXGIGetOutputInfo_renamed_SDL_GetDXGIOutputInfo is typedesc:
   type
-    SDL_DXGIGetOutputInfo* = SDL_DXGIGetOutputInfo_renamed_SDL_GetDXGIOutputInfo
+    SDL_DXGIGetOutputInfo* = SDL_DXGIGetOutputInfo_renamed_SDL_GetDXGIOutputInfo 
 else:
   when SDL_DXGIGetOutputInfo_renamed_SDL_GetDXGIOutputInfo is static:
     const
-      SDL_DXGIGetOutputInfo* = SDL_DXGIGetOutputInfo_renamed_SDL_GetDXGIOutputInfo
+      SDL_DXGIGetOutputInfo* = SDL_DXGIGetOutputInfo_renamed_SDL_GetDXGIOutputInfo 
   else:
-    let SDL_DXGIGetOutputInfo* = SDL_DXGIGetOutputInfo_renamed_SDL_GetDXGIOutputInfo
+    let SDL_DXGIGetOutputInfo* = SDL_DXGIGetOutputInfo_renamed_SDL_GetDXGIOutputInfo 
 when SDL_Direct3D9GetAdapterIndex_renamed_SDL_GetDirect3D9AdapterIndex is
     typedesc:
   type
-    SDL_Direct3D9GetAdapterIndex* = SDL_Direct3D9GetAdapterIndex_renamed_SDL_GetDirect3D9AdapterIndex
+    SDL_Direct3D9GetAdapterIndex* = SDL_Direct3D9GetAdapterIndex_renamed_SDL_GetDirect3D9AdapterIndex 
 else:
   when SDL_Direct3D9GetAdapterIndex_renamed_SDL_GetDirect3D9AdapterIndex is
       static:
     const
-      SDL_Direct3D9GetAdapterIndex* = SDL_Direct3D9GetAdapterIndex_renamed_SDL_GetDirect3D9AdapterIndex
+      SDL_Direct3D9GetAdapterIndex* = SDL_Direct3D9GetAdapterIndex_renamed_SDL_GetDirect3D9AdapterIndex 
   else:
-    let SDL_Direct3D9GetAdapterIndex* = SDL_Direct3D9GetAdapterIndex_renamed_SDL_GetDirect3D9AdapterIndex
+    let SDL_Direct3D9GetAdapterIndex* = SDL_Direct3D9GetAdapterIndex_renamed_SDL_GetDirect3D9AdapterIndex 
 when SDL_GDKGetDefaultUser_renamed_SDL_GetGDKDefaultUser is typedesc:
   type
-    SDL_GDKGetDefaultUser* = SDL_GDKGetDefaultUser_renamed_SDL_GetGDKDefaultUser
+    SDL_GDKGetDefaultUser* = SDL_GDKGetDefaultUser_renamed_SDL_GetGDKDefaultUser 
 else:
   when SDL_GDKGetDefaultUser_renamed_SDL_GetGDKDefaultUser is static:
     const
-      SDL_GDKGetDefaultUser* = SDL_GDKGetDefaultUser_renamed_SDL_GetGDKDefaultUser
+      SDL_GDKGetDefaultUser* = SDL_GDKGetDefaultUser_renamed_SDL_GetGDKDefaultUser 
   else:
-    let SDL_GDKGetDefaultUser* = SDL_GDKGetDefaultUser_renamed_SDL_GetGDKDefaultUser
+    let SDL_GDKGetDefaultUser* = SDL_GDKGetDefaultUser_renamed_SDL_GetGDKDefaultUser 
 when SDL_GDKGetTaskQueue_renamed_SDL_GetGDKTaskQueue is typedesc:
   type
-    SDL_GDKGetTaskQueue* = SDL_GDKGetTaskQueue_renamed_SDL_GetGDKTaskQueue
+    SDL_GDKGetTaskQueue* = SDL_GDKGetTaskQueue_renamed_SDL_GetGDKTaskQueue 
 else:
   when SDL_GDKGetTaskQueue_renamed_SDL_GetGDKTaskQueue is static:
     const
-      SDL_GDKGetTaskQueue* = SDL_GDKGetTaskQueue_renamed_SDL_GetGDKTaskQueue
+      SDL_GDKGetTaskQueue* = SDL_GDKGetTaskQueue_renamed_SDL_GetGDKTaskQueue 
   else:
-    let SDL_GDKGetTaskQueue* = SDL_GDKGetTaskQueue_renamed_SDL_GetGDKTaskQueue
+    let SDL_GDKGetTaskQueue* = SDL_GDKGetTaskQueue_renamed_SDL_GetGDKTaskQueue 
 when SDL_LinuxSetThreadPriority_renamed_SDL_SetLinuxThreadPriority is typedesc:
   type
-    SDL_LinuxSetThreadPriority* = SDL_LinuxSetThreadPriority_renamed_SDL_SetLinuxThreadPriority
+    SDL_LinuxSetThreadPriority* = SDL_LinuxSetThreadPriority_renamed_SDL_SetLinuxThreadPriority 
 else:
   when SDL_LinuxSetThreadPriority_renamed_SDL_SetLinuxThreadPriority is static:
     const
-      SDL_LinuxSetThreadPriority* = SDL_LinuxSetThreadPriority_renamed_SDL_SetLinuxThreadPriority
+      SDL_LinuxSetThreadPriority* = SDL_LinuxSetThreadPriority_renamed_SDL_SetLinuxThreadPriority 
   else:
-    let SDL_LinuxSetThreadPriority* = SDL_LinuxSetThreadPriority_renamed_SDL_SetLinuxThreadPriority
+    let SDL_LinuxSetThreadPriority* = SDL_LinuxSetThreadPriority_renamed_SDL_SetLinuxThreadPriority 
 when SDL_LinuxSetThreadPriorityAndPolicy_renamed_SDL_SetLinuxThreadPriorityAndPolicy is
     typedesc:
   type
-    SDL_LinuxSetThreadPriorityAndPolicy* = SDL_LinuxSetThreadPriorityAndPolicy_renamed_SDL_SetLinuxThreadPriorityAndPolicy
+    SDL_LinuxSetThreadPriorityAndPolicy* = SDL_LinuxSetThreadPriorityAndPolicy_renamed_SDL_SetLinuxThreadPriorityAndPolicy 
 else:
   when SDL_LinuxSetThreadPriorityAndPolicy_renamed_SDL_SetLinuxThreadPriorityAndPolicy is
       static:
     const
-      SDL_LinuxSetThreadPriorityAndPolicy* = SDL_LinuxSetThreadPriorityAndPolicy_renamed_SDL_SetLinuxThreadPriorityAndPolicy
+      SDL_LinuxSetThreadPriorityAndPolicy* = SDL_LinuxSetThreadPriorityAndPolicy_renamed_SDL_SetLinuxThreadPriorityAndPolicy 
   else:
-    let SDL_LinuxSetThreadPriorityAndPolicy* = SDL_LinuxSetThreadPriorityAndPolicy_renamed_SDL_SetLinuxThreadPriorityAndPolicy
+    let SDL_LinuxSetThreadPriorityAndPolicy* = SDL_LinuxSetThreadPriorityAndPolicy_renamed_SDL_SetLinuxThreadPriorityAndPolicy 
 when SDL_OnApplicationDidBecomeActive_renamed_SDL_OnApplicationDidEnterForeground is
     typedesc:
   type
-    SDL_OnApplicationDidBecomeActive* = SDL_OnApplicationDidBecomeActive_renamed_SDL_OnApplicationDidEnterForeground
+    SDL_OnApplicationDidBecomeActive* = SDL_OnApplicationDidBecomeActive_renamed_SDL_OnApplicationDidEnterForeground 
 else:
   when SDL_OnApplicationDidBecomeActive_renamed_SDL_OnApplicationDidEnterForeground is
       static:
     const
-      SDL_OnApplicationDidBecomeActive* = SDL_OnApplicationDidBecomeActive_renamed_SDL_OnApplicationDidEnterForeground
+      SDL_OnApplicationDidBecomeActive* = SDL_OnApplicationDidBecomeActive_renamed_SDL_OnApplicationDidEnterForeground 
   else:
-    let SDL_OnApplicationDidBecomeActive* = SDL_OnApplicationDidBecomeActive_renamed_SDL_OnApplicationDidEnterForeground
+    let SDL_OnApplicationDidBecomeActive* = SDL_OnApplicationDidBecomeActive_renamed_SDL_OnApplicationDidEnterForeground 
 when SDL_OnApplicationWillResignActive_renamed_SDL_OnApplicationWillEnterBackground is
     typedesc:
   type
-    SDL_OnApplicationWillResignActive* = SDL_OnApplicationWillResignActive_renamed_SDL_OnApplicationWillEnterBackground
+    SDL_OnApplicationWillResignActive* = SDL_OnApplicationWillResignActive_renamed_SDL_OnApplicationWillEnterBackground 
 else:
   when SDL_OnApplicationWillResignActive_renamed_SDL_OnApplicationWillEnterBackground is
       static:
     const
-      SDL_OnApplicationWillResignActive* = SDL_OnApplicationWillResignActive_renamed_SDL_OnApplicationWillEnterBackground
+      SDL_OnApplicationWillResignActive* = SDL_OnApplicationWillResignActive_renamed_SDL_OnApplicationWillEnterBackground 
   else:
-    let SDL_OnApplicationWillResignActive* = SDL_OnApplicationWillResignActive_renamed_SDL_OnApplicationWillEnterBackground
+    let SDL_OnApplicationWillResignActive* = SDL_OnApplicationWillResignActive_renamed_SDL_OnApplicationWillEnterBackground 
 when SDL_iOSSetAnimationCallback_renamed_SDL_SetiOSAnimationCallback is typedesc:
   type
-    SDL_iOSSetAnimationCallback* = SDL_iOSSetAnimationCallback_renamed_SDL_SetiOSAnimationCallback
+    SDL_iOSSetAnimationCallback* = SDL_iOSSetAnimationCallback_renamed_SDL_SetiOSAnimationCallback 
 else:
   when SDL_iOSSetAnimationCallback_renamed_SDL_SetiOSAnimationCallback is static:
     const
-      SDL_iOSSetAnimationCallback* = SDL_iOSSetAnimationCallback_renamed_SDL_SetiOSAnimationCallback
+      SDL_iOSSetAnimationCallback* = SDL_iOSSetAnimationCallback_renamed_SDL_SetiOSAnimationCallback 
   else:
-    let SDL_iOSSetAnimationCallback* = SDL_iOSSetAnimationCallback_renamed_SDL_SetiOSAnimationCallback
+    let SDL_iOSSetAnimationCallback* = SDL_iOSSetAnimationCallback_renamed_SDL_SetiOSAnimationCallback 
 when SDL_iOSSetEventPump_renamed_SDL_SetiOSEventPump is typedesc:
   type
-    SDL_iOSSetEventPump* = SDL_iOSSetEventPump_renamed_SDL_SetiOSEventPump
+    SDL_iOSSetEventPump* = SDL_iOSSetEventPump_renamed_SDL_SetiOSEventPump 
 else:
   when SDL_iOSSetEventPump_renamed_SDL_SetiOSEventPump is static:
     const
-      SDL_iOSSetEventPump* = SDL_iOSSetEventPump_renamed_SDL_SetiOSEventPump
+      SDL_iOSSetEventPump* = SDL_iOSSetEventPump_renamed_SDL_SetiOSEventPump 
   else:
-    let SDL_iOSSetEventPump* = SDL_iOSSetEventPump_renamed_SDL_SetiOSEventPump
+    let SDL_iOSSetEventPump* = SDL_iOSSetEventPump_renamed_SDL_SetiOSEventPump 
 when SDL_iPhoneSetAnimationCallback_renamed_SDL_iOSSetAnimationCallback is
     typedesc:
   type
-    SDL_iPhoneSetAnimationCallback* = SDL_iPhoneSetAnimationCallback_renamed_SDL_iOSSetAnimationCallback
+    SDL_iPhoneSetAnimationCallback* = SDL_iPhoneSetAnimationCallback_renamed_SDL_iOSSetAnimationCallback 
 else:
   when SDL_iPhoneSetAnimationCallback_renamed_SDL_iOSSetAnimationCallback is
       static:
     const
-      SDL_iPhoneSetAnimationCallback* = SDL_iPhoneSetAnimationCallback_renamed_SDL_iOSSetAnimationCallback
+      SDL_iPhoneSetAnimationCallback* = SDL_iPhoneSetAnimationCallback_renamed_SDL_iOSSetAnimationCallback 
   else:
-    let SDL_iPhoneSetAnimationCallback* = SDL_iPhoneSetAnimationCallback_renamed_SDL_iOSSetAnimationCallback
+    let SDL_iPhoneSetAnimationCallback* = SDL_iPhoneSetAnimationCallback_renamed_SDL_iOSSetAnimationCallback 
 when SDL_iPhoneSetEventPump_renamed_SDL_iOSSetEventPump is typedesc:
   type
-    SDL_iPhoneSetEventPump* = SDL_iPhoneSetEventPump_renamed_SDL_iOSSetEventPump
+    SDL_iPhoneSetEventPump* = SDL_iPhoneSetEventPump_renamed_SDL_iOSSetEventPump 
 else:
   when SDL_iPhoneSetEventPump_renamed_SDL_iOSSetEventPump is static:
     const
-      SDL_iPhoneSetEventPump* = SDL_iPhoneSetEventPump_renamed_SDL_iOSSetEventPump
+      SDL_iPhoneSetEventPump* = SDL_iPhoneSetEventPump_renamed_SDL_iOSSetEventPump 
   else:
-    let SDL_iPhoneSetEventPump* = SDL_iPhoneSetEventPump_renamed_SDL_iOSSetEventPump
+    let SDL_iPhoneSetEventPump* = SDL_iPhoneSetEventPump_renamed_SDL_iOSSetEventPump 
 when SDL_SetThreadPriority_renamed_SDL_SetCurrentThreadPriority is typedesc:
   type
-    SDL_SetThreadPriority* = SDL_SetThreadPriority_renamed_SDL_SetCurrentThreadPriority
+    SDL_SetThreadPriority* = SDL_SetThreadPriority_renamed_SDL_SetCurrentThreadPriority 
 else:
   when SDL_SetThreadPriority_renamed_SDL_SetCurrentThreadPriority is static:
     const
-      SDL_SetThreadPriority* = SDL_SetThreadPriority_renamed_SDL_SetCurrentThreadPriority
+      SDL_SetThreadPriority* = SDL_SetThreadPriority_renamed_SDL_SetCurrentThreadPriority 
   else:
-    let SDL_SetThreadPriority* = SDL_SetThreadPriority_renamed_SDL_SetCurrentThreadPriority
+    let SDL_SetThreadPriority* = SDL_SetThreadPriority_renamed_SDL_SetCurrentThreadPriority 
 when SDL_TLSCleanup_renamed_SDL_CleanupTLS is typedesc:
   type
-    SDL_TLSCleanup* = SDL_TLSCleanup_renamed_SDL_CleanupTLS
+    SDL_TLSCleanup* = SDL_TLSCleanup_renamed_SDL_CleanupTLS 
 else:
   when SDL_TLSCleanup_renamed_SDL_CleanupTLS is static:
     const
-      SDL_TLSCleanup* = SDL_TLSCleanup_renamed_SDL_CleanupTLS
+      SDL_TLSCleanup* = SDL_TLSCleanup_renamed_SDL_CleanupTLS 
   else:
-    let SDL_TLSCleanup* = SDL_TLSCleanup_renamed_SDL_CleanupTLS
+    let SDL_TLSCleanup* = SDL_TLSCleanup_renamed_SDL_CleanupTLS 
 when SDL_TLSGet_renamed_SDL_GetTLS is typedesc:
   type
-    SDL_TLSGet* = SDL_TLSGet_renamed_SDL_GetTLS
+    SDL_TLSGet* = SDL_TLSGet_renamed_SDL_GetTLS 
 else:
   when SDL_TLSGet_renamed_SDL_GetTLS is static:
     const
-      SDL_TLSGet* = SDL_TLSGet_renamed_SDL_GetTLS
+      SDL_TLSGet* = SDL_TLSGet_renamed_SDL_GetTLS 
   else:
-    let SDL_TLSGet* = SDL_TLSGet_renamed_SDL_GetTLS
+    let SDL_TLSGet* = SDL_TLSGet_renamed_SDL_GetTLS 
 when SDL_TLSSet_renamed_SDL_SetTLS is typedesc:
   type
-    SDL_TLSSet* = SDL_TLSSet_renamed_SDL_SetTLS
+    SDL_TLSSet* = SDL_TLSSet_renamed_SDL_SetTLS 
 else:
   when SDL_TLSSet_renamed_SDL_SetTLS is static:
     const
-      SDL_TLSSet* = SDL_TLSSet_renamed_SDL_SetTLS
+      SDL_TLSSet* = SDL_TLSSet_renamed_SDL_SetTLS 
   else:
-    let SDL_TLSSet* = SDL_TLSSet_renamed_SDL_SetTLS
+    let SDL_TLSSet* = SDL_TLSSet_renamed_SDL_SetTLS 
 when SDL_threadID_renamed_SDL_ThreadID is typedesc:
   type
-    SDL_threadID* = SDL_threadID_renamed_SDL_ThreadID
+    SDL_threadID* = SDL_threadID_renamed_SDL_ThreadID 
 else:
   when SDL_threadID_renamed_SDL_ThreadID is static:
     const
-      SDL_threadID* = SDL_threadID_renamed_SDL_ThreadID
+      SDL_threadID* = SDL_threadID_renamed_SDL_ThreadID 
   else:
-    let SDL_threadID* = SDL_threadID_renamed_SDL_ThreadID
+    let SDL_threadID* = SDL_threadID_renamed_SDL_ThreadID 
 when SDL_GetTicks64_renamed_SDL_GetTicks is typedesc:
   type
-    SDL_GetTicks64* = SDL_GetTicks64_renamed_SDL_GetTicks
+    SDL_GetTicks64* = SDL_GetTicks64_renamed_SDL_GetTicks 
 else:
   when SDL_GetTicks64_renamed_SDL_GetTicks is static:
     const
-      SDL_GetTicks64* = SDL_GetTicks64_renamed_SDL_GetTicks
+      SDL_GetTicks64* = SDL_GetTicks64_renamed_SDL_GetTicks 
   else:
-    let SDL_GetTicks64* = SDL_GetTicks64_renamed_SDL_GetTicks
+    let SDL_GetTicks64* = SDL_GetTicks64_renamed_SDL_GetTicks 
 when SDL_COMPILEDVERSION_renamed_SDL_VERSION is typedesc:
   type
-    SDL_COMPILEDVERSION* = SDL_COMPILEDVERSION_renamed_SDL_VERSION
+    SDL_COMPILEDVERSION* = SDL_COMPILEDVERSION_renamed_SDL_VERSION 
 else:
   when SDL_COMPILEDVERSION_renamed_SDL_VERSION is static:
     const
-      SDL_COMPILEDVERSION* = SDL_COMPILEDVERSION_renamed_SDL_VERSION
+      SDL_COMPILEDVERSION* = SDL_COMPILEDVERSION_renamed_SDL_VERSION 
   else:
-    let SDL_COMPILEDVERSION* = SDL_COMPILEDVERSION_renamed_SDL_VERSION
+    let SDL_COMPILEDVERSION* = SDL_COMPILEDVERSION_renamed_SDL_VERSION 
 when SDL_PATCHLEVEL_renamed_SDL_MICRO_VERSION is typedesc:
   type
-    SDL_PATCHLEVEL* = SDL_PATCHLEVEL_renamed_SDL_MICRO_VERSION
+    SDL_PATCHLEVEL* = SDL_PATCHLEVEL_renamed_SDL_MICRO_VERSION 
 else:
   when SDL_PATCHLEVEL_renamed_SDL_MICRO_VERSION is static:
     const
-      SDL_PATCHLEVEL* = SDL_PATCHLEVEL_renamed_SDL_MICRO_VERSION
+      SDL_PATCHLEVEL* = SDL_PATCHLEVEL_renamed_SDL_MICRO_VERSION 
   else:
-    let SDL_PATCHLEVEL* = SDL_PATCHLEVEL_renamed_SDL_MICRO_VERSION
+    let SDL_PATCHLEVEL* = SDL_PATCHLEVEL_renamed_SDL_MICRO_VERSION 
 when SDL_GL_DeleteContext_renamed_SDL_GL_DestroyContext is typedesc:
   type
-    SDL_GL_DeleteContext* = SDL_GL_DeleteContext_renamed_SDL_GL_DestroyContext
+    SDL_GL_DeleteContext* = SDL_GL_DeleteContext_renamed_SDL_GL_DestroyContext 
 else:
   when SDL_GL_DeleteContext_renamed_SDL_GL_DestroyContext is static:
     const
-      SDL_GL_DeleteContext* = SDL_GL_DeleteContext_renamed_SDL_GL_DestroyContext
+      SDL_GL_DeleteContext* = SDL_GL_DeleteContext_renamed_SDL_GL_DestroyContext 
   else:
-    let SDL_GL_DeleteContext* = SDL_GL_DeleteContext_renamed_SDL_GL_DestroyContext
+    let SDL_GL_DeleteContext* = SDL_GL_DeleteContext_renamed_SDL_GL_DestroyContext 
 when SDL_GetClosestDisplayMode_renamed_SDL_GetClosestFullscreenDisplayMode is
     typedesc:
   type
-    SDL_GetClosestDisplayMode* = SDL_GetClosestDisplayMode_renamed_SDL_GetClosestFullscreenDisplayMode
+    SDL_GetClosestDisplayMode* = SDL_GetClosestDisplayMode_renamed_SDL_GetClosestFullscreenDisplayMode 
 else:
   when SDL_GetClosestDisplayMode_renamed_SDL_GetClosestFullscreenDisplayMode is
       static:
     const
-      SDL_GetClosestDisplayMode* = SDL_GetClosestDisplayMode_renamed_SDL_GetClosestFullscreenDisplayMode
+      SDL_GetClosestDisplayMode* = SDL_GetClosestDisplayMode_renamed_SDL_GetClosestFullscreenDisplayMode 
   else:
-    let SDL_GetClosestDisplayMode* = SDL_GetClosestDisplayMode_renamed_SDL_GetClosestFullscreenDisplayMode
+    let SDL_GetClosestDisplayMode* = SDL_GetClosestDisplayMode_renamed_SDL_GetClosestFullscreenDisplayMode 
 when SDL_GetDisplayOrientation_renamed_SDL_GetCurrentDisplayOrientation is
     typedesc:
   type
-    SDL_GetDisplayOrientation* = SDL_GetDisplayOrientation_renamed_SDL_GetCurrentDisplayOrientation
+    SDL_GetDisplayOrientation* = SDL_GetDisplayOrientation_renamed_SDL_GetCurrentDisplayOrientation 
 else:
   when SDL_GetDisplayOrientation_renamed_SDL_GetCurrentDisplayOrientation is
       static:
     const
-      SDL_GetDisplayOrientation* = SDL_GetDisplayOrientation_renamed_SDL_GetCurrentDisplayOrientation
+      SDL_GetDisplayOrientation* = SDL_GetDisplayOrientation_renamed_SDL_GetCurrentDisplayOrientation 
   else:
-    let SDL_GetDisplayOrientation* = SDL_GetDisplayOrientation_renamed_SDL_GetCurrentDisplayOrientation
+    let SDL_GetDisplayOrientation* = SDL_GetDisplayOrientation_renamed_SDL_GetCurrentDisplayOrientation 
 when SDL_GetPointDisplayIndex_renamed_SDL_GetDisplayForPoint is typedesc:
   type
-    SDL_GetPointDisplayIndex* = SDL_GetPointDisplayIndex_renamed_SDL_GetDisplayForPoint
+    SDL_GetPointDisplayIndex* = SDL_GetPointDisplayIndex_renamed_SDL_GetDisplayForPoint 
 else:
   when SDL_GetPointDisplayIndex_renamed_SDL_GetDisplayForPoint is static:
     const
-      SDL_GetPointDisplayIndex* = SDL_GetPointDisplayIndex_renamed_SDL_GetDisplayForPoint
+      SDL_GetPointDisplayIndex* = SDL_GetPointDisplayIndex_renamed_SDL_GetDisplayForPoint 
   else:
-    let SDL_GetPointDisplayIndex* = SDL_GetPointDisplayIndex_renamed_SDL_GetDisplayForPoint
+    let SDL_GetPointDisplayIndex* = SDL_GetPointDisplayIndex_renamed_SDL_GetDisplayForPoint 
 when SDL_GetRectDisplayIndex_renamed_SDL_GetDisplayForRect is typedesc:
   type
-    SDL_GetRectDisplayIndex* = SDL_GetRectDisplayIndex_renamed_SDL_GetDisplayForRect
+    SDL_GetRectDisplayIndex* = SDL_GetRectDisplayIndex_renamed_SDL_GetDisplayForRect 
 else:
   when SDL_GetRectDisplayIndex_renamed_SDL_GetDisplayForRect is static:
     const
-      SDL_GetRectDisplayIndex* = SDL_GetRectDisplayIndex_renamed_SDL_GetDisplayForRect
+      SDL_GetRectDisplayIndex* = SDL_GetRectDisplayIndex_renamed_SDL_GetDisplayForRect 
   else:
-    let SDL_GetRectDisplayIndex* = SDL_GetRectDisplayIndex_renamed_SDL_GetDisplayForRect
+    let SDL_GetRectDisplayIndex* = SDL_GetRectDisplayIndex_renamed_SDL_GetDisplayForRect 
 when SDL_GetWindowDisplayIndex_renamed_SDL_GetDisplayForWindow is typedesc:
   type
-    SDL_GetWindowDisplayIndex* = SDL_GetWindowDisplayIndex_renamed_SDL_GetDisplayForWindow
+    SDL_GetWindowDisplayIndex* = SDL_GetWindowDisplayIndex_renamed_SDL_GetDisplayForWindow 
 else:
   when SDL_GetWindowDisplayIndex_renamed_SDL_GetDisplayForWindow is static:
     const
-      SDL_GetWindowDisplayIndex* = SDL_GetWindowDisplayIndex_renamed_SDL_GetDisplayForWindow
+      SDL_GetWindowDisplayIndex* = SDL_GetWindowDisplayIndex_renamed_SDL_GetDisplayForWindow 
   else:
-    let SDL_GetWindowDisplayIndex* = SDL_GetWindowDisplayIndex_renamed_SDL_GetDisplayForWindow
+    let SDL_GetWindowDisplayIndex* = SDL_GetWindowDisplayIndex_renamed_SDL_GetDisplayForWindow 
 when SDL_GetWindowDisplayMode_renamed_SDL_GetWindowFullscreenMode is typedesc:
   type
-    SDL_GetWindowDisplayMode* = SDL_GetWindowDisplayMode_renamed_SDL_GetWindowFullscreenMode
+    SDL_GetWindowDisplayMode* = SDL_GetWindowDisplayMode_renamed_SDL_GetWindowFullscreenMode 
 else:
   when SDL_GetWindowDisplayMode_renamed_SDL_GetWindowFullscreenMode is static:
     const
-      SDL_GetWindowDisplayMode* = SDL_GetWindowDisplayMode_renamed_SDL_GetWindowFullscreenMode
+      SDL_GetWindowDisplayMode* = SDL_GetWindowDisplayMode_renamed_SDL_GetWindowFullscreenMode 
   else:
-    let SDL_GetWindowDisplayMode* = SDL_GetWindowDisplayMode_renamed_SDL_GetWindowFullscreenMode
+    let SDL_GetWindowDisplayMode* = SDL_GetWindowDisplayMode_renamed_SDL_GetWindowFullscreenMode 
 when SDL_HasWindowSurface_renamed_SDL_WindowHasSurface is typedesc:
   type
-    SDL_HasWindowSurface* = SDL_HasWindowSurface_renamed_SDL_WindowHasSurface
+    SDL_HasWindowSurface* = SDL_HasWindowSurface_renamed_SDL_WindowHasSurface 
 else:
   when SDL_HasWindowSurface_renamed_SDL_WindowHasSurface is static:
     const
-      SDL_HasWindowSurface* = SDL_HasWindowSurface_renamed_SDL_WindowHasSurface
+      SDL_HasWindowSurface* = SDL_HasWindowSurface_renamed_SDL_WindowHasSurface 
   else:
-    let SDL_HasWindowSurface* = SDL_HasWindowSurface_renamed_SDL_WindowHasSurface
+    let SDL_HasWindowSurface* = SDL_HasWindowSurface_renamed_SDL_WindowHasSurface 
 when SDL_IsScreenSaverEnabled_renamed_SDL_ScreenSaverEnabled is typedesc:
   type
-    SDL_IsScreenSaverEnabled* = SDL_IsScreenSaverEnabled_renamed_SDL_ScreenSaverEnabled
+    SDL_IsScreenSaverEnabled* = SDL_IsScreenSaverEnabled_renamed_SDL_ScreenSaverEnabled 
 else:
   when SDL_IsScreenSaverEnabled_renamed_SDL_ScreenSaverEnabled is static:
     const
-      SDL_IsScreenSaverEnabled* = SDL_IsScreenSaverEnabled_renamed_SDL_ScreenSaverEnabled
+      SDL_IsScreenSaverEnabled* = SDL_IsScreenSaverEnabled_renamed_SDL_ScreenSaverEnabled 
   else:
-    let SDL_IsScreenSaverEnabled* = SDL_IsScreenSaverEnabled_renamed_SDL_ScreenSaverEnabled
+    let SDL_IsScreenSaverEnabled* = SDL_IsScreenSaverEnabled_renamed_SDL_ScreenSaverEnabled 
 when SDL_SetWindowDisplayMode_renamed_SDL_SetWindowFullscreenMode is typedesc:
   type
-    SDL_SetWindowDisplayMode* = SDL_SetWindowDisplayMode_renamed_SDL_SetWindowFullscreenMode
+    SDL_SetWindowDisplayMode* = SDL_SetWindowDisplayMode_renamed_SDL_SetWindowFullscreenMode 
 else:
   when SDL_SetWindowDisplayMode_renamed_SDL_SetWindowFullscreenMode is static:
     const
-      SDL_SetWindowDisplayMode* = SDL_SetWindowDisplayMode_renamed_SDL_SetWindowFullscreenMode
+      SDL_SetWindowDisplayMode* = SDL_SetWindowDisplayMode_renamed_SDL_SetWindowFullscreenMode 
   else:
-    let SDL_SetWindowDisplayMode* = SDL_SetWindowDisplayMode_renamed_SDL_SetWindowFullscreenMode
+    let SDL_SetWindowDisplayMode* = SDL_SetWindowDisplayMode_renamed_SDL_SetWindowFullscreenMode 
 when SDL_WINDOW_ALLOW_HIGHDPI_renamed_SDL_WINDOW_HIGH_PIXEL_DENSITY is typedesc:
   type
-    SDL_WINDOW_ALLOW_HIGHDPI* = SDL_WINDOW_ALLOW_HIGHDPI_renamed_SDL_WINDOW_HIGH_PIXEL_DENSITY
+    SDL_WINDOW_ALLOW_HIGHDPI* = SDL_WINDOW_ALLOW_HIGHDPI_renamed_SDL_WINDOW_HIGH_PIXEL_DENSITY 
 else:
   when SDL_WINDOW_ALLOW_HIGHDPI_renamed_SDL_WINDOW_HIGH_PIXEL_DENSITY is static:
     const
-      SDL_WINDOW_ALLOW_HIGHDPI* = SDL_WINDOW_ALLOW_HIGHDPI_renamed_SDL_WINDOW_HIGH_PIXEL_DENSITY
+      SDL_WINDOW_ALLOW_HIGHDPI* = SDL_WINDOW_ALLOW_HIGHDPI_renamed_SDL_WINDOW_HIGH_PIXEL_DENSITY 
   else:
-    let SDL_WINDOW_ALLOW_HIGHDPI* = SDL_WINDOW_ALLOW_HIGHDPI_renamed_SDL_WINDOW_HIGH_PIXEL_DENSITY
+    let SDL_WINDOW_ALLOW_HIGHDPI* = SDL_WINDOW_ALLOW_HIGHDPI_renamed_SDL_WINDOW_HIGH_PIXEL_DENSITY 
 when SDL_WINDOW_INPUT_GRABBED_renamed_SDL_WINDOW_MOUSE_GRABBED is typedesc:
   type
-    SDL_WINDOW_INPUT_GRABBED* = SDL_WINDOW_INPUT_GRABBED_renamed_SDL_WINDOW_MOUSE_GRABBED
+    SDL_WINDOW_INPUT_GRABBED* = SDL_WINDOW_INPUT_GRABBED_renamed_SDL_WINDOW_MOUSE_GRABBED 
 else:
   when SDL_WINDOW_INPUT_GRABBED_renamed_SDL_WINDOW_MOUSE_GRABBED is static:
     const
-      SDL_WINDOW_INPUT_GRABBED* = SDL_WINDOW_INPUT_GRABBED_renamed_SDL_WINDOW_MOUSE_GRABBED
+      SDL_WINDOW_INPUT_GRABBED* = SDL_WINDOW_INPUT_GRABBED_renamed_SDL_WINDOW_MOUSE_GRABBED 
   else:
-    let SDL_WINDOW_INPUT_GRABBED* = SDL_WINDOW_INPUT_GRABBED_renamed_SDL_WINDOW_MOUSE_GRABBED
+    let SDL_WINDOW_INPUT_GRABBED* = SDL_WINDOW_INPUT_GRABBED_renamed_SDL_WINDOW_MOUSE_GRABBED 
 when SDL_WINDOW_SKIP_TASKBAR_renamed_SDL_WINDOW_UTILITY is typedesc:
   type
-    SDL_WINDOW_SKIP_TASKBAR* = SDL_WINDOW_SKIP_TASKBAR_renamed_SDL_WINDOW_UTILITY
+    SDL_WINDOW_SKIP_TASKBAR* = SDL_WINDOW_SKIP_TASKBAR_renamed_SDL_WINDOW_UTILITY 
 else:
   when SDL_WINDOW_SKIP_TASKBAR_renamed_SDL_WINDOW_UTILITY is static:
     const
-      SDL_WINDOW_SKIP_TASKBAR* = SDL_WINDOW_SKIP_TASKBAR_renamed_SDL_WINDOW_UTILITY
+      SDL_WINDOW_SKIP_TASKBAR* = SDL_WINDOW_SKIP_TASKBAR_renamed_SDL_WINDOW_UTILITY 
   else:
-    let SDL_WINDOW_SKIP_TASKBAR* = SDL_WINDOW_SKIP_TASKBAR_renamed_SDL_WINDOW_UTILITY
+    let SDL_WINDOW_SKIP_TASKBAR* = SDL_WINDOW_SKIP_TASKBAR_renamed_SDL_WINDOW_UTILITY 
 proc SDL_malloc*(size: csize_t): pointer {.cdecl, importc: "SDL_malloc".}
 proc SDL_calloc*(nmemb: csize_t; size: csize_t): pointer {.cdecl,
     importc: "SDL_calloc".}
@@ -15327,6 +15327,6 @@ proc SDL_GetVersion*(): cint {.cdecl, importc: "SDL_GetVersion".}
 proc SDL_GetRevision*(): cstring {.cdecl, importc: "SDL_GetRevision".}
 when cast[culonglong](-1'i64) is static:
   const
-    UINT64_MAX* = cast[culonglong](-1'i64)
+    UINT64_MAX* = cast[culonglong](-1'i64) 
 else:
-  let UINT64_MAX* = cast[culonglong](-1'i64)
+  let UINT64_MAX* = cast[culonglong](-1'i64) 

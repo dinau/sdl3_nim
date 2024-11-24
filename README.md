@@ -3,7 +3,7 @@
 
 - [sdl3_nim](#sdl3_nim)
 - [Build and run](#build-and-run)
-- [Generate nim header files with Futhark](#generate-nim-header-files-with-futhark)
+- [Generate SDL3 header files with Futhark](#generate-sdl3-header-files-with-futhark)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -19,7 +19,7 @@ This is highly work in progress.
 
 ### Build and run
 
---- 
+---
 
 ```sh
 git clone https://github.com/dinau/sdl3_nim

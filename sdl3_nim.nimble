@@ -27,6 +27,7 @@ OPT_GEN &= " -d:nodeclguards"
 task gen,"Generate SDL3 definition file ":
   withdir "src":
     exec(fmt"nim c -c {OPT_GEN} sdl3_nim.nim")
+    exec(fmt"nim c -r delComments.nim")
 
 task make,"Build test exexutable":
   withdir "tests":
