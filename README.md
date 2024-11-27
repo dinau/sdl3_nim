@@ -4,6 +4,7 @@
 - [sdl3_nim](#sdl3_nim)
   - [Build and run](#build-and-run)
   - [Generate SDL3 header files with Futhark](#generate-sdl3-header-files-with-futhark)
+  - [SDL3 dll libraries](#sdl3-dll-libraries)
   - [My tools version](#my-tools-version)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -22,7 +23,24 @@ This is highly work in progress and my experiment project.
 - Only on Windows OS at this moment
 
 
-#### Build and run
+#### Install
+
+---
+
+
+First delete old version 
+
+```sh
+nimble uninstall sdl3_nim
+```
+
+then
+
+```sh
+nimble install https://github.com/dinau/sdl3_nim 
+```
+
+#### Build and run examples
 
 ---
 
@@ -52,8 +70,7 @@ make
 
 ![alt](https://github.com/dinau/sdl3_nim/raw/main/src/private/img/platformer.png)
 
-
-#### Generate SDL3 header files with Futhark
+#### Generate SDL3 Nim header files with Futhark
 
 ---
 
@@ -65,6 +82,12 @@ make gen
 ```
 
 `src/sdl3_defs.nim` will be generated.
+
+#### SDL3 dll libraries
+
+---
+
+https://github.com/sansuido/sdl3
 
 
 #### My tools version 
