@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.1.0"
+version       = "0.3.0"
 author        = "dinau"
 description   = "SDL3 library wrapper"
 license       = "MIT"
@@ -12,6 +12,7 @@ srcDir        = "src"
 requires "nim >= 2.0.12"
 requires "nimgl == 1.3.2"
 requires "stb_image == 2.5"
+requires "basic2d"
 #requires "futhark == 0.13.7"
 
 import strformat
@@ -28,7 +29,3 @@ task gen,"Generate SDL3 definition file ":
   withdir "src":
     exec(fmt"nim c -c {OPT_GEN} sdl3_nim.nim")
     exec(fmt"nim c -r delComments.nim")
-
-task make,"Build test exexutable":
-  withdir "tests":
-    exec(fmt"nim c -r -d:strip test_sdl3.nim")

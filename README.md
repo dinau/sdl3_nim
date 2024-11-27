@@ -14,11 +14,13 @@
 
 SDL3 wrapper for Nim language
 
+This is highly work in progress and my experiment project.
 
-This is highly work in progress.
 
+- SDL3-3.1.6
+- SDL_ttf 3.0.0
+- Only on Windows OS at this moment
 
-SDL3-3.1.6
 
 #### Build and run
 
@@ -31,13 +33,25 @@ make
 ```
 
 or 
+
 ```sh
 pwd sdl3_nim
-make build      # Executable file will be generated in `tests` folder.
+cd examples/basic
+make
 ```
 
+![alt](https://github.com/dinau/sdl3_nim/raw/main/src/private/img/basic.png)
 
-![alt](https://github.com/dinau/sdl3_nim/raw/main/src/private/img/sdl3_test_nim.png)
+or
+
+```sh
+pwd sdl3_nim
+cd examples/platformer
+make
+```
+
+![alt](https://github.com/dinau/sdl3_nim/raw/main/src/private/img/platformer.png)
+
 
 #### Generate SDL3 header files with Futhark
 

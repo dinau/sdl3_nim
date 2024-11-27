@@ -1,8 +1,6 @@
 all:
-	nimble -d:strip test
-
-build:
-	nimble make
+	$(MAKE) -C examples/basic
+	$(MAKE) -C examples/platformer
 
 PHONY: gen clean
 
@@ -10,4 +8,5 @@ gen:
 	nimble gen
 
 clean:
-	@-rm tests/test_sdl3.exe
+	$(MAKE) -S basic clean
+	$(MAKE) -S platformer clean
