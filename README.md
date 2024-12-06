@@ -58,7 +58,7 @@ cd examples/basic
 make
 ```
 
-![alt](https://github.com/dinau/sdl3_nim/raw/main/src/private/img/basic.png)
+![alt](https://github.com/dinau/sdl3_nim/raw/main/src/private/img/basic-nim-sdl3.png)  
 
 or
 
@@ -68,7 +68,7 @@ cd examples/platformer
 make
 ```
 
-![alt](https://github.com/dinau/sdl3_nim/raw/main/src/private/img/platformer.png)
+![alt](https://github.com/dinau/sdl3_nim/raw/main/src/private/img/platformer-nim-sdl3.gif)  
 
 #### Generate SDL3 Nim header files with Futhark
 
