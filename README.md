@@ -58,7 +58,7 @@ cd examples/basic
 make
 ```
 
-![alt](https://github.com/dinau/sdl3_nim/raw/main/src/private/img/basic-nim-sdl3.png)  
+![alt](https://github.com/dinau/sdl3_nim/raw/main/src/private/img/basic-nim-sdl3.gif)  
 
 or
 
