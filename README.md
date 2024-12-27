@@ -66,7 +66,8 @@ make
 or
 
 ```sh
-pwd sdl3_nim
+pwd 
+sdl3_nim
 cd examples/platformer
 make
 ```
@@ -80,7 +81,8 @@ make
 [Install Futhark](https://github.com/PMunch/futhark#installation)
 
 ```sh
-pwd sdl3_nim
+pwd 
+sdl3_nim
 make gen
 ```
 

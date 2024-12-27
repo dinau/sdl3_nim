@@ -12,6 +12,10 @@ when defined(windows):
 
 const MainWinWidth  = 1289
 const MainWinHeight = 720
+
+const FluidCamera = true
+const InnerCamera = false
+
 type
   Color = SDL_Color
 
@@ -245,9 +249,9 @@ proc toInput(key:SDL_Scancode): Input =
   else:
     return Input.none
 
-#---------------
-#-- handleInput
-#---------------
+#----------------
+#--- handleInput
+#----------------
 proc handleInput(self: var Game) =
   var event: SDL_Event
   while SDL_PollEvent(addr event):
@@ -389,22 +393,18 @@ proc physics(game: var Game) =
 
   game.map.moveBox(game.player.pos, game.player.vel, playerSize)
 
-
-#const innerCamera = true
 proc moveCamera(game: var Game) =
   const halfWin = float(windowSize.x div 2)
-  when defined(fluidCamera):
+  if FluidCamera:
     let dist = game.camera.x - game.player.pos.x + halfWin
     game.camera.x -= 0.05 * dist
-  elif defined(innerCamera):
+  elif InnerCamera:
     let
       leftArea  = game.player.pos.x - halfWin - 100
       rightArea = game.player.pos.x - halfWin + 100
     game.camera.x = clamp(game.camera.x, leftArea, rightArea)
   else:
     game.camera.x = game.player.pos.x - halfWin
-
-
 
 proc logic(game: var Game, tick: int) =
   template time: untyped = game.player.time

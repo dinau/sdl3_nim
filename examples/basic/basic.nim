@@ -59,7 +59,7 @@ proc main() =
   let glContext = SDL_GL_CreateContext(window)
   if isNil glContext:
     echo "Error!: SDL_GL_CreateContext()"
-  defer: discard SDL_GL_DeleteContext_renamed_SDL_GL_DestroyContext()
+  defer: discard SDL_GL_DestroyContext(glContext)
   SDL_GL_MakeCurrent(window, glContext);
 
   echo "SDL3 version : ",SDL_GetVersion()
