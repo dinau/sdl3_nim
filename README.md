@@ -16,6 +16,8 @@
 
 ---
 
+![alt](https://github.com/dinau/sdl3_nim/actions/workflows/windows.yml/badge.svg)  
+
 SDL3 wrapper for Nim language
 
 This is highly work in progress and my experiment project.
@@ -24,6 +26,7 @@ This is highly work in progress and my experiment project.
 - SDL3-3.1.6
 - SDL_ttf 3.0.0
 - Only on Windows OS at this moment
+- Trying to use [ImGuin SDL3 example](https://github.com/dinau/imguin#glfw_opengl3_image_load--sdl2_opengl3---sdl3_opengl3)
 
 
 #### Install
@@ -58,7 +61,7 @@ or
 ```sh
 pwd sdl3_nim
 cd examples/basic
-make
+make run
 ```
 
 ![alt](https://github.com/dinau/sdl3_nim/raw/main/src/private/img/basic-nim-sdl3.gif)  
@@ -69,7 +72,7 @@ or
 pwd 
 sdl3_nim
 cd examples/platformer
-make
+make run
 ```
 
 ![alt](https://github.com/dinau/sdl3_nim/raw/main/src/private/img/platformer-nim-sdl3.gif)  

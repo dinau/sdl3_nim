@@ -1,5 +1,20 @@
+TARGET = basic
+
+# Hiding background console
+OPT += --app:gui
+
+
+ifeq ($(OS),Windows_NT)
+	EXE = .exe
+endif
+
 all:
-	nim c -r -d:release -d:strip basic.nim
+	nim c -d:release -d:strip $(OPT) $(TARGET).nim
+
+.PHONY: clean run
 
 clean:
-	rm -f basic.exe
+	rm -f $(TARGET).exe
+
+run: all
+	./$(TARGET)$(EXE)

@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.4.0"
+version       = "0.5.0"
 author        = "dinau"
 description   = "SDL3 library wrapper"
 license       = "MIT"
@@ -9,7 +9,7 @@ srcDir        = "src"
 
 # Dependencies
 
-requires "nim >= 2.0.12"
+requires "nim >= 2.0.14"
 requires "nimgl == 1.3.2"
 requires "stb_image == 2.5"
 requires "basic2d"
