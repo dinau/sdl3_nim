@@ -11,5 +11,5 @@ gen:
 	nimble gen
 
 clean:
-	$(MAKE) -S basic clean
-	$(MAKE) -S platformer clean
+	@-$(MAKE) -C examples/basic clean
+	@-$(MAKE) -C examples/platformer clean

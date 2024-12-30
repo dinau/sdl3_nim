@@ -7,13 +7,13 @@ proc currentSourceDir(): string {.compileTime.} =
   result = result[0 ..< result.rfind("/")]
 
 const SDL3RootPath1    = joinPath(currentSourceDir(),fmt"private/SDL3-{SDL3Version}/x86_64-w64-mingw32/include/SDL3")
+const SDL3RootPath2    = joinPath(currentSourceDir(),fmt"private/SDL3-{SDL3Version}/x86_64-w64-mingw32/include")
 
 #--- Futhark start
 when defined(useFuthark): # Generate header files with Futhark.
   #--- To specify the place that has "stdbool.h"
   const ClangIncludePath = "c:/drvDx/msys64/ucrt64/lib/clang/19/include"
   const SDL3_DEFS_FILE = "sdl3_defs.nim"
-  const SDL3RootPath2    = joinPath(currentSourceDir(),fmt"private/SDL3-{SDL3Version}/x86_64-w64-mingw32/include")
   #
   import futhark
   importc:
@@ -39,3 +39,4 @@ else:
   {.pop.}
 
   {.passC:"-I" & SDL3RootPath1.}
+  {.passC:"-I" & SDL3RootPath2.}
