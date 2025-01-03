@@ -292,7 +292,7 @@ proc render(game: Game, tick: int) =
     let ver = SDL_GetVersion()
     const base = 230
     const colm = 30
-    game.renderText("Jump   : Spase, Up, J, K",50, base+colm*1, white)
+    game.renderText("Jump   : Space, Up, J, K",50, base+colm*1, white)
     game.renderText("Left     : A, H, Left",50,    base+colm*2, white)
     game.renderText("Right   : D, L, Right",50,    base+colm*3, white)
     game.renderText("Restart: R",50,               base+colm*4, white)
