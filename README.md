@@ -23,7 +23,7 @@ SDL3 wrapper for Nim language
 This is highly work in progress and my experiment project.
 
 
-- SDL3-3.1.6
+- SDL3-3.1.8
 - SDL_ttf 3.0.0
 - Only on Windows OS at this moment
 - Trying to use [ImGuin SDL3 example](https://github.com/dinau/imguin#glfw_opengl3_image_load--sdl2_opengl3---sdl3_opengl3)

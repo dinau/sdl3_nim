@@ -7,6 +7,13 @@ type
     SDL_ASSERTION_RETRY = 0, SDL_ASSERTION_BREAK = 1, SDL_ASSERTION_ABORT = 2,
     SDL_ASSERTION_IGNORE = 3, SDL_ASSERTION_ALWAYS_IGNORE = 4
 type
+  enum_SDL_AsyncIOTaskType* {.size: sizeof(cuint).} = enum
+    SDL_ASYNCIO_TASK_READ = 0, SDL_ASYNCIO_TASK_WRITE = 1,
+    SDL_ASYNCIO_TASK_CLOSE = 2
+type
+  enum_SDL_AsyncIOResult* {.size: sizeof(cuint).} = enum
+    SDL_ASYNCIO_COMPLETE = 0, SDL_ASYNCIO_FAILURE = 1, SDL_ASYNCIO_CANCELED = 2
+type
   enum_SDL_PropertyType* {.size: sizeof(cuint).} = enum
     SDL_PROPERTY_TYPE_INVALID = 0, SDL_PROPERTY_TYPE_POINTER = 1,
     SDL_PROPERTY_TYPE_STRING = 2, SDL_PROPERTY_TYPE_NUMBER = 3,
@@ -15,6 +22,10 @@ type
   enum_SDL_ThreadPriority* {.size: sizeof(cuint).} = enum
     SDL_THREAD_PRIORITY_LOW = 0, SDL_THREAD_PRIORITY_NORMAL = 1,
     SDL_THREAD_PRIORITY_HIGH = 2, SDL_THREAD_PRIORITY_TIME_CRITICAL = 3
+type
+  enum_SDL_ThreadState* {.size: sizeof(cuint).} = enum
+    SDL_THREAD_UNKNOWN = 0, SDL_THREAD_ALIVE = 1, SDL_THREAD_DETACHED = 2,
+    SDL_THREAD_COMPLETE = 3
 type
   enum_SDL_InitStatus* {.size: sizeof(cuint).} = enum
     SDL_INIT_STATUS_UNINITIALIZED = 0, SDL_INIT_STATUS_INITIALIZING = 1,
@@ -252,6 +263,10 @@ type
     SDL_HITTEST_RESIZE_TOPRIGHT = 4, SDL_HITTEST_RESIZE_RIGHT = 5,
     SDL_HITTEST_RESIZE_BOTTOMRIGHT = 6, SDL_HITTEST_RESIZE_BOTTOM = 7,
     SDL_HITTEST_RESIZE_BOTTOMLEFT = 8, SDL_HITTEST_RESIZE_LEFT = 9
+type
+  enum_SDL_FileDialogType* {.size: sizeof(cuint).} = enum
+    SDL_FILEDIALOG_OPENFILE = 0, SDL_FILEDIALOG_SAVEFILE = 1,
+    SDL_FILEDIALOG_OPENFOLDER = 2
 type
   enum_SDL_PowerState* {.size: sizeof(cint).} = enum
     SDL_POWERSTATE_ERROR = -1, SDL_POWERSTATE_UNKNOWN = 0,
@@ -513,10 +528,11 @@ type
     SDL_EVENT_GAMEPAD_UPDATE_COMPLETE = 1626,
     SDL_EVENT_GAMEPAD_STEAM_HANDLE_UPDATED = 1627, SDL_EVENT_FINGER_DOWN = 1792,
     SDL_EVENT_FINGER_UP = 1793, SDL_EVENT_FINGER_MOTION = 1794,
-    SDL_EVENT_CLIPBOARD_UPDATE = 2304, SDL_EVENT_DROP_FILE = 4096,
-    SDL_EVENT_DROP_TEXT = 4097, SDL_EVENT_DROP_BEGIN = 4098,
-    SDL_EVENT_DROP_COMPLETE = 4099, SDL_EVENT_DROP_POSITION = 4100,
-    SDL_EVENT_AUDIO_DEVICE_ADDED = 4352, SDL_EVENT_AUDIO_DEVICE_REMOVED = 4353,
+    SDL_EVENT_FINGER_CANCELED = 1795, SDL_EVENT_CLIPBOARD_UPDATE = 2304,
+    SDL_EVENT_DROP_FILE = 4096, SDL_EVENT_DROP_TEXT = 4097,
+    SDL_EVENT_DROP_BEGIN = 4098, SDL_EVENT_DROP_COMPLETE = 4099,
+    SDL_EVENT_DROP_POSITION = 4100, SDL_EVENT_AUDIO_DEVICE_ADDED = 4352,
+    SDL_EVENT_AUDIO_DEVICE_REMOVED = 4353,
     SDL_EVENT_AUDIO_DEVICE_FORMAT_CHANGED = 4354,
     SDL_EVENT_SENSOR_UPDATE = 4608, SDL_EVENT_PEN_PROXIMITY_IN = 4864,
     SDL_EVENT_PEN_PROXIMITY_OUT = 4865, SDL_EVENT_PEN_DOWN = 4866,
@@ -787,7 +803,7 @@ type
     SDL_GPU_SWAPCHAINCOMPOSITION_SDR = 0,
     SDL_GPU_SWAPCHAINCOMPOSITION_SDR_LINEAR = 1,
     SDL_GPU_SWAPCHAINCOMPOSITION_HDR_EXTENDED_LINEAR = 2,
-    SDL_GPU_SWAPCHAINCOMPOSITION_HDR10_ST2048 = 3
+    SDL_GPU_SWAPCHAINCOMPOSITION_HDR10_ST2084 = 3
 type
   enum_SDL_hid_bus_type* {.size: sizeof(cuint).} = enum
     SDL_HID_API_BUS_UNKNOWN = 0, SDL_HID_API_BUS_USB = 1,
@@ -879,6 +895,8 @@ type
   AUDIO_F32SYS_renamed_SDL_AUDIO_F32* = object
 type
   SDL_GetPointDisplayIndex_renamed_SDL_GetDisplayForPoint* = object
+type
+  struct_SDL_AsyncIOQueue* = object
 type
   SDL_GetTicks64_renamed_SDL_GetTicks* = object
 type
@@ -1486,6 +1504,8 @@ type
 type
   struct_SDL_AudioStream* = object
 type
+  struct_SDL_TrayMenu* = object
+type
   SDL_GameControllerGetSerial_renamed_SDL_GetGamepadSerial* = object
 type
   SDL_JoystickSetVirtualAxis_renamed_SDL_SetJoystickVirtualAxis* = object
@@ -1762,6 +1782,8 @@ type
 type
   SDLK_j_renamed_SDLK_J* = object
 type
+  SDL_HINT_JOYSTICK_HIDAPI_PS5_RUMBLE_renamed_SDL_HINT_JOYSTICK_ENHANCED_REPORTS* = object
+type
   SDL_WriteBE16_renamed_SDL_WriteU16BE* = object
 type
   SDL_IntersectRect_renamed_SDL_GetRectIntersection* = object
@@ -1804,6 +1826,8 @@ type
 type
   SDL_SemPost_renamed_SDL_SignalSemaphore* = object
 type
+  struct_SDL_TrayEntry* = object
+type
   SDL_GLprofile_renamed_SDL_GLProfile* = object
 type
   SDL_GetRendererOutputSize_renamed_SDL_GetCurrentRenderOutputSize* = object
@@ -1827,6 +1851,8 @@ type
   SDL_GetColorKey_renamed_SDL_GetSurfaceColorKey* = object
 type
   struct_SDL_Mutex* = object
+type
+  SDL_HINT_JOYSTICK_HIDAPI_PS4_RUMBLE_renamed_SDL_HINT_JOYSTICK_ENHANCED_REPORTS* = object
 type
   SDL_CONTROLLER_TYPE_PS3_renamed_SDL_GAMEPAD_TYPE_PS3* = object
 type
@@ -1955,6 +1981,8 @@ type
   SDL_WriteLE16_renamed_SDL_WriteU16LE* = object
 type
   SDL_RWwrite_renamed_SDL_WriteIO* = object
+type
+  struct_SDL_AsyncIO* = object
 type
   SDL_AudioStreamAvailable_renamed_SDL_GetAudioStreamAvailable* = object
 type
@@ -2086,6 +2114,8 @@ type
 type
   SDL_RenderGetMetalCommandEncoder_renamed_SDL_GetRenderMetalCommandEncoder* = object
 type
+  struct_SDL_Tray* = object
+type
   SDL_SYSTEM_CURSOR_WINDOW_TOP_renamed_SDL_SYSTEM_CURSOR_N_RESIZE* = object
 type
   struct_SDL_Renderer* = object
@@ -2137,6 +2167,20 @@ type
   SDL_AssertData* = struct_SDL_AssertData 
   SDL_AssertionHandler* = proc (a0: ptr SDL_AssertData; a1: pointer): SDL_AssertState {.
       cdecl.}                
+  SDL_AsyncIO* = struct_SDL_AsyncIO 
+  SDL_AsyncIOTaskType* = enum_SDL_AsyncIOTaskType 
+  SDL_AsyncIOResult* = enum_SDL_AsyncIOResult 
+  struct_SDL_AsyncIOOutcome* {.pure, inheritable, bycopy.} = object
+    asyncio*: ptr SDL_AsyncIO 
+    type_field*: SDL_AsyncIOTaskType
+    result*: SDL_AsyncIOResult
+    buffer*: pointer
+    offset*: Uint64
+    bytes_requested*: Uint64
+    bytes_transferred*: Uint64
+    userdata*: pointer
+  SDL_AsyncIOOutcome* = struct_SDL_AsyncIOOutcome 
+  SDL_AsyncIOQueue* = struct_SDL_AsyncIOQueue 
   SDL_SpinLock* = cint       
   struct_SDL_AtomicInt* {.pure, inheritable, bycopy.} = object
     value*: cint             
@@ -2153,6 +2197,7 @@ type
   SDL_ThreadID_typedef* = Uint64 
   SDL_TLSID* = SDL_AtomicInt 
   SDL_ThreadPriority* = enum_SDL_ThreadPriority 
+  SDL_ThreadState* = enum_SDL_ThreadState 
   SDL_ThreadFunction* = proc (a0: pointer): cint {.cdecl.} 
   SDL_TLSDestructorCallback* = proc (a0: pointer): void {.cdecl.} 
   SDL_Mutex_typedef* = struct_SDL_Mutex 
@@ -2333,6 +2378,7 @@ type
   SDL_DialogFileFilter* = struct_SDL_DialogFileFilter 
   SDL_DialogFileCallback* = proc (a0: pointer; a1: ptr cstring; a2: cint): void {.
       cdecl.}                
+  SDL_FileDialogType* = enum_SDL_FileDialogType 
   struct_SDL_GUID* {.pure, inheritable, bycopy.} = object
     data*: array[16'i64, Uint8] 
   SDL_GUID* = struct_SDL_GUID 
@@ -2668,6 +2714,12 @@ type
     timestamp*: Uint64
     which*: SDL_CameraID
   SDL_CameraDeviceEvent* = struct_SDL_CameraDeviceEvent 
+  struct_SDL_RenderEvent* {.pure, inheritable, bycopy.} = object
+    type_field*: SDL_EventType 
+    reserved*: Uint32
+    timestamp*: Uint64
+    windowID*: SDL_WindowID
+  SDL_RenderEvent* = struct_SDL_RenderEvent 
   struct_SDL_TouchFingerEvent* {.pure, inheritable, bycopy.} = object
     type_field*: SDL_EventType 
     reserved*: Uint32
@@ -2749,7 +2801,7 @@ type
     reserved*: Uint32
     timestamp*: Uint64
     owner*: bool
-    n_mime_types*: Sint32
+    num_mime_types*: Sint32
     mime_types*: ptr cstring
   SDL_ClipboardEvent* = struct_SDL_ClipboardEvent 
   struct_SDL_SensorEvent* {.pure, inheritable, bycopy.} = object
@@ -2810,6 +2862,7 @@ type
     pmotion*: SDL_PenMotionEvent
     pbutton*: SDL_PenButtonEvent
     paxis*: SDL_PenAxisEvent
+    render*: SDL_RenderEvent
     drop*: SDL_DropEvent
     clipboard*: SDL_ClipboardEvent
     padding*: array[128'i64, Uint8]
@@ -3292,6 +3345,7 @@ type
   SDL_AppEvent_func* = proc (a0: pointer; a1: ptr SDL_Event): SDL_AppResult {.
       cdecl.}                
   SDL_AppQuit_func* = proc (a0: pointer; a1: SDL_AppResult): void {.cdecl.} 
+  SDL_MainThreadCallback* = proc (a0: pointer): void {.cdecl.} 
   SDL_SharedObject* = struct_SDL_SharedObject 
   struct_SDL_Locale* {.pure, inheritable, bycopy.} = object
     language*: cstring       
@@ -3385,6 +3439,11 @@ type
       cdecl.}                
   SDL_NSTimerCallback* = proc (a0: pointer; a1: SDL_TimerID; a2: Uint64): Uint64 {.
       cdecl.}                
+  SDL_Tray* = struct_SDL_Tray 
+  SDL_TrayMenu* = struct_SDL_TrayMenu 
+  SDL_TrayEntry* = struct_SDL_TrayEntry 
+  SDL_TrayEntryFlags* = Uint32 
+  SDL_TrayCallback* = proc (a0: pointer; a1: ptr SDL_TrayEntry): void {.cdecl.} 
   uintptr_t* = culonglong    
   internal_beginthreadex_proc_type* = proc (a0: pointer): cuint {.cdecl.} 
 when 1 is static:
@@ -4085,6 +4144,11 @@ when "SDL.window.wayland.surface" is static:
     SDL_PROP_WINDOW_WAYLAND_SURFACE_POINTER* = "SDL.window.wayland.surface" 
 else:
   let SDL_PROP_WINDOW_WAYLAND_SURFACE_POINTER* = "SDL.window.wayland.surface" 
+when "SDL.window.wayland.viewport" is static:
+  const
+    SDL_PROP_WINDOW_WAYLAND_VIEWPORT_POINTER* = "SDL.window.wayland.viewport" 
+else:
+  let SDL_PROP_WINDOW_WAYLAND_VIEWPORT_POINTER* = "SDL.window.wayland.viewport" 
 when "SDL.window.wayland.egl_window" is static:
   const
     SDL_PROP_WINDOW_WAYLAND_EGL_WINDOW_POINTER* = "SDL.window.wayland.egl_window" 
@@ -4140,6 +4204,46 @@ when -1 is static:
     SDL_WINDOW_SURFACE_VSYNC_ADAPTIVE* = -1 
 else:
   let SDL_WINDOW_SURFACE_VSYNC_ADAPTIVE* = -1 
+when "SDL.filedialog.filters" is static:
+  const
+    SDL_PROP_FILE_DIALOG_FILTERS_POINTER* = "SDL.filedialog.filters" 
+else:
+  let SDL_PROP_FILE_DIALOG_FILTERS_POINTER* = "SDL.filedialog.filters" 
+when "SDL.filedialog.nfilters" is static:
+  const
+    SDL_PROP_FILE_DIALOG_NFILTERS_NUMBER* = "SDL.filedialog.nfilters" 
+else:
+  let SDL_PROP_FILE_DIALOG_NFILTERS_NUMBER* = "SDL.filedialog.nfilters" 
+when "SDL.filedialog.window" is static:
+  const
+    SDL_PROP_FILE_DIALOG_WINDOW_POINTER* = "SDL.filedialog.window" 
+else:
+  let SDL_PROP_FILE_DIALOG_WINDOW_POINTER* = "SDL.filedialog.window" 
+when "SDL.filedialog.location" is static:
+  const
+    SDL_PROP_FILE_DIALOG_LOCATION_STRING* = "SDL.filedialog.location" 
+else:
+  let SDL_PROP_FILE_DIALOG_LOCATION_STRING* = "SDL.filedialog.location" 
+when "SDL.filedialog.many" is static:
+  const
+    SDL_PROP_FILE_DIALOG_MANY_BOOLEAN* = "SDL.filedialog.many" 
+else:
+  let SDL_PROP_FILE_DIALOG_MANY_BOOLEAN* = "SDL.filedialog.many" 
+when "SDL.filedialog.title" is static:
+  const
+    SDL_PROP_FILE_DIALOG_TITLE_STRING* = "SDL.filedialog.title" 
+else:
+  let SDL_PROP_FILE_DIALOG_TITLE_STRING* = "SDL.filedialog.title" 
+when "SDL.filedialog.accept" is static:
+  const
+    SDL_PROP_FILE_DIALOG_ACCEPT_STRING* = "SDL.filedialog.accept" 
+else:
+  let SDL_PROP_FILE_DIALOG_ACCEPT_STRING* = "SDL.filedialog.accept" 
+when "SDL.filedialog.cancel" is static:
+  const
+    SDL_PROP_FILE_DIALOG_CANCEL_STRING* = "SDL.filedialog.cancel" 
+else:
+  let SDL_PROP_FILE_DIALOG_CANCEL_STRING* = "SDL.filedialog.cancel" 
 when 9.80665 is static:
   const
     SDL_STANDARD_GRAVITY* = 9.80665 
@@ -5615,36 +5719,6 @@ when 0 is static:
     SDL_GPU_SHADERFORMAT_INVALID* = 0 
 else:
   let SDL_GPU_SHADERFORMAT_INVALID* = 0 
-when "SDL.gpu.createtexture.d3d12.clear.r" is static:
-  const
-    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_R_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.r" 
-else:
-  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_R_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.r" 
-when "SDL.gpu.createtexture.d3d12.clear.g" is static:
-  const
-    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_G_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.g" 
-else:
-  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_G_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.g" 
-when "SDL.gpu.createtexture.d3d12.clear.b" is static:
-  const
-    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_B_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.b" 
-else:
-  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_B_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.b" 
-when "SDL.gpu.createtexture.d3d12.clear.a" is static:
-  const
-    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_A_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.a" 
-else:
-  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_A_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.a" 
-when "SDL.gpu.createtexture.d3d12.clear.depth" is static:
-  const
-    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_DEPTH_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.depth" 
-else:
-  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_DEPTH_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.depth" 
-when "SDL.gpu.createtexture.d3d12.clear.stencil" is static:
-  const
-    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_STENCIL_UINT8* = "SDL.gpu.createtexture.d3d12.clear.stencil" 
-else:
-  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_STENCIL_UINT8* = "SDL.gpu.createtexture.d3d12.clear.stencil" 
 when "SDL.gpu.device.create.debugmode" is static:
   const
     SDL_PROP_GPU_DEVICE_CREATE_DEBUGMODE_BOOLEAN* = "SDL.gpu.device.create.debugmode" 
@@ -5695,6 +5769,36 @@ when "SDL.gpu.device.create.d3d12.semantic" is static:
     SDL_PROP_GPU_DEVICE_CREATE_D3D12_SEMANTIC_NAME_STRING* = "SDL.gpu.device.create.d3d12.semantic" 
 else:
   let SDL_PROP_GPU_DEVICE_CREATE_D3D12_SEMANTIC_NAME_STRING* = "SDL.gpu.device.create.d3d12.semantic" 
+when "SDL.gpu.createtexture.d3d12.clear.r" is static:
+  const
+    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_R_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.r" 
+else:
+  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_R_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.r" 
+when "SDL.gpu.createtexture.d3d12.clear.g" is static:
+  const
+    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_G_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.g" 
+else:
+  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_G_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.g" 
+when "SDL.gpu.createtexture.d3d12.clear.b" is static:
+  const
+    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_B_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.b" 
+else:
+  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_B_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.b" 
+when "SDL.gpu.createtexture.d3d12.clear.a" is static:
+  const
+    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_A_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.a" 
+else:
+  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_A_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.a" 
+when "SDL.gpu.createtexture.d3d12.clear.depth" is static:
+  const
+    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_DEPTH_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.depth" 
+else:
+  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_DEPTH_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.depth" 
+when "SDL.gpu.createtexture.d3d12.clear.stencil" is static:
+  const
+    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_STENCIL_UINT8* = "SDL.gpu.createtexture.d3d12.clear.stencil" 
+else:
+  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_STENCIL_UINT8* = "SDL.gpu.createtexture.d3d12.clear.stencil" 
 when 0 is static:
   const
     SDL_HAPTIC_POLAR* = 0    
@@ -5735,6 +5839,11 @@ when "SDL_ANDROID_BLOCK_ON_PAUSE" is static:
     SDL_HINT_ANDROID_BLOCK_ON_PAUSE* = "SDL_ANDROID_BLOCK_ON_PAUSE" 
 else:
   let SDL_HINT_ANDROID_BLOCK_ON_PAUSE* = "SDL_ANDROID_BLOCK_ON_PAUSE" 
+when "SDL_ANDROID_LOW_LATENCY_AUDIO" is static:
+  const
+    SDL_HINT_ANDROID_LOW_LATENCY_AUDIO* = "SDL_ANDROID_LOW_LATENCY_AUDIO" 
+else:
+  let SDL_HINT_ANDROID_LOW_LATENCY_AUDIO* = "SDL_ANDROID_LOW_LATENCY_AUDIO" 
 when "SDL_ANDROID_TRAP_BACK_BUTTON" is static:
   const
     SDL_HINT_ANDROID_TRAP_BACK_BUTTON* = "SDL_ANDROID_TRAP_BACK_BUTTON" 
@@ -5765,6 +5874,16 @@ when "SDL_AUDIO_ALSA_DEFAULT_DEVICE" is static:
     SDL_HINT_AUDIO_ALSA_DEFAULT_DEVICE* = "SDL_AUDIO_ALSA_DEFAULT_DEVICE" 
 else:
   let SDL_HINT_AUDIO_ALSA_DEFAULT_DEVICE* = "SDL_AUDIO_ALSA_DEFAULT_DEVICE" 
+when "SDL_AUDIO_ALSA_DEFAULT_PLAYBACK_DEVICE" is static:
+  const
+    SDL_HINT_AUDIO_ALSA_DEFAULT_PLAYBACK_DEVICE* = "SDL_AUDIO_ALSA_DEFAULT_PLAYBACK_DEVICE" 
+else:
+  let SDL_HINT_AUDIO_ALSA_DEFAULT_PLAYBACK_DEVICE* = "SDL_AUDIO_ALSA_DEFAULT_PLAYBACK_DEVICE" 
+when "SDL_AUDIO_ALSA_DEFAULT_RECORDING_DEVICE" is static:
+  const
+    SDL_HINT_AUDIO_ALSA_DEFAULT_RECORDING_DEVICE* = "SDL_AUDIO_ALSA_DEFAULT_RECORDING_DEVICE" 
+else:
+  let SDL_HINT_AUDIO_ALSA_DEFAULT_RECORDING_DEVICE* = "SDL_AUDIO_ALSA_DEFAULT_RECORDING_DEVICE" 
 when "SDL_AUDIO_CATEGORY" is static:
   const
     SDL_HINT_AUDIO_CATEGORY* = "SDL_AUDIO_CATEGORY" 
@@ -6040,6 +6159,11 @@ when "SDL_JOYSTICK_DEVICE" is static:
     SDL_HINT_JOYSTICK_DEVICE* = "SDL_JOYSTICK_DEVICE" 
 else:
   let SDL_HINT_JOYSTICK_DEVICE* = "SDL_JOYSTICK_DEVICE" 
+when "SDL_JOYSTICK_ENHANCED_REPORTS" is static:
+  const
+    SDL_HINT_JOYSTICK_ENHANCED_REPORTS* = "SDL_JOYSTICK_ENHANCED_REPORTS" 
+else:
+  let SDL_HINT_JOYSTICK_ENHANCED_REPORTS* = "SDL_JOYSTICK_ENHANCED_REPORTS" 
 when "SDL_JOYSTICK_FLIGHTSTICK_DEVICES" is static:
   const
     SDL_HINT_JOYSTICK_FLIGHTSTICK_DEVICES* = "SDL_JOYSTICK_FLIGHTSTICK_DEVICES" 
@@ -6125,11 +6249,6 @@ when "SDL_JOYSTICK_HIDAPI_PS4_REPORT_INTERVAL" is static:
     SDL_HINT_JOYSTICK_HIDAPI_PS4_REPORT_INTERVAL* = "SDL_JOYSTICK_HIDAPI_PS4_REPORT_INTERVAL" 
 else:
   let SDL_HINT_JOYSTICK_HIDAPI_PS4_REPORT_INTERVAL* = "SDL_JOYSTICK_HIDAPI_PS4_REPORT_INTERVAL" 
-when "SDL_JOYSTICK_HIDAPI_PS4_RUMBLE" is static:
-  const
-    SDL_HINT_JOYSTICK_HIDAPI_PS4_RUMBLE* = "SDL_JOYSTICK_HIDAPI_PS4_RUMBLE" 
-else:
-  let SDL_HINT_JOYSTICK_HIDAPI_PS4_RUMBLE* = "SDL_JOYSTICK_HIDAPI_PS4_RUMBLE" 
 when "SDL_JOYSTICK_HIDAPI_PS5" is static:
   const
     SDL_HINT_JOYSTICK_HIDAPI_PS5* = "SDL_JOYSTICK_HIDAPI_PS5" 
@@ -6140,11 +6259,6 @@ when "SDL_JOYSTICK_HIDAPI_PS5_PLAYER_LED" is static:
     SDL_HINT_JOYSTICK_HIDAPI_PS5_PLAYER_LED* = "SDL_JOYSTICK_HIDAPI_PS5_PLAYER_LED" 
 else:
   let SDL_HINT_JOYSTICK_HIDAPI_PS5_PLAYER_LED* = "SDL_JOYSTICK_HIDAPI_PS5_PLAYER_LED" 
-when "SDL_JOYSTICK_HIDAPI_PS5_RUMBLE" is static:
-  const
-    SDL_HINT_JOYSTICK_HIDAPI_PS5_RUMBLE* = "SDL_JOYSTICK_HIDAPI_PS5_RUMBLE" 
-else:
-  let SDL_HINT_JOYSTICK_HIDAPI_PS5_RUMBLE* = "SDL_JOYSTICK_HIDAPI_PS5_RUMBLE" 
 when "SDL_JOYSTICK_HIDAPI_SHIELD" is static:
   const
     SDL_HINT_JOYSTICK_HIDAPI_SHIELD* = "SDL_JOYSTICK_HIDAPI_SHIELD" 
@@ -6160,6 +6274,11 @@ when "SDL_JOYSTICK_HIDAPI_STEAM" is static:
     SDL_HINT_JOYSTICK_HIDAPI_STEAM* = "SDL_JOYSTICK_HIDAPI_STEAM" 
 else:
   let SDL_HINT_JOYSTICK_HIDAPI_STEAM* = "SDL_JOYSTICK_HIDAPI_STEAM" 
+when "SDL_JOYSTICK_HIDAPI_STEAM_HOME_LED" is static:
+  const
+    SDL_HINT_JOYSTICK_HIDAPI_STEAM_HOME_LED* = "SDL_JOYSTICK_HIDAPI_STEAM_HOME_LED" 
+else:
+  let SDL_HINT_JOYSTICK_HIDAPI_STEAM_HOME_LED* = "SDL_JOYSTICK_HIDAPI_STEAM_HOME_LED" 
 when "SDL_JOYSTICK_HIDAPI_STEAMDECK" is static:
   const
     SDL_HINT_JOYSTICK_HIDAPI_STEAMDECK* = "SDL_JOYSTICK_HIDAPI_STEAMDECK" 
@@ -6370,6 +6489,11 @@ when "SDL_MOUSE_DOUBLE_CLICK_TIME" is static:
     SDL_HINT_MOUSE_DOUBLE_CLICK_TIME* = "SDL_MOUSE_DOUBLE_CLICK_TIME" 
 else:
   let SDL_HINT_MOUSE_DOUBLE_CLICK_TIME* = "SDL_MOUSE_DOUBLE_CLICK_TIME" 
+when "SDL_MOUSE_DEFAULT_SYSTEM_CURSOR" is static:
+  const
+    SDL_HINT_MOUSE_DEFAULT_SYSTEM_CURSOR* = "SDL_MOUSE_DEFAULT_SYSTEM_CURSOR" 
+else:
+  let SDL_HINT_MOUSE_DEFAULT_SYSTEM_CURSOR* = "SDL_MOUSE_DEFAULT_SYSTEM_CURSOR" 
 when "SDL_MOUSE_EMULATE_WARP_WITH_RELATIVE" is static:
   const
     SDL_HINT_MOUSE_EMULATE_WARP_WITH_RELATIVE* = "SDL_MOUSE_EMULATE_WARP_WITH_RELATIVE" 
@@ -6390,11 +6514,6 @@ when "SDL_MOUSE_RELATIVE_MODE_CENTER" is static:
     SDL_HINT_MOUSE_RELATIVE_MODE_CENTER* = "SDL_MOUSE_RELATIVE_MODE_CENTER" 
 else:
   let SDL_HINT_MOUSE_RELATIVE_MODE_CENTER* = "SDL_MOUSE_RELATIVE_MODE_CENTER" 
-when "SDL_MOUSE_RELATIVE_MODE_WARP" is static:
-  const
-    SDL_HINT_MOUSE_RELATIVE_MODE_WARP* = "SDL_MOUSE_RELATIVE_MODE_WARP" 
-else:
-  let SDL_HINT_MOUSE_RELATIVE_MODE_WARP* = "SDL_MOUSE_RELATIVE_MODE_WARP" 
 when "SDL_MOUSE_RELATIVE_SPEED_SCALE" is static:
   const
     SDL_HINT_MOUSE_RELATIVE_SPEED_SCALE* = "SDL_MOUSE_RELATIVE_SPEED_SCALE" 
@@ -6415,11 +6534,6 @@ when "SDL_MOUSE_RELATIVE_CURSOR_VISIBLE" is static:
     SDL_HINT_MOUSE_RELATIVE_CURSOR_VISIBLE* = "SDL_MOUSE_RELATIVE_CURSOR_VISIBLE" 
 else:
   let SDL_HINT_MOUSE_RELATIVE_CURSOR_VISIBLE* = "SDL_MOUSE_RELATIVE_CURSOR_VISIBLE" 
-when "SDL_MOUSE_RELATIVE_CLIP_INTERVAL" is static:
-  const
-    SDL_HINT_MOUSE_RELATIVE_CLIP_INTERVAL* = "SDL_MOUSE_RELATIVE_CLIP_INTERVAL" 
-else:
-  let SDL_HINT_MOUSE_RELATIVE_CLIP_INTERVAL* = "SDL_MOUSE_RELATIVE_CLIP_INTERVAL" 
 when "SDL_MOUSE_TOUCH_EVENTS" is static:
   const
     SDL_HINT_MOUSE_TOUCH_EVENTS* = "SDL_MOUSE_TOUCH_EVENTS" 
@@ -6440,6 +6554,11 @@ when "SDL_OPENGL_LIBRARY" is static:
     SDL_HINT_OPENGL_LIBRARY* = "SDL_OPENGL_LIBRARY" 
 else:
   let SDL_HINT_OPENGL_LIBRARY* = "SDL_OPENGL_LIBRARY" 
+when "SDL_EGL_LIBRARY" is static:
+  const
+    SDL_HINT_EGL_LIBRARY* = "SDL_EGL_LIBRARY" 
+else:
+  let SDL_HINT_EGL_LIBRARY* = "SDL_EGL_LIBRARY" 
 when "SDL_OPENGL_ES_DRIVER" is static:
   const
     SDL_HINT_OPENGL_ES_DRIVER* = "SDL_OPENGL_ES_DRIVER" 
@@ -7225,6 +7344,11 @@ when "SDL.renderer.vulkan.swapchain_image_count" is static:
     SDL_PROP_RENDERER_VULKAN_SWAPCHAIN_IMAGE_COUNT_NUMBER* = "SDL.renderer.vulkan.swapchain_image_count" 
 else:
   let SDL_PROP_RENDERER_VULKAN_SWAPCHAIN_IMAGE_COUNT_NUMBER* = "SDL.renderer.vulkan.swapchain_image_count" 
+when "SDL.renderer.gpu.device" is static:
+  const
+    SDL_PROP_RENDERER_GPU_DEVICE_POINTER* = "SDL.renderer.gpu.device" 
+else:
+  let SDL_PROP_RENDERER_GPU_DEVICE_POINTER* = "SDL.renderer.gpu.device" 
 when "SDL.texture.create.colorspace" is static:
   const
     SDL_PROP_TEXTURE_CREATE_COLORSPACE_NUMBER* = "SDL.texture.create.colorspace" 
@@ -7510,6 +7634,31 @@ when 1000 is static:
     SDL_NS_PER_US* = 1000    
 else:
   let SDL_NS_PER_US* = 1000  
+when cast[cuint](1'i64) is static:
+  const
+    SDL_TRAYENTRY_BUTTON* = cast[cuint](1'i64) 
+else:
+  let SDL_TRAYENTRY_BUTTON* = cast[cuint](1'i64) 
+when cast[cuint](2'i64) is static:
+  const
+    SDL_TRAYENTRY_CHECKBOX* = cast[cuint](2'i64) 
+else:
+  let SDL_TRAYENTRY_CHECKBOX* = cast[cuint](2'i64) 
+when cast[cuint](4'i64) is static:
+  const
+    SDL_TRAYENTRY_SUBMENU* = cast[cuint](4'i64) 
+else:
+  let SDL_TRAYENTRY_SUBMENU* = cast[cuint](4'i64) 
+when cast[cuint](2147483648'i64) is static:
+  const
+    SDL_TRAYENTRY_DISABLED* = cast[cuint](2147483648'i64) 
+else:
+  let SDL_TRAYENTRY_DISABLED* = cast[cuint](2147483648'i64) 
+when cast[cuint](1073741824'i64) is static:
+  const
+    SDL_TRAYENTRY_CHECKED* = cast[cuint](1073741824'i64) 
+else:
+  let SDL_TRAYENTRY_CHECKED* = cast[cuint](1073741824'i64) 
 when 3 is static:
   const
     SDL_MAJOR_VERSION* = 3   
@@ -7520,11 +7669,11 @@ when 1 is static:
     SDL_MINOR_VERSION* = 1   
 else:
   let SDL_MINOR_VERSION* = 1 
-when 6 is static:
+when 8 is static:
   const
-    SDL_MICRO_VERSION* = 6   
+    SDL_MICRO_VERSION* = 8   
 else:
-  let SDL_MICRO_VERSION* = 6 
+  let SDL_MICRO_VERSION* = 8 
 when SDL_AtomicAdd_renamed_SDL_AddAtomicInt is typedesc:
   type
     SDL_AtomicAdd* = SDL_AtomicAdd_renamed_SDL_AddAtomicInt 
@@ -9937,6 +10086,28 @@ else:
       SDL_HINT_JOYSTICK_GAMECUBE_RUMBLE_BRAKE* = SDL_HINT_JOYSTICK_GAMECUBE_RUMBLE_BRAKE_renamed_SDL_HINT_JOYSTICK_HIDAPI_GAMECUBE_RUMBLE_BRAKE 
   else:
     let SDL_HINT_JOYSTICK_GAMECUBE_RUMBLE_BRAKE* = SDL_HINT_JOYSTICK_GAMECUBE_RUMBLE_BRAKE_renamed_SDL_HINT_JOYSTICK_HIDAPI_GAMECUBE_RUMBLE_BRAKE 
+when SDL_HINT_JOYSTICK_HIDAPI_PS4_RUMBLE_renamed_SDL_HINT_JOYSTICK_ENHANCED_REPORTS is
+    typedesc:
+  type
+    SDL_HINT_JOYSTICK_HIDAPI_PS4_RUMBLE* = SDL_HINT_JOYSTICK_HIDAPI_PS4_RUMBLE_renamed_SDL_HINT_JOYSTICK_ENHANCED_REPORTS 
+else:
+  when SDL_HINT_JOYSTICK_HIDAPI_PS4_RUMBLE_renamed_SDL_HINT_JOYSTICK_ENHANCED_REPORTS is
+      static:
+    const
+      SDL_HINT_JOYSTICK_HIDAPI_PS4_RUMBLE* = SDL_HINT_JOYSTICK_HIDAPI_PS4_RUMBLE_renamed_SDL_HINT_JOYSTICK_ENHANCED_REPORTS 
+  else:
+    let SDL_HINT_JOYSTICK_HIDAPI_PS4_RUMBLE* = SDL_HINT_JOYSTICK_HIDAPI_PS4_RUMBLE_renamed_SDL_HINT_JOYSTICK_ENHANCED_REPORTS 
+when SDL_HINT_JOYSTICK_HIDAPI_PS5_RUMBLE_renamed_SDL_HINT_JOYSTICK_ENHANCED_REPORTS is
+    typedesc:
+  type
+    SDL_HINT_JOYSTICK_HIDAPI_PS5_RUMBLE* = SDL_HINT_JOYSTICK_HIDAPI_PS5_RUMBLE_renamed_SDL_HINT_JOYSTICK_ENHANCED_REPORTS 
+else:
+  when SDL_HINT_JOYSTICK_HIDAPI_PS5_RUMBLE_renamed_SDL_HINT_JOYSTICK_ENHANCED_REPORTS is
+      static:
+    const
+      SDL_HINT_JOYSTICK_HIDAPI_PS5_RUMBLE* = SDL_HINT_JOYSTICK_HIDAPI_PS5_RUMBLE_renamed_SDL_HINT_JOYSTICK_ENHANCED_REPORTS 
+  else:
+    let SDL_HINT_JOYSTICK_HIDAPI_PS5_RUMBLE* = SDL_HINT_JOYSTICK_HIDAPI_PS5_RUMBLE_renamed_SDL_HINT_JOYSTICK_ENHANCED_REPORTS 
 when SDL_HINT_LINUX_DIGITAL_HATS_renamed_SDL_HINT_JOYSTICK_LINUX_DIGITAL_HATS is
     typedesc:
   type
@@ -13081,7 +13252,7 @@ proc SDL_strnstr*(haystack: cstring; needle: cstring; maxlen: csize_t): cstring 
     cdecl, importc: "SDL_strnstr".}
 proc SDL_strcasestr*(haystack: cstring; needle: cstring): cstring {.cdecl,
     importc: "SDL_strcasestr".}
-proc SDL_strtok_r_proc*(s1: cstring; s2: cstring; saveptr: ptr cstring): cstring {.
+proc SDL_strtok_r_proc*(str: cstring; delim: cstring; saveptr: ptr cstring): cstring {.
     cdecl, importc: "SDL_strtok_r".}
 proc SDL_utf8strlen*(str: cstring): csize_t {.cdecl, importc: "SDL_utf8strlen".}
 proc SDL_utf8strnlen*(str: cstring; bytes: csize_t): csize_t {.cdecl,
@@ -13223,6 +13394,36 @@ proc SDL_GetAssertionReport*(): ptr SDL_AssertData {.cdecl,
     importc: "SDL_GetAssertionReport".}
 proc SDL_ResetAssertionReport*(): void {.cdecl,
     importc: "SDL_ResetAssertionReport".}
+proc SDL_AsyncIOFromFile*(file: cstring; mode: cstring): ptr SDL_AsyncIO {.
+    cdecl, importc: "SDL_AsyncIOFromFile".}
+proc SDL_GetAsyncIOSize*(asyncio: ptr SDL_AsyncIO): Sint64 {.cdecl,
+    importc: "SDL_GetAsyncIOSize".}
+proc SDL_ReadAsyncIO*(asyncio: ptr SDL_AsyncIO; ptr_arg: pointer;
+                      offset: Uint64; size: Uint64; queue: ptr SDL_AsyncIOQueue;
+                      userdata: pointer): bool {.cdecl,
+    importc: "SDL_ReadAsyncIO".}
+proc SDL_WriteAsyncIO*(asyncio: ptr SDL_AsyncIO; ptr_arg: pointer;
+                       offset: Uint64; size: Uint64;
+                       queue: ptr SDL_AsyncIOQueue; userdata: pointer): bool {.
+    cdecl, importc: "SDL_WriteAsyncIO".}
+proc SDL_CloseAsyncIO*(asyncio: ptr SDL_AsyncIO; flush: bool;
+                       queue: ptr SDL_AsyncIOQueue; userdata: pointer): bool {.
+    cdecl, importc: "SDL_CloseAsyncIO".}
+proc SDL_CreateAsyncIOQueue*(): ptr SDL_AsyncIOQueue {.cdecl,
+    importc: "SDL_CreateAsyncIOQueue".}
+proc SDL_DestroyAsyncIOQueue*(queue: ptr SDL_AsyncIOQueue): void {.cdecl,
+    importc: "SDL_DestroyAsyncIOQueue".}
+proc SDL_GetAsyncIOResult*(queue: ptr SDL_AsyncIOQueue;
+                           outcome: ptr SDL_AsyncIOOutcome): bool {.cdecl,
+    importc: "SDL_GetAsyncIOResult".}
+proc SDL_WaitAsyncIOResult*(queue: ptr SDL_AsyncIOQueue;
+                            outcome: ptr SDL_AsyncIOOutcome; timeoutMS: Sint32): bool {.
+    cdecl, importc: "SDL_WaitAsyncIOResult".}
+proc SDL_SignalAsyncIOQueue*(queue: ptr SDL_AsyncIOQueue): void {.cdecl,
+    importc: "SDL_SignalAsyncIOQueue".}
+proc SDL_LoadFileAsync*(file: cstring; queue: ptr SDL_AsyncIOQueue;
+                        userdata: pointer): bool {.cdecl,
+    importc: "SDL_LoadFileAsync".}
 proc SDL_TryLockSpinlock*(lock: ptr SDL_SpinLock): bool {.cdecl,
     importc: "SDL_TryLockSpinlock".}
 proc SDL_LockSpinlock*(lock: ptr SDL_SpinLock): void {.cdecl,
@@ -13335,6 +13536,8 @@ proc SDL_SetCurrentThreadPriority*(priority: SDL_ThreadPriority): bool {.cdecl,
     importc: "SDL_SetCurrentThreadPriority".}
 proc SDL_WaitThread*(thread: ptr SDL_Thread; status: ptr cint): void {.cdecl,
     importc: "SDL_WaitThread".}
+proc SDL_GetThreadState*(thread: ptr SDL_Thread): SDL_ThreadState {.cdecl,
+    importc: "SDL_GetThreadState".}
 proc SDL_DetachThread*(thread: ptr SDL_Thread): void {.cdecl,
     importc: "SDL_DetachThread".}
 proc SDL_GetTLS*(id: ptr SDL_TLSID): pointer {.cdecl, importc: "SDL_GetTLS".}
@@ -13435,6 +13638,10 @@ proc SDL_LoadFile_IO*(src: ptr SDL_IOStream; datasize: ptr csize_t;
     importc: "SDL_LoadFile_IO".}
 proc SDL_LoadFile*(file: cstring; datasize: ptr csize_t): pointer {.cdecl,
     importc: "SDL_LoadFile".}
+proc SDL_SaveFile_IO*(src: ptr SDL_IOStream; data: pointer; datasize: csize_t;
+                      closeio: bool): bool {.cdecl, importc: "SDL_SaveFile_IO".}
+proc SDL_SaveFile*(file: cstring; data: pointer; datasize: csize_t): bool {.
+    cdecl, importc: "SDL_SaveFile".}
 proc SDL_ReadU8*(src: ptr SDL_IOStream; value: ptr Uint8): bool {.cdecl,
     importc: "SDL_ReadU8".}
 proc SDL_ReadS8*(src: ptr SDL_IOStream; value: ptr Sint8): bool {.cdecl,
@@ -13509,6 +13716,10 @@ proc SDL_GetAudioDeviceChannelMap*(devid: SDL_AudioDeviceID; count: ptr cint): p
     cdecl, importc: "SDL_GetAudioDeviceChannelMap".}
 proc SDL_OpenAudioDevice*(devid: SDL_AudioDeviceID; spec: ptr SDL_AudioSpec): SDL_AudioDeviceID {.
     cdecl, importc: "SDL_OpenAudioDevice".}
+proc SDL_IsAudioDevicePhysical*(devid: SDL_AudioDeviceID): bool {.cdecl,
+    importc: "SDL_IsAudioDevicePhysical".}
+proc SDL_IsAudioDevicePlayback*(devid: SDL_AudioDeviceID): bool {.cdecl,
+    importc: "SDL_IsAudioDevicePlayback".}
 proc SDL_PauseAudioDevice*(dev: SDL_AudioDeviceID): bool {.cdecl,
     importc: "SDL_PauseAudioDevice".}
 proc SDL_ResumeAudioDevice*(dev: SDL_AudioDeviceID): bool {.cdecl,
@@ -13956,7 +14167,8 @@ proc SDL_GetFullscreenDisplayModes*(displayID: SDL_DisplayID; count: ptr cint): 
     cdecl, importc: "SDL_GetFullscreenDisplayModes".}
 proc SDL_GetClosestFullscreenDisplayMode*(displayID: SDL_DisplayID; w: cint;
     h: cint; refresh_rate: cfloat; include_high_density_modes: bool;
-    mode: ptr SDL_DisplayMode): bool {.cdecl, importc: "SDL_GetClosestFullscreenDisplayMode".}
+    closest: ptr SDL_DisplayMode): bool {.cdecl,
+    importc: "SDL_GetClosestFullscreenDisplayMode".}
 proc SDL_GetDesktopDisplayMode*(displayID: SDL_DisplayID): ptr SDL_DisplayMode {.
     cdecl, importc: "SDL_GetDesktopDisplayMode".}
 proc SDL_GetCurrentDisplayMode*(displayID: SDL_DisplayID): ptr SDL_DisplayMode {.
@@ -14164,6 +14376,11 @@ proc SDL_ShowOpenFolderDialog*(callback: SDL_DialogFileCallback;
                                userdata: pointer; window: ptr SDL_Window;
                                default_location: cstring; allow_many: bool): void {.
     cdecl, importc: "SDL_ShowOpenFolderDialog".}
+proc SDL_ShowFileDialogWithProperties*(type_arg: SDL_FileDialogType;
+                                       callback: SDL_DialogFileCallback;
+                                       userdata: pointer;
+                                       props: SDL_PropertiesID): void {.cdecl,
+    importc: "SDL_ShowFileDialogWithProperties".}
 proc SDL_GUIDToString*(guid: SDL_GUID; pszGUID: cstring; cbGUID: cint): void {.
     cdecl, importc: "SDL_GUIDToString".}
 proc SDL_StringToGUID*(pchGUID: cstring): SDL_GUID {.cdecl,
@@ -14637,6 +14854,8 @@ proc SDL_GetPathInfo*(path: cstring; info: ptr SDL_PathInfo): bool {.cdecl,
 proc SDL_GlobDirectory*(path: cstring; pattern: cstring; flags: SDL_GlobFlags;
                         count: ptr cint): ptr cstring {.cdecl,
     importc: "SDL_GlobDirectory".}
+proc SDL_GetCurrentDirectory*(): cstring {.cdecl,
+    importc: "SDL_GetCurrentDirectory".}
 proc SDL_GPUSupportsShaderFormats*(format_flags: SDL_GPUShaderFormat;
                                    name: cstring): bool {.cdecl,
     importc: "SDL_GPUSupportsShaderFormats".}
@@ -14885,6 +15104,9 @@ proc SDL_SetGPUSwapchainParameters*(device: ptr SDL_GPUDevice;
     swapchain_composition: SDL_GPUSwapchainComposition;
                                     present_mode: SDL_GPUPresentMode): bool {.
     cdecl, importc: "SDL_SetGPUSwapchainParameters".}
+proc SDL_SetGPUAllowedFramesInFlight*(device: ptr SDL_GPUDevice;
+                                      allowed_frames_in_flight: Uint32): bool {.
+    cdecl, importc: "SDL_SetGPUAllowedFramesInFlight".}
 proc SDL_GetGPUSwapchainTextureFormat*(device: ptr SDL_GPUDevice;
                                        window: ptr SDL_Window): SDL_GPUTextureFormat {.
     cdecl, importc: "SDL_GetGPUSwapchainTextureFormat".}
@@ -14894,6 +15116,13 @@ proc SDL_AcquireGPUSwapchainTexture*(command_buffer: ptr SDL_GPUCommandBuffer;
                                      swapchain_texture_width: ptr Uint32;
                                      swapchain_texture_height: ptr Uint32): bool {.
     cdecl, importc: "SDL_AcquireGPUSwapchainTexture".}
+proc SDL_WaitForGPUSwapchain*(device: ptr SDL_GPUDevice; window: ptr SDL_Window): bool {.
+    cdecl, importc: "SDL_WaitForGPUSwapchain".}
+proc SDL_WaitAndAcquireGPUSwapchainTexture*(
+    command_buffer: ptr SDL_GPUCommandBuffer; window: ptr SDL_Window;
+    swapchain_texture: ptr ptr SDL_GPUTexture;
+    swapchain_texture_width: ptr Uint32; swapchain_texture_height: ptr Uint32): bool {.
+    cdecl, importc: "SDL_WaitAndAcquireGPUSwapchainTexture".}
 proc SDL_SubmitGPUCommandBuffer*(command_buffer: ptr SDL_GPUCommandBuffer): bool {.
     cdecl, importc: "SDL_SubmitGPUCommandBuffer".}
 proc SDL_SubmitGPUCommandBufferAndAcquireFence*(
@@ -15066,6 +15295,10 @@ proc SDL_QuitSubSystem*(flags: SDL_InitFlags): void {.cdecl,
 proc SDL_WasInit*(flags: SDL_InitFlags): SDL_InitFlags {.cdecl,
     importc: "SDL_WasInit".}
 proc SDL_Quit_proc*(): void {.cdecl, importc: "SDL_Quit".}
+proc SDL_IsMainThread*(): bool {.cdecl, importc: "SDL_IsMainThread".}
+proc SDL_RunOnMainThread*(callback: SDL_MainThreadCallback; userdata: pointer;
+                          wait_complete: bool): bool {.cdecl,
+    importc: "SDL_RunOnMainThread".}
 proc SDL_SetAppMetadata*(appname: cstring; appversion: cstring;
                          appidentifier: cstring): bool {.cdecl,
     importc: "SDL_SetAppMetadata".}
@@ -15337,6 +15570,11 @@ proc SDL_RenderTextureRotated*(renderer: ptr SDL_Renderer;
                                dstrect: ptr SDL_FRect; angle: cdouble;
                                center: ptr SDL_FPoint; flip: SDL_FlipMode): bool {.
     cdecl, importc: "SDL_RenderTextureRotated".}
+proc SDL_RenderTextureAffine*(renderer: ptr SDL_Renderer;
+                              texture: ptr SDL_Texture; srcrect: ptr SDL_FRect;
+                              origin: ptr SDL_FPoint; right: ptr SDL_FPoint;
+                              down: ptr SDL_FPoint): bool {.cdecl,
+    importc: "SDL_RenderTextureAffine".}
 proc SDL_RenderTextureTiled*(renderer: ptr SDL_Renderer;
                              texture: ptr SDL_Texture; srcrect: ptr SDL_FRect;
                              scale: cfloat; dstrect: ptr SDL_FRect): bool {.
@@ -15384,6 +15622,9 @@ proc SDL_GetRenderVSync*(renderer: ptr SDL_Renderer; vsync: ptr cint): bool {.
 proc SDL_RenderDebugText*(renderer: ptr SDL_Renderer; x: cfloat; y: cfloat;
                           str: cstring): bool {.cdecl,
     importc: "SDL_RenderDebugText".}
+proc SDL_RenderDebugTextFormat*(renderer: ptr SDL_Renderer; x: cfloat;
+                                y: cfloat; fmt: cstring): bool {.cdecl, varargs,
+    importc: "SDL_RenderDebugTextFormat".}
 proc SDL_OpenTitleStorage*(override: cstring; props: SDL_PropertiesID): ptr SDL_Storage {.
     cdecl, importc: "SDL_OpenTitleStorage".}
 proc SDL_OpenUserStorage*(org: cstring; app: cstring; props: SDL_PropertiesID): ptr SDL_Storage {.
@@ -15489,6 +15730,50 @@ proc SDL_AddTimerNS*(interval: Uint64; callback: SDL_NSTimerCallback;
                      userdata: pointer): SDL_TimerID {.cdecl,
     importc: "SDL_AddTimerNS".}
 proc SDL_RemoveTimer*(id: SDL_TimerID): bool {.cdecl, importc: "SDL_RemoveTimer".}
+proc SDL_CreateTray*(icon: ptr SDL_Surface; tooltip: cstring): ptr SDL_Tray {.
+    cdecl, importc: "SDL_CreateTray".}
+proc SDL_SetTrayIcon*(tray: ptr SDL_Tray; icon: ptr SDL_Surface): void {.cdecl,
+    importc: "SDL_SetTrayIcon".}
+proc SDL_SetTrayTooltip*(tray: ptr SDL_Tray; tooltip: cstring): void {.cdecl,
+    importc: "SDL_SetTrayTooltip".}
+proc SDL_CreateTrayMenu*(tray: ptr SDL_Tray): ptr SDL_TrayMenu {.cdecl,
+    importc: "SDL_CreateTrayMenu".}
+proc SDL_CreateTraySubmenu*(entry: ptr SDL_TrayEntry): ptr SDL_TrayMenu {.cdecl,
+    importc: "SDL_CreateTraySubmenu".}
+proc SDL_GetTrayMenu*(tray: ptr SDL_Tray): ptr SDL_TrayMenu {.cdecl,
+    importc: "SDL_GetTrayMenu".}
+proc SDL_GetTraySubmenu*(entry: ptr SDL_TrayEntry): ptr SDL_TrayMenu {.cdecl,
+    importc: "SDL_GetTraySubmenu".}
+proc SDL_GetTrayEntries*(menu: ptr SDL_TrayMenu; size: ptr cint): ptr ptr SDL_TrayEntry {.
+    cdecl, importc: "SDL_GetTrayEntries".}
+proc SDL_RemoveTrayEntry*(entry: ptr SDL_TrayEntry): void {.cdecl,
+    importc: "SDL_RemoveTrayEntry".}
+proc SDL_InsertTrayEntryAt*(menu: ptr SDL_TrayMenu; pos: cint; label: cstring;
+                            flags: SDL_TrayEntryFlags): ptr SDL_TrayEntry {.
+    cdecl, importc: "SDL_InsertTrayEntryAt".}
+proc SDL_SetTrayEntryLabel*(entry: ptr SDL_TrayEntry; label: cstring): void {.
+    cdecl, importc: "SDL_SetTrayEntryLabel".}
+proc SDL_GetTrayEntryLabel*(entry: ptr SDL_TrayEntry): cstring {.cdecl,
+    importc: "SDL_GetTrayEntryLabel".}
+proc SDL_SetTrayEntryChecked*(entry: ptr SDL_TrayEntry; checked: bool): void {.
+    cdecl, importc: "SDL_SetTrayEntryChecked".}
+proc SDL_GetTrayEntryChecked*(entry: ptr SDL_TrayEntry): bool {.cdecl,
+    importc: "SDL_GetTrayEntryChecked".}
+proc SDL_SetTrayEntryEnabled*(entry: ptr SDL_TrayEntry; enabled: bool): void {.
+    cdecl, importc: "SDL_SetTrayEntryEnabled".}
+proc SDL_GetTrayEntryEnabled*(entry: ptr SDL_TrayEntry): bool {.cdecl,
+    importc: "SDL_GetTrayEntryEnabled".}
+proc SDL_SetTrayEntryCallback*(entry: ptr SDL_TrayEntry;
+                               callback: SDL_TrayCallback; userdata: pointer): void {.
+    cdecl, importc: "SDL_SetTrayEntryCallback".}
+proc SDL_DestroyTray*(tray: ptr SDL_Tray): void {.cdecl,
+    importc: "SDL_DestroyTray".}
+proc SDL_GetTrayEntryParent*(entry: ptr SDL_TrayEntry): ptr SDL_TrayMenu {.
+    cdecl, importc: "SDL_GetTrayEntryParent".}
+proc SDL_GetTrayMenuParentEntry*(menu: ptr SDL_TrayMenu): ptr SDL_TrayEntry {.
+    cdecl, importc: "SDL_GetTrayMenuParentEntry".}
+proc SDL_GetTrayMenuParentTray*(menu: ptr SDL_TrayMenu): ptr SDL_Tray {.cdecl,
+    importc: "SDL_GetTrayMenuParentTray".}
 proc SDL_GetVersion*(): cint {.cdecl, importc: "SDL_GetVersion".}
 proc SDL_GetRevision*(): cstring {.cdecl, importc: "SDL_GetRevision".}
 when cast[culonglong](-1'i64) is static:
