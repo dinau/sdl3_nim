@@ -2,9 +2,9 @@ src/private/SD
 .nimcache/
 nimblecache/
 htmldocs/
-*.a
-*.lib
-*.dll
+#*.a
+#*.lib
+#*.dll
 *.exe
 *.txt
 *.md

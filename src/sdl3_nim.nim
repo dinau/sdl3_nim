@@ -1,13 +1,12 @@
 import std/[os, strutils, strformat]
 
-const SDL3Version      = "3.1.8"
 
 proc currentSourceDir(): string {.compileTime.} =
   result = currentSourcePath().replace("\\", "/")
   result = result[0 ..< result.rfind("/")]
 
-const SDL3RootPath1    = joinPath(currentSourceDir(),fmt"private/SDL3-{SDL3Version}/x86_64-w64-mingw32/include/SDL3")
-const SDL3RootPath2    = joinPath(currentSourceDir(),fmt"private/SDL3-{SDL3Version}/x86_64-w64-mingw32/include")
+const SDL3RootPath1    = joinPath(currentSourceDir(),fmt"private/SDL3/x86_64-w64-mingw32/include/SDL3")
+const SDL3RootPath2    = joinPath(currentSourceDir(),fmt"private/SDL3/x86_64-w64-mingw32/include")
 
 #--- Futhark start
 when defined(useFuthark): # Generate header files with Futhark.

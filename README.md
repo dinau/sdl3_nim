@@ -4,8 +4,7 @@
 - [sdl3_nim](#sdl3_nim)
   - [Install](#install)
   - [Build and run examples](#build-and-run-examples)
-  - [Generate SDL3 Nim header files with Futhark](#generate-sdl3-nim-header-files-with-futhark)
-  - [SDL3 dll libraries](#sdl3-dll-libraries)
+  - [Develeopment : Generating SDL3 Nim header files with Futhark](#develeopment--generating-sdl3-nim-header-files-with-futhark)
   - [My tools version](#my-tools-version)
   - [Other SDL game tutorial platfromer project](#other-sdl-game-tutorial-platfromer-project)
   - [Other project](#other-project)
@@ -23,10 +22,10 @@ SDL3 wrapper for Nim language
 This is highly work in progress and my experiment project.
 
 
-- SDL3-3.1.8
+- SDL3-3.1.10
 - SDL_ttf 3.0.0
 - Only on Windows OS at this moment
-- Trying to use [ImGuin SDL3 example](https://github.com/dinau/imguin#glfw_opengl3_image_load--sdl2_opengl3---sdl3_opengl3)
+- Trying to use [ImGuin SDL3 example](https://github.com/dinau/imguin_examples#glfw_opengl3_image_load--sdl2_opengl3---sdl3_opengl3)
 
 
 #### Install
@@ -52,6 +51,9 @@ nimble install https://github.com/dinau/sdl3_nim
 
 ```sh
 git clone https://github.com/dinau/sdl3_nim
+```
+
+```sh
 cd sdl3_nim
 make 
 ```
@@ -77,26 +79,23 @@ make run
 
 ![alt](https://github.com/dinau/sdl3_nim/raw/main/src/private/img/platformer-nim-sdl3.gif)  
 
-#### Generate SDL3 Nim header files with Futhark
+#### Develeopment : Generating SDL3 Nim header files with Futhark
 
 ---
 
-[Install Futhark](https://github.com/PMunch/futhark#installation)
+[The definition file of SDL3](src/sdl3_defs.nim) can be updated by yourself as follows, 
 
-```sh
-pwd 
-sdl3_nim
-make gen
-```
+1. Replace [src/private/SDL3](src/private/SDL3) with  [latest officail SDL3 library](https://github.com/libsdl-org/SDL/releases)
+1. [Install Futhark](https://github.com/PMunch/futhark#installation)
+1. Generate definition file
 
-`src/sdl3_defs.nim` will be generated.
+   ```sh
+   pwd 
+   sdl3_nim
+   make gen
+   ```
 
-#### SDL3 dll libraries
-
----
-
-https://github.com/sansuido/sdl3
-
+   `src/sdl3_defs.nim` will be generated.
 
 #### My tools version 
 

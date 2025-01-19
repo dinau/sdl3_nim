@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.8.0"
+version       = "3.1.10.0"
 author        = "dinau"
 description   = "SDL3 library wrapper"
 license       = "MIT"

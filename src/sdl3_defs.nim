@@ -470,16 +470,16 @@ type
   enum_SDL_MouseWheelDirection* {.size: sizeof(cuint).} = enum
     SDL_MOUSEWHEEL_NORMAL = 0, SDL_MOUSEWHEEL_FLIPPED = 1
 type
+  enum_SDL_TouchDeviceType* {.size: sizeof(cint).} = enum
+    SDL_TOUCH_DEVICE_INVALID = -1, SDL_TOUCH_DEVICE_DIRECT = 0,
+    SDL_TOUCH_DEVICE_INDIRECT_ABSOLUTE = 1,
+    SDL_TOUCH_DEVICE_INDIRECT_RELATIVE = 2
+type
   enum_SDL_PenAxis* {.size: sizeof(cuint).} = enum
     SDL_PEN_AXIS_PRESSURE = 0, SDL_PEN_AXIS_XTILT = 1, SDL_PEN_AXIS_YTILT = 2,
     SDL_PEN_AXIS_DISTANCE = 3, SDL_PEN_AXIS_ROTATION = 4,
     SDL_PEN_AXIS_SLIDER = 5, SDL_PEN_AXIS_TANGENTIAL_PRESSURE = 6,
     SDL_PEN_AXIS_COUNT = 7
-type
-  enum_SDL_TouchDeviceType* {.size: sizeof(cint).} = enum
-    SDL_TOUCH_DEVICE_INVALID = -1, SDL_TOUCH_DEVICE_DIRECT = 0,
-    SDL_TOUCH_DEVICE_INDIRECT_ABSOLUTE = 1,
-    SDL_TOUCH_DEVICE_INDIRECT_RELATIVE = 2
 type
   enum_SDL_EventType* {.size: sizeof(cuint).} = enum
     SDL_EVENT_FIRST = 0, SDL_EVENT_QUIT = 256, SDL_EVENT_TERMINATING = 257,
@@ -2467,9 +2467,6 @@ type
   SDL_SystemCursor* = enum_SDL_SystemCursor 
   SDL_MouseWheelDirection* = enum_SDL_MouseWheelDirection 
   SDL_MouseButtonFlags* = Uint32 
-  SDL_PenID* = Uint32        
-  SDL_PenInputFlags* = Uint32 
-  SDL_PenAxis* = enum_SDL_PenAxis 
   SDL_TouchID* = Uint64      
   SDL_FingerID* = Uint64     
   SDL_TouchDeviceType* = enum_SDL_TouchDeviceType 
@@ -2479,6 +2476,9 @@ type
     y*: cfloat
     pressure*: cfloat
   SDL_Finger* = struct_SDL_Finger 
+  SDL_PenID* = Uint32        
+  SDL_PenInputFlags* = Uint32 
+  SDL_PenAxis* = enum_SDL_PenAxis 
   SDL_EventType* = enum_SDL_EventType 
   struct_SDL_CommonEvent* {.pure, inheritable, bycopy.} = object
     type_field*: Uint32      
@@ -5599,6 +5599,41 @@ when cast[cuint](1073742114'i64) is static:
     SDLK_ENDCALL* = cast[cuint](1073742114'i64) 
 else:
   let SDLK_ENDCALL* = cast[cuint](1073742114'i64) 
+when cast[cuint](536870913'i64) is static:
+  const
+    SDLK_LEFT_TAB* = cast[cuint](536870913'i64) 
+else:
+  let SDLK_LEFT_TAB* = cast[cuint](536870913'i64) 
+when cast[cuint](536870914'i64) is static:
+  const
+    SDLK_LEVEL5_SHIFT* = cast[cuint](536870914'i64) 
+else:
+  let SDLK_LEVEL5_SHIFT* = cast[cuint](536870914'i64) 
+when cast[cuint](536870915'i64) is static:
+  const
+    SDLK_MULTI_KEY_COMPOSE* = cast[cuint](536870915'i64) 
+else:
+  let SDLK_MULTI_KEY_COMPOSE* = cast[cuint](536870915'i64) 
+when cast[cuint](536870916'i64) is static:
+  const
+    SDLK_LMETA* = cast[cuint](536870916'i64) 
+else:
+  let SDLK_LMETA* = cast[cuint](536870916'i64) 
+when cast[cuint](536870917'i64) is static:
+  const
+    SDLK_RMETA* = cast[cuint](536870917'i64) 
+else:
+  let SDLK_RMETA* = cast[cuint](536870917'i64) 
+when cast[cuint](536870918'i64) is static:
+  const
+    SDLK_LHYPER* = cast[cuint](536870918'i64) 
+else:
+  let SDLK_LHYPER* = cast[cuint](536870918'i64) 
+when cast[cuint](536870919'i64) is static:
+  const
+    SDLK_RHYPER* = cast[cuint](536870919'i64) 
+else:
+  let SDLK_RHYPER* = cast[cuint](536870919'i64) 
 when cast[cuint](0'i64) is static:
   const
     SDL_KMOD_NONE* = cast[cuint](0'i64) 
@@ -5614,6 +5649,11 @@ when cast[cuint](2'i64) is static:
     SDL_KMOD_RSHIFT* = cast[cuint](2'i64) 
 else:
   let SDL_KMOD_RSHIFT* = cast[cuint](2'i64) 
+when cast[cuint](4'i64) is static:
+  const
+    SDL_KMOD_LEVEL5* = cast[cuint](4'i64) 
+else:
+  let SDL_KMOD_LEVEL5* = cast[cuint](4'i64) 
 when cast[cuint](64'i64) is static:
   const
     SDL_KMOD_LCTRL* = cast[cuint](64'i64) 
@@ -5769,36 +5809,71 @@ when "SDL.gpu.device.create.d3d12.semantic" is static:
     SDL_PROP_GPU_DEVICE_CREATE_D3D12_SEMANTIC_NAME_STRING* = "SDL.gpu.device.create.d3d12.semantic" 
 else:
   let SDL_PROP_GPU_DEVICE_CREATE_D3D12_SEMANTIC_NAME_STRING* = "SDL.gpu.device.create.d3d12.semantic" 
-when "SDL.gpu.createtexture.d3d12.clear.r" is static:
+when "SDL.gpu.computepipeline.create.name" is static:
   const
-    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_R_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.r" 
+    SDL_PROP_GPU_COMPUTEPIPELINE_CREATE_NAME_STRING* = "SDL.gpu.computepipeline.create.name" 
 else:
-  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_R_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.r" 
-when "SDL.gpu.createtexture.d3d12.clear.g" is static:
+  let SDL_PROP_GPU_COMPUTEPIPELINE_CREATE_NAME_STRING* = "SDL.gpu.computepipeline.create.name" 
+when "SDL.gpu.graphicspipeline.create.name" is static:
   const
-    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_G_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.g" 
+    SDL_PROP_GPU_GRAPHICSPIPELINE_CREATE_NAME_STRING* = "SDL.gpu.graphicspipeline.create.name" 
 else:
-  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_G_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.g" 
-when "SDL.gpu.createtexture.d3d12.clear.b" is static:
+  let SDL_PROP_GPU_GRAPHICSPIPELINE_CREATE_NAME_STRING* = "SDL.gpu.graphicspipeline.create.name" 
+when "SDL.gpu.sampler.create.name" is static:
   const
-    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_B_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.b" 
+    SDL_PROP_GPU_SAMPLER_CREATE_NAME_STRING* = "SDL.gpu.sampler.create.name" 
 else:
-  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_B_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.b" 
-when "SDL.gpu.createtexture.d3d12.clear.a" is static:
+  let SDL_PROP_GPU_SAMPLER_CREATE_NAME_STRING* = "SDL.gpu.sampler.create.name" 
+when "SDL.gpu.shader.create.name" is static:
   const
-    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_A_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.a" 
+    SDL_PROP_GPU_SHADER_CREATE_NAME_STRING* = "SDL.gpu.shader.create.name" 
 else:
-  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_A_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.a" 
-when "SDL.gpu.createtexture.d3d12.clear.depth" is static:
+  let SDL_PROP_GPU_SHADER_CREATE_NAME_STRING* = "SDL.gpu.shader.create.name" 
+when "SDL.gpu.texture.create.d3d12.clear.r" is static:
   const
-    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_DEPTH_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.depth" 
+    SDL_PROP_GPU_TEXTURE_CREATE_D3D12_CLEAR_R_FLOAT* = "SDL.gpu.texture.create.d3d12.clear.r" 
 else:
-  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_DEPTH_FLOAT* = "SDL.gpu.createtexture.d3d12.clear.depth" 
-when "SDL.gpu.createtexture.d3d12.clear.stencil" is static:
+  let SDL_PROP_GPU_TEXTURE_CREATE_D3D12_CLEAR_R_FLOAT* = "SDL.gpu.texture.create.d3d12.clear.r" 
+when "SDL.gpu.texture.create.d3d12.clear.g" is static:
   const
-    SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_STENCIL_UINT8* = "SDL.gpu.createtexture.d3d12.clear.stencil" 
+    SDL_PROP_GPU_TEXTURE_CREATE_D3D12_CLEAR_G_FLOAT* = "SDL.gpu.texture.create.d3d12.clear.g" 
 else:
-  let SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_STENCIL_UINT8* = "SDL.gpu.createtexture.d3d12.clear.stencil" 
+  let SDL_PROP_GPU_TEXTURE_CREATE_D3D12_CLEAR_G_FLOAT* = "SDL.gpu.texture.create.d3d12.clear.g" 
+when "SDL.gpu.texture.create.d3d12.clear.b" is static:
+  const
+    SDL_PROP_GPU_TEXTURE_CREATE_D3D12_CLEAR_B_FLOAT* = "SDL.gpu.texture.create.d3d12.clear.b" 
+else:
+  let SDL_PROP_GPU_TEXTURE_CREATE_D3D12_CLEAR_B_FLOAT* = "SDL.gpu.texture.create.d3d12.clear.b" 
+when "SDL.gpu.texture.create.d3d12.clear.a" is static:
+  const
+    SDL_PROP_GPU_TEXTURE_CREATE_D3D12_CLEAR_A_FLOAT* = "SDL.gpu.texture.create.d3d12.clear.a" 
+else:
+  let SDL_PROP_GPU_TEXTURE_CREATE_D3D12_CLEAR_A_FLOAT* = "SDL.gpu.texture.create.d3d12.clear.a" 
+when "SDL.gpu.texture.create.d3d12.clear.depth" is static:
+  const
+    SDL_PROP_GPU_TEXTURE_CREATE_D3D12_CLEAR_DEPTH_FLOAT* = "SDL.gpu.texture.create.d3d12.clear.depth" 
+else:
+  let SDL_PROP_GPU_TEXTURE_CREATE_D3D12_CLEAR_DEPTH_FLOAT* = "SDL.gpu.texture.create.d3d12.clear.depth" 
+when "SDL.gpu.texture.create.d3d12.clear.stencil" is static:
+  const
+    SDL_PROP_GPU_TEXTURE_CREATE_D3D12_CLEAR_STENCIL_UINT8* = "SDL.gpu.texture.create.d3d12.clear.stencil" 
+else:
+  let SDL_PROP_GPU_TEXTURE_CREATE_D3D12_CLEAR_STENCIL_UINT8* = "SDL.gpu.texture.create.d3d12.clear.stencil" 
+when "SDL.gpu.texture.create.name" is static:
+  const
+    SDL_PROP_GPU_TEXTURE_CREATE_NAME_STRING* = "SDL.gpu.texture.create.name" 
+else:
+  let SDL_PROP_GPU_TEXTURE_CREATE_NAME_STRING* = "SDL.gpu.texture.create.name" 
+when "SDL.gpu.buffer.create.name" is static:
+  const
+    SDL_PROP_GPU_BUFFER_CREATE_NAME_STRING* = "SDL.gpu.buffer.create.name" 
+else:
+  let SDL_PROP_GPU_BUFFER_CREATE_NAME_STRING* = "SDL.gpu.buffer.create.name" 
+when "SDL.gpu.transferbuffer.create.name" is static:
+  const
+    SDL_PROP_GPU_TRANSFERBUFFER_CREATE_NAME_STRING* = "SDL.gpu.transferbuffer.create.name" 
+else:
+  let SDL_PROP_GPU_TRANSFERBUFFER_CREATE_NAME_STRING* = "SDL.gpu.transferbuffer.create.name" 
 when 0 is static:
   const
     SDL_HAPTIC_POLAR* = 0    
@@ -6744,6 +6819,11 @@ when "SDL_VIDEO_MAC_FULLSCREEN_SPACES" is static:
     SDL_HINT_VIDEO_MAC_FULLSCREEN_SPACES* = "SDL_VIDEO_MAC_FULLSCREEN_SPACES" 
 else:
   let SDL_HINT_VIDEO_MAC_FULLSCREEN_SPACES* = "SDL_VIDEO_MAC_FULLSCREEN_SPACES" 
+when "SDL_VIDEO_MAC_FULLSCREEN_MENU_VISIBILITY" is static:
+  const
+    SDL_HINT_VIDEO_MAC_FULLSCREEN_MENU_VISIBILITY* = "SDL_VIDEO_MAC_FULLSCREEN_MENU_VISIBILITY" 
+else:
+  let SDL_HINT_VIDEO_MAC_FULLSCREEN_MENU_VISIBILITY* = "SDL_VIDEO_MAC_FULLSCREEN_MENU_VISIBILITY" 
 when "SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS" is static:
   const
     SDL_HINT_VIDEO_MINIMIZE_ON_FOCUS_LOSS* = "SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS" 
@@ -6984,6 +7064,16 @@ when "SDL_ASSERT" is static:
     SDL_HINT_ASSERT* = "SDL_ASSERT" 
 else:
   let SDL_HINT_ASSERT* = "SDL_ASSERT" 
+when "SDL_PEN_MOUSE_EVENTS" is static:
+  const
+    SDL_HINT_PEN_MOUSE_EVENTS* = "SDL_PEN_MOUSE_EVENTS" 
+else:
+  let SDL_HINT_PEN_MOUSE_EVENTS* = "SDL_PEN_MOUSE_EVENTS" 
+when "SDL_PEN_TOUCH_EVENTS" is static:
+  const
+    SDL_HINT_PEN_TOUCH_EVENTS* = "SDL_PEN_TOUCH_EVENTS" 
+else:
+  let SDL_HINT_PEN_TOUCH_EVENTS* = "SDL_PEN_TOUCH_EVENTS" 
 when cast[cuint](16'i64) is static:
   const
     SDL_INIT_AUDIO* = cast[cuint](16'i64) 
@@ -7669,11 +7759,11 @@ when 1 is static:
     SDL_MINOR_VERSION* = 1   
 else:
   let SDL_MINOR_VERSION* = 1 
-when 8 is static:
+when 10 is static:
   const
-    SDL_MICRO_VERSION* = 8   
+    SDL_MICRO_VERSION* = 10  
 else:
-  let SDL_MICRO_VERSION* = 8 
+  let SDL_MICRO_VERSION* = 10 
 when SDL_AtomicAdd_renamed_SDL_AddAtomicInt is typedesc:
   type
     SDL_AtomicAdd* = SDL_AtomicAdd_renamed_SDL_AddAtomicInt 
@@ -13795,6 +13885,8 @@ proc SDL_PauseAudioStreamDevice*(stream: ptr SDL_AudioStream): bool {.cdecl,
     importc: "SDL_PauseAudioStreamDevice".}
 proc SDL_ResumeAudioStreamDevice*(stream: ptr SDL_AudioStream): bool {.cdecl,
     importc: "SDL_ResumeAudioStreamDevice".}
+proc SDL_AudioStreamDevicePaused*(stream: ptr SDL_AudioStream): bool {.cdecl,
+    importc: "SDL_AudioStreamDevicePaused".}
 proc SDL_LockAudioStream*(stream: ptr SDL_AudioStream): bool {.cdecl,
     importc: "SDL_LockAudioStream".}
 proc SDL_UnlockAudioStream*(stream: ptr SDL_AudioStream): bool {.cdecl,
@@ -15766,6 +15858,8 @@ proc SDL_GetTrayEntryEnabled*(entry: ptr SDL_TrayEntry): bool {.cdecl,
 proc SDL_SetTrayEntryCallback*(entry: ptr SDL_TrayEntry;
                                callback: SDL_TrayCallback; userdata: pointer): void {.
     cdecl, importc: "SDL_SetTrayEntryCallback".}
+proc SDL_ClickTrayEntry*(entry: ptr SDL_TrayEntry): void {.cdecl,
+    importc: "SDL_ClickTrayEntry".}
 proc SDL_DestroyTray*(tray: ptr SDL_Tray): void {.cdecl,
     importc: "SDL_DestroyTray".}
 proc SDL_GetTrayEntryParent*(entry: ptr SDL_TrayEntry): ptr SDL_TrayMenu {.
