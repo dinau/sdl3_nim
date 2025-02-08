@@ -6539,6 +6539,11 @@ when "SDL_MAC_OPENGL_ASYNC_DISPATCH" is static:
     SDL_HINT_MAC_OPENGL_ASYNC_DISPATCH* = "SDL_MAC_OPENGL_ASYNC_DISPATCH" 
 else:
   let SDL_HINT_MAC_OPENGL_ASYNC_DISPATCH* = "SDL_MAC_OPENGL_ASYNC_DISPATCH" 
+when "SDL_MAC_OPTION_AS_ALT" is static:
+  const
+    SDL_HINT_MAC_OPTION_AS_ALT* = "SDL_MAC_OPTION_AS_ALT" 
+else:
+  let SDL_HINT_MAC_OPTION_AS_ALT* = "SDL_MAC_OPTION_AS_ALT" 
 when "SDL_MAC_SCROLL_MOMENTUM" is static:
   const
     SDL_HINT_MAC_SCROLL_MOMENTUM* = "SDL_MAC_SCROLL_MOMENTUM" 
@@ -7754,16 +7759,16 @@ when 3 is static:
     SDL_MAJOR_VERSION* = 3   
 else:
   let SDL_MAJOR_VERSION* = 3 
-when 1 is static:
+when 2 is static:
   const
-    SDL_MINOR_VERSION* = 1   
+    SDL_MINOR_VERSION* = 2   
 else:
-  let SDL_MINOR_VERSION* = 1 
-when 10 is static:
+  let SDL_MINOR_VERSION* = 2 
+when 4 is static:
   const
-    SDL_MICRO_VERSION* = 10  
+    SDL_MICRO_VERSION* = 4   
 else:
-  let SDL_MICRO_VERSION* = 10 
+  let SDL_MICRO_VERSION* = 4 
 when SDL_AtomicAdd_renamed_SDL_AddAtomicInt is typedesc:
   type
     SDL_AtomicAdd* = SDL_AtomicAdd_renamed_SDL_AddAtomicInt 
@@ -13810,11 +13815,11 @@ proc SDL_IsAudioDevicePhysical*(devid: SDL_AudioDeviceID): bool {.cdecl,
     importc: "SDL_IsAudioDevicePhysical".}
 proc SDL_IsAudioDevicePlayback*(devid: SDL_AudioDeviceID): bool {.cdecl,
     importc: "SDL_IsAudioDevicePlayback".}
-proc SDL_PauseAudioDevice*(dev: SDL_AudioDeviceID): bool {.cdecl,
+proc SDL_PauseAudioDevice*(devid: SDL_AudioDeviceID): bool {.cdecl,
     importc: "SDL_PauseAudioDevice".}
-proc SDL_ResumeAudioDevice*(dev: SDL_AudioDeviceID): bool {.cdecl,
+proc SDL_ResumeAudioDevice*(devid: SDL_AudioDeviceID): bool {.cdecl,
     importc: "SDL_ResumeAudioDevice".}
-proc SDL_AudioDevicePaused*(dev: SDL_AudioDeviceID): bool {.cdecl,
+proc SDL_AudioDevicePaused*(devid: SDL_AudioDeviceID): bool {.cdecl,
     importc: "SDL_AudioDevicePaused".}
 proc SDL_GetAudioDeviceGain*(devid: SDL_AudioDeviceID): cfloat {.cdecl,
     importc: "SDL_GetAudioDeviceGain".}
@@ -14126,6 +14131,10 @@ proc SDL_BlitSurfaceUncheckedScaled*(src: ptr SDL_Surface;
                                      dstrect: ptr SDL_Rect;
                                      scaleMode: SDL_ScaleMode): bool {.cdecl,
     importc: "SDL_BlitSurfaceUncheckedScaled".}
+proc SDL_StretchSurface*(src: ptr SDL_Surface; srcrect: ptr SDL_Rect;
+                         dst: ptr SDL_Surface; dstrect: ptr SDL_Rect;
+                         scaleMode: SDL_ScaleMode): bool {.cdecl,
+    importc: "SDL_StretchSurface".}
 proc SDL_BlitSurfaceTiled*(src: ptr SDL_Surface; srcrect: ptr SDL_Rect;
                            dst: ptr SDL_Surface; dstrect: ptr SDL_Rect): bool {.
     cdecl, importc: "SDL_BlitSurfaceTiled".}
@@ -14166,7 +14175,7 @@ proc SDL_GetCurrentCameraDriver*(): cstring {.cdecl,
     importc: "SDL_GetCurrentCameraDriver".}
 proc SDL_GetCameras*(count: ptr cint): ptr SDL_CameraID {.cdecl,
     importc: "SDL_GetCameras".}
-proc SDL_GetCameraSupportedFormats*(devid: SDL_CameraID; count: ptr cint): ptr ptr SDL_CameraSpec {.
+proc SDL_GetCameraSupportedFormats*(instance_id: SDL_CameraID; count: ptr cint): ptr ptr SDL_CameraSpec {.
     cdecl, importc: "SDL_GetCameraSupportedFormats".}
 proc SDL_GetCameraName*(instance_id: SDL_CameraID): cstring {.cdecl,
     importc: "SDL_GetCameraName".}
@@ -15836,7 +15845,7 @@ proc SDL_GetTrayMenu*(tray: ptr SDL_Tray): ptr SDL_TrayMenu {.cdecl,
     importc: "SDL_GetTrayMenu".}
 proc SDL_GetTraySubmenu*(entry: ptr SDL_TrayEntry): ptr SDL_TrayMenu {.cdecl,
     importc: "SDL_GetTraySubmenu".}
-proc SDL_GetTrayEntries*(menu: ptr SDL_TrayMenu; size: ptr cint): ptr ptr SDL_TrayEntry {.
+proc SDL_GetTrayEntries*(menu: ptr SDL_TrayMenu; count: ptr cint): ptr ptr SDL_TrayEntry {.
     cdecl, importc: "SDL_GetTrayEntries".}
 proc SDL_RemoveTrayEntry*(entry: ptr SDL_TrayEntry): void {.cdecl,
     importc: "SDL_RemoveTrayEntry".}
@@ -15868,6 +15877,7 @@ proc SDL_GetTrayMenuParentEntry*(menu: ptr SDL_TrayMenu): ptr SDL_TrayEntry {.
     cdecl, importc: "SDL_GetTrayMenuParentEntry".}
 proc SDL_GetTrayMenuParentTray*(menu: ptr SDL_TrayMenu): ptr SDL_Tray {.cdecl,
     importc: "SDL_GetTrayMenuParentTray".}
+proc SDL_UpdateTrays*(): void {.cdecl, importc: "SDL_UpdateTrays".}
 proc SDL_GetVersion*(): cint {.cdecl, importc: "SDL_GetVersion".}
 proc SDL_GetRevision*(): cstring {.cdecl, importc: "SDL_GetRevision".}
 when cast[culonglong](-1'i64) is static:

@@ -22,7 +22,7 @@ SDL3 wrapper for Nim language
 This is highly work in progress and my experiment project.
 
 
-- SDL3-3.1.10
+- SDL3-3.2.4
 - SDL_ttf 3.0.0
 - Only on Windows OS at this moment
 - Trying to use [ImGuin SDL3 example](https://github.com/dinau/imguin_examples#glfw_opengl3_image_load--sdl2_opengl3---sdl3_opengl3)
@@ -85,7 +85,7 @@ make run
 
 [The definition file of SDL3](src/sdl3_defs.nim) can be updated by yourself as follows, 
 
-1. Replace [src/private/SDL3](src/private/SDL3) with  [latest officail SDL3 library](https://github.com/libsdl-org/SDL/releases)
+1. Replace [src/private/SDL3](src/private/SDL3) with  [latest officail SDL3-devel library](https://github.com/libsdl-org/SDL/releases)
 1. [Install Futhark](https://github.com/PMunch/futhark#installation)
 1. Generate definition file
 
@@ -95,14 +95,14 @@ make run
    make gen
    ```
 
-   `src/sdl3_defs.nim` will be generated.
+   `src/sdl3_defs.nim` updated will be generated.
 
 #### My tools version 
 
 ---
 
 - Futhark 0.13.7
-- nim-2.2.0
+- nim-2.2.2
 - Gcc.exe (Rev2, Built by MSYS2 project) 14.2.0
 
 #### Other SDL game tutorial platfromer project
@@ -111,22 +111,26 @@ make run
 
 ![ald](https://github.com/dinau/luajit-platformer/raw/main/img/platformer-luajit-sdl2.gif)
 
-| Language             |          | Project                                                                                                   |
-| -------------------: | :---:    | :----------------------------------------------------------------:                                        |
-| **Nim**              | Compiler | [Nim-Platformer](https://github.com/dinau/nim-platformer) / [sdl3_nim](https://github.com/dinau/sdl3_nim) |
-| **LuaJIT**           | Script   | [LuaJIT-Platformer](https://github.com/dinau/luajit-platformer)                                           |
-| **Nelua**            | Compiler | [NeLua-Platformer](https://github.com/dinau/nelua-platformer)                                             |
-| **Zig**              | Compiler | [Zig-Platformer](https://github.com/dinau/zig-platformer) WIP                                             |
+| Language    [^order] |          | SDL         | Project                                                                                                                                               |
+| -------------------: | :---:    | :---:       | :----------------------------------------------------------------:                                                                                    |
+| **LuaJIT**           | Script   | SDL2        | [LuaJIT-Platformer](https://github.com/dinau/luajit-platformer)
+| **Nelua**            | Compiler | SDL2        | [NeLua-Platformer](https://github.com/dinau/nelua-platformer)
+| **Nim**              | Compiler | SDL3 / SDL2 | [Nim-Platformer-sdl2](https://github.com/def-/nim-platformer)/ [Nim-Platformer-sdl3](https://github.com/dinau/sdl3_nim/tree/main/examples/platformer) |
+| **Ruby**             | Script   | SDL3        | [Ruby-Platformer](https://github.com/dinau/ruby-platformer)                                                                                           |
+| **Zig**              | Compiler | SDL2        | [Zig-Platformer](https://github.com/dinau/zig-platformer)                                                                                             |
 
-#### Other project
+[^order]: Alphabectial order
+
+#### Other examples project for Dear ImGui
 
 ---
 
-| Language             |          | Project                                                                                                                                         |
+| Language [^order]    |          | Project                                                                                                                                         |
 | -------------------: | :---:    | :----------------------------------------------------------------:                                                                              |
-| **Nim**              | Compiler | [ImGuin](https://github.com/dinau/imguin), [Nimgl_test](https://github.com/dinau/nimgl_test), [Nim_implot](https://github.com/dinau/nim_implot) |
 | **Lua**              | Script   | [LuaJITImGui](https://github.com/dinau/luajitImGui)                                                                                             |
+| **NeLua**            | Compiler | [NeLuaImGui](https://github.com/dinau/neluaImGui)                                                                                               |
+| **Nim**              | Compiler | [ImGuin](https://github.com/dinau/imguin), [Nimgl_test](https://github.com/dinau/nimgl_test), [Nim_implot](https://github.com/dinau/nim_implot) |
+| **Python**           | Script   | [DearPyGui for 32bit WindowsOS Binary](https://github.com/dinau/DearPyGui32/tree/win32)                                                         |
+| **Ruby**             | Script   | [igRuby_Examples](https://github.com/dinau/igruby_examples)                                                                                     |
 | **Zig**, C lang.     | Compiler | [Dear_Bindings_Build](https://github.com/dinau/dear_bindings_build)                                                                             |
 | **Zig**              | Compiler | [ImGuinZ](https://github.com/dinau/imguinz)                                                                                                     |
-| **NeLua**            | Compiler | [NeLuaImGui](https://github.com/dinau/neluaImGui)                                                                                               |
-| **Python**           | Script   | [DearPyGui for 32bit WindowsOS Binary](https://github.com/dinau/DearPyGui32/tree/win32)                                                         |
