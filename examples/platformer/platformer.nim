@@ -26,16 +26,17 @@ when defined(windows):
   const libname {.inject.} = "SDL3_ttf.dll"
 else:
   const libname {.inject.} = "libSDL3.so"
-{.push dynlib:libname, discardable.}
+
+{.push dynlib:libname, discardable, cdecl, importc.}
 type
     TTF_Font* = object
-proc TTF_Init*(): cint {.cdecl, importc: "TTF_Init".}
-proc TTF_Quit*() {.cdecl, importc: "TTF_Quit".}
-proc TTF_OpenFont(file: cstring, ptsize: cint): ptr TTF_Font {.cdecl, importc: "TTF_OpenFont".}
-proc TTF_SetFontOutline(font: ptr TTF_Font, outline: cint) {.cdecl, importc: "TTF_SetFontOutline".}
-proc TTF_RenderText_Blended(font: ptr TTF_Font, text: cstring,  length:cint, fg: SDL_Color): ptr SDL_Surface {.cdecl, importc: "TTF_RenderText_Blended".}
-proc TTF_SetFontSizeDPI(font: ptr TTF_Font , ptsize: cfloat, hdpi, vdpi: cint): bool {.cdecl, importc: "TTF_SetFontSizeDPI".}
-proc TTF_Version(): cint {.cdecl, importc: "TTF_Version".}
+proc TTF_Init*(): bool
+proc TTF_Quit*()
+proc TTF_OpenFont(file: cstring, ptSize: cfloat): ptr TTF_Font
+proc TTF_SetFontOutline(font: ptr TTF_Font, outline: cint)
+proc TTF_RenderText_Blended(font: ptr TTF_Font, text: cstring,  length:cint, fg: SDL_Color): ptr SDL_Surface
+proc TTF_SetFontSizeDPI(font: ptr TTF_Font , ptsize: cfloat, hdpi, vdpi: cint): bool
+proc TTF_Version(): cint
 {.pop.}
 
 type
@@ -44,13 +45,12 @@ type
   FontPtr     = ptr TTF_Font
   Rect        = SDL_FRect
 
-
 type
   Point = tuple
     x, y: cint
   Vec2f = Vector2d
 
-const windowSize:Point = (MainWinHeight, MainWinWidth)
+const windowSize:Point = (MainWinHeight.cint, MainWinWidth.cint)
 
 proc vec2f(x,y:cfloat): Vec2f = return Vec2f(x: x, y: y)
 
@@ -145,29 +145,23 @@ proc renderMap(renderer: RendererPtr, map: Map, camera: Vec2f) =
 
 proc renderText(renderer: RendererPtr, font: FontPtr, text: string, x, y, outline: cint, color: Color) =
   font.TTF_SetFontOutline(outline)
-
-  let surface = font.TTF_RenderText_Blended(text.cstring, text.len.cint,  color)
+  let surface = font.TTF_RenderText_Blended(text.cstring, text.len.cint, color)
   if surface.isNil:
     echo "Could not render text surface in TTF_RenderText_Blended()"
     quit 1
-
   discard surface.SDL_SetSurfaceAlphaMod(color.a)
-
   var source = rect(0, 0, surface.w, surface.h)
   var dest = rect(x - outline, y - outline, surface.w, surface.h)
   let texture = renderer.SDL_CreateTextureFromSurface(surface)
   if texture.isNil:
     echo "Could not create texture from rendered text in SDL_CreateTextureFromSurface()"
     quit 1
-
   surface.SDL_DestroySurface()
-
   renderer.SDL_RenderTextureRotated(texture, source.addr , dest.addr, angle = 0.0, center = nil, flip = SDL_FLIP_NONE)
-
   texture.SDL_DestroyTexture()
 
 proc renderText(game: Game, text: string, x, y: cint, color: Color) =
-  const outlineColor = color(0, 0, 0, 64)
+  const outlineColor = color(0, 0, 0, 0x8f)
   game.renderer.renderText(game.font, text, x, y, outline = 2, outlineColor)
   game.renderer.renderText(game.font, text, x, y, outline = 0, color)
 
@@ -220,7 +214,7 @@ proc newGame(renderer: RendererPtr): Game =
   const imageName2 = joinPath(currentSourceDir(), "grass.png")
   discard loadTextureFromFile(imageName2, renderer, texture2, w, h)
 
-  var font = TTF_OpenFont("DejaVuSans.ttf", 14)
+  let font = TTF_OpenFont("DejaVuSans.ttf", 14)
   if font.isNil:
     echo "Failed to load font"
     quit 1
@@ -426,7 +420,7 @@ proc logic(game: var Game, tick: int) =
 proc main() =
   if not SDL_Init(SDL_INIT_VIDEO or SDL_INIT_GAMEPAD): raise newException(Exception, "SDL_Init()")
   defer: SDL_Quit_proc()
-  if not 0 == TTF_Init():
+  if not TTF_Init():
     raise newException(Exception, "TTF_Init()")
   else:
     echo "TTF_Init() OK!"

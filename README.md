@@ -7,7 +7,7 @@
   - [Develeopment : Generating SDL3 Nim header files with Futhark](#develeopment--generating-sdl3-nim-header-files-with-futhark)
   - [My tools version](#my-tools-version)
   - [Other SDL game tutorial platfromer project](#other-sdl-game-tutorial-platfromer-project)
-  - [Other project](#other-project)
+  - [Other examples project for Dear ImGui](#other-examples-project-for-dear-imgui)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -17,13 +17,10 @@
 
 ![alt](https://github.com/dinau/sdl3_nim/actions/workflows/windows.yml/badge.svg)  
 
-SDL3 wrapper for Nim language
+SDL3 wrapper for Nim language with [futhark](https://github.com/PMunch/futhark#installation) converter.
 
-This is highly work in progress and my experiment project.
-
-
-- SDL3-3.2.4
-- SDL_ttf 3.0.0
+- SDL3: 3.2.10
+- SDL_ttf:  3.2.2
 - Only on Windows OS at this moment
 - Trying to use [ImGuin SDL3 example](https://github.com/dinau/imguin_examples#glfw_opengl3_image_load--sdl2_opengl3---sdl3_opengl3)
 
@@ -50,7 +47,7 @@ nimble install https://github.com/dinau/sdl3_nim
 ---
 
 ```sh
-git clone https://github.com/dinau/sdl3_nim
+git clone --depth 1 https://github.com/dinau/sdl3_nim
 ```
 
 ```sh
@@ -85,7 +82,7 @@ make run
 
 [The definition file of SDL3](src/sdl3_defs.nim) can be updated by yourself as follows, 
 
-1. Replace [src/private/SDL3](src/private/SDL3) with  [latest officail SDL3-devel library](https://github.com/libsdl-org/SDL/releases)
+1. Replace [src/private/SDL3](src/private/SDL3) with  [latest officail SDL3 library](https://github.com/libsdl-org/SDL/releases)
 1. [Install Futhark](https://github.com/PMunch/futhark#installation)
 1. Generate definition file
 
