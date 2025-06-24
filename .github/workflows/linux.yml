@@ -18,8 +18,8 @@ jobs:
           nim-version: '2.2.4'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       - run: |
-        sudo apt-get update
-        sudo apt-get install --fix-missing libudev-dev libopengl-dev libgl1-mesa-dev libglfw3 libglfw3-dev libsdl2-dev
+          sudo apt-get update
+          sudo apt-get install --fix-missing libudev-dev libopengl-dev libgl1-mesa-dev libglfw3 libglfw3-dev libsdl2-dev
       - run: |
           nimble install
           nimble make
