@@ -1,15 +1,16 @@
 # Package
 
-version       = "3.2.4.0"
+version       = "3.2.16.0"
 author        = "dinau"
 description   = "SDL3 library wrapper"
 license       = "MIT"
 srcDir        = "src"
+#skipDirs = @["private/img"]
 
 
 # Dependencies
 
-requires "nim >= 2.0.14"
+requires "nim >= 2.0.16"
 requires "nimgl == 1.3.2"
 requires "stb_image == 2.5"
 requires "basic2d"

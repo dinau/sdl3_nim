@@ -1,5 +1,3 @@
-*.mp4
-libSDL3_test.a
 src/private/SD
 .nimcache/
 nimblecache/

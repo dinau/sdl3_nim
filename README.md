@@ -3,8 +3,9 @@
 
 - [sdl3_nim](#sdl3_nim)
   - [Install](#install)
+  - [For Linux OS](#for-linux-os)
   - [Build and run examples](#build-and-run-examples)
-  - [Develeopment : Generating SDL3 Nim header files with Futhark](#develeopment--generating-sdl3-nim-header-files-with-futhark)
+  - [Develeopment](#develeopment)
   - [My tools version](#my-tools-version)
   - [Other SDL game tutorial platfromer project](#other-sdl-game-tutorial-platfromer-project)
   - [Other examples project for Dear ImGui](#other-examples-project-for-dear-imgui)
@@ -15,14 +16,16 @@
 
 ---
 
-![alt](https://github.com/dinau/sdl3_nim/actions/workflows/windows.yml/badge.svg)  
+![alt](https://github.com/dinau/sdl3_nim/actions/workflows/windows.yml/badge.svg) 
+![alt](https://github.com/dinau/sdl3_nim/actions/workflows/linux.yml/badge.svg)
 
 SDL3 wrapper for Nim language with [futhark](https://github.com/PMunch/futhark#installation) converter.
 
-- SDL3: 3.2.10
+- SDL3: 3.2.16 (2025/06)
 - SDL_ttf:  3.2.2
-- Only on Windows OS at this moment
-- Trying to use [ImGuin SDL3 example](https://github.com/dinau/imguin_examples#glfw_opengl3_image_load--sdl2_opengl3---sdl3_opengl3)
+- Windows OS 10 or later 
+- Linux Debian / Ubuntu families 
+- Try to use [ImGuin SDL3 example](https://github.com/dinau/imguin_examples#glfw_opengl3_image_load--sdl2_opengl3---sdl3_opengl3)
 
 
 #### Install
@@ -42,12 +45,49 @@ then
 nimble install https://github.com/dinau/sdl3_nim 
 ```
 
+#### For Linux OS
+
+---
+
+- If the package manager of the OS has SDL3 and SDL_ttf packages, install them with the package manager
+- If the package manager of the OS doesn't have SDL3 and SDL_ttf packages, install them from source code as follows (on Debian / Ubuntu families),  
+   1. Download source code from [SDL3](https://github.com/libsdl-org/SDL/archive/refs/tags/release-3.2.16.zip) and [SDL3_ttf](https://github.com/libsdl-org/SDL_ttf/archive/refs/tags/release-3.2.2.zip)
+   1. Install build tool **Ninja**
+
+      ```sh
+      sudo apt install ninja-build
+      ```
+
+   1. Extract SDL3 zip file and 
+   
+      ```sh
+      cd SDL-release-3.2.16 
+      mkdir build
+      cd build 
+      cmake .. -GNinja -DCMAKE_INSTALL_PREFIX=/usr/local
+      ninja
+      sudo ninja install
+      sudo ldconfig
+      ```
+
+   1. Extract SDL3_ttf zip file and 
+   
+      ```sh
+      cd SDL_ttf-release-3.2.2 
+      mkdir build
+      cd build 
+      cmake .. -GNinja -DCMAKE_INSTALL_PREFIX=/usr/local
+      ninja
+      sudo ninja install
+      sudo ldconfig
+      ```
+
 #### Build and run examples
 
 ---
 
 ```sh
-git clone --depth 1 https://github.com/dinau/sdl3_nim
+git clone https://github.com/dinau/sdl3_nim
 ```
 
 ```sh
@@ -76,9 +116,11 @@ make run
 
 ![alt](https://github.com/dinau/sdl3_nim/raw/main/src/private/img/platformer-nim-sdl3.gif)  
 
-#### Develeopment : Generating SDL3 Nim header files with Futhark
+#### Develeopment 
 
 ---
+
+Generating SDL3 Nim header files with Futhark.
 
 [The definition file of SDL3](src/sdl3_defs.nim) can be updated by yourself as follows, 
 
@@ -98,9 +140,9 @@ make run
 
 ---
 
-- Futhark 0.13.7
-- nim-2.2.2
-- Gcc.exe (Rev2, Built by MSYS2 project) 14.2.0
+- Futhark 0.15.0
+- nim-2.2.4
+- Gcc.exe (Rev2, Built by MSYS2 project) 15.1.0
 
 #### Other SDL game tutorial platfromer project
 

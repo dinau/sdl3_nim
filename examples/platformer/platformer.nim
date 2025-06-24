@@ -1,5 +1,6 @@
 # This program is based on
 #   https://hookrace.net/blog/writing-a-2d-platform-game-in-nim-with-sdl2/#8.
+#   See ./LICENSE.nim-platformer.txt
 
 import std/[os,strutils,math,times,strformat]
 #
@@ -25,7 +26,7 @@ proc color( r,g,b,a:uint8): Color =
 when defined(windows):
   const libname {.inject.} = "SDL3_ttf.dll"
 else:
-  const libname {.inject.} = "libSDL3.so"
+  const libname {.inject.} = "libSDL3_ttf.so"
 
 {.push dynlib:libname, discardable, cdecl, importc.}
 type

@@ -11,8 +11,9 @@ const SDL3RootPath2    = joinPath(currentSourceDir(),fmt"private/SDL3/x86_64-w64
 #--- Futhark start
 when defined(useFuthark): # Generate header files with Futhark.
   #--- To specify the place that has "stdbool.h"
-  const ClangIncludePath = "c:/drvDx/msys64/ucrt64/lib/clang/19/include"
-  const SDL3_DEFS_FILE = "sdl3_defs.nim"
+  #const ClangIncludePath = "c:/drvDx/msys64/ucrt64/lib/clang/20/include"
+  const ClangIncludePath = "c:/drvDx/msys64/mingw64/lib/clang/20/include"
+  const SDL3_DEFS_FILE = "sdl3_nim/sdl3_defs.nim"  # == From project top: sdl3_nim/src/sdl3_nim/sdl3_defs.nim
   #
   import futhark
   importc:
@@ -34,7 +35,7 @@ else:
     const libname {.inject.} = "libSDL3.so"
 
   {.push dynlib:libname, discardable.}
-  include "sdl3_defs.nim"
+  include "sdl3_nim/sdl3_defs.nim"        # == SDL3_DEFS_FILE
   {.pop.}
 
   {.passC:"-I" & SDL3RootPath1.}
