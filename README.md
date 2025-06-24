@@ -103,7 +103,7 @@ cd examples/basic
 make run
 ```
 
-![alt](https://github.com/dinau/sdl3_nim/raw/main/src/private/img/basic-nim-sdl3.gif)  
+![alt](https://github.com/dinau/sdl3_nim/blob/main/src/sdl3_nim/private/img/basic-nim-sdl3.gif?raw=true)
 
 or
 
@@ -114,7 +114,7 @@ cd examples/platformer
 make run
 ```
 
-![alt](https://github.com/dinau/sdl3_nim/raw/main/src/private/img/platformer-nim-sdl3.gif)  
+![alt](https://github.com/dinau/sdl3_nim/blob/main/src/sdl3_nim/private/img/platformer-nim-sdl3.gif?raw=true)
 
 #### Develeopment 
 
