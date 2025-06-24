@@ -1,5 +1,3 @@
-# Install packages  $ nimble stb_image
-
 import std/[strformat]
 import sdl3_nim
 
