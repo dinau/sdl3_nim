@@ -287,16 +287,15 @@ proc render(game: Game, tick: int) =
     let ver = SDL_GetVersion()
     const base = 230
     const colm = 30
-    game.renderText("Jump   : Space, Up, J, K",50, base+colm*1, white)
-    game.renderText("Left     : A, H, Left",50,    base+colm*2, white)
-    game.renderText("Right   : D, L, Right",50,    base+colm*3, white)
-    game.renderText("Restart: R",50,               base+colm*4, white)
-    game.renderText("Quit     : Q, Esc",50,        base+colm*5, white)
-    game.renderText("Nim-" & NimVersion ,50,       base+colm*7, white)
-    game.renderText(fmt"SDL3:  {ver}" , 50,        base+colm*8, white)
-    game.renderText($SDL_GetRevision(), 50, base+colm*9, white)
-    game.renderText("SDL_ttf: " &  $TTF_Version(), 50, base+colm*10, white)
-    game.renderText("Nim-Platformer-SDL3",50,                                                         base+colm*14, blue)
+    game.renderText("Jump   : Space, Up, J, K",                     50, base+colm*1,  white)
+    game.renderText("Left     : A, H, Left",                        50, base+colm*2,  white)
+    game.renderText("Right   : D, L, Right",                        50, base+colm*3,  white)
+    game.renderText("Restart: R",                                   50, base+colm*4,  white)
+    game.renderText("Quit     : Q, Esc",                            50, base+colm*5,  white)
+    game.renderText("Nim-" & NimVersion,                            50, base+colm*7,  white)
+    game.renderText(fmt"SDL: {($SDL_GetRevision()).split('-')[1]}", 50, base+colm*8,  white)
+    game.renderText("SDL_ttf: " &  $TTF_Version(),                  50, base+colm*9,  white)
+    game.renderText("Nim-Platformer-SDL3",                          50, base+colm*14, blue)
 
   # Show the result on screen
   game.renderer.SDL_RenderPresent()
@@ -438,8 +437,6 @@ proc main() =
   #----------------------
   #--- Create SDL window
   #----------------------
-  const SDL_WINDOW_RESIZABLE = 0x0000000000000020'u64
-  const SDL_WINDOW_OPENGL    = 0x0000000000000002'u64
   var flags = SDL_WINDOW_RESIZABLE or SDL_WINDOW_OPENGL
 
   var window = SDL_CreateWindow("[ SDL3 ]:   nim_sdl3 test window", MainWinWidth, MainWinHeight, flags.SDL_WindowFlags)

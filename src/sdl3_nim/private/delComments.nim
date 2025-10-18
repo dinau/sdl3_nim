@@ -1,4 +1,4 @@
-const DEFS_NAME = "sdl3_defs.nim"
+const DEFS_NAME = "../sdl3_defs.nim"
 import std/[pegs,strutils]
 var sOut:string
 var seqRes:array[2,string]

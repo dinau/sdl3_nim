@@ -41,12 +41,9 @@ proc main() =
   #----------------------
   #--- Create SDL window
   #----------------------
-  const SDL_WINDOW_RESIZABLE = 0x0000000000000020'u64
-  const SDL_WINDOW_OPENGL    = 0x0000000000000002'u64
-  #const SDL_WINDOW_HIDDEN    = 0x0000000000000008'u64
   var flags = SDL_WINDOW_RESIZABLE or SDL_WINDOW_OPENGL
   #flags = flags or SDL_WINDOW_HIDDEN
-  var window = SDL_CreateWindow(("[ SDL3 ]:   nim_sdl3 test window: " & $SDL_GetRevision()).cstring, MainWinWidth, MainWinHeight, flags.SDL_WindowFlags)
+  var window = SDL_CreateWindow(("[ SDL " & ($SDL_GetRevision()).split('-')[1] &  " ]" & " [ nim_sdl3 ] test window"), MainWinWidth, MainWinHeight, flags.SDL_WindowFlags)
   if isNil window:
     echo "Error!: SDL_CreateWindow()"
     quit(1)

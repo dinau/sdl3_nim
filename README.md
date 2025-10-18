@@ -21,11 +21,11 @@
 
 SDL3 wrapper for Nim language with [futhark](https://github.com/PMunch/futhark#installation) converter.
 
-- SDL3: 3.2.16 (2025/06)
+- SDL3: 3.2.24 (2025/10)
 - SDL_ttf:  3.2.2
-- Windows OS 10 or later 
+- Windows OS 11 
 - Linux Debian / Ubuntu families 
-- Try to use [ImGuin SDL3 example](https://github.com/dinau/imguin_examples#glfw_opengl3_image_load--sdl2_opengl3---sdl3_opengl3)
+- Try to use [ImGuin SDL3 example](https://github.com/dinau/imguin_examples/tree/main/sdl3_renderer)
 
 
 #### Install
@@ -42,7 +42,7 @@ nimble uninstall sdl3_nim
 then
 
 ```sh
-nimble install https://github.com/dinau/sdl3_nim 
+nimble install sdl3_nim 
 ```
 
 #### For Linux OS
@@ -50,7 +50,7 @@ nimble install https://github.com/dinau/sdl3_nim
 ---
 
 - If the package manager of the OS has SDL3 and SDL_ttf packages, install them with the package manager
-- If the package manager of the OS doesn't have SDL3 and SDL_ttf packages, install them from source code as follows (on Debian / Ubuntu families),  
+- Otherwise, install them from source code as follows (on Debian12 / Ubuntu families),  
    1. Download source code from [SDL3](https://github.com/libsdl-org/SDL/archive/refs/tags/release-3.2.16.zip) and [SDL3_ttf](https://github.com/libsdl-org/SDL_ttf/archive/refs/tags/release-3.2.2.zip)
    1. Install build tool **Ninja**
 
@@ -81,6 +81,13 @@ nimble install https://github.com/dinau/sdl3_nim
       sudo ninja install
       sudo ldconfig
       ```
+#### For Windows11
+
+---
+
+Download SDL3.dll from [here](https://github.com/libsdl-org/SDL/releases/), SDL3-3.x.xx-win32-x64.zip  
+then copy SDL3.dll to your application folder.
+
 
 #### Build and run examples
 
@@ -142,7 +149,7 @@ Generating SDL3 Nim header files with Futhark.
 
 - Futhark 0.15.0
 - nim-2.2.4
-- Gcc.exe (Rev2, Built by MSYS2 project) 15.1.0
+- Gcc.exe (Rev2, Built by MSYS2 project) 15.2.0
 
 #### Other SDL game tutorial platfromer project
 

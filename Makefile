@@ -7,11 +7,9 @@ PHONY: gen clean install copydll
 install:
 	nimble install
 
-copydll:
-	cp -f src/private/SDL3/x86_64-w64-mingw32/bin/SDL3.dll examples/basic/
-	cp -f src/private/SDL3/x86_64-w64-mingw32/bin/SDL3.dll examples/platformer/
+DLL_DIR = src/sdl3_nim/private/SDL3/x86_64-w64-mingw32/bin
 
-gen: copydll
+gen:
 	nimble gen
 
 

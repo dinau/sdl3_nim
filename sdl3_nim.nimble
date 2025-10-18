@@ -1,6 +1,6 @@
 # Package
 
-version       = "3.2.16.0"
+version       = "3.2.24.0"
 author        = "dinau"
 description   = "SDL3 library wrapper"
 license       = "MIT"
@@ -14,7 +14,7 @@ requires "nim >= 2.0.16"
 requires "nimgl == 1.3.2"
 requires "stb_image == 2.5"
 requires "basic2d"
-#requires "futhark == 0.13.7"
+#requires "futhark == 0.15.0"
 
 import strformat
 let CACHE = "--nimcache:.nimcache"
@@ -29,4 +29,5 @@ OPT_GEN &= " -d:nodeclguards"
 task gen,"Generate SDL3 definition file ":
   withdir "src":
     exec(fmt"nim c -c {OPT_GEN} sdl3_nim.nim")
-    exec(fmt"nim c -r delComments.nim")
+    withdir "sdl3_nim/private":
+      exec("make")
