@@ -8,5 +8,15 @@ let vpeg = peg"^'#define'\s{'SDL'@\s}\s+'SDL_'@\({@}\)@$"
 echo ""
 for line in readfile(SDL_VIDEO_H).split("\n"):
   if contains(line, vpeg ,seqRes):
-    let sConst= fmt"const {seqRes[0]}* = {seqRes[1]}'u64"
+    let sOut = seqRes[0].strip & "*"
+    let sConst= fmt"const {sOut:<33} = {seqRes[1]}'u64"
     echo sConst
+  if contains(line,"SDL_WINDOW_NOT_FOCUSABLE"):
+    break
+
+
+echo """
+
+const SDL_WINDOWPOS_UNDEFINED* = 0x1FFF0000'u64
+const SDL_WINDOWPOS_CENTERED*  = 0x2FFF0000'u64
+"""

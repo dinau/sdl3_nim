@@ -21,7 +21,7 @@
 
 SDL3 wrapper for Nim language with [futhark](https://github.com/PMunch/futhark#installation) converter.
 
-- SDL3: 3.2.24 (2025/10)
+- SDL3: 3.2.24.1 (2025/11)
 - SDL_ttf:  3.2.2
 - Windows OS 11 
 - Linux Debian / Ubuntu families 

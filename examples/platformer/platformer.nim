@@ -284,7 +284,6 @@ proc render(game: Game, tick: int) =
   if time.best >= 0:
     game.renderText("Best time  : " & formatTime(time.best), 50, 150, green)
   if time.begin < 0:
-    let ver = SDL_GetVersion()
     const base = 230
     const colm = 30
     game.renderText("Jump   : Space, Up, J, K",                     50, base+colm*1,  white)
