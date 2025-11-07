@@ -1,3 +1,6 @@
+.ccache/
+*.mp4
+save/
 SDL3.dll
 src/private/SD
 .nimcache/

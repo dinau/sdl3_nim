@@ -4,6 +4,7 @@
 - [sdl3_nim](#sdl3_nim)
   - [Install](#install)
   - [For Linux OS](#for-linux-os)
+  - [For Windows11](#for-windows11)
   - [Build and run examples](#build-and-run-examples)
   - [Develeopment](#develeopment)
   - [My tools version](#my-tools-version)
@@ -21,17 +22,16 @@
 
 SDL3 wrapper for Nim language with [futhark](https://github.com/PMunch/futhark#installation) converter.
 
-- SDL3: 3.2.24.1 (2025/11)
+- SDL3: 3.2.24 (2025/11)
 - SDL_ttf:  3.2.2
 - Windows OS 11 
-- Linux Debian / Ubuntu families 
+- Linux Debian13 Trixie / Ubuntu families 
 - Try to use [ImGuin SDL3 example](https://github.com/dinau/imguin_examples/tree/main/sdl3_renderer)
 
 
 #### Install
 
 ---
-
 
 First delete old version 
 
@@ -50,8 +50,8 @@ nimble install sdl3_nim
 ---
 
 - If the package manager of the OS has SDL3 and SDL_ttf packages, install them with the package manager
-- Otherwise, install them from source code as follows (on Debian12 / Ubuntu families),  
-   1. Download source code from [SDL3](https://github.com/libsdl-org/SDL/archive/refs/tags/release-3.2.16.zip) and [SDL3_ttf](https://github.com/libsdl-org/SDL_ttf/archive/refs/tags/release-3.2.2.zip)
+- Otherwise install them from source code as follows (on Debian12 / Ubuntu families),  
+   1. Download source code from [SDL3](https://github.com/libsdl-org/SDL/archive/refs/tags/release-3.2.24.zip) and [SDL3_ttf](https://github.com/libsdl-org/SDL_ttf/archive/refs/tags/release-3.2.2.zip)
    1. Install build tool **Ninja**
 
       ```sh
@@ -61,7 +61,7 @@ nimble install sdl3_nim
    1. Extract SDL3 zip file and 
    
       ```sh
-      cd SDL-release-3.2.16 
+      cd SDL-release-3.2.24 
       mkdir build
       cd build 
       cmake .. -GNinja -DCMAKE_INSTALL_PREFIX=/usr/local
@@ -81,11 +81,12 @@ nimble install sdl3_nim
       sudo ninja install
       sudo ldconfig
       ```
+
 #### For Windows11
 
 ---
 
-Download SDL3.dll from [here](https://github.com/libsdl-org/SDL/releases/), SDL3-3.x.xx-win32-x64.zip  
+Download SDL3.dll from [here](https://github.com/libsdl-org/SDL/releases/), extracts SDL3-3.x.xx-win32-x64.zip  
 then copy SDL3.dll to your application folder.
 
 
@@ -105,23 +106,49 @@ make
 or 
 
 ```sh
-pwd sdl3_nim
 cd examples/basic
 make run
 ```
+
+[basic.nim](examples/basic/basic.nim)
 
 ![alt](https://github.com/dinau/sdl3_nim/blob/main/src/sdl3_nim/private/img/basic-nim-sdl3.gif?raw=true)
 
 or
 
 ```sh
-pwd 
-sdl3_nim
 cd examples/platformer
 make run
 ```
 
+[platformer.nim](examples/platformer/platformer.nim)
+
 ![alt](https://github.com/dinau/sdl3_nim/blob/main/src/sdl3_nim/private/img/platformer-nim-sdl3.gif?raw=true)
+
+or
+
+```sh
+cd examples/sdlapp_lines
+make run
+```
+
+[sdlapp_lines.nim](examples/sdlapp_lines/sdlapp_lines.nim)
+
+Refer to https://github.com/libsdl-org/SDL/tree/main/examples/renderer/03-lines
+
+![alt](https://github.com/libsdl-org/SDL/blob/main/examples/renderer/03-lines/thumbnail.png?raw=true)
+
+
+or
+
+```sh
+cd examples/sdlapp
+make run
+```
+
+[sdlapp.nim](examples/sdlapp/sdlapp.nim)
+
+![alt](https://github.com/dinau/sdl3_nim/blob/main/src/sdl3_nim/private/img/earth4.gif?raw=true)
 
 #### Develeopment 
 
@@ -148,7 +175,7 @@ Generating SDL3 Nim header files with Futhark.
 ---
 
 - Futhark 0.15.0
-- nim-2.2.4
+- nim-2.2.6
 - Gcc.exe (Rev2, Built by MSYS2 project) 15.2.0
 
 #### Other SDL game tutorial platfromer project
@@ -157,24 +184,23 @@ Generating SDL3 Nim header files with Futhark.
 
 ![ald](https://github.com/dinau/luajit-platformer/raw/main/img/platformer-luajit-sdl2.gif)
 
-| Language    [^order] |          | SDL         | Project                                                                                                                                               |
+| Language             |          | SDL         | Project                                                                                                                                               |
 | -------------------: | :---:    | :---:       | :----------------------------------------------------------------:                                                                                    |
-| **LuaJIT**           | Script   | SDL2        | [LuaJIT-Platformer](https://github.com/dinau/luajit-platformer)
-| **Nelua**            | Compiler | SDL2        | [NeLua-Platformer](https://github.com/dinau/nelua-platformer)
+| **LuaJIT**           | Script   | SDL2        | [LuaJIT-Platformer](https://github.com/dinau/luajit-platformer)                                                                                       |
+| **Nelua**            | Compiler | SDL2        | [NeLua-Platformer](https://github.com/dinau/nelua-platformer)                                                                                         |
 | **Nim**              | Compiler | SDL3 / SDL2 | [Nim-Platformer-sdl2](https://github.com/def-/nim-platformer)/ [Nim-Platformer-sdl3](https://github.com/dinau/sdl3_nim/tree/main/examples/platformer) |
 | **Ruby**             | Script   | SDL3        | [Ruby-Platformer](https://github.com/dinau/ruby-platformer)                                                                                           |
 | **Zig**              | Compiler | SDL2        | [Zig-Platformer](https://github.com/dinau/zig-platformer)                                                                                             |
 
-[^order]: Alphabectial order
 
 #### Other examples project for Dear ImGui
 
 ---
 
-| Language [^order]    |          | Project                                                                                                                                         |
+| Language             |          | Project                                                                                                                                         |
 | -------------------: | :---:    | :----------------------------------------------------------------:                                                                              |
 | **Lua**              | Script   | [LuaJITImGui](https://github.com/dinau/luajitImGui)                                                                                             |
-| **NeLua**            | Compiler | [NeLuaImGui](https://github.com/dinau/neluaImGui)                                                                                               |
+| **NeLua**            | Compiler | [NeLuaImGui](https://github.com/dinau/neluaImGui) / [NeLuaImGui2](https://github.com/dinau/neluaImGui2)                                         |
 | **Nim**              | Compiler | [ImGuin](https://github.com/dinau/imguin), [Nimgl_test](https://github.com/dinau/nimgl_test), [Nim_implot](https://github.com/dinau/nim_implot) |
 | **Python**           | Script   | [DearPyGui for 32bit WindowsOS Binary](https://github.com/dinau/DearPyGui32/tree/win32)                                                         |
 | **Ruby**             | Script   | [igRuby_Examples](https://github.com/dinau/igruby_examples)                                                                                     |

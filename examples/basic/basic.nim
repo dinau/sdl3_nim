@@ -1,4 +1,4 @@
-import std/[os,strutils]
+import std/[strutils]
 import sdl3_nim
 import sdl3_nim/[loadImage]
 import nimgl/[opengl]
@@ -10,10 +10,6 @@ when defined(windows):
 
 const MainWinWidth  = 480
 const MainWinHeight = 480
-
-proc currentSourceDir(): string {.compileTime.} =
-  result = currentSourcePath().replace("\\", "/")
-  result = result[0 ..< result.rfind("/")]
 
 #--------------
 #--- main porc
@@ -43,7 +39,8 @@ proc main() =
   #----------------------
   var flags = SDL_WINDOW_RESIZABLE or SDL_WINDOW_OPENGL
   #flags = flags or SDL_WINDOW_HIDDEN
-  var window = SDL_CreateWindow(("[ SDL " & ($SDL_GetRevision()).split('-')[1] &  " ]" & " [ nim_sdl3 ] test window"), MainWinWidth, MainWinHeight, flags.SDL_WindowFlags)
+  let title = "[ SDL " & ($SDL_GetRevision()).split('-')[1] &  " ]" & " [ nim_sdl3 ] test window"
+  var window = SDL_CreateWindow(title.cstring, MainWinWidth, MainWinHeight, flags.SDL_WindowFlags)
   if isNil window:
     echo "Error!: SDL_CreateWindow()"
     quit(1)
@@ -86,7 +83,7 @@ proc main() =
   #------------------------
   #--- Load bmp as surface
   #------------------------
-  const imageName1 = joinPath(currentSourceDir(), "beans-400.bmp")
+  const imageName1 = "beans-400.bmp"
   let surfaceImage = SDL_LoadBMP(imageName1)
   if isNil surfaceImage:
     echo("Error!:  SDL_LoadBMP() file = ", imageName1)
@@ -107,14 +104,13 @@ proc main() =
   doassert glinit()
   var textureImage2: ptr SDL_Texture
   when true:
-    const imageName2 = joinPath(currentSourceDir(), "earth-512.png")
+    const imageName2 = "earth-512.png"
     var w: int
     var h: int
     if loadTextureFromFile(imageName2, renderer, textureImage2, w, h ):
       echo "loadTextureFromFile() OK !: ", imageName2
     else:
       echo "Error!: loadTextureFromFile() OK!", imageName2
-
 
   #--------------
   #--- main loop
@@ -128,6 +124,10 @@ proc main() =
         xQuit = true
       if event.type_field == SDL_EVENT_WINDOW_CLOSE_REQUESTED.uint32 and event.window.windowID == SDL_GetWindowID(window):
         xQuit = true;
+      if event.key.type_field == SDL_EVENT_KEY_DOWN:
+        if event.key.key == SDLK_Q or  event.key.key == SDLK_ESCAPE:
+          xQuit = true;
+
     SDL_RenderClear(renderer)
 
     block: #--- drawImage
@@ -156,9 +156,9 @@ proc main() =
          echo("Error!: RenderCopy() ")
 
       #discard SDL_RenderTexture(renderer, textureImage2, nil, nil)
-      const speed = 0.2
+      const speed = 0.8
       angle = angle + speed
-      angle2 = angle2 + speed * 1.5
+      angle2 = angle2 + speed
 
     #--- Render
     SDL_RenderPresent(renderer)
