@@ -19,7 +19,10 @@ when defined(useFuthark): # Generate header files with Futhark.
     syspath ClangIncludePath
     path    SDL3RootPath1
     path    SDL3RootPath2
+    define  "SDL_MAIN_USE_CALLBACKS=1"
     "SDL.h"
+    "SDL_main.h"
+    "SDL_main_impl.h"
     # Output file name
     outputPath SDL3_DEFS_FILE
 #--- Futahrk end
