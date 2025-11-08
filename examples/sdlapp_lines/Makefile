@@ -11,7 +11,7 @@ ifeq ($(OS),Windows_NT)
 endif
 
 all:
-	nim c -d:strip  $(OPT) $(TARGET).nim
+	nim c -d:strip -d:SDL $(OPT) $(TARGET).nim
 
 .PHONY: clean run
 

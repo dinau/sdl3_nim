@@ -1,3 +1,4 @@
+import os
 import sdl3_nim
 
 #--- Add application icon
@@ -90,4 +91,8 @@ proc SDL_main(argc: cint, argv: ptr UncheckedArray[cstring]): cint {.cdecl.}  =
 #--------------
 #--- main porc
 #--------------
-discard SDL_RunApp(0, nil, SDL_main, nil);
+var argv:seq[cstring]
+for str in commandLineParams():
+  argv.add str.cstring
+argv.add nil
+discard SDL_RunApp(paramCount().cint, cast[ptr UncheckedArray[cstring]](unsafeAddr argv[0]), SDL_main, nil)

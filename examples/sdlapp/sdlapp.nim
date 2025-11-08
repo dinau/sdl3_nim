@@ -1,4 +1,4 @@
-import std/[strutils]
+import std/[os,strutils]
 import sdl3_nim
 import sdl3_nim/[loadImage]
 
@@ -17,13 +17,14 @@ var
   angle :cdouble  = 0
   speed           = SPEED1
 
-#--------------------
+#-------------------
 #--- png as textrue
-#--------------------
+#-------------------
 const ImageNames = ["1a.png", "2a.png", "3a.png", "4a.png"]
-var textures:array[ImageNames.len, ptr SDL_Texture]
-var textureWidth: int
-var textureHeight:int
+var
+  textures:array[ImageNames.len, ptr SDL_Texture]
+  textureWidth: int
+  textureHeight:int
 
 #----------------
 #--- SDL_AppInit
@@ -45,7 +46,7 @@ proc SDL_AppInit*   (appstate: ptr pointer, argc: cint, argv: ptr UncheckedArray
     if loadTextureFromFile(imageName, renderer, textures[i], textureWidth, textureHeight):
       echo "$# OK !: $#" % [funcname, imageName]
     else:
-      echo "Error!: $# OK!", imageName
+      echo "Error!: $#", imageName
 
   return SDL_APP_CONTINUE
 
@@ -65,7 +66,7 @@ proc SDL_AppIterate*(appstate: pointer): SDL_AppResult {.cdecl.} =
     texture: ptr SDL_Texture
     xs,ys: cfloat
     ws,hs: cfloat
-  var attribs = [
+  let attribs = [
                 Attr(texture: textures[0], xs: (w.cfloat - textureWidth.cfloat)/2, ys: (h.cfloat - textureHeight.cfloat)/2, ws: width, hs: height)
                ,Attr(texture: textures[1], xs: w.cfloat/2 , ys: (h.cfloat - textureHeight.cfloat)/2, ws: width, hs: height)
                ,Attr(texture: textures[2], xs: (w.cfloat - textureWidth.cfloat)/2, ys: h.cfloat/2,                          ws: width, hs: height)
@@ -113,4 +114,8 @@ proc SDL_main(argc: cint, argv: ptr UncheckedArray[cstring]): cint {.cdecl.}  =
 #--------------
 #--- main porc
 #--------------
-discard SDL_RunApp(0, nil, SDL_main, nil)
+var argv:seq[cstring]
+for str in commandLineParams():
+  argv.add str.cstring
+argv.add nil
+discard SDL_RunApp(paramCount().cint, cast[ptr UncheckedArray[cstring]](unsafeAddr argv[0]), SDL_main, nil)

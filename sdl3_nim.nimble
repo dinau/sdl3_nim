@@ -1,11 +1,11 @@
 # Package
 
-version       = "3.2.24.2"
+version       = "3.2.26.0"
 author        = "dinau"
 description   = "SDL3 library wrapper"
 license       = "MIT"
 srcDir        = "src"
-#skipDirs = @["private/img"]
+skipDirs = @["src/sdl3_nim/private","examples"]
 
 
 # Dependencies

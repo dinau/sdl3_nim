@@ -6,6 +6,7 @@
   - [For Linux OS](#for-linux-os)
   - [For Windows11](#for-windows11)
   - [Build and run examples](#build-and-run-examples)
+  - [About auto renaming](#about-auto-renaming)
   - [Develeopment](#develeopment)
   - [My tools version](#my-tools-version)
   - [Other SDL game tutorial platfromer project](#other-sdl-game-tutorial-platfromer-project)
@@ -149,6 +150,69 @@ make run
 [sdlapp.nim](examples/sdlapp/sdlapp.nim)
 
 ![alt](https://github.com/dinau/sdl3_nim/blob/main/src/sdl3_nim/private/img/earth4.gif?raw=true)
+
+#### About auto renaming 
+
+---
+
+Notice: [Futhark](https://github.com/PMunch/futhark) converter has automatically renamed these symbols.
+
+```nim
+Renaming "type" to "type_field"
+Renaming "PRIX32" to "PRIX32_const"
+Renaming "SDLK_MEDIASELECT" to "SDLK_MEDIASELECT_const"
+Renaming "SDLK_a" to "SDLK_a_const"
+Renaming "SDLK_b" to "SDLK_b_const"
+Renaming "SDLK_c" to "SDLK_c_const"
+Renaming "SDLK_d" to "SDLK_d_const"
+Renaming "SDLK_e" to "SDLK_e_const"
+Renaming "SDLK_f" to "SDLK_f_const"
+Renaming "SDLK_g" to "SDLK_g_const"
+Renaming "SDLK_h" to "SDLK_h_const"
+Renaming "SDLK_i" to "SDLK_i_const"
+Renaming "SDLK_j" to "SDLK_j_const"
+Renaming "SDLK_k" to "SDLK_k_const"
+Renaming "SDLK_l" to "SDLK_l_const"
+Renaming "SDLK_m" to "SDLK_m_const"
+Renaming "SDLK_n" to "SDLK_n_const"
+Renaming "SDLK_o" to "SDLK_o_const"
+Renaming "SDLK_p" to "SDLK_p_const"
+Renaming "SDLK_q" to "SDLK_q_const"
+Renaming "SDLK_r" to "SDLK_r_const"
+Renaming "SDLK_s" to "SDLK_s_const"
+Renaming "SDLK_t" to "SDLK_t_const"
+Renaming "SDLK_u" to "SDLK_u_const"
+Renaming "SDLK_v" to "SDLK_v_const"
+Renaming "SDLK_w" to "SDLK_w_const"
+Renaming "SDLK_x" to "SDLK_x_const"
+Renaming "SDLK_y" to "SDLK_y_const"
+Renaming "SDLK_z" to "SDLK_z_const"
+Renaming "SDL_EventAction" to "SDL_EventAction_typedef"
+Renaming "SDL_GLAttr" to "SDL_GLAttr_typedef"
+Renaming "SDL_GLContextFlag" to "SDL_GLContextFlag_typedef"
+Renaming "SDL_GLContextReleaseFlag" to "SDL_GLContextReleaseFlag_typedef"
+Renaming "SDL_GLProfile" to "SDL_GLProfile_typedef"
+Renaming "SDL_GL_CONTEXT_RESET_NOTIFICATION" to "SDL_GL_CONTEXT_RESET_NOTIFICATION_enumval"
+Renaming "SDL_Log" to "SDL_Log_proc"
+Renaming "SDL_Mutex" to "SDL_Mutex_typedef"
+Renaming "SDL_PRIX32" to "SDL_PRIX32_const"
+Renaming "SDL_PRIX64" to "SDL_PRIX64_const"
+Renaming "SDL_Quit" to "SDL_Quit_proc"
+Renaming "SDL_SCALEMODE_LINEAR" to "SDL_SCALEMODE_LINEAR_enumval"
+Renaming "SDL_SCALEMODE_NEAREST" to "SDL_SCALEMODE_NEAREST_enumval"
+Renaming "SDL_SCANCODE_MEDIA_SELECT" to "SDL_SCANCODE_MEDIA_SELECT_enumval"
+Renaming "SDL_SensorUpdate" to "SDL_SensorUpdate_const"
+Renaming "SDL_ThreadID" to "SDL_ThreadID_typedef"
+Renaming "SDL_UserEvent" to "SDL_UserEvent_typedef"
+Renaming "SDL_strtok_r" to "SDL_strtok_r_proc"
+Renaming "block" to "block_arg"
+Renaming "end" to "end_field" in struct_SDL_HapticRamp
+Renaming "func" to "func_arg"
+Renaming "mod" to "mod_field" in struct_SDL_KeyboardEvent
+Renaming "proc" to "proc_arg"
+Renaming "ptr" to "ptr_arg"
+Renaming "type" to "type_arg"
+```
 
 #### Develeopment 
 
