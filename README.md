@@ -23,7 +23,7 @@
 
 SDL3 wrapper for Nim language with [futhark](https://github.com/PMunch/futhark#installation) converter.
 
-- SDL3: 3.2.24 (2025/11)
+- SDL3: 3.2.26 (2025/11)
 - SDL_ttf:  3.2.2
 - Windows OS 11 
 - Linux Debian13 Trixie / Ubuntu families 
@@ -52,7 +52,7 @@ nimble install sdl3_nim
 
 - If the package manager of the OS has SDL3 and SDL_ttf packages, install them with the package manager
 - Otherwise install them from source code as follows (on Debian12 / Ubuntu families),  
-   1. Download source code from [SDL3](https://github.com/libsdl-org/SDL/archive/refs/tags/release-3.2.24.zip) and [SDL3_ttf](https://github.com/libsdl-org/SDL_ttf/archive/refs/tags/release-3.2.2.zip)
+   1. Download source code from [SDL3](https://github.com/libsdl-org/SDL/archive/refs/tags/release-3.2.26.zip) and [SDL3_ttf](https://github.com/libsdl-org/SDL_ttf/archive/refs/tags/release-3.2.2.zip)
    1. Install build tool **Ninja**
 
       ```sh
@@ -62,7 +62,7 @@ nimble install sdl3_nim
    1. Extract SDL3 zip file and 
    
       ```sh
-      cd SDL-release-3.2.24 
+      cd SDL-release-3.2.26 
       mkdir build
       cd build 
       cmake .. -GNinja -DCMAKE_INSTALL_PREFIX=/usr/local
