@@ -217,18 +217,24 @@ type
 const
   SDL_COLORSPACE_RGB_DEFAULT* = enum_SDL_Colorspace.SDL_COLORSPACE_SRGB
 const
-  SDL_COLORSPACE_YUV_DEFAULT* = enum_SDL_Colorspace.SDL_COLORSPACE_JPEG
+  SDL_COLORSPACE_YUV_DEFAULT* = enum_SDL_Colorspace.SDL_COLORSPACE_BT601_LIMITED
 type
   enum_SDL_ScaleMode* {.size: sizeof(cint).} = enum
     SDL_SCALEMODE_INVALID = -1, SDL_SCALEMODE_NEAREST_enumval = 0,
-    SDL_SCALEMODE_LINEAR_enumval = 1
+    SDL_SCALEMODE_LINEAR_enumval = 1, SDL_SCALEMODE_PIXELART = 2
 type
   enum_SDL_FlipMode* {.size: sizeof(cuint).} = enum
-    SDL_FLIP_NONE = 0, SDL_FLIP_HORIZONTAL = 1, SDL_FLIP_VERTICAL = 2
+    SDL_FLIP_NONE = 0, SDL_FLIP_HORIZONTAL = 1, SDL_FLIP_VERTICAL = 2,
+    SDL_FLIP_HORIZONTAL_AND_VERTICAL = 3
 type
   enum_SDL_CameraPosition* {.size: sizeof(cuint).} = enum
     SDL_CAMERA_POSITION_UNKNOWN = 0, SDL_CAMERA_POSITION_FRONT_FACING = 1,
     SDL_CAMERA_POSITION_BACK_FACING = 2
+type
+  enum_SDL_CameraPermissionState* {.size: sizeof(cint).} = enum
+    SDL_CAMERA_PERMISSION_STATE_DENIED = -1,
+    SDL_CAMERA_PERMISSION_STATE_PENDING = 0,
+    SDL_CAMERA_PERMISSION_STATE_APPROVED = 1
 type
   enum_SDL_SystemTheme* {.size: sizeof(cuint).} = enum
     SDL_SYSTEM_THEME_UNKNOWN = 0, SDL_SYSTEM_THEME_LIGHT = 1,
@@ -241,6 +247,11 @@ type
 type
   enum_SDL_FlashOperation* {.size: sizeof(cuint).} = enum
     SDL_FLASH_CANCEL = 0, SDL_FLASH_BRIEFLY = 1, SDL_FLASH_UNTIL_FOCUSED = 2
+type
+  enum_SDL_ProgressState* {.size: sizeof(cint).} = enum
+    SDL_PROGRESS_STATE_INVALID = -1, SDL_PROGRESS_STATE_NONE = 0,
+    SDL_PROGRESS_STATE_INDETERMINATE = 1, SDL_PROGRESS_STATE_NORMAL = 2,
+    SDL_PROGRESS_STATE_PAUSED = 3, SDL_PROGRESS_STATE_ERROR = 4
 type
   enum_SDL_GLAttr* {.size: sizeof(cuint).} = enum
     SDL_GL_RED_SIZE = 0, SDL_GL_GREEN_SIZE = 1, SDL_GL_BLUE_SIZE = 2,
@@ -299,7 +310,7 @@ type
     SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_LEFT = 8,
     SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_RIGHT = 9,
     SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_PAIR = 10,
-    SDL_GAMEPAD_TYPE_COUNT = 11
+    SDL_GAMEPAD_TYPE_GAMECUBE = 11, SDL_GAMEPAD_TYPE_COUNT = 12
 type
   enum_SDL_GamepadButton* {.size: sizeof(cint).} = enum
     SDL_GAMEPAD_BUTTON_INVALID = -1, SDL_GAMEPAD_BUTTON_SOUTH = 0,
@@ -482,6 +493,10 @@ type
     SDL_PEN_AXIS_SLIDER = 5, SDL_PEN_AXIS_TANGENTIAL_PRESSURE = 6,
     SDL_PEN_AXIS_COUNT = 7
 type
+  enum_SDL_PenDeviceType* {.size: sizeof(cint).} = enum
+    SDL_PEN_DEVICE_TYPE_INVALID = -1, SDL_PEN_DEVICE_TYPE_UNKNOWN = 0,
+    SDL_PEN_DEVICE_TYPE_DIRECT = 1, SDL_PEN_DEVICE_TYPE_INDIRECT = 2
+type
   enum_SDL_EventType* {.size: sizeof(cuint).} = enum
     SDL_EVENT_FIRST = 0, SDL_EVENT_QUIT = 256, SDL_EVENT_TERMINATING = 257,
     SDL_EVENT_LOW_MEMORY = 258, SDL_EVENT_WILL_ENTER_BACKGROUND = 259,
@@ -491,7 +506,8 @@ type
     SDL_EVENT_DISPLAY_ADDED = 338, SDL_EVENT_DISPLAY_REMOVED = 339,
     SDL_EVENT_DISPLAY_MOVED = 340, SDL_EVENT_DISPLAY_DESKTOP_MODE_CHANGED = 341,
     SDL_EVENT_DISPLAY_CURRENT_MODE_CHANGED = 342,
-    SDL_EVENT_DISPLAY_CONTENT_SCALE_CHANGED = 343, SDL_EVENT_WINDOW_SHOWN = 514,
+    SDL_EVENT_DISPLAY_CONTENT_SCALE_CHANGED = 343,
+    SDL_EVENT_DISPLAY_USABLE_BOUNDS_CHANGED = 344, SDL_EVENT_WINDOW_SHOWN = 514,
     SDL_EVENT_WINDOW_HIDDEN = 515, SDL_EVENT_WINDOW_EXPOSED = 516,
     SDL_EVENT_WINDOW_MOVED = 517, SDL_EVENT_WINDOW_RESIZED = 518,
     SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED = 519,
@@ -510,7 +526,9 @@ type
     SDL_EVENT_KEY_UP = 769, SDL_EVENT_TEXT_EDITING = 770,
     SDL_EVENT_TEXT_INPUT = 771, SDL_EVENT_KEYMAP_CHANGED = 772,
     SDL_EVENT_KEYBOARD_ADDED = 773, SDL_EVENT_KEYBOARD_REMOVED = 774,
-    SDL_EVENT_TEXT_EDITING_CANDIDATES = 775, SDL_EVENT_MOUSE_MOTION = 1024,
+    SDL_EVENT_TEXT_EDITING_CANDIDATES = 775,
+    SDL_EVENT_SCREEN_KEYBOARD_SHOWN = 776,
+    SDL_EVENT_SCREEN_KEYBOARD_HIDDEN = 777, SDL_EVENT_MOUSE_MOTION = 1024,
     SDL_EVENT_MOUSE_BUTTON_DOWN = 1025, SDL_EVENT_MOUSE_BUTTON_UP = 1026,
     SDL_EVENT_MOUSE_WHEEL = 1027, SDL_EVENT_MOUSE_ADDED = 1028,
     SDL_EVENT_MOUSE_REMOVED = 1029, SDL_EVENT_JOYSTICK_AXIS_MOTION = 1536,
@@ -529,11 +547,12 @@ type
     SDL_EVENT_GAMEPAD_UPDATE_COMPLETE = 1626,
     SDL_EVENT_GAMEPAD_STEAM_HANDLE_UPDATED = 1627, SDL_EVENT_FINGER_DOWN = 1792,
     SDL_EVENT_FINGER_UP = 1793, SDL_EVENT_FINGER_MOTION = 1794,
-    SDL_EVENT_FINGER_CANCELED = 1795, SDL_EVENT_CLIPBOARD_UPDATE = 2304,
-    SDL_EVENT_DROP_FILE = 4096, SDL_EVENT_DROP_TEXT = 4097,
-    SDL_EVENT_DROP_BEGIN = 4098, SDL_EVENT_DROP_COMPLETE = 4099,
-    SDL_EVENT_DROP_POSITION = 4100, SDL_EVENT_AUDIO_DEVICE_ADDED = 4352,
-    SDL_EVENT_AUDIO_DEVICE_REMOVED = 4353,
+    SDL_EVENT_FINGER_CANCELED = 1795, SDL_EVENT_PINCH_BEGIN = 1808,
+    SDL_EVENT_PINCH_UPDATE = 1809, SDL_EVENT_PINCH_END = 1810,
+    SDL_EVENT_CLIPBOARD_UPDATE = 2304, SDL_EVENT_DROP_FILE = 4096,
+    SDL_EVENT_DROP_TEXT = 4097, SDL_EVENT_DROP_BEGIN = 4098,
+    SDL_EVENT_DROP_COMPLETE = 4099, SDL_EVENT_DROP_POSITION = 4100,
+    SDL_EVENT_AUDIO_DEVICE_ADDED = 4352, SDL_EVENT_AUDIO_DEVICE_REMOVED = 4353,
     SDL_EVENT_AUDIO_DEVICE_FORMAT_CHANGED = 4354,
     SDL_EVENT_SENSOR_UPDATE = 4608, SDL_EVENT_PEN_PROXIMITY_IN = 4864,
     SDL_EVENT_PEN_PROXIMITY_OUT = 4865, SDL_EVENT_PEN_DOWN = 4866,
@@ -552,7 +571,7 @@ type
 const
   SDL_EVENT_DISPLAY_FIRST* = enum_SDL_EventType.SDL_EVENT_DISPLAY_ORIENTATION
 const
-  SDL_EVENT_DISPLAY_LAST* = enum_SDL_EventType.SDL_EVENT_DISPLAY_CONTENT_SCALE_CHANGED
+  SDL_EVENT_DISPLAY_LAST* = enum_SDL_EventType.SDL_EVENT_DISPLAY_USABLE_BOUNDS_CHANGED
 const
   SDL_EVENT_WINDOW_FIRST* = enum_SDL_EventType.SDL_EVENT_WINDOW_SHOWN
 const
@@ -850,6 +869,10 @@ type
     SDL_TEXTUREACCESS_STATIC = 0, SDL_TEXTUREACCESS_STREAMING = 1,
     SDL_TEXTUREACCESS_TARGET = 2
 type
+  enum_SDL_TextureAddressMode* {.size: sizeof(cint).} = enum
+    SDL_TEXTURE_ADDRESS_INVALID = -1, SDL_TEXTURE_ADDRESS_AUTO = 0,
+    SDL_TEXTURE_ADDRESS_CLAMP = 1, SDL_TEXTURE_ADDRESS_WRAP = 2
+type
   enum_SDL_RendererLogicalPresentation* {.size: sizeof(cuint).} = enum
     SDL_LOGICAL_PRESENTATION_DISABLED = 0, SDL_LOGICAL_PRESENTATION_STRETCH = 1,
     SDL_LOGICAL_PRESENTATION_LETTERBOX = 2,
@@ -874,6 +897,8 @@ type
   SDL_TEXTEDITING_renamed_SDL_EVENT_TEXT_EDITING* = object
 type
   SDL_CONTROLLER_BUTTON_PADDLE3_renamed_SDL_GAMEPAD_BUTTON_RIGHT_PADDLE2* = object
+type
+  struct_SDL_GPURenderState* = object
 type
   SDL_CONTROLLERDEVICEADDED_renamed_SDL_EVENT_GAMEPAD_ADDED* = object
 type
@@ -1271,8 +1296,6 @@ type
 type
   SDL_JoystickGetSerial_renamed_SDL_GetJoystickSerial* = object
 type
-  compiler_FILE_private* = object
-type
   SDL_CreateCond_renamed_SDL_CreateCondition* = object
 type
   SDLK_c_renamed_SDLK_C* = object
@@ -1460,6 +1483,8 @@ type
   SDLK_EJECT_renamed_SDLK_MEDIA_EJECT* = object
 type
   SDL_SYSTEM_CURSOR_IBEAM_renamed_SDL_SYSTEM_CURSOR_TEXT* = object
+type
+  compiler_FILE_NAME_private* = object
 type
   SDL_CONTROLLER_BUTTON_LEFTSHOULDER_renamed_SDL_GAMEPAD_BUTTON_LEFT_SHOULDER* = object
 type
@@ -1917,6 +1942,8 @@ type
 type
   SDLK_s_renamed_SDLK_S* = object
 type
+  restrict* = object
+type
   struct_SDL_Semaphore* = object
 type
   SDL_SYSTEM_CURSOR_WINDOW_RIGHT_renamed_SDL_SYSTEM_CURSOR_E_RESIZE* = object
@@ -2237,6 +2264,8 @@ type
     freq*: cint
   SDL_AudioSpec* = struct_SDL_AudioSpec 
   SDL_AudioStream* = struct_SDL_AudioStream 
+  SDL_AudioStreamDataCompleteCallback* = proc (a0: pointer; a1: pointer;
+      a2: cint): void {.cdecl.} 
   SDL_AudioStreamCallback* = proc (a0: pointer; a1: ptr SDL_AudioStream;
                                    a2: cint; a3: cint): void {.cdecl.} 
   SDL_AudioPostmixCallback* = proc (a0: pointer; a1: ptr SDL_AudioSpec;
@@ -2337,6 +2366,7 @@ type
     framerate_denominator*: cint
   SDL_CameraSpec* = struct_SDL_CameraSpec 
   SDL_CameraPosition* = enum_SDL_CameraPosition 
+  SDL_CameraPermissionState* = enum_SDL_CameraPermissionState 
   SDL_ClipboardDataCallback* = proc (a0: pointer; a1: cstring; a2: ptr csize_t): pointer {.
       cdecl.}                
   SDL_ClipboardCleanupCallback* = proc (a0: pointer): void {.cdecl.} 
@@ -2359,6 +2389,7 @@ type
   SDL_Window* = struct_SDL_Window 
   SDL_WindowFlags* = Uint64  
   SDL_FlashOperation* = enum_SDL_FlashOperation 
+  SDL_ProgressState* = enum_SDL_ProgressState 
   SDL_GLContext* = ptr struct_SDL_GLContextState 
   SDL_EGLDisplay* = pointer  
   SDL_EGLConfig* = pointer   
@@ -2471,7 +2502,14 @@ type
   SDL_Cursor* = struct_SDL_Cursor 
   SDL_SystemCursor* = enum_SDL_SystemCursor 
   SDL_MouseWheelDirection* = enum_SDL_MouseWheelDirection 
+  struct_SDL_CursorFrameInfo* {.pure, inheritable, bycopy.} = object
+    surface*: ptr SDL_Surface 
+    duration*: Uint32
+  SDL_CursorFrameInfo* = struct_SDL_CursorFrameInfo 
   SDL_MouseButtonFlags* = Uint32 
+  SDL_MouseMotionTransformCallback* = proc (a0: pointer; a1: Uint64;
+      a2: ptr SDL_Window; a3: SDL_MouseID; a4: ptr cfloat; a5: ptr cfloat): void {.
+      cdecl.}                
   SDL_TouchID* = Uint64      
   SDL_FingerID* = Uint64     
   SDL_TouchDeviceType* = enum_SDL_TouchDeviceType 
@@ -2484,6 +2522,7 @@ type
   SDL_PenID* = Uint32        
   SDL_PenInputFlags* = Uint32 
   SDL_PenAxis* = enum_SDL_PenAxis 
+  SDL_PenDeviceType* = enum_SDL_PenDeviceType 
   SDL_EventType* = enum_SDL_EventType 
   struct_SDL_CommonEvent* {.pure, inheritable, bycopy.} = object
     type_field*: Uint32      
@@ -2740,6 +2779,13 @@ type
     pressure*: cfloat
     windowID*: SDL_WindowID
   SDL_TouchFingerEvent* = struct_SDL_TouchFingerEvent 
+  struct_SDL_PinchFingerEvent* {.pure, inheritable, bycopy.} = object
+    type_field*: SDL_EventType 
+    reserved*: Uint32
+    timestamp*: Uint64
+    scale*: cfloat
+    windowID*: SDL_WindowID
+  SDL_PinchFingerEvent* = struct_SDL_PinchFingerEvent 
   struct_SDL_PenProximityEvent* {.pure, inheritable, bycopy.} = object
     type_field*: SDL_EventType 
     reserved*: Uint32
@@ -2864,6 +2910,7 @@ type
     quit*: SDL_QuitEvent
     user*: SDL_UserEvent_typedef
     tfinger*: SDL_TouchFingerEvent
+    pinch*: SDL_PinchFingerEvent
     pproximity*: SDL_PenProximityEvent
     ptouch*: SDL_PenTouchEvent
     pmotion*: SDL_PenMotionEvent
@@ -3107,7 +3154,7 @@ type
     sample_count*: SDL_GPUSampleCount 
     sample_mask*: Uint32
     enable_mask*: bool
-    padding1*: Uint8
+    enable_alpha_to_coverage*: bool
     padding2*: Uint8
     padding3*: Uint8
   SDL_GPUMultisampleState* = struct_SDL_GPUMultisampleState 
@@ -3188,8 +3235,8 @@ type
     stencil_store_op*: SDL_GPUStoreOp
     cycle*: bool
     clear_stencil*: Uint8
-    padding1*: Uint8
-    padding2*: Uint8
+    mip_level*: Uint8
+    layer*: Uint8
   SDL_GPUDepthStencilTargetInfo* = struct_SDL_GPUDepthStencilTargetInfo 
   struct_SDL_GPUBlitInfo* {.pure, inheritable, bycopy.} = object
     source*: SDL_GPUBlitRegion 
@@ -3227,13 +3274,25 @@ type
     padding2*: Uint8
     padding3*: Uint8
   SDL_GPUStorageTextureReadWriteBinding* = struct_SDL_GPUStorageTextureReadWriteBinding 
+  struct_SDL_GPUVulkanOptions* {.pure, inheritable, bycopy.} = object
+    vulkan_api_version*: Uint32 
+    feature_list*: pointer
+    vulkan_10_physical_device_features*: pointer
+    device_extension_count*: Uint32
+    device_extension_names*: ptr cstring
+    instance_extension_count*: Uint32
+    instance_extension_names*: ptr cstring
+  SDL_GPUVulkanOptions* = struct_SDL_GPUVulkanOptions 
   SDL_Haptic* = struct_SDL_Haptic 
+  SDL_HapticEffectType* = Uint16 
+  SDL_HapticDirectionType* = Uint8 
+  SDL_HapticEffectID* = cint 
   struct_SDL_HapticDirection* {.pure, inheritable, bycopy.} = object
-    type_field*: Uint8       
+    type_field*: SDL_HapticDirectionType 
     dir*: array[3'i64, Sint32]
   SDL_HapticDirection* = struct_SDL_HapticDirection 
   struct_SDL_HapticConstant* {.pure, inheritable, bycopy.} = object
-    type_field*: Uint16      
+    type_field*: SDL_HapticEffectType 
     direction*: SDL_HapticDirection
     length*: Uint32
     delay*: Uint16
@@ -3246,7 +3305,7 @@ type
     fade_level*: Uint16
   SDL_HapticConstant* = struct_SDL_HapticConstant 
   struct_SDL_HapticPeriodic* {.pure, inheritable, bycopy.} = object
-    type_field*: Uint16      
+    type_field*: SDL_HapticEffectType 
     direction*: SDL_HapticDirection
     length*: Uint32
     delay*: Uint16
@@ -3262,7 +3321,7 @@ type
     fade_level*: Uint16
   SDL_HapticPeriodic* = struct_SDL_HapticPeriodic 
   struct_SDL_HapticCondition* {.pure, inheritable, bycopy.} = object
-    type_field*: Uint16      
+    type_field*: SDL_HapticEffectType 
     direction*: SDL_HapticDirection
     length*: Uint32
     delay*: Uint16
@@ -3276,7 +3335,7 @@ type
     center*: array[3'i64, Sint16]
   SDL_HapticCondition* = struct_SDL_HapticCondition 
   struct_SDL_HapticRamp* {.pure, inheritable, bycopy.} = object
-    type_field*: Uint16      
+    type_field*: SDL_HapticEffectType 
     direction*: SDL_HapticDirection
     length*: Uint32
     delay*: Uint16
@@ -3290,13 +3349,13 @@ type
     fade_level*: Uint16
   SDL_HapticRamp* = struct_SDL_HapticRamp 
   struct_SDL_HapticLeftRight* {.pure, inheritable, bycopy.} = object
-    type_field*: Uint16      
+    type_field*: SDL_HapticEffectType 
     length*: Uint32
     large_magnitude*: Uint16
     small_magnitude*: Uint16
   SDL_HapticLeftRight* = struct_SDL_HapticLeftRight 
   struct_SDL_HapticCustom* {.pure, inheritable, bycopy.} = object
-    type_field*: Uint16      
+    type_field*: SDL_HapticEffectType 
     direction*: SDL_HapticDirection
     length*: Uint32
     delay*: Uint16
@@ -3312,7 +3371,7 @@ type
     fade_level*: Uint16
   SDL_HapticCustom* = struct_SDL_HapticCustom 
   union_SDL_HapticEffect* {.union, bycopy.} = object
-    type_field*: Uint16      
+    type_field*: SDL_HapticEffectType 
     constant*: SDL_HapticConstant
     periodic*: SDL_HapticPeriodic
     condition*: SDL_HapticCondition
@@ -3396,6 +3455,7 @@ type
     tex_coord*: SDL_FPoint
   SDL_Vertex* = struct_SDL_Vertex 
   SDL_TextureAccess* = enum_SDL_TextureAccess 
+  SDL_TextureAddressMode* = enum_SDL_TextureAddressMode 
   SDL_RendererLogicalPresentation* = enum_SDL_RendererLogicalPresentation 
   SDL_Renderer* = struct_SDL_Renderer 
   struct_SDL_Texture* {.pure, inheritable, bycopy.} = object
@@ -3404,6 +3464,17 @@ type
     h*: cint
     refcount*: cint
   SDL_Texture* = struct_SDL_Texture 
+  struct_SDL_GPURenderStateCreateInfo* {.pure, inheritable, bycopy.} = object
+    fragment_shader*: ptr SDL_GPUShader 
+    num_sampler_bindings*: Sint32
+    sampler_bindings*: ptr SDL_GPUTextureSamplerBinding
+    num_storage_textures*: Sint32
+    storage_textures*: ptr ptr SDL_GPUTexture
+    num_storage_buffers*: Sint32
+    storage_buffers*: ptr ptr SDL_GPUBuffer
+    props*: SDL_PropertiesID
+  SDL_GPURenderStateCreateInfo* = struct_SDL_GPURenderStateCreateInfo 
+  SDL_GPURenderState* = struct_SDL_GPURenderState 
   struct_SDL_StorageInterface* {.pure, inheritable, bycopy.} = object
     version*: Uint32         
     close*: proc (a0: pointer): bool {.cdecl.}
@@ -3551,6 +3622,15 @@ when "I64" is static:
     SDL_PRILL_PREFIX* = "I64" 
 else:
   let SDL_PRILL_PREFIX* = "I64" 
+when restrict is typedesc:
+  type
+    SDL_RESTRICT* = restrict 
+else:
+  when restrict is static:
+    const
+      SDL_RESTRICT* = restrict 
+  else:
+    let SDL_RESTRICT* = restrict 
 proc SDL_memcpy*(dst: pointer; src: pointer; len: csize_t): pointer {.cdecl,
     importc: "SDL_memcpy".}
 proc memcpy*(internal_Dst: pointer; internal_Src: pointer;
@@ -3608,6 +3688,11 @@ else:
       SDL_BYTEORDER* = SDL_LIL_ENDIAN 
   else:
     let SDL_BYTEORDER* = SDL_LIL_ENDIAN 
+when "SDL.name" is static:
+  const
+    SDL_PROP_NAME_STRING* = "SDL.name" 
+else:
+  let SDL_PROP_NAME_STRING* = "SDL.name" 
 proc internal_beginthreadex*(internal_Security: pointer;
                              internal_StackSize: cuint; internal_StartAddress: internal_beginthreadex_proc_type;
                              internal_ArgList: pointer;
@@ -3666,6 +3751,11 @@ when "SDL.iostream.memory.size" is static:
     SDL_PROP_IOSTREAM_MEMORY_SIZE_NUMBER* = "SDL.iostream.memory.size" 
 else:
   let SDL_PROP_IOSTREAM_MEMORY_SIZE_NUMBER* = "SDL.iostream.memory.size" 
+when "SDL.iostream.memory.free" is static:
+  const
+    SDL_PROP_IOSTREAM_MEMORY_FREE_FUNC_POINTER* = "SDL.iostream.memory.free" 
+else:
+  let SDL_PROP_IOSTREAM_MEMORY_FREE_FUNC_POINTER* = "SDL.iostream.memory.free" 
 when "SDL.iostream.dynamic.memory" is static:
   const
     SDL_PROP_IOSTREAM_DYNAMIC_MEMORY_POINTER* = "SDL.iostream.dynamic.memory" 
@@ -3681,6 +3771,11 @@ when cast[cuint](255'i64) is static:
     SDL_AUDIO_MASK_BITSIZE* = cast[cuint](255'i64) 
 else:
   let SDL_AUDIO_MASK_BITSIZE* = cast[cuint](255'i64) 
+when "SDL.audiostream.auto_cleanup" is static:
+  const
+    SDL_PROP_AUDIOSTREAM_AUTO_CLEANUP_BOOLEAN* = "SDL.audiostream.auto_cleanup" 
+else:
+  let SDL_PROP_AUDIOSTREAM_AUTO_CLEANUP_BOOLEAN* = "SDL.audiostream.auto_cleanup" 
 when cast[cuint](0'i64) is static:
   const
     SDL_BLENDMODE_NONE* = cast[cuint](0'i64) 
@@ -3786,6 +3881,11 @@ when "SDL.surface.hotspot.y" is static:
     SDL_PROP_SURFACE_HOTSPOT_Y_NUMBER* = "SDL.surface.hotspot.y" 
 else:
   let SDL_PROP_SURFACE_HOTSPOT_Y_NUMBER* = "SDL.surface.hotspot.y" 
+when "SDL.surface.rotation" is static:
+  const
+    SDL_PROP_SURFACE_ROTATION_FLOAT* = "SDL.surface.rotation" 
+else:
+  let SDL_PROP_SURFACE_ROTATION_FLOAT* = "SDL.surface.rotation" 
 when 128 is static:
   const
     SDL_CACHELINE_SIZE* = 128 
@@ -3871,6 +3971,16 @@ when "SDL.display.KMSDRM.panel_orientation" is static:
     SDL_PROP_DISPLAY_KMSDRM_PANEL_ORIENTATION_NUMBER* = "SDL.display.KMSDRM.panel_orientation" 
 else:
   let SDL_PROP_DISPLAY_KMSDRM_PANEL_ORIENTATION_NUMBER* = "SDL.display.KMSDRM.panel_orientation" 
+when "SDL.display.wayland.wl_output" is static:
+  const
+    SDL_PROP_DISPLAY_WAYLAND_WL_OUTPUT_POINTER* = "SDL.display.wayland.wl_output" 
+else:
+  let SDL_PROP_DISPLAY_WAYLAND_WL_OUTPUT_POINTER* = "SDL.display.wayland.wl_output" 
+when "SDL.display.windows.hmonitor" is static:
+  const
+    SDL_PROP_DISPLAY_WINDOWS_HMONITOR_POINTER* = "SDL.display.windows.hmonitor" 
+else:
+  let SDL_PROP_DISPLAY_WINDOWS_HMONITOR_POINTER* = "SDL.display.windows.hmonitor" 
 when "SDL.window.create.always_on_top" is static:
   const
     SDL_PROP_WINDOW_CREATE_ALWAYS_ON_TOP_BOOLEAN* = "SDL.window.create.always_on_top" 
@@ -4016,6 +4126,11 @@ when "SDL.window.create.cocoa.view" is static:
     SDL_PROP_WINDOW_CREATE_COCOA_VIEW_POINTER* = "SDL.window.create.cocoa.view" 
 else:
   let SDL_PROP_WINDOW_CREATE_COCOA_VIEW_POINTER* = "SDL.window.create.cocoa.view" 
+when "SDL.window.create.uikit.windowscene" is static:
+  const
+    SDL_PROP_WINDOW_CREATE_WINDOWSCENE_POINTER* = "SDL.window.create.uikit.windowscene" 
+else:
+  let SDL_PROP_WINDOW_CREATE_WINDOWSCENE_POINTER* = "SDL.window.create.uikit.windowscene" 
 when "SDL.window.create.wayland.surface_role_custom" is static:
   const
     SDL_PROP_WINDOW_CREATE_WAYLAND_SURFACE_ROLE_CUSTOM_BOOLEAN* = "SDL.window.create.wayland.surface_role_custom" 
@@ -4046,6 +4161,16 @@ when "SDL.window.create.x11.window" is static:
     SDL_PROP_WINDOW_CREATE_X11_WINDOW_NUMBER* = "SDL.window.create.x11.window" 
 else:
   let SDL_PROP_WINDOW_CREATE_X11_WINDOW_NUMBER* = "SDL.window.create.x11.window" 
+when "SDL.window.create.emscripten.canvas_id" is static:
+  const
+    SDL_PROP_WINDOW_CREATE_EMSCRIPTEN_CANVAS_ID_STRING* = "SDL.window.create.emscripten.canvas_id" 
+else:
+  let SDL_PROP_WINDOW_CREATE_EMSCRIPTEN_CANVAS_ID_STRING* = "SDL.window.create.emscripten.canvas_id" 
+when "SDL.window.create.emscripten.keyboard_element" is static:
+  const
+    SDL_PROP_WINDOW_CREATE_EMSCRIPTEN_KEYBOARD_ELEMENT_STRING* = "SDL.window.create.emscripten.keyboard_element" 
+else:
+  let SDL_PROP_WINDOW_CREATE_EMSCRIPTEN_KEYBOARD_ELEMENT_STRING* = "SDL.window.create.emscripten.keyboard_element" 
 when "SDL.window.shape" is static:
   const
     SDL_PROP_WINDOW_SHAPE_POINTER* = "SDL.window.shape" 
@@ -4128,9 +4253,9 @@ else:
   let SDL_PROP_WINDOW_COCOA_METAL_VIEW_TAG_NUMBER* = "SDL.window.cocoa.metal_view_tag" 
 when "SDL.window.openvr.overlay_id" is static:
   const
-    SDL_PROP_WINDOW_OPENVR_OVERLAY_ID* = "SDL.window.openvr.overlay_id" 
+    SDL_PROP_WINDOW_OPENVR_OVERLAY_ID_NUMBER* = "SDL.window.openvr.overlay_id" 
 else:
-  let SDL_PROP_WINDOW_OPENVR_OVERLAY_ID* = "SDL.window.openvr.overlay_id" 
+  let SDL_PROP_WINDOW_OPENVR_OVERLAY_ID_NUMBER* = "SDL.window.openvr.overlay_id" 
 when "SDL.window.vivante.display" is static:
   const
     SDL_PROP_WINDOW_VIVANTE_DISPLAY_POINTER* = "SDL.window.vivante.display" 
@@ -4221,6 +4346,16 @@ when "SDL.window.x11.window" is static:
     SDL_PROP_WINDOW_X11_WINDOW_NUMBER* = "SDL.window.x11.window" 
 else:
   let SDL_PROP_WINDOW_X11_WINDOW_NUMBER* = "SDL.window.x11.window" 
+when "SDL.window.emscripten.canvas_id" is static:
+  const
+    SDL_PROP_WINDOW_EMSCRIPTEN_CANVAS_ID_STRING* = "SDL.window.emscripten.canvas_id" 
+else:
+  let SDL_PROP_WINDOW_EMSCRIPTEN_CANVAS_ID_STRING* = "SDL.window.emscripten.canvas_id" 
+when "SDL.window.emscripten.keyboard_element" is static:
+  const
+    SDL_PROP_WINDOW_EMSCRIPTEN_KEYBOARD_ELEMENT_STRING* = "SDL.window.emscripten.keyboard_element" 
+else:
+  let SDL_PROP_WINDOW_EMSCRIPTEN_KEYBOARD_ELEMENT_STRING* = "SDL.window.emscripten.keyboard_element" 
 when 0 is static:
   const
     SDL_WINDOW_SURFACE_VSYNC_DISABLED* = 0 
@@ -4271,6 +4406,21 @@ when "SDL.filedialog.cancel" is static:
     SDL_PROP_FILE_DIALOG_CANCEL_STRING* = "SDL.filedialog.cancel" 
 else:
   let SDL_PROP_FILE_DIALOG_CANCEL_STRING* = "SDL.filedialog.cancel" 
+when "suggested" is static:
+  const
+    SDL_ELF_NOTE_DLOPEN_PRIORITY_SUGGESTED* = "suggested" 
+else:
+  let SDL_ELF_NOTE_DLOPEN_PRIORITY_SUGGESTED* = "suggested" 
+when "recommended" is static:
+  const
+    SDL_ELF_NOTE_DLOPEN_PRIORITY_RECOMMENDED* = "recommended" 
+else:
+  let SDL_ELF_NOTE_DLOPEN_PRIORITY_RECOMMENDED* = "recommended" 
+when "required" is static:
+  const
+    SDL_ELF_NOTE_DLOPEN_PRIORITY_REQUIRED* = "required" 
+else:
+  let SDL_ELF_NOTE_DLOPEN_PRIORITY_REQUIRED* = "required" 
 when 9.80665 is static:
   const
     SDL_STANDARD_GRAVITY* = 9.80665 
@@ -5796,11 +5946,36 @@ when "SDL.gpu.device.create.preferlowpower" is static:
     SDL_PROP_GPU_DEVICE_CREATE_PREFERLOWPOWER_BOOLEAN* = "SDL.gpu.device.create.preferlowpower" 
 else:
   let SDL_PROP_GPU_DEVICE_CREATE_PREFERLOWPOWER_BOOLEAN* = "SDL.gpu.device.create.preferlowpower" 
+when "SDL.gpu.device.create.verbose" is static:
+  const
+    SDL_PROP_GPU_DEVICE_CREATE_VERBOSE_BOOLEAN* = "SDL.gpu.device.create.verbose" 
+else:
+  let SDL_PROP_GPU_DEVICE_CREATE_VERBOSE_BOOLEAN* = "SDL.gpu.device.create.verbose" 
 when "SDL.gpu.device.create.name" is static:
   const
     SDL_PROP_GPU_DEVICE_CREATE_NAME_STRING* = "SDL.gpu.device.create.name" 
 else:
   let SDL_PROP_GPU_DEVICE_CREATE_NAME_STRING* = "SDL.gpu.device.create.name" 
+when "SDL.gpu.device.create.feature.clip_distance" is static:
+  const
+    SDL_PROP_GPU_DEVICE_CREATE_FEATURE_CLIP_DISTANCE_BOOLEAN* = "SDL.gpu.device.create.feature.clip_distance" 
+else:
+  let SDL_PROP_GPU_DEVICE_CREATE_FEATURE_CLIP_DISTANCE_BOOLEAN* = "SDL.gpu.device.create.feature.clip_distance" 
+when "SDL.gpu.device.create.feature.depth_clamping" is static:
+  const
+    SDL_PROP_GPU_DEVICE_CREATE_FEATURE_DEPTH_CLAMPING_BOOLEAN* = "SDL.gpu.device.create.feature.depth_clamping" 
+else:
+  let SDL_PROP_GPU_DEVICE_CREATE_FEATURE_DEPTH_CLAMPING_BOOLEAN* = "SDL.gpu.device.create.feature.depth_clamping" 
+when "SDL.gpu.device.create.feature.indirect_draw_first_instance" is static:
+  const
+    SDL_PROP_GPU_DEVICE_CREATE_FEATURE_INDIRECT_DRAW_FIRST_INSTANCE_BOOLEAN* = "SDL.gpu.device.create.feature.indirect_draw_first_instance" 
+else:
+  let SDL_PROP_GPU_DEVICE_CREATE_FEATURE_INDIRECT_DRAW_FIRST_INSTANCE_BOOLEAN* = "SDL.gpu.device.create.feature.indirect_draw_first_instance" 
+when "SDL.gpu.device.create.feature.anisotropy" is static:
+  const
+    SDL_PROP_GPU_DEVICE_CREATE_FEATURE_ANISOTROPY_BOOLEAN* = "SDL.gpu.device.create.feature.anisotropy" 
+else:
+  let SDL_PROP_GPU_DEVICE_CREATE_FEATURE_ANISOTROPY_BOOLEAN* = "SDL.gpu.device.create.feature.anisotropy" 
 when "SDL.gpu.device.create.shaders.private" is static:
   const
     SDL_PROP_GPU_DEVICE_CREATE_SHADERS_PRIVATE_BOOLEAN* = "SDL.gpu.device.create.shaders.private" 
@@ -5831,11 +6006,46 @@ when "SDL.gpu.device.create.shaders.metallib" is static:
     SDL_PROP_GPU_DEVICE_CREATE_SHADERS_METALLIB_BOOLEAN* = "SDL.gpu.device.create.shaders.metallib" 
 else:
   let SDL_PROP_GPU_DEVICE_CREATE_SHADERS_METALLIB_BOOLEAN* = "SDL.gpu.device.create.shaders.metallib" 
+when "SDL.gpu.device.create.d3d12.allowtier1resourcebinding" is static:
+  const
+    SDL_PROP_GPU_DEVICE_CREATE_D3D12_ALLOW_FEWER_RESOURCE_SLOTS_BOOLEAN* = "SDL.gpu.device.create.d3d12.allowtier1resourcebinding" 
+else:
+  let SDL_PROP_GPU_DEVICE_CREATE_D3D12_ALLOW_FEWER_RESOURCE_SLOTS_BOOLEAN* = "SDL.gpu.device.create.d3d12.allowtier1resourcebinding" 
 when "SDL.gpu.device.create.d3d12.semantic" is static:
   const
     SDL_PROP_GPU_DEVICE_CREATE_D3D12_SEMANTIC_NAME_STRING* = "SDL.gpu.device.create.d3d12.semantic" 
 else:
   let SDL_PROP_GPU_DEVICE_CREATE_D3D12_SEMANTIC_NAME_STRING* = "SDL.gpu.device.create.d3d12.semantic" 
+when "SDL.gpu.device.create.vulkan.requirehardwareacceleration" is static:
+  const
+    SDL_PROP_GPU_DEVICE_CREATE_VULKAN_REQUIRE_HARDWARE_ACCELERATION_BOOLEAN* = "SDL.gpu.device.create.vulkan.requirehardwareacceleration" 
+else:
+  let SDL_PROP_GPU_DEVICE_CREATE_VULKAN_REQUIRE_HARDWARE_ACCELERATION_BOOLEAN* = "SDL.gpu.device.create.vulkan.requirehardwareacceleration" 
+when "SDL.gpu.device.create.vulkan.options" is static:
+  const
+    SDL_PROP_GPU_DEVICE_CREATE_VULKAN_OPTIONS_POINTER* = "SDL.gpu.device.create.vulkan.options" 
+else:
+  let SDL_PROP_GPU_DEVICE_CREATE_VULKAN_OPTIONS_POINTER* = "SDL.gpu.device.create.vulkan.options" 
+when "SDL.gpu.device.name" is static:
+  const
+    SDL_PROP_GPU_DEVICE_NAME_STRING* = "SDL.gpu.device.name" 
+else:
+  let SDL_PROP_GPU_DEVICE_NAME_STRING* = "SDL.gpu.device.name" 
+when "SDL.gpu.device.driver_name" is static:
+  const
+    SDL_PROP_GPU_DEVICE_DRIVER_NAME_STRING* = "SDL.gpu.device.driver_name" 
+else:
+  let SDL_PROP_GPU_DEVICE_DRIVER_NAME_STRING* = "SDL.gpu.device.driver_name" 
+when "SDL.gpu.device.driver_version" is static:
+  const
+    SDL_PROP_GPU_DEVICE_DRIVER_VERSION_STRING* = "SDL.gpu.device.driver_version" 
+else:
+  let SDL_PROP_GPU_DEVICE_DRIVER_VERSION_STRING* = "SDL.gpu.device.driver_version" 
+when "SDL.gpu.device.driver_info" is static:
+  const
+    SDL_PROP_GPU_DEVICE_DRIVER_INFO_STRING* = "SDL.gpu.device.driver_info" 
+else:
+  let SDL_PROP_GPU_DEVICE_DRIVER_INFO_STRING* = "SDL.gpu.device.driver_info" 
 when "SDL.gpu.computepipeline.create.name" is static:
   const
     SDL_PROP_GPU_COMPUTEPIPELINE_CREATE_NAME_STRING* = "SDL.gpu.computepipeline.create.name" 
@@ -5901,6 +6111,11 @@ when "SDL.gpu.transferbuffer.create.name" is static:
     SDL_PROP_GPU_TRANSFERBUFFER_CREATE_NAME_STRING* = "SDL.gpu.transferbuffer.create.name" 
 else:
   let SDL_PROP_GPU_TRANSFERBUFFER_CREATE_NAME_STRING* = "SDL.gpu.transferbuffer.create.name" 
+when cast[cuint](4294967295'i64) is static:
+  const
+    SDL_HAPTIC_INFINITY* = cast[cuint](4294967295'i64) 
+else:
+  let SDL_HAPTIC_INFINITY* = cast[cuint](4294967295'i64) 
 when 0 is static:
   const
     SDL_HAPTIC_POLAR* = 0    
@@ -5921,11 +6136,11 @@ when 3 is static:
     SDL_HAPTIC_STEERING_AXIS* = 3 
 else:
   let SDL_HAPTIC_STEERING_AXIS* = 3 
-when cast[cuint](4294967295'i64) is static:
+when "SDL.hidapi.libusb.device.handle" is static:
   const
-    SDL_HAPTIC_INFINITY* = cast[cuint](4294967295'i64) 
+    SDL_PROP_HIDAPI_LIBUSB_DEVICE_HANDLE_POINTER* = "SDL.hidapi.libusb.device.handle" 
 else:
-  let SDL_HAPTIC_INFINITY* = cast[cuint](4294967295'i64) 
+  let SDL_PROP_HIDAPI_LIBUSB_DEVICE_HANDLE_POINTER* = "SDL.hidapi.libusb.device.handle" 
 when "SDL_ALLOW_ALT_TAB_WHILE_GRABBED" is static:
   const
     SDL_HINT_ALLOW_ALT_TAB_WHILE_GRABBED* = "SDL_ALLOW_ALT_TAB_WHILE_GRABBED" 
@@ -6016,6 +6231,11 @@ when "SDL_AUDIO_DEVICE_STREAM_ROLE" is static:
     SDL_HINT_AUDIO_DEVICE_STREAM_ROLE* = "SDL_AUDIO_DEVICE_STREAM_ROLE" 
 else:
   let SDL_HINT_AUDIO_DEVICE_STREAM_ROLE* = "SDL_AUDIO_DEVICE_STREAM_ROLE" 
+when "SDL_AUDIO_DEVICE_RAW_STREAM" is static:
+  const
+    SDL_HINT_AUDIO_DEVICE_RAW_STREAM* = "SDL_AUDIO_DEVICE_RAW_STREAM" 
+else:
+  let SDL_HINT_AUDIO_DEVICE_RAW_STREAM* = "SDL_AUDIO_DEVICE_RAW_STREAM" 
 when "SDL_AUDIO_DISK_INPUT_FILE" is static:
   const
     SDL_HINT_AUDIO_DISK_INPUT_FILE* = "SDL_AUDIO_DISK_INPUT_FILE" 
@@ -6096,6 +6316,11 @@ when "SDL_DISPLAY_USABLE_BOUNDS" is static:
     SDL_HINT_DISPLAY_USABLE_BOUNDS* = "SDL_DISPLAY_USABLE_BOUNDS" 
 else:
   let SDL_HINT_DISPLAY_USABLE_BOUNDS* = "SDL_DISPLAY_USABLE_BOUNDS" 
+when "SDL_INVALID_PARAM_CHECKS" is static:
+  const
+    SDL_HINT_INVALID_PARAM_CHECKS* = "SDL_INVALID_PARAM_CHECKS" 
+else:
+  let SDL_HINT_INVALID_PARAM_CHECKS* = "SDL_INVALID_PARAM_CHECKS" 
 when "SDL_EMSCRIPTEN_ASYNCIFY" is static:
   const
     SDL_HINT_EMSCRIPTEN_ASYNCIFY* = "SDL_EMSCRIPTEN_ASYNCIFY" 
@@ -6196,6 +6421,11 @@ when "SDL_HIDAPI_LIBUSB" is static:
     SDL_HINT_HIDAPI_LIBUSB* = "SDL_HIDAPI_LIBUSB" 
 else:
   let SDL_HINT_HIDAPI_LIBUSB* = "SDL_HIDAPI_LIBUSB" 
+when "SDL_HIDAPI_LIBUSB_GAMECUBE" is static:
+  const
+    SDL_HINT_HIDAPI_LIBUSB_GAMECUBE* = "SDL_HIDAPI_LIBUSB_GAMECUBE" 
+else:
+  let SDL_HINT_HIDAPI_LIBUSB_GAMECUBE* = "SDL_HIDAPI_LIBUSB_GAMECUBE" 
 when "SDL_HIDAPI_LIBUSB_WHITELIST" is static:
   const
     SDL_HINT_HIDAPI_LIBUSB_WHITELIST* = "SDL_HIDAPI_LIBUSB_WHITELIST" 
@@ -6391,6 +6621,31 @@ when "SDL_JOYSTICK_HIDAPI_STEAM_HORI" is static:
     SDL_HINT_JOYSTICK_HIDAPI_STEAM_HORI* = "SDL_JOYSTICK_HIDAPI_STEAM_HORI" 
 else:
   let SDL_HINT_JOYSTICK_HIDAPI_STEAM_HORI* = "SDL_JOYSTICK_HIDAPI_STEAM_HORI" 
+when "SDL_JOYSTICK_HIDAPI_LG4FF" is static:
+  const
+    SDL_HINT_JOYSTICK_HIDAPI_LG4FF* = "SDL_JOYSTICK_HIDAPI_LG4FF" 
+else:
+  let SDL_HINT_JOYSTICK_HIDAPI_LG4FF* = "SDL_JOYSTICK_HIDAPI_LG4FF" 
+when "SDL_JOYSTICK_HIDAPI_8BITDO" is static:
+  const
+    SDL_HINT_JOYSTICK_HIDAPI_8BITDO* = "SDL_JOYSTICK_HIDAPI_8BITDO" 
+else:
+  let SDL_HINT_JOYSTICK_HIDAPI_8BITDO* = "SDL_JOYSTICK_HIDAPI_8BITDO" 
+when "SDL_JOYSTICK_HIDAPI_SINPUT" is static:
+  const
+    SDL_HINT_JOYSTICK_HIDAPI_SINPUT* = "SDL_JOYSTICK_HIDAPI_SINPUT" 
+else:
+  let SDL_HINT_JOYSTICK_HIDAPI_SINPUT* = "SDL_JOYSTICK_HIDAPI_SINPUT" 
+when "SDL_JOYSTICK_HIDAPI_ZUIKI" is static:
+  const
+    SDL_HINT_JOYSTICK_HIDAPI_ZUIKI* = "SDL_JOYSTICK_HIDAPI_ZUIKI" 
+else:
+  let SDL_HINT_JOYSTICK_HIDAPI_ZUIKI* = "SDL_JOYSTICK_HIDAPI_ZUIKI" 
+when "SDL_JOYSTICK_HIDAPI_FLYDIGI" is static:
+  const
+    SDL_HINT_JOYSTICK_HIDAPI_FLYDIGI* = "SDL_JOYSTICK_HIDAPI_FLYDIGI" 
+else:
+  let SDL_HINT_JOYSTICK_HIDAPI_FLYDIGI* = "SDL_JOYSTICK_HIDAPI_FLYDIGI" 
 when "SDL_JOYSTICK_HIDAPI_SWITCH" is static:
   const
     SDL_HINT_JOYSTICK_HIDAPI_SWITCH* = "SDL_JOYSTICK_HIDAPI_SWITCH" 
@@ -6406,6 +6661,11 @@ when "SDL_JOYSTICK_HIDAPI_SWITCH_PLAYER_LED" is static:
     SDL_HINT_JOYSTICK_HIDAPI_SWITCH_PLAYER_LED* = "SDL_JOYSTICK_HIDAPI_SWITCH_PLAYER_LED" 
 else:
   let SDL_HINT_JOYSTICK_HIDAPI_SWITCH_PLAYER_LED* = "SDL_JOYSTICK_HIDAPI_SWITCH_PLAYER_LED" 
+when "SDL_JOYSTICK_HIDAPI_SWITCH2" is static:
+  const
+    SDL_HINT_JOYSTICK_HIDAPI_SWITCH2* = "SDL_JOYSTICK_HIDAPI_SWITCH2" 
+else:
+  let SDL_HINT_JOYSTICK_HIDAPI_SWITCH2* = "SDL_JOYSTICK_HIDAPI_SWITCH2" 
 when "SDL_JOYSTICK_HIDAPI_VERTICAL_JOY_CONS" is static:
   const
     SDL_HINT_JOYSTICK_HIDAPI_VERTICAL_JOY_CONS* = "SDL_JOYSTICK_HIDAPI_VERTICAL_JOY_CONS" 
@@ -6451,6 +6711,16 @@ when "SDL_JOYSTICK_HIDAPI_XBOX_ONE_HOME_LED" is static:
     SDL_HINT_JOYSTICK_HIDAPI_XBOX_ONE_HOME_LED* = "SDL_JOYSTICK_HIDAPI_XBOX_ONE_HOME_LED" 
 else:
   let SDL_HINT_JOYSTICK_HIDAPI_XBOX_ONE_HOME_LED* = "SDL_JOYSTICK_HIDAPI_XBOX_ONE_HOME_LED" 
+when "SDL_JOYSTICK_HIDAPI_GIP" is static:
+  const
+    SDL_HINT_JOYSTICK_HIDAPI_GIP* = "SDL_JOYSTICK_HIDAPI_GIP" 
+else:
+  let SDL_HINT_JOYSTICK_HIDAPI_GIP* = "SDL_JOYSTICK_HIDAPI_GIP" 
+when "SDL_JOYSTICK_HIDAPI_GIP_RESET_FOR_METADATA" is static:
+  const
+    SDL_HINT_JOYSTICK_HIDAPI_GIP_RESET_FOR_METADATA* = "SDL_JOYSTICK_HIDAPI_GIP_RESET_FOR_METADATA" 
+else:
+  let SDL_HINT_JOYSTICK_HIDAPI_GIP_RESET_FOR_METADATA* = "SDL_JOYSTICK_HIDAPI_GIP_RESET_FOR_METADATA" 
 when "SDL_JOYSTICK_IOKIT" is static:
   const
     SDL_HINT_JOYSTICK_IOKIT* = "SDL_JOYSTICK_IOKIT" 
@@ -6551,6 +6821,11 @@ when "SDL_KMSDRM_REQUIRE_DRM_MASTER" is static:
     SDL_HINT_KMSDRM_REQUIRE_DRM_MASTER* = "SDL_KMSDRM_REQUIRE_DRM_MASTER" 
 else:
   let SDL_HINT_KMSDRM_REQUIRE_DRM_MASTER* = "SDL_KMSDRM_REQUIRE_DRM_MASTER" 
+when "SDL_KMSDRM_ATOMIC" is static:
+  const
+    SDL_HINT_KMSDRM_ATOMIC* = "SDL_KMSDRM_ATOMIC" 
+else:
+  let SDL_HINT_KMSDRM_ATOMIC* = "SDL_KMSDRM_ATOMIC" 
 when "SDL_LOGGING" is static:
   const
     SDL_HINT_LOGGING* = "SDL_LOGGING" 
@@ -6581,6 +6856,11 @@ when "SDL_MAC_SCROLL_MOMENTUM" is static:
     SDL_HINT_MAC_SCROLL_MOMENTUM* = "SDL_MAC_SCROLL_MOMENTUM" 
 else:
   let SDL_HINT_MAC_SCROLL_MOMENTUM* = "SDL_MAC_SCROLL_MOMENTUM" 
+when "SDL_MAC_PRESS_AND_HOLD" is static:
+  const
+    SDL_HINT_MAC_PRESS_AND_HOLD* = "SDL_MAC_PRESS_AND_HOLD" 
+else:
+  let SDL_HINT_MAC_PRESS_AND_HOLD* = "SDL_MAC_PRESS_AND_HOLD" 
 when "SDL_MAIN_CALLBACK_RATE" is static:
   const
     SDL_HINT_MAIN_CALLBACK_RATE* = "SDL_MAIN_CALLBACK_RATE" 
@@ -6606,6 +6886,11 @@ when "SDL_MOUSE_DEFAULT_SYSTEM_CURSOR" is static:
     SDL_HINT_MOUSE_DEFAULT_SYSTEM_CURSOR* = "SDL_MOUSE_DEFAULT_SYSTEM_CURSOR" 
 else:
   let SDL_HINT_MOUSE_DEFAULT_SYSTEM_CURSOR* = "SDL_MOUSE_DEFAULT_SYSTEM_CURSOR" 
+when "SDL_MOUSE_DPI_SCALE_CURSORS" is static:
+  const
+    SDL_HINT_MOUSE_DPI_SCALE_CURSORS* = "SDL_MOUSE_DPI_SCALE_CURSORS" 
+else:
+  let SDL_HINT_MOUSE_DPI_SCALE_CURSORS* = "SDL_MOUSE_DPI_SCALE_CURSORS" 
 when "SDL_MOUSE_EMULATE_WARP_WITH_RELATIVE" is static:
   const
     SDL_HINT_MOUSE_EMULATE_WARP_WITH_RELATIVE* = "SDL_MOUSE_EMULATE_WARP_WITH_RELATIVE" 
@@ -6711,6 +6996,11 @@ when "SDL_RENDER_DIRECT3D11_DEBUG" is static:
     SDL_HINT_RENDER_DIRECT3D11_DEBUG* = "SDL_RENDER_DIRECT3D11_DEBUG" 
 else:
   let SDL_HINT_RENDER_DIRECT3D11_DEBUG* = "SDL_RENDER_DIRECT3D11_DEBUG" 
+when "SDL_RENDER_DIRECT3D11_WARP" is static:
+  const
+    SDL_HINT_RENDER_DIRECT3D11_WARP* = "SDL_RENDER_DIRECT3D11_WARP" 
+else:
+  let SDL_HINT_RENDER_DIRECT3D11_WARP* = "SDL_RENDER_DIRECT3D11_WARP" 
 when "SDL_RENDER_VULKAN_DEBUG" is static:
   const
     SDL_HINT_RENDER_VULKAN_DEBUG* = "SDL_RENDER_VULKAN_DEBUG" 
@@ -6761,6 +7051,26 @@ when "SDL_ROG_GAMEPAD_MICE_EXCLUDED" is static:
     SDL_HINT_ROG_GAMEPAD_MICE_EXCLUDED* = "SDL_ROG_GAMEPAD_MICE_EXCLUDED" 
 else:
   let SDL_HINT_ROG_GAMEPAD_MICE_EXCLUDED* = "SDL_ROG_GAMEPAD_MICE_EXCLUDED" 
+when "SDL_PS2_GS_WIDTH" is static:
+  const
+    SDL_HINT_PS2_GS_WIDTH* = "SDL_PS2_GS_WIDTH" 
+else:
+  let SDL_HINT_PS2_GS_WIDTH* = "SDL_PS2_GS_WIDTH" 
+when "SDL_PS2_GS_HEIGHT" is static:
+  const
+    SDL_HINT_PS2_GS_HEIGHT* = "SDL_PS2_GS_HEIGHT" 
+else:
+  let SDL_HINT_PS2_GS_HEIGHT* = "SDL_PS2_GS_HEIGHT" 
+when "SDL_PS2_GS_PROGRESSIVE" is static:
+  const
+    SDL_HINT_PS2_GS_PROGRESSIVE* = "SDL_PS2_GS_PROGRESSIVE" 
+else:
+  let SDL_HINT_PS2_GS_PROGRESSIVE* = "SDL_PS2_GS_PROGRESSIVE" 
+when "SDL_PS2_GS_MODE" is static:
+  const
+    SDL_HINT_PS2_GS_MODE* = "SDL_PS2_GS_MODE" 
+else:
+  let SDL_HINT_PS2_GS_MODE* = "SDL_PS2_GS_MODE" 
 when "SDL_RPI_VIDEO_LAYER" is static:
   const
     SDL_HINT_RPI_VIDEO_LAYER* = "SDL_RPI_VIDEO_LAYER" 
@@ -6861,6 +7171,16 @@ when "SDL_VIDEO_MAC_FULLSCREEN_MENU_VISIBILITY" is static:
     SDL_HINT_VIDEO_MAC_FULLSCREEN_MENU_VISIBILITY* = "SDL_VIDEO_MAC_FULLSCREEN_MENU_VISIBILITY" 
 else:
   let SDL_HINT_VIDEO_MAC_FULLSCREEN_MENU_VISIBILITY* = "SDL_VIDEO_MAC_FULLSCREEN_MENU_VISIBILITY" 
+when "SDL_VIDEO_METAL_AUTO_RESIZE_DRAWABLE" is static:
+  const
+    SDL_HINT_VIDEO_METAL_AUTO_RESIZE_DRAWABLE* = "SDL_VIDEO_METAL_AUTO_RESIZE_DRAWABLE" 
+else:
+  let SDL_HINT_VIDEO_METAL_AUTO_RESIZE_DRAWABLE* = "SDL_VIDEO_METAL_AUTO_RESIZE_DRAWABLE" 
+when "SDL_VIDEO_MATCH_EXCLUSIVE_MODE_ON_MOVE" is static:
+  const
+    SDL_HINT_VIDEO_MATCH_EXCLUSIVE_MODE_ON_MOVE* = "SDL_VIDEO_MATCH_EXCLUSIVE_MODE_ON_MOVE" 
+else:
+  let SDL_HINT_VIDEO_MATCH_EXCLUSIVE_MODE_ON_MOVE* = "SDL_VIDEO_MATCH_EXCLUSIVE_MODE_ON_MOVE" 
 when "SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS" is static:
   const
     SDL_HINT_VIDEO_MINIMIZE_ON_FOCUS_LOSS* = "SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS" 
@@ -7056,6 +7376,11 @@ when "SDL_WINDOWS_RAW_KEYBOARD" is static:
     SDL_HINT_WINDOWS_RAW_KEYBOARD* = "SDL_WINDOWS_RAW_KEYBOARD" 
 else:
   let SDL_HINT_WINDOWS_RAW_KEYBOARD* = "SDL_WINDOWS_RAW_KEYBOARD" 
+when "SDL_WINDOWS_RAW_KEYBOARD_EXCLUDE_HOTKEYS" is static:
+  const
+    SDL_HINT_WINDOWS_RAW_KEYBOARD_EXCLUDE_HOTKEYS* = "SDL_WINDOWS_RAW_KEYBOARD_EXCLUDE_HOTKEYS" 
+else:
+  let SDL_HINT_WINDOWS_RAW_KEYBOARD_EXCLUDE_HOTKEYS* = "SDL_WINDOWS_RAW_KEYBOARD_EXCLUDE_HOTKEYS" 
 when "SDL_WINDOWS_FORCE_SEMAPHORE_KERNEL" is static:
   const
     SDL_HINT_WINDOWS_FORCE_SEMAPHORE_KERNEL* = "SDL_WINDOWS_FORCE_SEMAPHORE_KERNEL" 
@@ -7236,6 +7561,11 @@ when "SDL.process.create.environment" is static:
     SDL_PROP_PROCESS_CREATE_ENVIRONMENT_POINTER* = "SDL.process.create.environment" 
 else:
   let SDL_PROP_PROCESS_CREATE_ENVIRONMENT_POINTER* = "SDL.process.create.environment" 
+when "SDL.process.create.working_directory" is static:
+  const
+    SDL_PROP_PROCESS_CREATE_WORKING_DIRECTORY_STRING* = "SDL.process.create.working_directory" 
+else:
+  let SDL_PROP_PROCESS_CREATE_WORKING_DIRECTORY_STRING* = "SDL.process.create.working_directory" 
 when "SDL.process.create.stdin_option" is static:
   const
     SDL_PROP_PROCESS_CREATE_STDIN_NUMBER* = "SDL.process.create.stdin_option" 
@@ -7276,6 +7606,11 @@ when "SDL.process.create.background" is static:
     SDL_PROP_PROCESS_CREATE_BACKGROUND_BOOLEAN* = "SDL.process.create.background" 
 else:
   let SDL_PROP_PROCESS_CREATE_BACKGROUND_BOOLEAN* = "SDL.process.create.background" 
+when "SDL.process.create.cmdline" is static:
+  const
+    SDL_PROP_PROCESS_CREATE_CMDLINE_STRING* = "SDL.process.create.cmdline" 
+else:
+  let SDL_PROP_PROCESS_CREATE_CMDLINE_STRING* = "SDL.process.create.cmdline" 
 when "SDL.process.pid" is static:
   const
     SDL_PROP_PROCESS_PID_NUMBER* = "SDL.process.pid" 
@@ -7306,6 +7641,11 @@ when "software" is static:
     SDL_SOFTWARE_RENDERER* = "software" 
 else:
   let SDL_SOFTWARE_RENDERER* = "software" 
+when "gpu" is static:
+  const
+    SDL_GPU_RENDERER* = "gpu" 
+else:
+  let SDL_GPU_RENDERER* = "gpu" 
 when "SDL.renderer.create.name" is static:
   const
     SDL_PROP_RENDERER_CREATE_NAME_STRING* = "SDL.renderer.create.name" 
@@ -7331,6 +7671,26 @@ when "SDL.renderer.create.present_vsync" is static:
     SDL_PROP_RENDERER_CREATE_PRESENT_VSYNC_NUMBER* = "SDL.renderer.create.present_vsync" 
 else:
   let SDL_PROP_RENDERER_CREATE_PRESENT_VSYNC_NUMBER* = "SDL.renderer.create.present_vsync" 
+when "SDL.renderer.create.gpu.device" is static:
+  const
+    SDL_PROP_RENDERER_CREATE_GPU_DEVICE_POINTER* = "SDL.renderer.create.gpu.device" 
+else:
+  let SDL_PROP_RENDERER_CREATE_GPU_DEVICE_POINTER* = "SDL.renderer.create.gpu.device" 
+when "SDL.renderer.create.gpu.shaders_spirv" is static:
+  const
+    SDL_PROP_RENDERER_CREATE_GPU_SHADERS_SPIRV_BOOLEAN* = "SDL.renderer.create.gpu.shaders_spirv" 
+else:
+  let SDL_PROP_RENDERER_CREATE_GPU_SHADERS_SPIRV_BOOLEAN* = "SDL.renderer.create.gpu.shaders_spirv" 
+when "SDL.renderer.create.gpu.shaders_dxil" is static:
+  const
+    SDL_PROP_RENDERER_CREATE_GPU_SHADERS_DXIL_BOOLEAN* = "SDL.renderer.create.gpu.shaders_dxil" 
+else:
+  let SDL_PROP_RENDERER_CREATE_GPU_SHADERS_DXIL_BOOLEAN* = "SDL.renderer.create.gpu.shaders_dxil" 
+when "SDL.renderer.create.gpu.shaders_msl" is static:
+  const
+    SDL_PROP_RENDERER_CREATE_GPU_SHADERS_MSL_BOOLEAN* = "SDL.renderer.create.gpu.shaders_msl" 
+else:
+  let SDL_PROP_RENDERER_CREATE_GPU_SHADERS_MSL_BOOLEAN* = "SDL.renderer.create.gpu.shaders_msl" 
 when "SDL.renderer.create.vulkan.instance" is static:
   const
     SDL_PROP_RENDERER_CREATE_VULKAN_INSTANCE_POINTER* = "SDL.renderer.create.vulkan.instance" 
@@ -7391,6 +7751,11 @@ when "SDL.renderer.texture_formats" is static:
     SDL_PROP_RENDERER_TEXTURE_FORMATS_POINTER* = "SDL.renderer.texture_formats" 
 else:
   let SDL_PROP_RENDERER_TEXTURE_FORMATS_POINTER* = "SDL.renderer.texture_formats" 
+when "SDL.renderer.texture_wrapping" is static:
+  const
+    SDL_PROP_RENDERER_TEXTURE_WRAPPING_BOOLEAN* = "SDL.renderer.texture_wrapping" 
+else:
+  let SDL_PROP_RENDERER_TEXTURE_WRAPPING_BOOLEAN* = "SDL.renderer.texture_wrapping" 
 when "SDL.renderer.output_colorspace" is static:
   const
     SDL_PROP_RENDERER_OUTPUT_COLORSPACE_NUMBER* = "SDL.renderer.output_colorspace" 
@@ -7506,6 +7871,11 @@ when "SDL.texture.create.height" is static:
     SDL_PROP_TEXTURE_CREATE_HEIGHT_NUMBER* = "SDL.texture.create.height" 
 else:
   let SDL_PROP_TEXTURE_CREATE_HEIGHT_NUMBER* = "SDL.texture.create.height" 
+when "SDL.texture.create.palette" is static:
+  const
+    SDL_PROP_TEXTURE_CREATE_PALETTE_POINTER* = "SDL.texture.create.palette" 
+else:
+  let SDL_PROP_TEXTURE_CREATE_PALETTE_POINTER* = "SDL.texture.create.palette" 
 when "SDL.texture.create.SDR_white_point" is static:
   const
     SDL_PROP_TEXTURE_CREATE_SDR_WHITE_POINT_FLOAT* = "SDL.texture.create.SDR_white_point" 
@@ -7596,6 +7966,31 @@ when "SDL.texture.create.vulkan.texture" is static:
     SDL_PROP_TEXTURE_CREATE_VULKAN_TEXTURE_NUMBER* = "SDL.texture.create.vulkan.texture" 
 else:
   let SDL_PROP_TEXTURE_CREATE_VULKAN_TEXTURE_NUMBER* = "SDL.texture.create.vulkan.texture" 
+when "SDL.texture.create.vulkan.layout" is static:
+  const
+    SDL_PROP_TEXTURE_CREATE_VULKAN_LAYOUT_NUMBER* = "SDL.texture.create.vulkan.layout" 
+else:
+  let SDL_PROP_TEXTURE_CREATE_VULKAN_LAYOUT_NUMBER* = "SDL.texture.create.vulkan.layout" 
+when "SDL.texture.create.gpu.texture" is static:
+  const
+    SDL_PROP_TEXTURE_CREATE_GPU_TEXTURE_POINTER* = "SDL.texture.create.gpu.texture" 
+else:
+  let SDL_PROP_TEXTURE_CREATE_GPU_TEXTURE_POINTER* = "SDL.texture.create.gpu.texture" 
+when "SDL.texture.create.gpu.texture_uv" is static:
+  const
+    SDL_PROP_TEXTURE_CREATE_GPU_TEXTURE_UV_POINTER* = "SDL.texture.create.gpu.texture_uv" 
+else:
+  let SDL_PROP_TEXTURE_CREATE_GPU_TEXTURE_UV_POINTER* = "SDL.texture.create.gpu.texture_uv" 
+when "SDL.texture.create.gpu.texture_u" is static:
+  const
+    SDL_PROP_TEXTURE_CREATE_GPU_TEXTURE_U_POINTER* = "SDL.texture.create.gpu.texture_u" 
+else:
+  let SDL_PROP_TEXTURE_CREATE_GPU_TEXTURE_U_POINTER* = "SDL.texture.create.gpu.texture_u" 
+when "SDL.texture.create.gpu.texture_v" is static:
+  const
+    SDL_PROP_TEXTURE_CREATE_GPU_TEXTURE_V_POINTER* = "SDL.texture.create.gpu.texture_v" 
+else:
+  let SDL_PROP_TEXTURE_CREATE_GPU_TEXTURE_V_POINTER* = "SDL.texture.create.gpu.texture_v" 
 when "SDL.texture.colorspace" is static:
   const
     SDL_PROP_TEXTURE_COLORSPACE_NUMBER* = "SDL.texture.colorspace" 
@@ -7726,6 +8121,26 @@ when "SDL.texture.vulkan.texture" is static:
     SDL_PROP_TEXTURE_VULKAN_TEXTURE_NUMBER* = "SDL.texture.vulkan.texture" 
 else:
   let SDL_PROP_TEXTURE_VULKAN_TEXTURE_NUMBER* = "SDL.texture.vulkan.texture" 
+when "SDL.texture.gpu.texture" is static:
+  const
+    SDL_PROP_TEXTURE_GPU_TEXTURE_POINTER* = "SDL.texture.gpu.texture" 
+else:
+  let SDL_PROP_TEXTURE_GPU_TEXTURE_POINTER* = "SDL.texture.gpu.texture" 
+when "SDL.texture.gpu.texture_uv" is static:
+  const
+    SDL_PROP_TEXTURE_GPU_TEXTURE_UV_POINTER* = "SDL.texture.gpu.texture_uv" 
+else:
+  let SDL_PROP_TEXTURE_GPU_TEXTURE_UV_POINTER* = "SDL.texture.gpu.texture_uv" 
+when "SDL.texture.gpu.texture_u" is static:
+  const
+    SDL_PROP_TEXTURE_GPU_TEXTURE_U_POINTER* = "SDL.texture.gpu.texture_u" 
+else:
+  let SDL_PROP_TEXTURE_GPU_TEXTURE_U_POINTER* = "SDL.texture.gpu.texture_u" 
+when "SDL.texture.gpu.texture_v" is static:
+  const
+    SDL_PROP_TEXTURE_GPU_TEXTURE_V_POINTER* = "SDL.texture.gpu.texture_v" 
+else:
+  let SDL_PROP_TEXTURE_GPU_TEXTURE_V_POINTER* = "SDL.texture.gpu.texture_v" 
 when 0 is static:
   const
     SDL_RENDERER_VSYNC_DISABLED* = 0 
@@ -7796,16 +8211,16 @@ when 3 is static:
     SDL_MAJOR_VERSION* = 3   
 else:
   let SDL_MAJOR_VERSION* = 3 
-when 2 is static:
+when 4 is static:
   const
-    SDL_MINOR_VERSION* = 2   
+    SDL_MINOR_VERSION* = 4   
 else:
-  let SDL_MINOR_VERSION* = 2 
-when 24 is static:
+  let SDL_MINOR_VERSION* = 4 
+when 0 is static:
   const
-    SDL_MICRO_VERSION* = 24  
+    SDL_MICRO_VERSION* = 0   
 else:
-  let SDL_MICRO_VERSION* = 24 
+  let SDL_MICRO_VERSION* = 0 
 when SDL_AtomicAdd_renamed_SDL_AddAtomicInt is typedesc:
   type
     SDL_AtomicAdd* = SDL_AtomicAdd_renamed_SDL_AddAtomicInt 
@@ -13589,6 +14004,8 @@ proc SDL_SetAtomicU32*(a: ptr SDL_AtomicU32; v: Uint32): Uint32 {.cdecl,
     importc: "SDL_SetAtomicU32".}
 proc SDL_GetAtomicU32*(a: ptr SDL_AtomicU32): Uint32 {.cdecl,
     importc: "SDL_GetAtomicU32".}
+proc SDL_AddAtomicU32*(a: ptr SDL_AtomicU32; v: cint): Uint32 {.cdecl,
+    importc: "SDL_AddAtomicU32".}
 proc SDL_CompareAndSwapAtomicPointer*(a: ptr pointer; oldval: pointer;
                                       newval: pointer): bool {.cdecl,
     importc: "SDL_CompareAndSwapAtomicPointer".}
@@ -13919,6 +14336,14 @@ proc SDL_SetAudioStreamOutputChannelMap*(stream: ptr SDL_AudioStream;
 proc SDL_PutAudioStreamData*(stream: ptr SDL_AudioStream; buf: pointer;
                              len: cint): bool {.cdecl,
     importc: "SDL_PutAudioStreamData".}
+proc SDL_PutAudioStreamDataNoCopy*(stream: ptr SDL_AudioStream; buf: pointer;
+                                   len: cint; callback: SDL_AudioStreamDataCompleteCallback;
+                                   userdata: pointer): bool {.cdecl,
+    importc: "SDL_PutAudioStreamDataNoCopy".}
+proc SDL_PutAudioStreamPlanarData*(stream: ptr SDL_AudioStream;
+                                   channel_buffers: ptr pointer;
+                                   num_channels: cint; num_samples: cint): bool {.
+    cdecl, importc: "SDL_PutAudioStreamPlanarData".}
 proc SDL_GetAudioStreamData*(stream: ptr SDL_AudioStream; buf: pointer;
                              len: cint): cint {.cdecl,
     importc: "SDL_GetAudioStreamData".}
@@ -14008,10 +14433,10 @@ proc SDL_MapRGB*(format: ptr SDL_PixelFormatDetails; palette: ptr SDL_Palette;
 proc SDL_MapRGBA*(format: ptr SDL_PixelFormatDetails; palette: ptr SDL_Palette;
                   r: Uint8; g: Uint8; b: Uint8; a: Uint8): Uint32 {.cdecl,
     importc: "SDL_MapRGBA".}
-proc SDL_GetRGB*(pixel: Uint32; format: ptr SDL_PixelFormatDetails;
+proc SDL_GetRGB*(pixelvalue: Uint32; format: ptr SDL_PixelFormatDetails;
                  palette: ptr SDL_Palette; r: ptr Uint8; g: ptr Uint8;
                  b: ptr Uint8): void {.cdecl, importc: "SDL_GetRGB".}
-proc SDL_GetRGBA*(pixel: Uint32; format: ptr SDL_PixelFormatDetails;
+proc SDL_GetRGBA*(pixelvalue: Uint32; format: ptr SDL_PixelFormatDetails;
                   palette: ptr SDL_Palette; r: ptr Uint8; g: ptr Uint8;
                   b: ptr Uint8; a: ptr Uint8): void {.cdecl,
     importc: "SDL_GetRGBA".}
@@ -14075,6 +14500,10 @@ proc SDL_LockSurface*(surface: ptr SDL_Surface): bool {.cdecl,
     importc: "SDL_LockSurface".}
 proc SDL_UnlockSurface*(surface: ptr SDL_Surface): void {.cdecl,
     importc: "SDL_UnlockSurface".}
+proc SDL_LoadSurface_IO*(src: ptr SDL_IOStream; closeio: bool): ptr SDL_Surface {.
+    cdecl, importc: "SDL_LoadSurface_IO".}
+proc SDL_LoadSurface*(file: cstring): ptr SDL_Surface {.cdecl,
+    importc: "SDL_LoadSurface".}
 proc SDL_LoadBMP_IO*(src: ptr SDL_IOStream; closeio: bool): ptr SDL_Surface {.
     cdecl, importc: "SDL_LoadBMP_IO".}
 proc SDL_LoadBMP*(file: cstring): ptr SDL_Surface {.cdecl,
@@ -14083,6 +14512,14 @@ proc SDL_SaveBMP_IO*(surface: ptr SDL_Surface; dst: ptr SDL_IOStream;
                      closeio: bool): bool {.cdecl, importc: "SDL_SaveBMP_IO".}
 proc SDL_SaveBMP*(surface: ptr SDL_Surface; file: cstring): bool {.cdecl,
     importc: "SDL_SaveBMP".}
+proc SDL_LoadPNG_IO*(src: ptr SDL_IOStream; closeio: bool): ptr SDL_Surface {.
+    cdecl, importc: "SDL_LoadPNG_IO".}
+proc SDL_LoadPNG*(file: cstring): ptr SDL_Surface {.cdecl,
+    importc: "SDL_LoadPNG".}
+proc SDL_SavePNG_IO*(surface: ptr SDL_Surface; dst: ptr SDL_IOStream;
+                     closeio: bool): bool {.cdecl, importc: "SDL_SavePNG_IO".}
+proc SDL_SavePNG*(surface: ptr SDL_Surface; file: cstring): bool {.cdecl,
+    importc: "SDL_SavePNG".}
 proc SDL_SetSurfaceRLE*(surface: ptr SDL_Surface; enabled: bool): bool {.cdecl,
     importc: "SDL_SetSurfaceRLE".}
 proc SDL_SurfaceHasRLE*(surface: ptr SDL_Surface): bool {.cdecl,
@@ -14115,6 +14552,8 @@ proc SDL_GetSurfaceClipRect*(surface: ptr SDL_Surface; rect: ptr SDL_Rect): bool
     cdecl, importc: "SDL_GetSurfaceClipRect".}
 proc SDL_FlipSurface*(surface: ptr SDL_Surface; flip: SDL_FlipMode): bool {.
     cdecl, importc: "SDL_FlipSurface".}
+proc SDL_RotateSurface*(surface: ptr SDL_Surface; angle: cfloat): ptr SDL_Surface {.
+    cdecl, importc: "SDL_RotateSurface".}
 proc SDL_DuplicateSurface*(surface: ptr SDL_Surface): ptr SDL_Surface {.cdecl,
     importc: "SDL_DuplicateSurface".}
 proc SDL_ScaleSurface*(surface: ptr SDL_Surface; width: cint; height: cint;
@@ -14227,8 +14666,8 @@ proc SDL_GetCameraPosition*(instance_id: SDL_CameraID): SDL_CameraPosition {.
     cdecl, importc: "SDL_GetCameraPosition".}
 proc SDL_OpenCamera*(instance_id: SDL_CameraID; spec: ptr SDL_CameraSpec): ptr SDL_Camera {.
     cdecl, importc: "SDL_OpenCamera".}
-proc SDL_GetCameraPermissionState*(camera: ptr SDL_Camera): cint {.cdecl,
-    importc: "SDL_GetCameraPermissionState".}
+proc SDL_GetCameraPermissionState*(camera: ptr SDL_Camera): SDL_CameraPermissionState {.
+    cdecl, importc: "SDL_GetCameraPermissionState".}
 proc SDL_GetCameraID*(camera: ptr SDL_Camera): SDL_CameraID {.cdecl,
     importc: "SDL_GetCameraID".}
 proc SDL_GetCameraProperties*(camera: ptr SDL_Camera): SDL_PropertiesID {.cdecl,
@@ -14283,6 +14722,7 @@ proc SDL_HasLSX*(): bool {.cdecl, importc: "SDL_HasLSX".}
 proc SDL_HasLASX*(): bool {.cdecl, importc: "SDL_HasLASX".}
 proc SDL_GetSystemRAM*(): cint {.cdecl, importc: "SDL_GetSystemRAM".}
 proc SDL_GetSIMDAlignment*(): csize_t {.cdecl, importc: "SDL_GetSIMDAlignment".}
+proc SDL_GetSystemPageSize*(): cint {.cdecl, importc: "SDL_GetSystemPageSize".}
 proc SDL_GetNumVideoDrivers*(): cint {.cdecl, importc: "SDL_GetNumVideoDrivers".}
 proc SDL_GetVideoDriver*(index: cint): cstring {.cdecl,
     importc: "SDL_GetVideoDriver".}
@@ -14398,6 +14838,8 @@ proc SDL_SetWindowResizable*(window: ptr SDL_Window; resizable: bool): bool {.
     cdecl, importc: "SDL_SetWindowResizable".}
 proc SDL_SetWindowAlwaysOnTop*(window: ptr SDL_Window; on_top: bool): bool {.
     cdecl, importc: "SDL_SetWindowAlwaysOnTop".}
+proc SDL_SetWindowFillDocument*(window: ptr SDL_Window; fill: bool): bool {.
+    cdecl, importc: "SDL_SetWindowFillDocument".}
 proc SDL_ShowWindow*(window: ptr SDL_Window): bool {.cdecl,
     importc: "SDL_ShowWindow".}
 proc SDL_HideWindow*(window: ptr SDL_Window): bool {.cdecl,
@@ -14462,6 +14904,15 @@ proc SDL_SetWindowShape*(window: ptr SDL_Window; shape: ptr SDL_Surface): bool {
     cdecl, importc: "SDL_SetWindowShape".}
 proc SDL_FlashWindow*(window: ptr SDL_Window; operation: SDL_FlashOperation): bool {.
     cdecl, importc: "SDL_FlashWindow".}
+proc SDL_SetWindowProgressState*(window: ptr SDL_Window;
+                                 state: SDL_ProgressState): bool {.cdecl,
+    importc: "SDL_SetWindowProgressState".}
+proc SDL_GetWindowProgressState*(window: ptr SDL_Window): SDL_ProgressState {.
+    cdecl, importc: "SDL_GetWindowProgressState".}
+proc SDL_SetWindowProgressValue*(window: ptr SDL_Window; value: cfloat): bool {.
+    cdecl, importc: "SDL_SetWindowProgressValue".}
+proc SDL_GetWindowProgressValue*(window: ptr SDL_Window): cfloat {.cdecl,
+    importc: "SDL_GetWindowProgressValue".}
 proc SDL_DestroyWindow*(window: ptr SDL_Window): void {.cdecl,
     importc: "SDL_DestroyWindow".}
 proc SDL_ScreenSaverEnabled*(): bool {.cdecl, importc: "SDL_ScreenSaverEnabled".}
@@ -14912,6 +15363,9 @@ proc SDL_WarpMouseInWindow*(window: ptr SDL_Window; x: cfloat; y: cfloat): void 
     cdecl, importc: "SDL_WarpMouseInWindow".}
 proc SDL_WarpMouseGlobal*(x: cfloat; y: cfloat): bool {.cdecl,
     importc: "SDL_WarpMouseGlobal".}
+proc SDL_SetRelativeMouseTransform*(callback: SDL_MouseMotionTransformCallback;
+                                    userdata: pointer): bool {.cdecl,
+    importc: "SDL_SetRelativeMouseTransform".}
 proc SDL_SetWindowRelativeMouseMode*(window: ptr SDL_Window; enabled: bool): bool {.
     cdecl, importc: "SDL_SetWindowRelativeMouseMode".}
 proc SDL_GetWindowRelativeMouseMode*(window: ptr SDL_Window): bool {.cdecl,
@@ -14922,6 +15376,9 @@ proc SDL_CreateCursor*(data: ptr Uint8; mask: ptr Uint8; w: cint; h: cint;
     importc: "SDL_CreateCursor".}
 proc SDL_CreateColorCursor*(surface: ptr SDL_Surface; hot_x: cint; hot_y: cint): ptr SDL_Cursor {.
     cdecl, importc: "SDL_CreateColorCursor".}
+proc SDL_CreateAnimatedCursor*(frames: ptr SDL_CursorFrameInfo;
+                               frame_count: cint; hot_x: cint; hot_y: cint): ptr SDL_Cursor {.
+    cdecl, importc: "SDL_CreateAnimatedCursor".}
 proc SDL_CreateSystemCursor*(id: SDL_SystemCursor): ptr SDL_Cursor {.cdecl,
     importc: "SDL_CreateSystemCursor".}
 proc SDL_SetCursor*(cursor: ptr SDL_Cursor): bool {.cdecl,
@@ -14942,6 +15399,8 @@ proc SDL_GetTouchDeviceType*(touchID: SDL_TouchID): SDL_TouchDeviceType {.cdecl,
     importc: "SDL_GetTouchDeviceType".}
 proc SDL_GetTouchFingers*(touchID: SDL_TouchID; count: ptr cint): ptr ptr SDL_Finger {.
     cdecl, importc: "SDL_GetTouchFingers".}
+proc SDL_GetPenDeviceType*(instance_id: SDL_PenID): SDL_PenDeviceType {.cdecl,
+    importc: "SDL_GetPenDeviceType".}
 proc SDL_PumpEvents*(): void {.cdecl, importc: "SDL_PumpEvents".}
 proc SDL_PeepEvents*(events: ptr SDL_Event; numevents: cint;
                      action: SDL_EventAction_typedef; minType: Uint32;
@@ -14978,6 +15437,8 @@ proc SDL_RegisterEvents*(numevents: cint): Uint32 {.cdecl,
     importc: "SDL_RegisterEvents".}
 proc SDL_GetWindowFromEvent*(event: ptr SDL_Event): ptr SDL_Window {.cdecl,
     importc: "SDL_GetWindowFromEvent".}
+proc SDL_GetEventDescription*(event: ptr SDL_Event; buf: cstring; buflen: cint): cint {.
+    cdecl, importc: "SDL_GetEventDescription".}
 proc SDL_GetBasePath*(): cstring {.cdecl, importc: "SDL_GetBasePath".}
 proc SDL_GetPrefPath*(org: cstring; app: cstring): cstring {.cdecl,
     importc: "SDL_GetPrefPath".}
@@ -15020,6 +15481,8 @@ proc SDL_GetGPUDeviceDriver*(device: ptr SDL_GPUDevice): cstring {.cdecl,
     importc: "SDL_GetGPUDeviceDriver".}
 proc SDL_GetGPUShaderFormats*(device: ptr SDL_GPUDevice): SDL_GPUShaderFormat {.
     cdecl, importc: "SDL_GetGPUShaderFormats".}
+proc SDL_GetGPUDeviceProperties*(device: ptr SDL_GPUDevice): SDL_PropertiesID {.
+    cdecl, importc: "SDL_GetGPUDeviceProperties".}
 proc SDL_CreateGPUComputePipeline*(device: ptr SDL_GPUDevice; createinfo: ptr SDL_GPUComputePipelineCreateInfo): ptr SDL_GPUComputePipeline {.
     cdecl, importc: "SDL_CreateGPUComputePipeline".}
 proc SDL_CreateGPUGraphicsPipeline*(device: ptr SDL_GPUDevice; createinfo: ptr SDL_GPUGraphicsPipelineCreateInfo): ptr SDL_GPUGraphicsPipeline {.
@@ -15299,6 +15762,10 @@ proc SDL_CalculateGPUTextureFormatSize*(format: SDL_GPUTextureFormat;
                                         width: Uint32; height: Uint32;
                                         depth_or_layer_count: Uint32): Uint32 {.
     cdecl, importc: "SDL_CalculateGPUTextureFormatSize".}
+proc SDL_GetPixelFormatFromGPUTextureFormat*(format: SDL_GPUTextureFormat): SDL_PixelFormat {.
+    cdecl, importc: "SDL_GetPixelFormatFromGPUTextureFormat".}
+proc SDL_GetGPUTextureFormatFromPixelFormat*(format: SDL_PixelFormat): SDL_GPUTextureFormat {.
+    cdecl, importc: "SDL_GetGPUTextureFormatFromPixelFormat".}
 proc SDL_GetHaptics*(count: ptr cint): ptr SDL_HapticID {.cdecl,
     importc: "SDL_GetHaptics".}
 proc SDL_GetHapticNameForID*(instance_id: SDL_HapticID): cstring {.cdecl,
@@ -15332,20 +15799,21 @@ proc SDL_HapticEffectSupported*(haptic: ptr SDL_Haptic;
                                 effect: ptr SDL_HapticEffect): bool {.cdecl,
     importc: "SDL_HapticEffectSupported".}
 proc SDL_CreateHapticEffect*(haptic: ptr SDL_Haptic;
-                             effect: ptr SDL_HapticEffect): cint {.cdecl,
-    importc: "SDL_CreateHapticEffect".}
-proc SDL_UpdateHapticEffect*(haptic: ptr SDL_Haptic; effect: cint;
+                             effect: ptr SDL_HapticEffect): SDL_HapticEffectID {.
+    cdecl, importc: "SDL_CreateHapticEffect".}
+proc SDL_UpdateHapticEffect*(haptic: ptr SDL_Haptic; effect: SDL_HapticEffectID;
                              data: ptr SDL_HapticEffect): bool {.cdecl,
     importc: "SDL_UpdateHapticEffect".}
-proc SDL_RunHapticEffect*(haptic: ptr SDL_Haptic; effect: cint;
+proc SDL_RunHapticEffect*(haptic: ptr SDL_Haptic; effect: SDL_HapticEffectID;
                           iterations: Uint32): bool {.cdecl,
     importc: "SDL_RunHapticEffect".}
-proc SDL_StopHapticEffect*(haptic: ptr SDL_Haptic; effect: cint): bool {.cdecl,
-    importc: "SDL_StopHapticEffect".}
-proc SDL_DestroyHapticEffect*(haptic: ptr SDL_Haptic; effect: cint): void {.
+proc SDL_StopHapticEffect*(haptic: ptr SDL_Haptic; effect: SDL_HapticEffectID): bool {.
+    cdecl, importc: "SDL_StopHapticEffect".}
+proc SDL_DestroyHapticEffect*(haptic: ptr SDL_Haptic; effect: SDL_HapticEffectID): void {.
     cdecl, importc: "SDL_DestroyHapticEffect".}
-proc SDL_GetHapticEffectStatus*(haptic: ptr SDL_Haptic; effect: cint): bool {.
-    cdecl, importc: "SDL_GetHapticEffectStatus".}
+proc SDL_GetHapticEffectStatus*(haptic: ptr SDL_Haptic;
+                                effect: SDL_HapticEffectID): bool {.cdecl,
+    importc: "SDL_GetHapticEffectStatus".}
 proc SDL_SetHapticGain*(haptic: ptr SDL_Haptic; gain: cint): bool {.cdecl,
     importc: "SDL_SetHapticGain".}
 proc SDL_SetHapticAutocenter*(haptic: ptr SDL_Haptic; autocenter: cint): bool {.
@@ -15378,6 +15846,8 @@ proc SDL_hid_open*(vendor_id: cushort; product_id: cushort;
     importc: "SDL_hid_open".}
 proc SDL_hid_open_path*(path: cstring): ptr SDL_hid_device {.cdecl,
     importc: "SDL_hid_open_path".}
+proc SDL_hid_get_properties*(dev: ptr SDL_hid_device): SDL_PropertiesID {.cdecl,
+    importc: "SDL_hid_get_properties".}
 proc SDL_hid_write*(dev: ptr SDL_hid_device; data: ptr uint8; length: csize_t): cint {.
     cdecl, importc: "SDL_hid_write".}
 proc SDL_hid_read_timeout*(dev: ptr SDL_hid_device; data: ptr uint8;
@@ -15542,6 +16012,10 @@ proc SDL_CreateRenderer*(window: ptr SDL_Window; name: cstring): ptr SDL_Rendere
     cdecl, importc: "SDL_CreateRenderer".}
 proc SDL_CreateRendererWithProperties*(props: SDL_PropertiesID): ptr SDL_Renderer {.
     cdecl, importc: "SDL_CreateRendererWithProperties".}
+proc SDL_CreateGPURenderer*(device: ptr SDL_GPUDevice; window: ptr SDL_Window): ptr SDL_Renderer {.
+    cdecl, importc: "SDL_CreateGPURenderer".}
+proc SDL_GetGPURendererDevice*(renderer: ptr SDL_Renderer): ptr SDL_GPUDevice {.
+    cdecl, importc: "SDL_GetGPURendererDevice".}
 proc SDL_CreateSoftwareRenderer*(surface: ptr SDL_Surface): ptr SDL_Renderer {.
     cdecl, importc: "SDL_CreateSoftwareRenderer".}
 proc SDL_GetRenderer*(window: ptr SDL_Window): ptr SDL_Renderer {.cdecl,
@@ -15573,6 +16047,10 @@ proc SDL_GetRendererFromTexture*(texture: ptr SDL_Texture): ptr SDL_Renderer {.
     cdecl, importc: "SDL_GetRendererFromTexture".}
 proc SDL_GetTextureSize*(texture: ptr SDL_Texture; w: ptr cfloat; h: ptr cfloat): bool {.
     cdecl, importc: "SDL_GetTextureSize".}
+proc SDL_SetTexturePalette*(texture: ptr SDL_Texture; palette: ptr SDL_Palette): bool {.
+    cdecl, importc: "SDL_SetTexturePalette".}
+proc SDL_GetTexturePalette*(texture: ptr SDL_Texture): ptr SDL_Palette {.cdecl,
+    importc: "SDL_GetTexturePalette".}
 proc SDL_SetTextureColorMod*(texture: ptr SDL_Texture; r: Uint8; g: Uint8;
                              b: Uint8): bool {.cdecl,
     importc: "SDL_SetTextureColorMod".}
@@ -15730,6 +16208,13 @@ proc SDL_RenderTexture9Grid*(renderer: ptr SDL_Renderer;
                              top_height: cfloat; bottom_height: cfloat;
                              scale: cfloat; dstrect: ptr SDL_FRect): bool {.
     cdecl, importc: "SDL_RenderTexture9Grid".}
+proc SDL_RenderTexture9GridTiled*(renderer: ptr SDL_Renderer;
+                                  texture: ptr SDL_Texture;
+                                  srcrect: ptr SDL_FRect; left_width: cfloat;
+                                  right_width: cfloat; top_height: cfloat;
+                                  bottom_height: cfloat; scale: cfloat;
+                                  dstrect: ptr SDL_FRect; tileScale: cfloat): bool {.
+    cdecl, importc: "SDL_RenderTexture9GridTiled".}
 proc SDL_RenderGeometry*(renderer: ptr SDL_Renderer; texture: ptr SDL_Texture;
                          vertices: ptr SDL_Vertex; num_vertices: cint;
                          indices: ptr cint; num_indices: cint): bool {.cdecl,
@@ -15741,6 +16226,14 @@ proc SDL_RenderGeometryRaw*(renderer: ptr SDL_Renderer;
                             num_vertices: cint; indices: pointer;
                             num_indices: cint; size_indices: cint): bool {.
     cdecl, importc: "SDL_RenderGeometryRaw".}
+proc SDL_SetRenderTextureAddressMode*(renderer: ptr SDL_Renderer;
+                                      u_mode: SDL_TextureAddressMode;
+                                      v_mode: SDL_TextureAddressMode): bool {.
+    cdecl, importc: "SDL_SetRenderTextureAddressMode".}
+proc SDL_GetRenderTextureAddressMode*(renderer: ptr SDL_Renderer;
+                                      u_mode: ptr SDL_TextureAddressMode;
+                                      v_mode: ptr SDL_TextureAddressMode): bool {.
+    cdecl, importc: "SDL_GetRenderTextureAddressMode".}
 proc SDL_RenderReadPixels*(renderer: ptr SDL_Renderer; rect: ptr SDL_Rect): ptr SDL_Surface {.
     cdecl, importc: "SDL_RenderReadPixels".}
 proc SDL_RenderPresent*(renderer: ptr SDL_Renderer): bool {.cdecl,
@@ -15770,6 +16263,23 @@ proc SDL_RenderDebugText*(renderer: ptr SDL_Renderer; x: cfloat; y: cfloat;
 proc SDL_RenderDebugTextFormat*(renderer: ptr SDL_Renderer; x: cfloat;
                                 y: cfloat; fmt: cstring): bool {.cdecl, varargs,
     importc: "SDL_RenderDebugTextFormat".}
+proc SDL_SetDefaultTextureScaleMode*(renderer: ptr SDL_Renderer;
+                                     scale_mode: SDL_ScaleMode): bool {.cdecl,
+    importc: "SDL_SetDefaultTextureScaleMode".}
+proc SDL_GetDefaultTextureScaleMode*(renderer: ptr SDL_Renderer;
+                                     scale_mode: ptr SDL_ScaleMode): bool {.
+    cdecl, importc: "SDL_GetDefaultTextureScaleMode".}
+proc SDL_CreateGPURenderState*(renderer: ptr SDL_Renderer;
+                               createinfo: ptr SDL_GPURenderStateCreateInfo): ptr SDL_GPURenderState {.
+    cdecl, importc: "SDL_CreateGPURenderState".}
+proc SDL_SetGPURenderStateFragmentUniforms*(state: ptr SDL_GPURenderState;
+    slot_index: Uint32; data: pointer; length: Uint32): bool {.cdecl,
+    importc: "SDL_SetGPURenderStateFragmentUniforms".}
+proc SDL_SetGPURenderState*(renderer: ptr SDL_Renderer;
+                            state: ptr SDL_GPURenderState): bool {.cdecl,
+    importc: "SDL_SetGPURenderState".}
+proc SDL_DestroyGPURenderState*(state: ptr SDL_GPURenderState): void {.cdecl,
+    importc: "SDL_DestroyGPURenderState".}
 proc SDL_OpenTitleStorage*(override: cstring; props: SDL_PropertiesID): ptr SDL_Storage {.
     cdecl, importc: "SDL_OpenTitleStorage".}
 proc SDL_OpenUserStorage*(org: cstring; app: cstring; props: SDL_PropertiesID): ptr SDL_Storage {.
@@ -15979,6 +16489,7 @@ const SDL_WINDOW_UTILITY*               = 0x0000000000020000'u64
 const SDL_WINDOW_TOOLTIP*               = 0x0000000000040000'u64
 const SDL_WINDOW_POPUP_MENU*            = 0x0000000000080000'u64
 const SDL_WINDOW_KEYBOARD_GRABBED*      = 0x0000000000100000'u64
+const SDL_WINDOW_FILL_DOCUMENT*         = 0x0000000000200000'u64
 const SDL_WINDOW_VULKAN*                = 0x0000000010000000'u64
 const SDL_WINDOW_METAL*                 = 0x0000000020000000'u64
 const SDL_WINDOW_TRANSPARENT*           = 0x0000000040000000'u64

@@ -10,6 +10,7 @@ install:
 	nimble install
 
 gen:
+	-rm -fr src/.nimcache
 	nimble gen
 
 clean:
@@ -17,3 +18,5 @@ clean:
 	@-$(MAKE) -C examples/platformer clean
 	@-$(MAKE) -C examples/sdlapp_lines clean
 	@-$(MAKE) -C examples/sdlapp clean
+
+MAKEFLAGS += --no-print-directory

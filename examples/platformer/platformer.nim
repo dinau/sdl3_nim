@@ -1,11 +1,11 @@
 # This program is based on
 #   https://hookrace.net/blog/writing-a-2d-platform-game-in-nim-with-sdl2/#8.
+#   https://github.com/def-/nim-platformer
 #   See ./LICENSE.nim-platformer.txt
 
 import std/[os,strutils,math,times,strformat]
 #
 import sdl3_nim
-import sdl3_nim/[loadImage]
 import basic2d
 
 when defined(windows):
@@ -207,13 +207,21 @@ proc newMap(texture: TexturePtr, file: string): Map =
 #------------
 proc newGame(renderer: RendererPtr): Game =
   var
-    w,h: int
     texture, texture2:  TexturePtr
+    surface: ptr SDL_Surface
   const imageName = joinPath(currentSourceDir(), "Mipi.png")
-  discard loadTextureFromFile(imageName, renderer, texture, w, h )
+  surface = SDL_LoadPNG(imageName)
+  if not isNil surface:
+    texture = SDL_CreateTextureFromSurface(renderer, surface)
+  else:
+    echo "Error!: SDL_LoadPNG() NG!: " & "\"" & imageName & "\""
 
   const imageName2 = joinPath(currentSourceDir(), "grass.png")
-  discard loadTextureFromFile(imageName2, renderer, texture2, w, h)
+  surface = SDL_LoadPNG(imageName2)
+  if not isNil surface:
+    texture2 = SDL_CreateTextureFromSurface(renderer, surface)
+  else:
+    echo "Error!: SDL_LoadPNG() NG!: " & "\"" & imageName2 & "\""
 
   let font = TTF_OpenFont("DejaVuSans.ttf", 14)
   if font.isNil:
@@ -292,7 +300,7 @@ proc render(game: Game, tick: int) =
     game.renderText("Restart: R",                                   50, base+colm*4,  white)
     game.renderText("Quit     : Q, Esc",                            50, base+colm*5,  white)
     game.renderText("Nim-" & NimVersion,                            50, base+colm*7,  white)
-    game.renderText(fmt"SDL: {($SDL_GetRevision()).split('-')[1]}", 50, base+colm*8,  white)
+    game.renderText(fmt"SDL: {($SDL_GetRevision()).split('-')[2]}", 50, base+colm*8,  white)
     game.renderText("SDL_ttf: " &  $TTF_Version(),                  50, base+colm*9,  white)
     game.renderText("Nim-Platformer-SDL3",                          50, base+colm*14, blue)
 

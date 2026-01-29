@@ -33,9 +33,9 @@
 #define SDL_VENDOR_INFO "libsdl.org"
 
 #if defined(SDL_VENDOR_INFO)
-#define SDL_REVISION "release-3.2.26-0-gbadbf8da4 (" SDL_VENDOR_INFO ")"
+#define SDL_REVISION "SDL-release-3.4.0-0-ga962f40bb (" SDL_VENDOR_INFO ")"
 #else
-#define SDL_REVISION "release-3.2.26-0-gbadbf8da4"
+#define SDL_REVISION "SDL-release-3.4.0-0-ga962f40bb"
 #endif
 
 #endif /* SDL_revision_h_ */

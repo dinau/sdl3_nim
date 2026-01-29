@@ -1,6 +1,5 @@
 import std/[strutils]
 import sdl3_nim
-import sdl3_nim/[loadImage]
 import nimgl/[opengl]
 
 #--- Add application icon
@@ -56,8 +55,8 @@ proc main() =
   defer: discard SDL_GL_DestroyContext(glContext)
   SDL_GL_MakeCurrent(window, glContext);
 
-  echo "SDL3 version : ",SDL_GetVersion()
-  echo "SDL3 revision : ",SDL_GetRevision()
+  echo "SDL_GetVersion()  : ",SDL_GetVersion()
+  echo "SDL_GetRevision() : ",SDL_GetRevision()
 
   #-------------
   #--- Renderer
@@ -88,7 +87,7 @@ proc main() =
   if isNil surfaceImage:
     echo("Error!:  SDL_LoadBMP() file = ", imageName1)
   else:
-    echo("Loaded: ",imageName1)
+    echo "SDL_LoadBMP(): OK!: " & "\"" & imageName1 & "\""
   #--- Convert to texture
   let textureImage1 = SDL_CreateTextureFromSurface(renderer, surfaceImage)
   var textureWidth:cfloat
@@ -103,14 +102,13 @@ proc main() =
   #------------------------
   doassert glinit()
   var textureImage2: ptr SDL_Texture
-  when true:
-    const imageName2 = "earth-512.png"
-    var w: int
-    var h: int
-    if loadTextureFromFile(imageName2, renderer, textureImage2, w, h ):
-      echo "loadTextureFromFile() OK !: ", imageName2
-    else:
-      echo "Error!: loadTextureFromFile() OK!", imageName2
+  const imageName2 = "earth-512.png"
+  var surface = SDL_LoadPNG(imageName2)
+  if not isNil surface:
+    textureImage2 = SDL_CreateTextureFromSurface(renderer, surface)
+    echo "SDL_LoadPNG() OK!: " & "\"" & imageName2 & "\""
+  else:
+    echo "Error!: SDL_LoadPNG() NG!: " & "\"" & imageName2 & "\""
 
   #--------------
   #--- main loop
@@ -155,7 +153,6 @@ proc main() =
                                      ,SDL_FLIP_NONE):  # flip
          echo("Error!: RenderCopy() ")
 
-      #discard SDL_RenderTexture(renderer, textureImage2, nil, nil)
       const speed = 0.8
       angle = angle + speed
       angle2 = angle2 + speed

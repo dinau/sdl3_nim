@@ -1,6 +1,5 @@
 import std/[os,strutils]
 import sdl3_nim
-import sdl3_nim/[loadImage]
 
 #--- Add application icon
 when defined(windows):
@@ -23,8 +22,8 @@ var
 const ImageNames = ["1a.png", "2a.png", "3a.png", "4a.png"]
 var
   textures:array[ImageNames.len, ptr SDL_Texture]
-  textureWidth: int
-  textureHeight:int
+  textureWidth: cfloat
+  textureHeight: cfloat
 
 #----------------
 #--- SDL_AppInit
@@ -42,11 +41,15 @@ proc SDL_AppInit*   (appstate: ptr pointer, argc: cint, argv: ptr UncheckedArray
       SDL_Log_proc("Fail!: VSync setting : %s", SDL_GetError())
 
   for i, imageName in ImageNames:
-    let funcname = "loadTextureFromFile()"
-    if loadTextureFromFile(imageName, renderer, textures[i], textureWidth, textureHeight):
+    const funcname = "SDL_LoadPNG()"
+    let surface = SDL_LoadPNG(imageName.cstring)
+    if not isNil surface:
+      textures[i] = SDL_CreateTextureFromSurface(renderer, surface)
       echo "$# OK !: $#" % [funcname, imageName]
+      SDL_GetTextureSize(textures[i], addr textureWidth, addr textureHeight)
     else:
       echo "Error!: $#", imageName
+
 
   return SDL_APP_CONTINUE
 
@@ -57,20 +60,23 @@ proc SDL_AppIterate*(appstate: pointer): SDL_AppResult {.cdecl.} =
   #/* as you can see from this, rendering draws over whatever was drawn before it. */
   SDL_SetRenderDrawColor(renderer,0,0,0,255)
   SDL_RenderClear(renderer)  #/* start with a blank canvas. */
-  var w:cint
-  var h:cint
-  let width = textureWidth.cfloat/2
-  let height = textureHeight.cfloat/2
-  SDL_GetWindowSizeInPixels(window, addr w, addr h)
+  var
+    w, h: cfloat
+    iw, ih:cint
+  let width = textureWidth/2
+  let height = textureHeight/2
+  SDL_GetWindowSizeInPixels(window, addr iw, addr ih)
+  w = iw.cfloat
+  h = ih.cfloat
   type Attr = object
     texture: ptr SDL_Texture
     xs,ys: cfloat
     ws,hs: cfloat
   let attribs = [
-                Attr(texture: textures[0], xs: (w.cfloat - textureWidth.cfloat)/2, ys: (h.cfloat - textureHeight.cfloat)/2, ws: width, hs: height)
-               ,Attr(texture: textures[1], xs: w.cfloat/2 , ys: (h.cfloat - textureHeight.cfloat)/2, ws: width, hs: height)
-               ,Attr(texture: textures[2], xs: (w.cfloat - textureWidth.cfloat)/2, ys: h.cfloat/2,                          ws: width, hs: height)
-               ,Attr(texture: textures[3], xs: w.cfloat/2,                         ys: h.cfloat/2,                          ws: width, hs: height)
+                Attr(texture: textures[0], xs: (w - textureWidth)/2, ys: (h - textureHeight)/2, ws: width, hs: height)
+               ,Attr(texture: textures[1], xs: w/2 , ys: (h - textureHeight)/2,                 ws: width, hs: height)
+               ,Attr(texture: textures[2], xs: (w - textureWidth)/2, ys: h/2,                   ws: width, hs: height)
+               ,Attr(texture: textures[3], xs: w/2,                  ys: h/2,                   ws: width, hs: height)
               ]
   for attrib in attribs:
     var rectDst = SDL_FRect(x: attrib.xs, y: attrib.ys, w: attrib.ws, h: attrib.hs)

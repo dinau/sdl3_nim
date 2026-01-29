@@ -1,7 +1,7 @@
 TARGET = $(notdir $(CURDIR))
 
 # Hiding background console
-OPT += --app:gui
+#OPT += --app:gui
 
 OPT += --nimcache:.nimcache
 OPT += -d:release
@@ -11,7 +11,7 @@ ifeq ($(OS),Windows_NT)
 endif
 
 all:
-	nim c -d:strip -d:SDL $(OPT) $(TARGET).nim
+	nim c -d:strip $(OPT) $(TARGET).nim
 
 .PHONY: clean run
 

@@ -1,6 +1,6 @@
 # Package
 
-version       = "3.2.26.0"
+version       = "3.4.0.0"
 author        = "dinau"
 description   = "SDL3 library wrapper"
 license       = "MIT"
@@ -28,6 +28,7 @@ OPT_GEN &= " -d:nodeclguards"
 
 task gen,"Generate SDL3 definition file ":
   withdir "src":
+    exec("rm -fr .nimcache")
     exec(fmt"nim c -c {OPT_GEN} sdl3_nim.nim")
     withdir "sdl3_nim/private":
       exec("make")
