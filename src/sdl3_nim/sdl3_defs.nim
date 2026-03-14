@@ -1346,6 +1346,8 @@ type
 type
   SDL_TLSCleanup_renamed_SDL_CleanupTLS* = object
 type
+  struct_VkInstance_T* = object
+type
   SDL_MOUSEWHEEL_renamed_SDL_EVENT_MOUSE_WHEEL* = object
 type
   AUDIO_S16_renamed_SDL_AUDIO_S16LE* = object
@@ -1381,6 +1383,10 @@ type
   SDL_POLLSENTINEL_renamed_SDL_EVENT_POLL_SENTINEL* = object
 type
   SDL_FALSE_renamed_false* = object
+type
+  struct_VkSurfaceKHR_T* = object
+type
+  struct_VkAllocationCallbacks* = object
 type
   KMOD_RALT_renamed_SDL_KMOD_RALT* = object
 type
@@ -1463,6 +1469,8 @@ type
   SDL_SensorGetInstanceID_renamed_SDL_GetSensorID* = object
 type
   SDL_FillRects_renamed_SDL_FillSurfaceRects* = object
+type
+  struct_VkPhysicalDevice_T* = object
 type
   KMOD_GUI_renamed_SDL_KMOD_GUI* = object
 type
@@ -3522,6 +3530,9 @@ type
   SDL_TrayEntry* = struct_SDL_TrayEntry 
   SDL_TrayEntryFlags* = Uint32 
   SDL_TrayCallback* = proc (a0: pointer; a1: ptr SDL_TrayEntry): void {.cdecl.} 
+  VkInstance* = ptr struct_VkInstance_T 
+  VkPhysicalDevice* = ptr struct_VkPhysicalDevice_T 
+  VkSurfaceKHR* = ptr struct_VkSurfaceKHR_T 
   SDL_main_func* = proc (a0: cint; a1: ptr UncheckedArray[cstring]): cint {.
       cdecl.}                
   HINSTANCE* = ptr struct_HINSTANCE_private 
@@ -6016,6 +6027,16 @@ when "SDL.gpu.device.create.d3d12.semantic" is static:
     SDL_PROP_GPU_DEVICE_CREATE_D3D12_SEMANTIC_NAME_STRING* = "SDL.gpu.device.create.d3d12.semantic" 
 else:
   let SDL_PROP_GPU_DEVICE_CREATE_D3D12_SEMANTIC_NAME_STRING* = "SDL.gpu.device.create.d3d12.semantic" 
+when "SDL.gpu.device.create.d3d12.agility_sdk_version" is static:
+  const
+    SDL_PROP_GPU_DEVICE_CREATE_D3D12_AGILITY_SDK_VERSION_NUMBER* = "SDL.gpu.device.create.d3d12.agility_sdk_version" 
+else:
+  let SDL_PROP_GPU_DEVICE_CREATE_D3D12_AGILITY_SDK_VERSION_NUMBER* = "SDL.gpu.device.create.d3d12.agility_sdk_version" 
+when "SDL.gpu.device.create.d3d12.agility_sdk_path" is static:
+  const
+    SDL_PROP_GPU_DEVICE_CREATE_D3D12_AGILITY_SDK_PATH_STRING* = "SDL.gpu.device.create.d3d12.agility_sdk_path" 
+else:
+  let SDL_PROP_GPU_DEVICE_CREATE_D3D12_AGILITY_SDK_PATH_STRING* = "SDL.gpu.device.create.d3d12.agility_sdk_path" 
 when "SDL.gpu.device.create.vulkan.requirehardwareacceleration" is static:
   const
     SDL_PROP_GPU_DEVICE_CREATE_VULKAN_REQUIRE_HARDWARE_ACCELERATION_BOOLEAN* = "SDL.gpu.device.create.vulkan.requirehardwareacceleration" 
@@ -6026,6 +6047,11 @@ when "SDL.gpu.device.create.vulkan.options" is static:
     SDL_PROP_GPU_DEVICE_CREATE_VULKAN_OPTIONS_POINTER* = "SDL.gpu.device.create.vulkan.options" 
 else:
   let SDL_PROP_GPU_DEVICE_CREATE_VULKAN_OPTIONS_POINTER* = "SDL.gpu.device.create.vulkan.options" 
+when "SDL.gpu.device.create.metal.allowmacfamily1" is static:
+  const
+    SDL_PROP_GPU_DEVICE_CREATE_METAL_ALLOW_MACFAMILY1_BOOLEAN* = "SDL.gpu.device.create.metal.allowmacfamily1" 
+else:
+  let SDL_PROP_GPU_DEVICE_CREATE_METAL_ALLOW_MACFAMILY1_BOOLEAN* = "SDL.gpu.device.create.metal.allowmacfamily1" 
 when "SDL.gpu.device.name" is static:
   const
     SDL_PROP_GPU_DEVICE_NAME_STRING* = "SDL.gpu.device.name" 
@@ -6961,6 +6987,11 @@ when "SDL_OPENGL_ES_DRIVER" is static:
     SDL_HINT_OPENGL_ES_DRIVER* = "SDL_OPENGL_ES_DRIVER" 
 else:
   let SDL_HINT_OPENGL_ES_DRIVER* = "SDL_OPENGL_ES_DRIVER" 
+when "SDL_OPENGL_FORCE_SRGB_FRAMEBUFFER" is static:
+  const
+    SDL_HINT_OPENGL_FORCE_SRGB_FRAMEBUFFER* = "SDL_OPENGL_FORCE_SRGB_FRAMEBUFFER" 
+else:
+  let SDL_HINT_OPENGL_FORCE_SRGB_FRAMEBUFFER* = "SDL_OPENGL_FORCE_SRGB_FRAMEBUFFER" 
 when "SDL_OPENVR_LIBRARY" is static:
   const
     SDL_HINT_OPENVR_LIBRARY* = "SDL_OPENVR_LIBRARY" 
@@ -8216,11 +8247,11 @@ when 4 is static:
     SDL_MINOR_VERSION* = 4   
 else:
   let SDL_MINOR_VERSION* = 4 
-when 0 is static:
+when 2 is static:
   const
-    SDL_MICRO_VERSION* = 0   
+    SDL_MICRO_VERSION* = 2   
 else:
-  let SDL_MICRO_VERSION* = 0 
+  let SDL_MICRO_VERSION* = 2 
 when SDL_AtomicAdd_renamed_SDL_AddAtomicInt is typedesc:
   type
     SDL_AtomicAdd* = SDL_AtomicAdd_renamed_SDL_AddAtomicInt 
@@ -16434,6 +16465,25 @@ proc SDL_GetTrayMenuParentTray*(menu: ptr SDL_TrayMenu): ptr SDL_Tray {.cdecl,
 proc SDL_UpdateTrays*(): void {.cdecl, importc: "SDL_UpdateTrays".}
 proc SDL_GetVersion*(): cint {.cdecl, importc: "SDL_GetVersion".}
 proc SDL_GetRevision*(): cstring {.cdecl, importc: "SDL_GetRevision".}
+proc SDL_Vulkan_LoadLibrary*(path: cstring): bool {.cdecl,
+    importc: "SDL_Vulkan_LoadLibrary".}
+proc SDL_Vulkan_GetVkGetInstanceProcAddr*(): SDL_FunctionPointer {.cdecl,
+    importc: "SDL_Vulkan_GetVkGetInstanceProcAddr".}
+proc SDL_Vulkan_UnloadLibrary*(): void {.cdecl,
+    importc: "SDL_Vulkan_UnloadLibrary".}
+proc SDL_Vulkan_GetInstanceExtensions*(count: ptr Uint32): ptr cstring {.cdecl,
+    importc: "SDL_Vulkan_GetInstanceExtensions".}
+proc SDL_Vulkan_CreateSurface*(window: ptr SDL_Window; instance: VkInstance;
+                               allocator: ptr struct_VkAllocationCallbacks;
+                               surface: ptr VkSurfaceKHR): bool {.cdecl,
+    importc: "SDL_Vulkan_CreateSurface".}
+proc SDL_Vulkan_DestroySurface*(instance: VkInstance; surface: VkSurfaceKHR;
+                                allocator: ptr struct_VkAllocationCallbacks): void {.
+    cdecl, importc: "SDL_Vulkan_DestroySurface".}
+proc SDL_Vulkan_GetPresentationSupport*(instance: VkInstance;
+                                        physicalDevice: VkPhysicalDevice;
+                                        queueFamilyIndex: Uint32): bool {.cdecl,
+    importc: "SDL_Vulkan_GetPresentationSupport".}
 proc SDL_AppInit*(appstate: ptr pointer; argc: cint;
                   argv: ptr UncheckedArray[cstring]): SDL_AppResult {.cdecl,
     importc: "SDL_AppInit".}

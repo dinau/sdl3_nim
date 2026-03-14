@@ -23,11 +23,11 @@
 
 SDL3 wrapper for Nim language with [futhark](https://github.com/PMunch/futhark#installation) converter.
 
-- SDL3: 3.4.0 (2026/01)
+- SDL3: 3.4.2 (2026/03)
 - SDL_ttf:  3.2.2
 - Windows OS 11 
-- Linux Debian13 Trixie / Ubuntu families 
-- Try to use [ImGuin SDL3 example](https://github.com/dinau/imguin_examples/tree/main/sdl3_renderer)
+- Linux Debian / Ubuntu families 
+- Try [ImGuin SDL3 example](https://github.com/dinau/imguin_examples/tree/main/sdl3_renderer)
 
 
 #### Install

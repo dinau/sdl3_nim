@@ -21,6 +21,7 @@ when defined(useFuthark): # Generate header files with Futhark.
     path    SDL3RootPath2
     define  "SDL_MAIN_USE_CALLBACKS=1"
     "SDL.h"
+    "SDL_vulkan.h"
     "SDL_main.h"
     "SDL_main_impl.h"
     # Output file name
