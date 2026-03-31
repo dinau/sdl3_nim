@@ -27,7 +27,7 @@ SDL3 wrapper for Nim language with [futhark](https://github.com/PMunch/futhark#i
 - SDL_ttf:  3.2.2
 - Windows OS 11 
 - Linux Debian / Ubuntu families 
-- Try [ImGuin SDL3 example](https://github.com/dinau/imguin_examples/tree/main/sdl3_renderer)
+- Try [ImGuin SDL3 example](https://github.com/dinau/imguin_examples#sdl3-opengl3--renderer---sdlgpu3---vulkan)
 
 
 #### Install
@@ -40,7 +40,7 @@ First delete old version
 nimble uninstall sdl3_nim
 ```
 
-then
+Install
 
 ```sh
 nimble install sdl3_nim 
@@ -52,7 +52,7 @@ nimble install sdl3_nim
 
 - If the package manager of the OS has SDL3 and SDL_ttf packages, install them with the package manager
 - Otherwise install them from source code as follows (on Debian / Ubuntu families),  
-   1. Download source code from [SDL3](https://github.com/libsdl-org/SDL/archive/refs/tags/release-3.4.0.zip) and [SDL3_ttf](https://github.com/libsdl-org/SDL_ttf/archive/refs/tags/release-3.2.2.zip)
+   1. Download source code from [SDL3](https://github.com/libsdl-org/SDL/archive/refs/tags/release-3.4.2.zip) and [SDL3_ttf](https://github.com/libsdl-org/SDL_ttf/archive/refs/tags/release-3.2.2.zip)
    1. Install build tool **Ninja**
 
       ```sh
@@ -62,7 +62,7 @@ nimble install sdl3_nim
    1. Extract SDL3 zip file and 
    
       ```sh
-      cd SDL-release-3.4.0 
+      cd SDL-release-3.4.2 
       mkdir build
       cd build 
       cmake .. -GNinja -DCMAKE_INSTALL_PREFIX=/usr/local
@@ -304,7 +304,7 @@ Generating SDL3 Nim header files with Futhark.
 | **Nelua**            | Compiler | SDL2        | [NeLua-Platformer](https://github.com/dinau/nelua-platformer)                                                                                         |
 | **Nim**              | Compiler | SDL3 / SDL2 | [Nim-Platformer-sdl2](https://github.com/def-/nim-platformer)/ [Nim-Platformer-sdl3](https://github.com/dinau/sdl3_nim/tree/main/examples/platformer) |
 | **Ruby**             | Script   | SDL3        | [Ruby-Platformer](https://github.com/dinau/ruby-platformer)                                                                                           |
-| **Zig**              | Compiler | SDL2        | [Zig-Platformer](https://github.com/dinau/zig-platformer)                                                                                             |
+| **Zig**              | Compiler | SDL3 / SDL3 | [Zig-Platformer](https://github.com/dinau/zig-platformer)                                                                                             |
 
 
 #### Other examples project for Dear ImGui
