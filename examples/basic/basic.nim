@@ -1,6 +1,6 @@
 import std/[strutils]
 import sdl3_nim
-import nimgl/[opengl]
+# import nimgl/[opengl]
 
 #--- Add application icon
 when defined(windows):
@@ -28,10 +28,10 @@ proc main() =
   #-----------------------------
   #--- Setting OpenGL3 backend
   #-----------------------------
-  SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, 0)
-  SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE.cint)
-  SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3)
-  SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3)
+  # SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, 0)
+  # SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE.cint)
+  # SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3)
+  # SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3)
 
   #----------------------
   #--- Create SDL window
@@ -100,7 +100,7 @@ proc main() =
   #------------------------
   #--- Load png as textrue
   #------------------------
-  doassert glinit()
+  # doassert glinit()
   var textureImage2: ptr SDL_Texture
   const imageName2 = "earth-512.png"
   var surface = SDL_LoadPNG(imageName2)
