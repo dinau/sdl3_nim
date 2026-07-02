@@ -23,7 +23,7 @@
 
 SDL3 wrapper for Nim language with [futhark](https://github.com/PMunch/futhark#installation) converter.
 
-- SDL3: 3.4.2 (2026/03)
+- SDL3: 3.4.12 (2026/07)
 - SDL_ttf:  3.2.2
 - Windows OS 11 
 - Linux Debian / Ubuntu families 
@@ -158,6 +158,8 @@ make run
 Notice: [Futhark](https://github.com/PMunch/futhark) converter has automatically renamed these symbols.
 
 ```nim
+Renaming "SDL_PRIX64" to "SDL_PRIX64_const" [User]
+Renaming "SDL_PRIX32" to "SDL_PRIX32_const" [User]
 Renaming "SDLK_MEDIASELECT" to "SDLK_MEDIASELECT_const" [User]
 Renaming "SDLK_a" to "SDLK_a_const" [User]
 Renaming "SDLK_b" to "SDLK_b_const" [User]
@@ -185,83 +187,99 @@ Renaming "SDLK_w" to "SDLK_w_const" [User]
 Renaming "SDLK_x" to "SDLK_x_const" [User]
 Renaming "SDLK_y" to "SDLK_y_const" [User]
 Renaming "SDLK_z" to "SDLK_z_const" [User]
-Renaming "SDL_EventAction" to "SDL_EventAction_typedef" [User]
+Renaming "SDL_SensorUpdate" to "SDL_SensorUpdate_const" [User]
+Renaming "SDL_strtok_r" to "SDL_strtok_r_proc" [User]
+Renaming "SDL_ThreadID" to "SDL_ThreadID_typedef" [User]
+Renaming "SDL_Mutex" to "SDL_Mutex_typedef" [User]
 Renaming "SDL_GLAttr" to "SDL_GLAttr_typedef" [User]
+Renaming "SDL_GLProfile" to "SDL_GLProfile_typedef" [User]
 Renaming "SDL_GLContextFlag" to "SDL_GLContextFlag_typedef" [User]
 Renaming "SDL_GLContextReleaseFlag" to "SDL_GLContextReleaseFlag_typedef" [User]
-Renaming "SDL_GLProfile" to "SDL_GLProfile_typedef" [User]
-Renaming "SDL_GL_CONTEXT_RESET_NOTIFICATION" to "SDL_GL_CONTEXT_RESET_NOTIFICATION_enumval" [User]
-Renaming "SDL_Log" to "SDL_Log_proc" [User]
-Renaming "SDL_Mutex" to "SDL_Mutex_typedef" [User]
-Renaming "SDL_PRIX32" to "SDL_PRIX32_const" [User]
-Renaming "SDL_PRIX64" to "SDL_PRIX64_const" [User]
-Renaming "SDL_Quit" to "SDL_Quit_proc" [User]
-Renaming "SDL_SCALEMODE_LINEAR" to "SDL_SCALEMODE_LINEAR_enumval" [User]
-Renaming "SDL_SCALEMODE_NEAREST" to "SDL_SCALEMODE_NEAREST_enumval" [User]
-Renaming "SDL_SCANCODE_MEDIA_SELECT" to "SDL_SCANCODE_MEDIA_SELECT_enumval" [User]
-Renaming "SDL_SensorUpdate" to "SDL_SensorUpdate_const" [User]
-Renaming "SDL_ThreadID" to "SDL_ThreadID_typedef" [User]
+Renaming "SDL_WindowEvent" to "SDL_WindowEvent_typedef" [User]
 Renaming "SDL_UserEvent" to "SDL_UserEvent_typedef" [User]
-Renaming "SDL_strtok_r" to "SDL_strtok_r_proc" [User]
-Renaming "block" to "block_arg" [User]
-Renaming "end" to "end_field" in struct_SDL_HapticRamp [User]
+Renaming "SDL_EventAction" to "SDL_EventAction_typedef" [User]
+Renaming "SDL_Quit" to "SDL_Quit_proc" [User]
+Renaming "SDL_Log" to "SDL_Log_proc" [User]
 Renaming "func" to "func_arg" [User]
-Renaming "mod" to "mod_field" in struct_SDL_KeyboardEvent [User]
-Renaming "proc" to "proc_arg" [User]
-Renaming "ptr" to "ptr_arg" [User]
-Renaming "type" to "type_arg" [User]
 Renaming "type" to "type_field" in struct_SDL_AsyncIOOutcome [User]
-Renaming "type" to "type_field" in struct_SDL_AudioDeviceEvent [User]
-Renaming "type" to "type_field" in struct_SDL_CameraDeviceEvent [User]
-Renaming "type" to "type_field" in struct_SDL_ClipboardEvent [User]
+Renaming "ptr" to "ptr_arg" [User]
+Renaming "ptr" to "ptr_arg" [User]
+Renaming "ptr" to "ptr_arg" [User]
+Renaming "ptr" to "ptr_arg" [User]
+Renaming "SDL_SCALEMODE_NEAREST" to "SDL_SCALEMODE_NEAREST_enumval" [User]
+Renaming "SDL_SCALEMODE_LINEAR" to "SDL_SCALEMODE_LINEAR_enumval" [User]
+Renaming "SDL_GL_CONTEXT_RESET_NOTIFICATION" to "SDL_GL_CONTEXT_RESET_NOTIFICATION_enumval" [User]
+Renaming "proc" to "proc_arg" [User]
+Renaming "proc" to "proc_arg" [User]
+Renaming "type" to "type_arg" [User]
+Renaming "type" to "type_field" in struct_SDL_VirtualJoystickSensorDesc [User]
+Renaming "type" to "type_field" in struct_SDL_VirtualJoystickDesc [User]
+Renaming "type" to "type_arg" [User]
+Renaming "type" to "type_arg" [User]
+Renaming "type" to "type_arg" [User]
+Renaming "type" to "type_arg" [User]
+Renaming "type" to "type_arg" [User]
+Renaming "type" to "type_arg" [User]
+Renaming "type" to "type_arg" [User]
+Renaming "type" to "type_arg" [User]
+Renaming "SDL_SCANCODE_MEDIA_SELECT" to "SDL_SCANCODE_MEDIA_SELECT_enumval" [User]
 Renaming "type" to "type_field" in struct_SDL_CommonEvent [User]
 Renaming "type" to "type_field" in struct_SDL_DisplayEvent [User]
-Renaming "type" to "type_field" in struct_SDL_DropEvent [User]
-Renaming "type" to "type_field" in struct_SDL_GPUTextureCreateInfo [User]
+Renaming "type" to "type_field" in struct_SDL_WindowEvent [User]
+Renaming "type" to "type_field" in struct_SDL_KeyboardDeviceEvent [User]
+Renaming "type" to "type_field" in struct_SDL_KeyboardEvent [User]
+Renaming "mod" to "mod_field" in struct_SDL_KeyboardEvent [User]
+Renaming "type" to "type_field" in struct_SDL_TextEditingEvent [User]
+Renaming "type" to "type_field" in struct_SDL_TextEditingCandidatesEvent [User]
+Renaming "type" to "type_field" in struct_SDL_TextInputEvent [User]
+Renaming "type" to "type_field" in struct_SDL_MouseDeviceEvent [User]
+Renaming "type" to "type_field" in struct_SDL_MouseMotionEvent [User]
+Renaming "type" to "type_field" in struct_SDL_MouseButtonEvent [User]
+Renaming "type" to "type_field" in struct_SDL_MouseWheelEvent [User]
+Renaming "type" to "type_field" in struct_SDL_JoyAxisEvent [User]
+Renaming "type" to "type_field" in struct_SDL_JoyBallEvent [User]
+Renaming "type" to "type_field" in struct_SDL_JoyHatEvent [User]
+Renaming "type" to "type_field" in struct_SDL_JoyButtonEvent [User]
+Renaming "type" to "type_field" in struct_SDL_JoyDeviceEvent [User]
+Renaming "type" to "type_field" in struct_SDL_JoyBatteryEvent [User]
 Renaming "type" to "type_field" in struct_SDL_GamepadAxisEvent [User]
 Renaming "type" to "type_field" in struct_SDL_GamepadButtonEvent [User]
 Renaming "type" to "type_field" in struct_SDL_GamepadDeviceEvent [User]
-Renaming "type" to "type_field" in struct_SDL_GamepadSensorEvent [User]
 Renaming "type" to "type_field" in struct_SDL_GamepadTouchpadEvent [User]
-Renaming "type" to "type_field" in struct_SDL_HapticCondition [User]
-Renaming "type" to "type_field" in struct_SDL_HapticConstant [User]
-Renaming "type" to "type_field" in struct_SDL_HapticCustom [User]
-Renaming "type" to "type_field" in struct_SDL_HapticDirection [User]
-Renaming "type" to "type_field" in struct_SDL_HapticLeftRight [User]
-Renaming "type" to "type_field" in struct_SDL_HapticPeriodic [User]
-Renaming "type" to "type_field" in struct_SDL_HapticRamp [User]
-Renaming "type" to "type_field" in struct_SDL_JoyAxisEvent [User]
-Renaming "type" to "type_field" in struct_SDL_JoyBallEvent [User]
-Renaming "type" to "type_field" in struct_SDL_JoyBatteryEvent [User]
-Renaming "type" to "type_field" in struct_SDL_JoyButtonEvent [User]
-Renaming "type" to "type_field" in struct_SDL_JoyDeviceEvent [User]
-Renaming "type" to "type_field" in struct_SDL_JoyHatEvent [User]
-Renaming "type" to "type_field" in struct_SDL_KeyboardDeviceEvent [User]
-Renaming "type" to "type_field" in struct_SDL_KeyboardEvent [User]
-Renaming "type" to "type_field" in struct_SDL_MouseButtonEvent [User]
-Renaming "type" to "type_field" in struct_SDL_MouseDeviceEvent [User]
-Renaming "type" to "type_field" in struct_SDL_MouseMotionEvent [User]
-Renaming "type" to "type_field" in struct_SDL_MouseWheelEvent [User]
-Renaming "type" to "type_field" in struct_SDL_PathInfo [User]
-Renaming "type" to "type_field" in struct_SDL_PenAxisEvent [User]
-Renaming "type" to "type_field" in struct_SDL_PenButtonEvent [User]
-Renaming "type" to "type_field" in struct_SDL_PenMotionEvent [User]
-Renaming "type" to "type_field" in struct_SDL_PenProximityEvent [User]
-Renaming "type" to "type_field" in struct_SDL_PenTouchEvent [User]
-Renaming "type" to "type_field" in struct_SDL_PinchFingerEvent [User]
-Renaming "type" to "type_field" in struct_SDL_QuitEvent [User]
+Renaming "type" to "type_field" in struct_SDL_GamepadSensorEvent [User]
+Renaming "type" to "type_field" in struct_SDL_AudioDeviceEvent [User]
+Renaming "type" to "type_field" in struct_SDL_CameraDeviceEvent [User]
 Renaming "type" to "type_field" in struct_SDL_RenderEvent [User]
-Renaming "type" to "type_field" in struct_SDL_SensorEvent [User]
-Renaming "type" to "type_field" in struct_SDL_TextEditingCandidatesEvent [User]
-Renaming "type" to "type_field" in struct_SDL_TextEditingEvent [User]
-Renaming "type" to "type_field" in struct_SDL_TextInputEvent [User]
 Renaming "type" to "type_field" in struct_SDL_TouchFingerEvent [User]
+Renaming "type" to "type_field" in struct_SDL_PinchFingerEvent [User]
+Renaming "type" to "type_field" in struct_SDL_PenProximityEvent [User]
+Renaming "type" to "type_field" in struct_SDL_PenMotionEvent [User]
+Renaming "type" to "type_field" in struct_SDL_PenTouchEvent [User]
+Renaming "type" to "type_field" in struct_SDL_PenButtonEvent [User]
+Renaming "type" to "type_field" in struct_SDL_PenAxisEvent [User]
+Renaming "type" to "type_field" in struct_SDL_DropEvent [User]
+Renaming "type" to "type_field" in struct_SDL_ClipboardEvent [User]
+Renaming "type" to "type_field" in struct_SDL_SensorEvent [User]
+Renaming "type" to "type_field" in struct_SDL_QuitEvent [User]
 Renaming "type" to "type_field" in struct_SDL_UserEvent [User]
-Renaming "type" to "type_field" in struct_SDL_VirtualJoystickDesc [User]
-Renaming "type" to "type_field" in struct_SDL_VirtualJoystickSensorDesc [User]
-Renaming "type" to "type_field" in struct_SDL_WindowEvent [User]
 Renaming "type" to "type_field" in union_SDL_Event [User]
+Renaming "type" to "type_arg" [User]
+Renaming "type" to "type_arg" [User]
+Renaming "type" to "type_arg" [User]
+Renaming "type" to "type_arg" [User]
+Renaming "type" to "type_field" in struct_SDL_PathInfo [User]
+Renaming "type" to "type_field" in struct_SDL_GPUTextureCreateInfo [User]
+Renaming "type" to "type_arg" [User]
+Renaming "type" to "type_field" in struct_SDL_HapticDirection [User]
+Renaming "type" to "type_field" in struct_SDL_HapticConstant [User]
+Renaming "type" to "type_field" in struct_SDL_HapticPeriodic [User]
+Renaming "type" to "type_field" in struct_SDL_HapticCondition [User]
+Renaming "type" to "type_field" in struct_SDL_HapticRamp [User]
+Renaming "end" to "end_field" in struct_SDL_HapticRamp [User]
+Renaming "type" to "type_field" in struct_SDL_HapticLeftRight [User]
+Renaming "type" to "type_field" in struct_SDL_HapticCustom [User]
 Renaming "type" to "type_field" in union_SDL_HapticEffect [User]
+Renaming "block" to "block_arg" [User]
 ```
 
 #### Develeopment 
@@ -274,6 +292,15 @@ Generating SDL3 Nim header files with Futhark.
 
 1. Replace [src/private/SDL3](src/private/SDL3) with  [latest officail SDL3 library](https://github.com/libsdl-org/SDL/releases)
 1. [Install Futhark](https://github.com/PMunch/futhark#installation)
+1. Edit `src/sdl3_nim.nim`  
+   Specifiy your Clang include folder
+
+   ```sh
+   const ClangIncludePath = "c:/msys64/ucrt64/lib/clang/22/include"
+   or 
+   const ClangIncludePath = "c:/msys64/ucrt64/opt/llvm-21/include" so on
+   ```
+
 1. Generate definition file
 
    ```sh
@@ -288,9 +315,9 @@ Generating SDL3 Nim header files with Futhark.
 
 ---
 
-- Futhark 0.15.0
-- nim-2.2.6
-- Gcc.exe (Rev2, Built by MSYS2 project) 15.2.0
+- Futhark 0.16.0
+- nim-2.2.10
+- Gcc.exe (Rev2, Built by MSYS2 project) 16.1.0
 
 #### Other SDL game tutorial platfromer project
 

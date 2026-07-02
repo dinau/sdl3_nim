@@ -1,3 +1,4 @@
+make_test_*.sh
 .ccache/
 *.mp4
 save/

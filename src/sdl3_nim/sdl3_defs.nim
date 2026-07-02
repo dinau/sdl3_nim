@@ -940,6 +940,8 @@ type
 type
   SDL_GameControllerAddMappingsFromRW_renamed_SDL_AddGamepadMappingsFromIO* = object
 type
+  SDL_RENDERER_PRESENTVSYNC_deprecated_use_SDL_SetRenderVSync* = object
+type
   AUDIO_S16LSB_renamed_SDL_AUDIO_S16LE* = object
 type
   SDL_SIMDGetAlignment_renamed_SDL_GetSIMDAlignment* = object
@@ -959,6 +961,8 @@ type
   SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_RIGHT_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_RIGHT* = object
 type
   SDL_HapticRunEffect_renamed_SDL_RunHapticEffect* = object
+type
+  SDL_WINDOW_FULLSCREEN_DESKTOP_deprecated_use_SDL_SetWindowFullscreen_with_bool* = object
 type
   SDLK_z_renamed_SDLK_Z* = object
 type
@@ -1046,7 +1050,7 @@ type
 type
   SDL_CONTROLLER_TYPE_XBOXONE_renamed_SDL_GAMEPAD_TYPE_XBOXONE* = object
 type
-  SDL_SensorOpen_renamed_SDL_OpenSensor* = object
+  SDL_RENDERER_ACCELERATED_deprecated_remove_this_line* = object
 type
   SDL_GameControllerButton_renamed_SDL_GamepadButton* = object
 type
@@ -1055,6 +1059,8 @@ type
   KMOD_CAPS_renamed_SDL_KMOD_CAPS* = object
 type
   SDL_JoystickGetBall_renamed_SDL_GetJoystickBall* = object
+type
+  SDL_SensorOpen_renamed_SDL_OpenSensor* = object
 type
   SDL_AndroidGetExternalStoragePath_renamed_SDL_GetAndroidExternalStoragePath* = object
 type
@@ -1176,6 +1182,8 @@ type
 type
   SDL_CONTROLLER_BUTTON_RIGHTSHOULDER_renamed_SDL_GAMEPAD_BUTTON_RIGHT_SHOULDER* = object
 type
+  SDL_WINDOWEVENT_deprecated_use_SDL_EVENT_WINDOW_NAME* = object
+type
   SDL_CONTROLLER_BUTTON_TOUCHPAD_renamed_SDL_GAMEPAD_BUTTON_TOUCHPAD* = object
 type
   KMOD_CTRL_renamed_SDL_KMOD_CTRL* = object
@@ -1248,6 +1256,8 @@ type
 type
   SDL_GameControllerUpdate_renamed_SDL_UpdateGamepads* = object
 type
+  SDL_HINT_ACCELEROMETER_AS_JOYSTICK_deprecated_use_SDL_GamepadHasSensor_and_SDL_SetGamepadSensorEnabled* = object
+type
   SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_PRO_renamed_SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_PRO* = object
 type
   SDL_AudioStreamPut_renamed_SDL_PutAudioStreamData* = object
@@ -1312,6 +1322,8 @@ type
 type
   SDL_threadID_renamed_SDL_ThreadID* = object
 type
+  SDL_INIT_EVERYTHING_deprecated_list_flags_explicitly* = object
+type
   struct_SDL_Process* = object
 type
   SDL_LoadBMP_RW_renamed_SDL_LoadBMP_IO* = object
@@ -1347,6 +1359,8 @@ type
   SDL_TLSCleanup_renamed_SDL_CleanupTLS* = object
 type
   struct_VkInstance_T* = object
+type
+  SDL_HINT_WINDOWS_FORCE_MUTEX_CRITICAL_SECTIONS_deprecated_remove_this_line* = object
 type
   SDL_MOUSEWHEEL_renamed_SDL_EVENT_MOUSE_WHEEL* = object
 type
@@ -1422,6 +1436,8 @@ type
 type
   SDL_WINDOWEVENT_SHOWN_renamed_SDL_EVENT_WINDOW_SHOWN* = object
 type
+  SDL_GameControllerEventState_deprecated_use_SDL_SetGamepadEventsEnabled_true_false* = object
+type
   SDL_GameControllerGetSteamHandle_renamed_SDL_GetGamepadSteamHandle* = object
 type
   KMOD_ALT_renamed_SDL_KMOD_ALT* = object
@@ -1495,6 +1511,8 @@ type
   compiler_FILE_NAME_private* = object
 type
   SDL_CONTROLLER_BUTTON_LEFTSHOULDER_renamed_SDL_GAMEPAD_BUTTON_LEFT_SHOULDER* = object
+type
+  SDL_HINT_RENDER_SCALE_QUALITY_deprecated_use_SDL_SetTextureScaleMode_with_SDL_SCALEMODE_NEAREST* = object
 type
   SDL_DISPLAYEVENT_MOVED_renamed_SDL_EVENT_DISPLAY_MOVED* = object
 type
@@ -1693,6 +1711,8 @@ type
   SDL_SetClipRect_renamed_SDL_SetSurfaceClipRect* = object
 type
   SDL_SetThreadPriority_renamed_SDL_SetCurrentThreadPriority* = object
+type
+  SDL_WINDOW_SHOWN_deprecated_windows_are_shown_by_default* = object
 type
   SDL_CONTROLLER_BUTTON_DPAD_DOWN_renamed_SDL_GAMEPAD_BUTTON_DPAD_DOWN* = object
 type
@@ -1974,6 +1994,8 @@ type
 type
   SDL_JoystickRumble_renamed_SDL_RumbleJoystick* = object
 type
+  SDL_NumJoysticks_deprecated_use_SDL_GetJoysticks* = object
+type
   SDL_CONTROLLER_AXIS_MAX_renamed_SDL_GAMEPAD_AXIS_COUNT* = object
 type
   SDL_AtomicUnlock_renamed_SDL_UnlockSpinlock* = object
@@ -2039,6 +2061,8 @@ type
   AUDIO_S32SYS_renamed_SDL_AUDIO_S32* = object
 type
   SDL_WINDOWEVENT_MOVED_renamed_SDL_EVENT_WINDOW_MOVED* = object
+type
+  SDL_SetWindowInputFocus_deprecated_use_SDL_RaiseWindow* = object
 type
   SDL_GameControllerOpen_renamed_SDL_OpenGamepad* = object
 type
@@ -2552,7 +2576,7 @@ type
     windowID*: SDL_WindowID
     data1*: Sint32
     data2*: Sint32
-  SDL_WindowEvent* = struct_SDL_WindowEvent 
+  SDL_WindowEvent_typedef* = struct_SDL_WindowEvent 
   struct_SDL_KeyboardDeviceEvent* {.pure, inheritable, bycopy.} = object
     type_field*: SDL_EventType 
     reserved*: Uint32
@@ -2891,7 +2915,7 @@ type
     type_field*: Uint32      
     common*: SDL_CommonEvent
     display*: SDL_DisplayEvent
-    window*: SDL_WindowEvent
+    window*: SDL_WindowEvent_typedef
     kdevice*: SDL_KeyboardDeviceEvent
     key*: SDL_KeyboardEvent
     edit*: SDL_TextEditingEvent
@@ -6367,6 +6391,11 @@ when "SDL_ENABLE_SCREEN_KEYBOARD" is static:
     SDL_HINT_ENABLE_SCREEN_KEYBOARD* = "SDL_ENABLE_SCREEN_KEYBOARD" 
 else:
   let SDL_HINT_ENABLE_SCREEN_KEYBOARD* = "SDL_ENABLE_SCREEN_KEYBOARD" 
+when "SDL_ENABLE_STEAM_SCREEN_KEYBOARD" is static:
+  const
+    SDL_HINT_ENABLE_STEAM_SCREEN_KEYBOARD* = "SDL_ENABLE_STEAM_SCREEN_KEYBOARD" 
+else:
+  let SDL_HINT_ENABLE_STEAM_SCREEN_KEYBOARD* = "SDL_ENABLE_STEAM_SCREEN_KEYBOARD" 
 when "SDL_EVDEV_DEVICES" is static:
   const
     SDL_HINT_EVDEV_DEVICES* = "SDL_EVDEV_DEVICES" 
@@ -6537,6 +6566,11 @@ when "SDL_JOYSTICK_GAMEINPUT" is static:
     SDL_HINT_JOYSTICK_GAMEINPUT* = "SDL_JOYSTICK_GAMEINPUT" 
 else:
   let SDL_HINT_JOYSTICK_GAMEINPUT* = "SDL_JOYSTICK_GAMEINPUT" 
+when "SDL_JOYSTICK_GAMEINPUT_RAW" is static:
+  const
+    SDL_HINT_JOYSTICK_GAMEINPUT_RAW* = "SDL_JOYSTICK_GAMEINPUT_RAW" 
+else:
+  let SDL_HINT_JOYSTICK_GAMEINPUT_RAW* = "SDL_JOYSTICK_GAMEINPUT_RAW" 
 when "SDL_JOYSTICK_GAMECUBE_DEVICES" is static:
   const
     SDL_HINT_JOYSTICK_GAMECUBE_DEVICES* = "SDL_JOYSTICK_GAMECUBE_DEVICES" 
@@ -7257,6 +7291,11 @@ when "SDL_VIDEO_WIN_D3DCOMPILER" is static:
     SDL_HINT_VIDEO_WIN_D3DCOMPILER* = "SDL_VIDEO_WIN_D3DCOMPILER" 
 else:
   let SDL_HINT_VIDEO_WIN_D3DCOMPILER* = "SDL_VIDEO_WIN_D3DCOMPILER" 
+when "SDL_VIDEO_X11_ENABLE_XSYNC_EXT" is static:
+  const
+    SDL_HINT_VIDEO_X11_ENABLE_XSYNC_EXT* = "SDL_VIDEO_X11_ENABLE_XSYNC_EXT" 
+else:
+  let SDL_HINT_VIDEO_X11_ENABLE_XSYNC_EXT* = "SDL_VIDEO_X11_ENABLE_XSYNC_EXT" 
 when "SDL_VIDEO_X11_EXTERNAL_WINDOW_INPUT" is static:
   const
     SDL_HINT_VIDEO_X11_EXTERNAL_WINDOW_INPUT* = "SDL_VIDEO_X11_EXTERNAL_WINDOW_INPUT" 
@@ -7412,6 +7451,11 @@ when "SDL_WINDOWS_RAW_KEYBOARD_EXCLUDE_HOTKEYS" is static:
     SDL_HINT_WINDOWS_RAW_KEYBOARD_EXCLUDE_HOTKEYS* = "SDL_WINDOWS_RAW_KEYBOARD_EXCLUDE_HOTKEYS" 
 else:
   let SDL_HINT_WINDOWS_RAW_KEYBOARD_EXCLUDE_HOTKEYS* = "SDL_WINDOWS_RAW_KEYBOARD_EXCLUDE_HOTKEYS" 
+when "SDL_WINDOWS_RAW_KEYBOARD_INPUTSINK" is static:
+  const
+    SDL_HINT_WINDOWS_RAW_KEYBOARD_INPUTSINK* = "SDL_WINDOWS_RAW_KEYBOARD_INPUTSINK" 
+else:
+  let SDL_HINT_WINDOWS_RAW_KEYBOARD_INPUTSINK* = "SDL_WINDOWS_RAW_KEYBOARD_INPUTSINK" 
 when "SDL_WINDOWS_FORCE_SEMAPHORE_KERNEL" is static:
   const
     SDL_HINT_WINDOWS_FORCE_SEMAPHORE_KERNEL* = "SDL_WINDOWS_FORCE_SEMAPHORE_KERNEL" 
@@ -8247,11 +8291,11 @@ when 4 is static:
     SDL_MINOR_VERSION* = 4   
 else:
   let SDL_MINOR_VERSION* = 4 
-when 2 is static:
+when 12 is static:
   const
-    SDL_MICRO_VERSION* = 2   
+    SDL_MICRO_VERSION* = 12  
 else:
-  let SDL_MICRO_VERSION* = 2 
+  let SDL_MICRO_VERSION* = 12 
 when SDL_AtomicAdd_renamed_SDL_AddAtomicInt is typedesc:
   type
     SDL_AtomicAdd* = SDL_AtomicAdd_renamed_SDL_AddAtomicInt 
@@ -9235,6 +9279,15 @@ else:
       SDL_USEREVENT* = SDL_USEREVENT_renamed_SDL_EVENT_USER 
   else:
     let SDL_USEREVENT* = SDL_USEREVENT_renamed_SDL_EVENT_USER 
+when SDL_WINDOWEVENT_deprecated_use_SDL_EVENT_WINDOW_NAME is typedesc:
+  type
+    SDL_WINDOWEVENT* = SDL_WINDOWEVENT_deprecated_use_SDL_EVENT_WINDOW_NAME 
+else:
+  when SDL_WINDOWEVENT_deprecated_use_SDL_EVENT_WINDOW_NAME is static:
+    const
+      SDL_WINDOWEVENT* = SDL_WINDOWEVENT_deprecated_use_SDL_EVENT_WINDOW_NAME 
+  else:
+    let SDL_WINDOWEVENT* = SDL_WINDOWEVENT_deprecated_use_SDL_EVENT_WINDOW_NAME 
 when SDL_WINDOWEVENT_CLOSE_renamed_SDL_EVENT_WINDOW_CLOSE_REQUESTED is typedesc:
   type
     SDL_WINDOWEVENT_CLOSE* = SDL_WINDOWEVENT_CLOSE_renamed_SDL_EVENT_WINDOW_CLOSE_REQUESTED 
@@ -9937,6 +9990,17 @@ else:
       SDL_GameControllerClose* = SDL_GameControllerClose_renamed_SDL_CloseGamepad 
   else:
     let SDL_GameControllerClose* = SDL_GameControllerClose_renamed_SDL_CloseGamepad 
+when SDL_GameControllerEventState_deprecated_use_SDL_SetGamepadEventsEnabled_true_false is
+    typedesc:
+  type
+    SDL_GameControllerEventState* = SDL_GameControllerEventState_deprecated_use_SDL_SetGamepadEventsEnabled_true_false 
+else:
+  when SDL_GameControllerEventState_deprecated_use_SDL_SetGamepadEventsEnabled_true_false is
+      static:
+    const
+      SDL_GameControllerEventState* = SDL_GameControllerEventState_deprecated_use_SDL_SetGamepadEventsEnabled_true_false 
+  else:
+    let SDL_GameControllerEventState* = SDL_GameControllerEventState_deprecated_use_SDL_SetGamepadEventsEnabled_true_false 
 when SDL_GameControllerFromInstanceID_renamed_SDL_GetGamepadFromID is typedesc:
   type
     SDL_GameControllerFromInstanceID* = SDL_GameControllerFromInstanceID_renamed_SDL_GetGamepadFromID 
@@ -10622,6 +10686,17 @@ else:
       SDL_DelHintCallback* = SDL_DelHintCallback_renamed_SDL_RemoveHintCallback 
   else:
     let SDL_DelHintCallback* = SDL_DelHintCallback_renamed_SDL_RemoveHintCallback 
+when SDL_HINT_ACCELEROMETER_AS_JOYSTICK_deprecated_use_SDL_GamepadHasSensor_and_SDL_SetGamepadSensorEnabled is
+    typedesc:
+  type
+    SDL_HINT_ACCELEROMETER_AS_JOYSTICK* = SDL_HINT_ACCELEROMETER_AS_JOYSTICK_deprecated_use_SDL_GamepadHasSensor_and_SDL_SetGamepadSensorEnabled 
+else:
+  when SDL_HINT_ACCELEROMETER_AS_JOYSTICK_deprecated_use_SDL_GamepadHasSensor_and_SDL_SetGamepadSensorEnabled is
+      static:
+    const
+      SDL_HINT_ACCELEROMETER_AS_JOYSTICK* = SDL_HINT_ACCELEROMETER_AS_JOYSTICK_deprecated_use_SDL_GamepadHasSensor_and_SDL_SetGamepadSensorEnabled 
+  else:
+    let SDL_HINT_ACCELEROMETER_AS_JOYSTICK* = SDL_HINT_ACCELEROMETER_AS_JOYSTICK_deprecated_use_SDL_GamepadHasSensor_and_SDL_SetGamepadSensorEnabled 
 when SDL_HINT_ALLOW_TOPMOST_renamed_SDL_HINT_WINDOW_ALLOW_TOPMOST is typedesc:
   type
     SDL_HINT_ALLOW_TOPMOST* = SDL_HINT_ALLOW_TOPMOST_renamed_SDL_HINT_WINDOW_ALLOW_TOPMOST 
@@ -10730,6 +10805,28 @@ else:
       SDL_HINT_LINUX_JOYSTICK_DEADZONES* = SDL_HINT_LINUX_JOYSTICK_DEADZONES_renamed_SDL_HINT_JOYSTICK_LINUX_DEADZONES 
   else:
     let SDL_HINT_LINUX_JOYSTICK_DEADZONES* = SDL_HINT_LINUX_JOYSTICK_DEADZONES_renamed_SDL_HINT_JOYSTICK_LINUX_DEADZONES 
+when SDL_HINT_RENDER_SCALE_QUALITY_deprecated_use_SDL_SetTextureScaleMode_with_SDL_SCALEMODE_NEAREST is
+    typedesc:
+  type
+    SDL_HINT_RENDER_SCALE_QUALITY* = SDL_HINT_RENDER_SCALE_QUALITY_deprecated_use_SDL_SetTextureScaleMode_with_SDL_SCALEMODE_NEAREST 
+else:
+  when SDL_HINT_RENDER_SCALE_QUALITY_deprecated_use_SDL_SetTextureScaleMode_with_SDL_SCALEMODE_NEAREST is
+      static:
+    const
+      SDL_HINT_RENDER_SCALE_QUALITY* = SDL_HINT_RENDER_SCALE_QUALITY_deprecated_use_SDL_SetTextureScaleMode_with_SDL_SCALEMODE_NEAREST 
+  else:
+    let SDL_HINT_RENDER_SCALE_QUALITY* = SDL_HINT_RENDER_SCALE_QUALITY_deprecated_use_SDL_SetTextureScaleMode_with_SDL_SCALEMODE_NEAREST 
+when SDL_HINT_WINDOWS_FORCE_MUTEX_CRITICAL_SECTIONS_deprecated_remove_this_line is
+    typedesc:
+  type
+    SDL_HINT_WINDOWS_FORCE_MUTEX_CRITICAL_SECTIONS* = SDL_HINT_WINDOWS_FORCE_MUTEX_CRITICAL_SECTIONS_deprecated_remove_this_line 
+else:
+  when SDL_HINT_WINDOWS_FORCE_MUTEX_CRITICAL_SECTIONS_deprecated_remove_this_line is
+      static:
+    const
+      SDL_HINT_WINDOWS_FORCE_MUTEX_CRITICAL_SECTIONS* = SDL_HINT_WINDOWS_FORCE_MUTEX_CRITICAL_SECTIONS_deprecated_remove_this_line 
+  else:
+    let SDL_HINT_WINDOWS_FORCE_MUTEX_CRITICAL_SECTIONS* = SDL_HINT_WINDOWS_FORCE_MUTEX_CRITICAL_SECTIONS_deprecated_remove_this_line 
 when SDL_JOYSTICK_TYPE_GAMECONTROLLER_renamed_SDL_JOYSTICK_TYPE_GAMEPAD is
     typedesc:
   type
@@ -11102,6 +11199,15 @@ else:
       SDL_JoystickUpdate* = SDL_JoystickUpdate_renamed_SDL_UpdateJoysticks 
   else:
     let SDL_JoystickUpdate* = SDL_JoystickUpdate_renamed_SDL_UpdateJoysticks 
+when SDL_NumJoysticks_deprecated_use_SDL_GetJoysticks is typedesc:
+  type
+    SDL_NumJoysticks* = SDL_NumJoysticks_deprecated_use_SDL_GetJoysticks 
+else:
+  when SDL_NumJoysticks_deprecated_use_SDL_GetJoysticks is static:
+    const
+      SDL_NumJoysticks* = SDL_NumJoysticks_deprecated_use_SDL_GetJoysticks 
+  else:
+    let SDL_NumJoysticks* = SDL_NumJoysticks_deprecated_use_SDL_GetJoysticks 
 when SDL_IsScreenKeyboardShown_renamed_SDL_ScreenKeyboardShown is typedesc:
   type
     SDL_IsScreenKeyboardShown* = SDL_IsScreenKeyboardShown_renamed_SDL_ScreenKeyboardShown 
@@ -12276,6 +12382,24 @@ else:
       SDL_GetRendererOutputSize* = SDL_GetRendererOutputSize_renamed_SDL_GetCurrentRenderOutputSize 
   else:
     let SDL_GetRendererOutputSize* = SDL_GetRendererOutputSize_renamed_SDL_GetCurrentRenderOutputSize 
+when SDL_RENDERER_ACCELERATED_deprecated_remove_this_line is typedesc:
+  type
+    SDL_RENDERER_ACCELERATED* = SDL_RENDERER_ACCELERATED_deprecated_remove_this_line 
+else:
+  when SDL_RENDERER_ACCELERATED_deprecated_remove_this_line is static:
+    const
+      SDL_RENDERER_ACCELERATED* = SDL_RENDERER_ACCELERATED_deprecated_remove_this_line 
+  else:
+    let SDL_RENDERER_ACCELERATED* = SDL_RENDERER_ACCELERATED_deprecated_remove_this_line 
+when SDL_RENDERER_PRESENTVSYNC_deprecated_use_SDL_SetRenderVSync is typedesc:
+  type
+    SDL_RENDERER_PRESENTVSYNC* = SDL_RENDERER_PRESENTVSYNC_deprecated_use_SDL_SetRenderVSync 
+else:
+  when SDL_RENDERER_PRESENTVSYNC_deprecated_use_SDL_SetRenderVSync is static:
+    const
+      SDL_RENDERER_PRESENTVSYNC* = SDL_RENDERER_PRESENTVSYNC_deprecated_use_SDL_SetRenderVSync 
+  else:
+    let SDL_RENDERER_PRESENTVSYNC* = SDL_RENDERER_PRESENTVSYNC_deprecated_use_SDL_SetRenderVSync 
 when SDL_RenderCopy_renamed_SDL_RenderTexture is typedesc:
   type
     SDL_RenderCopy* = SDL_RenderCopy_renamed_SDL_RenderTexture 
@@ -13480,6 +13604,15 @@ else:
       SDL_SetThreadPriority* = SDL_SetThreadPriority_renamed_SDL_SetCurrentThreadPriority 
   else:
     let SDL_SetThreadPriority* = SDL_SetThreadPriority_renamed_SDL_SetCurrentThreadPriority 
+when SDL_SetWindowInputFocus_deprecated_use_SDL_RaiseWindow is typedesc:
+  type
+    SDL_SetWindowInputFocus* = SDL_SetWindowInputFocus_deprecated_use_SDL_RaiseWindow 
+else:
+  when SDL_SetWindowInputFocus_deprecated_use_SDL_RaiseWindow is static:
+    const
+      SDL_SetWindowInputFocus* = SDL_SetWindowInputFocus_deprecated_use_SDL_RaiseWindow 
+  else:
+    let SDL_SetWindowInputFocus* = SDL_SetWindowInputFocus_deprecated_use_SDL_RaiseWindow 
 when SDL_TLSCleanup_renamed_SDL_CleanupTLS is typedesc:
   type
     SDL_TLSCleanup* = SDL_TLSCleanup_renamed_SDL_CleanupTLS 
@@ -13655,6 +13788,15 @@ else:
       SDL_HasWindowSurface* = SDL_HasWindowSurface_renamed_SDL_WindowHasSurface 
   else:
     let SDL_HasWindowSurface* = SDL_HasWindowSurface_renamed_SDL_WindowHasSurface 
+when SDL_INIT_EVERYTHING_deprecated_list_flags_explicitly is typedesc:
+  type
+    SDL_INIT_EVERYTHING* = SDL_INIT_EVERYTHING_deprecated_list_flags_explicitly 
+else:
+  when SDL_INIT_EVERYTHING_deprecated_list_flags_explicitly is static:
+    const
+      SDL_INIT_EVERYTHING* = SDL_INIT_EVERYTHING_deprecated_list_flags_explicitly 
+  else:
+    let SDL_INIT_EVERYTHING* = SDL_INIT_EVERYTHING_deprecated_list_flags_explicitly 
 when SDL_IsScreenSaverEnabled_renamed_SDL_ScreenSaverEnabled is typedesc:
   type
     SDL_IsScreenSaverEnabled* = SDL_IsScreenSaverEnabled_renamed_SDL_ScreenSaverEnabled 
@@ -13682,6 +13824,17 @@ else:
       SDL_WINDOW_ALLOW_HIGHDPI* = SDL_WINDOW_ALLOW_HIGHDPI_renamed_SDL_WINDOW_HIGH_PIXEL_DENSITY 
   else:
     let SDL_WINDOW_ALLOW_HIGHDPI* = SDL_WINDOW_ALLOW_HIGHDPI_renamed_SDL_WINDOW_HIGH_PIXEL_DENSITY 
+when SDL_WINDOW_FULLSCREEN_DESKTOP_deprecated_use_SDL_SetWindowFullscreen_with_bool is
+    typedesc:
+  type
+    SDL_WINDOW_FULLSCREEN_DESKTOP* = SDL_WINDOW_FULLSCREEN_DESKTOP_deprecated_use_SDL_SetWindowFullscreen_with_bool 
+else:
+  when SDL_WINDOW_FULLSCREEN_DESKTOP_deprecated_use_SDL_SetWindowFullscreen_with_bool is
+      static:
+    const
+      SDL_WINDOW_FULLSCREEN_DESKTOP* = SDL_WINDOW_FULLSCREEN_DESKTOP_deprecated_use_SDL_SetWindowFullscreen_with_bool 
+  else:
+    let SDL_WINDOW_FULLSCREEN_DESKTOP* = SDL_WINDOW_FULLSCREEN_DESKTOP_deprecated_use_SDL_SetWindowFullscreen_with_bool 
 when SDL_WINDOW_INPUT_GRABBED_renamed_SDL_WINDOW_MOUSE_GRABBED is typedesc:
   type
     SDL_WINDOW_INPUT_GRABBED* = SDL_WINDOW_INPUT_GRABBED_renamed_SDL_WINDOW_MOUSE_GRABBED 
@@ -13691,6 +13844,15 @@ else:
       SDL_WINDOW_INPUT_GRABBED* = SDL_WINDOW_INPUT_GRABBED_renamed_SDL_WINDOW_MOUSE_GRABBED 
   else:
     let SDL_WINDOW_INPUT_GRABBED* = SDL_WINDOW_INPUT_GRABBED_renamed_SDL_WINDOW_MOUSE_GRABBED 
+when SDL_WINDOW_SHOWN_deprecated_windows_are_shown_by_default is typedesc:
+  type
+    SDL_WINDOW_SHOWN* = SDL_WINDOW_SHOWN_deprecated_windows_are_shown_by_default 
+else:
+  when SDL_WINDOW_SHOWN_deprecated_windows_are_shown_by_default is static:
+    const
+      SDL_WINDOW_SHOWN* = SDL_WINDOW_SHOWN_deprecated_windows_are_shown_by_default 
+  else:
+    let SDL_WINDOW_SHOWN* = SDL_WINDOW_SHOWN_deprecated_windows_are_shown_by_default 
 when SDL_WINDOW_SKIP_TASKBAR_renamed_SDL_WINDOW_UTILITY is typedesc:
   type
     SDL_WINDOW_SKIP_TASKBAR* = SDL_WINDOW_SKIP_TASKBAR_renamed_SDL_WINDOW_UTILITY 
