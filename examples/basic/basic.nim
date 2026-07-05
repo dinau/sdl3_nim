@@ -4,10 +4,10 @@ import sdl3_nim
 
 #--- Add application icon
 when defined(windows):
-  when not defined(vcc):   # imguinVcc.res TODO WIP
+  when not defined(vcc): # imguinVcc.res TODO WIP
     include ./res/resource
 
-const MainWinWidth  = 480
+const MainWinWidth = 480
 const MainWinHeight = 480
 
 #--------------
@@ -30,7 +30,7 @@ proc main() =
   #----------------------
   var flags = SDL_WINDOW_RESIZABLE or SDL_WINDOW_OPENGL
   #flags = flags or SDL_WINDOW_HIDDEN
-  let title = "[ SDL " & ($SDL_GetRevision()).split('-')[1] &  " ]" & " [ nim_sdl3 ] test window"
+  let title = "[ SDL " & ($SDL_GetRevision()).split('-')[1] & " ]" & " [ nim_sdl3 ] test window"
   var window = SDL_CreateWindow(title.cstring, MainWinWidth, MainWinHeight, flags.SDL_WindowFlags)
   if isNil window:
     echo "Error!: SDL_CreateWindow()"
@@ -47,13 +47,13 @@ proc main() =
   defer: discard SDL_GL_DestroyContext(glContext)
   SDL_GL_MakeCurrent(window, glContext);
 
-  echo "SDL_GetVersion()  : ",SDL_GetVersion()
-  echo "SDL_GetRevision() : ",SDL_GetRevision()
+  echo "SDL_GetVersion()  : ", SDL_GetVersion()
+  echo "SDL_GetRevision() : ", SDL_GetRevision()
 
   #-------------
   #--- Renderer
   #-------------
-  var renderer = SDL_CreateRenderer(window,nil)
+  var renderer = SDL_CreateRenderer(window, nil)
   if isNil renderer:
     echo "Error!: SDL_CreateRenderer()"
     quit(1)
@@ -82,8 +82,8 @@ proc main() =
     echo "SDL_LoadBMP(): OK!: " & "\"" & imageName1 & "\""
   #--- Convert to texture
   let textureImage1 = SDL_CreateTextureFromSurface(renderer, surfaceImage)
-  var textureWidth:cfloat
-  var textureHeight:cfloat
+  var textureWidth: cfloat
+  var textureHeight: cfloat
   if SDL_GetTextureSize(textureImage1, addr textureWidth, addr textureHeight):
     echo "SDL_GetTextureSize() OK !"
   else:
@@ -105,7 +105,7 @@ proc main() =
   #--------------
   #--- main loop
   #--------------
-  SDL_SetRenderDrawColor(renderer,110,132,174,255)
+  SDL_SetRenderDrawColor(renderer, 110, 132, 174, 255)
   var event: SDL_Event
   var xQuit = false
   while not xQuit:
@@ -115,35 +115,35 @@ proc main() =
       if event.type_field == SDL_EVENT_WINDOW_CLOSE_REQUESTED.uint32 and event.window.windowID == SDL_GetWindowID(window):
         xQuit = true;
       if event.key.type_field == SDL_EVENT_KEY_DOWN:
-        if event.key.key == SDLK_Q or  event.key.key == SDLK_ESCAPE:
+        if event.key.key == SDLK_Q or event.key.key == SDLK_ESCAPE:
           xQuit = true;
 
     SDL_RenderClear(renderer)
 
     block: #--- drawImage
-      var angle{.global.}:cdouble = 0
-      var angle2{.global.}:cdouble = 0
-      var w:cint
-      var h:cint
+      var angle{.global.}: cdouble = 0
+      var angle2{.global.}: cdouble = 0
+      var w: cint
+      var h: cint
       SDL_GetWindowSizeInPixels(window, addr w, addr h)
       var rectDst = SDL_FRect(x: (w.cfloat - textureWidth)/2, y: (h.cfloat - textureHeight)/2, w: textureWidth/2, h: textureHeight/2)
-      if not SDL_RenderTextureRotated(renderer, textureImage1
-                                     ,nil              # src:    ptr frect
-                                     ,addr rectDst     # dst:    ptr frect
-                                     ,angle            # angle:  cdouble
-                                     ,nil              # center: ptr fpoint
-                                     ,SDL_FLIP_NONE):  # flip
-         echo("Error!: RenderCopy() ")
+      if not SDL_RenderTextureRotated(renderer, textureImage1,
+        nil,            # src:    ptr frect
+        addr rectDst,   # dst:    ptr frect
+        angle,          # angle:  cdouble
+        nil,            # center: ptr fpoint
+        SDL_FLIP_NONE): # flip
+          echo("Error!: RenderCopy() ")
       let ws = textureWidth/2
       let hs = textureHeight/2
-      var rectDst2 = SDL_FRect(x: w.cfloat / 2, y: h.cfloat / 2 , w: ws, h: hs )
-      if not SDL_RenderTextureRotated(renderer, textureImage2
-                                     ,nil              # src:    ptr frect
-                                     ,addr rectDst2    # dst:    ptr frect
-                                     ,-angle2          # angle:  cdouble
-                                     ,nil              # center: ptr fpoint
-                                     ,SDL_FLIP_NONE):  # flip
-         echo("Error!: RenderCopy() ")
+      var rectDst2 = SDL_FRect(x: w.cfloat / 2, y: h.cfloat / 2, w: ws, h: hs)
+      if not SDL_RenderTextureRotated(renderer, textureImage2,
+        nil,            # src:    ptr frect
+        addr rectDst2,  # dst:    ptr frect
+        -angle2,        # angle:  cdouble
+        nil,            # center: ptr fpoint
+        SDL_FLIP_NONE): # flip
+          echo("Error!: RenderCopy() ")
 
       const speed = 0.8
       angle = angle + speed

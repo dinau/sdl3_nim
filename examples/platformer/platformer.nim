@@ -3,7 +3,7 @@
 #   https://github.com/def-/nim-platformer
 #   See ./LICENSE.nim-platformer.txt
 
-import std/[os,strutils,math,times,strformat]
+import std/[os, strutils, math, times, strformat]
 #
 import sdl3_nim
 import basic2d
@@ -11,7 +11,7 @@ import basic2d
 when defined(windows):
   include ./res/resource
 
-const MainWinWidth  = 1289
+const MainWinWidth = 1289
 const MainWinHeight = 720
 
 const FluidCamera = true
@@ -20,7 +20,10 @@ const InnerCamera = false
 type
   Color = SDL_Color
 
-proc color( r,g,b,a:uint8): Color =
+#----------
+#--- color
+#----------
+proc color(r, g, b, a: uint8): Color =
   return Color(r: r, g: g, b: b, a: a)
 
 when defined(windows):
@@ -28,38 +31,47 @@ when defined(windows):
 else:
   const libname {.inject.} = "libSDL3_ttf.so"
 
-{.push dynlib:libname, discardable, cdecl, importc.}
+{.push dynlib: libname, discardable, cdecl, importc.}
 type
-    TTF_Font* = object
+  TTF_Font* = object
 proc TTF_Init*(): bool
 proc TTF_Quit*()
 proc TTF_OpenFont(file: cstring, ptSize: cfloat): ptr TTF_Font
 proc TTF_SetFontOutline(font: ptr TTF_Font, outline: cint)
-proc TTF_RenderText_Blended(font: ptr TTF_Font, text: cstring,  length:cint, fg: SDL_Color): ptr SDL_Surface
-proc TTF_SetFontSizeDPI(font: ptr TTF_Font , ptsize: cfloat, hdpi, vdpi: cint): bool
+proc TTF_RenderText_Blended(font: ptr TTF_Font, text: cstring, length: cint, fg: SDL_Color): ptr SDL_Surface
+proc TTF_SetFontSizeDPI(font: ptr TTF_Font, ptsize: cfloat, hdpi, vdpi: cint): bool
 proc TTF_Version(): cint
 {.pop.}
 
 type
-  TexturePtr  = ptr SDL_Texture
+  TexturePtr = ptr SDL_Texture
   RendererPtr = ptr SDL_Renderer
-  FontPtr     = ptr TTF_Font
-  Rect        = SDL_FRect
+  FontPtr = ptr TTF_Font
+  Rect = SDL_FRect
 
 type
   Point = tuple
     x, y: cint
   Vec2f = Vector2d
 
-const windowSize:Point = (MainWinHeight.cint, MainWinWidth.cint)
+const windowSize: Point = (MainWinHeight.cint, MainWinWidth.cint)
 
-proc vec2f(x,y:cfloat): Vec2f = return Vec2f(x: x, y: y)
+#----------
+#--- vec2f
+#----------
+proc vec2f(x, y: cfloat): Vec2f = return Vec2f(x: x, y: y)
 
-proc point2d(x,y:cfloat):Point2d =
+#------------
+#--- point2d
+#------------
+proc point2d(x, y: cfloat): Point2d =
   result.x = x
   result.y = y
 
-proc rect(x, y,w,h:cint): Rect =
+#---------
+#--- rect
+#---------
+proc rect(x, y, w, h: cint): Rect =
   result.x = x.cfloat
   result.y = y.cfloat
   result.w = w.cfloat
@@ -100,10 +112,16 @@ const
   start = 78
   finish = 110
 
+#---------------------
+#--- currentSourceDir
+#---------------------
 proc currentSourceDir(): string {.compileTime.} =
   result = currentSourcePath().replace("\\", "/")
   result = result[0 ..< result.rfind("/")]
 
+#--------------
+#--- renderTee
+#--------------
 proc renderTee(renderer: RendererPtr, texture: TexturePtr, pos: Point2d) =
   let
     x = pos.x.cint
@@ -122,13 +140,16 @@ proc renderTee(renderer: RendererPtr, texture: TexturePtr, pos: Point2d) =
 
   for part in bodyParts:
     SDL_RenderTextureRotated(renderer
-                           , texture
-                           , part.source.unsafeaddr
-                           , part.dest.unsafeaddr
-                           , angle = 0.0
-                           , center = nil
-                           , flip = part.flip.SDL_FlipMode)
+      , texture
+      , part.source.unsafeaddr
+      , part.dest.unsafeaddr
+      , angle = 0.0
+      , center = nil
+      , flip = part.flip.SDL_FlipMode)
 
+#--------------
+#--- renderMap
+#--------------
 proc renderMap(renderer: RendererPtr, map: Map, camera: Vec2f) =
   var
     clip = rect(0, 0, tileSize.x, tileSize.y)
@@ -144,6 +165,9 @@ proc renderMap(renderer: RendererPtr, map: Map, camera: Vec2f) =
 
     renderer.SDL_RenderTexture(map.texture, clip.addr, dest.addr)
 
+#---------------
+#--- renderText
+#---------------
 proc renderText(renderer: RendererPtr, font: FontPtr, text: string, x, y, outline: cint, color: Color) =
   font.TTF_SetFontOutline(outline)
   let surface = font.TTF_RenderText_Blended(text.cstring, text.len.cint, color)
@@ -158,29 +182,44 @@ proc renderText(renderer: RendererPtr, font: FontPtr, text: string, x, y, outlin
     echo "Could not create texture from rendered text in SDL_CreateTextureFromSurface()"
     quit 1
   surface.SDL_DestroySurface()
-  renderer.SDL_RenderTextureRotated(texture, source.addr , dest.addr, angle = 0.0, center = nil, flip = SDL_FLIP_NONE)
+  renderer.SDL_RenderTextureRotated(texture, source.addr, dest.addr, angle = 0.0, center = nil, flip = SDL_FLIP_NONE)
   texture.SDL_DestroyTexture()
 
+#---------------
+#--- renderText
+#---------------
 proc renderText(game: Game, text: string, x, y: cint, color: Color) =
   const outlineColor = color(0, 0, 0, 0x8f)
   game.renderer.renderText(game.font, text, x, y, outline = 2, outlineColor)
   game.renderer.renderText(game.font, text, x, y, outline = 0, color)
 
+#------------------
+#--- restartPlayer
+#------------------
 proc restartPlayer(player: var Player) =
   player.pos = point2d(170, 500)
-  player.vel = vec2f(0,   0)
+  player.vel = vec2f(0, 0)
   player.time.begin = -1
   player.time.finish = -1
 
+#------------
+#--- newTime
+#------------
 proc newTime: Time =
   result.finish = -1
   result.best = -1
 
+#--------------
+#--- newPlayer
+#--------------
 proc newPlayer(texture: TexturePtr): Player =
   result.texture = texture
   result.time = newTime()
   result.restartPlayer()
 
+#-----------
+#--- newMap
+#-----------
 proc newMap(texture: TexturePtr, file: string): Map =
   result.texture = texture
   result.tiles = @[]
@@ -207,7 +246,7 @@ proc newMap(texture: TexturePtr, file: string): Map =
 #------------
 proc newGame(renderer: RendererPtr): Game =
   var
-    texture, texture2:  TexturePtr
+    texture, texture2: TexturePtr
     surface: ptr SDL_Surface
   const imageName = joinPath(currentSourceDir(), "Mipi.png")
   surface = SDL_LoadPNG(imageName)
@@ -227,25 +266,25 @@ proc newGame(renderer: RendererPtr): Game =
   if font.isNil:
     echo "Failed to load font"
     quit 1
-  if not font.TTF_SetFontSizeDPI( 18, 96,96):
+  if not font.TTF_SetFontSizeDPI(18, 96, 96):
     echo"Error !: TTF_SetFontSizeDPI()"
-  return Game(renderer    : renderer,
-              player      : newPlayer(texture),
-              map         : newMap(texture2, "default.map"),
-              font        : font,
-             )
+  return Game(renderer: renderer,
+              player: newPlayer(texture),
+              map: newMap(texture2, "default.map"),
+              font: font,
+    )
 
 # -----------
 # -- toInput
 # -----------
-proc toInput(key:SDL_Scancode): Input =
+proc toInput(key: SDL_Scancode): Input =
   if key == SDL_SCANCODE_A or key == SDL_SCANCODE_H or key == SDL_SCANCODE_LEFT:
     return Input.left
-  elif key == SDL_SCANCODE_D or key == SDL_SCANCODE_L or key == SDL_SCANCODE_RIGHT :
+  elif key == SDL_SCANCODE_D or key == SDL_SCANCODE_L or key == SDL_SCANCODE_RIGHT:
     return Input.right
-  elif key == SDL_SCANCODE_UP or key == SDL_SCANCODE_SPACE or key == SDL_SCANCODE_J or key == SDL_SCANCODE_K :
+  elif key == SDL_SCANCODE_UP or key == SDL_SCANCODE_SPACE or key == SDL_SCANCODE_J or key == SDL_SCANCODE_K:
     return Input.jump
-  elif key == SDL_SCANCODE_R :
+  elif key == SDL_SCANCODE_R:
     return Input.restart
   elif key == SDL_SCANCODE_Q or key == SDL_SCANCODE_ESCAPE:
     return Input.quitx
@@ -266,6 +305,9 @@ proc handleInput(self: var Game) =
     elif kind == SDL_EVENT_KEYUP:
       self.inputs[toInput(event.key.scancode)] = false
 
+#---------------
+#--- formatTime
+#---------------
 proc formatTime(ticks: int): string =
   let
     mins = (ticks div 50) div 60
@@ -278,13 +320,13 @@ proc formatTime(ticks: int): string =
 #-----------
 proc render(game: Game, tick: int) =
   game.renderer.SDL_RenderClear()
-  game.renderer.renderTee(game.player.texture , game.player.pos - game.camera)
+  game.renderer.renderTee(game.player.texture, game.player.pos - game.camera)
   game.renderer.renderMap(game.map, game.camera)
 
   let time = game.player.time
   const white = color(255, 255, 255, 255)
   const green = color(0, 255, 0, 255)
-  const blue  = color(0x00, 0xff, 0xff, 0xff)
+  const blue = color(0x00, 0xff, 0xff, 0xff)
   if time.begin >= 0:
     game.renderText(formatTime(tick - time.begin), 50, 100, white)
   elif time.finish >= 0:
@@ -307,6 +349,9 @@ proc render(game: Game, tick: int) =
   # Show the result on screen
   game.renderer.SDL_RenderPresent()
 
+#------------
+#--- getTile
+#------------
 proc getTile(map: Map, x, y: int): uint8 =
   let
     nx = clamp(x div tileSize.x, 0, map.width - 1)
@@ -315,21 +360,36 @@ proc getTile(map: Map, x, y: int): uint8 =
 
   map.tiles[pos]
 
+#------------
+#--- getTile
+#------------
 proc getTile(map: Map, pos: Point2d): uint8 =
   map.getTile(pos.x.round.int, pos.y.round.int)
 
+#------------
+#--- isSolid
+#------------
 proc isSolid(map: Map, x, y: int): bool =
   map.getTile(x, y) notin {air, start, finish}
 
+#------------
+#--- isSolid
+#------------
 proc isSolid(map: Map, point: Point2d): bool =
   map.isSolid(point.x.round.int, point.y.round.int)
 
+#-------------
+#--- onGround
+#-------------
 proc onGround(map: Map, pos: Point2d, size: Vec2f): bool =
   let size = size * 0.5
   result =
     map.isSolid(point2d(pos.x - size.x, pos.y + size.y + 1)) or
     map.isSolid(point2d(pos.x + size.x, pos.y + size.y + 1))
 
+#------------
+#--- testBox
+#------------
 proc testBox(map: Map, pos: Point2d, size: Vec2f): bool =
   let size = size * 0.5
   result =
@@ -338,6 +398,9 @@ proc testBox(map: Map, pos: Point2d, size: Vec2f): bool =
     map.isSolid(point2d(pos.x - size.x, pos.y + size.y)) or
     map.isSolid(point2d(pos.x + size.x, pos.y + size.y))
 
+#------------
+#--- moveBox
+#------------
 proc moveBox(map: Map, pos: var Point2d, vel: var Vec2f, size: Vec2f): set[Collision] {.discardable.} =
   let distance = vel.len
   let maximum = distance.int
@@ -372,6 +435,9 @@ proc moveBox(map: Map, pos: var Point2d, vel: var Vec2f, size: Vec2f): set[Colli
 
     pos = newPos
 
+#------------
+#--- physics
+#------------
 proc physics(game: var Game) =
   if game.inputs[Input.restart]:
     restartPlayer(game.player)
@@ -394,6 +460,9 @@ proc physics(game: var Game) =
 
   game.map.moveBox(game.player.pos, game.player.vel, playerSize)
 
+#---------------
+#--- moveCamera
+#---------------
 proc moveCamera(game: var Game) =
   const halfWin = float(windowSize.x div 2)
   if FluidCamera:
@@ -401,12 +470,15 @@ proc moveCamera(game: var Game) =
     game.camera.x -= 0.05 * dist
   elif InnerCamera:
     let
-      leftArea  = game.player.pos.x - halfWin - 100
+      leftArea = game.player.pos.x - halfWin - 100
       rightArea = game.player.pos.x - halfWin + 100
     game.camera.x = clamp(game.camera.x, leftArea, rightArea)
   else:
     game.camera.x = game.player.pos.x - halfWin
 
+#----------
+#--- logic
+#----------
 proc logic(game: var Game, tick: int) =
   template time: untyped = game.player.time
   case game.map.getTile(game.player.pos)
@@ -421,9 +493,9 @@ proc logic(game: var Game, tick: int) =
       echo "Finished in ", formatTime(time.finish)
   else: discard
 
-#-----------
-#--- main()
-#-----------
+#---------
+#--- main
+#---------
 proc main() =
   if not SDL_Init(SDL_INIT_VIDEO or SDL_INIT_GAMEPAD): raise newException(Exception, "SDL_Init()")
   defer: SDL_Quit_proc()
@@ -448,13 +520,13 @@ proc main() =
 
   SDL_GL_MakeCurrent(window, glContext);
 
-  echo "SDL3 version : ",SDL_GetVersion()
-  echo "SDL3 revision : ",SDL_GetRevision()
+  echo "SDL3 version : ", SDL_GetVersion()
+  echo "SDL3 revision : ", SDL_GetRevision()
 
   #-------------
   #--- Renderer
   #-------------
-  var renderer = SDL_CreateRenderer(window,nil)
+  var renderer = SDL_CreateRenderer(window, nil)
   if isNil renderer: raise newException(Exception, "SDL_CreateRenderer()")
   defer: SDL_DestroyRenderer(renderer)
 
@@ -472,7 +544,7 @@ proc main() =
     startTime = epochTime()
     lastTick = 0
 
-  SDL_SetRenderDrawColor(renderer,110,132,174,255) # Background color
+  SDL_SetRenderDrawColor(renderer, 110, 132, 174, 255) # Background color
 
   while not game.inputs[Input.quitx]:
     game.handleInput()

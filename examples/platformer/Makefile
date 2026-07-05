@@ -13,7 +13,7 @@ endif
 all:
 	nim c -d:strip $(OPT) $(TARGET).nim
 
-.PHONY: clean run
+.PHONY: clean run fmt
 
 clean:
 	rm -f $(TARGET).exe
@@ -21,3 +21,6 @@ clean:
 
 run: all
 	./$(TARGET)$(EXE)
+
+fmt:
+	nimpretty --maxLineLen:1000 $(TARGET).nim

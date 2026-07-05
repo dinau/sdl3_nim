@@ -1,44 +1,47 @@
-import std/[os,strutils]
+import std/[os, strutils]
 import sdl3_nim
 
 #--- Add application icon
 when defined(windows):
-  when not defined(vcc):   # imguinVcc.res TODO WIP
+  when not defined(vcc): # imguinVcc.res TODO WIP
     include ./res/resource
 
-const MainWinWidth  = 530
+const MainWinWidth = 530
 const MainWinHeight = 530
 
-const SPEED1 = 0.3
+const Speed1 = 0.3
+const StartupDelay = 90 # 60 frame
+
 var
-  window:   ptr SDL_Window   = nil
+  window: ptr SDL_Window = nil
   renderer: ptr SDL_Renderer = nil
-  angle :cdouble  = 0
-  speed           = SPEED1
+  angle: cdouble = 0
+  speed = Speed1
+  delayAtStartup = StartupDelay
 
 #-------------------
 #--- png as textrue
 #-------------------
 const ImageNames = ["1a.png", "2a.png", "3a.png", "4a.png"]
 var
-  textures:array[ImageNames.len, ptr SDL_Texture]
+  textures: array[ImageNames.len, ptr SDL_Texture]
   textureWidth: cfloat
   textureHeight: cfloat
 
 #----------------
 #--- SDL_AppInit
 #----------------
-proc SDL_AppInit*   (appstate: ptr pointer, argc: cint, argv: ptr UncheckedArray[cstring]): SDL_AppResult {.cdecl.} =
+proc SDL_AppInit*(appstate: ptr pointer, argc: cint, argv: ptr UncheckedArray[cstring]): SDL_AppResult {.cdecl.} =
   SDL_SetAppMetadata("Example Renderer Textures", "1.0", "sdl3_nim")
   if not SDL_Init(SDL_INIT_VIDEO):
     SDL_Log_proc("Couldn't initialize SDL: %s", SDL_GetError())
     return SDL_APP_FAILURE;
 
-  if not SDL_CreateWindowAndRenderer("<Start/Stop>: Space, <Restart>: R, Enter", MainWinWidth, MainWinHeight, SDL_WINDOW_RESIZABLE, addr window, addr renderer):
-      SDL_Log_proc("Couldn't create window/renderer: %s", SDL_GetError());
-      return SDL_APP_FAILURE
+  if not SDL_CreateWindowAndRenderer("SDL3: SDL_App Demo", MainWinWidth, MainWinHeight, SDL_WINDOW_RESIZABLE, addr window, addr renderer):
+    SDL_Log_proc("Couldn't create window/renderer: %s", SDL_GetError());
+    return SDL_APP_FAILURE
   if not SDL_SetRenderVSync(renderer, 1):
-      SDL_Log_proc("Fail!: VSync setting : %s", SDL_GetError())
+    SDL_Log_proc("Fail!: VSync setting : %s", SDL_GetError())
 
   for i, imageName in ImageNames:
     const funcname = "SDL_LoadPNG()"
@@ -50,7 +53,6 @@ proc SDL_AppInit*   (appstate: ptr pointer, argc: cint, argv: ptr UncheckedArray
     else:
       echo "Error!: $#", imageName
 
-
   return SDL_APP_CONTINUE
 
 #-------------------
@@ -58,11 +60,11 @@ proc SDL_AppInit*   (appstate: ptr pointer, argc: cint, argv: ptr UncheckedArray
 #-------------------
 proc SDL_AppIterate*(appstate: pointer): SDL_AppResult {.cdecl.} =
   #/* as you can see from this, rendering draws over whatever was drawn before it. */
-  SDL_SetRenderDrawColor(renderer,0,0,0,255)
-  SDL_RenderClear(renderer)  #/* start with a blank canvas. */
+  SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255)
+  SDL_RenderClear(renderer) #/* start with a blank canvas. */
   var
     w, h: cfloat
-    iw, ih:cint
+    iw, ih: cint
   let width = textureWidth/2
   let height = textureHeight/2
   SDL_GetWindowSizeInPixels(window, addr iw, addr ih)
@@ -70,57 +72,72 @@ proc SDL_AppIterate*(appstate: pointer): SDL_AppResult {.cdecl.} =
   h = ih.cfloat
   type Attr = object
     texture: ptr SDL_Texture
-    xs,ys: cfloat
-    ws,hs: cfloat
+    xs, ys: cfloat
+    ws, hs: cfloat
   let attribs = [
-                Attr(texture: textures[0], xs: (w - textureWidth)/2, ys: (h - textureHeight)/2, ws: width, hs: height)
-               ,Attr(texture: textures[1], xs: w/2 , ys: (h - textureHeight)/2,                 ws: width, hs: height)
-               ,Attr(texture: textures[2], xs: (w - textureWidth)/2, ys: h/2,                   ws: width, hs: height)
-               ,Attr(texture: textures[3], xs: w/2,                  ys: h/2,                   ws: width, hs: height)
-              ]
+      Attr(texture: textures[0], xs: (w - textureWidth)/2, ys: (h - textureHeight)/2, ws: width, hs: height)
+    , Attr(texture: textures[1], xs: w/2, ys: (h - textureHeight)/2, ws: width, hs: height)
+    , Attr(texture: textures[2], xs: (w - textureWidth)/2, ys: h/2, ws: width, hs: height)
+    , Attr(texture: textures[3], xs: w/2, ys: h/2, ws: width, hs: height)
+  ]
   for attrib in attribs:
     var rectDst = SDL_FRect(x: attrib.xs, y: attrib.ys, w: attrib.ws, h: attrib.hs)
     SDL_RenderTextureRotated(renderer, attrib.texture, nil, addr rectDst, angle, nil, SDL_FLIP_NONE)
 
   if angle < 360.0:
     angle = angle + speed
+  else:
+    angle = 0
+    delayAtStartup = StartupDelay
+  if delayAtStartup > 0:
+    dec delayAtStartup
+    angle = 0
+
+  if speed == 0:
+    SDL_SetRenderDrawColor(renderer, 255, 200, 0, 255); # Orange
+    SDL_RenderDebugText(renderer, 100, 500, "Stop")
+
+  SDL_SetRenderDrawColor(renderer, 0, 180, 0, 255); #  Green
+  SDL_RenderDebugText(renderer, 10, 10, "Start / Stop: SPACE")
+  SDL_RenderDebugText(renderer, 10, 20, "Restart     : R or ENTER")
 
   #--- Render
   SDL_RenderPresent(renderer)
-  return SDL_APP_CONTINUE  # carry on with the program!
+  return SDL_APP_CONTINUE # carry on with the program!
 
 #-----------------
 #--- SDL_AppEvent
 #-----------------
-proc SDL_AppEvent*  (appstate: pointer, event: ptr SDL_Event): SDL_AppResult {.cdecl.} =
+proc SDL_AppEvent*(appstate: pointer, event: ptr SDL_Event): SDL_AppResult {.cdecl.} =
   if event.type_field == SDL_EVENT_QUIT.uint32:
     return SDL_APP_SUCCESS # end the program, reporting success to the OS.
   if event.key.type_field == SDL_EVENT_KEY_DOWN:
-    if event.key.key == SDLK_R or  event.key.key == SDLK_RETURN:
+    if event.key.key == SDLK_R or event.key.key == SDLK_RETURN:
       angle = 0
+      delayAtStartup = StartupDelay
     if event.key.key == SDLK_SPACE:
-      speed = if speed == 0: SPEED1 else: 0
+      speed = if speed == 0: Speed1 else: 0
       if angle > 360:
         angle = 0
-        speed = SPEED1
-  return SDL_APP_CONTINUE  # carry on with the program!
+        speed = Speed1
+  return SDL_APP_CONTINUE # carry on with the program!
 
 #----------------
 #--- SDL_AppQuit
 #----------------
-proc SDL_AppQuit*   (appstate: pointer, res: SDL_AppResult): void {.cdecl.} =
+proc SDL_AppQuit*(appstate: pointer, res: SDL_AppResult): void {.cdecl.} =
   SDL_Quit_proc()
 
 #-------------
 #--- SDL_main
 #-------------
-proc SDL_main(argc: cint, argv: ptr UncheckedArray[cstring]): cint {.cdecl.}  =
+proc SDL_main(argc: cint, argv: ptr UncheckedArray[cstring]): cint {.cdecl.} =
   return SDL_EnterAppMainCallbacks(argc, argv, SDL_AppInit, SDL_AppIterate, SDL_AppEvent, SDL_AppQuit)
 
 #--------------
 #--- main porc
 #--------------
-var argv:seq[cstring]
+var argv: seq[cstring]
 for str in commandLineParams():
   argv.add str.cstring
 argv.add nil
