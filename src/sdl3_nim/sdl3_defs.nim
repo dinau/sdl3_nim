@@ -2824,6 +2824,7 @@ type
     timestamp*: Uint64
     windowID*: SDL_WindowID
     which*: SDL_PenID
+    pen_state*: SDL_PenInputFlags
   SDL_PenProximityEvent* = struct_SDL_PenProximityEvent 
   struct_SDL_PenMotionEvent* {.pure, inheritable, bycopy.} = object
     type_field*: SDL_EventType 
@@ -6211,6 +6212,11 @@ when "SDL_ANDROID_LOW_LATENCY_AUDIO" is static:
     SDL_HINT_ANDROID_LOW_LATENCY_AUDIO* = "SDL_ANDROID_LOW_LATENCY_AUDIO" 
 else:
   let SDL_HINT_ANDROID_LOW_LATENCY_AUDIO* = "SDL_ANDROID_LOW_LATENCY_AUDIO" 
+when "SDL_ANDROID_AAUDIO_INPUT_PRESET" is static:
+  const
+    SDL_HINT_ANDROID_AAUDIO_INPUT_PRESET* = "SDL_ANDROID_AAUDIO_INPUT_PRESET" 
+else:
+  let SDL_HINT_ANDROID_AAUDIO_INPUT_PRESET* = "SDL_ANDROID_AAUDIO_INPUT_PRESET" 
 when "SDL_ANDROID_TRAP_BACK_BUTTON" is static:
   const
     SDL_HINT_ANDROID_TRAP_BACK_BUTTON* = "SDL_ANDROID_TRAP_BACK_BUTTON" 
@@ -8291,11 +8297,11 @@ when 4 is static:
     SDL_MINOR_VERSION* = 4   
 else:
   let SDL_MINOR_VERSION* = 4 
-when 12 is static:
+when 16 is static:
   const
-    SDL_MICRO_VERSION* = 12  
+    SDL_MICRO_VERSION* = 16  
 else:
-  let SDL_MICRO_VERSION* = 12 
+  let SDL_MICRO_VERSION* = 16 
 when SDL_AtomicAdd_renamed_SDL_AddAtomicInt is typedesc:
   type
     SDL_AtomicAdd* = SDL_AtomicAdd_renamed_SDL_AddAtomicInt 

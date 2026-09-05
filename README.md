@@ -23,7 +23,7 @@
 
 SDL3 wrapper for Nim language with [futhark](https://github.com/PMunch/futhark#installation) converter.
 
-- SDL3: 3.4.12 (2026/07)
+- SDL3: 3.4.16 (2026/09)
 - SDL_ttf:  3.2.2
 - Windows OS 11 
 - Linux Debian / Ubuntu families 
@@ -52,7 +52,7 @@ nimble install sdl3_nim
 
 - If the package manager of the OS has SDL3 and SDL_ttf packages, install them with the package manager
 - Otherwise install them from source code as follows (on Debian / Ubuntu families),  
-   1. Download source code from [SDL3](https://github.com/libsdl-org/SDL/archive/refs/tags/release-3.4.12.zip) and [SDL3_ttf](https://github.com/libsdl-org/SDL_ttf/archive/refs/tags/release-3#.2.2.zip)
+   1. Download source code from [SDL3](https://github.com/libsdl-org/SDL/archive/refs/tags/release-3.4.16.zip) and [SDL3_ttf](https://github.com/libsdl-org/SDL_ttf/archive/refs/tags/release-3#.2.2.zip)
    1. Install build tool **Ninja**
 
       ```sh
@@ -62,7 +62,7 @@ nimble install sdl3_nim
    1. Extract SDL3 zip file and 
    
       ```sh
-      cd SDL-release-3.4.12 
+      cd SDL-release-3.4.16 
       mkdir build
       cd build 
       cmake .. -GNinja -DCMAKE_INSTALL_PREFIX=/usr/local
@@ -200,27 +200,17 @@ Renaming "SDL_UserEvent" to "SDL_UserEvent_typedef" [User]
 Renaming "SDL_EventAction" to "SDL_EventAction_typedef" [User]
 Renaming "SDL_Quit" to "SDL_Quit_proc" [User]
 Renaming "SDL_Log" to "SDL_Log_proc" [User]
+Renaming "PRIX32" to "PRIX32_const" [User]
 Renaming "func" to "func_arg" [User]
 Renaming "type" to "type_field" in struct_SDL_AsyncIOOutcome [User]
-Renaming "ptr" to "ptr_arg" [User]
-Renaming "ptr" to "ptr_arg" [User]
-Renaming "ptr" to "ptr_arg" [User]
 Renaming "ptr" to "ptr_arg" [User]
 Renaming "SDL_SCALEMODE_NEAREST" to "SDL_SCALEMODE_NEAREST_enumval" [User]
 Renaming "SDL_SCALEMODE_LINEAR" to "SDL_SCALEMODE_LINEAR_enumval" [User]
 Renaming "SDL_GL_CONTEXT_RESET_NOTIFICATION" to "SDL_GL_CONTEXT_RESET_NOTIFICATION_enumval" [User]
 Renaming "proc" to "proc_arg" [User]
-Renaming "proc" to "proc_arg" [User]
 Renaming "type" to "type_arg" [User]
 Renaming "type" to "type_field" in struct_SDL_VirtualJoystickSensorDesc [User]
 Renaming "type" to "type_field" in struct_SDL_VirtualJoystickDesc [User]
-Renaming "type" to "type_arg" [User]
-Renaming "type" to "type_arg" [User]
-Renaming "type" to "type_arg" [User]
-Renaming "type" to "type_arg" [User]
-Renaming "type" to "type_arg" [User]
-Renaming "type" to "type_arg" [User]
-Renaming "type" to "type_arg" [User]
 Renaming "type" to "type_arg" [User]
 Renaming "SDL_SCANCODE_MEDIA_SELECT" to "SDL_SCANCODE_MEDIA_SELECT_enumval" [User]
 Renaming "type" to "type_field" in struct_SDL_CommonEvent [User]
@@ -263,9 +253,6 @@ Renaming "type" to "type_field" in struct_SDL_SensorEvent [User]
 Renaming "type" to "type_field" in struct_SDL_QuitEvent [User]
 Renaming "type" to "type_field" in struct_SDL_UserEvent [User]
 Renaming "type" to "type_field" in union_SDL_Event [User]
-Renaming "type" to "type_arg" [User]
-Renaming "type" to "type_arg" [User]
-Renaming "type" to "type_arg" [User]
 Renaming "type" to "type_arg" [User]
 Renaming "type" to "type_field" in struct_SDL_PathInfo [User]
 Renaming "type" to "type_field" in struct_SDL_GPUTextureCreateInfo [User]
