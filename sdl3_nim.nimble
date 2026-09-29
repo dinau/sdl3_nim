@@ -1,6 +1,6 @@
 # Package
 
-version       = "3.4.12.0"
+version       = "3.4.16.1"
 author        = "dinau"
 description   = "SDL3 library wrapper"
 license       = "MIT"
@@ -14,7 +14,7 @@ requires "nim >= 2.0.16"
 requires "nimgl == 1.3.2"
 requires "stb_image == 2.5"
 requires "basic2d"
-#requires "futhark == 0.15.0"
+#requires "futhark == 0.16.0"
 
 import strformat
 let CACHE = "--nimcache:.nimcache"

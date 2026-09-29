@@ -1,10 +1,10 @@
-all:
+all: checkver
 	$(MAKE) -C examples/basic
 	$(MAKE) -C examples/platformer
 	$(MAKE) -C examples/sdlapp_lines
 	$(MAKE) -C examples/sdlapp
 
-PHONY: gen clean install
+PHONY: gen clean install checkver
 
 install:
 	nimble install
@@ -20,3 +20,6 @@ clean:
 	@-$(MAKE) -C examples/sdlapp clean
 
 MAKEFLAGS += --no-print-directory
+
+checkver:
+	@nim --hints:off checkVersion.nims
