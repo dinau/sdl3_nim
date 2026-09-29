@@ -282,7 +282,7 @@ proc toInput(key: SDL_Scancode): Input =
     return Input.left
   elif key == SDL_SCANCODE_D or key == SDL_SCANCODE_L or key == SDL_SCANCODE_RIGHT:
     return Input.right
-  elif key == SDL_SCANCODE_UP or key == SDL_SCANCODE_SPACE or key == SDL_SCANCODE_J or key == SDL_SCANCODE_K:
+  elif key == SDL_SCANCODE_UP or key == SDL_SCANCODE_SPACE or key == SDL_SCANCODE_J or key == SDL_SCANCODE_K or key == SDL_SCANCODE_W:
     return Input.jump
   elif key == SDL_SCANCODE_R:
     return Input.restart
@@ -336,7 +336,7 @@ proc render(game: Game, tick: int) =
   if time.begin < 0:
     const base = 230
     const colm = 30
-    game.renderText("Jump   : Space, Up, J, K",                     50, base+colm*1,  white)
+    game.renderText("Jump   : Space, Up, J, K, W",                  50, base+colm*1,  white)
     game.renderText("Left     : A, H, Left",                        50, base+colm*2,  white)
     game.renderText("Right   : D, L, Right",                        50, base+colm*3,  white)
     game.renderText("Restart: R",                                   50, base+colm*4,  white)

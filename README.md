@@ -34,18 +34,13 @@ SDL3 wrapper for Nim language with [futhark](https://github.com/PMunch/futhark#i
 
 ---
 
-First delete old version 
+First delete old version and install sdl3_nim 
 
 ```sh
 nimble uninstall sdl3_nim
+nimble refresh
+nimble install   sdl3_nim 
 ```
-
-Install
-
-```sh
-nimble install sdl3_nim 
-```
-
 #### For Linux OS
 
 ---
@@ -59,7 +54,7 @@ nimble install sdl3_nim
       sudo apt install ninja-build
       ```
 
-   1. Extract SDL3 zip file and 
+   1. Extract SDL3 zip file 
    
       ```sh
       cd SDL-release-3.4.16 
@@ -71,7 +66,7 @@ nimble install sdl3_nim
       sudo ldconfig
       ```
 
-   1. Extract SDL3_ttf zip file and 
+   1. Extract SDL3_ttf zip file
    
       ```sh
       cd SDL_ttf-release-3.2.2 
@@ -269,15 +264,15 @@ Renaming "type" to "type_field" in union_SDL_HapticEffect [User]
 Renaming "block" to "block_arg" [User]
 ```
 
-#### Develeopment 
+#### Develeopment sdl3_nim
 
 ---
 
 Generating SDL3 Nim header files with Futhark.
 
-[The definition file of SDL3](src/sdl3_defs.nim) can be updated by yourself as follows, 
+[The definition file of SDL3](src/sdl3_nim/sdl3_defs.nim) can be updated by yourself as follows, 
 
-1. Replace [src/private/SDL3](src/private/SDL3) with  [latest officail SDL3 library](https://github.com/libsdl-org/SDL/releases)
+1. Replace [src/private/SDL3](src/sdl3_nim/private/SDL3) with  [latest officail SDL3 library](https://github.com/libsdl-org/SDL/releases)
 1. [Install Futhark](https://github.com/PMunch/futhark#installation)
 1. Edit `src/sdl3_nim.nim`  
    Specifiy your Clang include folder
@@ -296,14 +291,14 @@ Generating SDL3 Nim header files with Futhark.
    make gen
    ```
 
-   `src/sdl3_defs.nim` updated will be generated.
+   `src/sdl3_nim/sdl3_defs.nim` updated will be generated.
 
 #### My tools version 
 
 ---
 
 - Futhark 0.16.0
-- nim-2.2.10
+- nim-2.2.12
 - Gcc.exe (Rev2, Built by MSYS2 project) 16.1.0
 
 #### Other SDL game tutorial platfromer project
