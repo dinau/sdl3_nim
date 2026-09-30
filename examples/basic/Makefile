@@ -13,6 +13,8 @@ endif
 all:
 	nim c -d:strip $(OPT) $(TARGET).nim
 
+app: all
+
 .PHONY: clean run fmt
 
 clean:

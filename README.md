@@ -6,8 +6,12 @@
   - [For Linux OS](#for-linux-os)
   - [For Windows11](#for-windows11)
   - [Build and run examples](#build-and-run-examples)
+    - [basic](#basic)
+    - [platformer](#platformer)
+    - [sdlapp_lines](#sdlapp_lines)
+    - [sdlapp_earth](#sdlapp_earth)
   - [About auto renaming](#about-auto-renaming)
-  - [Develeopment](#develeopment)
+  - [Develeopment sdl3_nim](#develeopment-sdl3_nim)
   - [My tools version](#my-tools-version)
   - [Other SDL game tutorial platfromer project](#other-sdl-game-tutorial-platfromer-project)
   - [Other examples project for Dear ImGui](#other-examples-project-for-dear-imgui)
@@ -94,57 +98,137 @@ then copy SDL3.dll to your application folder.
 git clone https://github.com/dinau/sdl3_nim
 ```
 
-```sh
-cd sdl3_nim
-make 
-```
-
-or 
-
-```sh
-cd examples/basic
-make run
-```
+##### basic
+  
+---
 
 [basic.nim](examples/basic/basic.nim)
 
-![alt](https://github.com/dinau/sdl3_nim/blob/main/src/sdl3_nim/private/img/basic-nim-sdl3.gif?raw=true)
+- Desktop application
 
-or
+   ```sh
+   cd examples/basic
+   make app
+   ./basic.exe
+   ```
+ 
+   ![alt](https://github.com/dinau/sdl3_nim/blob/main/src/sdl3_nim/private/img/basic-nim-sdl3.gif?raw=true)
 
-```sh
-cd examples/platformer
-make run
-```
+[^emsdk_list]: `$ emsdk list`  # Show version list
+
+#####  platformer
+
+---
 
 [platformer.nim](examples/platformer/platformer.nim)
+      
+- Desktop application
 
-![alt](https://github.com/dinau/sdl3_nim/blob/main/src/sdl3_nim/private/img/platformer-nim-sdl3.gif?raw=true)
+   ```sh
+   cd examples/platformer
+   make app
+   ./platformer.exe
+   ```
 
-or
+- WebGL/Wasm application
 
-```sh
-cd examples/sdlapp_lines
-make run
-```
+  Live demo: [Click here](https://dinau.github.io/sdl3_nim/examples/platformer/wasm)
+
+   1. [Install emscripten](https://emscripten.org/docs/getting_started/downloads.html#installation-instructions-using-the-emsdk-recommended)
+   1. Specify emsdk **6.0.9**[^emsdk_list]
+   
+      ```sh
+      emsdk install  6.0.9 
+      emsdk activate 6.0.9
+      ```
+   
+   1. Go to `examples/platformer` folder
+   1. Run `emsdk_env.bat`(Windows) or `emsdk_env.sh`(Linux) in your console
+      > [!IMPORTANT]
+   
+      ```sh
+      emsdk_env.bat     # Run this once in every new console
+      ```
+
+   1. Build Wasm and run (Needs Python installation)
+
+      ```sh
+      make run
+      ```
+  
+      Open your browser with [http://localhost:8000](http://localhost:8000) 
+   
+      ![alt](https://github.com/dinau/sdl3_nim/blob/main/src/sdl3_nim/private/img/platformer-nim-sdl3.gif?raw=true)
+
+##### sdlapp_lines
+
+---
 
 [sdlapp_lines.nim](examples/sdlapp_lines/sdlapp_lines.nim)
 
-Refer to https://github.com/libsdl-org/SDL/tree/main/examples/renderer/03-lines
+- Desktop application
 
-![alt](https://github.com/libsdl-org/SDL/blob/main/examples/renderer/03-lines/thumbnail.png?raw=true)
+   ```sh
+   cd examples/sdlapp_lines
+   make app
+   ./sdlapp_lines.exe
+   ```
+
+- WebGL/Wasm application
+
+  Live demo: [Click here](https://dinau.github.io/sdl3_nim/examples/sdlapp_lines/wasm)
 
 
-or
+   - Build Wasm and run  
+      Same as platformer demo
 
-```sh
-cd examples/sdlapp
-make run
-```
+      ```sh
+      cd examples/sdlapp_lines
+      make run
+      ```
+   
+      Open your browser with [http://localhost:8000](http://localhost:8000) 
 
-[sdlapp.nim](examples/sdlapp/sdlapp.nim)
+      Refer to https://github.com/libsdl-org/SDL/tree/main/examples/renderer/03-lines
+      
+      ![alt](src/sdl3_nim/private/img/sdlapp_lines.png)
 
-![alt](https://github.com/dinau/sdl3_nim/blob/main/src/sdl3_nim/private/img/earth4.gif?raw=true)
+##### sdlapp_earth
+
+---
+
+[sdlapp_earth.nim](examples/sdlapp_earth/sdlapp_earth.nim)
+
+- Desktop application
+
+   ```sh
+   cd examples/sdlapp_earth
+   make app
+   ./sdlapp_earth.exe
+   ```
+   
+- WebGL/Wasm application
+
+  Live demo: [Click here](https://dinau.github.io/sdl3_nim/examples/sdlapp_earth/wasm)
+
+   - Build Wasm and run  
+      Same as platformer demo
+
+      ```sh
+      cd examples/sdlapp_earth
+      make run
+      ```
+
+      Open your browser with [http://localhost:8000](http://localhost:8000) 
+      
+      ![alt](https://github.com/dinau/sdl3_nim/blob/main/src/sdl3_nim/private/img/earth4.gif?raw=true)
+
+#### SDL3 API document
+
+---
+
+
+
 
 #### About auto renaming 
 

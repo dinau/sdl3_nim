@@ -89,7 +89,7 @@ proc SDL_main(argc: cint, argv: ptr UncheckedArray[cstring]): cint {.cdecl.} =
   return SDL_EnterAppMainCallbacks(argc, argv, SDL_AppInit, SDL_AppIterate, SDL_AppEvent, SDL_AppQuit)
 
 #--------------
-#--- main porc
+#--- main proc
 #--------------
 var argv: seq[cstring]
 for str in commandLineParams():

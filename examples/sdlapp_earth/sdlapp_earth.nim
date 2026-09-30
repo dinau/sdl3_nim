@@ -100,6 +100,7 @@ proc SDL_AppIterate*(appstate: pointer): SDL_AppResult {.cdecl.} =
   SDL_SetRenderDrawColor(renderer, 0, 180, 0, 255); #  Green
   SDL_RenderDebugText(renderer, 10, 10, "Start / Stop: SPACE")
   SDL_RenderDebugText(renderer, 10, 20, "Restart     : R or ENTER")
+  SDL_RenderDebugText(renderer, 10, 40, "Quit        : Q or ESC")
 
   #--- Render
   SDL_RenderPresent(renderer)
@@ -112,6 +113,8 @@ proc SDL_AppEvent*(appstate: pointer, event: ptr SDL_Event): SDL_AppResult {.cde
   if event.type_field == SDL_EVENT_QUIT.uint32:
     return SDL_APP_SUCCESS # end the program, reporting success to the OS.
   if event.key.type_field == SDL_EVENT_KEY_DOWN:
+    if event.key.key == SDLK_ESCAPE or event.key.key == SDLK_Q:
+      return SDL_APP_SUCCESS # ESC or Q: end the program.
     if event.key.key == SDLK_R or event.key.key == SDLK_RETURN:
       angle = 0
       delayAtStartup = StartupDelay
@@ -135,7 +138,7 @@ proc SDL_main(argc: cint, argv: ptr UncheckedArray[cstring]): cint {.cdecl.} =
   return SDL_EnterAppMainCallbacks(argc, argv, SDL_AppInit, SDL_AppIterate, SDL_AppEvent, SDL_AppQuit)
 
 #--------------
-#--- main porc
+#--- main proc
 #--------------
 var argv: seq[cstring]
 for str in commandLineParams():

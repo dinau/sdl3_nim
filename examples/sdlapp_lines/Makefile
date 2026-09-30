@@ -1,26 +1,29 @@
-TARGET = $(notdir $(CURDIR))
-
-# Hiding background console
-OPT += --app:gui
-
-OPT += --nimcache:.nimcache
-OPT += -d:release
+TARGET_APP = $(notdir $(CURDIR))
+TARGET_WASM = wasm/index.html
 
 ifeq ($(OS),Windows_NT)
 	EXE = .exe
 endif
 
-all:
-	nim c -d:strip $(OPT) $(TARGET).nim
+.PHONY: clean run fmt wasm server
 
-.PHONY: clean run fmt
+all: wasm
+
+app:
+	nim c -d:strip $(OPT) $(TARGET_APP).nim
+	#./$(TARGET_APP)$(EXE)
 
 clean:
-	rm -f $(TARGET).exe
-	rm -fr .nimcache
+	rm -f $(TARGET_APP).exe
+	rm -fr .nimcache_* .nimcache wasm/index.*
 
-run: all
-	./$(TARGET)$(EXE)
+wasm:
+	nim c -d:strip -d:emscripten -o:$(TARGET_WASM) $(TARGET_APP).nim
+
+server:
+	(cd wasm && python3 -m http.server 8000)
+
+run: all server
 
 fmt:
-	nimpretty --maxLineLen:1000 $(TARGET).nim
+	nimpretty --maxLineLen:1000 $(TARGET_APP).nim

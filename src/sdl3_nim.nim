@@ -1,6 +1,5 @@
 import std/[os, strutils, strformat]
 
-
 proc currentSourceDir(): string {.compileTime.} =
   result = currentSourcePath().replace("\\", "/")
   result = result[0 ..< result.rfind("/")]
@@ -35,14 +34,19 @@ when defined(useFuthark): # Generate header files with Futhark.
 # Use generated header by Futark in your programs.
 #-------------------------------------------------
 else:
-  when defined(windows):
-    const libname {.inject.} = "SDL3.dll"
+  when defined(emscripten):
+    {.push discardable.}
+    include "sdl3_nim/sdl3_defs.nim"        # == SDL3_DEFS_FILE
+    {.pop.}
   else:
-    const libname {.inject.} = "libSDL3.so"
+    when defined(windows):
+      const libname {.inject.} = "SDL3.dll"
+    else:
+      const libname {.inject.} = "libSDL3.so"
+    {.push dynlib:libname, discardable.}
+    include "sdl3_nim/sdl3_defs.nim"        # == SDL3_DEFS_FILE
+    {.pop.}
 
-  {.push dynlib:libname, discardable.}
-  include "sdl3_nim/sdl3_defs.nim"        # == SDL3_DEFS_FILE
-  {.pop.}
 
   {.passC:"-I" & SDL3RootPath1.}
   {.passC:"-I" & SDL3RootPath2.}

@@ -20,24 +20,33 @@ const InnerCamera = false
 type
   Color = SDL_Color
 
+proc dbgEcho(strs: varargs[string]) =
+  if false:
+    for str in strs:
+      echo str
+
 #----------
 #--- color
 #----------
 proc color(r, g, b, a: uint8): Color =
   return Color(r: r, g: g, b: b, a: a)
 
-when defined(windows):
-  const libname {.inject.} = "SDL3_ttf.dll"
-else:
-  const libname {.inject.} = "libSDL3_ttf.so"
 
-{.push dynlib: libname, discardable, cdecl, importc.}
+when defined(emscripten):
+  {.push discardable, cdecl, importc.}
+else:
+  when defined(windows):
+    const libname {.inject.} = "SDL3_ttf.dll"
+  else:
+    const libname {.inject.} = "libSDL3_ttf.so"
+  {.push dynlib: libname, discardable, cdecl, importc.}
+
 type
   TTF_Font* = object
 proc TTF_Init*(): bool
 proc TTF_Quit*()
 proc TTF_OpenFont(file: cstring, ptSize: cfloat): ptr TTF_Font
-proc TTF_SetFontOutline(font: ptr TTF_Font, outline: cint)
+proc TTF_SetFontOutline(font: ptr TTF_Font, outline: cint): cint
 proc TTF_RenderText_Blended(font: ptr TTF_Font, text: cstring, length: cint, fg: SDL_Color): ptr SDL_Surface
 proc TTF_SetFontSizeDPI(font: ptr TTF_Font, ptsize: cfloat, hdpi, vdpi: cint): bool
 proc TTF_Version(): cint
@@ -115,9 +124,9 @@ const
 #---------------------
 #--- currentSourceDir
 #---------------------
-proc currentSourceDir(): string {.compileTime.} =
-  result = currentSourcePath().replace("\\", "/")
-  result = result[0 ..< result.rfind("/")]
+#proc currentSourceDir(): string {.compileTime.} =
+#  result = currentSourcePath().replace("\\", "/")
+#  result = result[0 ..< result.rfind("/")]
 
 #--------------
 #--- renderTee
@@ -172,14 +181,14 @@ proc renderText(renderer: RendererPtr, font: FontPtr, text: string, x, y, outlin
   font.TTF_SetFontOutline(outline)
   let surface = font.TTF_RenderText_Blended(text.cstring, text.len.cint, color)
   if surface.isNil:
-    echo "Could not render text surface in TTF_RenderText_Blended()"
+    dbgEcho "Could not render text surface in TTF_RenderText_Blended()"
     quit 1
   discard surface.SDL_SetSurfaceAlphaMod(color.a)
   var source = rect(0, 0, surface.w, surface.h)
   var dest = rect(x - outline, y - outline, surface.w, surface.h)
   let texture = renderer.SDL_CreateTextureFromSurface(surface)
   if texture.isNil:
-    echo "Could not create texture from rendered text in SDL_CreateTextureFromSurface()"
+    dbgEcho "Could not create texture from rendered text in SDL_CreateTextureFromSurface()"
     quit 1
   surface.SDL_DestroySurface()
   renderer.SDL_RenderTextureRotated(texture, source.addr, dest.addr, angle = 0.0, center = nil, flip = SDL_FLIP_NONE)
@@ -248,23 +257,25 @@ proc newGame(renderer: RendererPtr): Game =
   var
     texture, texture2: TexturePtr
     surface: ptr SDL_Surface
-  const imageName = joinPath(currentSourceDir(), "Mipi.png")
+  #const imageName = joinPath(currentSourceDir(), "Mipi.png")
+  const imageName = "Mipi.png"
   surface = SDL_LoadPNG(imageName)
   if not isNil surface:
     texture = SDL_CreateTextureFromSurface(renderer, surface)
   else:
-    echo "Error!: SDL_LoadPNG() NG!: " & "\"" & imageName & "\""
+    dbgEcho "Error!: SDL_LoadPNG() NG!: " & "\"" & imageName & "\""
 
-  const imageName2 = joinPath(currentSourceDir(), "grass.png")
+  #const imageName2 = joinPath(currentSourceDir(), "grass.png")
+  const imageName2 = "grass.png"
   surface = SDL_LoadPNG(imageName2)
   if not isNil surface:
     texture2 = SDL_CreateTextureFromSurface(renderer, surface)
   else:
-    echo "Error!: SDL_LoadPNG() NG!: " & "\"" & imageName2 & "\""
+    dbgEcho "Error!: SDL_LoadPNG() NG!: " & "\"" & imageName2 & "\""
 
   let font = TTF_OpenFont("DejaVuSans.ttf", 14)
   if font.isNil:
-    echo "Failed to load font"
+    dbgEcho "Failed to load font"
     quit 1
   if not font.TTF_SetFontSizeDPI(18, 96, 96):
     echo"Error !: TTF_SetFontSizeDPI()"
@@ -278,32 +289,34 @@ proc newGame(renderer: RendererPtr): Game =
 # -- toInput
 # -----------
 proc toInput(key: SDL_Scancode): Input =
-  if key == SDL_SCANCODE_A or key == SDL_SCANCODE_H or key == SDL_SCANCODE_LEFT:
+  case key
+  of SDL_SCANCODE_A, SDL_SCANCODE_H, SDL_SCANCODE_LEFT:
     return Input.left
-  elif key == SDL_SCANCODE_D or key == SDL_SCANCODE_L or key == SDL_SCANCODE_RIGHT:
+  of SDL_SCANCODE_D, SDL_SCANCODE_L,SDL_SCANCODE_RIGHT:
     return Input.right
-  elif key == SDL_SCANCODE_UP or key == SDL_SCANCODE_SPACE or key == SDL_SCANCODE_J or key == SDL_SCANCODE_K or key == SDL_SCANCODE_W:
+  of SDL_SCANCODE_UP, SDL_SCANCODE_SPACE, SDL_SCANCODE_J, SDL_SCANCODE_K, SDL_SCANCODE_W:
     return Input.jump
-  elif key == SDL_SCANCODE_R:
+  of SDL_SCANCODE_R:
     return Input.restart
-  elif key == SDL_SCANCODE_Q or key == SDL_SCANCODE_ESCAPE:
-    return Input.quitx
+  of SDL_SCANCODE_Q, SDL_SCANCODE_ESCAPE:
+    when defined(emscripten):
+      return Input.none
+    else:
+      return Input.quitx
   else:
     return Input.none
 
 #----------------
 #--- handleInput
 #----------------
-proc handleInput(self: var Game) =
-  var event: SDL_Event
-  while SDL_PollEvent(addr event):
-    let kind = event.type_field.enum_SDL_EventType
-    if kind == SDL_EVENT_QUIT:
-      self.inputs[Input.quitx] = true
-    elif kind == SDL_EVENT_KEYDOWN:
-      self.inputs[toInput(event.key.scancode)] = true
-    elif kind == SDL_EVENT_KEYUP:
-      self.inputs[toInput(event.key.scancode)] = false
+proc handleInput(self: var Game, event: ptr SDL_Event) =
+  let kind = event.type_field.enum_SDL_EventType
+  if kind == SDL_EVENT_QUIT:
+    self.inputs[Input.quitx] = true
+  elif kind == SDL_EVENT_KEYDOWN:
+    self.inputs[toInput(event.key.scancode)] = true
+  elif kind == SDL_EVENT_KEYUP:
+    self.inputs[toInput(event.key.scancode)] = false
 
 #---------------
 #--- formatTime
@@ -336,15 +349,23 @@ proc render(game: Game, tick: int) =
   if time.begin < 0:
     const base = 230
     const colm = 30
-    game.renderText("Jump   : Space, Up, J, K, W",                  50, base+colm*1,  white)
-    game.renderText("Left     : A, H, Left",                        50, base+colm*2,  white)
-    game.renderText("Right   : D, L, Right",                        50, base+colm*3,  white)
-    game.renderText("Restart: R",                                   50, base+colm*4,  white)
-    game.renderText("Quit     : Q, Esc",                            50, base+colm*5,  white)
-    game.renderText("Nim-" & NimVersion,                            50, base+colm*7,  white)
-    game.renderText(fmt"SDL: {($SDL_GetRevision()).split('-')[2]}", 50, base+colm*8,  white)
-    game.renderText("SDL_ttf: " &  $TTF_Version(),                  50, base+colm*9,  white)
-    game.renderText("Nim-Platformer-SDL3",                          50, base+colm*14, blue)
+    game.renderText("Jump   : Space, Up, J, K, W",                    50, base+colm*1,  white)
+    game.renderText("Left     : A, H, Left",                          50, base+colm*2,  white)
+    game.renderText("Right   : D, L, Right",                          50, base+colm*3,  white)
+    game.renderText("Restart: R",                                     50, base+colm*4,  white)
+    when defined(emscripten):
+      discard
+    else:
+      game.renderText("Quit     : Q, Esc",                            50, base+colm*5,  white)
+    game.renderText("Nim-" & NimVersion,                              50, base+colm*7,  white)
+    var ver = SDL_GetVersion()
+    when defined(emscripten):
+      game.renderText(fmt"SDL: {ver div 1000000}.{(ver div 1000) mod 1000}.{ver mod 10}",                50, base+colm*8,  white)
+    else:
+      game.renderText(fmt"SDL: {($SDL_GetRevision()).split('-')[2]}", 50, base+colm*8,  white)
+    ver = TTF_Version()
+    game.renderText(fmt"SDL_ttf: {ver div 1000000}.{(ver div 1000) mod 1000}.{ver mod 10}",                    50, base+colm*9,  white)
+    game.renderText("Nim-Platformer-SDL3",                            50, base+colm*14, blue)
 
   # Show the result on screen
   game.renderer.SDL_RenderPresent()
@@ -490,74 +511,139 @@ proc logic(game: var Game, tick: int) =
       time.begin = -1
       if time.best < 0 or time.finish < time.best:
         time.best = time.finish
-      echo "Finished in ", formatTime(time.finish)
+      dbgEcho "Finished in ", formatTime(time.finish)
   else: discard
 
-#---------
-#--- main
-#---------
-proc main() =
-  if not SDL_Init(SDL_INIT_VIDEO or SDL_INIT_GAMEPAD): raise newException(Exception, "SDL_Init()")
-  defer: SDL_Quit_proc()
+#-------------
+# for SDL_App
+#-------------
+type
+  AppContext = ref object
+    window: ptr SDL_Window
+    glContext: SDL_GLContext
+    renderer: ptr SDL_Renderer
+    game: Game
+    startTime: float
+    lastTick: int
+
+#----------------
+#--- SDL_AppInit
+#----------------
+proc SDL_AppInit(appstate: ptr pointer, argc: cint, argv: ptr UncheckedArray[cstring]): SDL_AppResult {.cdecl} =
+  var ctx = new(AppContext)
+  appstate[] = cast[pointer](ctx)
+
+  if not SDL_Init(SDL_INIT_VIDEO or SDL_INIT_GAMEPAD):
+    dbgEcho("SDL_Init Error: ", $SDL_GetError())
+    return SDL_APP_FAILURE
+
   if not TTF_Init():
-    raise newException(Exception, "TTF_Init()")
+    dbgEcho("TTF_Init Error: ", $SDL_GetError())
+    return SDL_APP_FAILURE
   else:
-    echo "TTF_Init() OK!"
-  defer: TTF_Quit()
+    dbgEcho "TTF_Init() OK!"
 
-  #----------------------
-  #--- Create SDL window
-  #----------------------
-  var flags = SDL_WINDOW_RESIZABLE or SDL_WINDOW_OPENGL
+  let flags =
+    when defined(emscripten): SDL_WINDOW_RESIZABLE
+    else: SDL_WINDOW_RESIZABLE or SDL_WINDOW_OPENGL
 
-  var window = SDL_CreateWindow("[ SDL3 ]:   nim_sdl3 test window", MainWinWidth, MainWinHeight, flags.SDL_WindowFlags)
-  if isNil window: raise newException(Exception, "SDL_CreateWindow()")
-  defer: SDL_DestroyWindow(window)
+  ctx.window = SDL_CreateWindow("[ SDL3 ]: nim_sdl3 platformer", MainWinWidth, MainWinHeight, flags.SDL_WindowFlags)
 
-  let glContext = SDL_GL_CreateContext(window)
-  if isNil glContext: raise newException(Exception, "SDL_GL_CreateContext()")
-  defer: discard SDL_GL_DeleteContext_renamed_SDL_GL_DestroyContext()
+  if isNil ctx.window:
+    dbgEcho("SDL_CreateWindow Error: ", $SDL_GetError())
+    return SDL_APP_FAILURE
 
-  SDL_GL_MakeCurrent(window, glContext);
+  when not defined(emscripten):
+    ctx.glContext = SDL_GL_CreateContext(ctx.window)
+    if isNil ctx.glContext:
+      dbgEcho("SDL_GL_CreateContext Error: ", $SDL_GetError())
+      return SDL_APP_FAILURE
+    discard SDL_GL_MakeCurrent(ctx.window, ctx.glContext)
 
-  echo "SDL3 version : ", SDL_GetVersion()
-  echo "SDL3 revision : ", SDL_GetRevision()
+  dbgEcho("SDL3 version : ",  $SDL_GetVersion())
+  when defined(emscripten):
+    discard
+  else:
+    dbgEcho("SDL3 revision : ", $SDL_GetRevision())
 
-  #-------------
-  #--- Renderer
-  #-------------
-  var renderer = SDL_CreateRenderer(window, nil)
-  if isNil renderer: raise newException(Exception, "SDL_CreateRenderer()")
-  defer: SDL_DestroyRenderer(renderer)
+  ctx.renderer = SDL_CreateRenderer(ctx.window, nil)
+  if isNil ctx.renderer:
+    dbgEcho("SDL_CreateRenderer Error: ", $SDL_GetError())
+    return SDL_APP_FAILURE
 
-  #------------------
-  #--- Vsync setting
-  #------------------
-  if not SDL_SetRenderVSync(renderer, 1):
-    raise newException(Exception, "SDL_SetRenderVSync()")
+  if not SDL_SetRenderVSync(ctx.renderer, 1):
+    dbgEcho("SDL_SetRenderVSync Error: ", $SDL_GetError())
+    return SDL_APP_FAILURE
 
-  #--------------
-  #--- Main loop
-  #--------------
-  var
-    game = newGame(renderer)
-    startTime = epochTime()
-    lastTick = 0
+  ctx.game = newGame(ctx.renderer)
+  ctx.startTime = epochTime()
+  ctx.lastTick = 0
 
-  SDL_SetRenderDrawColor(renderer, 110, 132, 174, 255) # Background color
+  discard SDL_SetRenderDrawColor(ctx.renderer, 110, 132, 174, 255)
 
-  while not game.inputs[Input.quitx]:
-    game.handleInput()
-    let newTick = int((epochTime() - startTime) * 50)
-    for tick in lastTick+1 .. newTick:
-      game.physics()
-      game.moveCamera()
-      game.logic(tick)
-    lastTick = newTick
+  return SDL_APP_CONTINUE
 
-    game.render(lastTick)
+#-----------------
+#--- SDL_AppEvent
+#-----------------
+proc SDL_AppEvent(appstate: pointer, event: ptr SDL_Event): SDL_AppResult {.cdecl.} =
+  let ctx = cast[AppContext](appstate)
 
-#---------
-#--- main
-#---------
-main()
+  ctx.game.handleInput(event)
+
+  if ctx.game.inputs[Input.quitx]:
+      return SDL_APP_SUCCESS
+
+  return SDL_APP_CONTINUE
+
+#-------------------
+#--- SDL_AppIterate
+#-------------------
+proc SDL_AppIterate(appstate: pointer): SDL_AppResult {.cdecl.} =
+  let ctx = cast[AppContext](appstate)
+
+  if ctx.game.inputs[Input.quitx]:
+    return SDL_APP_SUCCESS
+
+  let newTick = int((epochTime() - ctx.startTime) * 50)
+  for tick in ctx.lastTick + 1 .. newTick:
+    ctx.game.physics()
+    ctx.game.moveCamera()
+    ctx.game.logic(tick)
+  ctx.lastTick = newTick
+
+  ctx.game.render(ctx.lastTick)
+
+  return SDL_APP_CONTINUE
+
+#----------------
+#--- SDL_AppQuit
+#----------------
+proc SDL_AppQuit(appstate: pointer, result: SDL_AppResult) {.cdecl.} =
+  if not isNil appstate:
+    let ctx = cast[AppContext](appstate)
+
+    if not isNil ctx.renderer:
+      SDL_DestroyRenderer(ctx.renderer)
+    if not isNil ctx.glContext:
+      discard SDL_GL_DeleteContext_renamed_SDL_GL_DestroyContext()
+    if not isNil ctx.window:
+      SDL_DestroyWindow(ctx.window)
+
+    TTF_Quit()
+    SDL_Quit_proc()
+
+#-------------
+#--- SDL_main
+#-------------
+proc SDL_main(argc: cint, argv: ptr UncheckedArray[cstring]): cint {.cdecl.} =
+  return SDL_EnterAppMainCallbacks(argc, argv, SDL_AppInit, SDL_AppIterate, SDL_AppEvent, SDL_AppQuit)
+
+#--------------
+#--- main proc
+#--------------
+var argv: seq[cstring]
+for str in commandLineParams():
+  argv.add str.cstring
+argv.add nil
+discard SDL_RunApp(paramCount().cint, cast[ptr UncheckedArray[cstring]](unsafeAddr argv[0]), SDL_main, nil)

@@ -1,3 +1,5 @@
+.githubx/
+**/wasm/index.*
 libx/
 make_test_*.sh
 .ccache/
@@ -6,6 +8,7 @@ save/
 SDL3.dll
 src/private/SD
 .nimcache/
+.nimcache_*/
 nimblecache/
 htmldocs/
 #*.a

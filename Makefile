@@ -1,8 +1,11 @@
 all: checkver
 	$(MAKE) -C examples/basic
+	$(MAKE) -C examples/platformer app
+	$(MAKE) -C examples/sdlapp_earth app
+	$(MAKE) -C examples/sdlapp_lines app
 	$(MAKE) -C examples/platformer
+	$(MAKE) -C examples/sdlapp_earth
 	$(MAKE) -C examples/sdlapp_lines
-	$(MAKE) -C examples/sdlapp
 
 PHONY: gen clean install checkver
 
@@ -16,8 +19,8 @@ gen:
 clean:
 	@-$(MAKE) -C examples/basic clean
 	@-$(MAKE) -C examples/platformer clean
+	@-$(MAKE) -C examples/sdlapp_earth clean
 	@-$(MAKE) -C examples/sdlapp_lines clean
-	@-$(MAKE) -C examples/sdlapp clean
 
 MAKEFLAGS += --no-print-directory
 
