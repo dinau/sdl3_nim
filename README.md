@@ -197,7 +197,7 @@ Copy `SDL3.dll`, `SDL3_mixer.dll` and `SDL3_ttf.dll` to `examples/platformer` fo
 
 ---
 
-Live demo: [Click here](https://dinau.github.io/sdl3_nim/examples/sdlapp_earth/wasm)
+Live demo: [Click here](https://dinau.github.io/sdl3_nim/examples/wasm/sdlapp_earth/wasm)
 
 [sdlapp_earth.nim](examples/sdlapp_earth/sdlapp_earth.nim)
 
