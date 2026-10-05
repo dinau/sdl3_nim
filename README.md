@@ -6,12 +6,16 @@
   - [For Linux OS](#for-linux-os)
   - [For Windows11](#for-windows11)
   - [Build and run examples](#build-and-run-examples)
-    - [basic](#basic)
-    - [platformer](#platformer)
-    - [sdlapp_lines](#sdlapp_lines)
-    - [sdlapp_earth](#sdlapp_earth)
+    - [Prerequisies](#prerequisies)
+    - [Basic](#basic)
+    - [Platformer with Dear ImGui](#platformer-with-dear-imgui)
+    - [SdlApp_earth with Dear ImGui](#sdlapp_earth-with-dear-imgui)
+    - [SdlApp_lines](#sdlapp_lines)
+    - [ShowAnim with SDL_image](#showanim-with-sdl_image)
+    - [Play multiple sounds with SDL_mixer](#play-multiple-sounds-with-sdl_mixer)
+  - [SDL3 API document](#sdl3-api-document)
   - [About auto renaming](#about-auto-renaming)
-  - [Develeopment sdl3_nim](#develeopment-sdl3_nim)
+  - [Development sdl3_nim](#development-sdl3_nim)
   - [My tools version](#my-tools-version)
   - [Other SDL game tutorial platfromer project](#other-sdl-game-tutorial-platfromer-project)
   - [Other examples project for Dear ImGui](#other-examples-project-for-dear-imgui)
@@ -22,16 +26,14 @@
 
 ---
 
-![alt](https://github.com/dinau/sdl3_nim/actions/workflows/windows.yml/badge.svg) 
-![alt](https://github.com/dinau/sdl3_nim/actions/workflows/linux.yml/badge.svg)
-
 SDL3 wrapper for Nim language with [futhark](https://github.com/PMunch/futhark#installation) converter.
 
-- SDL3: 3.4.16 (2026/09)
+- SDL3: 3.4.18 (2026/10)
 - SDL_ttf:  3.2.2
+- SDL_image
+- SDL_mixer
 - Windows OS 11 
 - Linux Debian / Ubuntu families 
-- Try [ImGuin SDL3 example](https://github.com/dinau/imguin_examples#sdl3-opengl3--renderer---sdlgpu3---vulkan)
 
 
 #### Install
@@ -45,17 +47,19 @@ nimble uninstall sdl3_nim
 nimble refresh
 nimble install   sdl3_nim 
 ```
+
 #### For Linux OS
 
 ---
 
-- If the package manager of the OS has SDL3 and SDL_ttf packages, install them with the package manager
+- If the package manager of the OS has **SDL-3.4.xx** and SDL_**ttf-3.3.2** packages,  
+install them with the package manager
 - Otherwise install them from source code as follows (on Debian / Ubuntu families),  
    1. Download source code from [SDL3](https://github.com/libsdl-org/SDL/archive/refs/tags/release-3.4.16.zip) and [SDL3_ttf](https://github.com/libsdl-org/SDL_ttf/archive/refs/tags/release-3#.2.2.zip)
    1. Install build tool **Ninja**
 
       ```sh
-      sudo apt install ninja-build
+      sudo apt install ninja-build build-essential cmake
       ```
 
    1. Extract SDL3 zip file 
@@ -86,11 +90,18 @@ nimble install   sdl3_nim
 
 ---
 
-Download SDL3.dll from [here](https://github.com/libsdl-org/SDL/releases/), extracts SDL3-3.x.xx-win32-x64.zip  
-then copy SDL3.dll to your application folder.
-
+Download **SDL3 Dlls** from   
+[SDL3-3.4.18](https://github.com/libsdl-org/SDL/releases/download/release-3.4.18/SDL3-3.4.18-win32-x64.zip)  
+[SDL3_ttf-3.2.2](https://github.com/libsdl-org/SDL_ttf/releases/download/release-3.2.2/SDL3_ttf-3.2.2-win32-x64.zip)  
+[SDL3_image-3.4.6](https://github.com/libsdl-org/SDL_image/releases/download/release-3.4.6/SDL3_image-3.4.6-win32-x64.zip)  
+[SDL3_mixer-3.2.4](https://github.com/libsdl-org/SDL_mixer/releases/download/release-3.2.4/SDL3_mixer-3.2.4-win32-x64.zip)    
+then copy them to your application folder.
 
 #### Build and run examples
+
+---
+
+##### Prerequisies 
 
 ---
 
@@ -98,7 +109,21 @@ then copy SDL3.dll to your application folder.
 git clone https://github.com/dinau/sdl3_nim
 ```
 
-##### basic
+- Windows11
+[MSys2/MinGW installed](https://www.msys2.org/): Command line tools: make, cp, rm, git, ...etc
+
+   ```sh
+   pacman -S mingw-w64-ucrt-x86_64-{gcc,sdl3,pkgconf,ninja} make cmake
+   ```
+
+- Linux: Debian / Ubuntu families 
+
+   ```sh
+   $ sudo apt install build-essential pkgconf
+   $ sudo apt install lib{opengl-dev,gl1-mesa-dev,xcursor-dev,xinerama-dev,xi-dev,sdl3-ttf-dev,sdl3-image-dev} git ninja-build cmake
+   ```
+
+##### Basic
   
 ---
 
@@ -116,13 +141,25 @@ git clone https://github.com/dinau/sdl3_nim
 
 [^emsdk_list]: `$ emsdk list`  # Show version list
 
-#####  platformer
+#####  Platformer with Dear ImGui
 
 ---
 
+Live demo: [Click here](https://dinau.github.io/sdl3_nim/examples/wasm/platformer/wasm)
+   
+![alt](https://github.com/dinau/sdl3_nim/blob/main/src/sdl3_nim/private/img/platformer-nim-sdl3.gif?raw=true)
+
 [platformer.nim](examples/platformer/platformer.nim)
-      
-- Desktop application
+
+Currently on Windows only
+
+- Install [ImGuin](https://github.com/dinau/imguin)
+   ```sh
+   nimble install imguin basic2d
+   ```
+
+- Desktop application with [Dear ImGui](https://github.com/ocornut/imgui)  
+Copy `SDL3.dll`, `SDL3_mixer.dll` and `SDL3_ttf.dll` to `examples/platformer` folder
 
    ```sh
    cd examples/platformer
@@ -130,9 +167,7 @@ git clone https://github.com/dinau/sdl3_nim
    ./platformer.exe
    ```
 
-- WebGL/Wasm application
-
-  Live demo: [Click here](https://dinau.github.io/sdl3_nim/examples/platformer/wasm)
+- WebGL/Wasm application with Dear ImGui
 
    1. [Install emscripten](https://emscripten.org/docs/getting_started/downloads.html#installation-instructions-using-the-emsdk-recommended)
    1. Specify emsdk **6.0.9**[^emsdk_list]
@@ -143,6 +178,7 @@ git clone https://github.com/dinau/sdl3_nim
       ```
    
    1. Go to `examples/platformer` folder
+
    1. Run `emsdk_env.bat`(Windows) or `emsdk_env.sh`(Linux) in your console
       > [!IMPORTANT]
    
@@ -150,17 +186,42 @@ git clone https://github.com/dinau/sdl3_nim
       emsdk_env.bat     # Run this once in every new console
       ```
 
-   1. Build Wasm and run (Needs Python installation)
+   1. Build Wasm and run
 
       ```sh
+      make lib  # It will take very long time.
       make run
       ```
-  
-      Open your browser with [http://localhost:8000](http://localhost:8000) 
-   
-      ![alt](https://github.com/dinau/sdl3_nim/blob/main/src/sdl3_nim/private/img/platformer-nim-sdl3.gif?raw=true)
 
-##### sdlapp_lines
+##### SdlApp_earth with Dear ImGui
+
+---
+
+Live demo: [Click here](https://dinau.github.io/sdl3_nim/examples/sdlapp_earth/wasm)
+
+[sdlapp_earth.nim](examples/sdlapp_earth/sdlapp_earth.nim)
+
+- Desktop application
+
+   ```sh
+   cd examples/sdlapp_earth
+   make app
+   ./sdlapp_earth.exe
+   ```
+   
+- WebGL/Wasm application 
+
+   - Build Wasm and run  
+      Same as platformer demo except `make lib`
+
+      ```sh
+      cd examples/sdlapp_earth
+      make run
+      ```
+      
+      ![alt](https://github.com/dinau/sdl3_nim/blob/main/src/sdl3_nim/private/img/earth4.gif?raw=true)
+
+##### SdlApp_lines
 
 ---
 
@@ -176,58 +237,67 @@ git clone https://github.com/dinau/sdl3_nim
 
 - WebGL/Wasm application
 
-  Live demo: [Click here](https://dinau.github.io/sdl3_nim/examples/sdlapp_lines/wasm)
-
-
    - Build Wasm and run  
-      Same as platformer demo
+      Same as platformer demo except `make lib`
 
       ```sh
       cd examples/sdlapp_lines
       make run
       ```
-   
-      Open your browser with [http://localhost:8000](http://localhost:8000) 
 
       Refer to https://github.com/libsdl-org/SDL/tree/main/examples/renderer/03-lines
       
       ![alt](src/sdl3_nim/private/img/sdlapp_lines.png)
 
-##### sdlapp_earth
+##### ShowAnim with SDL_image
 
 ---
 
-[sdlapp_earth.nim](examples/sdlapp_earth/sdlapp_earth.nim)
+[showanim.nim](examples/showanim/showanim.nim)
 
-- Desktop application
+Windows11 : Copy `SDL3.dll`, and `SDL3_image.dll` to `examples/showanim` folder
 
-   ```sh
-   cd examples/sdlapp_earth
-   make app
-   ./sdlapp_earth.exe
-   ```
-   
-- WebGL/Wasm application
+```sh
+cd examples/showanim
+make run  # or run_demo.bat
+```
 
-  Live demo: [Click here](https://dinau.github.io/sdl3_nim/examples/sdlapp_earth/wasm)
+You can use left arrow key to view next image.
 
-   - Build Wasm and run  
-      Same as platformer demo
+##### Play multiple sounds with SDL_mixer
 
-      ```sh
-      cd examples/sdlapp_earth
-      make run
-      ```
+---
 
-      Open your browser with [http://localhost:8000](http://localhost:8000) 
-      
-      ![alt](https://github.com/dinau/sdl3_nim/blob/main/src/sdl3_nim/private/img/earth4.gif?raw=true)
+[play_multiple_sounds.nim](examples/play_multiple_sounds/play_multiple_sounds.nim)
+
+Windows11 : Copy `SDL3.dll`, and `SDL3_mixer.dll` to `examples/play_multiple_sounds` folder
+
+```sh
+cd examples/play_multiple_sounds
+make run  
+```
+
+This program is converted from  
+https://github.com/libsdl-org/SDL_mixer/tree/main/examples/basics/03-play-multiple-sounds
 
 #### SDL3 API document
 
 ---
 
+[x] https://wiki.libsdl.org/SDL3/FrontPage  
+[x] https://wiki.libsdl.org/SDL3_ttf/FrontPage  
+[x] https://wiki.libsdl.org/SDL3_image/FrontPage  
+[x] https://wiki.libsdl.org/SDL3_mixer/FrontPage  
 
+
+Except for the auto-renamed items listed below,   
+the definition and function names are essentially identical to those in the original document above,  
+so please refer to that for details.
+
+[x] [Nim definition file of SDL3](src/sdl3_nim/sdl3_defs.nim)   
+[x] [Nim definition file of SDL3_ttf](src/sdl3_nim/sdl3_ttf_defs.nim)  
+[x] [Nim definition file of SDL3_image](src/sdl3_nim/sdl3_image_defs.nim)  
+[x] [Nim definition file of SDL3_mixer](src/sdl3_nim/sdl3_mixer_defs.nim) 
 
 
 #### About auto renaming 
@@ -348,7 +418,7 @@ Renaming "type" to "type_field" in union_SDL_HapticEffect [User]
 Renaming "block" to "block_arg" [User]
 ```
 
-#### Develeopment sdl3_nim
+#### Development sdl3_nim
 
 ---
 
@@ -413,3 +483,19 @@ Generating SDL3 Nim header files with Futhark.
 | **Ruby**             | Script   | [igRuby_Examples](https://github.com/dinau/igruby_examples)                                                                                     |
 | **Zig**, C lang.     | Compiler | [Dear_Bindings_Build](https://github.com/dinau/dear_bindings_build)                                                                             |
 | **Zig**              | Compiler | [ImGuinZ](https://github.com/dinau/imguinz)                                                                                                     |
+
+
+https://kenney.nl/assets  
+https://opengameart.org/content/overworld-theme-0  platformer.wav    
+https://opengameart.org/content/female-rpg-voice-starter-pack 
+https://opengameart.org/content/happy-plains  
+
+https://opengameart.org/content/fun-background  
+https://opengameart.org/content/it-lies-ahead  
+https://opengameart.org/content/flowerbed-fiel-loop  
+https://opengameart.org/content/4-chiptunes-adventure  
+https://opengameart.org/content/fun-in-the-wood  
+https://opengameart.org/content/osiris-megalith  
+https://opengameart.org/content/retroturnaroundstage-1-remix 
+https://opengameart.org/content/speedway  
+https://opengameart.org/content/red-heels-piano-ver  

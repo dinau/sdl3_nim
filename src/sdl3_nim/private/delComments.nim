@@ -1,4 +1,5 @@
-const DEFS_NAME = "../sdl3_defs.nim"
+import std/cmdline
+let DEFS_NAME = commandlineParams()[0]
 import std/[pegs,strutils]
 var sOut:string
 var seqRes:array[2,string]

@@ -4,12 +4,22 @@
 #   See ./LICENSE.nim-platformer.txt
 
 import std/[os, strutils, math, times, strformat]
-#
-import sdl3_nim
+import sdl3_nim, sdl3_ttf_nim, sdl3_mixer_nim
 import basic2d
+import ./licenseNotices
+import ./setupFonts
 
+# Use Dear ImGui bindings
+# Run on MSys2/MinGW: $ pacman -S mingw-w64-ucrt-x86_64-sdl3
+import imguin/[sdl3_renderer, cimgui]
+
+#--- Add application icon
 when defined(windows):
-  include ./res/resource
+  when not defined(vcc): # imguinVcc.res TODO WIP
+    include ./res/resource
+
+const fDocking  = true
+const fViewport = false
 
 const MainWinWidth = 1289
 const MainWinHeight = 720
@@ -17,40 +27,27 @@ const MainWinHeight = 720
 const FluidCamera = true
 const InnerCamera = false
 
-type
-  Color = SDL_Color
+var mixer: ptr MIX_Mixer = nil
+var bgmTrack: ptr MIX_Track = nil
+var jumpTrack: ptr MIX_Track = nil
+var enable_jumpTrack = false
+var fbgmStart = true
 
+#-----------
+#---dbgEcho
+#-----------
 proc dbgEcho(strs: varargs[string]) =
-  if false:
+  if true:
     for str in strs:
       echo str
+type
+  Color = SDL_Color
 
 #----------
 #--- color
 #----------
 proc color(r, g, b, a: uint8): Color =
   return Color(r: r, g: g, b: b, a: a)
-
-
-when defined(emscripten):
-  {.push discardable, cdecl, importc.}
-else:
-  when defined(windows):
-    const libname {.inject.} = "SDL3_ttf.dll"
-  else:
-    const libname {.inject.} = "libSDL3_ttf.so"
-  {.push dynlib: libname, discardable, cdecl, importc.}
-
-type
-  TTF_Font* = object
-proc TTF_Init*(): bool
-proc TTF_Quit*()
-proc TTF_OpenFont(file: cstring, ptSize: cfloat): ptr TTF_Font
-proc TTF_SetFontOutline(font: ptr TTF_Font, outline: cint): cint
-proc TTF_RenderText_Blended(font: ptr TTF_Font, text: cstring, length: cint, fg: SDL_Color): ptr SDL_Surface
-proc TTF_SetFontSizeDPI(font: ptr TTF_Font, ptsize: cfloat, hdpi, vdpi: cint): bool
-proc TTF_Version(): cint
-{.pop.}
 
 type
   TexturePtr = ptr SDL_Texture
@@ -121,13 +118,6 @@ const
   start = 78
   finish = 110
 
-#---------------------
-#--- currentSourceDir
-#---------------------
-#proc currentSourceDir(): string {.compileTime.} =
-#  result = currentSourcePath().replace("\\", "/")
-#  result = result[0 ..< result.rfind("/")]
-
 #--------------
 #--- renderTee
 #--------------
@@ -177,13 +167,13 @@ proc renderMap(renderer: RendererPtr, map: Map, camera: Vec2f) =
 #---------------
 #--- renderText
 #---------------
-proc renderText(renderer: RendererPtr, font: FontPtr, text: string, x, y, outline: cint, color: Color) =
+proc renderText(renderer: RendererPtr, font: ptr TTF_Font, text: cstring, x, y, outline: cint, color: Color) =
   font.TTF_SetFontOutline(outline)
-  let surface = font.TTF_RenderText_Blended(text.cstring, text.len.cint, color)
+  let surface = font.TTF_RenderText_Blended(text, (text.len).csize_t, color)
   if surface.isNil:
     dbgEcho "Could not render text surface in TTF_RenderText_Blended()"
     quit 1
-  discard surface.SDL_SetSurfaceAlphaMod(color.a)
+  discard SDL_SetSurfaceAlphaMod(surface, color.a)
   var source = rect(0, 0, surface.w, surface.h)
   var dest = rect(x - outline, y - outline, surface.w, surface.h)
   let texture = renderer.SDL_CreateTextureFromSurface(surface)
@@ -257,23 +247,22 @@ proc newGame(renderer: RendererPtr): Game =
   var
     texture, texture2: TexturePtr
     surface: ptr SDL_Surface
-  #const imageName = joinPath(currentSourceDir(), "Mipi.png")
-  const imageName = "Mipi.png"
+  const resourceDir = "resources"
+  const imageName = resourceDir / "Mipi.png"
   surface = SDL_LoadPNG(imageName)
   if not isNil surface:
     texture = SDL_CreateTextureFromSurface(renderer, surface)
   else:
     dbgEcho "Error!: SDL_LoadPNG() NG!: " & "\"" & imageName & "\""
 
-  #const imageName2 = joinPath(currentSourceDir(), "grass.png")
-  const imageName2 = "grass.png"
+  const imageName2 = resourceDir / "grass.png"
   surface = SDL_LoadPNG(imageName2)
   if not isNil surface:
     texture2 = SDL_CreateTextureFromSurface(renderer, surface)
   else:
     dbgEcho "Error!: SDL_LoadPNG() NG!: " & "\"" & imageName2 & "\""
 
-  let font = TTF_OpenFont("DejaVuSans.ttf", 14)
+  let font = TTF_OpenFont((resourceDir / "DejaVuSans.ttf").cstring, 14)
   if font.isNil:
     dbgEcho "Failed to load font"
     quit 1
@@ -281,7 +270,7 @@ proc newGame(renderer: RendererPtr): Game =
     echo"Error !: TTF_SetFontSizeDPI()"
   return Game(renderer: renderer,
               player: newPlayer(texture),
-              map: newMap(texture2, "default.map"),
+              map: newMap(texture2, resourceDir / "default.map"),
               font: font,
     )
 
@@ -310,12 +299,12 @@ proc toInput(key: SDL_Scancode): Input =
 #--- handleInput
 #----------------
 proc handleInput(self: var Game, event: ptr SDL_Event) =
-  let kind = event.type_field.enum_SDL_EventType
-  if kind == SDL_EVENT_QUIT:
+  let kind = event.type_field.int
+  if kind == SDL_EVENT_QUIT.int:
     self.inputs[Input.quitx] = true
-  elif kind == SDL_EVENT_KEYDOWN:
+  elif kind == SDL_EVENT_KEYDOWN.int:
     self.inputs[toInput(event.key.scancode)] = true
-  elif kind == SDL_EVENT_KEYUP:
+  elif kind == SDL_EVENT_KEYUP.int:
     self.inputs[toInput(event.key.scancode)] = false
 
 #---------------
@@ -342,6 +331,14 @@ proc render(game: Game, tick: int) =
   const blue = color(0x00, 0xff, 0xff, 0xff)
   if time.begin >= 0:
     game.renderText(formatTime(tick - time.begin), 50, 100, white)
+    if fbgmStart:
+      fbgmStart = false
+      let options: SDL_PropertiesID = SDL_CreateProperties()
+      if options == 0:
+        SDL_Log_proc("Couldn't create play options: %s", SDL_GetError())
+      SDL_SetNumberProperty(options, MIX_PROP_PLAY_LOOPS_NUMBER, -1) # Loop forever.
+      MIX_PlayTrack(bgmTrack, options)
+      SDL_DestroyProperties(options) # MIX_PlayTrack makes a copy of the options, so this can go away.
   elif time.finish >= 0:
     game.renderText("Finished in: " & formatTime(time.finish), 50, 100, white)
   if time.best >= 0:
@@ -359,16 +356,16 @@ proc render(game: Game, tick: int) =
       game.renderText("Quit     : Q, Esc",                            50, base+colm*5,  white)
     game.renderText("Nim-" & NimVersion,                              50, base+colm*7,  white)
     var ver = SDL_GetVersion()
-    when defined(emscripten):
-      game.renderText(fmt"SDL: {ver div 1000000}.{(ver div 1000) mod 1000}.{ver mod 10}",                50, base+colm*8,  white)
-    else:
-      game.renderText(fmt"SDL: {($SDL_GetRevision()).split('-')[2]}", 50, base+colm*8,  white)
+    game.renderText(fmt"SDL: {ver div 1000000}.{(ver div 1000) mod 1000}.{ver mod 100}",    50, base+colm*8,  white)
     ver = TTF_Version()
-    game.renderText(fmt"SDL_ttf: {ver div 1000000}.{(ver div 1000) mod 1000}.{ver mod 10}",                    50, base+colm*9,  white)
+    game.renderText(fmt"SDL_ttf: {ver div 1000000}.{(ver div 1000) mod 1000}.{ver mod 100}",  50, base+colm*9,  white)
+    ver = MIX_Version()
+    game.renderText(fmt"SDL_mixer: {ver div 1000000}.{(ver div 1000) mod 1000}.{ver mod 100}",  50, base+colm*10,  white)
+
     game.renderText("Nim-Platformer-SDL3",                            50, base+colm*14, blue)
 
   # Show the result on screen
-  game.renderer.SDL_RenderPresent()
+  #game.renderer.SDL_RenderPresent() # moved to SDL_AppIterate() for Dear ImGui
 
 #------------
 #--- getTile
@@ -462,12 +459,18 @@ proc moveBox(map: Map, pos: var Point2d, vel: var Vec2f, size: Vec2f): set[Colli
 proc physics(game: var Game) =
   if game.inputs[Input.restart]:
     restartPlayer(game.player)
+    MIX_PauseTrack(bgmTrack)
 
   let ground = game.map.onGround(game.player.pos, playerSize)
 
   if game.inputs[Input.jump]:
+    if not MIX_TrackPlaying(jumpTrack) and enable_jumpTrack:
+      MIX_PlayTrack(jumpTrack, 0)
+      enable_jumpTrack = false
     if ground:
       game.player.vel.y = -21
+  else:
+    enable_jumpTrack = true
 
   let direction = float(game.inputs[Input.right].int -
                         game.inputs[Input.left].int)
@@ -505,6 +508,7 @@ proc logic(game: var Game, tick: int) =
   case game.map.getTile(game.player.pos)
   of start:
     time.begin = tick
+    MIX_ResumeTrack(bgmTrack)
   of finish:
     if time.begin >= 0:
       time.finish = tick - time.begin
@@ -512,6 +516,7 @@ proc logic(game: var Game, tick: int) =
       if time.best < 0 or time.finish < time.best:
         time.best = time.finish
       dbgEcho "Finished in ", formatTime(time.finish)
+      MIX_PauseTrack(bgmTrack)
   else: discard
 
 #-------------
@@ -525,6 +530,66 @@ type
     game: Game
     startTime: float
     lastTick: int
+    imguiReady: bool
+    showDemo: bool
+    showAbout: bool
+    showLicenseNotices: bool
+    font: ptr ImFont
+
+#-------------
+#--- drawMenu
+#-------------
+proc showImGuiMenu(ctx: AppContext) =
+  if igBeginMainMenuBar():
+    if igBeginMenu(ICON_FA_TRIANGLE_EXCLAMATION & " Licenses", true):
+      if igMenuItem_Bool("Show", "S", false, true):
+        ctx.showLicenseNotices = true
+      igEndMenu()
+    if igBeginMenu(ICON_FA_GEAR & " Control", true):
+      if igMenuItem_Bool("Restart", "R", false, true):
+        restartPlayer(ctx.game.player)
+      when not defined(emscripten):
+        igSeparator()
+        if igMenuItem_Bool("Quit", "Q / Esc", false, true):
+          ctx.game.inputs[Input.quitx] = true
+      igEndMenu()
+    if igBeginMenu(ICON_FA_CIRCLE_QUESTION & " Help", true):
+      igMenuItem_BoolPtr("ImGui Demo", nil, ctx.showDemo.addr, true)
+      igMenuItem_BoolPtr("About", nil, ctx.showAbout.addr, true)
+      igEndMenu()
+    igEndMainMenuBar()
+
+  if ctx.showDemo:
+    igShowDemoWindow(ctx.showDemo.addr)
+
+  if ctx.showAbout:
+    if igBegin("About", ctx.showAbout.addr, 0):
+      igText("Nim-Platformer-SDL3 + Dear ImGui \n 2026/09")
+    igEnd()
+  #-----------------------
+  # Show Licenses window
+  #-----------------------
+  if ctx.showLicenseNotices:
+    igStyleColorsLight(nil)
+    igSetNextWindowPos(ImVec2(x: 30, y: 30), ImGui_Cond_FirstUseEver.cint, ImVec2(x: 0, y: 0))
+    igSetNextWindowSize(ImVec2(x: 600, y: 900), ImGui_Cond_FirstUseEver.cint)
+    when defined(emscripten):
+      igPushFont(nil, 11)
+    else:
+      igPushFont(nil, 16)
+    licenseNotices(addr ctx.showLicenseNotices, ImGui_WindowFlags_Modal.cint)
+    igPopFont()
+    igStyleColorsClassic(nil)
+
+#---------------
+#--- load_audio
+#---------------
+proc load_audio(fname: string): ptr MIX_Audio =
+  # Build the full file path with Nim string concatenation instead of SDL_asprintf
+  let path = $SDL_GetBasePath() & fname
+  result = MIX_LoadAudio(mixer, path.cstring, false)
+  if result == nil:
+    SDL_Log_proc("Couldn't load %s: %s", path.cstring, SDL_GetError())
 
 #----------------
 #--- SDL_AppInit
@@ -558,7 +623,7 @@ proc SDL_AppInit(appstate: ptr pointer, argc: cint, argv: ptr UncheckedArray[cst
     if isNil ctx.glContext:
       dbgEcho("SDL_GL_CreateContext Error: ", $SDL_GetError())
       return SDL_APP_FAILURE
-    discard SDL_GL_MakeCurrent(ctx.window, ctx.glContext)
+    SDL_GL_MakeCurrent(ctx.window, ctx.glContext)
 
   dbgEcho("SDL3 version : ",  $SDL_GetVersion())
   when defined(emscripten):
@@ -579,7 +644,79 @@ proc SDL_AppInit(appstate: ptr pointer, argc: cint, argv: ptr UncheckedArray[cst
   ctx.startTime = epochTime()
   ctx.lastTick = 0
 
-  discard SDL_SetRenderDrawColor(ctx.renderer, 110, 132, 174, 255)
+  SDL_SetRenderDrawColor(ctx.renderer, 110, 132, 174, 255)
+
+  # Dear ImGui
+  igCreateContext(nil)
+  let pio = igGetIO_Nil()
+
+  if fDocking:
+    pio.ConfigFlags = pio.ConfigFlags or ImGui_ConfigFlags_DockingEnable.cint
+    if fViewport:
+      pio.ConfigFlags = pio.ConfigFlags or ImGui_ConfigFlags_ViewportsEnable.cint
+      pio.ConfigViewports_NoAutomerge = true
+
+  when defined(emscripten):
+    pio.IniFilename = nil        # not save inifile in browser
+  igStyleColorsClassic(nil)
+
+  if not ImGui_ImplSDL3_InitForSDLRenderer(ctx.window, ctx.renderer):
+    dbgEcho("ImGui_ImplSDL3_InitForSDLRenderer failed")
+    return SDL_APP_FAILURE
+  if not ImGui_ImplSDLRenderer3_Init(ctx.renderer):
+    dbgEcho("ImGui_ImplSDLRenderer3_Init failed")
+    return SDL_APP_FAILURE
+  ctx.imguiReady = true
+
+  setupFonts()
+
+  #------------
+  # SDL3_mixer
+  #------------
+  var bgmSound: ptr MIX_Audio = nil
+  var jumpSound: ptr MIX_Audio = nil
+  if not MIX_Init():
+    SDL_Log_proc("Couldn't init SDL_mixer library: %s", SDL_GetError())
+    return SDL_APP_FAILURE
+
+  # Create a mixer on the default audio device. Don't care about the specific audio format.
+  mixer = MIX_CreateMixerDevice(SDL_AUDIO_DEVICE_DEFAULT_PLAYBACK, nil)
+  if mixer == nil:
+    SDL_Log_proc("Couldn't create mixer on default device: %s", SDL_GetError())
+    return SDL_APP_FAILURE
+
+  # Load our audio files. Note that you can use any supported file format!
+  bgmSound = load_audio("resources/platformer.mp3")
+  if bgmSound == nil:
+    return SDL_APP_FAILURE # We reported the error in load_audio
+  jumpSound = load_audio("resources/jump02.wav")
+  if jumpSound == nil:
+    return SDL_APP_FAILURE # We reported the error in load_audio
+
+  bgmTrack = MIX_CreateTrack(mixer)
+  if bgmTrack == nil:
+    SDL_Log_proc("Couldn't create a mixer track: %s", SDL_GetError())
+    return SDL_APP_FAILURE
+  discard MIX_SetTrackAudio(bgmTrack, bgmSound)
+  discard MIX_SetTrackGain(bgmTrack, 0.7)
+
+  jumpTrack = MIX_CreateTrack(mixer)
+  if jumpTrack == nil:
+    SDL_Log_proc("Couldn't create a mixer track: %s", SDL_GetError())
+    return SDL_APP_FAILURE
+  discard MIX_SetTrackAudio(jumpTrack, jumpSound)
+  discard MIX_SetTrackGain(jumpTrack, 0.2)
+
+  when false:
+    var options: SDL_PropertiesID = 0
+    options = SDL_CreateProperties()
+    if options == 0:
+      SDL_Log_proc("Couldn't create play options: %s", SDL_GetError())
+      return SDL_APP_FAILURE
+    discard SDL_SetNumberProperty(options, MIX_PROP_PLAY_LOOPS_NUMBER, -1) # Loop forever.
+
+    discard MIX_PlayTrack(bgmTrack, options) # No extra options this time, so a zero for the second argument.
+    SDL_DestroyProperties(options) # MIX_PlayTrack makes a copy of the options, so this can go away.
 
   return SDL_APP_CONTINUE
 
@@ -589,7 +726,14 @@ proc SDL_AppInit(appstate: ptr pointer, argc: cint, argv: ptr UncheckedArray[cst
 proc SDL_AppEvent(appstate: pointer, event: ptr SDL_Event): SDL_AppResult {.cdecl.} =
   let ctx = cast[AppContext](appstate)
 
-  ctx.game.handleInput(event)
+  # Dear ImGui
+  discard ImGui_ImplSDL3_ProcessEvent(event)
+  let pio = igGetIO_Nil()
+
+  let kind = event.type_field.int
+  if not (kind == SDL_EVENT_KEYDOWN.int and pio.WantCaptureKeyboard):
+    ctx.game.handleInput(event)
+  #
 
   if ctx.game.inputs[Input.quitx]:
       return SDL_APP_SUCCESS
@@ -614,6 +758,21 @@ proc SDL_AppIterate(appstate: pointer): SDL_AppResult {.cdecl.} =
 
   ctx.game.render(ctx.lastTick)
 
+  # Dear ImGui
+  ImGui_ImplSDLRenderer3_NewFrame()
+  ImGui_ImplSDL3_NewFrame()
+  igNewFrame()
+
+  ctx.showImGuiMenu()
+
+  igRender()
+
+  # Render Dear ImGui
+  ImGui_ImplSDLRenderer3_RenderDrawData(cast[ptr impl_sdlrenderer3.ImDrawData](igGetDrawData()), ctx.renderer)
+
+  # Render
+  discard SDL_RenderPresent(ctx.renderer)   # Present
+
   return SDL_APP_CONTINUE
 
 #----------------
@@ -622,6 +781,11 @@ proc SDL_AppIterate(appstate: pointer): SDL_AppResult {.cdecl.} =
 proc SDL_AppQuit(appstate: pointer, result: SDL_AppResult) {.cdecl.} =
   if not isNil appstate:
     let ctx = cast[AppContext](appstate)
+
+    if ctx.imguiReady:
+      ImGui_ImplSDLRenderer3_Shutdown()
+      ImGui_ImplSDL3_Shutdown()
+      igDestroyContext(nil)
 
     if not isNil ctx.renderer:
       SDL_DestroyRenderer(ctx.renderer)

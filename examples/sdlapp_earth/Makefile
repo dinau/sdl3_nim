@@ -15,13 +15,14 @@ app:
 
 clean:
 	rm -f $(TARGET_APP).exe
-	rm -fr .nimcache_* .nimcache wasm/index.*
+	rm -fr .nimcache_* .nimcache
+	rm -f wasm/index.*
 
 wasm:
 	nim c -d:strip -d:emscripten -o:$(TARGET_WASM) $(TARGET_APP).nim
 
 server:
-	(cd wasm && python3 -m http.server 8000)
+	emrun $(TARGET_WASM)
 
 run: all server
 

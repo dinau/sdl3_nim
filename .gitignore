@@ -1,6 +1,10 @@
 .githubx/
-**/wasm/index.*
-libx/
+examples/platformer/wasm/index.*
+examples/platformer/libs/*
+examples/platformer/libs_build/build/*
+examples/platformer/sound-licenses.txt
+examples/sdlapp_earth/wasm/index.*
+examples/sdlapp_lines/wasm/index.*
 make_test_*.sh
 .ccache/
 *.mp4
@@ -15,9 +19,9 @@ htmldocs/
 #*.lib
 #*.dll
 *.exe
-*.txt
-*.md
-*.html
+#*.txt
+#*.md
+#*.html
 setenv.bat
 GPATH
 GTAGS

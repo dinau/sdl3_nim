@@ -1,6 +1,6 @@
 # Package
 
-version       = "3.4.16.2"
+version       = "3.4.18.0"
 author        = "dinau"
 description   = "SDL3 library wrapper"
 license       = "MIT"
@@ -11,8 +11,6 @@ skipDirs = @["src/sdl3_nim/private","examples"]
 # Dependencies
 
 requires "nim >= 2.0.16"
-requires "nimgl == 1.3.2"
-requires "stb_image == 2.5"
 requires "basic2d"
 #requires "futhark == 0.16.0"
 
@@ -30,5 +28,8 @@ task gen,"Generate SDL3 definition file ":
   withdir "src":
     exec("rm -fr .nimcache")
     exec(fmt"nim c -c {OPT_GEN} sdl3_nim.nim")
+    #exec(fmt"nim c -c {OPT_GEN} sdl3_ttf_nim.nim")
+    #exec(fmt"nim c -c {OPT_GEN} sdl3_image_nim.nim")
+    #exec(fmt"nim c -c {OPT_GEN} sdl3_mixer_nim.nim")
     withdir "sdl3_nim/private":
       exec("make")

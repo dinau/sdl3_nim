@@ -22,10 +22,10 @@ proc main() =
   let nimbleVer = getNimbleVer()
   let nimbleVerStd = nimbleVer[0..^(2 + 1)]
   echo    "==================================="
-  echo fmt"SDL             : {sdlVer}"
-  echo fmt"{fNimble} : {nimbleVerStd} ({nimbleVer})"
+  echo fmt"SDL header files : {sdlVer}"
+  echo fmt"{fNimble}  : {nimbleVerStd} ({nimbleVer})"
+  echo    "==================================="
   assert nimbleVerStd == sdlVer, "[Error: Nimble version error !]"
   echo fmt"OK: Version check"
-  echo    "==================================="
 
 main()

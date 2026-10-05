@@ -23,7 +23,8 @@ wasm:
 server:
 	(cd wasm && python3 -m http.server 8000)
 
-run: all server
+run: all
+	emrun $(TARGET_WASM)
 
 fmt:
 	nimpretty --maxLineLen:1000 $(TARGET_APP).nim
